@@ -1,0 +1,42 @@
+
+div.navBar {
+    backdrop-filter: blur(5px);
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    width: 90%;
+    // background-color: red;
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem 2rem;
+
+    div.logosContainer {
+        // background-color: red;
+        display: flex;
+        gap: 2rem;
+        // margin-left: 2rem;
+
+        img.navIcon {
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+        }
+    }
+
+    div.rightMenu {
+        // background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
+}
+
+
+div.section {
+    // background-color: red;
+    height: 60vh;
+    margin-bottom: 7rem;
+}

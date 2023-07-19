@@ -1,0 +1,82 @@
+div.intro {
+    background-image: url("../assets/klu_bg_blurred.jpg");
+    // filter: blur(1px);
+    image-rendering: pixelated;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    // animation: fadeIn 3s ease forwards;
+
+    div.name {
+        font-size: clamp(1.3rem, 0.4391rem + 3.8261vw, 3.5rem);
+        font-weight: 700;
+        animation: blurIn 2s ease forwards;
+    }
+
+    div.inst {
+        font-size: 30px;
+        font-weight: 500;
+        animation: fadeIn 4s ease forwards;
+    }
+}
+
+div.about {
+    display: flex;
+    flex-direction: column;
+
+    div.title {
+        font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
+        font-weight: 700;
+    }
+
+    div.imageAndContent {
+        display: flex;
+        // border: 2px solid red;
+        padding: 0 1rem;
+
+        div.content {
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        div.image img {
+            height: 370px;
+            width: 340px;
+            object-fit: cover;
+            transform: rotate(2deg);
+
+            &:hover {
+                transform: rotateZ(3deg) rotateY(3deg) scale(1.01);
+            }
+            &:hover::before {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+
+@keyframes blurIn {
+    0% {
+        -webkit-filter: blur(3px);
+    }
+    50% {
+        -webkit-filter: blur(7px);
+    }
+    100% {
+        -webkit-filter: blur(0px);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
