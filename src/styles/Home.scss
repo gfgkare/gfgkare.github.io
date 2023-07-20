@@ -41,12 +41,14 @@ div.about {
             font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
             font-weight: 700;
         }
+        
         div.content {
             // background-color: yellow;
             // margin-left: 1rem;
             // max-width: 90%;
             word-wrap: break-word;
-            font-size: clamp(1rem, 0.4391rem + 3.8261vw, 1.4rem);
+            font-size: clamp(.6rem, 0.2391rem + 3.8261vw, 1.4rem);
+            // font-size: 1.5rem;
         }
     }
 
