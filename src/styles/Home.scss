@@ -1,6 +1,8 @@
 div.intro {
     width: 100vw !important;
     background-image: url("../assets/klu_bg_blurred.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     // filter: blur(1px);
     image-rendering: pixelated;
     display: flex;
@@ -40,7 +42,7 @@ div.about {
     transition: opacity 0.75s ease;
     transition-property: opacity, transform;
 
-    &.visible {
+    &.aboutVisible {
         opacity: 1;
         transform: translateY(0);
     }
@@ -174,7 +176,7 @@ div.team {
                 }
 
                 .memberInfo {
-                    margin-top: .8rem;
+                    margin-top: 0.8rem;
                     flex: 1;
                     display: flex;
                     flex-direction: column;
@@ -189,7 +191,7 @@ div.team {
                     }
                     .role {
                         max-width: max-content;
-                        font-size: clamp(0.4rem, 0.4391rem + 3.8261vw, .9rem);
+                        font-size: clamp(0.4rem, 0.4391rem + 3.8261vw, 0.9rem);
                         font-weight: 400;
                     }
                 }
@@ -321,4 +323,25 @@ div.team {
 div.sectionTitle {
     font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
     font-weight: 700;
+}
+
+.section.team .teamGrid {
+    .memberContainer {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.5s ease, transform 1s ease;
+    }
+
+    @for $i from 1 through 11 {
+        .memberContainer:nth-child(#{$i}) {
+            transition-delay: #{$i * 0.2}s !important;
+        }
+    }
+
+    &.teamVisible {
+        .memberContainer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }

@@ -138,6 +138,10 @@ div.team {
             .name {
                 color: rgb(3, 162, 3);
             }
+
+            .role {
+                color: $text;
+            }
         }
 
         .links {
@@ -226,8 +230,14 @@ body.light {
             background-color: darken($text, 5);
             border: 1px solid lighten($background, 50);
 
-            .memberInfo .name {
-                color: rgb(0, 104, 0) !important;
+            .memberInfo {
+                .name {
+                    color: rgb(0, 104, 0) !important;
+                }
+
+                .role {
+                    color: $background
+                }
             }
 
             .links {

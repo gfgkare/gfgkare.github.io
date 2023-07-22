@@ -18,8 +18,10 @@ import SectionDivider from "../components/SectionDivider";
 import useArray from "../hooks/useArray";
 
 export default function Main() {
-    const [visible, setVisible] = useState(false);
-
+    const [aboutVisible, setAboutVisible] = useState(false);
+    const [teamVisible, setTeamVisible] = useState(false);
+    const aboutSection = useRef(null);
+    const teamSection = useRef(null);
     const members = useArray([
         {
             name: "Ashok Reddy",
@@ -89,19 +91,28 @@ export default function Main() {
         },
     ]);
 
-    const aboutSection = useRef(null);
-
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
+        const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                setVisible(true);
-                observer.unobserve(aboutSection.current);
+                setAboutVisible(true);
+                aboutObserver.unobserve(aboutSection.current);
             }
         });
 
-        observer.observe(aboutSection.current);
+        const teamObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                setTeamVisible(true);
+                teamObserver.unobserve();
+            }
+        });
 
-        return () => observer.disconnect();
+        aboutObserver.observe(aboutSection.current);
+        teamObserver.observe(teamSection.current);
+
+        return () => {
+            aboutObserver.disconnect();
+            teamObserver.disconnect();
+        };
     }, []);
 
     return (
@@ -121,7 +132,9 @@ export default function Main() {
             />
 
             <div
-                className={`section about ${visible ? "visible" : ""}`}
+                className={`section about ${
+                    aboutVisible ? "aboutVisible" : ""
+                }`}
                 ref={aboutSection}
             >
                 <div className="titleAndContent">
@@ -141,7 +154,7 @@ export default function Main() {
                             nobis consequatur!
                         </span>
                     </div>
-                    {visible ? (
+                    {aboutVisible ? (
                         <div className="numbers">
                             <div className="counter">
                                 <span className="count">
@@ -203,21 +216,30 @@ export default function Main() {
 
             <SectionDivider />
 
-            <div className="section team">
+            <div
+                className={"section team"}
+                
+            >
                 <div className="sectionTitle">MEET OUR TEAM</div>
 
                 <div className="teamGridContainer">
-                    <div className="teamGrid">
+                    <div className={`teamGrid ${teamVisible ? "teamVisible" : ""}`} ref={teamSection}>
                         {members.value.map((member) => {
-                            return (<div className="memberContainer">
-                                <div className="memberImage">
-                                    <img src={member.image} />
+                            return (
+                                <div className="memberContainer">
+                                    <div className="memberImage">
+                                        <img src={member.image} />
+                                    </div>
+                                    <div className="memberInfo">
+                                        <div className="name">
+                                            {member.name}
+                                        </div>
+                                        <div className="role">
+                                            {member.role}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="memberInfo">
-                                    <div className="name">{member.name}</div>
-                                    <div className="role">{member.role}</div>
-                                </div>
-                            </div>);
+                            );
                         })}
 
                         {/* <div className="memberContainer">
