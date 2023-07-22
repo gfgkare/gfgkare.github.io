@@ -132,6 +132,13 @@ div.intro.section {
     box-shadow: 0px 0 0 0px #00000040, inset 0 0 0 1000px rgba($background, 0.8);
 }
 
+div.team {
+    .memberContainer {
+        background: lighten($background, 5);
+        border: 1px solid lighten($background, 10);
+    }
+}
+
 div.dividerContainer {
     div.divider {
         background-color: lighten($background, 25);
@@ -185,6 +192,13 @@ body.light {
 
     div.intro.section {
         box-shadow: 0px 0 0 0px #00000040, inset 0 0 0 1000px rgba($text, 0.8);
+    }
+
+    div.team {
+        .memberContainer {
+            background: darken($text, 5);
+            border: 1px solid lighten($background, 50);
+        }
     }
 
     div.dividerContainer {
