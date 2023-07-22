@@ -23,7 +23,8 @@ div.intro {
     }
 
     div.inst {
-        font-size: 30px;
+        // font-size: 30px;
+        font-size: clamp(0.6rem, 0.4391rem + 3.8261vw, 2rem);
         font-weight: 500;
         animation: fadeIn 4s ease forwards;
     }
@@ -34,6 +35,15 @@ div.about {
     display: flex;
     gap: 2rem;
     padding: 0 1rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity .75s ease;
+    transition-property: opacity, transform;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
     // background-color: orange;
 
     div.titleAndContent {
@@ -55,7 +65,7 @@ div.about {
             // margin-left: 1rem;
             // max-width: 90%;
             word-wrap: break-word;
-            font-size: clamp(.6rem, 0.2391rem + 3.8261vw, 1.4rem);
+            font-size: clamp(.4rem, 0.4391rem + 3.8261vw, 1rem);
             // font-size: 1.5rem;
         }
     }

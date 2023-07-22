@@ -1,6 +1,6 @@
 import "../styles/Home.scss";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 
 import kluTeam from "../assets/klu_team.jpg";
@@ -11,7 +11,23 @@ import SectionDivider from "../components/SectionDivider"
 
 export default function Main() {
 
+    const [visible, setVisible] = useState(false);
+
     const aboutSection = useRef(null);
+    
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting) {
+            setVisible(true);
+            observer.unobserve(aboutSection.current);
+          }
+        });
+        
+        observer.observe(aboutSection.current);
+        
+        return () => observer.disconnect();
+      }, []);
 
     return (
         <>
@@ -22,7 +38,7 @@ export default function Main() {
             <SectionDivider showDownButton onClick={() => aboutSection.current.scrollIntoView( { behavior: 'smooth', block: 'start' } )} />
 
 
-            <div className="section about" ref={aboutSection}>
+            <div className={`section about ${(visible ? 'visible' : '')}`} ref={aboutSection}>
                 <div className="titleAndContent">
                     <div className="title">WHO ARE WE</div>
                     <div className="content">
@@ -47,6 +63,7 @@ export default function Main() {
                     </div>
                 </div>
             </div>
+            <SectionDivider />
         </>
     );
 }
