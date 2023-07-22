@@ -6,9 +6,9 @@ import "./index.scss";
 import { MiscProvider } from "./contexts/MiscContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <MiscProvider>
             <App />
         </MiscProvider>
-    </React.StrictMode>
+    //</React.StrictMode>
 );

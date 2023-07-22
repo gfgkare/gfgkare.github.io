@@ -13,7 +13,7 @@ div.intro {
     margin-bottom: 0 !important; // removing to set no space between intro div and section divider
 
     div.divider {
-        margin-bottom: 8rem !important;    // and setting it here
+        margin-bottom: 8rem !important; // and setting it here
     }
 
     div.name {
@@ -37,7 +37,7 @@ div.about {
     padding: 0 1rem;
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity .75s ease;
+    transition: opacity 0.75s ease;
     transition-property: opacity, transform;
 
     &.visible {
@@ -59,14 +59,37 @@ div.about {
             font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
             font-weight: 700;
         }
-        
+
         div.content {
             // background-color: yellow;
             // margin-left: 1rem;
             // max-width: 90%;
             word-wrap: break-word;
-            font-size: clamp(.4rem, 0.4391rem + 3.8261vw, 1rem);
+            font-size: clamp(0.4rem, 0.4391rem + 3.8261vw, 1rem);
             // font-size: 1.5rem;
+        }
+
+        div.numbers {
+            display: flex;
+            justify-content: center;
+            // gap: 3rem;
+            // background-color: red;
+
+            .counter {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                text-align: center;
+                font-size: clamp(0.5rem, 0.4391rem + 3.8261vw, 1rem);
+
+                .count {
+                    font-size: 50px;
+                    font-weight: 600;
+                }
+            }
         }
     }
 
@@ -82,9 +105,9 @@ div.about {
         // padding: 0 1rem;
 
         div.image div.imageComp {
-            height: 370px;
-            width: 350px;
-            transition: box-shadow .1s ease;
+            height: 320px;
+            width: 300px;
+            transition: box-shadow 0.1s ease;
             // transform: perspective(2500px) rotateX(13deg) rotateY(341deg) rotateZ(185deg);
             // transform: rotateX(-2deg) rotateY(-30deg) rotateZ(3deg);
             // transform: rotate(2deg);
@@ -97,6 +120,12 @@ div.about {
                 // transform: rotateX(-4deg) rotateY(-35deg) rotateZ(3deg);
             }
         }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    div.about {
+        flex-direction: column;
     }
 }
 
