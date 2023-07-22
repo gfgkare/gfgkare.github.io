@@ -1,4 +1,5 @@
 div.intro {
+    width: 100vw !important;
     background-image: url("../assets/klu_bg_blurred.jpg");
     // filter: blur(1px);
     image-rendering: pixelated;
@@ -8,6 +9,12 @@ div.intro {
     align-items: center;
     gap: 1rem;
     // animation: fadeIn 3s ease forwards;
+
+    margin-bottom: 0 !important; // removing to set no space between intro div and section divider
+
+    div.divider {
+        margin-bottom: 8rem !important;    // and setting it here
+    }
 
     div.name {
         font-size: clamp(1.3rem, 0.4391rem + 3.8261vw, 3.5rem);
@@ -23,6 +30,7 @@ div.intro {
 }
 
 div.about {
+    margin-top: 5rem;
     display: flex;
     gap: 2rem;
     padding: 0 1rem;

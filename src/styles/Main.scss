@@ -5,38 +5,52 @@ div.navBar {
     z-index: 999;
     left: 50%;
     transform: translateX(-50%);
-    top: 20px;
-    width: 90vw;
-    // background-color: red;
-    display: flex;
-    justify-content: space-between;
-    padding: .75rem 2rem;
-
-    div.logosContainer {
-        // background-color: red;
+    top: 0;
+    width: 100%;
+    background-color: blue;
+    padding: 1rem 0;
+    // display: flex;
+    // justify-content: space-between;
+    // margin: 0 .75rem
+    
+    div.navBarWrap {
+        // width: 100%;
+        padding: 0 2rem;
+        // background-color: yellow;
         display: flex;
-        gap: 2rem;
-        // margin-left: 2rem;
+        justify-content: space-between;
 
-        img.navIcon {
-            cursor: pointer;
-            height: 50px;
-            width: 50px;
-            object-fit: contain;
+        div.logosContainer {
+            // background-color: red;
+            display: flex;
+            gap: 2rem;
+            // margin-left: 2rem;
+    
+            img.navIcon {
+                cursor: pointer;
+                height: 50px;
+                width: 50px;
+                object-fit: contain;
+            }
         }
+    
+        div.rightMenu {
+            // background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }    
     }
 
-    div.rightMenu {
-        // background-color: red;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }    
+    
 }
 
 
 div.section {
     // background-color: red;
-    height: 60vh;
-    margin-bottom: 7rem;
+    scroll-snap-align: start;
+    width: 90%;
+    margin: 0 auto;
+    height: 80vh;
+    // margin-bottom: 7rem;
 }

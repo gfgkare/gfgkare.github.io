@@ -13,7 +13,8 @@ export default function Main() {
     return (
         <>
             {/* <ScrollContainer> */}
-                <div className="navBar">
+            <div className="navBar">
+                <div className="navBarWrap">
                     <div className="logosContainer">
                         <img
                             className="navIcon"
@@ -63,10 +64,11 @@ export default function Main() {
                     }}>{theme}</button> */}
                     </div>
                 </div>
+            </div>
 
-                <div className="out">
-                    <Outlet />
-                </div>
+            <div className="out">
+                <Outlet />
+            </div>
             {/* </ScrollContainer> */}
         </>
     );

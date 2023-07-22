@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import "./styles/Variables.scss";
 
 import Main from "./pages/Main";

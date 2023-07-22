@@ -1,20 +1,28 @@
 import "../styles/Home.scss";
 
+import { useRef } from "react";
 import { Link } from "react-router-dom"
 
 import kluTeam from "../assets/klu_team.jpg";
 
 import ImageComp from "../components/ImageComp";
+import SectionDivider from "../components/SectionDivider"
+
 
 export default function Main() {
+
+    const aboutSection = useRef(null);
+
     return (
         <>
             <div className="section intro">
                 <div className="name">GeeksForGeeks Student Chapter</div>
                 <div className="inst">KARE</div>
             </div>
+            <SectionDivider showDownButton onClick={() => aboutSection.current.scrollIntoView( { behavior: 'smooth', block: 'start' } )} />
 
-            <div className="section about">
+
+            <div className="section about" ref={aboutSection}>
                 <div className="titleAndContent">
                     <div className="title">WHO ARE WE</div>
                     <div className="content">

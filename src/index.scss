@@ -1,12 +1,22 @@
 @import "./styles/Variables.scss";
 
 // GLOBAL ============================================================================================
-* {
-    transition: color .4s ease;
-    transition-property: color, background-color;
-    transition-duration: .05s;
+
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+* {
+    transition: color 0.4s ease;
+    transition-property: color, background-color;
+    transition-duration: 0.05s;
+}
 
 ::-webkit-scrollbar {
     transition: all 2s !important;
@@ -97,21 +107,47 @@ button:hover {
 }
 
 div.navBar {
-    background-color: rgba($background, .95);
-    box-shadow: 0px 10px 25px 1px lighten($background, 3);
-    transition: box-shadow .1s ease;
+    background-color: rgba($background, 0.75);
+    // box-shadow: 0px 10px 25px 1px lighten($background, 3);
+    border: 1px solid white;
+    border-color: transparent transparent lighten($background, 15) transparent;
+    transition: border-color 0.2s ease;
 
     &:hover {
-        box-shadow: 0px 10px 25px 1px lighten($background, 5);
+        border-color: transparent transparent lighten($background, 25)
+            transparent;
     }
 }
 
 // GeeksForGeeksStudentChapter KARE Section in Home Page
 div.intro.section {
-    box-shadow: 0px 0 0 0px #00000040,inset 0 0 0 1000px rgba($background, .8);
+    box-shadow: 0px 0 0 0px #00000040, inset 0 0 0 1000px rgba($background, 0.8);
 }
 
+div.dividerContainer {
+    div.divider {
+        background-color: lighten($background, 25);
+    }
+    div.downButton {
+        background-color: $background;
+        border: 5px solid lighten($background, 25);
+        transition-property: color, background-color, border-color;
+        transition-duration: .3s;
 
+        .icon {
+            color: lighten($background, 35);
+        }
+
+        &:hover {
+            background-color: lighten($background, 2);
+            border-color: lighten($background, 30);
+
+            .icon {
+                color: lighten($background, 40);
+            }
+        }
+    }
+}
 
 // LIGHT STYLES ================================
 
@@ -129,23 +165,53 @@ body.light {
     }
 
     div.navBar {
-        background-color: rgba($text, .95);
-        box-shadow: 0px 10px 15px 4px darken($text, 10);
+        background-color: rgba($text, 0.75);
+        border: 1px solid white;
+        border-color: transparent transparent darken($text, 15) transparent;
+        transition: border-color 0.2s ease;
 
         &:hover {
-            box-shadow: 0px 10px 15px 4px darken($text, 15);
+            border-color: transparent transparent darken($text, 25) transparent;
         }
     }
 
     div.intro.section {
-        box-shadow: 0px 0 0 0px #00000040,inset 0 0 0 1000px rgba($text, .8);
+        box-shadow: 0px 0 0 0px #00000040, inset 0 0 0 1000px rgba($text, 0.8);
     }
+
+    div.dividerContainer {
+        div.divider {
+            background-color: darken($text, 25);
+        }
+        div.downButton {
+            background-color: $text;
+            border: 5px solid darken($text, 25);
+            transition-property: color, background-color, border-color;
+            transition-duration: .3s;
+    
+            .icon {
+                color: lighten($background, 35);
+            }
+    
+            &:hover {
+                background-color: lighten($text, 2);
+                border-color: darken($text, 20);
+    
+                .icon {
+                    color: lighten($background, 40);
+                }
+            }
+        }
+    }
+
 }
 
 .out {
-    width: 98%;
-    margin: 0 auto;
-    margin-top: 8rem;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    margin-top: 5rem;
+
     // background-color: blue;
     // background: rgba(255, 255, 255, .05);
 }
