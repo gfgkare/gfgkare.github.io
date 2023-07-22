@@ -71,6 +71,14 @@ html:hover ::-webkit-scrollbar-thumb {
             var(--ray-size);
 }
 
+
+@media screen and (max-width: 700px) {
+
+    .hideOnMobile {
+        display: none;
+    }
+}
+
 // END GLOBAL  =======================================================================================
 
 body {
