@@ -15,9 +15,49 @@ import vivekImg from "../assets/vivek.jpg";
 
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
+import useArray from "../hooks/useArray";
 
 export default function Main() {
     const [visible, setVisible] = useState(false);
+
+    const members = useArray([
+        {
+            name: "Ashok Reddy",
+            role: "Chair Person",
+            about: "A talented person surely capable of building an army for world peace.",
+            image: ashokImg,
+        },
+        {
+            name: "Krishna Vineeth",
+            role: "Vice Chair Person",
+            about: "A talented person surely capable of building an army for world peace.",
+            image: vineethImg,
+        },
+        {
+            name: "N Balaji",
+            role: "Graphic Designer",
+            about: "A talented person surely capable of building an army for world peace.",
+            image: balajiImg,
+        },
+        {
+            name: "Jayasri",
+            role: "Social",
+            about: "A talented person surely capable of building an army for world peace.",
+            image: jayasriImg,
+        },
+        {
+            name: "Vivek",
+            role: "Events Organizing Head",
+            about: "A talented person surely capable of building an army for world peace.",
+            image: vivekImg,
+        },
+        {
+            name: "Vivek",
+            role: "Events Organizing Head",
+            about: "A talented person surely capable of building an army for world peace.",
+            image: vivekImg,
+        },
+    ]);
 
     const aboutSection = useRef(null);
 
@@ -138,63 +178,86 @@ export default function Main() {
 
                 <div className="teamGridContainer">
                     <div className="teamGrid">
-                        <div className="memberContainer">
+                        {members.value.map((member) => {
+                            return (<div className="memberContainer">
+                                <div className="memberImage">
+                                    <img src={member.image} />
+                                </div>
+                                <div className="memberInfo">
+                                    <div className="name">{member.name}</div>
+                                    <div className="role">{member.role}</div>
+                                </div>
+                            </div>);
+                        })}
+
+                        {/* <div className="memberContainer">
+                            <div className="memberImage">
+                            <img src={vineethImg} />
+                            </div>
+                            <div className="memberInfo">
+                                <div className="name">
+                                    Krishna Vineeth
+                                </div>
+                                <div className="title">
+                                    Vice Chair Person
+                                </div>
+                            </div>
+                        </div> */}
+
+                        {/* {members.value.map((member) => {
+                            return (
+                                <div className="memberContainer">
+                                    <ImageComp
+                                        className="memberImage"
+                                        src={member.image}
+                                    />
+                                    <div className="memberInfo">
+                                        <div className="title">
+                                            <div className="name">
+                                                {member.name}
+                                            </div>
+                                            <div className="role">
+                                                {member.role}
+                                            </div>
+                                        </div>
+                                        <div className="words">
+                                            {member.about}
+                                        </div>
+                                        <div className="links">
+                                            <button className="moreInfo">
+                                                MORE INFO
+                                            //</button>
+                                            //<button>More Info</button>
+                                            //<button>ig</button>
+                                            //<button>li</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })} */}
+
+                        {/* <div className="memberContainer">
                             <ImageComp className="memberImage" src={ashokImg} />
                             <div className="memberInfo">
-                                <div className="title">Chair Person</div>
+                                <div className="title">
+                                    <div className="name">Ashok Reddy</div>
+                                    <div className="role">Chair Person</div>
+                                </div>
                                 <div className="words">
-                                    A talented person surely capable of building an army for world peace.
+                                    A talented person surely capable of building
+                                    an army for world peace.
+                                </div>
+                                <div className="links">
+                                    {/* <button>More Info</button>
+                                    <button>ig</button>
+                                    <button>li</button>
                                 </div>
                             </div>
-                        </div>
-                        <div className="memberContainer">
-                            <ImageComp className="memberImage" src={vineethImg} />
-                            <div className="memberInfo">
-                                <div className="title">Chair Person</div>
-                                <div className="words">
-                                    A talented person surely capable of building an army for world peace.
-                                </div>
-                            </div>
-                        </div>
-                        <div className="memberContainer">
-                            <ImageComp className="memberImage" src={balajiImg} />
-                            <div className="memberInfo">
-                                <div className="title">Chair Person</div>
-                                <div className="words">
-                                    A talented person surely capable of building an army for world peace.
-                                </div>
-                            </div>
-                        </div>
-                        <div className="memberContainer">
-                            <ImageComp className="memberImage" src={jayasriImg} />
-                            <div className="memberInfo">
-                                <div className="title">Chair Person</div>
-                                <div className="words">
-                                    A talented person surely capable of building an army for world peace.
-                                </div>
-                            </div>
-                        </div>
-                        <div className="memberContainer">
-                            <ImageComp className="memberImage" src={jagdeeshImg} />
-                            <div className="memberInfo">
-                                <div className="title">Chair Person</div>
-                                <div className="words">
-                                    A talented person surely capable of building an army for world peace.
-                                </div>
-                            </div>
-                        </div>
-                        <div className="memberContainer">
-                            <ImageComp className="memberImage" src={vivekImg} />
-                            <div className="memberInfo">
-                                <div className="title">Chair Person</div>
-                                <div className="words">
-                                    A talented person surely capable of building an army for world peace.
-                                </div>
-                            </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
+            <SectionDivider />
         </>
     );
 }
