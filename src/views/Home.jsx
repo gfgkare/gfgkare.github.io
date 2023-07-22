@@ -64,27 +64,30 @@ export default function Main() {
                             nobis consequatur!
                         </span>
                     </div>
-                    {
-                        visible ?
-                        (
-                            <div className="numbers">
-                            <div className="counter k">
+                    {visible ? (
+                        <div className="numbers">
+                            <div className="counter">
                                 <span className="count">
                                     <CountUp end={1000} duration={4} />+
                                 </span>
                                 Students{"    "}
                             </div>
-    
-                            <div className="counter l">
+
+                            <div className="counter">
                                 <span className="count">
-                                    <CountUp end={4} duration={10} delay={0.1} />+
+                                    0<CountUp
+                                        end={4}
+                                        duration={10}
+                                        delay={0.1}
+                                    />
+                                    +
                                 </span>
                                 Guest Talks{"   "}
                             </div>
-    
-                            <div className="counter l">
+
+                            <div className="counter">
                                 <span className="count">
-                                    <CountUp
+                                    0<CountUp
                                         className="count"
                                         end={5}
                                         duration={10}
@@ -95,14 +98,12 @@ export default function Main() {
                                 Events Conducted
                             </div>
                         </div>
-                        )
-                        :
+                    ) : (
                         <></>
-                    }
-                   
+                    )}
                 </div>
 
-                <div className="imageContainer">
+                <div className="imageContainer ">
                     <div className="image">
                         {/* <img src={kluTeam} alt="GFG Team at KLU" /> */}
                         <ImageComp
@@ -120,7 +121,28 @@ export default function Main() {
                     </div>
                 </div>
             </div>
+
             <SectionDivider />
+
+            <div className="section team">
+                    <div className="sectionTitle">
+                        MEET OUR TEAM
+                    </div>
+
+                    <div className="teamGridContainer">
+
+                        <div className="teamGrid">
+                            <ImageComp className="member" src={kluTeam} />
+                            <ImageComp className="member" src={kluTeam} />
+                            <ImageComp className="member" src={kluTeam} />
+                            <ImageComp className="member" src={kluTeam} />
+                            <ImageComp className="member" src={kluTeam} />
+                            <ImageComp className="member" src={kluTeam} />
+
+                        </div>
+
+                    </div>
+            </div>
         </>
     );
 }

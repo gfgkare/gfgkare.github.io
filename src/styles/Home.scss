@@ -86,7 +86,7 @@ div.about {
                 font-size: clamp(0.5rem, 0.4391rem + 3.8261vw, 1rem);
 
                 .count {
-                    font-size: 50px;
+                    font-size: clamp(1rem, 0.4391rem + 3.8261vw, 3.4rem);
                     font-weight: 600;
                 }
             }
@@ -100,6 +100,8 @@ div.about {
         gap: 1rem;
         justify-content: center;
         align-items: center;
+
+        margin-bottom: 3rem;
 
         // border: 2px solid red;
         // padding: 0 1rem;
@@ -118,6 +120,43 @@ div.about {
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
                 // transform: rotateZ(3deg) rotateY(3deg) scale(1.01);
                 // transform: rotateX(-4deg) rotateY(-35deg) rotateZ(3deg);
+            }
+        }
+    }
+}
+
+div.team {
+    // background-color: rgb(41, 41, 41);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .teamGridContainer {
+        // background-color: rgb(98, 75, 75);
+        height: 80%;
+        width: 100%;
+        display: flex;
+        // justify-content: center;
+        // align-items: center;
+
+        .teamGrid {
+            // background-color: blue;
+            width: 95%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            grid-column-gap: 1rem;
+            grid-row-gap: 1rem;
+            overflow-x: scroll;
+
+            .imageComp {
+                height: 300px;
+                width: 300px;
+
+                img {
+                    object-fit: cover;
+                }
             }
         }
     }
@@ -151,4 +190,9 @@ div.about {
     100% {
         opacity: 1;
     }
+}
+
+div.sectionTitle {
+    font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
+    font-weight: 700;
 }
