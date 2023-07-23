@@ -192,9 +192,9 @@ export default function Main() {
                 }`}
                 
             >
-                <div className="titleAndContent" ref={aboutSection}>
+                <div className="titleAndContent">
                     <div className="title sectionTitle">WHO ARE WE</div>
-                    <div className="content">
+                    <div className="content" ref={aboutSection}>
                         We are a team of aspiring students from Kalasalingam
                         University focused on making education and problem
                         solving yada yada yada accessible to students that want
