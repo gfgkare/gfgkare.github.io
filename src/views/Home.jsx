@@ -190,9 +190,9 @@ export default function Main() {
                 className={`section about ${
                     aboutVisible ? "aboutVisible" : ""
                 }`}
-                ref={aboutSection}
+                
             >
-                <div className="titleAndContent">
+                <div className="titleAndContent" ref={aboutSection}>
                     <div className="title sectionTitle">WHO ARE WE</div>
                     <div className="content">
                         We are a team of aspiring students from Kalasalingam
