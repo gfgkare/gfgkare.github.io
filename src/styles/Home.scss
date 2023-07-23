@@ -366,19 +366,24 @@ div.sectionTitle {
 .carousel {
     overflow: hidden;
     outline: none;
-    width: 80vw;
+    width: 90vw;
+    // height: 50vh;
     margin: 0 auto;
     border-radius: 8px;
     justify-content: center;
     align-items: center;
+    transform: scale(.9);
 
     // display: flex;
     // flex-direction: column;
 
     .flickity-viewport {
-        background-color: rgba(black, .01);
+        border-radius: 8px;
+        max-height: max-content;
         overflow: hidden;
         padding: 1rem 0;
+        // display: flex;
+        // gap: 1rem;
 
         .imageComp {
             border-radius: 8px;
@@ -394,6 +399,58 @@ div.sectionTitle {
                 z-index: 2;
                 filter: blur(0);
             }
+        }
+    }
+
+    div.eventSlide {
+        // border: .4px solid white;
+        max-width: 70%;
+        height: 500px;
+        padding: .5rem;
+        border-radius: 8px;
+        filter: blur(2px);
+        overflow: hidden;
+        // display: flex;
+        // flex-direction: column;
+        // background-color: red;
+        // box-shadow: 0 0 10px 5px rgb(64, 64, 64);
+
+        :nth-child(1) {
+            border: 1px solid white;
+        }
+
+        :nth-child(2) {
+            border: 1px solid white;
+            // border-color: transparent white whit;
+        }
+
+        &.is-selected {
+            filter: blur(0);
+        }
+
+        img {
+            height: 100%;
+            border-radius: 8px;
+            // flex: 4;
+            object-fit: cover;
+        }
+
+        div.eventDetails {
+            position: relative;
+            bottom: 0;
+            max-width: 100%;
+            height: max-content;
+            padding: 1rem 1rem;
+            border-radius: 0 0 8px 8px;
+            // background-color: blue;
+            transform: translateY(-100%);
+            // flex: 1;
+        }
+
+        div.sign {
+            position: relative;
+            top: 0;
+            right: 0;
         }
 
     }
@@ -426,13 +483,7 @@ div.sectionTitle {
                 content: "";
                 width: 4px;
                 height: 4px;
-                background-color: red;
             }
         }
-    }
-
-    div.slide {
-        max-width: 70%;
-
     }
 }

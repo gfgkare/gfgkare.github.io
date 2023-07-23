@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
 @import "./styles/Variables.scss";
 
 // GLOBAL ============================================================================================
@@ -163,6 +163,30 @@ div.team {
     }
 }
 
+div.events {
+    .carousel {
+        .flickity-viewport {
+            background-color: lighten($background, 1);
+            border: 2px solid lighten($background, 10);
+
+            div.eventSlide {
+                :nth-child(1) {
+                    border-color: $text $text transparent $text;
+                }
+
+                :last-child {
+                    // border: 1px solid $text;
+                    border-color: transparent $text $text $text;
+                }
+
+                div.eventDetails {
+                    background-color: lighten($background, 2);
+                }
+            }
+        }
+    }
+}
+
 div.dividerContainer {
     div.divider {
         background-color: lighten($background, 25);
@@ -237,7 +261,7 @@ body.light {
                 }
 
                 .role {
-                    color: $background
+                    color: $background;
                 }
             }
 
@@ -255,6 +279,30 @@ body.light {
             &:hover {
                 background-color: darken($text, 4);
                 border-color: lighten($background, 40);
+            }
+        }
+    }
+
+    div.events {
+        .carousel {
+            .flickity-viewport {
+                background-color: darken($text, 4);
+                border: 2px solid darken($text, 7);
+    
+                div.eventSlide {
+                    :nth-child(1) {
+                        border-color: $background $background transparent $background;
+                    }
+    
+                    :last-child {
+                        // border: 1px solid $background;
+                        border-color: transparent $background $background $background;
+                    }
+
+                    div.eventDetails {
+                        background-color: darken($text, 8);
+                    }
+                }
             }
         }
     }

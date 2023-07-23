@@ -2,13 +2,16 @@
 import "./styles/Variables.scss";
 
 import Main from "./pages/Main";
-import Home from "./views/Home";
-
 import NotFound from "./pages/NotFound";
 
+import Home from "./views/Home";
+import CoreTeam from "./views/CoreTeam";
+import TeamMember from "./views/TeamMember";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
+
+
 
 export default function App() {
 
@@ -22,6 +25,9 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Main />}>
                         <Route path="/" element={<Home />}></Route>
+                        <Route path="/core" element={<CoreTeam />}></Route>
+                        <Route path="/core/:membername" element={<TeamMember />}></Route>
+
                     </Route>
 
                     <Route path="/*" element={ <NotFound /> }></Route>

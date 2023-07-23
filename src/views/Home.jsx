@@ -1,6 +1,7 @@
 import "../styles/Home.scss";
 
 import { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 
@@ -12,11 +13,14 @@ import jagdeeshImg from "../assets/jagdeesh.jpg";
 import jayasriImg from "../assets/jayasri.jpg";
 import vineethImg from "../assets/vineeth.jpg";
 import vivekImg from "../assets/vivek.jpg";
-import kluBgBlurred from "../assets/klu_bg_blurred.jpg";
+// import kluBgBlurred from "../assets/klu_bg_blurred.jpg";
+import event1 from "../assets/event1.jpeg";
 
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
 import useArray from "../hooks/useArray";
+
+import { useMisc } from "../contexts/MiscContext";
 
 // import Carousel from "../components/Carousel";
 
@@ -41,10 +45,15 @@ const slideImages = [
 ];
 
 export default function Main() {
+    const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed } =
+        useMisc();
+
     const [aboutVisible, setAboutVisible] = useState(false);
     const [teamVisible, setTeamVisible] = useState(false);
     const aboutSection = useRef(null);
     const teamSection = useRef(null);
+
+    const navigate = useNavigate();
 
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
@@ -54,76 +63,83 @@ export default function Main() {
             role: "Chair Person",
             about: "A talented person surely capable of building an army for world peace.",
             image: ashokImg,
+            url: "/core/Ashok",
         },
         {
             name: "Krishna Vineeth",
             role: "Vice Chair Person",
             about: "A talented person surely capable of building an army for world peace.",
             image: vineethImg,
+            url: "/core/Vineeth",
         },
         {
             name: "N Balaji",
             role: "Graphic Designer",
             about: "A talented person surely capable of building an army for world peace.",
             image: balajiImg,
+            url: "/core/Balaji",
         },
         {
             name: "Jayasri",
             role: "Content Writer",
             about: "A talented person surely capable of building an army for world peace.",
             image: jayasriImg,
+            url: "/core/Jayasri",
         },
         {
             name: "Vivek",
             role: "Marketing Head",
             about: "A talented person surely capable of building an army for world peace.",
             image: vivekImg,
+            url: "/core/Vivek",
         },
         {
             name: "Vivek",
             role: "Marketing Head",
             about: "A talented person surely capable of building an army for world peace.",
             image: vivekImg,
+            url: "/core/Vivek",
         },
         {
             name: "Ashok Reddy",
             role: "Chair Person",
             about: "A talented person surely capable of building an army for world peace.",
             image: ashokImg,
+            url: "/core/Ashok",
         },
         {
             name: "Krishna Vineeth",
             role: "Vice Chair Person",
             about: "A talented person surely capable of building an army for world peace.",
             image: vineethImg,
+            url: "/core/Vineeth",
         },
         {
             name: "N Balaji",
             role: "Graphic Designer",
             about: "A talented person surely capable of building an army for world peace.",
             image: balajiImg,
+            url: "/core/Balaji",
         },
         {
             name: "Jayasri",
             role: "Content Writer",
             about: "A talented person surely capable of building an army for world peace.",
             image: jayasriImg,
+            url: "/core/Jayasri",
         },
         {
             name: "Jagadeesh Siddhireddy",
             role: "Marketing Head",
             about: "A talented person surely capable of building an army for world peace.",
             image: vivekImg,
+            url: "/core/Jagadeesh",
         },
     ]);
 
     useEffect(() => {
-        const prev = document.querySelector(
-            ".previous"
-        );
-        const next = document.querySelector(
-            ".next"
-        );
+        const prev = document.querySelector(".previous");
+        const next = document.querySelector(".next");
 
         // let moveSlide = setInterval(() => {
         //     console.log("Moving slides")
@@ -148,20 +164,38 @@ export default function Main() {
         const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 // alert(entries)
-                setAboutVisible(true);
+                if (!aboutRevealed) {
+                    setAboutVisible(true);
+                    setTimeout(() => setAboutRevealed(true), 5000 )
+                    
+                }
                 aboutObserver.unobserve(aboutSection.current);
             }
         });
 
         const teamObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                setTeamVisible(true);
+                if (!teamRevealed) {
+                    setTeamVisible(true);
+                    setTimeout(() => setTeamRevealed(true), 1000 )
+                }
                 teamObserver.unobserve();
             }
         });
 
-        aboutObserver.observe(aboutSection.current);
-        teamObserver.observe(teamSection.current);
+        if (!aboutRevealed) {
+            aboutObserver.observe(aboutSection.current);
+        }
+        else {
+            setAboutVisible(true)
+        }
+
+        if (!teamRevealed) {
+            teamObserver.observe(teamSection.current);
+        }
+        else {
+            setTeamVisible(true)
+        }
 
         return () => {
             aboutObserver.disconnect();
@@ -190,7 +224,6 @@ export default function Main() {
                 className={`section about ${
                     aboutVisible ? "aboutVisible" : ""
                 }`}
-                
             >
                 <div className="titleAndContent">
                     <div className="title sectionTitle">WHO ARE WE</div>
@@ -213,7 +246,8 @@ export default function Main() {
                         <div className="numbers">
                             <div className="counter">
                                 <span className="count">
-                                    <CountUp end={1000} duration={4} />+
+                                    {(!aboutRevealed) ? <CountUp end={1000} duration={4} /> : <>1000</>  }
+                                    +
                                 </span>
                                 Students{"    "}
                             </div>
@@ -221,11 +255,7 @@ export default function Main() {
                             <div className="counter">
                                 <span className="count">
                                     0
-                                    <CountUp
-                                        end={4}
-                                        duration={10}
-                                        delay={0.1}
-                                    />
+                                    {(!aboutRevealed) ? <CountUp end={4} duration={10} delay={1} /> : <>4</> }
                                     +
                                 </span>
                                 Guest Talks{"   "}
@@ -234,12 +264,7 @@ export default function Main() {
                             <div className="counter">
                                 <span className="count">
                                     0
-                                    <CountUp
-                                        className="count"
-                                        end={5}
-                                        duration={10}
-                                        delay={1}
-                                    />
+                                    {(!aboutRevealed) ? <CountUp end={5} duration={10} delay={1} /> : <>5</> }
                                     +
                                 </span>
                                 Events Conducted
@@ -283,7 +308,10 @@ export default function Main() {
                     >
                         {members.value.map((member) => {
                             return (
-                                <div className="memberContainer">
+                                <div
+                                    className="memberContainer"
+                                    onClick={() => navigate(member.url)}
+                                >
                                     <div className="memberImage">
                                         <img src={member.image} />
                                     </div>
@@ -380,21 +408,23 @@ export default function Main() {
                     // static // default false
                     infinite
                 >
-                    {/* <div className="slide">
-                        <img src={kluBgBlurred} alt="" />
-                        <div className="title">Slide</div>
+                    <div className="eventSlide">
+                        <img src={event1} alt="" />
+                        <div className="eventDetails">
+                            Event conducted by IBM for all third and fourth year students for machine learning proejcts
+                        </div>
                     </div>
 
-                    <div className="slide">
-                        <img src={kluBgBlurred} alt="" />
-                        <div className="title">Slide</div>
+                    <div className="eventSlide">
+                        <img src={jagdeeshImg} alt="" />
+                        <div className="eventDetails">Slide</div>
                     </div>
 
-                    <div className="slide">
-                        <img src={kluBgBlurred} alt="" />
-                        <div className="title">Slide</div>
-                    </div> */}
-                    <ImageComp
+                    <div className="eventSlide">
+                        <img src={ashokImg} alt="" />
+                        <div className="eventDetails">Slide</div>
+                    </div>
+                    {/* <ImageComp
                         src={vineethImg}
                         alt="GFG Team at KLU"
                         text={
@@ -429,7 +459,7 @@ export default function Main() {
                                 </Link>{" "}
                             </>
                         }
-                    />
+                    /> */}
                     {/* <img src={kluBgBlurred} />
                     <img src={kluBgBlurred} />
                     <img src={kluBgBlurred} /> */}
@@ -437,7 +467,7 @@ export default function Main() {
             </div>
 
             <div className="footer">
-            © KARE GeeksForGeeks Student Chapter (2023) 
+                © KARE GeeksForGeeks Student Chapter (2023)
             </div>
         </>
     );
