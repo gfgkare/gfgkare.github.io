@@ -1,5 +1,5 @@
 div.imageComp {
-    overflow: hidden;
+    // overflow: hidden;
 
     img {
         width: 100%;
@@ -16,7 +16,7 @@ div.imageComp {
         width: 100%;
         transition: 0.15s ease;
         background-color: rgba(rgb(39, 39, 39), .95);
-        overflow: hidden;
+        // overflow: hidden;
 
         .text {
             width: 90%;

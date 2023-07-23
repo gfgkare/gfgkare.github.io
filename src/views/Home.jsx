@@ -12,16 +12,38 @@ import jagdeeshImg from "../assets/jagdeesh.jpg";
 import jayasriImg from "../assets/jayasri.jpg";
 import vineethImg from "../assets/vineeth.jpg";
 import vivekImg from "../assets/vivek.jpg";
+import kluBgBlurred from "../assets/klu_bg_blurred.jpg"
 
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
 import useArray from "../hooks/useArray";
+
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+
+import Flickity from "react-flickity-component";
+
+const slideImages = [
+    {
+        url: "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+        caption: "Slide 1",
+    },
+    {
+        url: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
+        caption: "Slide 2",
+    },
+    {
+        url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+        caption: "Slide 3",
+    },
+];
 
 export default function Main() {
     const [aboutVisible, setAboutVisible] = useState(false);
     const [teamVisible, setTeamVisible] = useState(false);
     const aboutSection = useRef(null);
     const teamSection = useRef(null);
+
     const members = useArray([
         {
             name: "Ashok Reddy",
@@ -84,7 +106,7 @@ export default function Main() {
             image: jayasriImg,
         },
         {
-            name: "Vivek",
+            name: "Jagadeesh Siddhireddy",
             role: "Marketing Head",
             about: "A talented person surely capable of building an army for world peace.",
             image: vivekImg,
@@ -216,14 +238,16 @@ export default function Main() {
 
             <SectionDivider />
 
-            <div
-                className={"section team"}
-                
-            >
+            <div className={"section team"}>
                 <div className="sectionTitle">MEET OUR TEAM</div>
 
                 <div className="teamGridContainer">
-                    <div className={`teamGrid ${teamVisible ? "teamVisible" : ""}`} ref={teamSection}>
+                    <div
+                        className={`teamGrid ${
+                            teamVisible ? "teamVisible" : ""
+                        }`}
+                        ref={teamSection}
+                    >
                         {members.value.map((member) => {
                             return (
                                 <div className="memberContainer">
@@ -310,6 +334,77 @@ export default function Main() {
                 </div>
             </div>
             <SectionDivider />
+
+            <div className="section events">
+
+                <div className="sectionTitle">
+                    EVENTS
+                </div>
+
+                <Flickity
+                    className={"carousel"} // default ''
+                    elementType={"div"} // default 'div'
+                    options={ {initialIndex: 0} } // takes flickity options {}
+                    disableImagesLoaded={false} // default false
+                    reloadOnUpdate // default false
+                    static // default false
+                    infinite
+                >
+                    {/* <div className="slide">
+                        <img src={kluBgBlurred} alt="" />
+                        <div className="title">Slide</div>
+                    </div>
+
+                    <div className="slide">
+                        <img src={kluBgBlurred} alt="" />
+                        <div className="title">Slide</div>
+                    </div>
+
+                    <div className="slide">
+                        <img src={kluBgBlurred} alt="" />
+                        <div className="title">Slide</div>
+                    </div> */}
+                    <ImageComp
+                            src={vineethImg}
+                            alt="GFG Team at KLU"
+                            text={
+                                <>
+                                    Image taken after event GFG Summer Carnival!{" "}
+                                    <Link to="/events/gfg_summer_carnival">
+                                        Go to event
+                                    </Link>{" "}
+                                </>
+                            }
+                        />
+                         <ImageComp
+                            src={jagdeeshImg}
+                            alt="GFG Team at KLU"
+                            text={
+                                <>
+                                    Image taken after event GFG Summer Carnival!{" "}
+                                    <Link to="/events/gfg_summer_carnival">
+                                        Go to event
+                                    </Link>{" "}
+                                </>
+                            }
+                        />
+                         <ImageComp
+                            src={vivekImg}
+                            alt="GFG Team at KLU"
+                            text={
+                                <>
+                                    Image taken after event GFG Summer Carnival!{" "}
+                                    <Link to="/events/gfg_summer_carnival">
+                                        Go to event
+                                    </Link>{" "}
+                                </>
+                            }
+                        />
+                    {/* <img src={kluBgBlurred} />
+                    <img src={kluBgBlurred} />
+                    <img src={kluBgBlurred} /> */}
+                </Flickity>
+            </div>
         </>
     );
 }

@@ -186,6 +186,7 @@ div.team {
 
                     .name {
                         max-width: max-content;
+                        text-align: center;
                         font-size: clamp(0.5rem, 0.4391rem + 3.8261vw, 1.25rem);
                         font-weight: 600;
                     }
@@ -280,7 +281,8 @@ div.team {
                 flex-direction: column;
                 gap: 1rem;
 
-                .title {
+                .name {
+                    text-align: center;
                     max-width: max-content;
                     margin: 0 auto;
                     justify-content: center;
@@ -343,5 +345,43 @@ div.sectionTitle {
             opacity: 1;
             transform: translateY(0);
         }
+    }
+}
+
+.carousel {
+    overflow: hidden;
+    outline: none;
+    width: 80vw;
+    margin: 0 auto;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+
+    // display: flex;
+    // flex-direction: column;
+
+    .flickity-viewport {
+        background-color: red;
+
+        .imageComp {
+            filter: blur(3px);
+            transition: filter .5s ease;
+
+
+            &.is-selected {
+                filter: blur(0);
+            }
+        }
+
+    }
+
+    button.flickity-button {
+        border-radius: 8px;
+        margin: 0 auto;
+    }
+
+    div.slide {
+        max-width: 70%;
+
     }
 }
