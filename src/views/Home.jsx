@@ -12,13 +12,15 @@ import jagdeeshImg from "../assets/jagdeesh.jpg";
 import jayasriImg from "../assets/jayasri.jpg";
 import vineethImg from "../assets/vineeth.jpg";
 import vivekImg from "../assets/vivek.jpg";
-import kluBgBlurred from "../assets/klu_bg_blurred.jpg"
+import kluBgBlurred from "../assets/klu_bg_blurred.jpg";
 
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
 import useArray from "../hooks/useArray";
 
-import { Slide } from "react-slideshow-image";
+// import Carousel from "../components/Carousel";
+
+// import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 import Flickity from "react-flickity-component";
@@ -43,6 +45,8 @@ export default function Main() {
     const [teamVisible, setTeamVisible] = useState(false);
     const aboutSection = useRef(null);
     const teamSection = useRef(null);
+
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
     const members = useArray([
         {
@@ -114,6 +118,33 @@ export default function Main() {
     ]);
 
     useEffect(() => {
+        const prev = document.querySelector(
+            ".previous"
+        );
+        const next = document.querySelector(
+            ".next"
+        );
+
+        // let moveSlide = setInterval(() => {
+        //     console.log("Moving slides")
+        //     if (currentSlideIndex >= 2) {
+        //         console.log("Back to zero")
+        //         setCurrentSlideIndex(0);
+
+        //         // for (let i = 0; i < 3 - 1; i++) {
+        //         //     // prev.click();
+        //         //     setCurrentSlideIndex(0);
+        //         // }
+        //     } else {
+        //         console.log("Going next ")
+        //         setCurrentSlideIndex((currentSlideIndex) => currentSlideIndex + 1);
+        //         // next.click();
+        //     }
+
+        //     console.log(currentSlideIndex)
+
+        // }, 2000);
+
         const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 setAboutVisible(true);
@@ -134,6 +165,7 @@ export default function Main() {
         return () => {
             aboutObserver.disconnect();
             teamObserver.disconnect();
+            // clearInterval(moveSlide);
         };
     }, []);
 
@@ -336,18 +368,15 @@ export default function Main() {
             <SectionDivider />
 
             <div className="section events">
-
-                <div className="sectionTitle">
-                    EVENTS
-                </div>
+                <div className="sectionTitle">EVENTS</div>
 
                 <Flickity
                     className={"carousel"} // default ''
                     elementType={"div"} // default 'div'
-                    options={ {initialIndex: 0} } // takes flickity options {}
+                    options={{ initialIndex: 0 }} // takes flickity options {}
                     disableImagesLoaded={false} // default false
-                    reloadOnUpdate // default false
-                    static // default false
+                    // reloadOnUpdate // default false
+                    // static // default false
                     infinite
                 >
                     {/* <div className="slide">
@@ -365,45 +394,49 @@ export default function Main() {
                         <div className="title">Slide</div>
                     </div> */}
                     <ImageComp
-                            src={vineethImg}
-                            alt="GFG Team at KLU"
-                            text={
-                                <>
-                                    Image taken after event GFG Summer Carnival!{" "}
-                                    <Link to="/events/gfg_summer_carnival">
-                                        Go to event
-                                    </Link>{" "}
-                                </>
-                            }
-                        />
-                         <ImageComp
-                            src={jagdeeshImg}
-                            alt="GFG Team at KLU"
-                            text={
-                                <>
-                                    Image taken after event GFG Summer Carnival!{" "}
-                                    <Link to="/events/gfg_summer_carnival">
-                                        Go to event
-                                    </Link>{" "}
-                                </>
-                            }
-                        />
-                         <ImageComp
-                            src={vivekImg}
-                            alt="GFG Team at KLU"
-                            text={
-                                <>
-                                    Image taken after event GFG Summer Carnival!{" "}
-                                    <Link to="/events/gfg_summer_carnival">
-                                        Go to event
-                                    </Link>{" "}
-                                </>
-                            }
-                        />
+                        src={vineethImg}
+                        alt="GFG Team at KLU"
+                        text={
+                            <>
+                                Image taken after event GFG Summer Carnival!{" "}
+                                <Link to="/events/gfg_summer_carnival">
+                                    Go to event
+                                </Link>{" "}
+                            </>
+                        }
+                    />
+                    <ImageComp
+                        src={jagdeeshImg}
+                        alt="GFG Team at KLU"
+                        text={
+                            <>
+                                Image taken after event GFG Summer Carnival!{" "}
+                                <Link to="/events/gfg_summer_carnival">
+                                    Go to event
+                                </Link>{" "}
+                            </>
+                        }
+                    />
+                    <ImageComp
+                        src={vivekImg}
+                        alt="GFG Team at KLU"
+                        text={
+                            <>
+                                Image taken after event GFG Summer Carnival!{" "}
+                                <Link to="/events/gfg_summer_carnival">
+                                    Go to event
+                                </Link>{" "}
+                            </>
+                        }
+                    />
                     {/* <img src={kluBgBlurred} />
                     <img src={kluBgBlurred} />
                     <img src={kluBgBlurred} /> */}
                 </Flickity>
+            </div>
+
+            <div className="footer">
+            © KARE GeeksForGeeks Student Chapter (2023) 
             </div>
         </>
     );

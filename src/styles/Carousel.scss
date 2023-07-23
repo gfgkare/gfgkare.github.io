@@ -1,0 +1,52 @@
+
+
+.Carousel {
+    position: relative;
+    overflow: hidden;
+
+    .Cover {
+        display: flex;
+        transition: transform .5s ease-out;
+    }
+
+    .ButtonContainer {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .4rem;
+
+        button {
+            padding: 1rem;
+            border-radius: 10px;
+        }
+    }
+
+    .IndicatorContainer {
+        position: absolute;
+        bottom: .4rem;
+        right: 0;
+        left: 0;
+
+        .Wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .3rem;
+
+            .Dot {
+                transition: all .2s ease;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                opacity: .5;
+
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+        
+}
