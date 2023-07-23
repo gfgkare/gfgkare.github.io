@@ -164,11 +164,11 @@ export default function Main() {
         const moveSlideInterval = setInterval(() => {
             setCurrentSlideIndex((prevTimer) => {
                 if (prevTimer < events.length - 1) {
-                    console.log("incrementing");
+                    // console.log("incrementing");
                     document.querySelector(".flickity-button.next").click();
                     return prevTimer + 1;
                 } else {
-                    console.log("resetting");
+                    // console.log("resetting");
                     for (let i = 0; i < events.length - 1; i++) {
                         setTimeout(
                             () =>
@@ -181,7 +181,7 @@ export default function Main() {
                     return 0;
                 }
             });
-        }, 5000);
+        }, 8000);
 
         setSlideInterval(moveSlideInterval);
     };
@@ -468,8 +468,17 @@ export default function Main() {
                                         console.log(
                                             "clicked not selected event"
                                         );
+                                        if (index < currentSlideIndex) {
+                                            document.querySelector(".flickity-button.previous").click();
+                                            setCurrentSlideIndex(prevIndex => prevIndex - 1);
+                                        }
+                                        else {
+                                            document.querySelector(".flickity-button.next").click();
+                                            setCurrentSlideIndex(prevIndex => prevIndex + 1);
+                                        }
                                     } else {
                                         console.log("clicked selected event");
+                                        navigate("/events/some-event");
                                     }
                                 }}
                                 onMouseEnter={() => {
