@@ -403,8 +403,10 @@ div.sectionTitle {
     }
 
     div.eventSlide {
+        cursor: pointer;
         // border: .4px solid white;
-        max-width: 70%;
+        max-width: 60vw;
+        // width: 40vw;
         height: 500px;
         padding: .5rem;
         border-radius: 8px;
@@ -429,6 +431,7 @@ div.sectionTitle {
         }
 
         img {
+            width: 100%;
             height: 100%;
             border-radius: 8px;
             // flex: 4;
@@ -436,15 +439,24 @@ div.sectionTitle {
         }
 
         div.eventDetails {
+            // background-color: red !important;    
             position: relative;
             bottom: 0;
-            max-width: 100%;
+            width: 100%;
+            padding: 1rem 0 !important;
+            // max-width: 100%;
             height: max-content;
-            padding: 1rem 1rem;
+            // padding: 1rem 1rem;
             border-radius: 0 0 8px 8px;
-            // background-color: blue;
             transform: translateY(-100%);
-            // flex: 1;
+            // text-align: center;
+
+            div.text {
+                // background-color: blue !important;
+                max-width: 100%;
+                padding: 0 1rem;
+                border: none !important;
+            }
         }
 
         div.sign {

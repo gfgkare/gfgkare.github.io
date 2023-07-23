@@ -180,7 +180,15 @@ div.events {
                 }
 
                 div.eventDetails {
+                    width: 100%;
+                    padding: 1rem 0 1rem 1rem;
                     background-color: lighten($background, 2);
+                }
+
+                &:hover {
+                    div.eventDetails {
+                        background-color: lighten($background, 3);
+                    }
                 }
             }
         }

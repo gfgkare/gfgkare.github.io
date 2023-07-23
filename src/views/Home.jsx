@@ -15,6 +15,7 @@ import vineethImg from "../assets/vineeth.jpg";
 import vivekImg from "../assets/vivek.jpg";
 // import kluBgBlurred from "../assets/klu_bg_blurred.jpg";
 import event1 from "../assets/event1.jpeg";
+import talkEvent from "../assets/talk.jpg";
 
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
@@ -29,21 +30,6 @@ import "react-slideshow-image/dist/styles.css";
 
 import Flickity from "react-flickity-component";
 
-const slideImages = [
-    {
-        url: "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-        caption: "Slide 1",
-    },
-    {
-        url: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-        caption: "Slide 2",
-    },
-    {
-        url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-        caption: "Slide 3",
-    },
-];
-
 export default function Main() {
     const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed } =
         useMisc();
@@ -52,10 +38,12 @@ export default function Main() {
     const [teamVisible, setTeamVisible] = useState(false);
     const aboutSection = useRef(null);
     const teamSection = useRef(null);
+    const slideShow = useRef(null);
 
     const navigate = useNavigate();
 
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [slideInterval, setSlideInterval] = useState();
 
     const members = useArray([
         {
@@ -137,37 +125,76 @@ export default function Main() {
         },
     ]);
 
+    const events = [
+        {
+            imageSource: event1,
+            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
+        },
+        {
+            imageSource: talkEvent,
+            text: "Clicking the card will open dedicated event page.",
+        },
+        {
+            imageSource: event1,
+            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
+        },
+        {
+            imageSource: event1,
+            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
+        },
+        {
+            imageSource: talkEvent,
+            text: "Clicking the card will open dedicated event page.",
+        },
+        {
+            imageSource: event1,
+            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
+        },
+        {
+            imageSource: talkEvent,
+            text: "Clicking the card will open dedicated event page.",
+        },
+        {
+            imageSource: event1,
+            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
+        },
+    ];
+
+    const createAndSetNewSlideInterval = () => {
+        const moveSlideInterval = setInterval(() => {
+            setCurrentSlideIndex((prevTimer) => {
+                if (prevTimer < events.length - 1) {
+                    console.log("incrementing");
+                    document.querySelector(".flickity-button.next").click();
+                    return prevTimer + 1;
+                } else {
+                    console.log("resetting");
+                    for (let i = 0; i < events.length - 1; i++) {
+                        setTimeout(
+                            () =>
+                                document
+                                    .querySelector(".flickity-button.previous")
+                                    .click(),
+                            300
+                        );
+                    }
+                    return 0;
+                }
+            });
+        }, 5000);
+
+        setSlideInterval(moveSlideInterval);
+    };
+
     useEffect(() => {
-        const prev = document.querySelector(".previous");
-        const next = document.querySelector(".next");
-
-        // let moveSlide = setInterval(() => {
-        //     console.log("Moving slides")
-        //     if (currentSlideIndex >= 2) {
-        //         console.log("Back to zero")
-        //         setCurrentSlideIndex(0);
-
-        //         // for (let i = 0; i < 3 - 1; i++) {
-        //         //     // prev.click();
-        //         //     setCurrentSlideIndex(0);
-        //         // }
-        //     } else {
-        //         console.log("Going next ")
-        //         setCurrentSlideIndex((currentSlideIndex) => currentSlideIndex + 1);
-        //         // next.click();
-        //     }
-
-        //     console.log(currentSlideIndex)
-
-        // }, 2000);
+        createAndSetNewSlideInterval();
 
         const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 // alert(entries)
                 if (!aboutRevealed) {
                     setAboutVisible(true);
-                    setTimeout(() => setAboutRevealed(true), 5000 )
-                    
+                    setTimeout(() => setAboutRevealed(true), 5000);
                 }
                 aboutObserver.unobserve(aboutSection.current);
             }
@@ -177,7 +204,7 @@ export default function Main() {
             if (entries[0].isIntersecting) {
                 if (!teamRevealed) {
                     setTeamVisible(true);
-                    setTimeout(() => setTeamRevealed(true), 1000 )
+                    setTimeout(() => setTeamRevealed(true), 1000);
                 }
                 teamObserver.unobserve();
             }
@@ -185,22 +212,20 @@ export default function Main() {
 
         if (!aboutRevealed) {
             aboutObserver.observe(aboutSection.current);
-        }
-        else {
-            setAboutVisible(true)
+        } else {
+            setAboutVisible(true);
         }
 
         if (!teamRevealed) {
             teamObserver.observe(teamSection.current);
-        }
-        else {
-            setTeamVisible(true)
+        } else {
+            setTeamVisible(true);
         }
 
         return () => {
             aboutObserver.disconnect();
             teamObserver.disconnect();
-            // clearInterval(moveSlide);
+            clearInterval(slideInterval);
         };
     }, []);
 
@@ -246,7 +271,11 @@ export default function Main() {
                         <div className="numbers">
                             <div className="counter">
                                 <span className="count">
-                                    {(!aboutRevealed) ? <CountUp end={1000} duration={4} /> : <>1000</>  }
+                                    {!aboutRevealed ? (
+                                        <CountUp end={1000} duration={4} />
+                                    ) : (
+                                        <>1000</>
+                                    )}
                                     +
                                 </span>
                                 Students{"    "}
@@ -255,7 +284,15 @@ export default function Main() {
                             <div className="counter">
                                 <span className="count">
                                     0
-                                    {(!aboutRevealed) ? <CountUp end={4} duration={10} delay={1} /> : <>4</> }
+                                    {!aboutRevealed ? (
+                                        <CountUp
+                                            end={4}
+                                            duration={10}
+                                            delay={1}
+                                        />
+                                    ) : (
+                                        <>4</>
+                                    )}
                                     +
                                 </span>
                                 Guest Talks{"   "}
@@ -264,7 +301,15 @@ export default function Main() {
                             <div className="counter">
                                 <span className="count">
                                     0
-                                    {(!aboutRevealed) ? <CountUp end={5} duration={10} delay={1} /> : <>5</> }
+                                    {!aboutRevealed ? (
+                                        <CountUp
+                                            end={5}
+                                            duration={10}
+                                            delay={1}
+                                        />
+                                    ) : (
+                                        <>5</>
+                                    )}
                                     +
                                 </span>
                                 Events Conducted
@@ -400,30 +445,59 @@ export default function Main() {
                 <div className="sectionTitle">EVENTS</div>
 
                 <Flickity
+                    ref={slideShow}
                     className={"carousel"} // default ''
                     elementType={"div"} // default 'div'
                     options={{ initialIndex: 0 }} // takes flickity options {}
                     disableImagesLoaded={false} // default false
                     // reloadOnUpdate // default false
                     // static // default false
-                    infinite
+                    onClick={() => console.log("clicking")}
                 >
-                    <div className="eventSlide">
-                        <img src={event1} alt="" />
+                    {events.map((event, index) => {
+                        return (
+                            <div
+                                className="eventSlide"
+                                onClick={(e) => {
+                                    console.log(e.target.parentElement);
+                                    if (
+                                        !e.target.parentElement.classList.contains(
+                                            "is-selected"
+                                        )
+                                    ) {
+                                        console.log(
+                                            "clicked not selected event"
+                                        );
+                                    } else {
+                                        console.log("clicked selected event");
+                                    }
+                                }}
+                                onMouseEnter={() => {
+                                    console.log("clearing slide interval");
+                                    clearInterval(slideInterval)
+                                }}
+                                onMouseLeave={() => {
+                                    createAndSetNewSlideInterval();
+                                    console.log("creating new slide interval");
+                                }}
+                            >
+                                <img src={event.imageSource} alt="" />
+                                <div className="eventDetails">
+                                    <div className="text">{event.text}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
+
+                    {/* <div className="eventSlide">
+                        <img src={talkEvent} alt="" />
                         <div className="eventDetails">
-                            Event conducted by IBM for all third and fourth year students for machine learning proejcts
+                            <div className="text">
+                                Clicking the card will open event specific page.
+                            </div>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="eventSlide">
-                        <img src={jagdeeshImg} alt="" />
-                        <div className="eventDetails">Slide</div>
-                    </div>
-
-                    <div className="eventSlide">
-                        <img src={ashokImg} alt="" />
-                        <div className="eventDetails">Slide</div>
-                    </div>
                     {/* <ImageComp
                         src={vineethImg}
                         alt="GFG Team at KLU"
