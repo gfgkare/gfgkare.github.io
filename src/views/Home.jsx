@@ -147,7 +147,7 @@ export default function Main() {
 
         const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                alert(entries[0].intersectionRatio)
+                alert(entries)
                 setAboutVisible(true);
                 aboutObserver.unobserve(aboutSection.current);
             }
