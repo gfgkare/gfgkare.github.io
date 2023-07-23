@@ -288,7 +288,7 @@ export default function Main() {
                                         <CountUp
                                             end={4}
                                             duration={10}
-                                            delay={1}
+                                            delay={.2}
                                         />
                                     ) : (
                                         <>4</>
@@ -305,7 +305,7 @@ export default function Main() {
                                         <CountUp
                                             end={5}
                                             duration={10}
-                                            delay={1}
+                                            delay={.2}
                                         />
                                     ) : (
                                         <>5</>
