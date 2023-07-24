@@ -7,26 +7,16 @@ import CountUp from "react-countup";
 
 import kluTeam from "../assets/klu_team.jpg";
 
-import ashokImg from "../assets/ashok.jpg";
-import balajiImg from "../assets/balaji.jpg";
-import jagdeeshImg from "../assets/jagdeesh.jpg";
-import jayasriImg from "../assets/jayasri.jpg";
-import vineethImg from "../assets/vineeth.jpg";
-import vivekImg from "../assets/vivek.jpg";
-// import kluBgBlurred from "../assets/klu_bg_blurred.jpg";
-import event1 from "../assets/event1.jpeg";
-import talkEvent from "../assets/talk.jpg";
-
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
-import useArray from "../hooks/useArray";
 
 import { useMisc } from "../contexts/MiscContext";
 
-// import Carousel from "../components/Carousel";
+import coreTeamMembers from "../data/coreTeamInfo.js"
+import events from "../data/eventsInfo";
 
-// import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+
+// import "react-slideshow-image/dist/styles.css";
 
 import Flickity from "react-flickity-component";
 
@@ -45,120 +35,7 @@ export default function Main() {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const [slideInterval, setSlideInterval] = useState();
 
-    const members = useArray([
-        {
-            name: "Ashok Reddy",
-            role: "Chair Person",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: ashokImg,
-            url: "/core/Ashok",
-        },
-        {
-            name: "Krishna Vineeth",
-            role: "Vice Chair Person",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: vineethImg,
-            url: "/core/Vineeth",
-        },
-        {
-            name: "N Balaji",
-            role: "Graphic Designer",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: balajiImg,
-            url: "/core/Balaji",
-        },
-        {
-            name: "Jayasri",
-            role: "Content Writer",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: jayasriImg,
-            url: "/core/Jayasri",
-        },
-        {
-            name: "Vivek",
-            role: "Marketing Head",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: vivekImg,
-            url: "/core/Vivek",
-        },
-        {
-            name: "Vivek",
-            role: "Marketing Head",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: vivekImg,
-            url: "/core/Vivek",
-        },
-        {
-            name: "Ashok Reddy",
-            role: "Chair Person",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: ashokImg,
-            url: "/core/Ashok",
-        },
-        {
-            name: "Krishna Vineeth",
-            role: "Vice Chair Person",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: vineethImg,
-            url: "/core/Vineeth",
-        },
-        {
-            name: "N Balaji",
-            role: "Graphic Designer",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: balajiImg,
-            url: "/core/Balaji",
-        },
-        {
-            name: "Jayasri",
-            role: "Content Writer",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: jayasriImg,
-            url: "/core/Jayasri",
-        },
-        {
-            name: "Jagadeesh Siddhireddy",
-            role: "Marketing Head",
-            about: "A talented person surely capable of building an army for world peace.",
-            image: vivekImg,
-            url: "/core/Jagadeesh",
-        },
-    ]);
 
-    const events = [
-        {
-            imageSource: event1,
-            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
-        },
-        {
-            imageSource: talkEvent,
-            text: "Clicking the card will open dedicated event page.",
-        },
-        {
-            imageSource: event1,
-            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
-        },
-        {
-            imageSource: event1,
-            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
-        },
-        {
-            imageSource: talkEvent,
-            text: "Clicking the card will open dedicated event page.",
-        },
-        {
-            imageSource: event1,
-            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
-        },
-        {
-            imageSource: talkEvent,
-            text: "Clicking the card will open dedicated event page.",
-        },
-        {
-            imageSource: event1,
-            text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
-        },
-    ];
 
     const createAndSetNewSlideInterval = () => {
         const moveSlideInterval = setInterval(() => {
@@ -272,7 +149,7 @@ export default function Main() {
                             <div className="counter">
                                 <span className="count">
                                     {!aboutRevealed ? (
-                                        <CountUp end={1000} duration={4} />
+                                        <CountUp end={1000} duration={6} />
                                     ) : (
                                         <>1000</>
                                     )}
@@ -351,7 +228,7 @@ export default function Main() {
                         }`}
                         ref={teamSection}
                     >
-                        {members.value.map((member) => {
+                        {coreTeamMembers.map((member) => {
                             return (
                                 <div
                                     className="memberContainer"
