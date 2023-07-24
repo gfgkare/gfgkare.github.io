@@ -1,95 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
 @import "./styles/Variables.scss";
 
-// GLOBAL ============================================================================================
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-}
-
-* {
-    transition: color 0.4s ease;
-    transition-property: color, background-color;
-    transition-duration: 0.05s;
-}
-
-::-webkit-scrollbar {
-    transition: all 2s !important;
-    background-color: transparent;
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: lighten($background, 30);
-    border-radius: 20px;
-    visibility: hidden;
-    transition: visibility 1s;
-}
-
-html:hover ::-webkit-scrollbar-thumb {
-    visibility: visible;
-}
-
-.toggle {
-    /*  Dark mode animated toggle. Codepen: https://codepen.io/mrozilla/pen/OJJNjRb  */
-    --size: 1.5rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-    width: var(--size);
-    height: var(--size);
-    box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
-    border-radius: 999px;
-    color: #3e3ec2;
-    transition: all 500ms;
-}
-
-.toggle:checked {
-    --ray-size: calc(var(--size) * -0.4);
-    --offset-orthogonal: calc(var(--size) * 0.65);
-    --offset-diagonal: calc(var(--size) * 0.45);
-    transform: scale(0.75);
-    color: #ffaa00;
-    box-shadow: inset 0 0 0 var(--size),
-        calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
-        var(--offset-orthogonal) 0 0 var(--ray-size),
-        0 calc(var(--offset-orthogonal) * -1) 0 var(--ray-size),
-        0 var(--offset-orthogonal) 0 var(--ray-size),
-        calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1) 0
-            var(--ray-size),
-        var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
-        calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0
-            var(--ray-size),
-        var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0
-            var(--ray-size);
-}
-
-@media screen and (max-width: 740px) {
-    .hideOnMobile {
-        display: none !important;
-    }
-}
-
-// END GLOBAL  =======================================================================================
-
-body {
-    font-family: "Jost";
-    color-scheme: light dark;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    transition: color background-color 100ms ease;
-}
 
 body.dark {
     color: $text;
@@ -97,19 +7,9 @@ body.dark {
 }
 
 button {
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
     background-color: lighten($background, 10);
     border: $text 1px solid;
     color: $text;
-    cursor: pointer;
-    transition: border-color 0.25s;
-}
-button:hover {
-    border-color: #646cff;
 }
 
 div.navBar {
@@ -339,14 +239,4 @@ body.light {
             }
         }
     }
-}
-
-.out {
-    width: 100vw !important;
-    margin: 0;
-    padding: 0;
-    margin-top: 5rem;
-
-    // background-color: blue;
-    // background: rgba(255, 255, 255, .05);
 }

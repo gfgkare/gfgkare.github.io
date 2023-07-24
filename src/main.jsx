@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.scss";
+import "./DarkLight.scss";
+import "./GlobalStyles.scss"
 
 import { MiscProvider } from "./contexts/MiscContext.jsx";
 

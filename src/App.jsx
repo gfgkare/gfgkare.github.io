@@ -1,5 +1,5 @@
 // import "./App.css";
-import "./styles/Variables.scss";
+// import "./styles/Variables.scss";
 
 import Main from "./pages/Main";
 import NotFound from "./pages/NotFound";
@@ -29,9 +29,9 @@ export default function App() {
                         <Route path="/core" element={<CoreTeam />}></Route>
                         <Route path="/core/:membername" element={<TeamMember />}></Route>
 
+                        <Route path="/meta" element={ <Meta /> }></Route>
                     </Route>
 
-                    <Route path="/meta" element={ <Meta /> }></Route>
                     <Route path="/*" element={ <NotFound /> }></Route>
                 </Routes>
             </Router>
