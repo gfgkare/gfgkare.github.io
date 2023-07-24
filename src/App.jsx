@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Home from "./views/Home";
 import CoreTeam from "./views/CoreTeam";
 import TeamMember from "./views/TeamMember";
+import ChapterMember from "./views/ChapterMember";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
@@ -28,7 +29,9 @@ export default function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/core" element={<CoreTeam />}></Route>
                         <Route path="/core/:membername" element={<TeamMember />}></Route>
+                        <Route path="/chapter/:membername" element={<ChapterMember />}></Route>
 
+ 
                         <Route path="/meta" element={ <Meta /> }></Route>
                     </Route>
 

@@ -124,6 +124,17 @@ div.sectionTitle {
     color: rgb(23, 199, 0);
 }
 
+div.chapterMember {
+
+    img.memberImage {
+        border: 7px solid $text;
+    }
+
+    div.otherDetails {
+        background-color: rgba(white, .05);
+    }
+}
+
 // LIGHT STYLES ================================
 
 body.light {
@@ -239,4 +250,17 @@ body.light {
             }
         }
     }
+
+    div.chapterMember {
+
+        img.memberImage {
+            border: 7px solid $background;
+        }
+
+        div.otherDetails {
+            background-color: rgba(black, .05);
+        }
+    }
+
+    
 }
