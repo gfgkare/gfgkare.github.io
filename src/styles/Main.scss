@@ -39,6 +39,35 @@ div.navBar {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 1rem;
+
+            .dropDown {
+
+                .button {
+                    border-radius: 8px;
+
+                    &:hover {
+                        
+                        + .list {
+                            height: 100%;
+                            padding: .3rem 1rem;
+                        }
+
+                    }
+                }
+
+                .list {
+                    position: absolute;
+                    top: 100%;
+                    border-radius: 8px;
+                    position: relative;
+                    background-color: rgba(white, .4);
+                    // padding: .3rem 1rem;
+                    // height: 0;
+                    overflow: hidden;
+                    // padding: 0;  
+                }
+            }
         }    
     }
 

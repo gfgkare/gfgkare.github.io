@@ -1,0 +1,86 @@
+@import "./Variables.scss";
+
+div.teamMember {
+    width: 80vw;
+    margin: 0 auto;
+    transform: translateY(10%);
+    // height: 80vh;
+    // background-color: red;
+    padding: 2rem 4rem;
+    display: flex;
+    gap: 4rem;
+
+    img.teamMemberImage {
+        height: 400px;
+        width: 300px;
+        border-radius: 6px;
+        // box-shadow: -5px 4px .5px .1px darken($text, 30);
+        object-fit: cover;
+    }
+
+    div.teamMemberDetails {
+        // height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .7rem;
+
+        .teamMemberRole {
+            font-size: 24px;
+            font-weight: 500;
+        }
+    }
+
+    div.teamMemberAbout {
+        padding: 2rem 0;
+    }
+
+    div.teamMemberLinks {
+        display: flex;
+        gap: 1rem;
+
+        .linkIcon {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @for $i from 1 through 11 {
+            .linkIcon:nth-child(#{$i}) {
+                transition-delay: #{$i * 0.2}s !important;
+            }
+        }
+
+        &.visible {
+            .linkIcon {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    div.teamMember {
+        transform: translateY(0);
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        div.teamMemberDetails {
+            gap: .5rem;
+        }
+
+        div.teamMemberName,
+        div.teamMemberRole,
+        div.teamMemberLinks {
+            margin: 0 auto;
+        }
+    }
+}

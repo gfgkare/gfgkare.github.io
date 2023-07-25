@@ -6,84 +6,49 @@ import vineethImg from "../assets/vineeth.jpg";
 import vivekImg from "../assets/vivek.jpg";
 
 
-const coreTeamMembers = [
-    {
+const coreTeamMembers = {
+    "ashok": {
         name: "Ashok Reddy",
         role: "Chair Person",
-        about: "A talented person surely capable of building an army for world peace.",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         image: ashokImg,
         url: "/core/Ashok",
     },
-    {
+    "vineeth": {
         name: "Krishna Vineeth",
         role: "Vice Chair Person",
-        about: "A talented person surely capable of building an army for world peace.",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         image: vineethImg,
         url: "/core/Vineeth",
     },
-    {
+    "balaji": {
         name: "N Balaji",
         role: "Graphic Designer",
-        about: "A talented person surely capable of building an army for world peace.",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         image: balajiImg,
         url: "/core/Balaji",
     },
-    {
+    "jayasri": {
         name: "Jayasri",
         role: "Content Writer",
-        about: "A talented person surely capable of building an army for world peace.",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         image: jayasriImg,
         url: "/core/Jayasri",
     },
-    {
+    "vivek": {
         name: "Vivek",
         role: "Marketing Head",
-        about: "A talented person surely capable of building an army for world peace.",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         image: vivekImg,
         url: "/core/Vivek",
     },
-    {
-        name: "Vivek",
-        role: "Marketing Head",
-        about: "A talented person surely capable of building an army for world peace.",
-        image: vivekImg,
-        url: "/core/Vivek",
-    },
-    {
-        name: "Ashok Reddy",
-        role: "Chair Person",
-        about: "A talented person surely capable of building an army for world peace.",
-        image: ashokImg,
-        url: "/core/Ashok",
-    },
-    {
-        name: "Krishna Vineeth",
-        role: "Vice Chair Person",
-        about: "A talented person surely capable of building an army for world peace.",
-        image: vineethImg,
-        url: "/core/Vineeth",
-    },
-    {
-        name: "N Balaji",
-        role: "Graphic Designer",
-        about: "A talented person surely capable of building an army for world peace.",
-        image: balajiImg,
-        url: "/core/Balaji",
-    },
-    {
-        name: "Jayasri",
-        role: "Content Writer",
-        about: "A talented person surely capable of building an army for world peace.",
-        image: jayasriImg,
-        url: "/core/Jayasri",
-    },
-    {
+    "jagadeesh": {
         name: "Jagadeesh Siddhireddy",
         role: "Graphic Design Head",
-        about: "A talented person surely capable of building an army for world peace.",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         image: jagdeeshImg,
         url: "/core/Jagadeesh",
     },
-];
+};
 
 export default coreTeamMembers;

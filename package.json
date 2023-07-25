@@ -17,6 +17,7 @@
     "react-flickity-component": "^4.0.6",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.63.6"
   },
   "devDependencies": {

@@ -228,7 +228,7 @@ export default function Main() {
                         }`}
                         ref={teamSection}
                     >
-                        {coreTeamMembers.map((member) => {
+                        {Object.values(coreTeamMembers).map((member) => {
                             return (
                                 <div
                                     className="memberContainer"

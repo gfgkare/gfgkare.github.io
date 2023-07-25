@@ -33,6 +33,18 @@ export default function Main() {
                     </div>
 
                     <div className="rightMenu">
+                        
+                        {/* <div className="dropDown">
+                            <button className="button">\/</button>
+                            <div className="list">
+                                <div className="item">Home</div>
+                                <div className="item">Home</div>
+                                <div className="item">Home</div>
+                                <div className="item">Home</div>
+                                <div className="item">Home</div>
+                            </div>
+                        </div> */}
+                        
                         <input
                             type="checkbox"
                             class="toggle"

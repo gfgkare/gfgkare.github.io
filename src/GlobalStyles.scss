@@ -34,6 +34,8 @@ button:hover {
     border-color: #646cff;
 }
 
+
+
 * {
     transition: color 0.4s ease;
     transition-property: color, background-color;
@@ -110,3 +112,31 @@ html:hover ::-webkit-scrollbar-thumb {
         display: none !important;
     }
 }
+
+
+// PAGE TRANSITION STYLE
+
+
+.fade-enter {
+	opacity: 0;
+	/* transform: translate(0, 25px); */
+	z-index: 1;
+}
+.fade-enter.fade-enter-active {
+	opacity: 1;
+	/* transform: translate(0, 0); */
+
+	transition: opacity 250ms ease-out, transform 300ms ease;
+}
+.fade-exit {
+	opacity: 1;
+	/* transform: translate(0, 0); */
+}
+.fade-exit.fade-exit-active {
+	opacity: 0;
+	/* transform: translate(0, 30px); */
+
+	transition: opacity 250ms ease-out, transform 300ms ease;
+}
+
+//
