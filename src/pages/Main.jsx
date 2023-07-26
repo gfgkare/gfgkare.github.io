@@ -6,9 +6,12 @@ import ScrollContainer from "../components/ScrollContainer";
 
 import gfgLogo from "../assets/gfg.png";
 // import kluLogo from "../assets/klu.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Main() {
     const { theme, setTheme } = useMisc();
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -21,7 +24,8 @@ export default function Main() {
                             src={gfgLogo}
                             alt="GFG logo"
                             onClick={() =>
-                                window.open("https://www.geeksforgeeks.org")
+                                // window.open("https://www.geeksforgeeks.org")
+                                navigate("/")
                             }
                         />
                         {/* <img
