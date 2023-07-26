@@ -5,7 +5,7 @@ import { useMisc } from "../contexts/MiscContext";
 import ScrollContainer from "../components/ScrollContainer";
 
 import gfgLogo from "../assets/gfg.png";
-import kluLogo from "../assets/klu.png";
+// import kluLogo from "../assets/klu.png";
 
 export default function Main() {
     const { theme, setTheme } = useMisc();
@@ -24,12 +24,12 @@ export default function Main() {
                                 window.open("https://www.geeksforgeeks.org")
                             }
                         />
-                        <img
+                        {/* <img
                             className="navIcon"
                             src={kluLogo}
                             alt="KLU logo"
                             onClick={() => window.open("https://klu.ac.in")}
-                        />
+                        /> */}
                     </div>
 
                     <div className="rightMenu">
