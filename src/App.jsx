@@ -14,7 +14,7 @@ import ChapterMember from "./views/ChapterMember";
 
 import coreTeamMembers from "./data/coreTeamInfo";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
@@ -22,13 +22,15 @@ import { useEffect } from "react";
 
 export default function App() {
 
+    // const location =
+
     useEffect(() => {
         document.body.classList.add("dark");
     })
 
     return (
         <>
-            <Router>
+            {/* <Router> */}
             <TransitionGroup component={null}>
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
@@ -51,7 +53,7 @@ export default function App() {
                     </Routes>
                     </CSSTransition>
                 </TransitionGroup>
-            </Router>
+            {/* </Router> */}
         </>
     );
 }

@@ -3,12 +3,20 @@
 div.teamMember {
     width: 80vw;
     margin: 0 auto;
-    transform: translateY(10%);
     // height: 80vh;
     // background-color: red;
     padding: 2rem 4rem;
     display: flex;
     gap: 4rem;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: transform .5s ease, opacity .5s ease;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(10%);
+
+    }
 
     img.teamMemberImage {
         height: 400px;

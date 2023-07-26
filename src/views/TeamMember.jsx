@@ -12,7 +12,7 @@ export default function TeamMember(props) {
     // const [memberName, setMemberName] = useState();
 
     const teamMemberLinks = useRef();
-
+    // const teamMemberDiv = useRef();
     // const params = useParams();
 
     useEffect(() => {
@@ -26,6 +26,10 @@ export default function TeamMember(props) {
         });
 
         teamLinkObserver.observe(teamMemberLinks.current);
+        // const x = setTimeout(() => {
+        //     document.querySelector(".teamMember").classList.add("visible");
+        //     clearTimeout(x);
+        // }, 50)
 
 
         return () => {
