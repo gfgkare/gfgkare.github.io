@@ -1,44 +1,196 @@
+@import "./Variables.scss";
 
+
+div.bubble {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    right: 6%;
+    top: 20%;
+    // bottom: random($limit: 5);
+    // z-index: 1;
+
+    &.blue {
+        box-shadow: inset 0 4px 15px 4px rgb(42, 51, 92);
+        background: radial-gradient(rgb(49, 65, 237),rgb(42, 59, 247));
+    }
+
+    &.red {
+        left: 6%;
+        top: 70%;
+        box-shadow: inset 0 -3px 15px 4px rgb(104, 0, 0);
+        background: radial-gradient(rgb(217, 29, 29), rgb(168, 36, 3));
+    }
+
+}
 
 div.chapterMember {
-    // background-color: red;
-    // min-height: 90vh;
-    width: 100%;
+    z-index: 66;
+    width: 70vw;
+    margin: 0 auto;
+    min-height: 60vh;
+    // background: rgba(white, .04);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    padding: 2rem 4rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 0;
-    gap: 1rem;
+    gap: 4rem;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: transform .5s ease, opacity .5s ease;
 
+    &.visible {
+        opacity: 1;
+        transform: translateY(10%);
 
-    img.memberImage {
-        height: 200px;
-        width: 200px;
+    }
+
+    .chapterMemberName {
+        font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
+    }
+
+    img.chapterMemberImage {
+        // height: 400px;
+        min-height: 100%;
+        width: 300px;
+        border-radius: 6px;
+        // box-shadow: -5px 4px .5px .1px darken($text, 30);
         object-fit: cover;
-        border-radius: 50%;
+        filter: brightness(.97);
+        transition-property: filter, box-shadow;
+        transition-duration: 100ms;
+
+        &:hover {
+            filter: brightness(1);
+        }
+
+        // &:after {
+        //     content: "";
+        //     position: absolute;
+        //       top: -50%;
+        //     left: -60%;
+        //     width: 20%;
+        //     height: 200%;
+        //     opacity: 0;
+        //     transform: rotate(30deg);
+          
+        //     background: rgba(255, 255, 255, 0.13);
+        //     background: linear-gradient(
+        //       to right,
+        //       rgba(255, 255, 255, 0.13) 0%,
+        //       rgba(255, 255, 255, 0.13) 77%,
+        //       rgba(255, 255, 255, 0.5) 92%,
+        //       rgba(255, 255, 255, 0.0) 100%
+        //     );
+        //   }
+          
+        //   /* Hover state - trigger effect */
+        //   &:hover:after {
+        //     opacity: 1;
+        //     left: 130%;
+        //     transition-property: left, top, opacity;
+        //     transition-duration: 0.7s, 0.7s, 0.15s;
+        //     transition-timing-function: ease;
+        //   }
+          
+        //   /* Active state */
+        //   &:active:after {
+        //     opacity: 0;
+        //   }
+          
     }
 
-    div.memberName {
-        font-size: 30px;
-        font-weight: 600;
+    div.chapterMemberDetails {
+        // height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .7rem;
+
+        div.chapterMemberTopDetails {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            gap: .4rem;
+
+            .chapterMemberRole {
+                font-size: 24px;
+                font-weight: 500;
+            }
+    
+            .yearAndDept {
+                font-size: 20px;
+                opacity: .8;
+            }
+    
+            .chapterMemberId {
+                font-size: 18px;
+                opacity: .8;
+            }
+        }
+
+        
     }
 
-    div.memberSince {
-        font-size: 14px;
-        opacity: .85;
+    div.chapterMemberAbout {
+        padding: 2rem 0;
     }
 
-    div.otherDetails {
-        width: 75%;
-        height: 100px;
-        border-radius: 8px;
-        padding: 2rem;
+    div.chapterMemberLinks {
+        margin-top: auto;
+        display: flex;
+        gap: 1rem;
+
+        .linkIcon {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @for $i from 1 through 11 {
+            .linkIcon:nth-child(#{$i}) {
+                transition-delay: #{$i * 0.1}s !important;
+            }
+        }
+
+        &.visible {
+            .linkIcon {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            cursor: pointer;
+        }
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {
     div.chapterMember {
-        min-height: 90vh;
+        padding-top: 3rem;
+        transform: translateY(0);
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        div.chapterMemberDetails {
+            gap: .5rem;
+        }
+
+        div.chapterMemberTopDetails {
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        div.chapterMemberName,
+        div.chapterMemberRole,
+        div.chapterMemberLinks {
+            margin: 0 auto;
+        }
     }
 }

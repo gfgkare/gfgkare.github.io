@@ -232,6 +232,7 @@ export default function Main() {
                             return (
                                 <div
                                     className="memberContainer"
+                                    key={member.name}
                                     onClick={() => navigate(member.url)}
                                 >
                                     <div className="memberImage">
@@ -335,6 +336,7 @@ export default function Main() {
                         return (
                             <div
                                 className="eventSlide"
+                                key={index}
                                 onClick={(e) => {
                                     console.log(e.target.parentElement);
                                     if (

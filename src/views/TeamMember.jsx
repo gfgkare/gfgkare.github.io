@@ -26,10 +26,10 @@ export default function TeamMember(props) {
         });
 
         teamLinkObserver.observe(teamMemberLinks.current);
-        // const x = setTimeout(() => {
-        //     document.querySelector(".teamMember").classList.add("visible");
-        //     clearTimeout(x);
-        // }, 50)
+        const x = setTimeout(() => {
+            document.querySelector(".teamMember").classList.add("visible");
+            clearTimeout(x);
+        }, 50)
 
 
         return () => {
@@ -38,7 +38,7 @@ export default function TeamMember(props) {
     }, []);
 
     return (
-        <div className="teamMember">
+        <div className="teamMember visible">
             <img className="teamMemberImage" src={props.info.image} />
 
             <div className="teamMemberDetails">

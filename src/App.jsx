@@ -13,6 +13,7 @@ import TeamMember from "./views/TeamMember";
 import ChapterMember from "./views/ChapterMember";
 
 import coreTeamMembers from "./data/coreTeamInfo";
+import chapterMembersInfo from "./data/chapterMembersInfo";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
@@ -43,7 +44,12 @@ export default function App() {
                                     return ( <Route path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
                                 })
                             }
-                            <Route path="/chapter/:membername" element={<ChapterMember />}></Route>
+                            {/* <Route path="/chapter/:memberId" element={<ChapterMember />}></Route> */}
+                            {
+                                Object.keys(chapterMembersInfo).map((key) => {
+                                    return ( <Route path={`/chapter/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
+                                })
+                            }
                             <Route path="/events/:eventname" element={<UnderConstruction />}></Route>
     
                             <Route path="/meta" element={ <Meta /> }></Route>

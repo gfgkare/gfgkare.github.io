@@ -1,6 +1,5 @@
 @import "./styles/Variables.scss";
 
-
 body.dark {
     color: $text;
     background-color: $background;
@@ -125,13 +124,17 @@ div.sectionTitle {
 }
 
 div.chapterMember {
+    background: linear-gradient(to left, rgba($text, 0.088), rgba($text, 0.1));
+    border: 2px solid rgba($text, 0.2);
 
-    img.memberImage {
-        border: 7px solid $text;
+    img.chapterMemberImage {
+        &:hover {
+            box-shadow: 0 7px 30px 2px rgba($text, 0.2);
+        }
     }
 
     div.otherDetails {
-        background-color: rgba(white, .05);
+        background-color: rgba(white, 0.05);
     }
 }
 
@@ -207,15 +210,17 @@ body.light {
             .flickity-viewport {
                 background-color: darken($text, 4);
                 border: 2px solid darken($text, 7);
-    
+
                 div.eventSlide {
                     :nth-child(1) {
-                        border-color: $background $background transparent $background;
+                        border-color: $background $background transparent
+                            $background;
                     }
-    
+
                     :last-child {
                         // border: 1px solid $background;
-                        border-color: transparent $background $background $background;
+                        border-color: transparent $background $background
+                            $background;
                     }
 
                     div.eventDetails {
@@ -252,15 +257,22 @@ body.light {
     }
 
     div.chapterMember {
+        background: linear-gradient(
+            to left,
+            rgba($background, 0.01),
+            rgba($background, 0.06)
+        );
+        border: 2px solid rgba($background, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
-        img.memberImage {
-            border: 7px solid $background;
+        img.chapterMemberImage {
+            &:hover {
+                box-shadow: 0 7px 30px 2px rgba($background, 0.06)
+            }
         }
 
         div.otherDetails {
-            background-color: rgba(black, .05);
+            background-color: rgba(black, 0.05);
         }
     }
-
-    
 }
