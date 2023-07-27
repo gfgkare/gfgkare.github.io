@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { AiFillLinkedin, AiFillGithub, AiFillYoutube } from "react-icons/ai";
 import { BsGlobe, BsStackOverflow } from "react-icons/bs";
 
-import "../styles/chapterMember.scss";
+import "../styles/ChapterMember.scss";
 // import chapterMembersInfo from "../data/chapterMembersInfo";
 
 export default function ChapterMember(props) {
