@@ -13,9 +13,9 @@ export default function Meta() {
 
             <ul>
                 <li>Author: <a href="https://www.github.com/sabzdotpy" target="_blank">sabzdotpy</a></li>
-                <li>CID: fa55b5a</li>
+                <li>CID: 6cd698</li>
                 <li>Status: dev</li>
-                <li>Last Updated: July 25</li>
+                <li>Last Updated: July 27</li>
             </ul>
 
 
