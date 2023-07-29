@@ -9,6 +9,19 @@ div.bubblesBg {
     position: absolute;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 100%;
+    min-height: 100vh !important;
+    min-width: 100vw !important;
+}
+
+.rotate {
+    animation: rotate 2s ease infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
