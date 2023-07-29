@@ -55,7 +55,7 @@ export default function ChapterMember(props) {
                             <span className="yearAndDept">{props.info.year} {props.info.department}</span>
                         </div>
                         <div className="chapterMemberId">
-                            Chapter ID: {props.info.id}
+                            Membership ID: {props.info.id}
                         </div>
                     </div>
 

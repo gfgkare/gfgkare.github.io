@@ -13,7 +13,7 @@ div.bubble {
     // z-index: 1;
 
     &.blue {
-        box-shadow: inset 0 4px 15px 4px rgb(42, 51, 92);
+        box-shadow: inset 0 4px 15px 4px rgb(58, 72, 133);
         background: radial-gradient(rgb(49, 65, 237),rgb(42, 59, 247));
     }
 
@@ -30,10 +30,12 @@ div.chapterMember {
     z-index: 66;
     width: 70vw;
     margin: 0 auto;
+    // margin-bottom: 4rem;
     min-height: 60vh;
+    max-height: 95vh !important;
     // background: rgba(white, .04);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
     padding: 2rem 4rem;
     display: flex;
     gap: 4rem;
@@ -116,8 +118,12 @@ div.chapterMember {
             align-items: left;
             gap: .4rem;
 
+            .chapterMemberName {
+                font-size: clamp(0.7rem, 0.8391rem + 3.8261vw, 2.3rem);
+            }
+
             .chapterMemberRole {
-                font-size: 24px;
+                font-size: clamp(0.5rem, 0.4391rem + 3.4261vw, 1.7rem);
                 font-weight: 500;
             }
     
@@ -178,6 +184,10 @@ div.chapterMember {
         align-items: center;
         gap: 2rem;
 
+        &.visible {
+            transform: translateY(5%);
+        }
+
         div.chapterMemberDetails {
             gap: .5rem;
         }
@@ -185,6 +195,7 @@ div.chapterMember {
         div.chapterMemberTopDetails {
             margin: 0 auto;
             align-items: center;
+            gap: 0 !important;
         }
 
         div.chapterMemberName,
