@@ -5,6 +5,8 @@ import { AiFillLinkedin, AiFillGithub, AiFillYoutube } from "react-icons/ai";
 import { BsGlobe, BsStackOverflow } from "react-icons/bs";
 
 import "../styles/ChapterMember.scss";
+import ShapesBackground from "../components/ShapesBackground";
+
 // import chapterMembersInfo from "../data/chapterMembersInfo";
 
 export default function ChapterMember(props) {
@@ -38,9 +40,8 @@ export default function ChapterMember(props) {
 
     return (
         <>
-            <div className="bubble blue"></div>
 
-            <div className="bubble red"></div>
+        <ShapesBackground />
 
             <div className="chapterMember">
                 <img className="chapterMemberImage" src={props.info.image} />
