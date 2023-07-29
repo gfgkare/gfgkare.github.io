@@ -12,7 +12,7 @@ export default function ShapesBackground() {
 
     return (
         <div className="bubblesBg">
-            {[...Array(rand(1,2))].map(() => {
+            {/* {[...Array(rand(1,2))].map(() => {
                 return (
                     <img
                         src={Triangle}
@@ -49,7 +49,7 @@ export default function ShapesBackground() {
                         }}
                     />
                 );
-            })}
+            })} */}
         </div>
     );
 }

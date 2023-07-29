@@ -19,6 +19,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
+import allData from "./data/csvjson.json"
+
 
 
 export default function App() {
@@ -38,18 +40,24 @@ export default function App() {
                         <Route path="/" element={<Main />}>
                             <Route path="/" element={<Home />}></Route>
                             <Route path="/core" element={<CoreTeam />}></Route>
-                            {/* <Route path="/core/:membername" element={<TeamMember />}></Route> */}
                             {
                                 Object.keys(coreTeamMembers).map((key) => {
                                     return ( <Route path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
                                 })
                             }
-                            {/* <Route path="/chapter/:memberId" element={<ChapterMember />}></Route> */}
+{/*                             
                             {
                                 Object.keys(chapterMembersInfo).map((key) => {
                                     return ( <Route path={`/members/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
                                 })
+                            } */}
+
+                            {
+                                allData.map((memberData, index) => {
+                                    return ( <Route key={index} path={`members/${memberData["Membership ID"]}`} element={ <ChapterMember info={{ ...memberData }}  /> } /> )
+                                })
                             }
+
                             <Route path="/events/:eventname" element={<UnderConstruction />}></Route>
     
                             <Route path="/meta" element={ <Meta /> }></Route>

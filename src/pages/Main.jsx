@@ -24,10 +24,9 @@ export default function Main() {
                             className="navIcon"
                             src={gfgLogo}
                             alt="GFG logo"
-                            onClick={() =>
-                                // window.open("https://www.geeksforgeeks.org")
-                                navigate("/")
-                            }
+                            // onClick={() =>
+                            //     navigate("/")
+                            // }
                         />
 
                         {/* <img

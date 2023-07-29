@@ -8,6 +8,8 @@ import "../styles/ChapterMember.scss";
 import ShapesBackground from "../components/ShapesBackground";
 
 // import chapterMembersInfo from "../data/chapterMembersInfo";
+import headShot from "../assets/headshot.jpg";
+
 
 export default function ChapterMember(props) {
     const chapterMemberLinks = useRef();
@@ -16,6 +18,7 @@ export default function ChapterMember(props) {
     // const [memberDetails, setMemberDetails] = useState();
 
     useEffect(() => {
+        console.log(props)
         // setMemberName(params.memberId || "101");
 
         // setMemberDetails(chapterMembersInfo.get(params.memberId));
@@ -41,26 +44,30 @@ export default function ChapterMember(props) {
     return (
         <>
 
-        {/* <ShapesBackground /> */}
+        <ShapesBackground />
 
             <div className="chapterMember">
-                <img className="chapterMemberImage" src={props.info.image} />
+                <img className="chapterMemberImage" src={headShot} />
 
                 <div className="chapterMemberDetails">
                     <div className="chapterMemberTopDetails">
                         <div className="sectionTitle chapterMemberName">
-                            {props.info.name}
+                            {props.info.Name}
                         </div>
                         <div className="chapterMemberRole">
-                            {props.info.role} - {" "}
-                            <span className="yearAndDept">{props.info.year} {props.info.department}</span>
+                            {/* {props.info.role} - */}
+                            {"Student Member - "}
+                            {/* <span className="yearAndDept">{props.info.year} / {props.info.department}</span> */}
+                            <span className="yearAndDept">{props.info.Year} / {props.info.Dept}</span>
+
                         </div>
                         <div className="chapterMemberId">
-                            Membership ID: {props.info.id}
+                            {/* Membership ID: {props.info.id} */}
+                            Membership ID: {props.info["Membership ID"]}
                         </div>
                     </div>
 
-                    <div className="chapterMemberAbout">{props.info.about}</div>
+                    <div className="chapterMemberAbout">{"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}</div>
                     <div
                         className="chapterMemberLinks"
                         ref={chapterMemberLinks}

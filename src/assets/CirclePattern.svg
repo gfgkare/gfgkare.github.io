@@ -1,9 +1,9 @@
 <svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_2_3)">
 <rect opacity="0.3" x="-211" y="229" width="285" height="285" fill="url(#pattern0)"/>
-<circle opacity="0.3" cx="1322.77" cy="-52.2332" r="320.468" transform="rotate(120 1322.77 -52.2332)" fill="#444444" fill-opacity="0.1"/>
+<circle opacity="0.3" cx="1322.77" cy="-52.2332" r="320.468" transform="rotate(120 1322.77 -52.2332)" fill="#444444" fill-opacity="0.2"/>
 <path opacity="0.6" d="M1235.47 98.1707C1172.95 62.0728 1151.53 -17.8757 1187.63 -80.3992C1223.72 -142.923 1303.67 -164.345 1366.2 -128.247C1428.72 -92.1489 1450.14 -12.2004 1414.04 50.3231C1377.95 112.847 1298 134.269 1235.47 98.1707Z" fill="white" fill-opacity="0.7"/>
-<circle opacity="0.3" cx="-80" cy="370" r="250" fill="#444444" fill-opacity="0.1"/>
+<circle opacity="0.3" cx="-80" cy="370" r="250" fill="#444444" fill-opacity="0.2"/>
 <path opacity="0.6" d="M55.6614 370.309C55.6614 426.63 10.0044 472.287 -46.3164 472.287C-102.637 472.287 -148.294 426.63 -148.294 370.309C-148.294 313.988 -102.637 268.331 -46.3164 268.331C10.0044 268.331 55.6614 313.988 55.6614 370.309Z" fill="white" fill-opacity="0.7"/>
 <circle cx="796" cy="52" r="5" fill="url(#paint0_linear_2_3)"/>
 </g>

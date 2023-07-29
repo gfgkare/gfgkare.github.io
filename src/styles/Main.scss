@@ -22,6 +22,7 @@ div.navBar {
         align-items: center;
 
         span.centerText {
+            font-family: "Outfit";
             font-size: 30px;
             font-weight: 600;
         }
@@ -33,7 +34,7 @@ div.navBar {
             // margin-left: 2rem;
     
             img.navIcon {
-                cursor: pointer;
+                // cursor: pointer;
                 height: 100px;
                 width: 100px;
                 object-fit: contain;
