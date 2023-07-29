@@ -70,7 +70,7 @@ export default function ChapterMember(props) {
                         <AiFillGithub className="linkIcon" size={"25px"} />
                         {/* <BsGlobe className="linkIcon" size={"25px"} /> */}
                         {/* <BsStackOverflow className="linkIcon" size={"25px"} /> */}
-                        <AiFillYoutube className="linkIcon" size={"25px"} />
+                        {/* <AiFillYoutube className="linkIcon" size={"25px"} /> */}
                     </div>
                 </div>
             </div>
