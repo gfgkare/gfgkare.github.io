@@ -1,6 +1,10 @@
 @import "./Variables.scss";
 
 
+.out {
+    // margin-bottom: 2rem;
+}
+
 div.bubble {
     height: 80px;
     width: 80px;
@@ -30,9 +34,10 @@ div.chapterMember {
     z-index: 66;
     width: 70vw;
     margin: 0 auto;
-    // margin-bottom: 4rem;
+    margin-bottom: 4rem;
     min-height: 60vh;
-    max-height: 95vh !important;
+    
+    // max-height: min(95vh, 400px) !important;
     // background: rgba(white, .04);
     border-radius: 16px;
     backdrop-filter: blur(2px);
