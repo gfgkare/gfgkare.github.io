@@ -47,7 +47,7 @@ export default function App() {
                             {/* <Route path="/chapter/:memberId" element={<ChapterMember />}></Route> */}
                             {
                                 Object.keys(chapterMembersInfo).map((key) => {
-                                    return ( <Route path={`/chapter/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
+                                    return ( <Route path={`/mmebers/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
                                 })
                             }
                             <Route path="/events/:eventname" element={<UnderConstruction />}></Route>
