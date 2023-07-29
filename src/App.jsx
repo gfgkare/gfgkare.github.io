@@ -26,7 +26,7 @@ export default function App() {
     // const location =
 
     useEffect(() => {
-        document.body.classList.add("dark");
+        document.body.classList.add("light");
     })
 
     return (
