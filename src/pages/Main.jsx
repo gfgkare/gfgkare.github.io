@@ -4,7 +4,7 @@ import { useMisc } from "../contexts/MiscContext";
 
 import ScrollContainer from "../components/ScrollContainer";
 
-import gfgLogo from "../assets/gfg.png";
+import gfgLogo from "../assets/update logo.png";
 // import kluLogo from "../assets/klu.png";
 import { useNavigate } from "react-router-dom";
 
