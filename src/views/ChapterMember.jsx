@@ -41,7 +41,7 @@ export default function ChapterMember(props) {
     return (
         <>
 
-        <ShapesBackground />
+        {/* <ShapesBackground /> */}
 
             <div className="chapterMember">
                 <img className="chapterMemberImage" src={props.info.image} />

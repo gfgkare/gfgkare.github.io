@@ -38,7 +38,7 @@ export default function ShapesBackground() {
                 );
             })}
 
-            {[...Array(rand(1,1))].map(() => {
+            {[...Array(rand(1,3))].map(() => {
                 return (
                     <img
                         src={Cube}

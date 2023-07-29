@@ -1,7 +1,7 @@
 import headShot from "../assets/headshot.jpg";
 
 const chapterMembersInfo = {
-    "GFGKR1": {
+    "GK231": {
         name: "Sabari S",
         role: "Student Member",
         year: "II",
