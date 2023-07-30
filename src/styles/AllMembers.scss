@@ -1,0 +1,26 @@
+
+
+div.allMembersContainer {
+    width: min(80%, 900px);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    // @for $i from 1 through 11 {
+    //     .allMembersContainer:nth-child(#{$i}) {
+    //         transition-delay: #{$i * .15}s !important;
+    //     }
+    // }
+
+    button {
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+    }
+
+}

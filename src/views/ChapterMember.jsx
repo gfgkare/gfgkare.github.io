@@ -9,21 +9,21 @@ import ShapesBackground from "../components/ShapesBackground";
 
 // import chapterMembersInfo from "../data/chapterMembersInfo";
 import headShot from "../assets/headshot.jpg";
+import { useMisc } from "../contexts/MiscContext";
 
 export default function ChapterMember(props) {
+
+    const {setNavTitle, toTitleCase} = useMisc();
+
     const chapterMemberLinks = useRef();
     // const chapterMemberDiv = useRef();
     const params = useParams();
     // const [memberDetails, setMemberDetails] = useState();
 
-    const toTitleCase = (str) => {
-        return str.replace(/\w\S*/g, function (txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
-    };
 
     useEffect(() => {
-        console.log(props);
+        setNavTitle("MEMBER DETAILS")
+        // console.log(props);
         // setMemberName(params.memberId || "101");
 
         // setMemberDetails(chapterMembersInfo.get(params.memberId));

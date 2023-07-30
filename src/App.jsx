@@ -20,6 +20,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
 import allData from "./data/csvjson.json"
+import AllMembers from "./views/AllMembers";
 
 
 
@@ -40,6 +41,7 @@ export default function App() {
                         <Route path="/" element={<Main />}>
                             <Route path="/" element={<Home />}></Route>
                             <Route path="/core" element={<CoreTeam />}></Route>
+                            <Route path="/members" element={<AllMembers />}></Route>
                             {
                                 Object.keys(coreTeamMembers).map((key) => {
                                     return ( <Route path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )

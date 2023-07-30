@@ -11,7 +11,7 @@ import gfgLogo from "../assets/GFG_KARE.svg";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function Main() {
-    const { theme, setTheme } = useMisc();
+    const { theme, setTheme, navTitle } = useMisc();
 
     const [showNavBox, setShowNavBox] = useState(false);
 
@@ -40,7 +40,7 @@ export default function Main() {
                         /> */}
                     </div>
                     <span className="centerText hideOnMobile">
-                        GFG KARE STUDENT CHAPTER
+                        {navTitle}
                     </span>
 
                     <div className="rightMenu">

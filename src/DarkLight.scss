@@ -138,6 +138,25 @@ div.chapterMember {
     }
 }
 
+div.allMembersContainer {
+    div.memberDiv {
+        background: linear-gradient(
+            lighten($background, 6),
+            lighten($background, 9)
+        );
+        border: 2px solid lighten($background, 20);
+
+        .visitButton {
+            background-color: lighten($background, 15);
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: lighten($background, 20);
+            }
+        }
+    }
+}
+
 // LIGHT STYLES ================================
 
 body.light {
@@ -267,12 +286,31 @@ body.light {
 
         img.chapterMemberImage {
             &:hover {
-                box-shadow: 0 7px 30px 2px rgba($background, 0.06)
+                box-shadow: 0 7px 30px 2px rgba($background, 0.06);
             }
         }
 
         div.otherDetails {
             background-color: rgba(black, 0.05);
+        }
+    }
+
+    div.allMembersContainer {
+        div.memberDiv {
+            background: linear-gradient(
+                darken($text, 2),
+                darken($text, 6)
+            );
+            border: 2px solid darken($text, 15);
+
+            .visitButton {
+                background-color: darken($text, 13);
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: darken($text, 10);
+                }
+            }
         }
     }
 }

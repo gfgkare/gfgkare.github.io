@@ -1,0 +1,46 @@
+.memberDiv {
+    background-color: rgba(black, 0.4);
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    // transform: scale(1) translateY(20px);
+    // transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &.visible {
+        opacity: 1;
+    }
+
+    // &:hover {
+    //     transform: scale(1.001);
+    // }
+    // padding: 1rem 2rem;
+
+    // max-height: 100px;
+
+    .memberDivWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .visitButton {
+            position: relative;
+            background-color: red;
+            width: 120px;
+            padding: 1rem;
+            border-radius: 0 16px 16px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .nameAndId {
+            padding: 1.5rem 2rem;
+            min-width: 50%;
+
+            .name {
+                font-size: clamp(1rem, 1.3rem, 1.6rem);
+                font-weight: 500;
+            }
+        }
+    }
+}
