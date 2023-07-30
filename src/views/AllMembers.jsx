@@ -24,7 +24,7 @@ export default function AllMembers() {
     };
 
     useEffect(() => {
-        setNavTitle("ALL MEMBERS");
+        setNavTitle("STUDENT MEMBERS");
         getAndSetData();
     }, []);
 

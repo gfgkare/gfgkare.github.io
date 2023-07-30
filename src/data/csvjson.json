@@ -1,5 +1,11 @@
 [
   {
+    "Name": "CHEEDARLA PAVAN KUMAR",
+    "Year": "IV",
+    "Dept": "CSE",
+    "Membership ID": "GK2311011101"
+  },
+  {
     "Name": "OLETI BOBBY SAI VIGNESH",
     "Year": "III",
     "Dept": "CSE",
@@ -66,34 +72,16 @@
     "Membership ID": "GK23100111000"
   },
   {
-    "Name": "BOPPANA ROHITH",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101011010"
-  },
-  {
     "Name": "Lagisetty Ravikiran",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23110011100"
   },
   {
-    "Name": "K.AMARNATH",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110010010"
-  },
-  {
     "Name": "AITHA VEERA NAGA RIYESH",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK2310110001"
-  },
-  {
-    "Name": "bhatlapenumarthy lokesh kumar",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311001010"
   },
   {
     "Name": "CHEKKA SAI KRISHNA",
@@ -106,12 +94,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23101100100"
-  },
-  {
-    "Name": "THEPIREDDY AKASH REDDY",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310011111"
   },
   {
     "Name": "Paidimarri Nithish",
@@ -174,12 +156,6 @@
     "Membership ID": "GK231110100"
   },
   {
-    "Name": "Kothapalli Venkata Hitesh Kumar Chowdary",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310010101"
-  },
-  {
     "Name": "Sugunabhiram Usthili",
     "Year": "III",
     "Dept": "CSE",
@@ -192,22 +168,10 @@
     "Membership ID": "GK23101000000"
   },
   {
-    "Name": "Keerthimanideep",
-    "Year": "II",
-    "Dept": "IT",
-    "Membership ID": "GK23101000110"
-  },
-  {
     "Name": "Guturi Ranga Sai Teja",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK231100111"
-  },
-  {
-    "Name": "LEBURU VENKATA NISHANTH",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310110010"
   },
   {
     "Name": "Narasingu Mokshith",
@@ -222,22 +186,10 @@
     "Membership ID": "GK2311001110"
   },
   {
-    "Name": "MARUTHI KUMAR",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110100100"
-  },
-  {
     "Name": "K DEVISREE",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK2311100100"
-  },
-  {
-    "Name": "A Charandeep",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101001010"
   },
   {
     "Name": "Mandadi chandana",
@@ -270,12 +222,6 @@
     "Membership ID": "GK2310100001"
   },
   {
-    "Name": "ISINIGIRI PAVAN SRI SAI",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110011011"
-  },
-  {
     "Name": "Mudigonda Thrinadh Sai Rohith",
     "Year": "III",
     "Dept": "CSE",
@@ -286,12 +232,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23111101010"
-  },
-  {
-    "Name": "KOLAPARTHI SRIVENKATA HARSHITH",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311011110"
   },
   {
     "Name": "UNNAM NAWYA",
@@ -312,18 +252,6 @@
     "Membership ID": "GK23100001111"
   },
   {
-    "Name": "Kuppala Dinesh Mano",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23100100001"
-  },
-  {
-    "Name": "Bhargav Balaram Ramanujakutam",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23100000011"
-  },
-  {
     "Name": "CHONGA KRISHNARJUNUDU",
     "Year": "III",
     "Dept": "CSE",
@@ -336,64 +264,10 @@
     "Membership ID": "GK23110010001"
   },
   {
-    "Name": "Byreddy Sowmya",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311100011"
-  },
-  {
-    "Name": "RACHAMREDDY ABHINAYA",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310001001"
-  },
-  {
-    "Name": "panuganti.Sasank Satya Pavan Sai",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310011001"
-  },
-  {
-    "Name": "M. Srujan Kumar",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23100100100"
-  },
-  {
-    "Name": "T. Lalith Srinivas",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101101111"
-  },
-  {
-    "Name": "R.T.RAM KUMAR",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110111110"
-  },
-  {
     "Name": "S SOMASEKHAR DATTA",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23110001010"
-  },
-  {
-    "Name": "Gopal Kumar",
-    "Year": "III",
-    "Dept": "IT",
-    "Membership ID": "GK231101100"
-  },
-  {
-    "Name": "NALLAGATLA JOSHITHA",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23111010001"
-  },
-  {
-    "Name": "PONNURU VINAY SARAN",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK231110001"
   },
   {
     "Name": "Sachin Sahadev Singh",
@@ -444,18 +318,6 @@
     "Membership ID": "GK23100011101"
   },
   {
-    "Name": "Ch.Girija sai siri",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311010000"
-  },
-  {
-    "Name": "Andluru Nandini",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101001101"
-  },
-  {
     "Name": "GADIYARAM JAYA SUDHESH",
     "Year": "III",
     "Dept": "CSE",
@@ -472,12 +334,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23100111110"
-  },
-  {
-    "Name": "B. NAGASAI VENKATESH",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23111110011"
   },
   {
     "Name": "BIJIVEMULA SAMBA SIVA REDDY",
@@ -498,28 +354,10 @@
     "Membership ID": "GK23110000001"
   },
   {
-    "Name": "ARAVETI VAMSI",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101100110"
-  },
-  {
-    "Name": "Bhogathi pravallika",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK231100110"
-  },
-  {
     "Name": "K SHIVA PRASAD",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23111000101"
-  },
-  {
-    "Name": "MURALIDHARAN N G",
-    "Year": "II",
-    "Dept": "IT",
-    "Membership ID": "GK23100011000"
   },
   {
     "Name": "M.N.Yuva kishore",
@@ -532,18 +370,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23101100000"
-  },
-  {
-    "Name": "Uday",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311000100"
-  },
-  {
-    "Name": "JONNALAGADDA SOMANADH CHOWDARY",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110101000"
   },
   {
     "Name": "K.chiranjeevi ganesh",
@@ -562,12 +388,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23100100011"
-  },
-  {
-    "Name": "P.Chatura",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK231101111"
   },
   {
     "Name": "KONDETI AKARSH CHOWDARY",
@@ -598,12 +418,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK2310110110"
-  },
-  {
-    "Name": "CHEEDARLA PAVAN KUMAR",
-    "Year": "IV",
-    "Dept": "CSE",
-    "Membership ID": "GK2311011101"
   },
   {
     "Name": "Amanchi sravan kumar",
@@ -648,12 +462,6 @@
     "Membership ID": "GK23100001011"
   },
   {
-    "Name": "Nuthalapati Veera Venkata Naga Sai",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310011010"
-  },
-  {
     "Name": "MAMIDI NANDAKISHORE",
     "Year": "III",
     "Dept": "CSE",
@@ -684,18 +492,6 @@
     "Membership ID": "GK23101011100"
   },
   {
-    "Name": "Karthick M",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23111100001"
-  },
-  {
-    "Name": "S  RAVIKUMAR",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110000010"
-  },
-  {
     "Name": "G Selvakumaran",
     "Year": "III",
     "Dept": "CSE",
@@ -714,22 +510,10 @@
     "Membership ID": "GK23101110010"
   },
   {
-    "Name": "Karthi Keyan M",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23100010101"
-  },
-  {
     "Name": "Thallam Harsha Vardhan",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23110111100"
-  },
-  {
-    "Name": "S.Shrimun narayana",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311011011"
   },
   {
     "Name": "v surya karthik",
@@ -786,22 +570,10 @@
     "Membership ID": "GK23110111001"
   },
   {
-    "Name": "Padidham Bhargavi",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310000100"
-  },
-  {
     "Name": "Anthapu Archana",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23110011111"
-  },
-  {
-    "Name": "T.R.Aravinthan",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311011010"
   },
   {
     "Name": "Charitha.R",
@@ -814,12 +586,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK231111010"
-  },
-  {
-    "Name": "Kosireddy Vivek charan tej",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311111011"
   },
   {
     "Name": "Yelisetty srikanth",
@@ -846,12 +612,6 @@
     "Membership ID": "GK2310011000"
   },
   {
-    "Name": "Dushyanth Golla",
-    "Year": "III",
-    "Dept": "IT",
-    "Membership ID": "GK23101110011"
-  },
-  {
     "Name": "GADDAM LIKHITHA",
     "Year": "III",
     "Dept": "CSE",
@@ -870,40 +630,16 @@
     "Membership ID": "GK2310101100"
   },
   {
-    "Name": "Shreyash Deep",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2311001000"
-  },
-  {
     "Name": "GUMMA KARTHIK REDDY",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23100000000"
   },
   {
-    "Name": "Rakshitha jagnath",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23111101111"
-  },
-  {
     "Name": "P.saritha",
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23110010111"
-  },
-  {
-    "Name": "D L Durga Prasad",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23100010000"
-  },
-  {
-    "Name": "MARELLA MARUTHI NAVADEEP",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310111110"
   },
   {
     "Name": "PULA BHARGAVI",
@@ -928,18 +664,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23101110100"
-  },
-  {
-    "Name": "PRASANNA",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110010011"
-  },
-  {
-    "Name": "THANNIRU KRANTHI KUMAR",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101011101"
   },
   {
     "Name": "S B L AKSHAYA",
@@ -984,12 +708,6 @@
     "Membership ID": "GK23111001000"
   },
   {
-    "Name": "Pavan Sai Jayanth",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23111011000"
-  },
-  {
     "Name": "Poojitha Bhavanam",
     "Year": "III",
     "Dept": "CSE",
@@ -1008,12 +726,6 @@
     "Membership ID": "GK23111100100"
   },
   {
-    "Name": "Ganesh Aditya",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310010001"
-  },
-  {
     "Name": "A.Manasa",
     "Year": "III",
     "Dept": "CSE",
@@ -1030,12 +742,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK2311101011"
-  },
-  {
-    "Name": "R Manoj Hariharan",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK2310100111"
   },
   {
     "Name": "POKALA VINAY KUMAR",
@@ -1072,12 +778,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23100010100"
-  },
-  {
-    "Name": "Sayana Puneeth",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23100011111"
   },
   {
     "Name": "D.sana Homera",
@@ -1266,12 +966,6 @@
     "Membership ID": "GK23110001101"
   },
   {
-    "Name": "Danthala Aashritha",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110011001"
-  },
-  {
     "Name": "PAPPI REDDY VENKATA SREEDHAR REDDY",
     "Year": "III",
     "Dept": "CSE",
@@ -1282,12 +976,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK2310001010"
-  },
-  {
-    "Name": "GOWRI SHANKAR SESHAMSETTI",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101011001"
   },
   {
     "Name": "SHAIK SHARUK",
@@ -1318,12 +1006,6 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK2310101101"
-  },
-  {
-    "Name": "BIREDDY GOWTHAM",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23110001110"
   },
   {
     "Name": "SHAIK ABDUL KALAM",
@@ -1374,18 +1056,6 @@
     "Membership ID": "GK23110000101"
   },
   {
-    "Name": "SUJITH GOPI",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK231111001"
-  },
-  {
-    "Name": "B.DAYA SAGAR",
-    "Year": "II",
-    "Dept": "CSE",
-    "Membership ID": "GK23101001001"
-  },
-  {
     "Name": "POKALA VIJAYA LAKSHMI",
     "Year": "III",
     "Dept": "CSE",
@@ -1432,6 +1102,348 @@
     "Year": "III",
     "Dept": "CSE",
     "Membership ID": "GK23101110000"
+  },
+  {
+    "Name": "LINGALA NIRANJAN RAJU",
+    "Year": "III",
+    "Dept": "CSE",
+    "Membership ID": "GK2311110101"
+  },
+  {
+    "Name": "G. Lakshmi Harshitha",
+    "Year": "III",
+    "Dept": "CSE",
+    "Membership ID": "GK2311101010"
+  },
+  {
+    "Name": "K . dhathri",
+    "Year": "III",
+    "Dept": "CSE",
+    "Membership ID": "GK23111100110"
+  },
+  {
+    "Name": "K.durga",
+    "Year": "III",
+    "Dept": "CSE",
+    "Membership ID": "GK2310001100"
+  },
+  {
+    "Name": "Gopal Kumar",
+    "Year": "III",
+    "Dept": "IT",
+    "Membership ID": "GK231101100"
+  },
+  {
+    "Name": "Dushyanth Golla",
+    "Year": "III",
+    "Dept": "IT",
+    "Membership ID": "GK23101110011"
+  },
+  {
+    "Name": "BOPPANA ROHITH",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101011010"
+  },
+  {
+    "Name": "K.AMARNATH",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110010010"
+  },
+  {
+    "Name": "bhatlapenumarthy lokesh kumar",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311001010"
+  },
+  {
+    "Name": "THEPIREDDY AKASH REDDY",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310011111"
+  },
+  {
+    "Name": "Kothapalli Venkata Hitesh Kumar Chowdary",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310010101"
+  },
+  {
+    "Name": "LEBURU VENKATA NISHANTH",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310110010"
+  },
+  {
+    "Name": "MARUTHI KUMAR",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110100100"
+  },
+  {
+    "Name": "A Charandeep",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101001010"
+  },
+  {
+    "Name": "ISINIGIRI PAVAN SRI SAI",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110011011"
+  },
+  {
+    "Name": "KOLAPARTHI SRIVENKATA HARSHITH",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311011110"
+  },
+  {
+    "Name": "Kuppala Dinesh Mano",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23100100001"
+  },
+  {
+    "Name": "Bhargav Balaram Ramanujakutam",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23100000011"
+  },
+  {
+    "Name": "Byreddy Sowmya",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311100011"
+  },
+  {
+    "Name": "RACHAMREDDY ABHINAYA",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310001001"
+  },
+  {
+    "Name": "panuganti.Sasank Satya Pavan Sai",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310011001"
+  },
+  {
+    "Name": "M. Srujan Kumar",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23100100100"
+  },
+  {
+    "Name": "T. Lalith Srinivas",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101101111"
+  },
+  {
+    "Name": "R.T.RAM KUMAR",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110111110"
+  },
+  {
+    "Name": "NALLAGATLA JOSHITHA",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23111010001"
+  },
+  {
+    "Name": "PONNURU VINAY SARAN",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK231110001"
+  },
+  {
+    "Name": "Ch.Girija sai siri",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311010000"
+  },
+  {
+    "Name": "Andluru Nandini",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101001101"
+  },
+  {
+    "Name": "B. NAGASAI VENKATESH",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23111110011"
+  },
+  {
+    "Name": "ARAVETI VAMSI",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101100110"
+  },
+  {
+    "Name": "Bhogathi pravallika",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK231100110"
+  },
+  {
+    "Name": "Uday",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311000100"
+  },
+  {
+    "Name": "JONNALAGADDA SOMANADH CHOWDARY",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110101000"
+  },
+  {
+    "Name": "P.Chatura",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK231101111"
+  },
+  {
+    "Name": "Nuthalapati Veera Venkata Naga Sai",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310011010"
+  },
+  {
+    "Name": "Karthick M",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23111100001"
+  },
+  {
+    "Name": "S  RAVIKUMAR",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110000010"
+  },
+  {
+    "Name": "Karthi Keyan M",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23100010101"
+  },
+  {
+    "Name": "S.Shrimun narayana",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311011011"
+  },
+  {
+    "Name": "Padidham Bhargavi",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310000100"
+  },
+  {
+    "Name": "T.R.Aravinthan",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311011010"
+  },
+  {
+    "Name": "Kosireddy Vivek charan tej",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311111011"
+  },
+  {
+    "Name": "Shreyash Deep",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2311001000"
+  },
+  {
+    "Name": "Rakshitha jagnath",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23111101111"
+  },
+  {
+    "Name": "D L Durga Prasad",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23100010000"
+  },
+  {
+    "Name": "MARELLA MARUTHI NAVADEEP",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310111110"
+  },
+  {
+    "Name": "PRASANNA",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110010011"
+  },
+  {
+    "Name": "THANNIRU KRANTHI KUMAR",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101011101"
+  },
+  {
+    "Name": "Pavan Sai Jayanth",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23111011000"
+  },
+  {
+    "Name": "Ganesh Aditya",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310010001"
+  },
+  {
+    "Name": "R Manoj Hariharan",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK2310100111"
+  },
+  {
+    "Name": "Sayana Puneeth",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23100011111"
+  },
+  {
+    "Name": "Danthala Aashritha",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110011001"
+  },
+  {
+    "Name": "GOWRI SHANKAR SESHAMSETTI",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101011001"
+  },
+  {
+    "Name": "BIREDDY GOWTHAM",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23110001110"
+  },
+  {
+    "Name": "SUJITH GOPI",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK231111001"
+  },
+  {
+    "Name": "B.DAYA SAGAR",
+    "Year": "II",
+    "Dept": "CSE",
+    "Membership ID": "GK23101001001"
   },
   {
     "Name": "I Mukesh Manikanta",
@@ -1578,12 +1590,6 @@
     "Membership ID": "GK2311110111"
   },
   {
-    "Name": "SHRI DEVI LAKSHMI R",
-    "Year": "II",
-    "Dept": "IT",
-    "Membership ID": "GK23101111101"
-  },
-  {
     "Name": "M.PUNITHA SHRI",
     "Year": "II",
     "Dept": "CSE",
@@ -1594,12 +1600,6 @@
     "Year": "II",
     "Dept": "CSE",
     "Membership ID": "GK23111100101"
-  },
-  {
-    "Name": "R.HARISH KRISHNA",
-    "Year": "II",
-    "Dept": "IT",
-    "Membership ID": "GK23100011011"
   },
   {
     "Name": "MAHA SRI B",
@@ -1752,12 +1752,6 @@
     "Membership ID": "GK231101000"
   },
   {
-    "Name": "AAKASH B",
-    "Year": "II",
-    "Dept": "IT",
-    "Membership ID": "GK2310000010"
-  },
-  {
     "Name": "C SREENIVASULU",
     "Year": "II",
     "Dept": "CSE",
@@ -1786,18 +1780,6 @@
     "Year": "II",
     "Dept": "CSE",
     "Membership ID": "GK23111011100"
-  },
-  {
-    "Name": "LINGALA NIRANJAN RAJU",
-    "Year": "III",
-    "Dept": "CSE",
-    "Membership ID": "GK2311110101"
-  },
-  {
-    "Name": "G. Lakshmi Harshitha",
-    "Year": "III",
-    "Dept": "CSE",
-    "Membership ID": "GK2311101010"
   },
   {
     "Name": "P.PAVANI DURGA",
@@ -2064,22 +2046,10 @@
     "Membership ID": "GK23111011011"
   },
   {
-    "Name": "MANNEM RAM GOPAL",
-    "Year": "II",
-    "Dept": "IT",
-    "Membership ID": "GK2310000000"
-  },
-  {
     "Name": "P.Bala Saravanan",
     "Year": "II",
     "Dept": "CSE",
     "Membership ID": "GK23100000001"
-  },
-  {
-    "Name": "K . dhathri",
-    "Year": "III",
-    "Dept": "CSE",
-    "Membership ID": "GK23111100110"
   },
   {
     "Name": "G.vishnu Priya",
@@ -2094,10 +2064,40 @@
     "Membership ID": "GK23100111111"
   },
   {
-    "Name": "K.durga",
-    "Year": "III",
-    "Dept": "CSE",
-    "Membership ID": "GK2310001100"
+    "Name": "Keerthimanideep",
+    "Year": "II",
+    "Dept": "IT",
+    "Membership ID": "GK23101000110"
+  },
+  {
+    "Name": "MURALIDHARAN N G",
+    "Year": "II",
+    "Dept": "IT",
+    "Membership ID": "GK23100011000"
+  },
+  {
+    "Name": "SHRI DEVI LAKSHMI R",
+    "Year": "II",
+    "Dept": "IT",
+    "Membership ID": "GK23101111101"
+  },
+  {
+    "Name": "R.HARISH KRISHNA",
+    "Year": "II",
+    "Dept": "IT",
+    "Membership ID": "GK23100011011"
+  },
+  {
+    "Name": "AAKASH B",
+    "Year": "II",
+    "Dept": "IT",
+    "Membership ID": "GK2310000010"
+  },
+  {
+    "Name": "MANNEM RAM GOPAL",
+    "Year": "II",
+    "Dept": "IT",
+    "Membership ID": "GK2310000000"
   },
   {
     "Name": "Srie Mathi M G",
@@ -2115,48 +2115,48 @@
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 101000001
+    "Membership ID": "GK23101000001"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 1110101
+    "Membership ID": "GK231110101"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 110101001
+    "Membership ID": "GK23110101001"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 11101111
+    "Membership ID": "GK2311101111"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 110110111
+    "Membership ID": "GK23110110111"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 1101010
+    "Membership ID": "GK231101010"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 110000110
+    "Membership ID": "GK23110000110"
   },
   {
     "Name": "",
     "Year": "",
     "Dept": "",
-    "Membership ID": 101001110
+    "Membership ID": "GK23101001110"
   }
 ]

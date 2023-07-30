@@ -6,7 +6,8 @@ div.bubblesBg {
     background-image: url("../assets/CirclePattern.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
+    position: fixed;
+    z-index: -1;
     left: 0;
     top: 0;
     min-height: 100vh !important;

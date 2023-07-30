@@ -7,7 +7,7 @@ import { useMisc } from "../contexts/MiscContext";
 
 import gfgLogo from "../assets/GFG_KARE.svg";
 // import kluLogo from "../assets/klu.png";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function Main() {
@@ -15,7 +15,7 @@ export default function Main() {
 
     const [showNavBox, setShowNavBox] = useState(false);
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <>
@@ -27,9 +27,9 @@ export default function Main() {
                             className="navIcon"
                             src={gfgLogo}
                             alt="GFG logo"
-                            // onClick={() =>
-                            //     navigate("/")
-                            // }
+                            onClick={() =>
+                                navigate("/members")
+                            }
                         />
 
                         {/* <img

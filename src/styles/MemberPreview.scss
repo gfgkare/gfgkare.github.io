@@ -23,7 +23,6 @@
 
         .visitButton {
             position: relative;
-            background-color: red;
             width: 120px;
             padding: 1rem;
             border-radius: 0 16px 16px 0;
@@ -40,6 +39,11 @@
             .name {
                 font-size: clamp(1rem, 1.3rem, 1.6rem);
                 font-weight: 500;
+
+                span {
+                    opacity: .7;
+                    font-size: medium;
+                }
             }
         }
     }

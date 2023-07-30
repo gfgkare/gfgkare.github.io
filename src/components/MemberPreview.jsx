@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useMisc } from "../contexts/MiscContext";
 
+import { FiChevronRight } from "react-icons/fi"
+
 export default function MemberPreview({ info }) {
     const { toTitleCase } = useMisc();
 
@@ -22,7 +24,7 @@ export default function MemberPreview({ info }) {
             <div className={`memberDiv` + " " + animationClass}>
                 <div className="memberDivWrapper">
                     <div className="nameAndId">
-                        <div className="name">{toTitleCase(info["Name"])}</div>
+                        <div className="name">{toTitleCase(info["Name"])} <span>{info["Year"]} / {info["Dept"]}</span> </div>
                         <div className="id">{info["Membership ID"]}</div>
                     </div>
 
