@@ -67,6 +67,13 @@ export default function Main() {
                                             (showNavBox) => !showNavBox
                                         );
                                     }}
+                                    onFocus={() => {
+                                        console.log("focused")
+                                    }}
+
+                                    onBlur={() => {
+                                        console.log("blurred");
+                                    }}
                                 />
                                 <div
                                     className={`dropdown-content ${
@@ -77,6 +84,11 @@ export default function Main() {
                                     <a href="#about">About</a>
                                     <a href="#contact">Contact</a> */}
                                     <span>Coming soon...</span>
+                                    <span onClick={() => navigate("/events")}>Events</span>
+                                    <span onClick={() => navigate("/members")}>Members</span>
+                                    <span>Contact</span>
+                                    <span className="registerButton">Join</span>
+
                                 </div>
                             </div>
                         </div>

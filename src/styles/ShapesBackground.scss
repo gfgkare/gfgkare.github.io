@@ -1,7 +1,3 @@
-
-
-
-
 div.bubblesBg {
     background-image: url("../assets/CirclePattern.svg");
     background-repeat: no-repeat;
@@ -24,5 +20,11 @@ div.bubblesBg {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 700px) {
+    div.bubblesBg {
+        background-image: none !important;
     }
 }

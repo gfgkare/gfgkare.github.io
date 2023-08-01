@@ -1,3 +1,5 @@
+@import "./Variables.scss";
+
 div.navBar {
     backdrop-filter: blur(5px);
     position: fixed;
@@ -71,16 +73,30 @@ div.navBar {
                     border-radius: 8px;
                     height: 0;
                     position: absolute;
-                    background-color: #f9f9f9;
-                    color: green;
+                    background-color: $text;
+                    color: lighten(green, 1);
                     font-weight: 500;
                     min-width: 160px;
                     overflow: auto;
                     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                     transition: height 100ms ease;
+
+                    .registerButton {
+                        // background-color: red;
+                        width: 100px !important;
+                        border-radius: 8px;
+                        border: 2px solid lighten(green, 1);
+                        margin: 0 auto 1rem auto;
+                        text-align: center;
+
+                        &:hover {
+                            background-color: lighten(green, 1);
+                            color: $text;
+                        }
+                    }
                     
                     &.show {
-                        height: 60%;
+                        height: 300%;
                         // display: block;
                     }
                 }
@@ -93,7 +109,7 @@ div.navBar {
                 }
                 
                 .dropdown-content *:hover {
-                    background-color: #f1f1f1;
+                    background-color: lighten($text, 1);
                 }
                 
                 

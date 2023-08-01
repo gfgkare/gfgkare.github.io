@@ -42,6 +42,7 @@ export default function App() {
                             <Route path="/" element={<Home />}></Route>
                             <Route path="/core" element={<CoreTeam />}></Route>
                             <Route path="/members" element={<AllMembers />}></Route>
+                            <Route path="/events" element={<UnderConstruction />}></Route>
                             {
                                 Object.keys(coreTeamMembers).map((key) => {
                                     return ( <Route path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )

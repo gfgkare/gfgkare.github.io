@@ -8,7 +8,8 @@ import "../styles/ChapterMember.scss";
 import ShapesBackground from "../components/ShapesBackground";
 
 // import chapterMembersInfo from "../data/chapterMembersInfo";
-import headShot from "../assets/headshot.jpg";
+// import headShot from "../assets/headshot.jpg";
+import vin from "../assets/vineeth.jpg";
 import { useMisc } from "../contexts/MiscContext";
 
 export default function ChapterMember(props) {
@@ -51,7 +52,7 @@ export default function ChapterMember(props) {
             <ShapesBackground />
 
             <div className="chapterMember">
-                <img className="chapterMemberImage" src={headShot} />
+                <img className="chapterMemberImage" src={vin} />
 
                 <div className="chapterMemberDetails">
                     <div className="chapterMemberTopDetails">

@@ -1,6 +1,5 @@
 @import "./Variables.scss";
 
-
 // div.bubble {
 //     height: 80px;
 //     width: 80px;
@@ -32,7 +31,9 @@ div.chapterMember {
     margin: 0 auto;
     margin-bottom: 4rem;
     min-height: 60vh;
-    
+
+    overflow: hidden;
+
     // max-height: min(95vh, 400px) !important;
     // background: rgba(white, .04);
     border-radius: 16px;
@@ -42,12 +43,11 @@ div.chapterMember {
     gap: 4rem;
     opacity: 0;
     transform: translateY(20%);
-    transition: transform .5s ease, opacity .5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 
     &.visible {
         opacity: 1;
         transform: translateY(10%);
-
     }
 
     .chapterMemberName {
@@ -59,14 +59,15 @@ div.chapterMember {
         min-height: 100%;
         width: 300px;
         border-radius: 6px;
-        // box-shadow: -5px 4px .5px .1px darken($text, 30);
+        box-shadow: 0 0 4px 2px rgba(black, 0.3);
         object-fit: cover;
-        filter: brightness(.97);
+        // filter: brightness(.97);
         transition-property: filter, box-shadow;
         transition-duration: 100ms;
 
         &:hover {
-            filter: brightness(1);
+            box-shadow: 0 0 4px 2px rgba(black, 0.3);
+            // filter: brightness(1);
         }
 
         // &:after {
@@ -78,7 +79,7 @@ div.chapterMember {
         //     height: 200%;
         //     opacity: 0;
         //     transform: rotate(30deg);
-          
+
         //     background: rgba(255, 255, 255, 0.13);
         //     background: linear-gradient(
         //       to right,
@@ -88,7 +89,7 @@ div.chapterMember {
         //       rgba(255, 255, 255, 0.0) 100%
         //     );
         //   }
-          
+
         //   /* Hover state - trigger effect */
         //   &:hover:after {
         //     opacity: 1;
@@ -97,12 +98,11 @@ div.chapterMember {
         //     transition-duration: 0.7s, 0.7s, 0.15s;
         //     transition-timing-function: ease;
         //   }
-          
+
         //   /* Active state */
         //   &:active:after {
         //     opacity: 0;
         //   }
-          
     }
 
     div.chapterMemberDetails {
@@ -111,13 +111,13 @@ div.chapterMember {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: .7rem;
+        gap: 0.7rem;
 
         div.chapterMemberTopDetails {
             display: flex;
             flex-direction: column;
             align-items: left;
-            gap: .4rem;
+            gap: 0.4rem;
 
             .chapterMemberName {
                 font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.3rem);
@@ -127,19 +127,17 @@ div.chapterMember {
                 font-size: clamp(0.5rem, 0.4391rem + 3.4261vw, 1.7rem);
                 font-weight: 500;
             }
-    
+
             .yearAndDept {
                 font-size: 20px;
-                opacity: .8;
+                opacity: 0.8;
             }
-    
+
             .chapterMemberId {
                 font-size: 18px;
-                opacity: .8;
+                opacity: 0.8;
             }
         }
-
-        
     }
 
     div.chapterMemberAbout {
@@ -179,8 +177,10 @@ div.chapterMember {
 
 @media (max-width: 700px) {
     div.chapterMember {
+        // background-color: red !important;
+        // max-height: 70px;
         width: 85vw !important;
-        padding: 3rem 1rem .5rem 1rem;
+        padding: 3rem 1rem 0.5rem 1rem;
         // padding-top: 3rem;
         transform: translateY(0);
         flex-direction: column;
@@ -198,7 +198,7 @@ div.chapterMember {
         }
 
         div.chapterMemberDetails {
-            gap: .5rem;
+            gap: 0.5rem;
         }
 
         div.chapterMemberTopDetails {

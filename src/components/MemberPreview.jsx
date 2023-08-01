@@ -34,7 +34,7 @@ export default function MemberPreview({ info }) {
                             navigate(`/members/${info["Membership ID"]}`)
                         }
                     >
-                        Visit
+                        <FiChevronRight size={"20px"} color="green" />
                     </span>
                 </div>
             </div>
