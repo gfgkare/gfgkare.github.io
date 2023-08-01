@@ -1,4 +1,4 @@
-#GeeksForGeeks KARE Student Chapter 
+# GeeksForGeeks KARE Student Chapter 
 
 This is the official website for GeeksForGeeks KARE Student Chapter.  
   
