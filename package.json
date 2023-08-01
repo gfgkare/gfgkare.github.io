@@ -7,7 +7,7 @@
     "dev": "vite",
     "devs": "vite --host",
     "build": "vite build",
-    "build4gh": "vite build && cp dist/index.html dist/404.html && cp dist docs -r",
+    "build4gh": "vite build && cp dist/index.html dist/404.html && rm -rf docs && cp dist docs -rf",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
