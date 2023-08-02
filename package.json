@@ -1,13 +1,14 @@
 {
   "name": "gfgweb",
   "private": true,
+  "author": "https://www.github.com/sabzdotpy",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "devs": "vite --host",
     "build": "vite build",
-    "build4gh": "vite build && cp dist/index.html dist/404.html && rm -rf docs && cp dist docs -rf",
+    "gh": "vite build && cp dist/index.html dist/404.html && rm -rf docs && cp dist docs -rf",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

@@ -282,11 +282,13 @@ body.light {
             rgba($background, 0.06)
         );
         border: 2px solid rgba($background, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        box-shadow: 0 0 4px 2px rgba(black, 0.3);
+
 
         img.chapterMemberImage {
             &:hover {
-                box-shadow: 0 7px 30px 2px rgba($background, 0.06);
+                box-shadow: 0 0 4px 2px rgba(black, 0.5);
+
             }
         }
 
