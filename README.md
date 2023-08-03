@@ -1,7 +1,10 @@
 # GeeksForGeeks KARE Student Chapter 
 
 This is the official website for GeeksForGeeks KARE Student Chapter.  
-  
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=gfgkare&label=Hits&color=0e75b6&style=flat" alt="gfgkare" /> </p> 
+
+
 ## Run Locally
 
 Clone the project
