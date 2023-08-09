@@ -12,16 +12,15 @@ import SectionDivider from "../components/SectionDivider";
 
 import { useMisc } from "../contexts/MiscContext";
 
-import coreTeamMembers from "../data/coreTeamInfo.js"
+import coreTeamMembers from "../data/coreTeamInfo.js";
 import events from "../data/eventsInfo";
-
 
 // import "react-slideshow-image/dist/styles.css";
 
 import Flickity from "react-flickity-component";
 
 export default function Main() {
-    const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed } =
+    const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed, setNavTitle} =
         useMisc();
 
     const [aboutVisible, setAboutVisible] = useState(false);
@@ -34,8 +33,6 @@ export default function Main() {
 
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const [slideInterval, setSlideInterval] = useState();
-
-
 
     const createAndSetNewSlideInterval = () => {
         const moveSlideInterval = setInterval(() => {
@@ -68,6 +65,7 @@ export default function Main() {
 
         const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
+                setNavTitle("GFG KARE STUDENT CHAPTER")
                 // alert(entries)
                 if (!aboutRevealed) {
                     setAboutVisible(true);
@@ -128,7 +126,9 @@ export default function Main() {
                 }`}
             >
                 <div className="titleAndContent">
-                    <div className="title sectionTitle" ref={aboutSection}>WHO ARE WE</div>
+                    <div className="title sectionTitle" ref={aboutSection}>
+                        WHO ARE WE
+                    </div>
                     <div className="content">
                         We are a team of aspiring students from Kalasalingam
                         University focused on making education and problem
@@ -165,7 +165,7 @@ export default function Main() {
                                         <CountUp
                                             end={4}
                                             duration={10}
-                                            delay={.2}
+                                            delay={0.2}
                                         />
                                     ) : (
                                         <>4</>
@@ -182,7 +182,7 @@ export default function Main() {
                                         <CountUp
                                             end={5}
                                             duration={10}
-                                            delay={.2}
+                                            delay={0.2}
                                         />
                                     ) : (
                                         <>5</>
@@ -230,23 +230,25 @@ export default function Main() {
                     >
                         {Object.values(coreTeamMembers).map((member) => {
                             return (
-                                <div
-                                    className="memberContainer"
-                                    key={member.name}
-                                    onClick={() => navigate(member.url)}
-                                >
-                                    <div className="memberImage">
-                                        <img src={member.image} />
-                                    </div>
-                                    <div className="memberInfo">
-                                        <div className="name">
-                                            {member.name}
+                                <Link className="noStyle" to={member.url}>
+                                    <div
+                                        className="memberContainer"
+                                        key={member.name}
+                                        // onClick={() => navigate(member.url)}
+                                    >
+                                        <div className="memberImage">
+                                            <img src={member.image} />
                                         </div>
-                                        <div className="role">
-                                            {member.role}
+                                        <div className="memberInfo">
+                                            <div className="name">
+                                                {member.name}
+                                            </div>
+                                            <div className="role">
+                                                {member.role}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             );
                         })}
 
@@ -348,12 +350,23 @@ export default function Main() {
                                             "clicked not selected event"
                                         );
                                         if (index < currentSlideIndex) {
-                                            document.querySelector(".flickity-button.previous").click();
-                                            setCurrentSlideIndex(prevIndex => prevIndex - 1);
-                                        }
-                                        else {
-                                            document.querySelector(".flickity-button.next").click();
-                                            setCurrentSlideIndex(prevIndex => prevIndex + 1);
+                                            document
+                                                .querySelector(
+                                                    ".flickity-button.previous"
+                                                )
+                                                .click();
+                                            setCurrentSlideIndex(
+                                                (prevIndex) => prevIndex - 1
+                                            );
+                                        } else {
+                                            document
+                                                .querySelector(
+                                                    ".flickity-button.next"
+                                                )
+                                                .click();
+                                            setCurrentSlideIndex(
+                                                (prevIndex) => prevIndex + 1
+                                            );
                                         }
                                     } else {
                                         console.log("clicked selected event");
@@ -362,7 +375,7 @@ export default function Main() {
                                 }}
                                 onMouseEnter={() => {
                                     console.log("clearing slide interval");
-                                    clearInterval(slideInterval)
+                                    clearInterval(slideInterval);
                                 }}
                                 onMouseLeave={() => {
                                     createAndSetNewSlideInterval();

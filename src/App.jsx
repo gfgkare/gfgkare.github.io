@@ -21,6 +21,7 @@ import { useEffect } from "react";
 
 import allData from "./data/csvjson.json"
 import AllMembers from "./views/AllMembers";
+import New from "./views/New";
 
 
 
@@ -40,6 +41,7 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Main />}>
                             <Route path="/" element={<Home />}></Route>
+                            <Route path="/new" element={<New />}></Route>
                             <Route path="/core" element={<CoreTeam />}></Route>
                             <Route path="/members" element={<AllMembers />}></Route>
                             <Route path="/events" element={<UnderConstruction />}></Route>

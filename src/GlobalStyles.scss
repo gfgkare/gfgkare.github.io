@@ -42,6 +42,11 @@ button:hover {
     transition-duration: 0.05s;
 }
 
+*.noStyle {
+    all: unset;
+    // text-decoration: none;
+}
+
 ::-webkit-scrollbar {
     transition: all 2s !important;
     background-color: transparent;

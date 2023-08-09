@@ -8,7 +8,7 @@ export const useMisc = () => {
 
 export const MiscProvider = ({ children }) => {
     const [theme, setTheme] = useState("dark");
-    const [navTitle, setNavTitle] = useState("GFG KARE STUDENT CHAPTER");
+    const [navTitle, setNavTitle] = useState("");
     const [aboutRevealed, setAboutRevealed] = useState(false);
     const [teamRevealed, setTeamRevealed] = useState(false);
 

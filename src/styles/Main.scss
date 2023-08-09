@@ -81,6 +81,16 @@ div.navBar {
                     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                     transition: height 100ms ease;
 
+                    a {
+                        all: unset;
+                    }
+
+                    .toggle {
+                        // background-color: red;
+                        max-height: 100%;
+                        margin: 0 auto;
+                    }
+
                     .registerButton {
                         // background-color: red;
                         width: 100px !important;
@@ -96,7 +106,8 @@ div.navBar {
                     }
                     
                     &.show {
-                        height: 300%;
+                        // height: 300%;
+                        height: max-content;
                         // display: block;
                     }
                 }

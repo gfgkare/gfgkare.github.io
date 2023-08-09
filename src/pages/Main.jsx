@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 import "../styles/Main.scss";
 import { useMisc } from "../contexts/MiscContext";
@@ -80,13 +80,29 @@ export default function Main() {
                                         showNavBox ? "show" : ""
                                     }`}
                                 >
-                                    {/* <a href="#home">Home</a>
-                                    <a href="#about">About</a>
-                                    <a href="#contact">Contact</a> */}
-                                    <span>Coming soon...</span>
-                                    <span onClick={() => navigate("/events")}>Events</span>
-                                    <span onClick={() => navigate("/members")}>Members</span>
+                                    {/* <span onClick={() => navigate("/events")}>Events</span> */}
+                                    <span><Link to="events">Events</Link></span>
+                                    <span><Link to="/members">Members</Link></span>
+                                    {/* <span onClick={() => navigate("/members")}>Members</span> */}
                                     <span>Contact</span>
+                                    {/* <span>
+                                         <input
+                                            type="checkbox"
+                                            class="toggle"
+                                            title="change color theme"
+                                            onClick={() => {
+                                                if (theme === "light") {
+                                                    document.body.classList.remove("light");
+                                                    document.body.classList.add("dark");
+                                                    setTheme("dark");
+                                                } else {
+                                                    document.body.classList.remove("dark");
+                                                    document.body.classList.add("light");
+                                                    setTheme("light");
+                                                }
+                                            }}
+                        />
+                                    </span> */}
                                     <span className="registerButton">Join</span>
 
                                 </div>

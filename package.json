@@ -8,6 +8,7 @@
     "dev": "vite",
     "devs": "vite --host",
     "build": "vite build",
+    "postbuild": "react-snap",
     "gh": "vite build && cp dist/index.html dist/404.html && rm -rf docs && cp dist docs -rf",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -19,6 +20,7 @@
     "react-flickity-component": "^4.0.6",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
+    "react-snap": "^1.23.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.63.6"
   },
