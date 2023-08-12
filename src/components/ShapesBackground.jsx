@@ -1,14 +1,14 @@
-import Triangle from "../assets/Triangle.svg";
-import Circle from "../assets/Circle.svg";
-import Cube from "../assets/Cube.svg";
+// import Triangle from "../assets/Triangle.svg";
+// import Circle from "../assets/Circle.svg";
+// import Cube from "../assets/Cube.svg";
 
 import "../styles/ShapesBackground.scss";
 
 export default function ShapesBackground() {
-    function rand(min, max) {
-        console.log(Math.floor(Math.random() * (max - min + 1)) + min)
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    // function rand(min, max) {
+    //     console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+    //     return Math.floor(Math.random() * (max - min + 1)) + min;
+    // }
 
     return (
         <div className="bubblesBg">

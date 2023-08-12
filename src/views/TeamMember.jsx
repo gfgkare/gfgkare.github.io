@@ -1,7 +1,5 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-import vineethImg from "../assets/vineeth.jpg";
 
 import { AiFillLinkedin, AiFillGithub, AiFillYoutube } from "react-icons/ai";
 import { BsGlobe, BsStackOverflow } from "react-icons/bs";
@@ -9,11 +7,9 @@ import { BsGlobe, BsStackOverflow } from "react-icons/bs";
 import "../styles/TeamMember.scss";
 
 export default function TeamMember(props) {
-    // const [memberName, setMemberName] = useState();
 
     const teamMemberLinks = useRef();
     // const teamMemberDiv = useRef();
-    // const params = useParams();
 
     useEffect(() => {
         // setMemberName(params.membername || "each team member");

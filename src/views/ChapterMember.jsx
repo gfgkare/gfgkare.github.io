@@ -1,13 +1,10 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-import { AiFillLinkedin, AiFillGithub, AiFillYoutube } from "react-icons/ai";
-import { BsGlobe, BsStackOverflow } from "react-icons/bs";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 import "../styles/ChapterMember.scss";
 import ShapesBackground from "../components/ShapesBackground";
 
-// import chapterMembersInfo from "../data/chapterMembersInfo";
 // import headShot from "../assets/headshot.jpg";
 import headshot from "../assets/headshot_gen_neutral.png";
 import { useMisc } from "../contexts/MiscContext";
@@ -26,7 +23,6 @@ export default function ChapterMember(props) {
 
     const chapterMemberLinks = useRef();
     // const chapterMemberDiv = useRef();
-    const params = useParams();
     // const [memberDetails, setMemberDetails] = useState();
 
 

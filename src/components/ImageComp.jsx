@@ -5,8 +5,8 @@ export default function ImageComp(props) {
         <div className="imageComp">
             <img src={props.src} alt={props.alt} />
             {props.text ? (
-                <div class="overlay">
-                    <div class="text">{props.text}</div>
+                <div className="overlay">
+                    <div className="text">{props.text}</div>
                 </div>
             ) : (
                 <></>

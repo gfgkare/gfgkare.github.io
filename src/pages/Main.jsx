@@ -58,7 +58,7 @@ export default function Main() {
                         <div className="iconAndGrid">
                             {/* <div className="comingSoon">Coming soon...</div> */}
 
-                            <div class="dropdown">
+                            <div className="dropdown">
                                 <RxHamburgerMenu
                                     size={"25px"}
                                     id="hamburger"

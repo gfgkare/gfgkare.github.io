@@ -228,9 +228,9 @@ export default function Main() {
                         }`}
                         ref={teamSection}
                     >
-                        {Object.values(coreTeamMembers).map((member) => {
+                        {Object.values(coreTeamMembers).map((member, index) => {
                             return (
-                                <Link className="noStyle" to={member.url}>
+                                <Link key={index} className="noStyle" to={member.url}>
                                     <div
                                         className="memberContainer"
                                         key={member.name}

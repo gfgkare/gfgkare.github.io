@@ -13,9 +13,9 @@ import TeamMember from "./views/TeamMember";
 import ChapterMember from "./views/ChapterMember";
 
 import coreTeamMembers from "./data/coreTeamInfo";
-import chapterMembersInfo from "./data/chapterMembersInfo";
+// import chapterMembersInfo from "./data/chapterMembersInfo";
 
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
@@ -46,8 +46,8 @@ export default function App() {
                             <Route path="/members" element={<AllMembers />}></Route>
                             <Route path="/events" element={<UnderConstruction />}></Route>
                             {
-                                Object.keys(coreTeamMembers).map((key) => {
-                                    return ( <Route path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
+                                Object.keys(coreTeamMembers).map((key, index) => {
+                                    return ( <Route key={index} path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
                                 })
                             }
 {/*                             
