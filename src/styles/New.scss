@@ -65,7 +65,7 @@ div.new {
         }
 
         .shape {
-            flex: .9;
+            flex: 0.9;
             background-color: red;
             border-radius: 50%;
             width: 20px;
@@ -74,13 +74,14 @@ div.new {
 
         .text {
             flex: 6;
+            text-align: center;
             // padding-right: 2rem;
         }
 
         .line {
-            flex: .05;
+            flex: 0.05;
             height: 70px;
-            background-color: $background
+            background-color: $background;
         }
 
         .numbers {
@@ -88,28 +89,62 @@ div.new {
             padding: 0 2rem 0 1rem;
             display: flex;
             gap: 3rem;
+            flex: 1;
             // justify-content: space-between;
 
             .counter {
+                flex: 1;
+                flex-shrink: 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                text-align: center;
+                font-size: clamp(0.5rem, 0.4391rem + 3.8261vw, 1rem);
 
                 .count {
-                    font-size: 40px;
+                    // height: 100px;
+                    font-size: clamp(1.5rem, 0.4391rem + 3vw, 3.4rem);
                     font-weight: 600;
                 }
             }
         }
     }
-}
 
+    section.team {
+        border-radius: 12px;
+        padding: 1rem;
+        height: 50vh !important;
+        width: 100%;
+        background-color: rgba(39, 39, 39, 0.1);
+    }
+}
 
 @media (max-width: 700px) {
     div.new {
         div.introDiv {
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .leftText {
+                padding: 0 1rem;
+                width: 80%;
+            }
+
+            div.cta {
+                width: max-content;
+            }
+        }
+
+        div.numbersDiv {
+            flex-direction: column;
+            gap: 2rem;
+
+            .numbers {
+                justify-content: flex-end;
+                padding: 0;
+            }
         }
     }
 }

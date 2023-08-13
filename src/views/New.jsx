@@ -3,39 +3,38 @@ import "../styles/New.scss";
 import CountUp from "react-countup";
 
 export default function New() {
-
-
     return (
-
         <>
-        
             <div className="new">
+                <section>
+                    <div className="introDiv">
+                        <div className="leftText">
+                            <div className="head">
+                                Join the Student Club that is revolutionizing
+                                KARE
+                            </div>
+                            <div className="sub">
+                                Get a chance to work with the team of 11 amazing
+                                individuals who are rocking the campus.
+                            </div>
 
-
-                <div className="introDiv">
-                    <div className="leftText">
-                        <div className="head">
-                            Join the Student Club that is revolutionizing KARE
-                        </div>
-                        <div className="sub">
-                            Get a chance to work with the team of 11 amazing individuals who are rocking the campus.
-                        </div>
-
-                        <div className="cta">
-                            Join the club
+                            <div className="cta">Join the club</div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div className="numbersDiv">
-                    <div className="shape"></div>
-                    <div className="text">
-                        We are a team of aspiring students from Kalasalingam University focused on making education and problem solving accessible to students.
-                    </div>
+                <section>
+                    <div className="numbersDiv">
+                        <div className="shape hideOnMobile"></div>
+                        <div className="text">
+                            We are a team of aspiring students from Kalasalingam
+                            University focused on making education and problem
+                            solving accessible to students.
+                        </div>
 
-                    <div className="line"></div>
+                        <div className="line hideOnMobile"></div>
 
-                    <div className="numbers">
+                        <div className="numbers">
                             <div className="counter">
                                 <span className="count">
                                     {true ? (
@@ -81,12 +80,17 @@ export default function New() {
                                 </span>
                                 Events Conducted
                             </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+
+                <section className="team">
+                    team design here
+                </section>
+
 
 
             </div>
-        
         </>
-    )
+    );
 }

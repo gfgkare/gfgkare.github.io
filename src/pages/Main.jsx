@@ -19,7 +19,6 @@ export default function Main() {
 
     return (
         <>
-            {/* <ScrollContainer> */}
             <div className="navBar">
                 <div className="navBarWrap">
                     <div className="logosContainer">
@@ -31,33 +30,18 @@ export default function Main() {
                                 navigate("/members")
                             }
                         />
-
-                        {/* <img
-                            className="navIcon"
-                            src={kluLogo}
-                            alt="KLU logo"
-                            onClick={() => window.open("https://klu.ac.in")}
-                        /> */}
                     </div>
                     <span className="centerText hideOnMobile">
                         {navTitle}
                     </span>
 
                     <div className="rightMenu">
-                        {/* <div className="dropDown">
-                            <button className="button">\/</button>
-                            <div className="list">
-                                <div className="item">Home</div>
-                                <div className="item">Home</div>
-                                <div className="item">Home</div>
-                                <div className="item">Home</div>
-                                <div className="item">Home</div>
-                            </div>
-                        </div> */}
+                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/">Home</Link></div>
+                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/events">Events</Link></div>
+                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/members">Members</Link></div>
+                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/contact">Contact</Link></div>
 
-                        <div className="iconAndGrid">
-                            {/* <div className="comingSoon">Coming soon...</div> */}
-
+                        <div className="iconAndGrid showOnMobile">
                             <div className="dropdown">
                                 <RxHamburgerMenu
                                     size={"25px"}
@@ -80,10 +64,8 @@ export default function Main() {
                                         showNavBox ? "show" : ""
                                     }`}
                                 >
-                                    {/* <span onClick={() => navigate("/events")}>Events</span> */}
                                     <span><Link to="events">Events</Link></span>
                                     <span><Link to="/members">Members</Link></span>
-                                    {/* <span onClick={() => navigate("/members")}>Members</span> */}
                                     <span>Contact</span>
                                     {/* <span>
                                          <input
@@ -101,63 +83,13 @@ export default function Main() {
                                                     setTheme("light");
                                                 }
                                             }}
-                        />
+                                        />
                                     </span> */}
                                     <span className="registerButton">Join</span>
 
                                 </div>
                             </div>
                         </div>
-                        {/* <ul
-								className={
-									"nav no-search" + (currentUser === "none" || !currentUser ? "" : " signed-in")
-								}
-								ref={navUl}
-							>
-									<li className="nav-item">
-										<div
-											className="apps-icon"
-											tabIndex={"0"}
-											onBlur={() => setAppsDrawerOpen(false)}
-										>
-											<MdOutlineApps
-												size={"30px"}
-												onClick={() => setAppsDrawerOpen(!appsDrawerOpen)}
-											/>
-											<CSSTransition
-												in={appsDrawerOpen}
-												timeout={300}
-												classNames="appsanim"
-												unmountOnExit
-											>
-												<ul className={"apps-dropdown"}>
-													<li>1</li>
-													<li>2</li>
-													<li>3</li>
-													<li>4</li>
-													<li>5</li>
-												</ul>
-											</CSSTransition>
-										</div>
-									</li>
-                                </ul> */}
-
-                        {/* <input
-                            type="checkbox"
-                            class="toggle"
-                            title="change color theme"
-                            onClick={() => {
-                                if (theme === "light") {
-                                    document.body.classList.remove("light");
-                                    document.body.classList.add("dark");
-                                    setTheme("dark");
-                                } else {
-                                    document.body.classList.remove("dark");
-                                    document.body.classList.add("light");
-                                    setTheme("light");
-                                }
-                            }}
-                        /> */}
                     </div>
                 </div>
             </div>
@@ -165,7 +97,6 @@ export default function Main() {
             <div className="out">
                 <Outlet />
             </div>
-            {/* </ScrollContainer> */}
         </>
     );
 }

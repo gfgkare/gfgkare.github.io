@@ -112,7 +112,14 @@ html:hover ::-webkit-scrollbar-thumb {
 }
 
 
+.showOnMobile {
+    display: none;
+}
+
 @media screen and (max-width: 740px) {
+    .showOnMobile {
+        display: block;
+    }
     .hideOnMobile {
         display: none !important;
     }

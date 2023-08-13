@@ -20,52 +20,39 @@ import events from "../data/eventsInfo";
 import Flickity from "react-flickity-component";
 
 export default function Main() {
-    const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed, setNavTitle} =
-        useMisc();
+    const {
+        aboutRevealed,
+        setAboutRevealed,
+        teamRevealed,
+        setTeamRevealed,
+        setNavTitle,
+    } = useMisc();
 
     const [aboutVisible, setAboutVisible] = useState(false);
     const [teamVisible, setTeamVisible] = useState(false);
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [slideInterval, setSlideInterval] = useState();
+
+    const introSection = useRef(null);
     const aboutSection = useRef(null);
     const teamSection = useRef(null);
     const slideShow = useRef(null);
 
     const navigate = useNavigate();
 
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-    const [slideInterval, setSlideInterval] = useState();
-
-    const createAndSetNewSlideInterval = () => {
-        const moveSlideInterval = setInterval(() => {
-            setCurrentSlideIndex((prevTimer) => {
-                if (prevTimer < events.length - 1) {
-                    // console.log("incrementing");
-                    document.querySelector(".flickity-button.next").click();
-                    return prevTimer + 1;
-                } else {
-                    // console.log("resetting");
-                    for (let i = 0; i < events.length - 1; i++) {
-                        setTimeout(
-                            () =>
-                                document
-                                    .querySelector(".flickity-button.previous")
-                                    .click(),
-                            300
-                        );
-                    }
-                    return 0;
-                }
-            });
-        }, 8000);
-
-        setSlideInterval(moveSlideInterval);
-    };
-
     useEffect(() => {
         createAndSetNewSlideInterval();
 
+        const introObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                setNavTitle("");
+            } else {
+                setNavTitle("GFG KARE STUDENT CHAPTER");
+            }
+        });
+
         const aboutObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                setNavTitle("GFG KARE STUDENT CHAPTER")
                 // alert(entries)
                 if (!aboutRevealed) {
                     setAboutVisible(true);
@@ -85,6 +72,8 @@ export default function Main() {
             }
         });
 
+        introObserver.observe(introSection.current);
+
         if (!aboutRevealed) {
             aboutObserver.observe(aboutSection.current);
         } else {
@@ -98,15 +87,35 @@ export default function Main() {
         }
 
         return () => {
+            introObserver.disconnect();
             aboutObserver.disconnect();
             teamObserver.disconnect();
             clearInterval(slideInterval);
         };
     }, []);
 
+    const createAndSetNewSlideInterval = () => {
+        const moveSlideInterval = setInterval(() => {
+            setCurrentSlideIndex((prevTimer) => {
+                if (prevTimer < events.length - 1) {
+                    document.querySelector(".flickity-button.next").click();
+                    return prevTimer + 1;
+
+                } else {
+                    for (let i = 0; i < events.length - 1; i++) {
+                        setTimeout(() => document.querySelector(".flickity-button.previous").click(), 300);
+                    }
+                    return 0;
+                }
+            });
+        }, 8000);
+
+        setSlideInterval(moveSlideInterval);
+    };
+
     return (
         <>
-            <div className="section intro">
+            <div className="section intro" ref={introSection}>
                 <div className="name">GeeksForGeeks Student Chapter</div>
                 <div className="inst">KARE</div>
             </div>
@@ -230,7 +239,11 @@ export default function Main() {
                     >
                         {Object.values(coreTeamMembers).map((member, index) => {
                             return (
-                                <Link key={index} className="noStyle" to={member.url}>
+                                <Link
+                                    key={index}
+                                    className="noStyle"
+                                    to={member.url}
+                                >
                                     <div
                                         className="memberContainer"
                                         key={member.name}
@@ -321,6 +334,7 @@ export default function Main() {
             </div>
             <SectionDivider />
 
+            <a name="#events"></a>
             <div className="section events">
                 <div className="sectionTitle">EVENTS</div>
 
