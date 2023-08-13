@@ -6,7 +6,7 @@ div.chapterMember {
     margin: 0 auto;
     margin-bottom: 4rem;
     min-height: 60vh;
-    
+
     overflow: hidden;
 
     // max-height: min(95vh, 400px) !important;
@@ -29,55 +29,44 @@ div.chapterMember {
         font-size: clamp(0.7rem, 0.4391rem + 3.8261vw, 2.5rem);
     }
 
+    .shine {
+        transition: transform 0.8s ease;
+        animation: spin 0.8s ease forwards;
+    }
+
+    .shine:after {
+        border-radius: 16px;
+        content: "";
+        position: relative;
+        display: inline-block;
+        height: 99%;
+        width: 100%;
+        top: -100%;
+        left: 0;
+        background: linear-gradient(
+            45deg,
+            transparent 50%,
+            rgba(255, 255, 255, 0.23) 58%,
+            rgba(255, 255, 255, 0.35) 67%,
+            transparent 68%
+        );
+        background-size: 600% 100%;
+        background-position: 100% 0;
+        transition: 0.8s;
+        overflow: hidden;
+    }
+
+    .shine:hover:after {
+        background-position: 20% 0;
+    }
+
     img.chapterMemberImage {
-        // height: 400px;
         min-height: 100%;
         width: 300px;
         border-radius: 12px;
-        // box-shadow: 0 0 4px 2px rgba(rgb(61, 61, 61), 0.07);
         object-fit: cover;
-        // filter: brightness(.97);
         transition-property: filter, box-shadow;
         transition-duration: 100ms;
-
-        // &:hover {
-        //     box-shadow: 0 0 4px 2px rgba(rgb(59, 59, 59), 0.08);
-            // filter: brightness(1);
-        // }
-
-        // &:after {
-        //     content: "";
-        //     position: absolute;
-        //       top: -50%;
-        //     left: -60%;
-        //     width: 20%;
-        //     height: 200%;
-        //     opacity: 0;
-        //     transform: rotate(30deg);
-
-        //     background: rgba(255, 255, 255, 0.13);
-        //     background: linear-gradient(
-        //       to right,
-        //       rgba(255, 255, 255, 0.13) 0%,
-        //       rgba(255, 255, 255, 0.13) 77%,
-        //       rgba(255, 255, 255, 0.5) 92%,
-        //       rgba(255, 255, 255, 0.0) 100%
-        //     );
-        //   }
-
-        //   /* Hover state - trigger effect */
-        //   &:hover:after {
-        //     opacity: 1;
-        //     left: 130%;
-        //     transition-property: left, top, opacity;
-        //     transition-duration: 0.7s, 0.7s, 0.15s;
-        //     transition-timing-function: ease;
-        //   }
-
-        //   /* Active state */
-        //   &:active:after {
-        //     opacity: 0;
-        //   }
     }
 
     div.chapterMemberDetails {
@@ -109,8 +98,49 @@ div.chapterMember {
             }
 
             .chapterMemberId {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+
                 font-size: 18px;
-                opacity: 0.8;
+                color: rgba(black, 0.8) !important;
+
+                div.copyIdBtn svg {
+                    cursor: pointer;
+                    color: black;
+                }
+
+                .copyIdBtn {
+                    height: 20px;
+                    width: 20px;
+                    padding: .2rem;
+
+                    svg {
+                        transition: transform .1s ease;
+                        height: 22px !important;
+                        width: 20px !important;
+                    }
+
+                    .copy {
+                        transform: scale(1);
+                    }
+
+                    .check {
+                        position: relative;
+                        top: -30px;
+                        transform: scale(0);
+                    }
+
+                    &.copied {
+                        .copy {
+                            transform: scale(0);
+                        }
+
+                        .check {
+                            transform: scale(1);
+                        }
+                    }
+                }
             }
         }
     }
@@ -151,6 +181,12 @@ div.chapterMember {
     }
 }
 
+@keyframes spin {
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
 @media (max-width: 900px) {
     div.chapterMember {
         // background-color: red !important;
@@ -168,10 +204,37 @@ div.chapterMember {
         }
 
         img.chapterMemberImage {
-            // height: 400px;
             min-height: 100%;
             width: 250px;
         }
+
+        // .shine:after {
+        //     content: "";
+        //     position: relative;
+        //     // display: inline-block;
+        //     height: 200px;
+        //     width: 250px;
+        //     // top: -200px;
+        //     // left: 0;
+
+        //     // rgba(255, 255, 255, 0.05) 58%,
+        //     //     rgba(255, 255, 255, 0.26) 67%,
+
+        //     background: linear-gradient(
+        //         45deg,
+        //         transparent 50%,
+        //         red,
+        //         green,
+        //         yellow 68%
+        //     );
+        //     background-size: 250% 100%;
+        //     background-position: 250% 0;
+        //     transition: 0.7s;
+        //     // overflow: hidden;
+        // }
+        // .shine:hover:after {
+        //     background-position: -20% 0;
+        // }
 
         div.chapterMemberDetails {
             gap: 0.5rem;

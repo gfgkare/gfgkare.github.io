@@ -1,13 +1,17 @@
 import { useEffect, useRef } from "react";
 
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-
-import "../styles/ChapterMember.scss";
+import { useMisc } from "../contexts/MiscContext";
 import ShapesBackground from "../components/ShapesBackground";
 
-// import headShot from "../assets/headshot.jpg";
+import "../styles/ChapterMember.scss";
+
+// import headshot from "../assets/headshot.jpg";
 import headshot from "../assets/headshot_gen_neutral.png";
-import { useMisc } from "../contexts/MiscContext";
+
+
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import { GoCopy } from "react-icons/go";
+import { BsCheckLg } from "react-icons/bs";
 
 const about = [
     "This person is a passionate and driven individual, relentlessly pursuing their dreams. They exude confidence, intelligence, and empathy, inspiring others with their unwavering determination and kindness. A true beacon of light in this world.",
@@ -56,7 +60,10 @@ export default function ChapterMember(props) {
             <ShapesBackground />
 
             <div className="chapterMember">
-                <img className="chapterMemberImage" src={headshot} />
+                <div className="imageWrapper shine">
+                    <img className="chapterMemberImage" src={headshot} />
+                </div>
+
 
                 <div className="chapterMemberDetails">
                     <div className="chapterMemberTopDetails">
@@ -64,16 +71,26 @@ export default function ChapterMember(props) {
                             {toTitleCase(props.info.Name)}
                         </div>
                         <div className="chapterMemberRole">
-                            {/* {props.info.role} - */}
                             {"Student Member - "}
-                            {/* <span className="yearAndDept">{props.info.year} / {props.info.department}</span> */}
                             <span className="yearAndDept">
                                 {props.info.Year} / {props.info.Dept}
                             </span>
                         </div>
                         <div className="chapterMemberId">
-                            {/* Membership ID: {props.info.id} */}
-                            Membership ID: {props.info["Membership ID"]}
+                            Membership ID: {props.info["Membership ID"]} 
+                            <div className="copyIdBtn" onClick={(e) => {
+                                console.log(e.target.parentElement)
+                                // var blob = new Blob([props.info["Membership ID"]], {type: 'text/plain'});
+                                // var item = new ClipboardItem({'text/plain': blob});
+                                navigator.clipboard.writeText(props.info["Membership ID"]);
+                                e.target.parentElement.classList.add("copied");
+                                setTimeout(() => {
+                                e.target.parentElement.classList.remove("copied");  
+                                }, 2000)
+                            }}>
+                                <GoCopy className="copy" />
+                                <BsCheckLg className="check" />
+                            </div>
                         </div>
                     </div>
 
@@ -89,9 +106,6 @@ export default function ChapterMember(props) {
                         Connect with me:{" "}
                         <AiFillLinkedin className="linkIcon" size={"25px"} />
                         <AiFillGithub className="linkIcon" size={"25px"} />
-                        {/* <BsGlobe className="linkIcon" size={"25px"} /> */}
-                        {/* <BsStackOverflow className="linkIcon" size={"25px"} /> */}
-                        {/* <AiFillYoutube className="linkIcon" size={"25px"} /> */}
                     </div>
                 </div>
             </div>
