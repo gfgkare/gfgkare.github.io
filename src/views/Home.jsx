@@ -340,13 +340,10 @@ export default function Main() {
 
                 <Flickity
                     ref={slideShow}
-                    className={"carousel"} // default ''
-                    elementType={"div"} // default 'div'
-                    options={{ initialIndex: 0 }} // takes flickity options {}
-                    disableImagesLoaded={false} // default false
-                    // reloadOnUpdate // default false
-                    // static // default false
-                    onClick={() => console.log("clicking")}
+                    className={"carousel"}
+                    elementType={"div"}
+                    options={{ initialIndex: 0 }}
+                    disableImagesLoaded={false}
                 >
                     {events.map((event, index) => {
                         return (
@@ -354,7 +351,6 @@ export default function Main() {
                                 className="eventSlide"
                                 key={index}
                                 onClick={(e) => {
-                                    console.log(e.target.parentElement);
                                     if (
                                         !e.target.parentElement.classList.contains(
                                             "is-selected"
@@ -387,14 +383,14 @@ export default function Main() {
                                         navigate("/events/some-event");
                                     }
                                 }}
-                                onMouseEnter={() => {
-                                    console.log("clearing slide interval");
-                                    clearInterval(slideInterval);
-                                }}
-                                onMouseLeave={() => {
-                                    createAndSetNewSlideInterval();
-                                    console.log("creating new slide interval");
-                                }}
+                                // onMouseEnter={() => {
+                                //     console.log("clearing slide interval");
+                                //     clearInterval(slideInterval);
+                                // }}
+                                // onMouseLeave={() => {
+                                //     createAndSetNewSlideInterval();
+                                //     console.log("creating new slide interval");
+                                // }}
                             >
                                 <img src={event.imageSource} alt="" />
                                 <div className="eventDetails">

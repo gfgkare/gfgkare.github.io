@@ -1,0 +1,12 @@
+{
+    "buildDirectory": "./dist",
+    "routes": [
+        "/",
+        "/about",
+        "/members",
+        "/core",
+        "/meta",
+        "/contact",
+        "/events"
+    ]
+}

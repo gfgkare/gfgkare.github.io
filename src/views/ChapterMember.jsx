@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import { useMisc } from "../contexts/MiscContext";
 import ShapesBackground from "../components/ShapesBackground";
@@ -7,6 +8,7 @@ import "../styles/ChapterMember.scss";
 
 // import headshot from "../assets/headshot.jpg";
 import headshot from "../assets/headshot_gen_neutral.png";
+import hitesh from "../assets/members/99220040586.png";
 
 
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
@@ -30,12 +32,20 @@ export default function ChapterMember(props) {
     // const [memberDetails, setMemberDetails] = useState();
 
 
-    useEffect(() => {
-        setNavTitle("MEMBER DETAILS")
-        // console.log(props);
-        // setMemberName(params.memberId || "101");
+    const renderLinks = ( linksObject ) => {
+        return (
+            <>
+            { linksObject ? <>Connect with me: </> : <></> }
+            { linksObject?.linkedin ? <Link to={linksObject.linkedin} target="_blank" rel="noopener noreferrer" ><AiFillLinkedin className="linkIcon" size={"25px"} /></Link> : <></>  }
+            { linksObject?.github ? <Link to={linksObject.github} target="_blank" rel="noopener noreferrer" ><AiFillGithub className="linkIcon" size={"25px"} /></Link> : <></>  }
+            </>
+        )
+    }
 
-        // setMemberDetails(chapterMembersInfo.get(params.memberId));
+
+    useEffect(() => {
+        setNavTitle("")
+        // document.title = `${props.info.Name} - GeeksForGeeks KARE Student Chapter`
 
         const teamLinkObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
@@ -61,7 +71,8 @@ export default function ChapterMember(props) {
 
             <div className="chapterMember">
                 <div className="imageWrapper shine">
-                    <img className="chapterMemberImage" src={headshot} />
+                                                {/* //! TODO: do something else to find image instead of imageAvailable in JSON. */}
+                    <img className="chapterMemberImage" src={ (props.info.imageAvailable) ? '/src/assets/members/99220040586.png' : headshot } />
                 </div>
 
 
@@ -79,11 +90,9 @@ export default function ChapterMember(props) {
                         <div className="chapterMemberId">
                             Membership ID: {props.info["Membership ID"]} 
                             <div className="copyIdBtn" onClick={(e) => {
-                                console.log(e.target.parentElement)
-                                // var blob = new Blob([props.info["Membership ID"]], {type: 'text/plain'});
-                                // var item = new ClipboardItem({'text/plain': blob});
                                 navigator.clipboard.writeText(props.info["Membership ID"]);
                                 e.target.parentElement.classList.add("copied");
+                                
                                 setTimeout(() => {
                                 e.target.parentElement.classList.remove("copied");  
                                 }, 2000)
@@ -96,16 +105,18 @@ export default function ChapterMember(props) {
 
                     <div className="chapterMemberAbout">
                         {
-                            about[Math.floor(Math.random() * about.length)]
+                            props.info.About || about[Math.floor(Math.random() * about.length)]
                         }
                     </div>
                     <div
                         className="chapterMemberLinks"
                         ref={chapterMemberLinks}
                     >
-                        Connect with me:{" "}
-                        <AiFillLinkedin className="linkIcon" size={"25px"} />
-                        <AiFillGithub className="linkIcon" size={"25px"} />
+                        {/* <AiFillLinkedin className="linkIcon" size={"25px"} />
+                        <AiFillGithub className="linkIcon" size={"25px"} /> */}
+                        {
+                            renderLinks(props.info.Links)
+                        }
                     </div>
                 </div>
             </div>

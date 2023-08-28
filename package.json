@@ -8,7 +8,7 @@
     "dev": "vite",
     "devs": "vite --host",
     "build": "vite build",
-    "postbuild": "react-snap",
+    "xpostbuild": "react-spa-prerender",
     "gh": "vite build && cp dist/index.html dist/404.html && rm -rf docs && cp dist docs -rf",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "react-spa-prerender": "^1.0.14",
     "vite": "^4.3.2"
   }
 }

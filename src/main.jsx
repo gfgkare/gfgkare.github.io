@@ -32,6 +32,7 @@ if (rootElement.hasChildNodes()) {
     );
 }
 
+
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //     // <React.StrictMode>
 //     <MiscProvider>

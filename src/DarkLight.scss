@@ -1,6 +1,5 @@
 @import "./styles/Variables.scss";
 
-
 // ==========================================================================
 // DARK STYLES =============================================================
 // ==========================================================================
@@ -140,6 +139,13 @@ div.chapterMember {
 
     div.otherDetails {
         background-color: rgba(white, 0.05);
+    }
+}
+
+div.chapterMemberLinks {
+    a {
+        all: unset !important;
+        color: rgba($background, 0.9);
     }
 }
 
@@ -295,12 +301,10 @@ body.light {
         border: 2px solid rgba($background, 0.1);
         box-shadow: 0 0 4px 2px rgba(black, 0.08);
 
-
         img.chapterMemberImage {
-            box-shadow: 0 0 4px 5px rgba(black, .08);
+            box-shadow: 0 0 4px 5px rgba(black, 0.08);
             &:hover {
                 box-shadow: 0 0 4px 6px rgba(black, 0.1);
-
             }
         }
 
@@ -309,12 +313,16 @@ body.light {
         }
     }
 
+    div.chapterMemberLinks {
+        a {
+            all: unset !important;
+            color: rgba($background, 0.9);
+        }
+    }
+
     div.allMembersContainer {
         div.memberDiv {
-            background: linear-gradient(
-                darken($text, 2),
-                darken($text, 6)
-            );
+            background: linear-gradient(darken($text, 2), darken($text, 6));
             border: 2px solid darken($text, 15);
 
             .visitButton {

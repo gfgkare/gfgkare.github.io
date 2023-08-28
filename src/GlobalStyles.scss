@@ -37,9 +37,7 @@ button:hover {
 
 
 * {
-    transition: color 0.4s ease;
-    transition-property: color, background-color;
-    transition-duration: 0.05s;
+    transition: color 0.05s ease, background-color .05s ease;
 }
 
 *.noStyle {

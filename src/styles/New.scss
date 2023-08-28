@@ -44,9 +44,15 @@ div.new {
             .cta {
                 padding: 1rem 2rem;
                 border-radius: 26px;
-                background-color: darken($background, 10);
-                color: $text;
+                border: 3px solid darken($background, 10);
+                color: $background;
                 cursor: pointer;
+                transition: color .1s ease, background-color .1s ease;
+
+                &:hover {
+                    color: $text;
+                    background-color: darken($background, 10);
+                }
             }
         }
     }

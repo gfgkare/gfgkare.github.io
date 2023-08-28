@@ -42,7 +42,7 @@ export default function Main() {
                         <div className="menuLink hideOnMobile"><Link className="noStyle" to="/contact">Contact</Link></div>
 
                         <div className="iconAndGrid showOnMobile">
-                            <div className="dropdown">
+                            <div className="dropdown" onBlur={() => console.log("lose ir")}>
                                 <RxHamburgerMenu
                                     size={"25px"}
                                     id="hamburger"
@@ -64,7 +64,8 @@ export default function Main() {
                                         showNavBox ? "show" : ""
                                     }`}
                                 >
-                                    <span><Link to="events">Events</Link></span>
+                                    <span><Link to="/">Home</Link></span>
+                                    <span><Link to="/events">Events</Link></span>
                                     <span><Link to="/members">Members</Link></span>
                                     <span>Contact</span>
                                     {/* <span>

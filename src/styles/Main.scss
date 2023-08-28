@@ -78,7 +78,7 @@ div.navBar {
                     height: 0;
                     position: absolute;
                     background-color: $text;
-                    color: lighten(green, 1);
+                    // color: lighten(green, 1);
                     font-weight: 500;
                     min-width: 160px;
                     overflow: auto;
@@ -86,7 +86,11 @@ div.navBar {
                     transition: height 100ms ease;
 
                     a {
-                        all: unset;
+                        all: unset !important;
+
+                        &:hover {
+                            color: lighten($text, 10) !important;
+                        }
                     }
 
                     .toggle {
@@ -99,12 +103,12 @@ div.navBar {
                         // background-color: red;
                         width: 100px !important;
                         border-radius: 8px;
-                        border: 2px solid lighten(green, 1);
+                        border: 2px solid $background;
                         margin: 0 auto 1rem auto;
                         text-align: center;
 
                         &:hover {
-                            background-color: lighten(green, 1);
+                            background-color: $background;
                             color: $text;
                         }
                     }
@@ -179,10 +183,10 @@ div.section {
     .navBarWrap {
         .logosContainer {
             flex: 2;
-            justify-content: flex-end;
+            // justify-content: flex-end;
         }
         .rightMenu {
-            visibility: hidden;
+            // visibility: hidden;
             flex: 1;
             justify-content: flex-end !important;
         }
