@@ -71,8 +71,8 @@ export default function ChapterMember(props) {
 
             <div className="chapterMember">
                 <div className="imageWrapper shine">
-                                                {/* //! TODO: do something else to find image instead of imageAvailable in JSON. */}
-                    <img className="chapterMemberImage" src={ (props.info.imageAvailable) ? '/src/assets/members/99220040586.png' : headshot } />
+                                                {/* //! TODO: do something else to render image. */}
+                    <img className="chapterMemberImage" src={ (props.info.image) ? props.info.image : headshot } />
                 </div>
 
 

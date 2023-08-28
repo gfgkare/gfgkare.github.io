@@ -19,7 +19,7 @@ import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
-import allData from "./data/csvjson.json"
+import allData from "./data/allMembersInfo.js"
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 

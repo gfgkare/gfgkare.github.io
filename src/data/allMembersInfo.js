@@ -1,4 +1,6 @@
-[
+import hitesh from "../assets/members/99220040586.png"
+
+const MembersInfo = [
   {
     "Name": "CHEEDARLA PAVAN KUMAR",
     "Year": "IV",
@@ -1174,7 +1176,7 @@
       "linkedin": "https://www.linkedin.com/in/hitesh-kumar-kothapalli-b70393252",
       "github": "https://www.github.com/solstxce"
     },
-    "imageAvailable": true
+    "image": hitesh
     
   },
   {
@@ -2168,3 +2170,5 @@
     "Membership ID": "GK23101001110"
   }
 ]
+
+export default MembersInfo;
