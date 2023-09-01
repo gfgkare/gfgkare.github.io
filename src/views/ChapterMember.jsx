@@ -6,10 +6,7 @@ import ShapesBackground from "../components/ShapesBackground";
 
 import "../styles/ChapterMember.scss";
 
-// import headshot from "../assets/headshot.jpg";
 import headshot from "../assets/headshot_gen_neutral.png";
-import hitesh from "../assets/members/99220040586.png";
-
 
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { GoCopy } from "react-icons/go";
@@ -71,8 +68,8 @@ export default function ChapterMember(props) {
 
             <div className="chapterMember">
                 <div className="imageWrapper shine">
-                                                {/* //! TODO: do something else to render image. */}
-                    <img className="chapterMemberImage" src={ (props.info.image) ? props.info.image : headshot } />
+                        {/* CHECKS FOR A TEMPORARY IMAGE AVAILABLE PROP AS JSON DATA IS INCOMPLETE. SHOULD BE REMOVED AFTER ADDING ALL IMAGES. */}
+                    <img src={ (props.info.imageAvailable) ? new URL(`../assets/members/${props.info.Reg}.png`, import.meta.url).href : headshot } alt="Member Image" className="chapterMemberImage" />
                 </div>
 
 
@@ -112,11 +109,7 @@ export default function ChapterMember(props) {
                         className="chapterMemberLinks"
                         ref={chapterMemberLinks}
                     >
-                        {/* <AiFillLinkedin className="linkIcon" size={"25px"} />
-                        <AiFillGithub className="linkIcon" size={"25px"} /> */}
-                        {
-                            renderLinks(props.info.Links)
-                        }
+                        {   renderLinks(props.info.Links)  }
                     </div>
                 </div>
             </div>

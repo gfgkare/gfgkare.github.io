@@ -1176,7 +1176,7 @@ const MembersInfo = [
       "linkedin": "https://www.linkedin.com/in/hitesh-kumar-kothapalli-b70393252",
       "github": "https://www.github.com/solstxce"
     },
-    "image": hitesh
+    "imageAvailable": true
     
   },
   {

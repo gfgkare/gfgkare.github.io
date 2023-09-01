@@ -116,7 +116,7 @@ div.chapterMember {
                     padding: .2rem;
 
                     svg {
-                        transition: transform .1s ease;
+                        transition: transform .3s ease;
                         height: 22px !important;
                         width: 20px !important;
                     }
@@ -162,9 +162,9 @@ div.chapterMember {
                 transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @for $i from 1 through 11 {
-            .linkIcon:nth-child(#{$i}) {
-                transition-delay: #{$i * 0.1}s !important;
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{$i * 0.3}s !important;
             }
         }
 
