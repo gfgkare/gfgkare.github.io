@@ -1,14 +1,13 @@
+import "../styles/Main.scss";
+
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
-import "../styles/Main.scss";
-import { useMisc } from "../contexts/MiscContext";
-
-// import ScrollContainer from "../components/ScrollContainer";
-
-import gfgLogo from "../assets/GFG_KARE.svg";
-// import kluLogo from "../assets/klu.png";
 import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
+
+import gfgLogo from "../assets/GFG_KARE.svg";
+import { useMisc } from "../contexts/MiscContext";
+import RandomBubbles from "../components/RandomBubbles";
 
 export default function Main() {
     const { theme, setTheme, navTitle } = useMisc();
@@ -19,6 +18,7 @@ export default function Main() {
 
     return (
         <>
+            <RandomBubbles />
             <div className="navBar">
                 <div className="navBarWrap">
                     <div className="logosContainer">
@@ -26,23 +26,38 @@ export default function Main() {
                             className="navIcon"
                             src={gfgLogo}
                             alt="GFG logo"
-                            onClick={() =>
-                                navigate("/members")
-                            }
+                            onClick={() => navigate("/members")}
                         />
                     </div>
-                    <span className="centerText hideOnMobile">
-                        {navTitle}
-                    </span>
+                    <span className="centerText hideOnMobile">{navTitle}</span>
 
                     <div className="rightMenu">
-                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/">Home</Link></div>
-                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/events">Events</Link></div>
-                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/members">Members</Link></div>
-                        <div className="menuLink hideOnMobile"><Link className="noStyle" to="/contact">Contact</Link></div>
+                        <div className="menuLink hideOnMobile">
+                            <Link className="noStyle" to="/">
+                                Home
+                            </Link>
+                        </div>
+                        <div className="menuLink hideOnMobile">
+                            <Link className="noStyle" to="/events">
+                                Events
+                            </Link>
+                        </div>
+                        <div className="menuLink hideOnMobile">
+                            <Link className="noStyle" to="/members">
+                                Members
+                            </Link>
+                        </div>
+                        <div className="menuLink hideOnMobile">
+                            <Link className="noStyle" to="/contact">
+                                Contact
+                            </Link>
+                        </div>
 
                         <div className="iconAndGrid showOnMobile">
-                            <div className="dropdown" onBlur={() => console.log("lose ir")}>
+                            <div
+                                className="dropdown"
+                                onBlur={() => console.log("lose ir")}
+                            >
                                 <RxHamburgerMenu
                                     size={"25px"}
                                     id="hamburger"
@@ -52,9 +67,8 @@ export default function Main() {
                                         );
                                     }}
                                     onFocus={() => {
-                                        console.log("focused")
+                                        console.log("focused");
                                     }}
-
                                     onBlur={() => {
                                         console.log("blurred");
                                     }}
@@ -64,9 +78,15 @@ export default function Main() {
                                         showNavBox ? "show" : ""
                                     }`}
                                 >
-                                    <span><Link to="/">Home</Link></span>
-                                    <span><Link to="/events">Events</Link></span>
-                                    <span><Link to="/members">Members</Link></span>
+                                    <span>
+                                        <Link to="/">Home</Link>
+                                    </span>
+                                    <span>
+                                        <Link to="/events">Events</Link>
+                                    </span>
+                                    <span>
+                                        <Link to="/members">Members</Link>
+                                    </span>
                                     <span>Contact</span>
                                     {/* <span>
                                          <input
@@ -87,7 +107,6 @@ export default function Main() {
                                         />
                                     </span> */}
                                     <span className="registerButton">Join</span>
-
                                 </div>
                             </div>
                         </div>
@@ -95,7 +114,7 @@ export default function Main() {
                 </div>
             </div>
 
-            <div className="out">
+            <div className="out" >
                 <Outlet />
             </div>
         </>

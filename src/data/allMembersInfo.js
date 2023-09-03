@@ -1,4 +1,4 @@
-import hitesh from "../assets/members/99220040586.png"
+// import hitesh from "../assets/members/99220040586.png"
 
 const MembersInfo = [
   {

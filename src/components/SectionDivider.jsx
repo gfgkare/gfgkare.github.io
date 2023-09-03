@@ -4,7 +4,9 @@ import { AiOutlineDown } from "react-icons/ai";
 
 export default function SectionDivider(props) {
     return (
-        <div className="dividerContainer">
+        <div className="dividerContainer" 
+        // style={ (props.relativeWidth ?  { position: "relative !important", width: "100%"} : {width: "100vw"}  ) }
+        >
             <div className="divider">
                 {/* ------------------------------------------------ */}
             </div>

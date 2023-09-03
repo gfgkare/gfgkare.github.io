@@ -54,13 +54,12 @@ button:hover {
 ::-webkit-scrollbar-thumb {
     background-color: lighten($background, 30);
     border-radius: 20px;
-    visibility: hidden;
-    transition: visibility 1s;
+    transition: background-color 1s ease;
 }
 
-html:hover ::-webkit-scrollbar-thumb {
-    visibility: visible;
-}
+// html:hover ::-webkit-scrollbar-thumb {
+//     background-color: lighten($background, 30);
+// }
 
 .toggle {
     /*  Dark mode animated toggle. Codepen: https://codepen.io/mrozilla/pen/OJJNjRb  */
@@ -104,7 +103,7 @@ html:hover ::-webkit-scrollbar-thumb {
     margin: 0;
     padding: 0;
     margin-top: 6rem;
-
+    backdrop-filter: blur(2px);
     // background-color: blue;
     // background: rgba(255, 255, 255, .05);
 }

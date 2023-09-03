@@ -163,8 +163,9 @@ div.chapterMember {
         }
 
         @for $i from 1 through 5 {
-            &:nth-child(#{$i}) {
-                transition-delay: #{$i * 0.3}s !important;
+            a:nth-child(#{$i}) {
+                // color: darken(red, $i*10) !important;
+                transition-delay: #{$i * .3}s !important;
             }
         }
 

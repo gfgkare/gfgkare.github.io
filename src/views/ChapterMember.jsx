@@ -12,6 +12,8 @@ import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { GoCopy } from "react-icons/go";
 import { BsCheckLg } from "react-icons/bs";
 
+
+
 const about = [
     "This person is a passionate and driven individual, relentlessly pursuing their dreams. They exude confidence, intelligence, and empathy, inspiring others with their unwavering determination and kindness. A true beacon of light in this world.",
     "This person is a passionate, persistent, and confident individual with a brilliant intellect. Their pursuit of their dreams inspires others, while their kindness and empathy make them a true role model.",
@@ -32,7 +34,7 @@ export default function ChapterMember(props) {
     const renderLinks = ( linksObject ) => {
         return (
             <>
-            { linksObject ? <>Connect with me: </> : <></> }
+            {/* { linksObject ? <>Connect with me: </> : <></> } */}
             { linksObject?.linkedin ? <Link to={linksObject.linkedin} target="_blank" rel="noopener noreferrer" ><AiFillLinkedin className="linkIcon" size={"25px"} /></Link> : <></>  }
             { linksObject?.github ? <Link to={linksObject.github} target="_blank" rel="noopener noreferrer" ><AiFillGithub className="linkIcon" size={"25px"} /></Link> : <></>  }
             </>
