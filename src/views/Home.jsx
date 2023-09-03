@@ -140,17 +140,13 @@ export default function Main() {
                     </div>
                     <div className="content">
                         We are a team of aspiring students from Kalasalingam
-                        University focused on making education and problem
-                        solving yada yada yada accessible to students that want
+                        University focused on making programming and problem
+                        solving accessible to students that want
                         to improve themselves in the fields of programming and
                         computer science.
                         <br /> <br />
                         <span className="hideOnMobile">
-                            Some other extra info that will be hid in mobile
-                            view. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Earum voluptatum incidunt
-                            voluptates quae praesentium aut molestiae ea quo
-                            nobis consequatur!
+                            We do this with the help of GeeksForGeeks, Kalasalingam Academy of Research and Education, and enthusiastic students!
                         </span>
                     </div>
                     {aboutVisible ? (
