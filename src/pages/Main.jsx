@@ -7,7 +7,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 import gfgLogo from "../assets/GFG_KARE.svg";
 import { useMisc } from "../contexts/MiscContext";
-// import RandomBubbles from "../components/RandomBubbles";
+import RandomBubbles from "../components/RandomBubbles";
 
 export default function Main() {
     const { theme, setTheme, navTitle } = useMisc();
@@ -18,7 +18,7 @@ export default function Main() {
 
     return (
         <>
-            {/* <RandomBubbles /> */}
+            <RandomBubbles />
             <div className="navBar">
                 <div className="navBarWrap">
                     <div className="logosContainer">

@@ -8,7 +8,6 @@ export default function RandomBubbles(props) {
         let bubbles = new Array(3 + Math.floor(Math.random() * 3))
             .fill(0)
             .map((_, i) => {
-                // let size = `${10 + Math.floor(Math.random() * 40)}px`;
                 return <Bubble key={i} />;
             });
         return bubbles;

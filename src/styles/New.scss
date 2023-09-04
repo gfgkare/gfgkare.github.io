@@ -1,7 +1,9 @@
 @import "./Variables.scss";
 
 div.new {
-    width: min(97%, 1100px);
+    width: min(90vw, 1100px);
+    background-color: blue;
+    // width: 80vw;
     margin: 0 auto;
     // height: 200px !important;
     margin-top: 7rem;
@@ -57,6 +59,11 @@ div.new {
     }
 
     div.numbersDiv {
+        opacity: 0;
+        transform: translateY(50px);
+
+        transition: opacity .6s ease, transform .6s ease;
+
         margin-top: 3rem;
         margin-bottom: 1rem;
 
@@ -65,6 +72,11 @@ div.new {
         align-items: center;
         justify-content: space-around;
         gap: 1rem;
+
+        &.aboutVisible {
+            opacity: 1;
+            transform: translateY(0);    
+        }
 
         .shape {
             flex: 0.9;
@@ -87,8 +99,8 @@ div.new {
         }
 
         .numbers {
-            min-width: 40% !important;
-            max-width: 40% !important;
+            min-width: 40%;
+            // max-width: 40%;
             padding: 0 1rem;
             display: flex;
             gap: 3rem;
@@ -174,6 +186,7 @@ div.new {
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
+                            filter: brightness(80%);
                         }
                     }
 
@@ -217,31 +230,168 @@ div.new {
     }
 }
 
-
 .teamSection .teamGrid {
-    .memberContainer {
+    a {
         opacity: 0;
-        transform: scale(.3);
-        // transform: translateY(50px);
-        transition-property: opacity transform;
+        transform: translateY(50px);
+        transition: opacity 0.5s ease, transform 1s ease;
     }
 
-    @for $i from 1 through 10 {
+    @for $i from 1 through 11 {
         a:nth-child(#{$i}) {
-            // background-color: darken(red, $i * 10);
-            // transition-delay: #{$i * 2}s;
-            // transition: opacity #{$i * 2}s ease, transform #{$i * 2}s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-delay: #{$i * 0.2}s !important;
         }
     }
 
     &.teamVisible {
-        .memberContainer {
+        a {
             opacity: 1;
-            transform: scale(1);
+            transform: translateY(0);
         }
     }
 }
 
+section.events {
+    margin: 0 !important;
+}
+
+.carousel {
+    overflow: hidden;
+    outline: none;
+    min-width: 90%;
+    // height: 50vh;
+    margin: 0 auto;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    transform: scale(.9) translateX(-5%);
+
+    // display: flex;
+    // flex-direction: column;
+
+    .flickity-viewport {
+        border-radius: 8px;
+        max-height: max-content;
+        overflow: hidden;
+        padding: 1rem 0;
+        // display: flex;
+        // gap: 1rem;
+
+        .imageComp {
+            border-radius: 8px;
+            box-shadow: 0 0 10px 5px rgb(69, 69, 69);
+            // height: 95%;
+            // height: 100% !important;
+            // max-height: 80%;
+            filter: blur(3px);
+            transition: filter .5s ease;
+
+
+            &.is-selected {
+                z-index: 2;
+                filter: blur(0);
+            }
+        }
+    }
+
+    div.eventSlide {
+        cursor: pointer;
+        // border: .4px solid white;
+        width: 100% !important;
+        // transform: translateX(-30%);
+        // width: 40vw;
+        height: 500px;
+        padding: .5rem;
+        border-radius: 8px;
+        filter: blur(2px);
+        overflow: hidden;
+        // display: flex;
+        // flex-direction: column;
+        // background-color: red;
+        // box-shadow: 0 0 10px 5px rgb(64, 64, 64);
+
+        :nth-child(1) {
+            border: 1px solid white;
+        }
+
+        :nth-child(2) {
+            border: 1px solid white;
+            // border-color: transparent white whit;
+        }
+
+        &.is-selected {
+            filter: blur(0);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            // flex: 4;
+            object-fit: cover;
+        }
+
+        div.eventDetails {
+            // background-color: red !important;    
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem 0 !important;
+            // max-width: 100%;
+            height: max-content;
+            // padding: 1rem 1rem;
+            border-radius: 0 0 8px 8px;
+            transform: translateY(-100%);
+            // text-align: center;
+
+            div.text {
+                // background-color: blue !important;
+                max-width: 100%;
+                padding: 0 1rem;
+                border: none !important;
+            }
+        }
+
+        div.sign {
+            position: relative;
+            top: 0;
+            right: 0;
+        }
+
+    }
+
+    button.flickity-button {
+        display: none;
+    }
+
+    ol.flickity-page-dots {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        max-width: max-content;
+        margin: 1rem auto;
+
+        li {
+            height: 5px;
+            width: 5px !important;
+            background: rgba(0, 0, 0, .5);
+            padding: .25rem;
+            border-radius: 50%;
+            width: max-content;
+            cursor: pointer;
+
+            &.is-selected {
+                background: rgba(0, 0, 0, .75);
+            }
+
+            &::marker {
+                content: "";
+                width: 4px;
+                height: 4px;
+            }
+        }
+    }
+}
 
 @media (max-width: 700px) {
     div.new {
@@ -261,6 +411,8 @@ div.new {
         }
 
         div.numbersDiv {
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             gap: 2rem;
 
@@ -269,7 +421,9 @@ div.new {
             }
 
             .numbers {
-                justify-content: flex-end;
+                // padding: 1.3rem !important;
+                width: 100%;
+                justify-content: center;
                 padding: 0;
             }
         }

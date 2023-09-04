@@ -3,59 +3,65 @@ import "../styles/New.scss";
 import CountUp from "react-countup";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import Flickity from "react-flickity-component";
+
 
 import coreTeamMembers from "../data/coreTeamInfo.js";
 import { useMisc } from "../contexts/MiscContext";
 import SectionDivider from "../components/SectionDivider";
+import events from "../data/eventsInfo";
 
 export default function New() {
     const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed } =
         useMisc();
 
-    const teamSection = useRef();
     const aboutSection = useRef();
-
     const [aboutVisible, setAboutVisible] = useState(false);
+
+    const teamSection = useRef();
     const [teamVisible, setTeamVisible] = useState(false);
+    
+    const slideShow = useRef(null);
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [slideInterval, setSlideInterval] = useState();
+
 
     useEffect(() => {
-        const aboutObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                console.log(`%c ${entries[0].intersectionRatio}`, "color: red" );
+        createAndSetNewSlideInterval();
 
-                if (entries[0].intersectionRatio >= 0.5) {
-                    console.log(`%c about above 5 ratio`, "color: red" );
+
+        const aboutObserver = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    // alert("about above 50%")
                     aboutObserver.unobserve(aboutSection.current);
-
                     if (!aboutRevealed) {
                         setAboutVisible(true);
                         setTimeout(() => setAboutRevealed(true), 5000);
                     }
                 }
-               
-            }
-        });
+            },
+            { threshold: 0.85 }
+        );
         if (!aboutRevealed) {
             aboutObserver.observe(aboutSection.current);
         } else {
             setAboutVisible(true);
         }
 
-        const teamObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                console.log(`%c ${entries[0].intersectionRatio}`, "color: red" );
-
-                if (entries[0].intersectionRatio > 0.5) {
-                    console.log(`%c team above 5 ratio`, "color: red" );
-                    teamObserver.unobserve();
-                } 
-
-                if (!teamRevealed) {
-                    setTeamVisible(true);
-                    setTimeout(() => setTeamRevealed(true), 1000);
+        const teamObserver = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    teamObserver.unobserve(teamSection.current);
+                    if (!teamRevealed) {
+                        setTeamVisible(true);
+                        setTimeout(() => setTeamRevealed(true), 1000);
+                    }
                 }
-            }
-        });
+            },
+            { threshold: 0.07 }
+        );
+
         if (!teamRevealed) {
             teamObserver.observe(teamSection.current);
         } else {
@@ -67,8 +73,26 @@ export default function New() {
             aboutObserver.disconnect();
             teamObserver.disconnect();
         };
-
     }, []);
+
+    const createAndSetNewSlideInterval = () => {
+        const moveSlideInterval = setInterval(() => {
+            setCurrentSlideIndex((prevTimer) => {
+                if (prevTimer < events.length - 1) {
+                    document.querySelector(".flickity-button.next").click();
+                    return prevTimer + 1;
+
+                } else {
+                    for (let i = 0; i < events.length - 1; i++) {
+                        setTimeout(() => document.querySelector(".flickity-button.previous").click(), 300);
+                    }
+                    return 0;
+                }
+            });
+        }, 8000);
+
+        setSlideInterval(moveSlideInterval);
+    };
 
     return (
         <>
@@ -85,13 +109,13 @@ export default function New() {
                                 are rocking the campus.
                             </div>
 
-                            <div className="cta">Join the club</div>
+                            <div className="cta">Become a member</div>
                         </div>
                     </div>
                 </section>
 
                 <section ref={aboutSection}>
-                    <div className="numbersDiv">
+                    <div className={ (aboutVisible) ? "numbersDiv aboutVisible" : "numbersDiv"}>
                         <div className="shape hideOnMobile"></div>
                         <div className="text">
                             We are a team of aspiring students from Kalasalingam
@@ -104,7 +128,8 @@ export default function New() {
                         <div className="numbers">
                             <div className="counter">
                                 <span className="count">
-                                    {!aboutRevealed ? (
+                                    1000+
+                                    {/* {!aboutRevealed ? (
                                         <CountUp
                                             start={101}
                                             end={1000}
@@ -113,14 +138,15 @@ export default function New() {
                                     ) : (
                                         <>1000</>
                                     )}
-                                    +
+                                    + */}
                                 </span>
                                 Students{"    "}
                             </div>
 
                             <div className="counter">
                                 <span className="count">
-                                    0
+                                    04+
+                                    {/* 0
                                     {!aboutRevealed ? (
                                         <CountUp
                                             end={4}
@@ -130,15 +156,15 @@ export default function New() {
                                     ) : (
                                         <>4</>
                                     )}
-                                    +
+                                    + */}
                                 </span>
                                 Talks{"   "}
                             </div>
 
                             <div className="counter">
                                 <span className="count">
-                                    0
-                                    {!aboutRevealed ? (
+                                    05+
+                                    {/* {!aboutRevealed ? (
                                         <CountUp
                                             end={5}
                                             duration={10}
@@ -147,7 +173,7 @@ export default function New() {
                                     ) : (
                                         <>5</>
                                     )}
-                                    +
+                                    + */}
                                 </span>
                                 Events
                             </div>
@@ -158,14 +184,12 @@ export default function New() {
                 <SectionDivider relativeWidth />
 
                 <section className="teamSection">
-                    <div className="teamTitle">
-                        Our Team
-                    </div>
+                    <div className="teamTitle">Our Team</div>
 
                     <div className="teamGridContainer">
                         <div
                             className={`teamGrid ${
-                                teamVisible ? "teamVisible" : ""
+                                (teamVisible) ? "teamVisible" : (teamRevealed)  ? "teamVisible" : ""
                             }`}
                             ref={teamSection}
                         >
@@ -200,6 +224,76 @@ export default function New() {
                         </div>
                     </div>
                 </section>
+
+                <div className="section events">
+                <div className="sectionTitle">EVENTS</div>
+
+                <Flickity
+                    ref={slideShow}
+                    className={"carousel"}
+                    elementType={"div"}
+                    options={{ initialIndex: 0 }}
+                    disableImagesLoaded={false}
+                >
+                    {events.map((event, index) => {
+                        return (
+                            <div
+                                className="eventSlide"
+                                key={index}
+                                onClick={(e) => {
+                                    if (
+                                        !e.target.parentElement.classList.contains(
+                                            "is-selected"
+                                        )
+                                    ) {
+                                        console.log(
+                                            "clicked not selected event"
+                                        );
+                                        if (index < currentSlideIndex) {
+                                            document
+                                                .querySelector(
+                                                    ".flickity-button.previous"
+                                                )
+                                                .click();
+                                            setCurrentSlideIndex(
+                                                (prevIndex) => prevIndex - 1
+                                            );
+                                        } else {
+                                            document
+                                                .querySelector(
+                                                    ".flickity-button.next"
+                                                )
+                                                .click();
+                                            setCurrentSlideIndex(
+                                                (prevIndex) => prevIndex + 1
+                                            );
+                                        }
+                                    } else {
+                                        console.log("clicked selected event");
+                                        navigate("/events/some-event");
+                                    }
+                                }}
+                                // onMouseEnter={() => {
+                                //     console.log("clearing slide interval");
+                                //     clearInterval(slideInterval);
+                                // }}
+                                // onMouseLeave={() => {
+                                //     createAndSetNewSlideInterval();
+                                //     console.log("creating new slide interval");
+                                // }}
+                            >
+                                <img src={event.imageSource} alt="" />
+                                <div className="eventDetails">
+                                    <div className="text">{event.text}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
+
+                </Flickity>
+            </div>
+
+                
             </div>
         </>
     );
