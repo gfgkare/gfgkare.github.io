@@ -23,4 +23,20 @@ div.allMembersContainer {
         gap: .5rem;
     }
 
+    .searchBarWrapper {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+
+        .searchBar {
+            max-width: 100%;
+            padding: 1rem 2rem;
+            margin: 0 auto;
+            border-radius: 8px;
+            width: 80%;
+        }
+    }
+    
+
 }

@@ -7,7 +7,7 @@ import { useMisc } from "../contexts/MiscContext";
 
 import { FiChevronRight } from "react-icons/fi";
 
-export default function MemberPreview({ info }) {
+export default function MemberPreview({ visibilityStatus, info }) {
     const { toTitleCase } = useMisc();
 
     const [animationClass, setAnimationClass] = useState("");
@@ -20,7 +20,7 @@ export default function MemberPreview({ info }) {
 
     return (
         <>
-            <div className={`memberDiv` + " " + animationClass}>
+            <div className={`memberDiv` + " " + animationClass + " " + visibilityStatus }>
                 <div className="memberDivWrapper">
                     <div className="nameAndId">
                         <div className="name">

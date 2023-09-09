@@ -336,6 +336,15 @@ body.light {
     }
 
     div.allMembersContainer {
+
+        div.searchBarWrapper input.searchBar {
+            background: linear-gradient(to left, darken($text, 2), darken($text, 4), darken($text, 2));
+            border-style: none;
+            outline: none;
+            border: 2px solid darken($text, 15);
+            color: $background;
+        }
+
         div.memberDiv {
             background: linear-gradient(darken($text, 2), darken($text, 6));
             border: 2px solid darken($text, 15);
