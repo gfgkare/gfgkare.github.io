@@ -3,7 +3,9 @@ import { useMisc } from "../contexts/MiscContext";
 
 import "../styles/AllMembers.scss";
 import MemberPreview from "../components/MemberPreview";
-import allMemberData from "../data/allMembersInfo.js";
+import allMemberData from "../data/all_data_merged"
+
+
 import useArray from "../hooks/useArray";
 
 import { FiPlus } from "react-icons/fi";

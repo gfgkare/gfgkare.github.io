@@ -6,12 +6,12 @@ import ShapesBackground from "../components/ShapesBackground";
 
 import "../styles/ChapterMember.scss";
 
-import headshot from "../assets/headshot_gen_neutral.png";
-
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { GoCopy } from "react-icons/go";
 import { BsCheckLg } from "react-icons/bs";
 
+import errored_image_fallback from "../assets/errored_image_fallback.png"
+import ImageRenderer from "../components/ImageRenderer"
 
 
 const about = [
@@ -24,19 +24,22 @@ const about = [
 
 export default function ChapterMember(props) {
 
-    const {setNavTitle, toTitleCase} = useMisc();
+    const {setNavTitle, toTitleCase, getViewLinkFromDriveLink } = useMisc();
 
     const chapterMemberLinks = useRef();
     // const chapterMemberDiv = useRef();
     // const [memberDetails, setMemberDetails] = useState();
 
 
-    const renderLinks = ( linksObject ) => {
+    const renderLinks = ( ) => {
         return (
             <>
+            {/* Connect with me: */}
+            { props.info.linkedin ? <Link to={props.info.linkedin} target="_blank" rel="noopener noreferrer" ><AiFillLinkedin className="linkIcon" size={"25px"} /></Link> : <></> }
+            { props.info.github ? <Link to={props.info.github} target="_blank" rel="noopener noreferrer" ><AiFillGithub className="linkIcon" size={"25px"} /></Link> : <></> }
             {/* { linksObject ? <>Connect with me: </> : <></> } */}
-            { linksObject?.linkedin ? <Link to={linksObject.linkedin} target="_blank" rel="noopener noreferrer" ><AiFillLinkedin className="linkIcon" size={"25px"} /></Link> : <></>  }
-            { linksObject?.github ? <Link to={linksObject.github} target="_blank" rel="noopener noreferrer" ><AiFillGithub className="linkIcon" size={"25px"} /></Link> : <></>  }
+            {/* { linksObject?.linkedin ? <Link to={linksObject.linkedin} target="_blank" rel="noopener noreferrer" ><AiFillLinkedin className="linkIcon" size={"25px"} /></Link> : <></>  } */}
+            {/* { linksObject?.github ? <Link to={linksObject.github} target="_blank" rel="noopener noreferrer" ><AiFillGithub className="linkIcon" size={"25px"} /></Link> : <></>  } */}
             </>
         )
     }
@@ -44,7 +47,10 @@ export default function ChapterMember(props) {
 
     useEffect(() => {
         setNavTitle("")
+        window.scrollTo(0, 0);
         // document.title = `${props.info.Name} - GeeksForGeeks KARE Student Chapter`
+
+        getViewLinkFromDriveLink(props.info.imageLink)
 
         const teamLinkObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
@@ -70,8 +76,14 @@ export default function ChapterMember(props) {
 
             <div className="chapterMember">
                 <div className="imageWrapper shine">
-                        {/* CHECKS FOR A TEMPORARY IMAGE AVAILABLE PROP AS JSON DATA IS INCOMPLETE. SHOULD BE REMOVED AFTER ADDING ALL IMAGES. */}
-                    <img src={ (props.info.imageAvailable) ? new URL(`../assets/members/${props.info.Reg}.png`, import.meta.url).href : headshot } alt="Member Image" className="chapterMemberImage" />
+                    {/* <img loading="lazy" src={ getViewLinkFromDriveLink(props.info.imageLink) } 
+                    onError={(e) => {
+                            e.target.onerror = null
+                            e.target.src = errored_image_fallback
+                        }
+                    }
+                    alt="Member Image" className="chapterMemberImage" /> */}
+                    <ImageRenderer url={getViewLinkFromDriveLink(props.info.imageLink)} fallbackImage={errored_image_fallback} width={'300px'} height={'400px'} />
                 </div>
 
 
@@ -111,7 +123,7 @@ export default function ChapterMember(props) {
                         className="chapterMemberLinks"
                         ref={chapterMemberLinks}
                     >
-                        {   renderLinks(props.info.Links)  }
+                        {   renderLinks()  }
                     </div>
                 </div>
             </div>

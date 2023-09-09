@@ -19,7 +19,8 @@ import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
-import allData from "./data/allMembersInfo.js"
+// import allData from "./data/with_images"
+import allData from "./data/all_data_merged"
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 

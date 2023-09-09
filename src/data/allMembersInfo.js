@@ -1172,10 +1172,10 @@ const MembersInfo = [
     "Dept": "CSE",
     "Membership ID": "GK2310010101",
     "About": "I am a dedicated and passionate student with a profound interest in machine learning and open source technologies. As an active Linux user and enthusiast, I am deeply involved in the world of open source. My expertise lies in cloud computing, and I have enough experience in both C and Python programming languages.",
-    "Links": {
-      "linkedin": "https://www.linkedin.com/in/hitesh-kumar-kothapalli-b70393252",
-      "github": "https://www.github.com/solstxce"
-    },
+    // "Links": {
+    "linkedin": "https://www.linkedin.com/in/hitesh-kumar-kothapalli-b70393252",
+    "github": "https://www.github.com/solstxce",
+    // },
     "imageAvailable": true
     
   },

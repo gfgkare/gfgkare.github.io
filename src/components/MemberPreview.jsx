@@ -1,17 +1,16 @@
 import "../styles/MemberPreview.scss";
 
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { useMisc } from "../contexts/MiscContext";
 
-import { FiChevronRight } from "react-icons/fi"
+import { FiChevronRight } from "react-icons/fi";
 
 export default function MemberPreview({ info }) {
     const { toTitleCase } = useMisc();
 
     const [animationClass, setAnimationClass] = useState("");
-    const navigate = useNavigate();
 
     useEffect(() => {
         setTimeout(() => {
@@ -24,18 +23,21 @@ export default function MemberPreview({ info }) {
             <div className={`memberDiv` + " " + animationClass}>
                 <div className="memberDivWrapper">
                     <div className="nameAndId">
-                        <div className="name">{toTitleCase(info["Name"])} <span>{info["Year"]} / {info["Dept"]}</span> </div>
+                        <div className="name">
+                            {toTitleCase(info["Name"])}{" "}
+                            <span>
+                                {info["Year"]} / {info["Dept"]}
+                            </span>{" "}
+                        </div>
                         <div className="id">{info["Membership ID"]}</div>
                     </div>
 
-                    <span
+                    <Link
+                        to={`/members/${info["Membership ID"]}`}
                         className="visitButton"
-                        onClick={() =>
-                            navigate(`/members/${info["Membership ID"]}`)
-                        }
                     >
                         <FiChevronRight size={"20px"} />
-                    </span>
+                    </Link>
                 </div>
             </div>
         </>
