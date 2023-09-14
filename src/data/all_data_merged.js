@@ -4,7 +4,7 @@ const all_data = [
         "Name": "SUGGU DURGA SAI SRIRAM",
         "Reg": 99210041287,
         "Membership ID": "GK2311011101",
-        "Mobile Number": 7013836022,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -18,7 +18,7 @@ const all_data = [
         "Name": "OLETI BOBBY SAI VIGNESH",
         "Reg": 99210041439,
         "Membership ID": "GK2311001111",
-        "Mobile Number": 7981344266,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -32,7 +32,7 @@ const all_data = [
         "Name": "BIJIVEMULA CHANDRA MOHAN REDDY",
         "Reg": 9921004093,
         "Membership ID": "GK2310011110",
-        "Mobile Number": 9381610569,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -46,7 +46,7 @@ const all_data = [
         "Name": "BIJIVEMULA SAI RAM REDDY",
         "Reg": 9921004094,
         "Membership ID": "GK23111001010",
-        "Mobile Number": 9391976628,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -60,7 +60,7 @@ const all_data = [
         "Name": "Samineni Satwik",
         "Reg": 9921004634,
         "Membership ID": "GK23100110000",
-        "Mobile Number": 7989935252,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -74,7 +74,7 @@ const all_data = [
         "Name": "Kotha suyash",
         "Reg": 9921004901,
         "Membership ID": "GK23110100010",
-        "Mobile Number": 9948097348,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -88,7 +88,7 @@ const all_data = [
         "Name": "Eswara Raju Teja Krishna",
         "Reg": 9921004198,
         "Membership ID": "GK2310111101",
-        "Mobile Number": 7416623489,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -102,7 +102,7 @@ const all_data = [
         "Name": "Ailu Gowthami",
         "Reg": 99220040416,
         "Membership ID": "GK23110111011",
-        "Mobile Number": 9160560696,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -116,7 +116,7 @@ const all_data = [
         "Name": "YELLIBOINA SUNIL",
         "Reg": 99210041733,
         "Membership ID": "GK23111101000",
-        "Mobile Number": 7075004795,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -130,7 +130,7 @@ const all_data = [
         "Name": "KALLURU SHANMUK REDDY",
         "Reg": 9921004300,
         "Membership ID": "GK23100010001",
-        "Mobile Number": 8499838633,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -150,7 +150,7 @@ const all_data = [
         "Name": "Damuluri Harika",
         "Reg": 99210042196,
         "Membership ID": "GK23100111000",
-        "Mobile Number": 7702898378,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -164,7 +164,7 @@ const all_data = [
         "Name": "Lagisetty Ravikiran",
         "Reg": 99210041072,
         "Membership ID": "GK23110011100",
-        "Mobile Number": 9392701968,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -178,7 +178,7 @@ const all_data = [
         "Name": "AITHA VEERA NAGA RIYESH",
         "Reg": 9921004014,
         "Membership ID": "GK2310110001",
-        "Mobile Number": 9346502352,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -192,7 +192,7 @@ const all_data = [
         "Name": "CHEKKA SAI KRISHNA",
         "Reg": 9921004132,
         "Membership ID": "GK2310110101",
-        "Mobile Number": 9515209170,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -212,7 +212,7 @@ const all_data = [
         "Name": "Paidimarri Nithish",
         "Reg": 9921004522,
         "Membership ID": "GK23101000100",
-        "Mobile Number": 6300536214,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -226,7 +226,7 @@ const all_data = [
         "Name": "GUVVALA DINESH",
         "Reg": 99210042104,
         "Membership ID": "GK23100111010",
-        "Mobile Number": 9515532610,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -246,7 +246,7 @@ const all_data = [
         "Name": "GOGINENI JETHIN",
         "Reg": 9921004224,
         "Membership ID": "GK2310001111",
-        "Mobile Number": 9390322164,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -260,7 +260,7 @@ const all_data = [
         "Name": "BATCHU GNANA SAMPATH",
         "Reg": 9921004077,
         "Membership ID": "GK23101011011",
-        "Mobile Number": 9701229424,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -274,7 +274,7 @@ const all_data = [
         "Name": "Vankayalapati Jaashvitha",
         "Reg": 9921004750,
         "Membership ID": "GK2310111011",
-        "Mobile Number": 7569374325,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -288,7 +288,7 @@ const all_data = [
         "Name": "GRANDHE RAMA BHAKTHA RAVI SRI RAM",
         "Reg": 9921004871,
         "Membership ID": "GK23100000110",
-        "Mobile Number": 7075880166,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -308,7 +308,7 @@ const all_data = [
         "Name": "VANGALA AMULYA",
         "Reg": 99210041376,
         "Membership ID": "GK2311111001",
-        "Mobile Number": 7993468261,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -322,7 +322,7 @@ const all_data = [
         "Name": "BODDU AMARNATH",
         "Reg": 9921004099,
         "Membership ID": "GK231110100",
-        "Mobile Number": 9110585961,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -348,7 +348,7 @@ const all_data = [
         "Name": "Guturi Ranga Sai Teja",
         "Reg": 9921004254,
         "Membership ID": "GK231100111",
-        "Mobile Number": 9110522988,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -362,7 +362,7 @@ const all_data = [
         "Name": "Narasingu Mokshith",
         "Reg": 99210042110,
         "Membership ID": "GK23111101101",
-        "Mobile Number": 9182570838,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -382,7 +382,7 @@ const all_data = [
         "Name": "K Devisree",
         "Reg": 99210041872,
         "Membership ID": "GK2311100100",
-        "Mobile Number": 9381471861,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -396,7 +396,7 @@ const all_data = [
         "Name": "Mandadi Chandana",
         "Reg": 9921004913,
         "Membership ID": "GK2310111010",
-        "Mobile Number": 9515819899,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -410,7 +410,7 @@ const all_data = [
         "Name": "Bandaru Bhaskara Deepak Sai",
         "Reg": 9921004065,
         "Membership ID": "GK2311000110",
-        "Mobile Number": 9177614163,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -424,7 +424,7 @@ const all_data = [
         "Name": "RAVULAPALLI MOHAN VENKATESH",
         "Reg": 99210042114,
         "Membership ID": "GK23101010011",
-        "Mobile Number": 6302446942,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -438,7 +438,7 @@ const all_data = [
         "Name": "Siriguppa Sai Yeswanth",
         "Reg": 9921004975,
         "Membership ID": "GK23100101101",
-        "Mobile Number": 9494180879,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -482,7 +482,7 @@ const all_data = [
         "Name": "Sarvepalli Maha Bala Siva Kumar",
         "Reg": 9921004641,
         "Membership ID": "GK23100001111",
-        "Mobile Number": 7382361098,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -502,7 +502,7 @@ const all_data = [
         "Name": "KORLEPARA TARUN SAI",
         "Reg": 99210041064,
         "Membership ID": "GK23110010001",
-        "Mobile Number": 6303009793,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -522,7 +522,7 @@ const all_data = [
         "Name": "Sachin Sahadev Singh",
         "Reg": 99210041113,
         "Membership ID": "GK23100100110",
-        "Mobile Number": 9360392224,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -554,7 +554,7 @@ const all_data = [
         "Name": "JAYA VARDHAN .POTTI",
         "Reg": 9921004583,
         "Membership ID": "GK2311100001",
-        "Mobile Number": 9100629565,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -568,7 +568,7 @@ const all_data = [
         "Name": "ATTULURI NEHA",
         "Reg": 99210041838,
         "Membership ID": "GK23100110100",
-        "Mobile Number": 8247572278,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -588,7 +588,7 @@ const all_data = [
         "Name": "Atukuri Jeevana Kavya Sai Rukmini",
         "Reg": 9921004052,
         "Membership ID": "GK23100011101",
-        "Mobile Number": 7013199737,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -602,7 +602,7 @@ const all_data = [
         "Name": "GADIYARAM JAYA SUDHESH",
         "Reg": 9921004204,
         "Membership ID": "GK23101001100",
-        "Mobile Number": 9063320873,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -634,7 +634,7 @@ const all_data = [
         "Name": "SHAIK REENA",
         "Reg": 9921004658,
         "Membership ID": "GK231101110",
-        "Mobile Number": 6309849457,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -648,7 +648,7 @@ const all_data = [
         "Name": "KALLEPALLI KESAVA AVINASH VARMA",
         "Reg": 99210041870,
         "Membership ID": "GK23110000001",
-        "Mobile Number": 8332856789,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -662,7 +662,7 @@ const all_data = [
         "Name": "K SHIVA PRASAD",
         "Reg": 9921004667,
         "Membership ID": "GK23111000101",
-        "Mobile Number": 6304207331,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -682,7 +682,7 @@ const all_data = [
         "Name": "MADALA NIKHIL CHOWDARY",
         "Reg": 9921004911,
         "Membership ID": "GK23101100000",
-        "Mobile Number": 8143200988,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -708,7 +708,7 @@ const all_data = [
         "Name": "HARSHA VARDHAN NEELAM",
         "Reg": 99210041250,
         "Membership ID": "GK23100100011",
-        "Mobile Number": 6305962371,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -722,12 +722,6 @@ const all_data = [
         "Year": "III",
         "Dept": "CSE",
         "Membership ID": "GK23101111000"
-    },
-    {
-        "Name": "Kancham Shivathmika",
-        "Year": "III",
-        "Dept": "CSE",
-        "Membership ID": "GK23111110001"
     },
     {
         "Name": "Ch.Lava Raju",
@@ -746,7 +740,7 @@ const all_data = [
         "Name": "Damarouthu Kamalesh",
         "Reg": 9921004158,
         "Membership ID": "GK2310110110",
-        "Mobile Number": 9949778041,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -784,7 +778,7 @@ const all_data = [
         "Name": "A.kavya sree",
         "Reg": 99210041001,
         "Membership ID": "GK23101101110",
-        "Mobile Number": 9392443473,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -812,12 +806,6 @@ const all_data = [
         "Membership ID": "GK23100110001"
     },
     {
-        "Name": "Kandagaddala naga Lakshmi Lavanya",
-        "Year": "III",
-        "Dept": "CSE",
-        "Membership ID": "GK23101000101"
-    },
-    {
         "Name": "RAVELLA VENKATA PRAVEEN",
         "Year": "III",
         "Dept": "CSE",
@@ -828,7 +816,7 @@ const all_data = [
         "Name": "Yanduri Manjunath",
         "Reg": 99210041966,
         "Membership ID": "GK2310010111",
-        "Mobile Number": 7674857639,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -842,7 +830,7 @@ const all_data = [
         "Name": "Sure venkata Koushik",
         "Reg": 99210042183,
         "Membership ID": "GK23101011100",
-        "Mobile Number": 8688150211,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -856,7 +844,7 @@ const all_data = [
         "Name": "G Selvakumaran",
         "Reg": 99210042154,
         "Membership ID": "GK23100111100",
-        "Mobile Number": 6384175870,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -870,7 +858,7 @@ const all_data = [
         "Name": "ALURU ARUNKUMAR",
         "Reg": 9921004024,
         "Membership ID": "GK2311000001",
-        "Mobile Number": 9390396727,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -884,7 +872,7 @@ const all_data = [
         "Name": "Kanamarlapudi Charishma madhavi",
         "Reg": 9921004306,
         "Membership ID": "GK23101110010",
-        "Mobile Number": 7702494188,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -898,7 +886,7 @@ const all_data = [
         "Name": "Thallam Harsha Vardhan",
         "Reg": 99210041643,
         "Membership ID": "GK23110111100",
-        "Mobile Number": 9392065674,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -924,7 +912,7 @@ const all_data = [
         "Name": "Machireddy Dhamini",
         "Reg": 9921004910,
         "Membership ID": "GK23100101011",
-        "Mobile Number": 9347055092,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -938,7 +926,7 @@ const all_data = [
         "Name": "SHIVA KUMAR GARI NANDINI",
         "Reg": 99210041822,
         "Membership ID": "GK23100101000",
-        "Mobile Number": 7382415047,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -952,7 +940,7 @@ const all_data = [
         "Name": "Muvvala sohith",
         "Reg": 9921004926,
         "Membership ID": "GK23100001000",
-        "Mobile Number": 9390566337,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -972,7 +960,7 @@ const all_data = [
         "Name": "Kota Venkata Pavan Teja",
         "Reg": 9921004372,
         "Membership ID": "GK2310000111",
-        "Mobile Number": 9492730330,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -986,7 +974,7 @@ const all_data = [
         "Name": "KOLAPARTHI VENKATA SATYA NAGA SAI KISHAN",
         "Reg": 9921004347,
         "Membership ID": "GK23100100010",
-        "Mobile Number": 7659959327,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1000,7 +988,7 @@ const all_data = [
         "Name": "NILAPU PAVANI",
         "Reg": 9921004943,
         "Membership ID": "GK23110111001",
-        "Mobile Number": 7981491340,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -1020,7 +1008,7 @@ const all_data = [
         "Name": "RAJULA CHARITHA",
         "Reg": 9921004600,
         "Membership ID": "GK23100011110",
-        "Mobile Number": 7981342877,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1034,7 +1022,7 @@ const all_data = [
         "Name": "Shaik Sana Afsha",
         "Reg": 9921004660,
         "Membership ID": "GK231111010",
-        "Mobile Number": 7660969115,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1048,7 +1036,7 @@ const all_data = [
         "Name": "Yelisetty srikanth",
         "Reg": 99210041968,
         "Membership ID": "GK23101010010",
-        "Mobile Number": 9110770030,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1074,7 +1062,7 @@ const all_data = [
         "Name": "SHAIK MOHAMMAD FAYAZ",
         "Reg": 9921004655,
         "Membership ID": "GK2310011000",
-        "Mobile Number": 9013063466,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1088,7 +1076,7 @@ const all_data = [
         "Name": "GADDAM LIKHITHA",
         "Reg": 99210041721,
         "Membership ID": "GK231110110",
-        "Mobile Number": 9392857751,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1120,7 +1108,7 @@ const all_data = [
         "Name": "PULAKUNTA SARITHA",
         "Reg": 99210041799,
         "Membership ID": "GK23110010111",
-        "Mobile Number": 6281198244,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1134,7 +1122,7 @@ const all_data = [
         "Name": "PULA BHARGAVI",
         "Reg": 99210041484,
         "Membership ID": "GK23111010000",
-        "Mobile Number": 6305971432,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1148,7 +1136,7 @@ const all_data = [
         "Name": "JUTURI VENKATA NAVEEN",
         "Reg": 9921004885,
         "Membership ID": "GK2311110000",
-        "Mobile Number": 9392672976,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1186,7 +1174,7 @@ const all_data = [
         "Name": "Y. Dasaradha Ramanjaneya Reddy",
         "Reg": 99210041665,
         "Membership ID": "GK23110100110",
-        "Mobile Number": 9392954811,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1200,7 +1188,7 @@ const all_data = [
         "Name": "Darshan D",
         "Reg": 99210041170,
         "Membership ID": "GK23101010101",
-        "Mobile Number": 7204051765,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -1220,7 +1208,7 @@ const all_data = [
         "Name": "GUDALA GUNA SANKAR REDDY",
         "Reg": 9921004873,
         "Membership ID": "GK2311111101",
-        "Mobile Number": 8522952064,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1234,7 +1222,7 @@ const all_data = [
         "Name": "DEEPAK S",
         "Reg": 99210042185,
         "Membership ID": "GK23111001000",
-        "Mobile Number": 9884351498,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -1248,7 +1236,7 @@ const all_data = [
         "Name": "Bhavanam Poojitha",
         "Reg": 9921004090,
         "Membership ID": "GK23100011100",
-        "Mobile Number": 7842142845,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1262,7 +1250,7 @@ const all_data = [
         "Name": "PEETA ANJANA SREE",
         "Reg": 9921004816,
         "Membership ID": "GK2310100010",
-        "Mobile Number": 9490318912,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1276,7 +1264,7 @@ const all_data = [
         "Name": "KALAKOTA HEMANTH REDDY",
         "Reg": 9921004887,
         "Membership ID": "GK23111100100",
-        "Mobile Number": 7382797690,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1290,7 +1278,7 @@ const all_data = [
         "Name": "Anjinappagari Manasa",
         "Reg": 99210041727,
         "Membership ID": "GK2310000110",
-        "Mobile Number": 7842139448,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1304,7 +1292,7 @@ const all_data = [
         "Name": "IRUVURI SRIVIDYA",
         "Reg": 9921004271,
         "Membership ID": "GK2311111110",
-        "Mobile Number": 7075543828,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1318,7 +1306,7 @@ const all_data = [
         "Name": "Juttiga Vineetha",
         "Reg": 9921004292,
         "Membership ID": "GK2311101011",
-        "Mobile Number": 8500577877,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1368,7 +1356,7 @@ const all_data = [
         "Name": "DUDEKULA SANA HOMERA",
         "Reg": 9921004189,
         "Membership ID": "GK2311111010",
-        "Mobile Number": 8919146020,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1382,7 +1370,7 @@ const all_data = [
         "Name": "Andra Gowthami",
         "Reg": 9921004033,
         "Membership ID": "GK23110111010",
-        "Mobile Number": 9515518331,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1396,7 +1384,7 @@ const all_data = [
         "Name": "PATHAN MOHAMMAD ASIF",
         "Reg": 99210041705,
         "Membership ID": "GK231111000",
-        "Mobile Number": 9985294972,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1416,7 +1404,7 @@ const all_data = [
         "Name": "Karnatakam Anvitha",
         "Reg": 9921004326,
         "Membership ID": "GK231110111",
-        "Mobile Number": 9392327683,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -1436,7 +1424,7 @@ const all_data = [
         "Name": "BOYA PRANAVI",
         "Reg": 9921004107,
         "Membership ID": "GK23111011111",
-        "Mobile Number": 9390337360,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1450,7 +1438,7 @@ const all_data = [
         "Name": "GENUPULA ABHINAYA",
         "Reg": 99210041389,
         "Membership ID": "GK2311111100",
-        "Mobile Number": 7842161590,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1464,7 +1452,7 @@ const all_data = [
         "Name": "PUCHAKAYALA MAHENDRA",
         "Reg": 9921004587,
         "Membership ID": "GK2310111111",
-        "Mobile Number": 8688394365,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1484,7 +1472,7 @@ const all_data = [
         "Name": "S.K.GOKUL PRASATH",
         "Reg": 9921004225,
         "Membership ID": "GK23101100001",
-        "Mobile Number": 9987445739,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -1498,7 +1486,7 @@ const all_data = [
         "Name": "Vennapusa Baby Manikavya",
         "Reg": 9921004820,
         "Membership ID": "GK2310110100",
-        "Mobile Number": 8179741050,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1518,7 +1506,7 @@ const all_data = [
         "Name": "Pynamudi Nikhil Sai",
         "Reg": 9921004591,
         "Membership ID": "GK23111001111",
-        "Mobile Number": 9959615015,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1532,7 +1520,7 @@ const all_data = [
         "Name": "PITCHALA SRINIVASA REDDY",
         "Reg": 9921004569,
         "Membership ID": "GK2310010100",
-        "Mobile Number": 9392447361,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1552,7 +1540,7 @@ const all_data = [
         "Name": "V.prasanthi",
         "Reg": 99210041825,
         "Membership ID": "GK23110010101",
-        "Mobile Number": 8500979281,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -1566,7 +1554,7 @@ const all_data = [
         "Name": "Chintapudi harika",
         "Reg": 99210041167,
         "Membership ID": "GK2311101110",
-        "Mobile Number": 9701763190,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1580,7 +1568,7 @@ const all_data = [
         "Name": "GOURISHETTI ROHITH",
         "Reg": 9921004238,
         "Membership ID": "GK23111001001",
-        "Mobile Number": 9515769476,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1594,7 +1582,7 @@ const all_data = [
         "Name": "Chennamsetty Harika",
         "Reg": 99210041384,
         "Membership ID": "GK23101100010",
-        "Mobile Number": 6302539732,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1608,7 +1596,7 @@ const all_data = [
         "Name": "Amrit Raj",
         "Reg": 99210041136,
         "Membership ID": "GK23100101010",
-        "Mobile Number": 6201149520,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1622,7 +1610,7 @@ const all_data = [
         "Name": "SARVISETTI VENKATA BHAVANI SAI",
         "Reg": 99210041114,
         "Membership ID": "GK23110110100",
-        "Mobile Number": 9014085882,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1642,7 +1630,7 @@ const all_data = [
         "Name": "GODUGU VARAPRASAD",
         "Reg": 99210041857,
         "Membership ID": "GK2311011001",
-        "Mobile Number": 8790756732,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1656,7 +1644,7 @@ const all_data = [
         "Name": "Shaik Neeha",
         "Reg": 9921004656,
         "Membership ID": "GK23100001100",
-        "Mobile Number": 8106541782,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1670,7 +1658,7 @@ const all_data = [
         "Name": "RAVI BHUSHAN",
         "Reg": 99210041487,
         "Membership ID": "GK23110111111",
-        "Mobile Number": 9473208150,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1696,7 +1684,7 @@ const all_data = [
         "Name": "K Pavan Kalyan Reddy",
         "Reg": 99210041553,
         "Membership ID": "GK23110010000",
-        "Mobile Number": 9014651115,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1722,7 +1710,7 @@ const all_data = [
         "Name": "PAPPI REDDY VENKATA SREEDHAR REDDY",
         "Reg": 99210041363,
         "Membership ID": "GK23111010100",
-        "Mobile Number": 8688331201,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1736,7 +1724,7 @@ const all_data = [
         "Name": "Chidura Sreenidhi",
         "Reg": 9921004138,
         "Membership ID": "GK2310001010",
-        "Mobile Number": 9391004404,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -1762,7 +1750,7 @@ const all_data = [
         "Name": "PITTA RANGA VIKAS",
         "Reg": 9921004957,
         "Membership ID": "GK23100111011",
-        "Mobile Number": 9848561499,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1782,7 +1770,7 @@ const all_data = [
         "Name": "Sirasala Harshitha Sree Lakshmi",
         "Reg": 9921004674,
         "Membership ID": "GK2310101101",
-        "Mobile Number": 9666605095,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1826,7 +1814,7 @@ const all_data = [
         "Name": "Pardhasaradhi T",
         "Reg": 99210041447,
         "Membership ID": "GK23100001110",
-        "Mobile Number": 6300417676,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1840,7 +1828,7 @@ const all_data = [
         "Name": "Chenchu Manvitha Manugunta",
         "Reg": 99210041353,
         "Membership ID": "GK23100000010",
-        "Mobile Number": 7396549678,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -1854,7 +1842,7 @@ const all_data = [
         "Name": "GUNDRATHI KRISHNASAIGOUD",
         "Reg": 9921004250,
         "Membership ID": "GK23110000101",
-        "Mobile Number": 7013600503,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1868,7 +1856,7 @@ const all_data = [
         "Name": "POKALA VIJAYA LAKSHMI",
         "Reg": 99210041750,
         "Membership ID": "GK2311101100",
-        "Mobile Number": 9014301099,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1882,7 +1870,7 @@ const all_data = [
         "Name": "THATHA ANIL",
         "Reg": 9921004719,
         "Membership ID": "GK23110001000",
-        "Mobile Number": 6309311944,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1896,7 +1884,7 @@ const all_data = [
         "Name": "Kota Srinivasareddy",
         "Reg": 99210041876,
         "Membership ID": "GK23111011001",
-        "Mobile Number": 9182932962,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1910,7 +1898,7 @@ const all_data = [
         "Name": "P.Deekshitha",
         "Reg": 99210041174,
         "Membership ID": "GK2310011101",
-        "Mobile Number": 9618779925,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1924,7 +1912,7 @@ const all_data = [
         "Name": "Kandakatla Harikrishna",
         "Reg": 99210041346,
         "Membership ID": "GK231111111",
-        "Mobile Number": 9014050715,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1944,7 +1932,7 @@ const all_data = [
         "Name": "BONDADA VIGHNESH",
         "Reg": 99210041668,
         "Membership ID": "GK23110000011",
-        "Mobile Number": 7981991076,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -1958,7 +1946,7 @@ const all_data = [
         "Name": "VEDULA NITEESH",
         "Reg": 9921004757,
         "Membership ID": "GK23101110000",
-        "Mobile Number": 8328381999,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -1978,7 +1966,7 @@ const all_data = [
         "Name": "G.LAKSHMI HARSHITHA",
         "Reg": 99210041426,
         "Membership ID": "GK2311101010",
-        "Mobile Number": 8639871992,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -1988,17 +1976,11 @@ const all_data = [
         "imageLink": ""
     },
     {
-        "Name": "K . dhathri",
-        "Year": "III",
-        "Dept": "CSE",
-        "Membership ID": "GK23111100110"
-    },
-    {
         "Timestamp": "8/17/2023 11:36:03",
         "Name": "Kanaparthi Durga",
         "Reg": 9921004308,
         "Membership ID": "GK2310001100",
-        "Mobile Number": 8374608905,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2012,7 +1994,7 @@ const all_data = [
         "Name": "Gopal kumar",
         "Reg": 9921008061,
         "Membership ID": "GK231101100",
-        "Mobile Number": 7717727390,
+        
         "Year": "III",
         "Dept": "IT",
         "Select your interested domain": "Technical",
@@ -2032,7 +2014,7 @@ const all_data = [
         "Name": "BOPPANA ROHITH",
         "Reg": 99220041454,
         "Membership ID": "GK23101011010",
-        "Mobile Number": 6301338822,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2046,7 +2028,7 @@ const all_data = [
         "Name": "Kandanulla mula amarnath",
         "Reg": 99220040087,
         "Membership ID": "GK23110010010",
-        "Mobile Number": 6304869536,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2060,7 +2042,7 @@ const all_data = [
         "Name": "B.Lokesh Kumar",
         "Reg": 99220040456,
         "Membership ID": "GK2311001010",
-        "Mobile Number": 8374859174,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2074,7 +2056,7 @@ const all_data = [
         "Name": "THEPIREDDY AKASH REDDY",
         "Reg": 99220040209,
         "Membership ID": "GK2310011111",
-        "Mobile Number": 7794045581,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2088,7 +2070,7 @@ const all_data = [
         "Name": "Kothapalli Venkata Hitesh Kumar Chowdary",
         "Reg": 99220040586,
         "Membership ID": "GK2310010101",
-        "Mobile Number": 7093917373,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2102,7 +2084,7 @@ const all_data = [
         "Name": "LEBURU VENKATA NISHANTH",
         "Reg": 99220041242,
         "Membership ID": "GK2310110010",
-        "Mobile Number": 9000921343,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2128,7 +2110,7 @@ const all_data = [
         "Name": "ISINIGIRI PAVAN SRI SAI",
         "Reg": 99220040071,
         "Membership ID": "GK23110011011",
-        "Mobile Number": 9440485696,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2142,7 +2124,7 @@ const all_data = [
         "Name": "KOLAPARTHI SRIVENKATA HARSHITH",
         "Reg": 99220041513,
         "Membership ID": "GK2311011110",
-        "Mobile Number": 9573192982,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2156,7 +2138,7 @@ const all_data = [
         "Name": "KOLAPARTHI SRIVENKATA HARSHITH",
         "Reg": 99220041513,
         "Membership ID": "GK2311011110",
-        "Mobile Number": 9573192982,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2176,7 +2158,7 @@ const all_data = [
         "Name": "Bhargav Balaram Ramanujakutam",
         "Reg": 99220040809,
         "Membership ID": "GK23100000011",
-        "Mobile Number": 9573080302,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2190,7 +2172,7 @@ const all_data = [
         "Name": "Byreddy Sowmya",
         "Reg": 99220041147,
         "Membership ID": "GK2311100011",
-        "Mobile Number": 6301560938,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2210,7 +2192,7 @@ const all_data = [
         "Name": "PANUGANTI . SASANK SATYA PAVAN SAI",
         "Reg": 99220040672,
         "Membership ID": "GK2310011001",
-        "Mobile Number": 8143124979,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2230,7 +2212,7 @@ const all_data = [
         "Name": "T. Lalith Srinivas",
         "Reg": 99220041014,
         "Membership ID": "GK23101101111",
-        "Mobile Number": 8978665141,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2244,7 +2226,7 @@ const all_data = [
         "Name": "T.Lalith Srinivas",
         "Reg": 99220041014,
         "Membership ID": "GK23101101111",
-        "Mobile Number": 8978665141,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2258,7 +2240,7 @@ const all_data = [
         "Name": "R.T.RAM KUMAR",
         "Reg": 99220041338,
         "Membership ID": "GK23110111110",
-        "Mobile Number": 9952258802,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -2278,7 +2260,7 @@ const all_data = [
         "Name": "PONNURU VINAY SARAN",
         "Reg": 99220040341,
         "Membership ID": "GK231110001",
-        "Mobile Number": 7731997999,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2292,7 +2274,7 @@ const all_data = [
         "Name": "CH.GIRIJASAISIRI",
         "Reg": 99220041157,
         "Membership ID": "GK2311010000",
-        "Mobile Number": 8919546878,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2312,7 +2294,7 @@ const all_data = [
         "Name": "B. NAGASAI VENATESH",
         "Reg": 99220040815,
         "Membership ID": "GK23111110011",
-        "Mobile Number": 7670947714,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2326,7 +2308,7 @@ const all_data = [
         "Name": "B.NAGASAI VENKATESH",
         "Reg": 99220040815,
         "Membership ID": "GK23111110011",
-        "Mobile Number": 7670947714,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2340,7 +2322,7 @@ const all_data = [
         "Name": "ARAVETI VAMSI",
         "Reg": 99220042009,
         "Membership ID": "GK23101100110",
-        "Mobile Number": 8074494582,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2354,7 +2336,7 @@ const all_data = [
         "Name": "BHOGATHI PRAVALLIKA",
         "Reg": 99220041130,
         "Membership ID": "GK231100110",
-        "Mobile Number": 7569398330,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2368,7 +2350,7 @@ const all_data = [
         "Name": "GUNDU UDAY",
         "Reg": 99220042095,
         "Membership ID": "GK2311000100",
-        "Mobile Number": 9014152131,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2382,7 +2364,7 @@ const all_data = [
         "Name": "Jonnalagadda Somanadh Chowdary",
         "Reg": 99220041606,
         "Membership ID": "GK23110101000",
-        "Mobile Number": 8790899100,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2396,7 +2378,7 @@ const all_data = [
         "Name": "Chatura P",
         "Reg": 99220041625,
         "Membership ID": "GK231101111",
-        "Mobile Number": 7418367532,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -2410,7 +2392,7 @@ const all_data = [
         "Name": "N.veera venkata naga sai",
         "Reg": 99220041611,
         "Membership ID": "GK2310011010",
-        "Mobile Number": 7670814817,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2424,7 +2406,7 @@ const all_data = [
         "Name": "Karthick M",
         "Reg": 99220040280,
         "Membership ID": "GK23111100001",
-        "Mobile Number": 9080452789,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2438,7 +2420,7 @@ const all_data = [
         "Name": "S RAVIKUMAR",
         "Reg": 99220041683,
         "Membership ID": "GK23110000010",
-        "Mobile Number": 9384338490,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2458,7 +2440,7 @@ const all_data = [
         "Name": "S.Shrimun narayana",
         "Reg": 99220040200,
         "Membership ID": "GK2311011011",
-        "Mobile Number": 8675671807,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2478,7 +2460,7 @@ const all_data = [
         "Name": "Aravinthan T.R",
         "Reg": 99220040014,
         "Membership ID": "GK2311011010",
-        "Mobile Number": 8607970279,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2492,7 +2474,7 @@ const all_data = [
         "Name": "KOSIREDDY VIVEK CHARAN TEJ",
         "Reg": 99220041764,
         "Membership ID": "GK2311111011",
-        "Mobile Number": 7981932545,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2506,7 +2488,7 @@ const all_data = [
         "Name": "Shreyash Deep",
         "Reg": 99220041367,
         "Membership ID": "GK2311001000",
-        "Mobile Number": 8235706575,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2520,7 +2502,7 @@ const all_data = [
         "Name": "Rakshitha J",
         "Reg": 99220040178,
         "Membership ID": "GK23111101111",
-        "Mobile Number": 9080985202,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2534,7 +2516,7 @@ const all_data = [
         "Name": "D L Durga Prasad",
         "Reg": 99220040495,
         "Membership ID": "GK23100010000",
-        "Mobile Number": 9392826780,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -2548,7 +2530,7 @@ const all_data = [
         "Name": "MARELLA.MARUTHI NAVADEEP",
         "Reg": 99220041253,
         "Membership ID": "GK2310111110",
-        "Mobile Number": 7075072880,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2562,7 +2544,7 @@ const all_data = [
         "Name": "Prasanna S",
         "Reg": 99220040970,
         "Membership ID": "GK23110010011",
-        "Mobile Number": 6369020432,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2576,7 +2558,7 @@ const all_data = [
         "Name": "T.kranthi kumar",
         "Reg": 99220041392,
         "Membership ID": "GK23101011101",
-        "Mobile Number": 9390015429,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2602,7 +2584,7 @@ const all_data = [
         "Name": "R Manoj Hariharan",
         "Reg": 99220041614,
         "Membership ID": "GK2310100111",
-        "Mobile Number": 8270481582,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2616,7 +2598,7 @@ const all_data = [
         "Name": "Puneeth.Sayana",
         "Reg": 99220041621,
         "Membership ID": "GK23100011111",
-        "Mobile Number": 8639770824,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2630,7 +2612,7 @@ const all_data = [
         "Name": "DANTHALA AASHRITHA",
         "Reg": 99220040481,
         "Membership ID": "GK23110011001",
-        "Mobile Number": 8019562956,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2644,7 +2626,7 @@ const all_data = [
         "Name": "GOWRI SHANKAR SESHAMSETTI",
         "Reg": 99220040727,
         "Membership ID": "GK23101011001",
-        "Mobile Number": 8309728585,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2676,7 +2658,7 @@ const all_data = [
         "Name": "Inavolu Mukesh Manikanta",
         "Reg": 99220040271,
         "Membership ID": "GK23101101100",
-        "Mobile Number": 9347677442,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2690,7 +2672,7 @@ const all_data = [
         "Name": "R.Guru Prakash",
         "Reg": 99220041933,
         "Membership ID": "GK23100010110",
-        "Mobile Number": 9345572131,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2704,7 +2686,7 @@ const all_data = [
         "Name": "S. Hareev",
         "Reg": 99220042148,
         "Membership ID": "GK23101100111",
-        "Mobile Number": 9025443936,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -2718,7 +2700,7 @@ const all_data = [
         "Name": "M.Mathivanan",
         "Reg": 99220041831,
         "Membership ID": "GK2310010010",
-        "Mobile Number": 9790502613,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2737,7 +2719,7 @@ const all_data = [
         "Name": "S. Sheik syed sharmin",
         "Reg": 9922008358,
         "Membership ID": "GK23101100011",
-        "Mobile Number": 7695969450,
+        
         "Year": "II",
         "Dept": "IT",
         "Select your interested domain": "Technical",
@@ -2751,7 +2733,7 @@ const all_data = [
         "Name": "Reshma E",
         "Reg": 99220042108,
         "Membership ID": "GK23110001100",
-        "Mobile Number": 7867817504,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2765,7 +2747,7 @@ const all_data = [
         "Name": "Pritika R",
         "Reg": 99220042115,
         "Membership ID": "GK23111100111",
-        "Mobile Number": 9585163693,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2779,7 +2761,7 @@ const all_data = [
         "Name": "Naveen S",
         "Reg": 99220040949,
         "Membership ID": "GK2310100100",
-        "Mobile Number": 7448863062,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2793,7 +2775,7 @@ const all_data = [
         "Name": "Dhinesh P",
         "Reg": 99220040259,
         "Membership ID": "GK2310010011",
-        "Mobile Number": 6374529894,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2807,7 +2789,7 @@ const all_data = [
         "Name": "R.Kishore Kumar",
         "Reg": 99220040886,
         "Membership ID": "GK231111101",
-        "Mobile Number": 7010426313,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2821,7 +2803,7 @@ const all_data = [
         "Name": "Sunduru Jahnavi",
         "Reg": 99220041379,
         "Membership ID": "GK2310000001",
-        "Mobile Number": 8978920041,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -2835,7 +2817,7 @@ const all_data = [
         "Name": "Bandaru sai dinesh",
         "Reg": 99220040018,
         "Membership ID": "GK2310101011",
-        "Mobile Number": 6305239623,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -2849,7 +2831,7 @@ const all_data = [
         "Name": "KUNTIMADDI DEEPIKA",
         "Reg": 99220040598,
         "Membership ID": "GK2310001110",
-        "Mobile Number": 9063833018,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -2863,7 +2845,7 @@ const all_data = [
         "Name": "Hemanth Sai",
         "Reg": 99220040486,
         "Membership ID": "GK23101010001",
-        "Mobile Number": 9908559328,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -2877,7 +2859,7 @@ const all_data = [
         "Name": "Chakali Teja nagendra Prasad",
         "Reg": 99220041148,
         "Membership ID": "GK2311100000",
-        "Mobile Number": 6302364069,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2891,7 +2873,7 @@ const all_data = [
         "Name": "Animma Srinivasine P",
         "Reg": 99220041437,
         "Membership ID": "GK23111000001",
-        "Mobile Number": 9042243331,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2905,7 +2887,7 @@ const all_data = [
         "Name": "Rajesh Kanna R.",
         "Reg": 99220041074,
         "Membership ID": "GK23100101001",
-        "Mobile Number": 9944003930,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2919,7 +2901,7 @@ const all_data = [
         "Name": "VISHVA R",
         "Reg": 99220040384,
         "Membership ID": "GK23101010111",
-        "Mobile Number": 6374086971,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2933,7 +2915,7 @@ const all_data = [
         "Name": "SAKTHI SANJAY S",
         "Reg": 99220041079,
         "Membership ID": "GK23100100101",
-        "Mobile Number": 8825968592,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -2953,7 +2935,7 @@ const all_data = [
         "Name": "V S HARSHAD",
         "Reg": 99220040535,
         "Membership ID": "GK2310101010",
-        "Mobile Number": 8137955084,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -2967,7 +2949,7 @@ const all_data = [
         "Name": "Sai Saranya.Katakam",
         "Reg": 99220041506,
         "Membership ID": "GK23100110011",
-        "Mobile Number": 9392131544,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -2981,7 +2963,7 @@ const all_data = [
         "Name": "B Mohana Lakshmi",
         "Reg": 99220041527,
         "Membership ID": "GK2311110111",
-        "Mobile Number": 9342432741,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -2995,7 +2977,7 @@ const all_data = [
         "Name": "M.Punitha Shri",
         "Reg": 99220041558,
         "Membership ID": "GK23100010011",
-        "Mobile Number": 9159740874,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3009,7 +2991,7 @@ const all_data = [
         "Name": "Subiksha G",
         "Reg": 99220040740,
         "Membership ID": "GK23111100101",
-        "Mobile Number": 7418767632,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -3025,17 +3007,11 @@ const all_data = [
         "Membership ID": "GK2310111001"
     },
     {
-        "Name": "M SANDHIYA",
-        "Year": "II",
-        "Dept": "CSE",
-        "Membership ID": "GK23110001011"
-    },
-    {
         "Timestamp": "8/15/2023 14:56:20",
         "Name": "S Ganga Surendra Reddy",
         "Reg": 99220041076,
         "Membership ID": "GK23111010010",
-        "Mobile Number": 9398891284,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3049,7 +3025,7 @@ const all_data = [
         "Name": "L Nagaraju",
         "Reg": 99220040906,
         "Membership ID": "GK2311010001",
-        "Mobile Number": 9550946407,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3063,7 +3039,7 @@ const all_data = [
         "Name": "A Venkata Sai Krishna",
         "Reg": 99220941103,
         "Membership ID": "GK2311000111",
-        "Mobile Number": 9391781403,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3077,7 +3053,7 @@ const all_data = [
         "Name": "Pranavdev.P.S",
         "Reg": 99220040698,
         "Membership ID": "GK23110011000",
-        "Mobile Number": 9486158981,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3091,7 +3067,7 @@ const all_data = [
         "Name": "GOPISETTI VENKATA SAI VIGNESH",
         "Reg": 99220040853,
         "Membership ID": "GK2311000011",
-        "Mobile Number": 7601088250,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3105,7 +3081,7 @@ const all_data = [
         "Name": "REVULURI SAI KEERTHAN",
         "Reg": 99220040183,
         "Membership ID": "GK23101010110",
-        "Mobile Number": 7674943684,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3119,7 +3095,7 @@ const all_data = [
         "Name": "Kanamarlapudi Niteesh Lakshman Rao",
         "Reg": 99220040879,
         "Membership ID": "GK2310100000",
-        "Mobile Number": 9704900457,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -3133,7 +3109,7 @@ const all_data = [
         "Name": "CHEBOLU GANESH PAVAN SAI",
         "Reg": 99220040469,
         "Membership ID": "GK2311111000",
-        "Mobile Number": 6281668289,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -3147,7 +3123,7 @@ const all_data = [
         "Name": "Aravinth M",
         "Reg": 99220041824,
         "Membership ID": "GK23101000111",
-        "Mobile Number": 9994753077,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3191,7 +3167,7 @@ const all_data = [
         "Name": "Altamas Nehal",
         "Reg": 99220040423,
         "Membership ID": "GK23110110101",
-        "Mobile Number": 7461062119,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3205,7 +3181,7 @@ const all_data = [
         "Name": "M.Christopher Arock",
         "Reg": 99220041798,
         "Membership ID": "GK231100100",
-        "Mobile Number": 9952834357,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3219,7 +3195,7 @@ const all_data = [
         "Name": "Issac preetham",
         "Reg": 99220040244,
         "Membership ID": "GK23100011010",
-        "Mobile Number": 7997080929,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -3233,7 +3209,7 @@ const all_data = [
         "Name": "K.anvesh",
         "Reg": 99220041900,
         "Membership ID": "GK2311010010",
-        "Mobile Number": 9966144435,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -3259,7 +3235,7 @@ const all_data = [
         "Name": "B.DHANUSH KRISHNA",
         "Reg": 99220040491,
         "Membership ID": "GK23110101011",
-        "Mobile Number": 6379225349,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3273,7 +3249,7 @@ const all_data = [
         "Name": "ARUNKUMAR S",
         "Reg": 99220040437,
         "Membership ID": "GK23111010011",
-        "Mobile Number": 8015130984,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3287,7 +3263,7 @@ const all_data = [
         "Name": "Yashwanth A",
         "Reg": 99220041035,
         "Membership ID": "GK231101000",
-        "Mobile Number": 6382962338,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3301,7 +3277,7 @@ const all_data = [
         "Name": "CHINTHA SREENIVASULU",
         "Reg": 99220041652,
         "Membership ID": "GK23110110001",
-        "Mobile Number": 9014153422,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -3315,7 +3291,7 @@ const all_data = [
         "Name": "JUJARU SASIKIRAN",
         "Reg": 99220041202,
         "Membership ID": "GK23110000100",
-        "Mobile Number": 9154585602,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -3341,7 +3317,7 @@ const all_data = [
         "Name": "Gaurav kumar",
         "Reg": 99220041897,
         "Membership ID": "GK23111011100",
-        "Mobile Number": 7562080954,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3367,7 +3343,7 @@ const all_data = [
         "Name": "C. Jeya Dharshini",
         "Reg": 99220041494,
         "Membership ID": "GK23100000100",
-        "Mobile Number": 8807432509,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3381,7 +3357,7 @@ const all_data = [
         "Name": "Harini V",
         "Reg": 99220041193,
         "Membership ID": "GK23100000101",
-        "Mobile Number": 7200611643,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3401,7 +3377,7 @@ const all_data = [
         "Name": "Vivek Kumar",
         "Reg": 99220041417,
         "Membership ID": "GK2311010100",
-        "Mobile Number": 6205969859,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3469,7 +3445,7 @@ const all_data = [
         "Name": "CHITTI BOYINA ADITYA MANIKANTH SAI",
         "Reg": 99220040040,
         "Membership ID": "GK23111000100",
-        "Mobile Number": 9676832291,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3483,7 +3459,7 @@ const all_data = [
         "Name": "Jupalli Naveen Babu",
         "Reg": 99220040077,
         "Membership ID": "GK23110100001",
-        "Mobile Number": 7989284828,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3497,7 +3473,7 @@ const all_data = [
         "Name": "A.G.P.S.Sai Janardhan",
         "Reg": 99220040008,
         "Membership ID": "GK2311110001",
-        "Mobile Number": 7032515598,
+        
         "Year": "III",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3511,7 +3487,7 @@ const all_data = [
         "Name": "K.Tejeswar Reddy",
         "Reg": 99220040084,
         "Membership ID": "GK23111000010",
-        "Mobile Number": 99220040084,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3525,7 +3501,7 @@ const all_data = [
         "Name": "Chereddy Rama Krishna Reddy",
         "Reg": 99220040036,
         "Membership ID": "GK23101001000",
-        "Mobile Number": 7794018215,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3539,7 +3515,7 @@ const all_data = [
         "Name": "A.maheswar reddy",
         "Reg": 99220040016,
         "Membership ID": "GK23101010100",
-        "Mobile Number": 9392532882,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3565,7 +3541,7 @@ const all_data = [
         "Name": "PIDIGUNDLA VENKATESWARA RAO",
         "Reg": 99220040688,
         "Membership ID": "GK23110001111",
-        "Mobile Number": 9398107277,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3585,7 +3561,7 @@ const all_data = [
         "Name": "Makireddygari Haritha",
         "Reg": 99220041246,
         "Membership ID": "GK23110101110",
-        "Mobile Number": 9063782004,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3599,7 +3575,7 @@ const all_data = [
         "Name": "N KowshKedhar",
         "Reg": 99220040140,
         "Membership ID": "GK23110010100",
-        "Mobile Number": 7207326505,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3613,7 +3589,7 @@ const all_data = [
         "Name": "A.venkata sai krishna reddy",
         "Reg": 99220040805,
         "Membership ID": "GK23111011101",
-        "Mobile Number": 7989780829,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3639,7 +3615,7 @@ const all_data = [
         "Name": "BHAVANAM JAIDEEP REDDY",
         "Reg": 99220041128,
         "Membership ID": "GK23111010101",
-        "Mobile Number": 6305046179,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Graphic Designing",
@@ -3653,7 +3629,7 @@ const all_data = [
         "Name": "SHAIK RAIYAN",
         "Reg": 99220041364,
         "Membership ID": "GK23101101001",
-        "Mobile Number": 8247460113,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3667,7 +3643,7 @@ const all_data = [
         "Name": "MAHIDHAR MADDASANI",
         "Reg": 99220041630,
         "Membership ID": "GK2311000010",
-        "Mobile Number": 9030693997,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Web development",
@@ -3681,7 +3657,7 @@ const all_data = [
         "Name": "SHAIK MASTAN VALI",
         "Reg": 99220041639,
         "Membership ID": "GK23110011110",
-        "Mobile Number": 7670925466,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -3701,7 +3677,7 @@ const all_data = [
         "Name": "BANDI HANUMA KUMAR",
         "Reg": 99220041122,
         "Membership ID": "GK23101101000",
-        "Mobile Number": 8374841866,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3721,7 +3697,7 @@ const all_data = [
         "Name": "Gutha Mounika",
         "Reg": 99220041190,
         "Membership ID": "GK23111000000",
-        "Mobile Number": 7780788953,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Technical",
@@ -3735,7 +3711,7 @@ const all_data = [
         "Name": "Manoj LR",
         "Reg": 9150547478,
         "Membership ID": "GK2311010110",
-        "Mobile Number": 9150547478,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -3767,7 +3743,7 @@ const all_data = [
         "Name": "J.Saathvik Reddy",
         "Reg": 99220040075,
         "Membership ID": "GK2311110100",
-        "Mobile Number": 9705213969,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Social Media",
@@ -3787,7 +3763,7 @@ const all_data = [
         "Name": "P.Bala Saravanan",
         "Reg": 99220042073,
         "Membership ID": "GK23100000001",
-        "Mobile Number": 9342096237,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Marketing",
@@ -3807,7 +3783,7 @@ const all_data = [
         "Name": "Kotaru Chaitanya Lakshmi",
         "Reg": 99220040585,
         "Membership ID": "GK23100111111",
-        "Mobile Number": 8919484590,
+        
         "Year": "II",
         "Dept": "CSE",
         "Select your interested domain": "Article Writing & Report Making",
@@ -3827,7 +3803,7 @@ const all_data = [
         "Name": "MuraliDharan N G",
         "Reg": 9922008051,
         "Membership ID": "GK23100011000",
-        "Mobile Number": 9944479132,
+        
         "Year": "II",
         "Dept": "IT",
         "Select your interested domain": "Graphic Designing",
@@ -3841,7 +3817,7 @@ const all_data = [
         "Name": "Shridevi lakshmi R",
         "Reg": 9922008262,
         "Membership ID": "GK23101111101",
-        "Mobile Number": 9600627100,
+        
         "Year": "II",
         "Dept": "IT",
         "Select your interested domain": "Web development",
@@ -3869,7 +3845,7 @@ const all_data = [
         "Name": "Aakash.B",
         "Reg": 9922008080,
         "Membership ID": "GK2310000010",
-        "Mobile Number": 7904063522,
+        
         "Year": "II",
         "Dept": "IT",
         "Select your interested domain": "Web development",
@@ -3883,7 +3859,7 @@ const all_data = [
         "Name": "MANNEM RAM GOPAL",
         "Reg": 9922008048,
         "Membership ID": "GK2310000000",
-        "Mobile Number": 6303486226,
+        
         "Year": "II",
         "Dept": "IT",
         "Select your interested domain": "Web development",
@@ -3897,7 +3873,7 @@ const all_data = [
         "Name": "Srie Mathi MG",
         "Reg": 9922008441,
         "Membership ID": "GK23110110000",
-        "Mobile Number": 9025114636,
+        
         "Year": "II",
         "Dept": "IT",
         "Select your interested domain": "Web development",
@@ -3911,7 +3887,58 @@ const all_data = [
         "Year": "II",
         "Dept": "IT",
         "Membership ID": "GK23110111101"
-    }
+    },
+    {
+        "Name": "Shanthiya.M",
+        "Reg": 99220041951,
+        "Membership ID": "GK23110001011",
+        
+        "Year": "II",
+        "Dept": "CSE",
+        "Select your interested domain": "Technical",
+        "linkedin": "https://www.linkedin.com/in/shanthiya-manikumar-a371b6290",
+        "github": "https://github.com/Shanthiya23",
+        "About": "I am M.Shanthiya from CSE department of second year in Internet of things Stream started as a programmer in c, python. As I am IOT student I started doing project on accident alert system.I have completed my schooling in Akshaya Academy CBSE school.",
+        "imageLink": "https://drive.google.com/open?id=1_Meq2mjo5B0xynjc_Ki3Mn9HZciY6x58"
+       },
+       {
+        "Name": "Kancham shivathmika",
+        "Reg": 99210041554,
+        "Membership ID": "GK23111110001",
+        
+        "Year": "III",
+        "Dept": "CSE",
+        "Select your interested domain": "Technical",
+        "linkedin": "https://www.linkedin.com/in/kancham-shivathmika-30a130277",
+        "github": "https://github.com/kshivathmika",
+        "About": "My self k.shivathmika from ap . Studying at kalsalingam University. am very passionate about my work, and I am always willing to put in the extra effort to achieve success. I have strong analytical and problem-solving skills, which allow me to quickly understand complex issues and come up with effective solutions. I am also a good communicator and enjoy working in a team environment.. ",
+        "imageLink": "https://drive.google.com/open?id=1sQefwExaljpkaL6v9dFr2qMeRQh4nwSC"
+       },
+       {
+        "Name": "Kammarapalli dhathri",
+        "Reg": 99210041201,
+        "Membership ID": "GK23111100110",
+        
+        "Year": "III",
+        "Dept": "CSE",
+        "Select your interested domain": "Technical",
+        "linkedin": "https://www.linkedin.com/in/kammarapalli-dhathri-465485284",
+        "github": "https://github.com/kammarapallidhathri",
+        "About": "I'm Dhathri, a third-year BTech student majoring in CSE at KARE. I'm passionate about competitive programming, constantly honing my problem-solving skills and participating in coding competitions. My goal is to excel in this field and contribute to the tech community",
+        "imageLink": "https://drive.google.com/open?id=1DWXGt365l9VJFtlrqidG_k8wKifjavi3"
+       },
+       {
+        "Name": "Kandagaddala naga Lakshmi Lavanya",
+        "Reg": 99210041555,
+        "Membership ID": "GK23101000101",
+        
+        "Year": "III",
+        "Dept": "CSE",
+        "Select your interested domain": "Technical",
+        "github": "https://github.com/kandagaddala13",
+        "About": "I'm lavanya, a third-year BTech student majoring in CSE at KARE. I'm passionate about competitive programming, constantly honing my problem-solving skills and participating in coding competitions. My goal is to excel in this field and contribute to the tech community",
+        "imageLink": "https://drive.google.com/open?id=1km46nNF7u65nQoxkh8XaJ2b7JLXnKPM1"
+       }
 ]
 
 export default all_data;
