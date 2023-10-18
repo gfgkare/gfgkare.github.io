@@ -11,18 +11,17 @@ import Home from "./views/Home";
 import CoreTeam from "./views/CoreTeam";
 import TeamMember from "./views/TeamMember";
 import ChapterMember from "./views/ChapterMember";
-
-import coreTeamMembers from "./data/coreTeamInfo";
-// import chapterMembersInfo from "./data/chapterMembersInfo";
+import AllMembers from "./views/AllMembers";
+import New from "./views/New";
+import EventRegister from "./views/EventRegister";
 
 import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
-// import allData from "./data/with_images"
 import allData from "./data/all_data_merged"
-import AllMembers from "./views/AllMembers";
-import New from "./views/New";
+import coreTeamMembers from "./data/coreTeamInfo";
+
 
 
 
@@ -46,6 +45,7 @@ export default function App() {
                             <Route path="/core" element={<CoreTeam />}></Route>
                             <Route path="/members" element={<AllMembers />}></Route>
                             <Route path="/events" element={<UnderConstruction />}></Route>
+                            <Route path="/events/algo2024" element={<EventRegister />}></Route>
                             {
                                 Object.keys(coreTeamMembers).map((key, index) => {
                                     return ( <Route key={index} path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )

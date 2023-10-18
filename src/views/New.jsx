@@ -1,15 +1,18 @@
 import "../styles/New.scss";
 
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Flickity from "react-flickity-component";
 
+import ImageComp from "../components/ImageComp";
 
 import coreTeamMembers from "../data/coreTeamInfo.js";
 import { useMisc } from "../contexts/MiscContext";
 import SectionDivider from "../components/SectionDivider";
 import events from "../data/eventsInfo";
+
+import kluTeam from "../assets/klu_team.jpg"
 
 export default function New() {
     const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed } =
@@ -110,6 +113,9 @@ export default function New() {
                             </div>
 
                             <div className="cta">Become a member</div>
+                        </div>
+                        <div className="imageContainer hideOnMobile">
+                            <img src={kluTeam} alt="" />
                         </div>
                     </div>
                 </section>

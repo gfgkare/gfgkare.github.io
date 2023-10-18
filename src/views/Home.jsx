@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 
 import kluTeam from "../assets/klu_team.jpg";
+import gfgLogo from "../assets/GFG_KARE.svg";
 
 import ImageComp from "../components/ImageComp";
 import SectionDivider from "../components/SectionDivider";
@@ -448,7 +449,25 @@ export default function Main() {
             </div>
 
             <div className="footer">
-                © KARE GeeksForGeeks Student Chapter (2023)
+                <div>
+                <span className="chapterTitle">
+                    <img src={gfgLogo} style={ {height: "40px", width: "40px"} } />
+                    <span>GFG KARE Student Chapter</span>
+                </span>
+
+                <a href="/events">
+                    Events
+                </a>
+
+                <a href="/members">
+                    Members
+                </a>
+
+                <a href="/contact">
+                    Contact
+                </a>
+                </div>
+
             </div>
         </>
     );

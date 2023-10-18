@@ -110,11 +110,10 @@ div.chapterMember {
                 align-items: center;
 
                 font-size: 18px;
-                color: rgba(black, 0.8) !important;
+                opacity: .8;
 
                 div.copyIdBtn svg {
                     cursor: pointer;
-                    color: black;
                 }
 
                 .copyIdBtn {

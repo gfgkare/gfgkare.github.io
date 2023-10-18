@@ -18,13 +18,18 @@ div.new {
         width: 100%;
         height: 70vh;
         display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
         backdrop-filter: blur(3px);
+        padding: 0 2rem;
 
         .leftText {
             padding: 0 3rem;
             font-family: "Outfit";
             width: 40%;
             // background-color: red;
+            flex: .8;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -56,13 +61,30 @@ div.new {
                 }
             }
         }
+
+        .imageContainer {
+            padding: 0 3rem 0 0;
+            height: 80%;
+            flex: .6;
+            width: 40%;
+            border-radius: 12px;
+            overflow: hidden;
+            // background-color: red;
+
+            img {
+                border-radius: 20px;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
     }
 
     div.numbersDiv {
         opacity: 0;
         transform: translateY(50px);
 
-        transition: opacity .6s ease, transform .6s ease;
+        transition: opacity 0.6s ease, transform 0.6s ease;
 
         margin-top: 3rem;
         margin-bottom: 1rem;
@@ -75,7 +97,7 @@ div.new {
 
         &.aboutVisible {
             opacity: 1;
-            transform: translateY(0);    
+            transform: translateY(0);
         }
 
         .shape {
@@ -264,7 +286,7 @@ section.events {
     border-radius: 8px;
     justify-content: center;
     align-items: center;
-    transform: scale(.9) translateX(-5%);
+    transform: scale(0.9) translateX(-5%);
 
     // display: flex;
     // flex-direction: column;
@@ -284,8 +306,7 @@ section.events {
             // height: 100% !important;
             // max-height: 80%;
             filter: blur(3px);
-            transition: filter .5s ease;
-
+            transition: filter 0.5s ease;
 
             &.is-selected {
                 z-index: 2;
@@ -301,7 +322,7 @@ section.events {
         // transform: translateX(-30%);
         // width: 40vw;
         height: 500px;
-        padding: .5rem;
+        padding: 0.5rem;
         border-radius: 8px;
         filter: blur(2px);
         overflow: hidden;
@@ -332,7 +353,7 @@ section.events {
         }
 
         div.eventDetails {
-            // background-color: red !important;    
+            // background-color: red !important;
             position: relative;
             bottom: 0;
             width: 100%;
@@ -357,7 +378,6 @@ section.events {
             top: 0;
             right: 0;
         }
-
     }
 
     button.flickity-button {
@@ -374,14 +394,14 @@ section.events {
         li {
             height: 5px;
             width: 5px !important;
-            background: rgba(0, 0, 0, .5);
-            padding: .25rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.25rem;
             border-radius: 50%;
             width: max-content;
             cursor: pointer;
 
             &.is-selected {
-                background: rgba(0, 0, 0, .75);
+                background: rgba(0, 0, 0, 0.75);
             }
 
             &::marker {
