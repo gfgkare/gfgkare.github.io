@@ -1,22 +1,38 @@
 .image-container {
 	// background-color: #ccc;
+	// border: 2px solid rgba(0,0,0,.2);
 	overflow: hidden;
 	position: relative;
 	max-height: max-content;
 	border-radius: 14px;
 	margin-bottom: 0px !important;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 }
 
+.imageFill {
+	height: 100%;
+	width: 100%;
+	object-fit: fill;
+	filter: blur(25px);
+	z-index: 0;
+}
+
 .image {
+	z-index: 1;
 	// position: absolute;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	opacity: 0;
 	align-items: flex-end;
+
+	&.zoom {
+		transform: translateY(-100%);
+		object-fit: contain;
+	}
 
 	&.thumb {
 		height: 100%;

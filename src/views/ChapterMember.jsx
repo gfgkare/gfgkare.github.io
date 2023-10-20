@@ -83,7 +83,7 @@ export default function ChapterMember(props) {
                         }
                     }
                     alt="Member Image" className="chapterMemberImage" /> */}
-                    <ImageRenderer url={getViewLinkFromDriveLink(props.info.imageLink)} fallbackImage={errored_image_fallback} width={'300px'} height={'400px'} />
+                    <ImageRenderer blurFill={false} url={getViewLinkFromDriveLink(props.info.imageLink)} fallbackImage={errored_image_fallback} width={'300px'} height={'400px'} />
                 </div>
 
 
