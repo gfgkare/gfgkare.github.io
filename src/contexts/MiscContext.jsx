@@ -37,6 +37,15 @@ export const MiscProvider = ({ children }) => {
         }
     };
 
+    const readableError = (firebaseError) => {
+        const errors = {
+            "auth/internal-error": "Internal Error. Make sure your internet connection is stable.",
+            "auth/popup-closed-by-user": "Sign In popup was closed. Make sure browser allows site to open popups and external links."
+        }
+
+        return errors[firebaseError] || firebaseError;
+    }
+
     const value = {
         theme,
         setTheme,
@@ -47,7 +56,8 @@ export const MiscProvider = ({ children }) => {
         navTitle,
         setNavTitle,
         toTitleCase,
-        getViewLinkFromDriveLink
+        getViewLinkFromDriveLink,
+        readableError
     };
 
     return (

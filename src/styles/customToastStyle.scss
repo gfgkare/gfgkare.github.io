@@ -1,0 +1,43 @@
+.Toastify__toast--warning {
+    background: #ffe8bc !important;
+}
+.Toastify__toast--error {
+    user-select: all;
+    // background: #f53639 !important;
+
+    .toastProgress, .progressbar {
+        background: #bc1613 !important;
+    }
+}
+
+.Toastify__toast {
+    user-select: none;
+    cursor: auto;
+    // background-color: red;
+    border-radius: 8px !important;
+
+    .toastBody {
+        color: #10171d;
+        // background-color: red;
+        // font-size: 0.875rem !important;
+    }
+
+    .toastProgress {
+        background: #333f48;
+    }
+}
+
+.Toastify__close-button {
+    border: none !important;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        color: black !important;
+    }
+}

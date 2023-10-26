@@ -56,6 +56,19 @@ div.navBar {
                 font-size: large;
                 font-weight: 500;
             }
+            
+            .account {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
 
             .iconAndGrid {
                 // display: grid;
@@ -132,6 +145,10 @@ div.navBar {
                     background-color: lighten($text, 1);
                 }
                 
+                .dropdown-content .accountField {
+                    width: max-content;
+
+                }
                 
                 
 

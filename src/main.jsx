@@ -7,6 +7,7 @@ import "./DarkLight.scss";
 import "./GlobalStyles.scss";
 
 import { MiscProvider } from "./contexts/MiscContext.jsx";
+import { AuthProvider } from "./contexts/AuthContext.jsx";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -14,24 +15,27 @@ const rootElement = document.getElementById("root");
 
 if (rootElement.hasChildNodes()) {
     hydrate(
-        <MiscProvider>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </MiscProvider>,
+        <AuthProvider>
+            <MiscProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </MiscProvider>
+        </AuthProvider>,
         rootElement
     );
 } else {
     render(
-        <MiscProvider>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </MiscProvider>,
+        <AuthProvider>
+            <MiscProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </MiscProvider>
+        </AuthProvider>,
         rootElement
     );
 }
-
 
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //     // <React.StrictMode>

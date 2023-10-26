@@ -377,7 +377,7 @@ export default function Main() {
                                         }
                                     } else {
                                         console.log("clicked selected event");
-                                        navigate("/events/some-event");
+                                        navigate(event.url || "/events/some-event");
                                     }
                                 }}
                                 // onMouseEnter={() => {

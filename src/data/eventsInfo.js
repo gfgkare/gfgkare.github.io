@@ -4,6 +4,11 @@ import talkEvent from "../assets/talk.jpg";
 const events = [
     {
         imageSource: event1,
+        text: "Algorithmist2024 - A 5 round event with exciting prizes!",
+        url: "/events/algo2024"
+    },
+    {
+        imageSource: event1,
         text: "Event conducted by IBM for all third and fourth year students for IBM Ice Day.",
     },
     {

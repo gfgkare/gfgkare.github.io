@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState, useEffect } from "react";
 
 
 import eventCoverImage from "../assets/events_cover.jpeg";
@@ -9,25 +9,70 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiFillClockCircle, AiOutlineLoading, AiOutlineCheck } from "react-icons/ai";
 
+import { useAuth } from "../contexts/AuthContext"
+import { useMisc } from "../contexts/MiscContext";
+
+import axios from "../scripts/axiosConfig";
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import "../styles/EventRegister.scss";
 
+const env = import.meta.env;
+
 export default function EventRegister() {
+
+    const { USER_PRESENT, currentUser, signinwithpopup } = useAuth();
+    const { readableError } = useMisc();
 
     const [eventRegisterStatus, setEventRegisterStatus] = useState("not_registered");
     const [eventRegisteringInProgress, setEventRegisteringInProgress] = useState(false);
     const [noOfRegistered, setNoOfRegistered] =  useState(130)
 
     const registerForEvent = () => {
+        // if (USER_PRESENT()) 
         setEventRegisteringInProgress(true);
 
+        console.log(USER_PRESENT());
+
         setTimeout(() => {
-            setEventRegisterStatus("registered");
+            // setEventRegisterStatus("registered");
             setNoOfRegistered(noOfRegistered => noOfRegistered + 1);
             setEventRegisteringInProgress(false);
+            toast.success("You are registered for Algorithmist 2024 Round 3!");
+
+            axios.post("/register_for_event", { eventID: "algo2024", user: currentUser.uid }, { headers: { Authorization: currentUser.getIdToken() } } )
+            .then((res) => console.log(res))
+            .catch((e) => console.warn(e))
         }, 1000)
     }
 
+    useEffect(() => {
+        window.scrollTo(0,0);
+
+
+        console.log(env.VITE_AUTHOR)
+    }, [])
+
+    useEffect(() => {
+        setEventRegisteringInProgress(true);
+        if (currentUser && currentUser !== "none") {
+            currentUser.getIdToken().then((token) => {
+                axios.post("/get_event_reg_status", { userID: currentUser.uid }, { headers: { Authorization: token } } )
+                .then((res) => {
+                    if (res.data.status == "Registered") setEventRegisterStatus("registered");
+                    else setEventRegisterStatus("not_registered");
+                })
+                .finally(() => setEventRegisteringInProgress(false));
+            })
+            
+        }
+
+    }, [currentUser])
+
     return (
+        
         <div className="eventRegister">
             <div className="coverImage">
                 <img src={eventCoverImage} alt="event cover image" />
@@ -83,19 +128,28 @@ export default function EventRegister() {
 
                     <div className="eventRegisterPanel">
                         <div className="row registerBtn">
-                            <button className={(eventRegisterStatus ? " registerDone" : "")} disabled={(eventRegisterStatus === "registered")} onClick={registerForEvent}>
-                                {eventRegisteringInProgress ? (
-                                    <AiOutlineLoading className="loadingIcon" size="15px" /> // if in progress, show loading btn
-                                ) : (eventRegisterStatus === "not_registered") ? (     // else, if not registered show reg btn
-                                    "Register!"
-                                ) : (                           // else, if registered show regd btn
-                                    <>
-                                        {" "}
-                                        <AiOutlineCheck size="15px" />{" "}
-                                        Registered
-                                    </>
-                                )}
-                            </button>
+                            {
+                                (USER_PRESENT()) ? (
+                                <button className={(eventRegisterStatus==="registered" ? "registerDone" : "")} disabled={(eventRegisterStatus === "registered" || eventRegisteringInProgress === true)} onClick={registerForEvent}>
+                                    {eventRegisteringInProgress ? (
+                                        <AiOutlineLoading className="loadingIcon" size="15px" /> // if in progress, show loading btn
+                                    ) : (eventRegisterStatus === "not_registered") ? (     // else, if not registered show reg btn
+                                        "Register!"
+                                    ) : (                           // else, if registered show regd btn
+                                        <>
+                                            {" "}
+                                            <AiOutlineCheck size="15px" />{" "}
+                                            Registered
+                                        </>
+                                    )}
+                                </button>
+                                )
+                                :
+                                (
+                                    <button onClick={() => signinwithpopup("google").then(() => {}).catch((e) => toast.error(readableError(e.code)))}>Sign In to Register</button>
+                                )
+                            }
+                            
                         </div>
                         <div className="row">
                             <div className="registerPanelItem">

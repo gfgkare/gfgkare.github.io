@@ -14,6 +14,8 @@ import ChapterMember from "./views/ChapterMember";
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 import EventRegister from "./views/EventRegister";
+import Login from "./views/Login";
+import Profile from "./views/Profile";
 
 import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
@@ -41,6 +43,8 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Main />}>
                             <Route path="/" element={<Home />}></Route>
+                            <Route path="/login" element={ <Login /> }></Route>
+                            <Route path="/profile" element={ <Profile /> }></Route>
                             <Route path="/new" element={<New />}></Route>
                             <Route path="/core" element={<CoreTeam />}></Route>
                             <Route path="/members" element={<AllMembers />}></Route>
@@ -51,10 +55,10 @@ export default function App() {
                                     return ( <Route key={index} path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
                                 })
                             }
-{/*                             
-                            {
-                                Object.keys(chapterMembersInfo).map((key) => {
-                                    return ( <Route path={`/members/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
+                            {/*                             
+                                {
+                                    Object.keys(chapterMembersInfo).map((key) => {
+                                        return ( <Route path={`/members/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
                                 })
                             } */}
 

@@ -1,4 +1,5 @@
 import "../styles/Main.scss";
+import '../styles/customToastStyle.scss';
 
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
@@ -7,9 +8,11 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 import gfgLogo from "../assets/GFG_KARE.svg";
 import { useMisc } from "../contexts/MiscContext";
-// import RandomBubbles from "../components/RandomBubbles";
+import { useAuth } from "../contexts/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 export default function Main() {
+    const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
     const { theme, setTheme, navTitle } = useMisc();
 
     const [showNavBox, setShowNavBox] = useState(false);
@@ -52,6 +55,16 @@ export default function Main() {
                                 Contact
                             </Link>
                         </div>
+
+                        {
+                            (USER_PRESENT()) ? 
+                                <div onClick={() => navigate("/profile")} className="menuLink hideOnMobile account">
+                                    <img src={currentUser.photoURL} referrerPolicy="no-referrer" alt="user's profile image" />
+                                </div>
+                            :
+                                <button className="hideOnMobile" onClick={() => signinwithpopup("google")}>Sign In</button>
+                        }
+                       
 
                         <div className="iconAndGrid showOnMobile">
                             <div
@@ -106,13 +119,21 @@ export default function Main() {
                                             }}
                                         />
                                     </span> */}
-                                    <span className="registerButton">Join</span>
+                                    {
+                                        (USER_PRESENT()) ? 
+                                        <span className="accountField" onClick={() => navigate("/profile")} >Account</span>
+                                        : 
+                                        <span className="registerButton" onClick={() => signinwithpopup("google")}>Sign In</span>
+                                    }
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
 
             <div className="out" >
                 <Outlet />
