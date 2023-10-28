@@ -2,7 +2,7 @@
     background: #ffe8bc !important;
 }
 .Toastify__toast--error {
-    user-select: all;
+    user-select: all !important;
     // background: #f53639 !important;
 
     .toastProgress, .progressbar {
@@ -30,12 +30,16 @@
 .Toastify__close-button {
     border: none !important;
     border-radius: 50%;
-    height: 25px;
-    width: 25px;
-    background-color: none !important;
+    min-height: 25px !important;
+    min-width: 25px !important;
+    background-color: transparent !important;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+        background-color: rgba(20, 20, 20, .1) !important;
+    }
 
     svg {
         color: black !important;
