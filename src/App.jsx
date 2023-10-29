@@ -49,7 +49,6 @@ export default function App() {
                             <Route path="/core" element={<CoreTeam />}></Route>
                             <Route path="/members" element={<AllMembers />}></Route>
                             <Route path="/events" element={<UnderConstruction />}></Route>
-                            <Route path="/events/algo2024" element={<EventRegister />}></Route>
                             {
                                 Object.keys(coreTeamMembers).map((key, index) => {
                                     return ( <Route key={index} path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
@@ -72,6 +71,7 @@ export default function App() {
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
+                        <Route path="/events/algo2024" element={<EventRegister />}></Route>
 
                         <Route path="/*" element={ <NotFound /> }></Route>
                     </Routes>
