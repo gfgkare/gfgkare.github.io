@@ -123,7 +123,7 @@ export default function Main() {
                                         (USER_PRESENT()) ? 
                                         <span className="accountField" onClick={() => navigate("/profile")} >Account</span>
                                         : 
-                                        <span className="registerButton" onClick={() => {}}>Sign In</span> // signinwithpopup("google")
+                                        <span className="registerButton" onClick={() => signinwithpopup("google")}>Sign In</span> // signinwithpopup("google")
                                     }
                                     
                                 </div>
