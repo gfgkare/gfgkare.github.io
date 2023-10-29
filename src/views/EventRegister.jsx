@@ -40,6 +40,7 @@ export default function EventRegister() {
         useState(false);
     const [noOfRegistered, setNoOfRegistered] = useState(0);
     const [eventStart, setEventStart] = useState(0);
+    const [maxCount, setMaxCount] = useState(200);
     const [ countdownTime, setCountdownTime] = useState(0);
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -116,6 +117,13 @@ export default function EventRegister() {
                 console.log(utcToLocalTimeStamp(res.data.time));
                 setEventStart(utcToLocalTimeStamp(res.data.time));
             });
+        // axios
+        // .post("/get_event_max_count", {
+        //     eventID: window.location.pathname.split("/")[2],
+        // })
+        // .then((res) => {
+        //     setMaxCount(res.data.count);
+        // });
         console.log(env.VITE_AUTHOR);
     }, []);
     
@@ -272,7 +280,7 @@ export default function EventRegister() {
                                     <div className="info">
                                         <div className="heading">Registered</div>
                                         <div className="content">
-                                            {noOfRegistered}/200
+                                            {noOfRegistered}/{maxCount}
                                         </div>
                                     </div>
                                 </div>
