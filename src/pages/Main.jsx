@@ -62,7 +62,7 @@ export default function Main() {
                                     <img src={currentUser.photoURL} referrerPolicy="no-referrer" alt="user's profile image" />
                                 </div>
                             :
-                                <button className="hideOnMobile" onClick={() => signinwithpopup("google")}>Sign In</button>
+                                <button className="hideOnMobile" onClick={() => {}}>Sign In</button>  // signinwithpopup("google")
                         }
                        
 
@@ -123,7 +123,7 @@ export default function Main() {
                                         (USER_PRESENT()) ? 
                                         <span className="accountField" onClick={() => navigate("/profile")} >Account</span>
                                         : 
-                                        <span className="registerButton" onClick={() => signinwithpopup("google")}>Sign In</span>
+                                        <span className="registerButton" onClick={() => {}}>Sign In</span> // signinwithpopup("google")
                                     }
                                     
                                 </div>
