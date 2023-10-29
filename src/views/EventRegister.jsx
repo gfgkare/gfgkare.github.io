@@ -43,15 +43,19 @@ export default function EventRegister() {
     const [ countdownTime, setCountdownTime] = useState(0);
 
     const [modalOpen, setModalOpen] = useState(false);
+    const [userDept, setUserDept] = useState("");
 
     const fullName = useRef();
     const regNo = useRef();
     const email = useRef();
+    const year = useRef();
     const dept = useRef();
+    const slot = useRef();
+    const section = useRef();
     const num = useRef();
 
     const registerForEvent = () => {
-        // if (USER_PRESENT())
+        if (!USER_PRESENT()) return;
         setEventRegisteringInProgress(true);
 
         console.log(USER_PRESENT());
@@ -60,10 +64,14 @@ export default function EventRegister() {
             .post(
                 "/register_for_event",
                 { 
+                    userID: currentUser.uid,
                     eventID: eventID, 
                     fullName: fullName.current.value,
                     regNo: regNo.current.value,
-                    email: email.current.value,
+                    year: year.current.value,
+                    slot: slot?.current?.value,
+                    section: section?.current?.value,
+                    email: currentUser.email,
                     dept: dept.current.value,
                     num: num.current.value
                 },
@@ -76,7 +84,7 @@ export default function EventRegister() {
                 setEventRegisteringInProgress(false);
                 setEventRegisterStatus("registered");
                 toast.success(
-                    "You are registered for Algorithmist 2024 Round 3!"
+                    "You are registered for Algorithmist 2024!"
                 );
             })
             .catch((e) => {
@@ -117,6 +125,7 @@ export default function EventRegister() {
             document.body.style.overflowY = "hidden";
         }
         else document.body.style.overflowY = "auto";
+        console.log(currentUser);
     }, [modalOpen])
 
     useEffect(() => {
@@ -126,25 +135,25 @@ export default function EventRegister() {
         }
     }, [eventStart])
 
-    // useEffect(() => {
-    //     setEventRegisteringInProgress(true);
-    //     if (currentUser && currentUser !== "none") {
-    //         currentUser.getIdToken().then((token) => {
-    //             axios
-    //                 .post(
-    //                     "/get_event_reg_status",
-    //                     { userID: currentUser.uid, eventID: eventID },
-    //                     { headers: { Authorization: token } }
-    //                 )
-    //                 .then((res) => {
-    //                     if (res.data.status == "Registered")
-    //                         setEventRegisterStatus("registered");
-    //                     else setEventRegisterStatus("not_registered");
-    //                 })
-    //                 .finally(() => setEventRegisteringInProgress(false));
-    //         });
-    //     }
-    // }, [currentUser]);
+    useEffect(() => {
+        setEventRegisteringInProgress(true);
+        if (currentUser && currentUser !== "none") {
+            currentUser.getIdToken().then((token) => {
+                axios
+                    .post(
+                        "/get_event_reg_status",
+                        { userID: currentUser.uid, eventID: eventID },
+                        { headers: { Authorization: token } }
+                    )
+                    .then((res) => {
+                        if (res.data.status == "Registered")
+                            setEventRegisterStatus("registered");
+                        else setEventRegisterStatus("not_registered");
+                    })
+                    .finally(() => setEventRegisteringInProgress(false));
+            });
+        }
+    }, [currentUser]);
 
     return (
         <>
@@ -157,7 +166,7 @@ export default function EventRegister() {
                         <div className="eventInfoWrapper">
                             <div className="eventInfo">
                                 <div className="eventTitle">
-                                    Algorithmist 2024 (Round 3)
+                                    Algorithmist 2024
                                 </div>
                                 {/* <div className="conductedBy">
                                     Brought to you by GeeksForGeeks KARE Student
@@ -214,7 +223,7 @@ export default function EventRegister() {
 
                         <div className="eventRegisterPanel">
                             <div className="row registerBtn">
-                                {true ? (
+                                {USER_PRESENT() ? (
                                     <button
                                         className={
                                             eventRegisterStatus === "registered"
@@ -247,10 +256,11 @@ export default function EventRegister() {
                                     <button
                                         onClick={() => {
                                             console.log("registering...")
-                                            setModalOpen(true);
+                                            // setModalOpen(true);
+                                            signinwithpopup("google")
                                         } }
                                     >
-                                        Click here to Register
+                                        Sign In to Register
                                     </button>
                                 )}
                             </div>
@@ -307,12 +317,24 @@ export default function EventRegister() {
                     e.bubbles = false;
                     e.stopPropagation();
                 } } >
-                    <h2>Register for Algorithmist2024 Round 3</h2>
+                    <h2>Register for Algorithmist2024</h2>
                     <form autoComplete="off" onSubmit={(e) => {
                         e.preventDefault();
                         console.log("ref..");
                         registerForEvent();
                     }}>
+                        <div className="row">
+                            <div className="emailIndication">
+                                <img src={currentUser?.photoURL} alt="" />
+                                <div onClick={() => {
+                                    setModalOpen(false);
+                                    signinwithpopup("google");
+                                }}>
+                                    <span className="email">{currentUser?.email}</span>
+                                    <span>Change email?</span>
+                                </div>
+                            </div>
+                        </div>
                         <div className="row">
                             <label for="name">Full Name *</label>
                             <input id="name" type="text" required autoComplete="off" ref={fullName} />
@@ -321,28 +343,56 @@ export default function EventRegister() {
                             <label for="email">Register No *</label>
                             <input id="email" type="number" required autoComplete="off" ref={regNo} />
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                             <label for="email">Email Address *</label>
                             <input id="email" type="email" required autoComplete="off" ref={email} />
-                        </div>
+                        </div> */}
                         <div className="row">
-                            <label for="dept">Department *</label>
-                            {/* <input id="dept" type="text" required autoComplete="off"/> */}
-                            <select name="department" onChange={(e) => console.log(e.currentTarget.value)} ref={dept} >
-                                <option value="cse">CSE</option>
-                                <option value="it">IT</option>
-                                <option value="ece">ECE</option>
-                                <option value="eee">EEE</option>
-                                <option value="biotech">Bio Technology</option>
-                                <option value="foodtech">Food Technology</option>
+                            <label for="year">Year *</label>
+                            <select name="year" ref={year}>
+                                <option value="IV">IV</option>
+                                <option value="III">III</option>
+                                <option value="II">II</option>
+                                <option value="I">I</option>
                             </select>
                         </div>
+                        <div className="row">
+                            <label for="department">Department *</label>
+                            <select name="department" onChange={(e) => setUserDept(e.currentTarget.value)} ref={dept} >
+                                <option value="">Choose your department...</option>
+                                <option value="CSE">CSE</option>
+                                <option value="IT">IT</option>
+                                <option value="ECE">ECE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="BIOTECH">Bio Technology</option>
+                                <option value="FOODTECH">Food Technology</option>
+                            </select>
+                        </div>
+                        {
+                            (userDept === "CSE") ?
+                            <div className="row">
+                            <label for="department">Slot *</label>
+                            <select name="department" ref={slot} >
+                                <option value="">Choose your slot...</option>
+                                <option value="Slot 1">Slot 1</option>
+                                <option value="Slot 2">Slot 2</option>
+                                <option value="Slot 3">Slot 3</option>
+                                <option value="Slot 4">Slot 4</option>
+                                <option value="Slot 5">Slot 5</option>
+                            </select>
+                        </div>
+                        :
+                        <div className="row">
+                            <label for="department">Section *</label>
+                            <input type="text" id="section" required autoComplete="off" ref={section} />
+                        </div>
+                        }
                         <div className="row">
                             <label for="num">Contact Number *</label>
                             <input id="num" type="number" required autoComplete="off" ref={num} />
                         </div>
                         <div className="row">
-                            <button>Register</button> 
+                            <button>{(eventRegisteringInProgress) ? "Registering..." : "Register"}</button> 
                         </div>
                     </form>
                     

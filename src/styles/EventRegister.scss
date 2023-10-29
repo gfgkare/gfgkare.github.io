@@ -309,6 +309,37 @@
                     margin: 1rem auto 2rem auto;
                     border-radius: 10px;
                 }
+
+                .emailIndication {
+                    border: 1px solid black;
+                    border-radius: 8px;
+                    padding: .8rem;
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: flex-start;
+                    align-items: center;
+                    cursor: pointer;
+                    transition : background-color .4s ease;
+
+                    &:hover {
+                        background-color: rgba(0,0,0, 0.05);
+                    }
+
+                    img {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;;
+                    }
+
+                    div {
+                        display:flex;
+                        flex-direction: column;
+
+                        .email {
+                            font-weight: 600;
+                        }
+                    }
+                }
             }
         }
     }
