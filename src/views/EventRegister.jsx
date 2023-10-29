@@ -307,7 +307,7 @@ export default function EventRegister() {
                                         <div className="heading">
                                             Registration Deadline
                                         </div>
-                                        <div className="content">29th Oct 2023 - 5PM</div>
+                                        <div className="content">29th Oct 2023 - 10PM</div>
                                     </div>
                                 </div>
                             </div>
