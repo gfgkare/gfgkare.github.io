@@ -1,5 +1,8 @@
 import { useAuth } from "../contexts/AuthContext"
 import "../styles/Profile.scss";
+import { Link } from "react-router-dom";
+
+import { IoIosArrowBack } from "react-icons/io";
 
 export default function Profile() {
 
@@ -9,6 +12,11 @@ export default function Profile() {
         <div className="profile">
 
             <div className="profileBox">
+                <button className="back">
+                    <Link to={"/events/algo2024"}>
+                        <IoIosArrowBack />
+                    </Link>
+                </button>
 
                 {
                     (USER_PRESENT()) ? 
@@ -25,7 +33,9 @@ export default function Profile() {
                         </div>
                         :
                         <div>
-                            You are not logged in. Please login to continue.
+                            <span>
+                                You are not logged in. Please login to continue.
+                            </span>
                         </div>
                 }
 

@@ -62,7 +62,7 @@ export default function Main() {
                                     <img src={currentUser.photoURL} referrerPolicy="no-referrer" alt="user's profile image" />
                                 </div>
                             :
-                                <button className="hideOnMobile" onClick={() => {}}>Sign In</button>  // signinwithpopup("google")
+                                <button className="hideOnMobile" onClick={() => signinwithpopup("google") }>Sign In</button> 
                         }
                        
 
