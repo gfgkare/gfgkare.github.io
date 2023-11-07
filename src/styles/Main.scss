@@ -3,7 +3,7 @@
 
 div.navBar {
     backdrop-filter: blur(5px);
-    position: fixed;
+    position: absolute;
     z-index: 999;
     left: 50%;
     transform: translateX(-50%);

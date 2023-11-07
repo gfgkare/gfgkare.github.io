@@ -35,7 +35,7 @@ export default function Main() {
                     <span className="centerText hideOnMobile">{navTitle}</span>
 
                     <div className="rightMenu">
-                        <div className="menuLink hideOnMobile">
+                        {/* <div className="menuLink hideOnMobile">
                             <Link className="noStyle" to="/">
                                 Home
                             </Link>
@@ -54,7 +54,7 @@ export default function Main() {
                             <Link className="noStyle" to="/contact">
                                 Contact
                             </Link>
-                        </div>
+                        </div> */}
 
                         {
                             (USER_PRESENT()) ? 
@@ -91,16 +91,16 @@ export default function Main() {
                                         showNavBox ? "show" : ""
                                     }`}
                                 >
-                                    <span>
+                                    {/* <span>
                                         <Link to="/">Home</Link>
                                     </span>
                                     <span>
                                         <Link to="/events">Events</Link>
-                                    </span>
+                                    </span> */}
                                     <span>
                                         <Link to="/members">Members</Link>
                                     </span>
-                                    <span>Contact</span>
+                                    {/* <span>Contact</span> */}
                                     {/* <span>
                                          <input
                                             type="checkbox"

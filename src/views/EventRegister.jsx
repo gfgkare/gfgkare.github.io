@@ -2,16 +2,26 @@ import { useState, useEffect, useRef } from "react";
 import { Route, useParams } from "react-router-dom";
 
 import eventCoverImage from "../assets/events_cover.jpeg";
+import quiz from "../assets/quiz.jpg";
+
+// -----------------------------------
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillPersonFill, BsArrowDown } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 import {
     AiFillClockCircle,
     AiOutlineLoading,
     AiOutlineCheck,
+    AiFillLinkedin,
+    AiFillGithub,
+    AiFillInstagram,
+    AiOutlineWhatsApp
 } from "react-icons/ai";
+import { BiSolidPhoneCall, BiLinkExternal } from "react-icons/bi";
+
+// -----------------------------------
 
 import { useAuth } from "../contexts/AuthContext";
 import { useMisc } from "../contexts/MiscContext";
@@ -50,6 +60,7 @@ export default function EventRegister() {
     const email = useRef();
     const year = useRef();
     const dept = useRef();
+    const otherDept = useRef();
     const slot = useRef();
     const section = useRef();
     const num = useRef();
@@ -58,7 +69,7 @@ export default function EventRegister() {
         if (!USER_PRESENT()) return;
         setEventRegisteringInProgress(true);
 
-        console.log(USER_PRESENT());
+        console.log(otherDept?.current?.value);
 
         axios
             .post(
@@ -69,10 +80,11 @@ export default function EventRegister() {
                     fullName: fullName.current.value,
                     regNo: regNo.current.value,
                     year: year.current.value,
-                    slot: slot?.current?.value,
-                    section: section?.current?.value,
                     email: currentUser.email,
-                    dept: dept.current.value,
+                    dept:
+                        dept.current.value !== "OTHER"
+                            ? dept.current.value
+                            : otherDept?.current?.value,
                     num: num.current.value,
                 }
                 // { headers: { Authorization: currentUser.getIdToken() } }
@@ -183,7 +195,7 @@ export default function EventRegister() {
                                     Chapter
                                 </div> */}
 
-                                <div className="whereWhenContainer">
+                                {/* <div className="whereWhenContainer">
                                     <div className="where">
                                         <span className="title">
                                             <IoLocationSharp /> Where{" "}
@@ -207,28 +219,27 @@ export default function EventRegister() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 <div className="aboutEvent">
-                                    With great pleasure, we GFG KARE Student
-                                    Chapter extend our warmest invitation to all
-                                    the students who are passionate problem
-                                    solvers! to take part in Algorithimist 24.
-                                    It is the best place to demonstrate your
-                                    thinking process and how one finds solution
-                                    to a real world problem by building
-                                    algorithm. As Data structures and algorithms
-                                    are the foundation of effective
-                                    problem-solving in programming. Thus the
-                                    competition comprises of five rounds, each
-                                    round progressively raising the bar in terms
-                                    of complexity and challenge.
+                                    Algorithmist 24" is a series of coding
+                                    events organized by the GFG KARE Student
+                                    Chapter in sponsorship with GeeksforGeeks at
+                                    Kalasalingam Academy of Research and
+                                    Education. The competition comprises five
+                                    rounds, each progressively raising the bar
+                                    in terms of complexity and challenge.
+                                    Participants will become familiar with 50
+                                    different algorithms and gain practical
+                                    skills to apply them in real-world
+                                    scenarios. 
+                                    <strong>Cash prizes and exciting rewards
+                                    from GeeksforGeeks are provided for the top
+                                    three performers in each round.</strong>
                                 </div>
 
                                 <div className="startsIn">
-                                    <div className="title">
-                                        Contest Starts in:{" "}
-                                    </div>
+                                    <div className="title">Starts in: </div>
                                     {/* <div><span className="time">00</span> Days  <span className="time">00</span> Hours <span className="time">00</span> Minutes <span className="time">00</span> Seconds</div> */}
                                     <div className="time">
                                         {countdownTime ? (
@@ -298,10 +309,11 @@ export default function EventRegister() {
                                     </div>
                                     <div className="info">
                                         <div className="heading">
-                                            Registered
+                                            Limited Registrations
                                         </div>
                                         <div className="content">
-                                            {noOfRegistered}/{maxCount}
+                                            {/* {noOfRegistered}/{maxCount} */}
+                                            200 participants
                                         </div>
                                     </div>
                                 </div>
@@ -331,7 +343,7 @@ export default function EventRegister() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            29th Oct 2023 - 10PM
+                                            10th Nov 2023, 5PM
                                         </div>
                                     </div>
                                 </div>
@@ -340,6 +352,214 @@ export default function EventRegister() {
                             {/* <div className="row">
                                 <button>Register!</button>
                             </div> */}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="headings">MORE INFO</div>
+
+                <div className="eventDetails">
+                    <div className="allRounds">
+                        <div className="round">
+                            <div className="icon">
+                                <img src={quiz} alt="Round 1 Quiz" />
+                            </div>
+                            <div className="info">
+                                <div className="noAndName">
+                                    <div className="roundNo">Round 1</div>
+                                    <div className="roundName">Quiz</div>
+                                </div>
+                                
+                                <div className="roundDesc">
+                                    A quiz covering all the 50 algorithms.
+                                </div>
+                            </div>
+                        </div>
+                        {/* <BsArrowDown size={"60px"} /> */}
+                        <div className="round">
+                            <div className="icon">
+                                <img src={quiz} alt="Round 1 Quiz" />
+                            </div>
+                            <div className="info">
+                                <div className="noAndName">
+                                    <div className="roundNo">Round 2</div>
+                                    <div className="roundName">Seminar</div>
+                                </div>
+                                
+                                <div className="roundDesc">
+                                    Pick an algorithm, and explain it's efficiency, applications, what it solves and advance!
+                                </div>
+                            </div>
+                        </div>
+                        {/* <BsArrowDown size={"60px"} /> */}
+                        <div className="round">
+                            <div className="icon">
+                                <img src={quiz} alt="Round 1 Quiz" />
+                            </div>
+                            <div className="info">
+                                <div className="noAndName">
+                                    <div className="roundNo">Round 3</div>
+                                    <div className="roundName">QnA</div>
+                                </div>
+                                
+                                <div className="roundDesc">
+                                    Come up with a scenario based question for other participants!
+                                </div>
+                            </div>
+                        </div>
+                        {/* <BsArrowDown size={"60px"} /> */}
+                        <div className="round">
+                            <div className="icon">
+                                <img src={quiz} alt="Round 1 Quiz" />
+                            </div>
+                            <div className="info">
+                                <div className="noAndName">
+                                    <div className="roundNo">Round 4</div>
+                                    <div className="roundName">Debugging</div>
+                                </div>
+                                
+                                <div className="roundDesc">
+                                    Debug the coding questions and win!
+                                </div>
+                            </div>
+                        </div>
+                        {/* <BsArrowDown size={"60px"} /> */}
+                        <div className="round">
+                            <div className="icon">
+                                <img src={quiz} alt="Round 1 Quiz" />
+                            </div>
+                            <div className="info">
+                                <div className="noAndName">
+                                    <div className="roundNo">Round 5</div>
+                                    <div className="roundName">Coding</div>
+                                </div>
+                                
+                                <div className="roundDesc">
+                                    Solve the given problems using the 50 algorithms and win the finale!
+                                </div>
+                            </div>
+                        </div>
+                        <span className="external">
+                            More info about the 50 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist24">here. <BiLinkExternal /></a>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                {eventRegisterStatus !== "registered" ? (
+                    <div className="reminder">
+                        <div className="subHeadings">
+                            Hurry up and register now before registrations
+                            complete!
+                        </div>
+                        <div className="registerBtnContainer">
+                            {USER_PRESENT() ? (
+                                eventRegisteringInProgress ? (
+                                    <div className="registerBtn">
+                                        Registering...
+                                    </div>
+                                ) : eventRegisterStatus === "registered" ? (
+                                    <div className="registerBtn">
+                                        Registered.
+                                    </div>
+                                ) : (
+                                    <div
+                                        className="registerBtn"
+                                        onClick={() => setModalOpen(true)}
+                                    >
+                                        Register!
+                                    </div>
+                                )
+                            ) : (
+                                <div
+                                    className="registerBtn"
+                                    onClick={() => signinwithpopup("google")}
+                                >
+                                    Sign In to Register
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ) : (
+                    <></>
+                )}
+
+                <div className="contact">
+                    <div className="header">
+                        For any queries, please contact:{" "}
+                    </div>
+                    <div className="people">
+                        <a href="tel:+91 9515822637">
+                            {" "}
+                            <span> Ashok Reddy Cheluri - 95158 22637 </span>{" "}
+                            <BiSolidPhoneCall />{" "}
+                        </a>
+                        <a href="tel:+91 9676215354">
+                            {" "}
+                            <span> Krishna Vineeth - 96762 15354 </span>{" "}
+                            <BiSolidPhoneCall />{" "}
+                        </a>
+                        <a href="tel:+91 83417 52279">
+                            {" "}
+                            <span> Parimal Sesha Sai - 83417 52279 </span>{" "}
+                            <BiSolidPhoneCall />{" "}
+                        </a>
+                        <a href="tel:+91 8754605197">
+                            {" "}
+                            <span> Sabari - 87546 05197 </span>{" "}
+                            <BiSolidPhoneCall />{" "}
+                        </a>
+                    </div>
+                </div>
+
+                <div className="connect">
+                    <div className="chapterName">
+                        <div className="gfgkare">
+                            {["G", "F", "G", "   ", "K", "A", "R", "E"].map(
+                                (letter) => (
+                                    <div>{letter}</div>
+                                )
+                            )}
+                        </div>
+                        <div className="sc">
+                            {[
+                                "S",
+                                "T",
+                                "U",
+                                "D",
+                                "E",
+                                "N",
+                                "T",
+                                " ",
+                                "C",
+                                "H",
+                                "A",
+                                "P",
+                                "T",
+                                "E",
+                                "R",
+                            ].map((letter) => (
+                                <div>{letter}</div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="links">
+                        <div className="header">CONNECT WITH US</div>
+                        <div className="icons">
+                            <a href="https://www.instagram.com">
+                                <AiFillInstagram size={"30px"} />
+                            </a>
+                            <a href="https://www." target="_blank">
+                                <AiFillLinkedin size={"30px"} />
+                            </a>
+                            <a href="https://www." target="_blank">
+                                <AiFillGithub size={"30px"} />
+                            </a>
+                            <a href="https://www." target="_blank">
+                                <AiOutlineWhatsApp size={"30px"} />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -356,7 +576,7 @@ export default function EventRegister() {
                         e.stopPropagation();
                     }}
                 >
-                    <h2>Register for Algorithmist2024</h2>
+                    <h2>Complete your registration</h2>
                     <form
                         autoComplete="off"
                         onSubmit={(e) => {
@@ -411,7 +631,6 @@ export default function EventRegister() {
                                 <option value="IV">IV</option>
                                 <option value="III">III</option>
                                 <option value="II">II</option>
-                                <option value="I">I</option>
                             </select>
                         </div>
                         <div className="row">
@@ -428,39 +647,21 @@ export default function EventRegister() {
                                 </option>
                                 <option value="CSE">CSE</option>
                                 <option value="IT">IT</option>
-                                <option value="ECE">ECE</option>
-                                <option value="EEE">EEE</option>
-                                <option value="BIOTECH">Bio Technology</option>
-                                <option value="FOODTECH">
-                                    Food Technology
-                                </option>
+                                <option value="OTHER">Other...</option>
                             </select>
                         </div>
-                        {userDept === "CSE" ? (
+                        {userDept === "OTHER" ? (
                             <div className="row">
-                                <label for="department">Slot *</label>
-                                <select name="department" ref={slot}>
-                                    <option value="">
-                                        Choose your slot...
-                                    </option>
-                                    <option value="Slot 1">Slot 1</option>
-                                    <option value="Slot 2">Slot 2</option>
-                                    <option value="Slot 3">Slot 3</option>
-                                    <option value="Slot 4">Slot 4</option>
-                                    <option value="Slot 5">Slot 5</option>
-                                </select>
-                            </div>
-                        ) : (
-                            <div className="row">
-                                <label for="department">Section *</label>
+                                <label for="department">Department *</label>
                                 <input
                                     type="text"
-                                    id="section"
+                                    placeholder="Enter your department..."
+                                    ref={otherDept}
                                     required
-                                    autoComplete="off"
-                                    ref={section}
                                 />
                             </div>
+                        ) : (
+                            <></>
                         )}
                         <div className="row">
                             <label for="num">Contact Number *</label>

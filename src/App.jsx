@@ -42,13 +42,13 @@ export default function App() {
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
                         <Route path="/" element={<Main />}>
-                            <Route path="/" element={<Home />}></Route>
-                            <Route path="/login" element={ <Login /> }></Route>
+                            {/* <Route path="/" element={<Home />}></Route> */}
+                            {/* <Route path="/login" element={ <Login /> }></Route> */}
                             <Route path="/profile" element={ <Profile /> }></Route>
-                            <Route path="/new" element={<New />}></Route>
-                            <Route path="/core" element={<CoreTeam />}></Route>
+                            {/* <Route path="/new" element={<New />}></Route>
+                            <Route path="/core" element={<CoreTeam />}></Route> */}
                             <Route path="/members" element={<AllMembers />}></Route>
-                            <Route path="/events" element={<UnderConstruction />}></Route>
+                            {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
                             <Route path="/events/algo2024" element={<EventRegister />}></Route>
                             {
                                 Object.keys(coreTeamMembers).map((key, index) => {
