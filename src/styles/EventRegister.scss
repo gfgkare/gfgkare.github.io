@@ -308,7 +308,14 @@ strong {
                     width: 140px;
                     border-radius: 14px;
 
-                    img {
+                    span {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: rgb(2, 78, 2);
+                        color: white;
+                        font-weight: 800;
+                        font-size: 40px; 
                         height: 100%;
                         width: 100%;
                         object-fit: cover;
@@ -331,7 +338,7 @@ strong {
                         }
     
                         .roundName {
-                            font-weight: 500;
+                            font-weight: 800;
                             font-size: 20px;
                         }
                     }
@@ -654,13 +661,17 @@ strong {
             margin: 0 !important;
 
             .round {
+                height: 140px;
                 width: 99% !important;
+                padding: 0;
 
                 .icon {
+                    // margin: auto 0;
                     flex: 3.5 !important;
-                    height: 100px !important;
-                    width: 100px !important;
+                    height: 100% !important;
+                    width: 100% !important;
                     object-fit: contain !important;
+                    font-weight: 700 !important;
                 }
 
                 .info {

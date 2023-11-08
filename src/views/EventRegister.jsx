@@ -8,6 +8,8 @@ import qna from "../assets/qna.avif";
 import debug from "../assets/debug.jpg";
 import coding from "../assets/coding.png";
 
+import stopwatch from "../assets/stopwatch.svg"
+
 // -----------------------------------
 
 import { FaCalendarAlt } from "react-icons/fa";
@@ -24,6 +26,7 @@ import {
     AiOutlineWhatsApp
 } from "react-icons/ai";
 import { BiSolidPhoneCall, BiLinkExternal } from "react-icons/bi";
+import { TfiMoney } from "react-icons/tfi";
 
 // -----------------------------------
 
@@ -248,7 +251,7 @@ export default function EventRegister() {
                                 </div>
 
                                 <div className="startsIn">
-                                    <div className="title">Starts in: </div>
+                                    <div className="title">Round 1 Starts in: </div>
                                     {/* <div><span className="time">00</span> Days  <span className="time">00</span> Hours <span className="time">00</span> Minutes <span className="time">00</span> Seconds</div> */}
                                     <div className="time">
                                         {countdownTime ? (
@@ -307,7 +310,7 @@ export default function EventRegister() {
                                             signinwithpopup("google");
                                         }}
                                     >
-                                        Sign In to Register
+                                        Sign in to Register
                                     </button>
                                 )}
                             </div>
@@ -358,6 +361,22 @@ export default function EventRegister() {
                                 </div>
                             </div>
 
+                            <div className="row">
+                                <div className="registerPanelItem">
+                                    <div className="icon">
+                                        <TfiMoney />
+                                    </div>
+                                    <div className="info">
+                                        <div className="heading">
+                                            Entry Fee
+                                        </div>
+                                        <div className="content">
+                                            Free
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             {/* <div className="row">
                                 <button>Register!</button>
                             </div> */}
@@ -371,80 +390,90 @@ export default function EventRegister() {
                     <div className="allRounds">
                         <div className="round">
                             <div className="icon">
-                                <img src={quiz} alt="Round 1 Quiz" />
+                                {/* <img src={quiz} alt="Round 1 Quiz" /> */}
+                                <span className="number">1</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    <div className="roundNo">Round 1</div>
+                                    {/* <div className="roundNo">Round 1</div> */}
                                     <div className="roundName">Quiz</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Round 1 of 'Algorithmist 24' is a paper-based quiz testing participants on 50 algorithms, covering their key aspects and applications.
+                                    Get ready for a fun knowledge challenge! In our Quiz round on December 20, 2023 you'll answer 60 questions about
+                                    50 algorithms. Can you beat the clock?
                                 </div>
                             </div>
                         </div>
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={seminar} alt="Round 2 Seminar" />
+                                {/* <img src={seminar} alt="Round 2 Seminar" /> */}
+                                <span className="number">2</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    <div className="roundNo">Round 2</div>
+                                    {/* <div className="roundNo">Round 2</div> */}
                                     <div className="roundName">Seminar</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Round 2 of Algorithmist '24 is a two-day seminar where students present their algorithm knowledge and communication skills.
+                                    Share your coding expertise! During the Seminar round from Jan 7 to 9, 2024, you'll have 4-5 minutes to
+                                    present an algorithm. Be the start of the show!
                                 </div>
                             </div>
                         </div>
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={qna} alt="Round 3 qna" />
+                                {/* <img src={qna} alt="Round 3 qna" /> */}
+                                <span className="number">3</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    <div className="roundNo">Round 3</div>
-                                    <div className="roundName">QnA</div>
+                                    {/* <div className="roundNo">Round 3</div> */}
+                                    <div className="roundName">QnA Challenge</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Round 3, 'Q&A Formation,' is a team-based activity where students create and challenge each other with scenario-based questions, fostering collaboration and knowledge testing.
+                                    Work together to solve problems in our Q&A Formation Round on Jan 28, 2024. Create tricky questions for others
+                                    to answer. How good is your teamwork?
                                 </div>
                             </div>
                         </div>
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={debug} alt="Round 4 Debugging" />
+                                {/* <img src={debug} alt="Round 4 Debugging" /> */}
+                                <span className="number">4</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    <div className="roundNo">Round 4</div>
+                                    {/* <div className="roundNo">Round 4</div> */}
                                     <div className="roundName">Debugging</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Round 4 tests participants' ability to find and fix code issues, honing their essential skills for proficient coding.
+                                    Time to tackle tricky bugs! In the Debugging round of Feb 28, 2024, you'll solve 10 questions.
+                                    Can you outsmart the code?
                                 </div>
                             </div>
                         </div>
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={coding} alt="Round 1 Quiz" />
+                                {/* <img src={coding} alt="Round 1 Quiz" /> */}
+                                <span className="number">5</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    <div className="roundNo">Round 5</div>
+                                    {/* <div className="roundNo">Round 5</div> */}
                                     <div className="roundName">Coding</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Round 5 is a three-hour online challenge where participants solve problems by writing code, showcasing their problem-solving and coding proficiency.
+                                    It's the ultimate showdown! Join the Grand Finale on Mar 20, 2024, and show off your coding skills.
+                                    Be the coding champion!
                                 </div>
                             </div>
                         </div>
@@ -487,7 +516,7 @@ export default function EventRegister() {
                                     className="registerBtn"
                                     onClick={() => signinwithpopup("google")}
                                 >
-                                    Sign In to Register
+                                    Sign in to Register
                                 </div>
                             )}
                         </div>
@@ -522,6 +551,8 @@ export default function EventRegister() {
                             <BiSolidPhoneCall />{" "}
                         </a>
                     </div>
+                    <br /><br /><br />
+                    This site is under development, more details will be updated soon.
                 </div>
 
                 <div className="connect">
@@ -640,7 +671,6 @@ export default function EventRegister() {
                         <div className="row">
                             <label for="year">Year *</label>
                             <select name="year" ref={year}>
-                                <option value="IV">IV</option>
                                 <option value="III">III</option>
                                 <option value="II">II</option>
                             </select>
