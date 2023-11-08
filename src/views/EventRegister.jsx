@@ -462,8 +462,7 @@ export default function EventRegister() {
                 {eventRegisterStatus !== "registered" ? (
                     <div className="reminder">
                         <div className="subHeadings">
-                            Hurry up and register now before registrations
-                            complete!
+                            Hurry up and secure your spot before registration closes!
                         </div>
                         <div className="registerBtnContainer">
                             {USER_PRESENT() ? (
