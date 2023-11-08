@@ -2,7 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { Route, useParams } from "react-router-dom";
 
 import eventCoverImage from "../assets/events_cover.jpeg";
-import quiz from "../assets/quiz.jpg";
+import quiz from "../assets/quiz.avif";
+import seminar from "../assets/seminar.avif";
+import qna from "../assets/qna.avif";
+import debug from "../assets/debug.jpg";
+import coding from "../assets/coding.png";
 
 // -----------------------------------
 
@@ -54,6 +58,7 @@ export default function EventRegister() {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [userDept, setUserDept] = useState("");
+    const [fadeStatus, setFadeStatus] = useState("");
 
     const fullName = useRef();
     const regNo = useRef();
@@ -108,14 +113,14 @@ export default function EventRegister() {
         window.scrollTo(0, 0);
         setEventID(window.location.pathname.split("/")[2]);
 
-        axios
-            .post("/get_event_reg_count", {
-                eventID: window.location.pathname.split("/")[2],
-            })
-            .then((res) => {
-                console.log(res.data.count);
-                setNoOfRegistered(res.data.count);
-            });
+        // axios
+        //     .post("/get_event_reg_count", {
+        //         eventID: window.location.pathname.split("/")[2],
+        //     })
+        //     .then((res) => {
+        //         console.log(res.data.count);
+        //         setNoOfRegistered(res.data.count);
+        //     });
 
         axios
             .post("/get_event_start_time", {
@@ -133,7 +138,11 @@ export default function EventRegister() {
         // .then((res) => {
         //     setMaxCount(res.data.count);
         // });
-        console.log(env.VITE_AUTHOR);
+        
+        setTimeout(() => {
+            setFadeStatus("visible");
+        }, 500);
+
     }, []);
 
     useEffect(() => {
@@ -179,7 +188,7 @@ export default function EventRegister() {
 
     return (
         <>
-            <div className="eventRegister">
+            <div className={"eventRegister " + fadeStatus }>
                 <div className="coverImage">
                     <img src={eventCoverImage} alt="event cover image" />
                 </div>
@@ -356,7 +365,7 @@ export default function EventRegister() {
                     </div>
                 </div>
 
-                <div className="headings">MORE INFO</div>
+                <div className="headings">ROUND DETAILS</div>
 
                 <div className="eventDetails">
                     <div className="allRounds">
@@ -371,14 +380,14 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    A quiz covering all the 50 algorithms.
+                                    A written quiz round covering all the 50 algorithms.
                                 </div>
                             </div>
                         </div>
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={quiz} alt="Round 1 Quiz" />
+                                <img src={seminar} alt="Round 2 Seminar" />
                             </div>
                             <div className="info">
                                 <div className="noAndName">
@@ -394,7 +403,7 @@ export default function EventRegister() {
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={quiz} alt="Round 1 Quiz" />
+                                <img src={qna} alt="Round 3 qna" />
                             </div>
                             <div className="info">
                                 <div className="noAndName">
@@ -410,7 +419,7 @@ export default function EventRegister() {
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={quiz} alt="Round 1 Quiz" />
+                                <img src={debug} alt="Round 4 Debugging" />
                             </div>
                             <div className="info">
                                 <div className="noAndName">
@@ -426,7 +435,7 @@ export default function EventRegister() {
                         {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                <img src={quiz} alt="Round 1 Quiz" />
+                                <img src={coding} alt="Round 1 Quiz" />
                             </div>
                             <div className="info">
                                 <div className="noAndName">
@@ -440,8 +449,11 @@ export default function EventRegister() {
                             </div>
                         </div>
                         <span className="external">
-                            More info about the 50 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist24">here. <BiLinkExternal /></a>
+                            More info about the 50 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist24" target="_blank">here. <BiLinkExternal /></a>
                         </span>
+                        {/* <span className="external">
+                            More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist24" target="_blank">here. <BiLinkExternal /></a>
+                        </span> */}
 
                     </div>
 
@@ -548,18 +560,18 @@ export default function EventRegister() {
                     <div className="links">
                         <div className="header">CONNECT WITH US</div>
                         <div className="icons">
-                            <a href="https://www.instagram.com">
+                            <a href="https://www.instagram.com/gfg_kare_student_chapter" target="_blank">
                                 <AiFillInstagram size={"30px"} />
                             </a>
-                            <a href="https://www." target="_blank">
+                            <a href="https://www.linkedin.com/company/gfg-kare-student-chapter" target="_blank">
                                 <AiFillLinkedin size={"30px"} />
                             </a>
-                            <a href="https://www." target="_blank">
+                            <a href="https://www.github.com/gfgkare" target="_blank">
                                 <AiFillGithub size={"30px"} />
                             </a>
-                            <a href="https://www." target="_blank">
+                            {/* <a href="https://www." target="_blank">
                                 <AiOutlineWhatsApp size={"30px"} />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>
@@ -609,6 +621,7 @@ export default function EventRegister() {
                                 required
                                 autoComplete="off"
                                 ref={fullName}
+                                defaultValue={currentUser?.displayName}
                             />
                         </div>
                         <div className="row">
