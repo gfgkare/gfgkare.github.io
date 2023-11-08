@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Route, useParams } from "react-router-dom";
 
 import eventCoverImage from "../assets/events_cover.jpeg";
 import quiz from "../assets/quiz.avif";
@@ -8,16 +7,12 @@ import qna from "../assets/qna.avif";
 import debug from "../assets/debug.jpg";
 import coding from "../assets/coding.png";
 
-import stopwatch from "../assets/stopwatch.svg"
-
 // -----------------------------------
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
-import { BsFillPersonFill, BsArrowDown } from "react-icons/bs";
-import { IoLocationSharp } from "react-icons/io5";
+import { BsFillPersonFill } from "react-icons/bs";
 import {
-    AiFillClockCircle,
     AiOutlineLoading,
     AiOutlineCheck,
     AiFillLinkedin,
@@ -47,7 +42,7 @@ const env = import.meta.env;
 
 export default function EventRegister() {
     const { USER_PRESENT, currentUser, signinwithpopup } = useAuth();
-    const { readableError } = useMisc();
+    const { readableError, setNavTitle } = useMisc();
 
     const [eventID, setEventID] = useState();
     const [eventRegisterStatus, setEventRegisterStatus] =
@@ -116,6 +111,8 @@ export default function EventRegister() {
         window.scrollTo(0, 0);
         setEventID(window.location.pathname.split("/")[2]);
 
+        console.log(`Width: ${window.innerWidth}px`);
+
         // axios
         //     .post("/get_event_reg_count", {
         //         eventID: window.location.pathname.split("/")[2],
@@ -145,6 +142,8 @@ export default function EventRegister() {
         setTimeout(() => {
             setFadeStatus("visible");
         }, 500);
+
+        setNavTitle("");
 
     }, []);
 
@@ -259,7 +258,7 @@ export default function EventRegister() {
                                                 count={countdownTime}
                                                 border
                                                 showTitle
-                                                size={22}
+                                                size={(window.innerWidth > 900) ? 22 : 16}
                                             />
                                         ) : (
                                             <></>

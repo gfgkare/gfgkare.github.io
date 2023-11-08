@@ -44,18 +44,23 @@ export default function Main() {
                             <Link className="noStyle" to="/events">
                                 Events
                             </Link>
+                        </div> */}
+                         <div className="menuLink hideOnMobile">
+                            <Link className="noStyle" to="/events/algo2024">
+                                Algorithmist2024
+                            </Link>
                         </div>
                         <div className="menuLink hideOnMobile">
                             <Link className="noStyle" to="/members">
                                 Members
                             </Link>
                         </div>
+                        {/*
                         <div className="menuLink hideOnMobile">
                             <Link className="noStyle" to="/contact">
                                 Contact
                             </Link>
                         </div> */}
-
                         {
                             (USER_PRESENT()) ? 
                                 <div onClick={() => navigate("/profile")} className="menuLink hideOnMobile account">
@@ -99,6 +104,9 @@ export default function Main() {
                                     </span> */}
                                     <span>
                                         <Link to="/members">Members</Link>
+                                    </span>
+                                    <span>
+                                        <Link to="/events/algo2024">Algorithmist2024</Link>
                                     </span>
                                     {/* <span>Contact</span> */}
                                     {/* <span>
