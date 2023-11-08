@@ -380,7 +380,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    A written quiz round covering all the 50 algorithms.
+                                    Round 1 of 'Algorithmist 24' is a paper-based quiz testing participants on 50 algorithms, covering their key aspects and applications.
                                 </div>
                             </div>
                         </div>
@@ -396,7 +396,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Pick an algorithm, and explain it's efficiency, applications, what it solves and advance!
+                                    Round 2 of Algorithmist '24 is a two-day seminar where students present their algorithm knowledge and communication skills.
                                 </div>
                             </div>
                         </div>
@@ -412,7 +412,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Come up with a scenario based question for other participants!
+                                    Round 3, 'Q&A Formation,' is a team-based activity where students create and challenge each other with scenario-based questions, fostering collaboration and knowledge testing.
                                 </div>
                             </div>
                         </div>
@@ -428,7 +428,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Debug the coding questions and win!
+                                    Round 4 tests participants' ability to find and fix code issues, honing their essential skills for proficient coding.
                                 </div>
                             </div>
                         </div>
@@ -444,7 +444,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Solve the given problems using the 50 algorithms and win the finale!
+                                    Round 5 is a three-hour online challenge where participants solve problems by writing code, showcasing their problem-solving and coding proficiency.
                                 </div>
                             </div>
                         </div>
