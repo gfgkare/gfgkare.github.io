@@ -451,9 +451,9 @@ export default function EventRegister() {
                         <span className="external">
                             More info about the 50 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist24" target="_blank">here. <BiLinkExternal /></a>
                         </span>
-                        {/* <span className="external">
-                            More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist24" target="_blank">here. <BiLinkExternal /></a>
-                        </span> */}
+                        <span className="external">
+                            More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist2024Rounds/" target="_blank">here. <BiLinkExternal /></a>
+                        </span>
 
                     </div>
 
@@ -560,7 +560,7 @@ export default function EventRegister() {
                     <div className="links">
                         <div className="header">CONNECT WITH US</div>
                         <div className="icons">
-                            <a href="https://www.instagram.com/gfg_kare_student_chapter" target="_blank">
+                            <a href="https://www.instagram.com/gfg_kare_student_chapter">
                                 <AiFillInstagram size={"30px"} />
                             </a>
                             <a href="https://www.linkedin.com/company/gfg-kare-student-chapter" target="_blank">
