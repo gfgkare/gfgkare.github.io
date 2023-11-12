@@ -53,6 +53,7 @@ export default function EventRegister() {
     const [eventStart, setEventStart] = useState(0);
     const [maxCount, setMaxCount] = useState(200);
     const [countdownTime, setCountdownTime] = useState(0);
+    const [eventRegistrationStatus, setEventRegistrationStatus] = useState("accepting");
 
     const [modalOpen, setModalOpen] = useState(false);
     const [userDept, setUserDept] = useState("");
@@ -113,14 +114,14 @@ export default function EventRegister() {
 
         console.log(`Width: ${window.innerWidth}px`);
 
-        // axios
-        //     .post("/get_event_reg_count", {
-        //         eventID: window.location.pathname.split("/")[2],
-        //     })
-        //     .then((res) => {
-        //         console.log(res.data.count);
-        //         setNoOfRegistered(res.data.count);
-        //     });
+        axios
+            .post("/get_event_reg", {
+                eventID: window.location.pathname.split("/")[2],
+            })
+            .then((res) => {
+                console.log(res.data.count);
+                setEventRegistrationStatus(res.data.count);
+            });
 
         axios
             .post("/get_event_start_time", {
@@ -278,13 +279,12 @@ export default function EventRegister() {
                                                 : ""
                                         }
                                         disabled={
-                                            eventRegisterStatus ===
-                                                "registered" ||
-                                            eventRegisteringInProgress === true
+                                            (eventRegisterStatus === "registered" || eventRegisteringInProgress === true || eventRegistrationStatus !== "accepting")
                                         }
                                         onClick={() => setModalOpen(true)}
                                     >
-                                        {eventRegisteringInProgress ? (
+                                        { (eventRegistrationStatus !== "accepting") ? "Registration Closed" :
+                                        (eventRegisteringInProgress) ? (
                                             <AiOutlineLoading
                                                 className="loadingIcon"
                                                 size="15px"
@@ -302,15 +302,17 @@ export default function EventRegister() {
                                         )}
                                     </button>
                                 ) : (
-                                    <button
+                                    (eventRegistrationStatus !== "accepting") ? 
+                                    (<button className="closed" disabled>Registration Closed</button>)
+                                    :
+                                    (<button
                                         onClick={() => {
                                             console.log("registering...");
-                                            // setModalOpen(true);
                                             signinwithpopup("google");
                                         }}
                                     >
                                         Sign in to Register
-                                    </button>
+                                    </button>)
                                 )}
                             </div>
                             <div className="row">
@@ -487,7 +489,7 @@ export default function EventRegister() {
 
                 </div>
 
-                {eventRegisterStatus !== "registered" ? (
+                {(eventRegisterStatus !== "registered" && eventRegistrationStatus === "accepting" ) ? (
                     <div className="reminder">
                         <div className="subHeadings">
                             Hurry up and secure your spot before registration closes!

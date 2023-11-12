@@ -246,6 +246,14 @@ strong {
                     gap: 0.5rem;
                     transition: width 0.3s ease;
 
+                    &.closed {
+                        border: 2px solid rgb(220, 31, 6);
+
+                        &:hover {
+                            background-color: rgb(220, 31, 6);
+                        }
+                    }
+
                     &.registerDone {
                         animation: none !important;
                     }
