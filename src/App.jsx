@@ -23,6 +23,7 @@ import { useEffect } from "react";
 
 import allData from "./data/all_data_merged"
 import coreTeamMembers from "./data/coreTeamInfo";
+import EventStatDashboard from "./views/EventStatDashboard";
 
 
 
@@ -50,6 +51,7 @@ export default function App() {
                             <Route path="/members" element={<AllMembers />}></Route>
                             {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
                             <Route path="/events/algo2024" element={<EventRegister />}></Route>
+                            <Route path="/dashboard" element={<EventStatDashboard />}></Route>
                             {
                                 Object.keys(coreTeamMembers).map((key, index) => {
                                     return ( <Route key={index} path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )

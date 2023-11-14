@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+
+.eventStatDashboard {
+    font-family: "Inter";
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: min(95vw, 1100px);
+    height: 100vh;
+
+    .noUser {
+        padding: 3rem 0;
+        max-width: max-content;
+        margin: 0 auto;
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .title {
+        font-size: 38px;
+        font-weight: 700;
+    }
+
+    .eventBox {
+        margin-top: 1rem;
+        font-size: 20px;
+        box-shadow: 0 7px 17px 1px rgba(0,0,0,.15);
+        border-radius: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        
+        .eventName {
+            font-weight: 600;
+        }
+
+        .status {
+            padding: 1rem 3rem;
+            border: 2px solid black;
+            border-radius: 15px;
+            transition: background-color .3s ease;
+            cursor: default;
+
+            &:hover {
+                background-color: rgba(0,0,0,.05);
+            }
+        }
+    }
+
+}
