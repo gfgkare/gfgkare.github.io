@@ -23,6 +23,7 @@
     "react-component-countdown-timer": "^0.1.8",
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
+    "react-fade-in": "^2.0.1",
     "react-flickity-component": "^4.0.6",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",

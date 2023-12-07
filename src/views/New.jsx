@@ -4,6 +4,7 @@ import "../styles/New.scss";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Flickity from "react-flickity-component";
+import Fade from "../components/Fade";
 
 import ImageComp from "../components/ImageComp";
 
@@ -12,7 +13,7 @@ import { useMisc } from "../contexts/MiscContext";
 import SectionDivider from "../components/SectionDivider";
 import events from "../data/eventsInfo";
 
-import kluTeam from "../assets/klu_team.jpg"
+import kluTeam from "../assets/klu_team.jpg";
 
 export default function New() {
     const { aboutRevealed, setAboutRevealed, teamRevealed, setTeamRevealed } =
@@ -23,15 +24,13 @@ export default function New() {
 
     const teamSection = useRef();
     const [teamVisible, setTeamVisible] = useState(false);
-    
+
     const slideShow = useRef(null);
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const [slideInterval, setSlideInterval] = useState();
 
-
     useEffect(() => {
-        createAndSetNewSlideInterval();
-
+        // createAndSetNewSlideInterval();
 
         const aboutObserver = new IntersectionObserver(
             (entries) => {
@@ -84,10 +83,15 @@ export default function New() {
                 if (prevTimer < events.length - 1) {
                     document.querySelector(".flickity-button.next").click();
                     return prevTimer + 1;
-
                 } else {
                     for (let i = 0; i < events.length - 1; i++) {
-                        setTimeout(() => document.querySelector(".flickity-button.previous").click(), 300);
+                        setTimeout(
+                            () =>
+                                document
+                                    .querySelector(".flickity-button.previous")
+                                    .click(),
+                            300
+                        );
                     }
                     return 0;
                 }
@@ -100,28 +104,35 @@ export default function New() {
     return (
         <>
             <div className="new">
-                <section>
-                    <div className="introDiv">
-                        <div className="leftText">
-                            <div className="head">
-                                Join the Student Club that is revolutionizing
-                                KARE
-                            </div>
-                            <div className="sub">
-                                Work with the team of 11 amazing individuals who
-                                are rocking the campus.
-                            </div>
+                <Fade delay={200} visible>
+                    <section>
+                        <div className="introDiv">
+                            <div className="leftText">
+                                <div className="head">Welcome to GFG KARE</div>
+                                <div className="sub">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Sint blanditiis modi
+                                    minus, culpa in vel, labore provident atque,
+                                    asperiores autem adipisci velit totam!
+                                </div>
 
-                            <div className="cta">Become a member</div>
+                                <div className="cta">Explore events</div>
+                            </div>
+                            <div className="imageContainer hideOnMobile">
+                                <img src={kluTeam} alt="" />
+                            </div>
                         </div>
-                        <div className="imageContainer hideOnMobile">
-                            <img src={kluTeam} alt="" />
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                </Fade>
 
                 <section ref={aboutSection}>
-                    <div className={ (aboutVisible) ? "numbersDiv aboutVisible" : "numbersDiv"}>
+                    <div
+                        className={
+                            aboutVisible
+                                ? "numbersDiv aboutVisible"
+                                : "numbersDiv"
+                        }
+                    >
                         <div className="shape hideOnMobile"></div>
                         <div className="text">
                             We are a team of aspiring students from Kalasalingam
@@ -190,12 +201,16 @@ export default function New() {
                 <SectionDivider relativeWidth />
 
                 <section className="teamSection">
-                    <div className="teamTitle">Our Team</div>
+                    <div className="blackTitle">Our Team</div>
 
                     <div className="teamGridContainer">
                         <div
                             className={`teamGrid ${
-                                (teamVisible) ? "teamVisible" : (teamRevealed)  ? "teamVisible" : ""
+                                teamVisible
+                                    ? "teamVisible"
+                                    : teamRevealed
+                                    ? "teamVisible"
+                                    : ""
                             }`}
                             ref={teamSection}
                         >
@@ -231,75 +246,98 @@ export default function New() {
                     </div>
                 </section>
 
-                <div className="section events">
-                <div className="sectionTitle">EVENTS</div>
+                <section className="eventSection">
+                    <div className="blackTitle">Events</div>
 
-                <Flickity
-                    ref={slideShow}
-                    className={"carousel"}
-                    elementType={"div"}
-                    options={{ initialIndex: 0 }}
-                    disableImagesLoaded={false}
-                >
-                    {events.map((event, index) => {
-                        return (
-                            <div
-                                className="eventSlide"
-                                key={index}
-                                onClick={(e) => {
-                                    if (
-                                        !e.target.parentElement.classList.contains(
-                                            "is-selected"
-                                        )
-                                    ) {
-                                        console.log(
-                                            "clicked not selected event"
-                                        );
-                                        if (index < currentSlideIndex) {
-                                            document
-                                                .querySelector(
-                                                    ".flickity-button.previous"
-                                                )
-                                                .click();
-                                            setCurrentSlideIndex(
-                                                (prevIndex) => prevIndex - 1
-                                            );
-                                        } else {
-                                            document
-                                                .querySelector(
-                                                    ".flickity-button.next"
-                                                )
-                                                .click();
-                                            setCurrentSlideIndex(
-                                                (prevIndex) => prevIndex + 1
-                                            );
-                                        }
-                                    } else {
-                                        console.log("clicked selected event");
-                                        navigate("/events/some-event");
-                                    }
-                                }}
-                                // onMouseEnter={() => {
-                                //     console.log("clearing slide interval");
-                                //     clearInterval(slideInterval);
-                                // }}
-                                // onMouseLeave={() => {
-                                //     createAndSetNewSlideInterval();
-                                //     console.log("creating new slide interval");
-                                // }}
-                            >
-                                <img src={event.imageSource} alt="" />
-                                <div className="eventDetails">
-                                    <div className="text">{event.text}</div>
-                                </div>
-                            </div>
-                        );
-                    })}
-
-                </Flickity>
-            </div>
-
+                    <div className="eventsContainer">
+                        <div className="eventsRow">
+                            <div className="event">Event 1</div>
+                            <div className="event">Event 2</div>
+                            <div className="event">Event 3</div>
+                            <div className="event">Event 4</div>
+                            <div className="event">Event 5</div>
+                            <div className="event">Event 6</div>
+                        </div>
+                        <div className="eventsRow">
+                            <div className="event">Event 1</div>
+                            <div className="event">Event 2</div>
+                            <div className="event">Event 3</div>
+                            <div className="event">Event 4</div>
+                            <div className="event">Event 5</div>
+                            <div className="event">Event 6</div>
+                        </div>
+                    </div>
+                </section>
                 
+                
+                {/* <div className="section events">
+                    <div className="sectionTitle">EVENTS</div>
+
+                    <Flickity
+                        ref={slideShow}
+                        className={"carousel"}
+                        elementType={"div"}
+                        options={{ initialIndex: 0 }}
+                        disableImagesLoaded={false}
+                    >
+                        {events.map((event, index) => {
+                            return (
+                                <div
+                                    className="eventSlide"
+                                    key={index}
+                                    onClick={(e) => {
+                                        if (
+                                            !e.target.parentElement.classList.contains(
+                                                "is-selected"
+                                            )
+                                        ) {
+                                            console.log(
+                                                "clicked not selected event"
+                                            );
+                                            if (index < currentSlideIndex) {
+                                                document
+                                                    .querySelector(
+                                                        ".flickity-button.previous"
+                                                    )
+                                                    .click();
+                                                setCurrentSlideIndex(
+                                                    (prevIndex) => prevIndex - 1
+                                                );
+                                            } else {
+                                                document
+                                                    .querySelector(
+                                                        ".flickity-button.next"
+                                                    )
+                                                    .click();
+                                                setCurrentSlideIndex(
+                                                    (prevIndex) => prevIndex + 1
+                                                );
+                                            }
+                                        } else {
+                                            console.log(
+                                                "clicked selected event"
+                                            );
+                                            navigate("/events/some-event");
+                                        }
+                                    }}
+                                    // onMouseEnter={() => {
+                                    //     console.log("clearing slide interval");
+                                    //     clearInterval(slideInterval);
+                                    // }}
+                                    // onMouseLeave={() => {
+                                    //     createAndSetNewSlideInterval();
+                                    //     console.log("creating new slide interval");
+                                    // }}
+                                >
+                                    <img src={event.imageSource} alt="" />
+                                    <div className="eventDetails">
+                                        <div className="text">{event.text}</div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </Flickity>
+                </div> */}
             </div>
         </>
     );
