@@ -29,7 +29,6 @@ export default function Main() {
                             className="navIcon"
                             src={gfgLogo}
                             alt="GFG logo"
-                            onClick={() => navigate("/members")}
                         />
                     </div>
                     <span className="centerText hideOnMobile">{navTitle}</span>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { useMisc } from "../contexts/MiscContext";
 
 import "../styles/AllMembers.scss";
 import MemberPreview from "../components/MemberPreview";
@@ -14,7 +13,6 @@ import { FiPlus } from "react-icons/fi";
 import ShapesBackground from "../components/ShapesBackground";
 
 export default function AllMembers() {
-    const { setNavTitle } = useMisc();
     const [pointer, setPointer] = useState(0);
     const [searchBarText, setSearchBarText] = useState(0);
 
@@ -43,7 +41,7 @@ export default function AllMembers() {
     };
 
     useEffect(() => {
-        setNavTitle("STUDENT MEMBERS");
+        ("STUDENT MEMBERS");
         getAndSetData();
         setAllMembersLength(allMemberData.length);
     }, []);

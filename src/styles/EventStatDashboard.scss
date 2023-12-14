@@ -6,7 +6,7 @@
     margin: 0 auto;
     padding: 2rem 0;
     width: min(95vw, 1100px);
-    height: 100vh;
+    height: 80vh;
 
     .noUser {
         padding: 3rem 0;
@@ -16,114 +16,80 @@
         font-weight: 500;
     }
 
-    .title {
+    .eventTitle {
         font-size: 38px;
         font-weight: 700;
+        margin: 1rem 0;
     }
 
-    .event {
-        box-shadow: 0px 15px 5px -14px rgba(0, 0, 0, .3);
+    .roundTitle {
+        font-size: 30px;
+        font-weight: 600;
+    }
 
-        .eventBoxes {
-            padding: 1.5rem 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
+    div.roundDetails {
+        
+        div.roundInfo {
+            margin: 1rem 0;
+            border: 1px solid rgba(black, .2);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            line-height: 25px;
 
+            div {
+                padding: .75rem 0 0 0;
+            }
 
-            .round {
-                margin: 0 auto;
-                height: 450px;
-                max-height: max-content;
-                width: 100%;
-                max-width: 350px;
-                border-radius: 4px;
-                background-color: #e0e0e0;
-                border: 1px solid #ccc;
+            div.shortlistStatus {
+                padding: .5rem 1rem;
+                background-color: rgb(142, 235, 142);
+                max-width: max-content;
+                border-radius: 5px;
+                font-weight: 500;
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                filter: grayscale(100%);
+                gap: .5rem;
+                justify-content: center;
+                align-items: center;
 
-                &.unlocked {
-                    cursor: pointer;
-                    filter: none;
-
-                    &:hover {
-                        background-color: #d5d5d5;
-                    }
+                svg {
+                    color: rgb(50, 74, 50);
                 }
+            }
+        }
+    }
 
-                .content {
-                    max-width: 100%;
-                    max-height: 100%;
-                    padding: 1rem;
-                    display: flex;
-                    flex: 1;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    gap: 1rem;
+    div.roundsPanelContainer {
+        margin: 0 auto;
+        position: fixed;
+        width: 100%;
+        bottom: 10px;
+        left: 0;
+    }
 
-                    .roundImage {
-                        width: 100%;
-                        height: 35%;
-                        border-radius: 5px;
-                        // object-fit: contain;
-                    }
-    
-                    .heading {
-                        width: 100%;
-                        display: flex;
-                        gap: .5rem;
-                        font-size: 22px;
-                        font-weight: 600;
-    
-                        .roundNo {
-                            opacity: .8;
-                        }
-                    }
+    div.roundsPanel {
+        margin: 0 auto;
+        background-color: rgba(black, .04);
+        padding: 1rem;
+        border-radius: 10px;
+        display: flex;
+        width: 40vw;
+        justify-content: space-evenly;
+        align-items: center;
 
-                    .status.ok {
-                        margin-top: auto;
-                        background-color: rgba(112, 224, 112, 0.6);
-                        border-radius: 4px;
-                        color: rgb(5, 95, 5);
-                        font-weight: 600;
-                        padding: .4rem;
-                        max-width: max-content;
-                    }
-                }
+        div.roundIndicator {
+            cursor: pointer;
+            background-color: rgb(173, 229, 173);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: background-color .2s ease;
+            transition-delay: 0ms !important;
 
-                .ribbon {
-                    background-color: rgb(168, 168, 168);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100% !important;
-                    height: 60px;
-                    position: relative;
-                    bottom: 0%;
-                    border-radius: 0 0 4px 4px;
-                }
+            font-weight: 500;
 
-                
-                
-
-                @media (max-width: 630px) {
-                    width: 80%;
-
-                    .status.ok {
-                        background-color: red;
-                    }
-                }
-              }
-          }
-          
-          
-          
+            &:hover, &:focus, &.selected {
+                background-color: rgb(117, 201, 117);
+            }
+        }
     }
     
 
@@ -138,3 +104,108 @@
         
     }
 }
+
+
+/*
+.event {
+    box-shadow: 0px 15px 5px -14px rgba(0, 0, 0, .3);
+
+    .eventBoxes {
+        padding: 1.5rem 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+
+        .round {
+            margin: 0 auto;
+            height: 450px;
+            max-height: max-content;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 4px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            filter: grayscale(100%);
+
+            &.unlocked {
+                cursor: pointer;
+                filter: none;
+
+                &:hover {
+                    background-color: #d5d5d5;
+                }
+            }
+
+            .content {
+                max-width: 100%;
+                max-height: 100%;
+                padding: 1rem;
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 1rem;
+
+                .roundImage {
+                    width: 100%;
+                    height: 35%;
+                    border-radius: 5px;
+                    // object-fit: contain;
+                }
+
+                .heading {
+                    width: 100%;
+                    display: flex;
+                    gap: .5rem;
+                    font-size: 22px;
+                    font-weight: 600;
+
+                    .roundNo {
+                        opacity: .8;
+                    }
+                }
+
+                .status.ok {
+                    margin-top: auto;
+                    background-color: rgba(112, 224, 112, 0.6);
+                    border-radius: 4px;
+                    color: rgb(5, 95, 5);
+                    font-weight: 600;
+                    padding: .4rem;
+                    max-width: max-content;
+                }
+            }
+
+            .ribbon {
+                background-color: rgb(168, 168, 168);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100% !important;
+                height: 60px;
+                position: relative;
+                bottom: 0%;
+                border-radius: 0 0 4px 4px;
+            }
+
+            
+            
+
+            @media (max-width: 630px) {
+                width: 80%;
+
+                .status.ok {
+                    background-color: red;
+                }
+            }
+          }
+      }     
+}
+*/

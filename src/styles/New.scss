@@ -273,6 +273,7 @@ div.new {
             display: flex;
 
             &::-webkit-scrollbar {
+                display: none;
                 height: 10px;             
             }
             &::-webkit-scrollbar-track {
@@ -295,7 +296,6 @@ div.new {
                 .event {
                     background-color: rgba(black, .4);
                     border-radius: 8px;
-                    min-width: 300px;
                     width: 450px;
                     height: 100%;
 
@@ -305,6 +305,12 @@ div.new {
             .eventsContainer:nth-child(2) {
                 animation: animation2 $eventSlideDuration linear infinite;
                 animation-delay: calc($eventSlideDuration / -2);
+            }
+
+            &:hover {
+                .eventsRow {
+                    animation-play-state: paused;
+                }
             }
         }
     }
@@ -504,6 +510,19 @@ section.events {
                 justify-content: center;
                 padding: 0;
             }
+        }
+
+        section.eventSection {
+             
+            .eventsContainer {
+                height: 400px;
+
+                .eventsRow {
+                    .event {
+                        width: 70vw;
+                    }
+                }
+            } 
         }
     }
 }

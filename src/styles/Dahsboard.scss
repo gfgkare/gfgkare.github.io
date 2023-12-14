@@ -1,0 +1,230 @@
+@import "./Variables.scss";
+
+.dashboard {
+    font-size: 13px;
+    max-height: 100vh;
+    overflow: hidden;
+    
+    .leftNav {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 60px;
+        height: 100vh;
+        // padding: 0 1rem;
+
+        background-color: $text;
+        border-radius: 0 8px 8px 0;
+        box-shadow: 0px 3px 15px 4px rgba(black, .2);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        transition: width .3s ease;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 9;
+
+        &:hover {
+            width: 200px;
+        }
+
+        .logo {
+            max-width: 60px;
+            padding-top: .75rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .icons {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            // gap: .25rem;
+
+            .tab {
+                min-height: 30px;
+                padding: .5rem 0;
+                background-color: transparent;
+                pointer-events: auto;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                user-select: none;
+                transition: background-color .1s ease;
+                transition-delay: 0ms !important;
+
+                &:hover {
+                    background-color: rgba(black, .05);
+                }
+
+                .icon {
+                    // background-color: blue;
+                    min-width: 60px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        width: 30px;
+                    }
+                }
+
+                .number {
+                    font-size: large;
+                    font-weight: 600;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+
+                    span {
+                        width: 15px;
+                        height: 15px;
+                        padding: .35rem;
+                        font-size: small;
+                        border: 2px solid black;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+                .name {
+                    min-width: max-content;
+                    font-size: small;
+                }
+
+            }
+        }
+
+        .profileImage {
+            pointer-events: auto;
+            width: 30px;
+            padding-bottom: .75rem;
+            margin: 0 1rem;
+
+            img {
+                cursor: pointer;
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .rightDivContainer {
+            position: relative;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            padding-left: 100px;
+            height: 100vh;
+            width: 100%;
+            overflow: auto;
+
+        .rightDiv {
+            width: 90%;
+            height: 100%;
+    
+            .topNav {
+                background-color: yellow;
+
+                width: 90%;
+    
+                a {
+                    all: unset;
+                    transition-delay: 0ms !important;
+                    cursor: pointer;
+                }
+            }
+            
+            .greeting {
+                // background-color: red;
+                display: flex;
+                flex-direction: column;
+                // gap: .5rem;
+    
+                .name {
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+    
+                .message {
+                    font-size: 40px;
+                    font-weight: 700;
+                }
+            }
+    
+            .visuals {
+                height: 400px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+
+                div {
+                    flex: 1;
+                    height: 100%;
+                    // background-color: rgba(black, .2);
+                }
+
+                .sectionTBD {
+                    flex: 1.5;
+                }
+
+                .scoreCircleDiv {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .scoreCard {
+                        height: 95%;
+                        max-width: 80%;
+                        border-radius: 25px;
+                        background: radial-gradient(circle, rgb(121 238 140) 30%, rgb(71 222 84) 100%);
+                        
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        .topText {
+                            max-height: 20px;
+                            width: 90%;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                        }
+
+                        .percentage {
+                            max-height: 70%;
+                            width: 90%;
+                            max-width: 90%;
+                            background-color: green;
+                        }
+
+                        .bottomText {
+                            width: 90%;
+                            max-height: 60px;
+                            background-color: red;
+                            text-align: center;
+                        }
+                    }
+                }
+
+            }
+    
+        }
+
+    }
+
+}
