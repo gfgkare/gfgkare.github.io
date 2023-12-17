@@ -1,16 +1,42 @@
 @import "./Variables.scss";
 
+$leftNavSize: 60px;
+
 .dashboard {
     font-size: 13px;
     max-height: 100vh;
     overflow: hidden;
+
+
+    //
+    .notSignedIn {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        button {
+            border-radius: 8px;
+            padding: .7rem 1.5rem;
+            transition: filter .2s ease;
+            transition-delay: 0ms !important;
+
+            &:hover {
+                filter: brightness(90%);
+            }
+        }
+    }
+    //
     
     .leftNav {
         position: absolute;
         left: 0;
         top: 0;
 
-        width: 60px;
+        width: $leftNavSize;
         height: 100vh;
         // padding: 0 1rem;
 
@@ -66,7 +92,6 @@
                 }
 
                 .icon {
-                    // background-color: blue;
                     min-width: 60px;
                     height: 30px;
                     display: flex;
@@ -121,20 +146,26 @@
     }
 
     .rightDivContainer {
+            transform: translateX(calc($leftNavSize / 2));
             position: relative;
             left: 0;
             top: 0;
             z-index: 1;
-            padding-left: 100px;
+            // padding-left: 100px;
             height: 100vh;
             width: 100%;
+            // width: unquote("100% - 60px");
             overflow: auto;
+            margin: 0 auto;
 
         .rightDiv {
             width: 90%;
             height: 100%;
+            margin: 0 auto;
     
             .topNav {
+                width: 100% !important;
+                position: relative;
                 display: flex;
                 justify-content: flex-end;
                 gap: 1rem;
@@ -189,7 +220,7 @@
 
                 .scoreCircleDiv {
                     display: flex;
-                    justify-content: center;
+                    justify-content: flex-start;
                     align-items: center;
 
                     .scoreCard {
@@ -204,7 +235,7 @@
                         align-items: center;
 
                         transition: box-shadow .2s ease;
-                        transition-delay: 0ms;
+                        transition-delay: 0ms !important;
 
                         &:hover {
                             box-shadow: 0 0 20px 6px rgba(121, 238, 140, .6);
@@ -296,7 +327,7 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
+                    align-items: flex-start;
                     gap: 1rem;
                     
                     span.marksTab {

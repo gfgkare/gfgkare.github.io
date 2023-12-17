@@ -16,9 +16,18 @@ import GradientProgress from "../components/GradientProgress";
 
 export default function Dashboard() {
 
-    const { currentUser, USER_PRESENT } = useAuth();
+    const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
 
     const circlePerc = 88;
+
+    const getFirstName = (fullDisplayName) => {
+        return toTitleCase(fullDisplayName.split(" ")[0]);
+    }
+
+    const toTitleCase = (name) => {
+        return name[0].toUpperCase() + name.slice(1).toLowerCase()
+    }
+    
 
     return (
         <Fade>
@@ -70,7 +79,7 @@ export default function Dashboard() {
                                     </div>
 
                                     <div className="greeting">
-                                        <div className="name">Hi Sabari,</div>
+                                        <div className="name">Hi {getFirstName(currentUser.displayName)},</div>
                                         <div className="message">Welcome back</div>
                                     </div>
 
@@ -136,7 +145,10 @@ export default function Dashboard() {
                             </div>                            
                         </>
                     ) : (
-                        <button>Sign In</button>
+                        <div className="notSignedIn">
+                            Log in to use the dashboard.
+                            <button onClick={() => signinwithpopup("google")}>Sign In</button>
+                        </div>
                     )
                 }
             </div>

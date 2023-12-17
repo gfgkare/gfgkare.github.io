@@ -6,7 +6,7 @@ import { IoIosArrowBack } from "react-icons/io";
 
 export default function Profile() {
 
-    const {USER_PRESENT, currentUser, signout } = useAuth();
+    const {USER_PRESENT, currentUser, signout, signinwithpopup } = useAuth();
 
     return (
         <div className="profile">
@@ -15,6 +15,7 @@ export default function Profile() {
                 <button className="back">
                     <Link to={"/events/algo2024"}>
                         <IoIosArrowBack />
+                        Algo24
                     </Link>
                 </button>
 
@@ -33,8 +34,10 @@ export default function Profile() {
                         </div>
                         :
                         <div>
-                            <span>
+                            <span className="notSigned">
                                 You are not logged in. Please login to continue.
+
+                                <button onClick={() => signinwithpopup("google")}>Sign In</button>
                             </span>
                         </div>
                 }
