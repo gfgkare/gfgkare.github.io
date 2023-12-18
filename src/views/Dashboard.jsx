@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 
 import { MdOutlineSpaceDashboard, MdOutlineOndemandVideo, MdOutlineStars } from "react-icons/md";
@@ -8,15 +8,18 @@ import { VscLinkExternal } from "react-icons/vsc";
 import CountUp from "react-countup"
 import ConfettiExplosion from 'react-confetti-explosion';
 
-import { CircularProgressbar, CircularProgressbarWithChildren , buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+
+import Table from "../components/Table";
+import axios from "axios";
+
 
 import "../styles/Dahsboard.scss";
 
 import { useAuth } from "../contexts/AuthContext"
 import gfgLogo from "../assets/GFG_KARE.svg"
 import Fade from "../components/Fade";
-import GradientProgress from "../components/GradientProgress";
 
 
 export default function Dashboard() {
@@ -29,6 +32,60 @@ export default function Dashboard() {
     const [pageToShow, setPageToShow] = useState("loading");
 
     const visualsRef = useRef(null);
+    const columns = useMemo(
+        () => [
+          {
+            // first group - TV Show
+            Header: "TV Show",
+            // First group columns
+            columns: [
+              {
+                Header: "Name",
+                accessor: "show.name",
+              },
+              {
+                Header: "Type",
+                accessor: "show.type",
+              },
+            ],
+          },
+          {
+            // Second group - Details
+            Header: "Details",
+            // Second group columns
+            columns: [
+              {
+                Header: "Language",
+                accessor: "show.language",
+              },
+              {
+                Header: "Genre(s)",
+                accessor: "show.genres",
+              },
+              {
+                Header: "Runtime",
+                accessor: "show.runtime",
+              },
+              {
+                Header: "Status",
+                accessor: "show.status",
+              },
+            ],
+          },
+        ],
+        []
+      );
+
+      const [data, setData] = useState([]);
+
+  // Using useEffect to call the API once mounted and set the data
+    useEffect(() => {
+        (async () => {
+        const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
+        setData(result.data);
+        })();
+    }, []);
+
 
     const celebrate = () => {
         setIsExploding(true);
@@ -184,30 +241,34 @@ export default function Dashboard() {
 
                                             <div className="rows">
 
-                                                <div className="rowContainer">
-                                                    <div className="row">
-                                                            {/* <img src="" alt="" /> */}
-                                                            <MdOutlineStars size={"40px"} />
-                                                            <div className="name">
-                                                                <div className="left">
-                                                                    <Link className="displayName" to={""}>Sabari S</Link>
-                                                                    <div className="dept">II / IT</div>
+                                               {
+                                                    [1,2,3,4,5].map((row) => {
+                                                        return (
+                                                        <div className="rowContainer">
+                                                            <div className="row">
+                                                                <MdOutlineStars size={"40px"} />
+                                                                <div className="name">
+                                                                    <div className="left">
+                                                                        <Link className="displayName" to={""}>Sabari S</Link>
+                                                                        <div className="dept">II / IT</div>
+                                                                    </div>
+                                                                    <div className="right">
+                                                                        <div className="accuracy">98%</div>
+                                                                        <div className="scored">48/50</div>
+                                                                    </div>
                                                                 </div>
-                                                                <div className="right">
-                                                                    <div className="accuracy">98%</div>
-                                                                    <div className="scored">48/50</div>
-                                                                </div>
-
-                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                
+                                                        )
+                                                    })
+                                                }
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="leaderboard">
-                                        <div className="row">1. Sabari S    99</div>
+                                        {/* <div className="row">1. Sabari S    99</div> */}
+                                        <Table columns={columns} data={data} />
                                     </div>
 
                                 </div>

@@ -409,10 +409,13 @@ $leftNavOpenSize: 220px;
                 .bestPerformers {
                     flex: 1.5;
                     border-radius: 12px;
+                    height: 100%;
+                    overflow: auto;
+                    -webkit-mask-image: linear-gradient(to bottom, white 10%, white 90%, transparent);
 
                     .topBar {
-                        height: 50px;
-                        font-size: larger;
+                        height: 70px;
+                        font-size: 22px;
                         font-weight: 800;
 
                         display: flex;
@@ -420,7 +423,7 @@ $leftNavOpenSize: 220px;
                         align-items: center;
 
                         button {
-                            font-size: normal;
+                            font-size: 18px;
                             border-radius: 12px;
                             transform: scale(.8);
                             transition: filter .2s ease;
@@ -433,6 +436,8 @@ $leftNavOpenSize: 220px;
                     }
 
                     .rows {
+                        width: 100%;
+                        height: 100%;
                         display: flex;
                         flex-direction: column;
                         // justify-content: center;
@@ -445,14 +450,17 @@ $leftNavOpenSize: 220px;
                             align-items: center;
                             border-radius: 12px;
                             transition: background-color .2s ease;
-                            transition-delay: 0 !important;
+                            transition-delay: 0ms !important;
 
                             &:hover {
                                 background-color: rgba(black, .05);
                             }
 
+                            &:last-child {
+                                margin-bottom: 1rem;
+                            }
+
                             .row {
-                                
                                 height: 50px;
                                 width: 100%;
                                 display: flex;
@@ -481,7 +489,7 @@ $leftNavOpenSize: 220px;
                                         a.displayName {
                                             all: unset;
                                             cursor: pointer;
-                                            font-size: large;
+                                            font-size: 18px;
                                             font-weight: 600;
 
                                             &:hover {
@@ -497,7 +505,7 @@ $leftNavOpenSize: 220px;
                                             max-width: max-content;
 
                                             &.dept {
-                                                font-size: medium;
+                                                font-size: 14px;
                                                 font-weight: 500;
                                                 opacity: .7;
                                             }
@@ -509,12 +517,12 @@ $leftNavOpenSize: 220px;
                                         align-items: flex-end;
 
                                         .accuracy {
-                                            font-size: large;
+                                            font-size: 18px;
                                             font-weight: 600;
                                         }
 
                                         .scored {
-                                            font-size: medium;
+                                            font-size: 14px;
                                             font-weight: 500;
                                             opacity: .7;
                                         }
