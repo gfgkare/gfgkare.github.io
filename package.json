@@ -23,6 +23,7 @@
     "react-ace": "^10.1.0",
     "react-circular-progressbar": "^2.1.0",
     "react-component-countdown-timer": "^0.1.8",
+    "react-confetti-explosion": "^2.1.2",
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
     "react-fade-in": "^2.0.1",

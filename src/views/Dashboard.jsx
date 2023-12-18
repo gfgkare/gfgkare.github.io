@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineSpaceDashboard, MdOutlineOndemandVideo } from "react-icons/md";
 import { GoBook } from "react-icons/go";
+import CountUp from "react-countup"
+import ConfettiExplosion from 'react-confetti-explosion';
 
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbar, CircularProgressbarWithChildren , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 import "../styles/Dahsboard.scss";
@@ -16,9 +18,18 @@ import GradientProgress from "../components/GradientProgress";
 
 export default function Dashboard() {
 
-    const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
+    const { currentUser, USER_PRESENT, USER_LOADING, signinwithpopup } = useAuth();
 
-    const circlePerc = 88;
+    const [circlePerc, setCirclePerc] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
+    const [isExploding, setIsExploding] = useState(false);
+
+    const observedElementRef = useRef(null);
+
+    const celebrate = () => {
+        setIsExploding(true);
+    }
+
 
     const getFirstName = (fullDisplayName) => {
         return toTitleCase(fullDisplayName.split(" ")[0]);
@@ -28,13 +39,44 @@ export default function Dashboard() {
         return name[0].toUpperCase() + name.slice(1).toLowerCase()
     }
     
+    useEffect(() => {
+        
+        const options = {
+            threshold: 0.3,
+          };
+      
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setIsVisible(true);
+                alert("Visible")
+                setCirclePerc(87)
+                
+                observer.unobserve();
+              } else {
+                setIsVisible(false);
+              }
+            });
+          }, options);
+      
+          if (observedElementRef.current) {
+            observer.observe(observedElementRef.current);
+          }
+      
+          
+          // Cleanups.
+          return () => {
+            if (observedElementRef.current) observer.disconnect();
+          }
+        
+    }, [])
 
     return (
-        <Fade>
             <div className="dashboard">
                 {
                     (USER_PRESENT()) ? (
-                        <>
+                        <Fade>
+                            {isExploding ? <ConfettiExplosion zIndex={99} particleCount={50} width={3000} force={0.75} onComplete={() => setIsExploding(false)} /> : <></>}
                             <div className="leftNav open">
                                 <div className="logo">
                                     <img src={gfgLogo} alt="logo" />
@@ -81,28 +123,38 @@ export default function Dashboard() {
                                     <div className="greeting">
                                         <div className="name">Hi {getFirstName(currentUser.displayName)},</div>
                                         <div className="message">Welcome back</div>
+                                        <div className="info">Your Round 1 Scores are here!</div>
                                     </div>
 
-                                    <div className="visuals">
+                                    <div className="visuals" ref={observedElementRef}>
                                         <div className="scoreCircleDiv">
                                             <div className="scoreCard">
 
                                                 <div className="topText">Accuracy</div>
                                                 <div className="percentage">
 
-                                                    <div className="container">
+                                                    {/* <div className="container">
                                                         <div className="box">
                                                             <div className="circle" style={ {"--i": `${circlePerc}%` } }>
                                                                 <h2>{circlePerc}%</h2>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                     */}
+                                                <CircularProgressbarWithChildren className="compProgress" 
+                                                    value={circlePerc} 
+                                                    strokeWidth={6}
+                                                    styles={buildStyles({
+                                                        pathTransitionDuration: 3,
+                                                    })}        
+                                                >
+                                                     <CountUp className="circularProgressText" start={0} end={circlePerc} duration={5} onEnd={celebrate} />%
+                                                </CircularProgressbarWithChildren>
                                                     
-                                                    
-                                                    {/* <CircularProgressbar value={90} text={`${98}%`} strokeWidth={9} /> */}
+                                                    {/* <CircularProgressbar className="compProgress" value={circlePerc} text={`${circlePerc}%`} strokeWidth={6} /> */}
                                                     {/* <GradientProgress percentage={96} startColor="#3be73b" endColor="#7af47a" gradientId="progress"> 
                                                         <h5>96%</h5>
-                                                    </GradientProgress> */}
+                                                    </GradientProgress> */ }
                                                 </div>
                                                 <div className="bottomText">
                                                     BOTTOM TEXT
@@ -113,27 +165,60 @@ export default function Dashboard() {
 
                                         <div className="marksDiv">
                                             <span className="marksTab totalMarks">
-                                                <span className="title">Total Marks</span>
-                                                <span className="number">46/50</span>
+                                                <div className="marks">
+                                                    <span className="title">Total Marks</span>
+                                                    <span className="number">46/50</span>
+                                                </div>
+                                                <div className="icon">
+                                                </div>
                                             </span>
                                             <span className="marksTab correctAnswers">
-                                                <span className="title">Correct Answers</span>
-                                                <span className="number">
-                                                    <div className="large">23</div>
-                                                    <div className="small">(+48)</div>
-                                                </span>
+                                                <div className="marks">
+                                                    <span className="title">Correctly Answered</span>
+                                                    <span className="number">
+                                                        <span className="large">33</span>
+                                                        <span className="small">(+44)</span>
+                                                    </span>
+                                                </div>
+                                                <div className="icon">
+                                                </div>
                                             </span>
                                             <span className="marksTab wrongAnswers">
-                                            <span className="title">Wrong Answers</span>
-                                                <span className="number">
-                                                    <div className="large">7</div>
-                                                    <div className="small">(-12)</div>
-                                                </span>
+                                                <div className="marks">
+                                                    <span className="title">Incorrectly Answered</span>
+                                                    <span className="number">
+                                                        <span className="large">17</span>
+                                                        <span className="small">(-24)</span>
+                                                    </span>
+                                                </div>
+                                                <div className="icon">
+                                                </div>
                                             </span>
                                         </div>
 
                                         <div className="sectionTBD">
-                                            something
+                                            <div>
+                                                Best Performers
+                                                <button onClick={() => setCirclePerc(90)}>MORE</button>
+                                                <button onClick={() => setCirclePerc(0)}>LESS</button>
+                                            </div>
+
+                                            <div className="rows">
+                                                <div>
+                                                    <img src="" alt="" />
+                                                    <div className="name">
+                                                        <div className="left">
+                                                            <div>Sabari S</div>
+                                                            <div>II / IT</div>
+                                                        </div>
+                                                        <div className="right">
+                                                            <div>98%</div>
+                                                            <div>48/50</div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -143,16 +228,20 @@ export default function Dashboard() {
 
                                 </div>
                             </div>                            
-                        </>
+                        </Fade>
                     ) : (
-                        <div className="notSignedIn">
-                            Log in to use the dashboard.
-                            <button onClick={() => signinwithpopup("google")}>Sign In</button>
-                        </div>
+                        (USER_LOADING()) ? (
+                            "loading..."
+                        ) : (
+                            <div className="notSignedIn">
+                                Log in to use the dashboard.
+                                <button onClick={() => signinwithpopup("google")}>Sign In</button>
+                            </div>
+                        )
+                        
                     )
                 }
             </div>
-        </Fade>
        
     )
 }

@@ -61,6 +61,11 @@ export const AuthProvider = ({ children }) => {
 		else if (currentUser) return true;
 	};
 
+	const USER_LOADING = () => {
+		if (currentUser === null) return true;
+		return false;
+	}
+
 	const signin = (email, password) => {
 		return signInWithEmailAndPassword(auth, email, password);
 	};
@@ -464,6 +469,7 @@ export const AuthProvider = ({ children }) => {
 		GET_USER,
 		SET_USER,
 		USER_PRESENT,
+		USER_LOADING,
 		USER_METADATA,
 		USER_MISCDATA,
 		JOURNAL_ENTRIES,
