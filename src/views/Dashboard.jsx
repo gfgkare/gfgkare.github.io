@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import { MdOutlineSpaceDashboard, MdOutlineOndemandVideo } from "react-icons/md";
+import { MdOutlineSpaceDashboard, MdOutlineOndemandVideo, MdOutlineStars } from "react-icons/md";
 import { GoBook } from "react-icons/go";
 import { VscLinkExternal } from "react-icons/vsc";
 
@@ -120,38 +120,24 @@ export default function Dashboard() {
 
                                                 <div className="topText">Accuracy</div>
                                                 <div className="percentage">
-
-                                                    {/* <div className="container">
-                                                        <div className="box">
-                                                            <div className="circle" style={ {"--i": `${circlePerc}%` } }>
-                                                                <h2>{circlePerc}%</h2>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                     */}
-                                                <CircularProgressbarWithChildren className="compProgress" 
-                                                    value={circlePerc} 
-                                                    strokeWidth={6}
-                                                    styles={buildStyles({
-                                                        pathTransitionDuration: 3,
-                                                    })}        
-                                                >
-                                                    {
-                                                        (isVisible) ? (
-                                                            <><CountUp className="circularProgressText" start={0} end={circlePerc} duration={5} onEnd={celebrate} />%</>
-                                                        ) : (
-                                                            <></>
-                                                        )
-                                                    }
-                                                </CircularProgressbarWithChildren>
-                                                    
-                                                    {/* <CircularProgressbar className="compProgress" value={circlePerc} text={`${circlePerc}%`} strokeWidth={6} /> */}
-                                                    {/* <GradientProgress percentage={96} startColor="#3be73b" endColor="#7af47a" gradientId="progress"> 
-                                                        <h5>96%</h5>
-                                                    </GradientProgress> */ }
+                                                    <CircularProgressbarWithChildren className="compProgress" 
+                                                        value={circlePerc} 
+                                                        strokeWidth={6}
+                                                        styles={buildStyles({
+                                                            pathTransitionDuration: 3,
+                                                        })}        
+                                                    >
+                                                        {
+                                                            (isVisible) ? (
+                                                                <><CountUp className="circularProgressText" start={0} end={circlePerc} duration={5} onEnd={celebrate} />%</>
+                                                            ) : (
+                                                                <></>
+                                                            )
+                                                        }
+                                                    </CircularProgressbarWithChildren>
                                                 </div>
                                                 <div className="bottomText">
-                                                    BOTTOM TEXT
+                                                    Well Done!
                                                 </div>
 
                                             </div>
@@ -193,25 +179,29 @@ export default function Dashboard() {
                                         <div className="bestPerformers">
                                             <div className="topBar">
                                                 Best Performers
-                                                <button onClick={() => setCirclePerc(90)}>MORE</button>
-                                                <button onClick={() => setCirclePerc(0)}>LESS</button>
+                                                <button onClick={() => setCirclePerc(0)}>More</button>
                                             </div>
 
                                             <div className="rows">
-                                                <div>
-                                                    <img src="" alt="" />
-                                                    <div className="name">
-                                                        <div className="left">
-                                                            <div>Sabari S</div>
-                                                            <div>II / IT</div>
-                                                        </div>
-                                                        <div className="right">
-                                                            <div>98%</div>
-                                                            <div>48/50</div>
-                                                        </div>
 
+                                                <div className="rowContainer">
+                                                    <div className="row">
+                                                            {/* <img src="" alt="" /> */}
+                                                            <MdOutlineStars size={"40px"} />
+                                                            <div className="name">
+                                                                <div className="left">
+                                                                    <Link className="displayName" to={""}>Sabari S</Link>
+                                                                    <div className="dept">II / IT</div>
+                                                                </div>
+                                                                <div className="right">
+                                                                    <div className="accuracy">98%</div>
+                                                                    <div className="scored">48/50</div>
+                                                                </div>
+
+                                                            </div>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
