@@ -1,6 +1,7 @@
 @import "./Variables.scss";
 
 $leftNavSize: 60px;
+$leftNavOpenSize: 220px;
 
 .dashboard {
     font-size: 13px;
@@ -56,7 +57,7 @@ $leftNavSize: 60px;
         z-index: 9;
 
         &:hover {
-            width: 200px;
+            width: $leftNavOpenSize;
         }
 
         .logo {

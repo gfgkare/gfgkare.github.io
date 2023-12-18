@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
 import { MdOutlineSpaceDashboard, MdOutlineOndemandVideo } from "react-icons/md";
 import { GoBook } from "react-icons/go";
+import { VscLinkExternal } from "react-icons/vsc";
+
 import CountUp from "react-countup"
 import ConfettiExplosion from 'react-confetti-explosion';
 
@@ -23,8 +26,9 @@ export default function Dashboard() {
     const [circlePerc, setCirclePerc] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const [isExploding, setIsExploding] = useState(false);
+    const [pageToShow, setPageToShow] = useState("loading");
 
-    const observedElementRef = useRef(null);
+    const visualsRef = useRef(null);
 
     const celebrate = () => {
         setIsExploding(true);
@@ -40,43 +44,27 @@ export default function Dashboard() {
     }
     
     useEffect(() => {
-        
-        const options = {
-            threshold: 0.3,
-          };
-      
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
+        if (USER_PRESENT()) setPageToShow("open");
+        else if (USER_LOADING()) setPageToShow("loading");
+        else if (!USER_PRESENT()) setPageToShow("login");
+
+    }, [currentUser])
+
+    useEffect(() => {
+        if (pageToShow === "open") {
+            setTimeout(() => {
                 setIsVisible(true);
-                alert("Visible")
-                setCirclePerc(87)
-                
-                observer.unobserve();
-              } else {
-                setIsVisible(false);
-              }
-            });
-          }, options);
-      
-          if (observedElementRef.current) {
-            observer.observe(observedElementRef.current);
-          }
-      
-          
-          // Cleanups.
-          return () => {
-            if (observedElementRef.current) observer.disconnect();
-          }
-        
-    }, [])
+                setCirclePerc(95);
+            }, 1000);
+        }
+    }, [pageToShow])
 
     return (
             <div className="dashboard">
                 {
-                    (USER_PRESENT()) ? (
+                    (pageToShow === "open") ? (
                         <Fade>
-                            {isExploding ? <ConfettiExplosion zIndex={99} particleCount={50} width={3000} force={0.75} onComplete={() => setIsExploding(false)} /> : <></>}
+                            {isExploding ? <ConfettiExplosion zIndex={99} duration={4000} particleCount={50} width={3000} force={0.75} onComplete={() => setIsExploding(false)} /> : <></>}
                             <div className="leftNav open">
                                 <div className="logo">
                                     <img src={gfgLogo} alt="logo" />
@@ -98,12 +86,12 @@ export default function Dashboard() {
                                             <GoBook size="25px" />
                                         </div>
                                         <div className="name">
-                                            Rule Book
+                                            Rule Book <VscLinkExternal />
                                         </div>
                                     </div>
                                     <div className="tab">
                                             <MdOutlineOndemandVideo className="icon" size="15px" />
-                                            <span className="name">Expert Lecture</span>
+                                            <span className="name">Expert Lecture <VscLinkExternal /></span> 
                                     </div>
                                 </div>
                                 
@@ -116,8 +104,8 @@ export default function Dashboard() {
                                 <div className="rightDiv">
 
                                     <div className="topNav">
-                                        <Link>List of Rounds</Link>
-                                        <Link>List of Algorithms</Link>
+                                        <Link to={"https://gfgkare.github.io/Algorithmist2024Rounds/"} target="_blank">List of Rounds</Link>
+                                        <Link to={"https://gfgkare.github.io/Algorithmist24"} target="_blank">List of Algorithms</Link>
                                     </div>
 
                                     <div className="greeting">
@@ -126,7 +114,7 @@ export default function Dashboard() {
                                         <div className="info">Your Round 1 Scores are here!</div>
                                     </div>
 
-                                    <div className="visuals" ref={observedElementRef}>
+                                    <div className="visuals" ref={visualsRef}>
                                         <div className="scoreCircleDiv">
                                             <div className="scoreCard">
 
@@ -148,7 +136,13 @@ export default function Dashboard() {
                                                         pathTransitionDuration: 3,
                                                     })}        
                                                 >
-                                                     <CountUp className="circularProgressText" start={0} end={circlePerc} duration={5} onEnd={celebrate} />%
+                                                    {
+                                                        (isVisible) ? (
+                                                            <><CountUp className="circularProgressText" start={0} end={circlePerc} duration={5} onEnd={celebrate} />%</>
+                                                        ) : (
+                                                            <></>
+                                                        )
+                                                    }
                                                 </CircularProgressbarWithChildren>
                                                     
                                                     {/* <CircularProgressbar className="compProgress" value={circlePerc} text={`${circlePerc}%`} strokeWidth={6} /> */}
@@ -196,8 +190,8 @@ export default function Dashboard() {
                                             </span>
                                         </div>
 
-                                        <div className="sectionTBD">
-                                            <div>
+                                        <div className="bestPerformers">
+                                            <div className="topBar">
                                                 Best Performers
                                                 <button onClick={() => setCirclePerc(90)}>MORE</button>
                                                 <button onClick={() => setCirclePerc(0)}>LESS</button>
@@ -230,7 +224,8 @@ export default function Dashboard() {
                             </div>                            
                         </Fade>
                     ) : (
-                        (USER_LOADING()) ? (
+                        // (USER_LOADING()) ? (
+                        (pageToShow === "loading") ? (
                             "loading..."
                         ) : (
                             <div className="notSignedIn">
