@@ -1,7 +1,7 @@
 @import "./Variables.scss";
 
 $leftNavSize: 60px;
-$leftNavOpenSize: 220px;
+$leftNavOpenSize: 240px;
 
 .dashboard {
     font-size: 13px;
@@ -51,13 +51,16 @@ $leftNavOpenSize: 220px;
         flex-direction: column;
         justify-content: space-between;
 
-        transition: width .3s ease;
+        transition: width .3s ease, box-shadow .5s ease;
+        transition-delay: .75s !important;
+
         overflow: hidden;
         pointer-events: none;
         z-index: 9;
 
         &:hover {
             width: $leftNavOpenSize;
+            box-shadow: 0px 3px 15px 7px rgba(black, .5);
         }
 
         .logo {
@@ -78,6 +81,7 @@ $leftNavOpenSize: 220px;
             // gap: .25rem;
 
             .tab {
+                all: unset;
                 min-height: 30px;
                 padding: .5rem 0;
                 background-color: transparent;
@@ -92,6 +96,7 @@ $leftNavOpenSize: 220px;
 
                 &:hover {
                     background-color: rgba(black, .05);
+                    color: black !important;
                 }
 
                 .icon {
@@ -106,29 +111,12 @@ $leftNavOpenSize: 220px;
                     }
                 }
 
-                .number {
-                    font-size: large;
-                    font-weight: 600;
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-
-                    span {
-                        width: 15px;
-                        height: 15px;
-                        padding: .35rem;
-                        font-size: small;
-                        border: 2px solid black;
-                        border-radius: 50%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                }
-
                 .name {
                     min-width: max-content;
                     font-size: small;
+                    display: flex;
+                    justify-content: center;
+                    gap: .6rem;
                 }
 
             }
@@ -159,7 +147,7 @@ $leftNavOpenSize: 220px;
             // height: 90vh;
             height: 98vh;
             // width: 97vw;
-            width: unquote("100% - 100px");
+            // width: unquote("100% - 100px");
             overflow-y: auto;
             // margin: 0 auto;
 
@@ -169,7 +157,7 @@ $leftNavOpenSize: 220px;
             width: 90%;
             // max-height: max-content;
             // height: 100%;
-            margin: 0 auto;
+            margin: 3rem auto 0 auto;
     
             .topNav {
                 width: 100% !important;
@@ -532,8 +520,17 @@ $leftNavOpenSize: 220px;
                         }
                     }
                 }
+            }
+            .leaderboard {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 0;
 
             }
+
     
         }
 
@@ -549,16 +546,29 @@ $leftNavOpenSize: 220px;
   }
 
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
     .visuals {
         flex-direction: column;
+        background-color: red;
+        height: max-content !important;
 
-        .scoreCircleDiv{
-            max-height: max-content;
+        .scoreCircleDiv {
+            height: 500px !important;
+            width: 300px !important;
+            flex: 2 !important;
 
             .scoreCard {
-                height: 350px;
+                min-height: 250px !important;
             }
+        }
+
+        .marksDiv {
+            height: 400px !important;
+            background-color: blue;
+        }
+
+        .bestPerformers {
+            flex: 1;
         }
     }
 }

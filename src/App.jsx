@@ -25,7 +25,8 @@ import allData from "./data/all_data_merged"
 import coreTeamMembers from "./data/coreTeamInfo";
 import EventStatDashboard from "./views/EventStatDashboard";
 import Dashboard from "./views/Dashboard";
-
+import Overview from "./views/Overview";
+import Rounds from "./views/Rounds";
 
 
 
@@ -75,7 +76,10 @@ export default function App() {
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
-                        <Route path="/dashboard" element={<Dashboard />}></Route>
+                        <Route path="/dashboard" element={<Dashboard />}>
+                            <Route path="/dashboard" element={ <Overview /> }></Route>
+                            <Route path="/dashboard/rounds" element={ <Rounds /> }></Route>
+                        </Route>
 
                         <Route path="/*" element={ <NotFound /> }></Route>
                     </Routes>

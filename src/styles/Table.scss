@@ -1,0 +1,41 @@
+
+
+.leaderboardSearch {
+    width: 60%;
+    margin: 0 auto;
+    padding: .8rem 1rem;
+    border-radius: 8px;
+    outline: none;
+    background-color: transparent;
+    border-style: none;
+    border: 1px solid black;
+    color: black;
+}
+
+table {
+    width: 100%;
+
+    .rowHeaders {
+        border: 1px solid black;
+        padding: .5rem 1rem;
+        border-radius: 3px;
+        
+
+        svg {
+            padding-left: auto;
+        }
+
+    }
+
+    th {
+        width: max-content;
+    }
+
+    td {
+        padding: .5rem 0;
+    }
+
+    .tbody {
+        border: 1px solid black !important;
+    }
+}
