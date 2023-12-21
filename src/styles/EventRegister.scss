@@ -78,8 +78,8 @@ strong {
                     height: 100%;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
-                    gap: 1rem;
+                    justify-content: flex-start;
+                    gap: 2rem;
 
                     .eventTitle {
                         font-weight:700;

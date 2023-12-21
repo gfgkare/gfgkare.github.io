@@ -251,9 +251,8 @@ export default function EventRegister() {
                                     three performers in each round.</strong>
                                 </div>
 
-                                <div className="startsIn">
+                                {/* <div className="startsIn">
                                     <div className="title">Round 1 Starts in: </div>
-                                    {/* <div><span className="time">00</span> Days  <span className="time">00</span> Hours <span className="time">00</span> Minutes <span className="time">00</span> Seconds</div> */}
                                     <div className="time">
                                         {countdownTime ? (
                                             <CountdownTimer
@@ -266,7 +265,7 @@ export default function EventRegister() {
                                             <></>
                                         )}
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -327,7 +326,8 @@ export default function EventRegister() {
                                         </div>
                                         <div className="content">
                                             {/* {noOfRegistered}/{maxCount} */}
-                                            200 participants
+                                            Register now!
+                                            {/* {"  ⠀⠀"} */}
                                         </div>
                                     </div>
                                 </div>
@@ -357,7 +357,7 @@ export default function EventRegister() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            10th Nov 2023, 5PM
+                                            13th Dec 2023, 6PM
                                         </div>
                                     </div>
                                 </div>
@@ -402,7 +402,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Get ready for a fun knowledge challenge! In our Quiz round on December 20, 2023 you'll answer 60 questions about
+                                    Get ready for a fun knowledge challenge! You'll answer 60 questions about
                                     50 algorithms. Can you beat the clock?
                                 </div>
                             </div>
