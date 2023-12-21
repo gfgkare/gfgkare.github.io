@@ -251,8 +251,8 @@ export default function EventRegister() {
                                     three performers in each round.</strong>
                                 </div>
 
-                                {/* <div className="startsIn">
-                                    <div className="title">Round 1 Starts in: </div>
+                                <div className="startsIn">
+                                    <div className="title">Registration ends in: </div>
                                     <div className="time">
                                         {countdownTime ? (
                                             <CountdownTimer
@@ -265,7 +265,7 @@ export default function EventRegister() {
                                             <></>
                                         )}
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
 
@@ -357,7 +357,7 @@ export default function EventRegister() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            13th Dec 2023, 6PM
+                                            22nd Dec 2023, 6PM
                                         </div>
                                     </div>
                                 </div>
