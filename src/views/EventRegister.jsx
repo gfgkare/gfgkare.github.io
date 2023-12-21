@@ -119,8 +119,9 @@ export default function EventRegister() {
                 eventID: window.location.pathname.split("/")[2],
             })
             .then((res) => {
-                console.log(res.data.count);
-                setEventRegistrationStatus(res.data.count);
+                console.log("------- Event REgistration staus");
+                console.log(res.data.status);
+                setEventRegistrationStatus(res.data.status);
             });
 
         axios
