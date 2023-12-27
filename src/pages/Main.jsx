@@ -45,8 +45,8 @@ export default function Main() {
                             </Link>
                         </div> */}
                         <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/dashboard">
-                                Dashboard
+                            <Link className="noStyle" to="/dash">
+                                Dashboard (WIP)
                             </Link>
                         </div>
                          <div className="menuLink hideOnMobile">
