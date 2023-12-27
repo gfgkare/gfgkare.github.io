@@ -46,7 +46,7 @@ export default function Main() {
                         </div> */}
                         <div className="menuLink hideOnMobile">
                             <Link className="noStyle" to="/events/algo2024">
-                                Testing
+                                Testing 2
                             </Link>
                         </div>
                          <div className="menuLink hideOnMobile">
