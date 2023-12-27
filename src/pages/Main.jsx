@@ -44,6 +44,11 @@ export default function Main() {
                                 Events
                             </Link>
                         </div> */}
+                        <div className="menuLink hideOnMobile">
+                            <Link className="noStyle" to="/events/algo2024">
+                                Testing
+                            </Link>
+                        </div>
                          <div className="menuLink hideOnMobile">
                             <Link className="noStyle" to="/events/algo2024">
                                 Algorithmist2024
