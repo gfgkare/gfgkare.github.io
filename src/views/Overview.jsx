@@ -6,15 +6,13 @@ import Table from "../components/Table";
 import CountUp from "react-countup"
 import { MdOutlineStars } from "react-icons/md";
 import { useOutletContext, Link } from 'react-router-dom';
-import { useMisc } from '../contexts/MiscContext';
 import { useEffect } from 'react';
 import Fade from '../components/Fade';
 
 export default function Overview() {
     
-    const { currentUser } = useMisc();
 
-    const [circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone] = useOutletContext();
+    const [currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone] = useOutletContext();
 
    
     const getFirstName = (fullDisplayName) => {
@@ -34,7 +32,7 @@ export default function Overview() {
         <Fade>
             <div className="greeting">
                 <div className="name">
-                    Hi {getFirstName(currentUser?.displayName) || "there"},
+                    Hi {getFirstName(currentUser.displayName) || "there"},
                 </div>
                 <div className="message">Welcome back</div>
                 <div className="info">Your Round 1 Scores are here!</div>
@@ -106,7 +104,7 @@ export default function Overview() {
                 <div className="bestPerformers">
                     <div className="topBar">
                         Best Performers
-                        <button onClick={() => setCirclePerc(0)}>More</button>
+                        <button>More</button>
                     </div>
 
                     <div className="rows">

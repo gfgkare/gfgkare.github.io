@@ -41,7 +41,13 @@ export default function Dashboard() {
 
    
     useEffect(() => {
-        if (USER_PRESENT()) setPageToShow("open");
+
+        console.log(`currentUser is: `);
+        console.log(currentUser);
+        if (USER_PRESENT()) { 
+            console.log(currentUser.displayName);
+             setPageToShow("open")
+        }
         else if (USER_LOADING()) setPageToShow("loading");
         else if (!USER_PRESENT()) setPageToShow("login");
 
@@ -50,6 +56,7 @@ export default function Dashboard() {
     useEffect(() => {
         if (pageToShow === "open") {
             setTimeout(() => {
+                console.log(currentUser);
                 setIsVisible(true);
                 setCirclePerc(95);
             }, 1000);
@@ -100,14 +107,23 @@ export default function Dashboard() {
 
                                 </div>
                                 
-                                <div className="profileImage">
-                                    <img src={currentUser.photoURL} />
-                                </div>
+                                <Link to="/profile">
+                                    <div className="profileImage">
+                                        <img src={currentUser.photoURL} />
+                                    </div>
+                                </Link>
+                                
                             </div>
                             
                             <div className="rightDivContainer">
                                 <div className="rightDiv">
-                                   <Outlet context={[circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone]} />
+                                    {
+                                        (USER_PRESENT()) ? (
+                                            <Outlet context={[currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone]} />
+                                        ) : (
+                                            <></>
+                                        )
+                                    }
                                 </div>
                             </div>                            
                         </Fade>
