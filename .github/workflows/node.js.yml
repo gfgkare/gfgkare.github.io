@@ -30,6 +30,7 @@ jobs:
     - run: npm ci -f
     - run: npm run build --if-present
     - run: cp dist/index.html dist/404.html
+    - run: cp resources/* dist/ -r
 
     - name: Deploy with gh-pages
       run: |
