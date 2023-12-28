@@ -1,0 +1,151 @@
+
+
+
+.roundsTitle {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+.roundsContainer {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .round {
+        height: max-content;
+        width: 100%;
+
+        .header {
+            background: linear-gradient(291deg, hsl(98, 65%, 80%) 0%, hsl(116, 46%, 77%) 100%);
+            border-radius: 12px;
+
+            font-weight: 600;
+            font-size: 24px;
+            color: rgba(black, .8);
+            padding: 1rem;
+
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+
+            .dropdown {
+                cursor: pointer;
+                transition: transform .3s ease;
+                transition-delay: 0 !important;
+            }
+
+            
+        }
+
+        .roundBody {
+            overflow: hidden;
+            padding: 0 1rem;
+            height: 0;
+            background: linear-gradient(291deg, rgba(211,217,206,1) 0%, rgba(220,227,219,1) 100%);
+            border-radius: 0 0 12px 12px;
+            transition: all .3s ease;
+            transition-delay: 0ms !important;
+        }
+
+        &.active {
+            .header {
+                border-radius: 12px 12px 0 0;
+
+                .icon {
+                    color: rgb(47, 161, 47);
+                    animation: hueShift 20s infinite ease;
+                }
+    
+                .dropdown {
+                    transform: rotate(180deg);
+                }
+            }
+            
+
+            .roundBody {
+                overflow: auto;
+                height: 20rem;
+                max-height: max-content;
+                padding: 2rem 1rem;
+
+                .whereAndWhen {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: flex-start;
+                    justify-content: center;
+
+                    width: 100%;
+                    // background-color: blue;
+
+                    .split {
+                        width: 2px;
+                        height: 40px;
+                        // background-color: rgba(black, .6);
+                        border-radius: 9px;
+                        flex: .2;
+                    }
+
+                    .where, .when {
+                        // background-color: red;
+                        flex: 10;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: .7rem;
+                        
+                        padding: 1rem;
+                        font-size: 20px;
+
+                        h2 {
+                            font-size: 30px;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                
+                .description {
+                    font-size: 20px;
+                    padding: 0 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+@keyframes hueShift {
+    0% {
+        filter: hue-rotate(72deg);
+    }
+
+    25% {
+        filter: hue-rotate(144deg);
+    }
+
+    50% {
+        filter: hue-rotate(216deg);
+    }
+
+    75% {
+        filter: hue-rotate(144deg);
+    }
+
+    // 80% {
+    //     filter: hue-rotate(288deg);
+    // }
+
+    // 100% {
+    //     filter: hue-rotate(360deg);
+    // }
+}

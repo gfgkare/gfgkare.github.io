@@ -5,7 +5,7 @@ $leftNavOpenSize: 240px;
 
 .dashboard {
     font-size: 13px;
-    max-height: 100vh;
+    height: 100vh;
     overflow: hidden;
 
 
@@ -550,7 +550,7 @@ $leftNavOpenSize: 240px;
 
     .leftNav {
         position: fixed;
-        bottom: 20px;
+        bottom: 0px;
         left: 0;
 
         flex-direction: row !important;
@@ -604,34 +604,42 @@ $leftNavOpenSize: 240px;
             }
 
             .visuals {
+                padding-top: 5rem !important;
                 flex-direction: column;
                 gap: 3rem !important;
                 height: max-content !important;
                 // background-color: green;
                 width: 90% !important;
                 margin: 0 auto !important;
+
         
                 .scoreCircleDiv {
-                    height: 500px !important;
-                    width: 300px !important;
+                    // background-color: red;
+                    min-height: 400px !important;
+                    // width: 300px !important;
+                    width: min(300px, 80%);
                     justify-content: center !important;
         
                     .scoreCard {
                         max-width: 100% !important;
+                        height: 100% !important;
+                        min-height: 400px !important;
+
                     }
                 }
         
                 .marksDiv {
                     height: 400px !important;
-                    width: 50%;
+                    width: 55%;
 
                     span.marksTab {
                         width: 100% !important;
+                        min-height: 100px;
                     }
                 }
         
                 .bestPerformers {
-                    flex: 1;
+                    width: min(400px, 80%);
                 }
             }
         }
