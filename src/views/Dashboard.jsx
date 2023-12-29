@@ -69,7 +69,7 @@ export default function Dashboard() {
 
             axios.post(
             "get_dashdata", 
-            { eventID: "algo2024" },  //admin: "ohyes"
+            { eventID: "algo2024", admin: "ohyea" },  //admin: "ohyes"
             { headers: { "Authorization": `${currentUser.accessToken}` } })
             .then((res) => {
                 console.log(res.data);
@@ -139,10 +139,10 @@ export default function Dashboard() {
                                         <div className="name"> Rule Book <VscLinkExternal /></div>
                                     </Link> */}
 
-                                    <Link className="tab" target="_blank">
+                                    {/* <Link className="tab" target="_blank">
                                         <div className="icon"><PiVideoLight className="icon" size="15px" /></div>
                                         <span className="name">Expert Lecture <VscLinkExternal /></span> 
-                                    </Link>
+                                    </Link> */}
 
                                     <Link className="tab" to="https://gfgkare.github.io/Algorithmist2024Rounds" target="_blank">
                                         <div className="icon"> <CiCircleList size="25px" /> </div>

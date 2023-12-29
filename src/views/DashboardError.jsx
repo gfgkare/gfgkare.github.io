@@ -19,7 +19,7 @@ export default function DashboardError() {
                 <span style={ { maxWidth: "max-content", textDecoration: "underline", cursor: "pointer" } } onClick={() => signinwithpopup("google")}>
                     Sign In{"  "}
                 </span> 
-                with another account.
+                with another account?
             </span>
         </div>
     )

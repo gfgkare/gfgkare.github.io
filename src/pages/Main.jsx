@@ -45,8 +45,8 @@ export default function Main() {
                             </Link>
                         </div> */}
                         <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/dash">
-                                Dashboard (WIP)
+                            <Link className="noStyle" to="/dashboard">
+                                Dashboard
                             </Link>
                         </div>
                          <div className="menuLink hideOnMobile">
@@ -106,6 +106,9 @@ export default function Main() {
                                     <span>
                                         <Link to="/events">Events</Link>
                                     </span> */}
+                                    <span>
+                                        <Link to="/dashboard">Dashboard</Link>
+                                    </span>
                                     <span>
                                         <Link to="/members">Members</Link>
                                     </span>

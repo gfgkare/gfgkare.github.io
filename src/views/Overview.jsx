@@ -169,11 +169,12 @@ export default function Overview() {
                 <div className="bestPerformers">
                     <div className="topBar">
                         Best Performers
-                        <button onClick={() => leaderBoard.current.scrollIntoView()}>More</button>
+                        {/* <button onClick={() => leaderBoard.current.scrollIntoView()}>More</button> */}
+                        <button>More</button>
                     </div>
 
                     <div className="rows">
-                        {[1, 2, 3, 4, 5].map((row) => {
+                        {[1].map((row) => {
                             return (
                                 <div className="rowContainer">
                                     <div className="row">
@@ -182,20 +183,19 @@ export default function Overview() {
                                             <div className="left">
                                                 <Link
                                                     className="displayName"
-                                                    to={"/members/GK2311011101"}
                                                 >
-                                                    Sabari S
+                                                    Will be updated soon!
                                                 </Link>
                                                 <div className="dept">
-                                                    II / IT
+                                                    
                                                 </div>
                                             </div>
                                             <div className="right">
                                                 <div className="accuracy">
-                                                    98%
+                                                    ?%
                                                 </div>
                                                 <div className="scored">
-                                                    48/50
+                                                    ?/90
                                                 </div>
                                             </div>
                                         </div>
@@ -208,7 +208,7 @@ export default function Overview() {
             </div>
 
             <div className="leaderboard" ref={leaderBoard}>
-                <CustomTable headers={["Rank", "Name", "Marks", "Percentage"]} rows={tableRows} />
+                {/* <CustomTable headers={["Rank", "Name", "Marks", "Percentage"]} rows={tableRows} /> */}
             </div>
         </Fade>
     );
