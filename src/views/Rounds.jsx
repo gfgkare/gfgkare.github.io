@@ -15,7 +15,7 @@ export default function Rounds() {
         {
             icon: <PiCircleFill className="icon" />,
             name: "Round 1 - Quiz",
-            where: "Seminar Hall",
+            where: "8th Block Seminar Hall",
             date: "Dec 20 2023",
             time: "4PM - 6PM",
             description: "A written quiz round covering 50 algorithms, their time complexity and related scenario-based problems."

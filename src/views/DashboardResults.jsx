@@ -90,7 +90,7 @@ export default function DashboardResults(props) {
 
                 <div className="splitter"></div>
 
-                <div className="title">Round 5 - Coding <IoIosLock size={"25px"} /></div>
+                <div className="title round5">Round 5 - Coding <IoIosLock size={"25px"} /></div>
 
                 <div className="splitter"></div>
 

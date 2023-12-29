@@ -25,6 +25,10 @@
         }
     }
 
+    .round5 {
+        margin-bottom: 5rem;
+    }
+
     .splitter {
         margin-bottom: 2rem;
         width: 90%;
@@ -33,5 +37,12 @@
         -webkit-mask-image: linear-gradient(to left, transparent, white 10%, white 90%, transparent);
         background-color: rgba(black, .2);
         border-radius: 8px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .resultBigTitle {
+        padding-left: 2rem;
     }
 }

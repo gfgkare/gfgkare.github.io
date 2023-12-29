@@ -113,7 +113,9 @@ export default function Overview() {
                                 )}
                             </CircularProgressbarWithChildren>
                         </div>
-                        <div className="bottomText">Well Done!</div>
+                        <div className="bottomText">
+                            {  (circlePerc > 50) ? <>Excellent Work!</> : (circlePerc > 40) ? <>Great Job!</> : (circlePerc > 20) ? <>Well done!</> : <>Great!</>   }
+                        </div>
                     </div>
                 </div>
 
