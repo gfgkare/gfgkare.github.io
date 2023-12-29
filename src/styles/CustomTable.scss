@@ -26,20 +26,21 @@
 
         
         div {
-                padding: 1rem 0;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-                &:first-child {
-                    border-radius: 8px 0 0 0;
-                }
-
-                &:last-child {
-                    border-radius: 0 8px 0 0;
-                }
+            &:first-child {
+                border-radius: 8px 0 0 0;
             }
+
+            &:last-child {
+                border-radius: 0 8px 0 0;
+            }
+        }
     }
 
     .rows {
