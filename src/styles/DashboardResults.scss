@@ -45,4 +45,20 @@
     .resultBigTitle {
         padding-left: 2rem;
     }
+
+    .customTable {
+        transform: scale(0.7);
+
+        .header {
+            font-size: 10px;
+        }
+
+        .rows {
+            font-size: 8px;
+        }
+
+        .pagination {
+            transform: scale(.7);
+        }
+    }
 }
