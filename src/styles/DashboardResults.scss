@@ -1,0 +1,37 @@
+
+
+.dashboardResults {
+
+    .resultBigTitle {
+        font-weight: 1000;
+        font-size: xx-large;
+
+    }
+
+    .title {
+        font-weight: 800;
+        font-size: x-large;
+        width: 100%;
+        text-align: center;
+        margin: 3rem 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        svg {
+            color: rgb(146, 130, 36);
+        }
+    }
+
+    .splitter {
+        margin-bottom: 2rem;
+        width: 90%;
+        height: 2px;
+        margin: 0 auto;
+        -webkit-mask-image: linear-gradient(to left, transparent, white 10%, white 90%, transparent);
+        background-color: rgba(black, .2);
+        border-radius: 8px;
+    }
+}

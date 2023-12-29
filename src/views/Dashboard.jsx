@@ -4,6 +4,8 @@ import { Outlet, useNavigate, Link } from "react-router-dom";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { PiVideoLight } from "react-icons/pi";
 import { GoInfo } from "react-icons/go";
+import { TbSpeakerphone } from "react-icons/tb";
+
 
 import { VscLinkExternal, VscLayers } from "react-icons/vsc";
 import { CiCircleList } from "react-icons/ci";
@@ -126,12 +128,17 @@ export default function Dashboard() {
                                 <div className="icons">
                                     { (!error) ?  ( <div className="tab" onClick={() => navigate("/dashboard")}>
                                         <div className="icon"><LuLayoutDashboard size="25px" strokeWidth={1.25} /></div>
-                                        <span className="name">Overview</span>
+                                        <span className="name">Dashboard</span>
                                     </div> ) : <></>}
 
                                     <div className="tab"  onClick={() => navigate("/dashboard/rounds")}>
                                         <div className="icon"> <VscLayers size="25px" /> </div>
                                         <span className="name">Rounds</span>
+                                    </div>
+
+                                    <div className="tab"  onClick={() => navigate("/dashboard/results")}>
+                                        <div className="icon"> <TbSpeakerphone size="25px" strokeWidth={1} /> </div>
+                                        <span className="name">Results</span>
                                     </div>
 
                                     {/* <Link className="tab" target="_blank">

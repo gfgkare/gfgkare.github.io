@@ -331,7 +331,7 @@ $leftNavOpenSize: 240px;
                         border-radius: 12px;
                         
                         display: flex;
-                        // flex-direction: column;
+                        flex-direction: column;
                         justify-content: center;
                         // gap: .5rem;
 
@@ -341,12 +341,15 @@ $leftNavOpenSize: 240px;
                         }
 
                         div.marks {
-                            flex: 1.3;
+                            background: linear-gradient(to left, rgba(76, 181, 76, 0.8), rgba(121, 211, 121, 0.8) );
+                            // width: 90%;
+                            overflow: visible;
                             height: 90%;
                             margin: auto 0;
+                            padding: 1rem 0;
                             display: flex;
                             flex-direction: column;
-
+                            transition: width .3s ease;
 
                             span.title {
                                 flex: 1;
@@ -373,6 +376,12 @@ $leftNavOpenSize: 240px;
                                 justify-content: flex-start;
                                 align-items: baseline;
                                 gap: .3rem;
+
+                                .tooltip {
+                                    &:hover {
+                                        color: $background !important;
+                                    }
+                                }
     
                                 .large {
                                     font-size: 30px;
@@ -387,7 +396,7 @@ $leftNavOpenSize: 240px;
                         }
 
                         div.icon {
-                            flex: 1;
+                            // flex: 1;
                             background-color: rgba(black, .2);
                         }
 
@@ -432,7 +441,8 @@ $leftNavOpenSize: 240px;
                         // align-items: flex-start;
 
                         .rowContainer {
-                            max-height: 90px;
+                            height: 90px;
+                            max-height: max-content;
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -450,14 +460,19 @@ $leftNavOpenSize: 240px;
 
                             .row {
                                 height: 50px;
+                                max-height: max-content;
                                 width: 100%;
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
                                 gap: 1rem;
 
-                                svg {
+                                .rank {
+                                    font-weight: 800;
+                                    font-size: 24px;
+                                    font-style: italic;
                                     margin-left: .5rem;
+                                    color: rgba(black, .8);
                                 }
 
 
@@ -640,10 +655,41 @@ $leftNavOpenSize: 240px;
         
                 .bestPerformers {
                     width: min(400px, 80%);
+                    margin-bottom: 5rem;
+
+                    .rows {
+
+                        .rowContainer {
+                            height: 100px !important;
+                        }
+                        .row {
+                            padding: 1rem 0;
+                            height: 70px;
+                            font-size: 18px;
+
+                            .name {
+                                .left {
+                                    .displayName {
+                                        flex: 2;
+                                        max-height: max-content;
+                                    }
+                                    .dept {
+                                        flex: 1;
+                                        max-height: max-content;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
     
+}
+
+
+#my-tooltip__show {
+    opacity: 1 !important;
 }

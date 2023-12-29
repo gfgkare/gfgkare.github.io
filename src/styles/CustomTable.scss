@@ -3,12 +3,15 @@
 
 
 .customTable {
+    font-size: small;
     position: relative;
     width: 100%;
     margin-bottom: 3rem;
 
 
     .headers {
+        font-weight: 600;
+        font-size: medium;
         width: 100%;
         
         display: flex;
@@ -16,8 +19,11 @@
         align-items: center;
 
         background-color: rgba(38, 70, 38, 0.05);
-        border: 2px solid rgba(black, .3);
+        border: 2px solid rgba(black, .3);  
         border-radius: 8px 8px 0 0;
+
+        padding: .5rem 0;
+
         
         div {
                 padding: 1rem 0;
@@ -52,6 +58,8 @@
             align-items: center;
             border: 2px solid rgba(black, .3);
             border-color: rgba(black, .3) rgba(black, .3) transparent rgba(black, .3);
+
+            padding: .5rem 0;
 
             &:first-child {
                 border-top-color: transparent;
@@ -96,10 +104,33 @@
             justify-content: center;
             align-items: center;
 
+            transition: opacity .4s ease;
+            transition-delay: 0ms !important;
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: .5;
+            }
+
             &.active {
                 background-color: rgba(black, .03);
                 border: 3px solid rgba(black, .8) !important;
             }
+        }
+
+        input {
+            margin-left: 1rem;
+            width: 60px;
+            padding: .7rem 0;
+            border-radius: 8px;
+            border-style: none;
+
+            text-align: center;
+
+            color: rgba(black, .8);
+            background-color: transparent;
+            border: 1px solid black;
+
         }
     }
 }
