@@ -134,10 +134,10 @@ export default function Dashboard() {
                                         <span className="name">Rounds</span>
                                     </div>
 
-                                    <Link className="tab" target="_blank">
+                                    {/* <Link className="tab" target="_blank">
                                         <div className="icon"> <GoInfo  size="25px" /> </div>
                                         <div className="name"> Rule Book <VscLinkExternal /></div>
-                                    </Link>
+                                    </Link> */}
 
                                     <Link className="tab" target="_blank">
                                         <div className="icon"><PiVideoLight className="icon" size="15px" /></div>
