@@ -66,7 +66,10 @@ export default function Dashboard() {
         if (USER_PRESENT()) { 
             console.log(currentUser.displayName);
 
-            axios.post("get_dashdata", { eventID: "algo2024", admin: "ohyea" }, { headers: { "Authorization": `${currentUser.accessToken}` } })
+            axios.post(
+            "get_dashdata", 
+            { eventID: "algo2024" },  //admin: "ohyes"
+            { headers: { "Authorization": `${currentUser.accessToken}` } })
             .then((res) => {
                 console.log(res.data);
 
