@@ -20,6 +20,8 @@ import gfgLogo from "../assets/GFG_KARE.svg"
 import Fade from "../components/Fade";
 
 
+import axios from "../scripts/axiosConfig";
+
 export default function Dashboard() {
 
     const { currentUser, USER_PRESENT, USER_LOADING, signinwithpopup } = useAuth();
@@ -30,7 +32,24 @@ export default function Dashboard() {
     const [animationDone, setAnimationDone] = useState(false);
 
     const [isExploding, setIsExploding] = useState(false);
+
     const [pageToShow, setPageToShow] = useState("loading");
+    const [error, setError] = useState("");
+
+    const [tableRows, setTableRows] = useState([]);
+
+
+    // MARKS VARS
+    const [totalMarks, setTotalMarks] = useState("-");
+    const [totalScoredMarks, setTotalScoredMarks] = useState("-");
+
+    const [correctlyAnswered, setCorrectlyAnswered] = useState("-");
+    const [incorrectlyAnswered, setIncorrectlyAnswered] = useState("-");
+
+    const [positiveMarks, setPositiveMarks] = useState("-");
+    const [negativeMarks, setNegativeMarks] = useState("-");
+
+
 
     const visualsRef = useRef(null);
 
@@ -46,7 +65,34 @@ export default function Dashboard() {
         console.log(currentUser);
         if (USER_PRESENT()) { 
             console.log(currentUser.displayName);
-             setPageToShow("open")
+
+            axios.post("get_dashdata", { eventID: "algo2024", admin: "ohyea" }, { headers: { "Authorization": `${currentUser.accessToken}` } })
+            .then((res) => {
+                console.log(res.data);
+
+                setTotalMarks(res.data.totalMarks);
+                setTotalScoredMarks(res.data.totalScoredMarks);
+
+                setCorrectlyAnswered(res.data.correctlyAnswered);
+                setIncorrectlyAnswered(res.data.incorrectlyAnswered);
+                
+                setPositiveMarks(res.data.positiveMarks);
+                setNegativeMarks(res.data.negativeMarks);
+
+                setPageToShow("open");
+
+                setTimeout(() => {
+                    setCirclePerc(res.data.percentage);
+                }, 1000)
+
+            })
+            .catch((e) => {
+                console.error(e);
+                setError(e.response.data.error);
+                setPageToShow("open")
+                navigate("/dashboard/error");
+            })
+            
         }
         else if (USER_LOADING()) setPageToShow("loading");
         else if (!USER_PRESENT()) setPageToShow("login");
@@ -58,7 +104,6 @@ export default function Dashboard() {
             setTimeout(() => {
                 console.log(currentUser);
                 setIsVisible(true);
-                setCirclePerc(95);
             }, 1000);
         }
     }, [pageToShow])
@@ -75,10 +120,10 @@ export default function Dashboard() {
                                 </div>
 
                                 <div className="icons">
-                                    <div className="tab" onClick={() => navigate("/dashboard")}>
+                                    { (!error) ?  ( <div className="tab" onClick={() => navigate("/dashboard")}>
                                         <div className="icon"><LuLayoutDashboard size="25px" strokeWidth={1.25} /></div>
                                         <span className="name">Overview</span>
-                                    </div>
+                                    </div> ) : <></>}
 
                                     <div className="tab"  onClick={() => navigate("/dashboard/rounds")}>
                                         <div className="icon"> <VscLayers size="25px" /> </div>
@@ -119,7 +164,9 @@ export default function Dashboard() {
                                 <div className="rightDiv">
                                     {
                                         (USER_PRESENT()) ? (
-                                            <Outlet context={[currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone]} />
+                                            <Outlet context={
+                                                [currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, 
+                                                totalMarks, totalScoredMarks, correctlyAnswered, incorrectlyAnswered,positiveMarks, negativeMarks, error ]} />
                                         ) : (
                                             <></>
                                         )

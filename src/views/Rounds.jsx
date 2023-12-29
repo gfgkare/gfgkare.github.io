@@ -18,39 +18,39 @@ export default function Rounds() {
             where: "Seminar Hall",
             date: "Dec 20 2023",
             time: "4PM - 6PM",
-            description: "lorem ipsum"
+            description: "A written quiz round covering 50 algorithms, their time complexity and related scenario-based problems."
         },
         {
             icon: <PiTriangleFill className="icon" />,
             name: "Round 2 - Seminar",
-            where: "Seminar Hall",
-            date: "Dec 20 2023",
+            where: "To Be Announced",
+            date: "Jan 9 and 10, 2024",
             time: "4PM - 6PM",
-            description: "lorem ipsum"
+            description: "Participants can take any one algorithm and should explain it with its efficiency, a list of problems that can be solved using the algorithms, practical applications, and an efficient program for one application"
         },
         {
             icon: <PiSquareFill className="icon" />,
-            name: "Round 3 - QA",
-            where: "Seminar Hall",
-            date: "Dec 20 2023",
+            name: "Round 3 - QnA",
+            where: "To Be Announced",
+            date: "Feb 03 2024",
             time: "4PM - 6PM",
-            description: "lorem ipsum"
+            description: "Each participant should come up with one scenario-based problem and challenge others. Prizes will be given to the best questions as well as to the best solutions"
         },
         {
             icon: <PiDiamondFill className="icon" />,
             name: "Round 4 - Debugging",
-            where: "Seminar Hall",
-            date: "Dec 20 2023",
+            where: "To Be Announced",
+            date: "Mar 02 2024",
             time: "4PM - 6PM",
-            description: "lorem ipsum"
+            description: "Programs with errors covering any of the 50 algorithms will be given. Participants should debug the errors and get an executable version."
         },
         {
             icon: <TbPentagonFilled className="icon" />,
             name: "Round 5 - Coding",
-            where: "Seminar Hall",
-            date: "Dec 20 2023",
-            time: "4PM - 6PM",
-            description: "lorem ipsum"
+            where: "To Be Announced",
+            date: "Mar 20 2024",
+            time: "To Be Announced",
+            description: "Participants will be given scenario-based problems. Using any of the 50 suitable algorithms, students should provide a solution. During verification, students should explain the reason for the selection of the algorithm for the given problem."
         },
     ]
 

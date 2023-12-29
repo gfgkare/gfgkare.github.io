@@ -35,7 +35,7 @@ export default function EventStatDashboard() {
                             ? "Waiting"
                             : "Not Registered"
                     )
-                );
+            );
         }
     }, [currentUser]);
 

@@ -1,0 +1,105 @@
+
+
+
+
+.customTable {
+    position: relative;
+    width: 100%;
+    margin-bottom: 3rem;
+
+
+    .headers {
+        width: 100%;
+        
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        background-color: rgba(38, 70, 38, 0.05);
+        border: 2px solid rgba(black, .3);
+        border-radius: 8px 8px 0 0;
+        
+        div {
+                padding: 1rem 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:first-child {
+                    border-radius: 8px 0 0 0;
+                }
+
+                &:last-child {
+                    border-radius: 0 8px 0 0;
+                }
+            }
+    }
+
+    .rows {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;       //! SET LAST CHILD BRAD INSTEAD OF THIS.
+
+        &:last-child {
+            border-radius: 0 0 8px 8px !important;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 2px solid rgba(black, .3);
+            border-color: rgba(black, .3) rgba(black, .3) transparent rgba(black, .3);
+
+            &:first-child {
+                border-top-color: transparent;
+            }
+
+            &:last-child {
+                border-bottom-color: rgba(black, .3);
+            }
+
+            &.even {
+                background-color: rgba(black, .1);
+            }
+
+            &.odd {
+                background-color: rgba(black, .05);
+            }
+
+            div {
+                padding: .5rem 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .pagination {
+        width: 100%;
+        padding: 1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        button {
+            background-color: rgba(black, .1);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active {
+                background-color: rgba(black, .03);
+                border: 3px solid rgba(black, .8) !important;
+            }
+        }
+    }
+}
