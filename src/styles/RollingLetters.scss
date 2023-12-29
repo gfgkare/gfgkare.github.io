@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+
+
+.rollingLetters {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box {
+        font-size: 50px;
+        font-weight: 600;
+        font-family: "Outfit";
+        // border: 1px solid black;
+        height: 50px;
+        width:100%;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: max-content;
+      width: 50px;
+
+      .letterG {
+        color: rgb(28, 131, 28);
+      }
+      
+      &.even {
+        flex-direction: column-reverse;
+        // background-color: red;
+        animation: rollUp 1.5s forwards;
+      }
+      
+      &.odd {
+        flex-direction: column;
+        // background-color: blue;
+        animation: rollDown 1.5s forwards;
+      }
+    }
+    
+    @for $i from 1 through 20 {
+        .box .container:nth-child(#{$i}n) {
+            // background-color:rgba(0,0,0,$i*.5);
+            animation-delay: #{$i * 0.05}s;
+        }
+    }
+    
+    @keyframes rollUp {
+      from {
+        transform: translate(0);
+      }
+      to {
+        transform: translateY(-48%);
+      }
+    }
+    
+    @keyframes rollDown {
+      from {
+        transform: translateY(-50%);
+      }
+      to {
+        transform: translateY(46.8%);
+      }
+    }
+
+
+    @media (max-width: 700px) {
+        .box {
+            font-size: 28px;
+            height: 40px;
+        }
+    }
+
+}

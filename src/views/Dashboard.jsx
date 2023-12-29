@@ -21,6 +21,7 @@ import Fade from "../components/Fade";
 
 
 import axios from "../scripts/axiosConfig";
+import RollingLetters from "../components/RollingLetters";
 
 export default function Dashboard() {
 
@@ -68,7 +69,7 @@ export default function Dashboard() {
 
             axios.post(
             "get_dashdata", 
-            { eventID: "algo2024" },  //admin: "ohyes"
+            { eventID: "algo2024", admin: "ohyea" },  //admin: "ohyes"
             { headers: { "Authorization": `${currentUser.accessToken}` } })
             .then((res) => {
                 console.log(res.data);
@@ -180,7 +181,7 @@ export default function Dashboard() {
                     ) : (
                         // (USER_LOADING()) ? (
                         (pageToShow === "loading") ? (
-                            "loading..."
+                            <RollingLetters />
                         ) : (
                             <div className="notSignedIn">
                                 Log in to use the dashboard.
