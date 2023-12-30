@@ -9,6 +9,32 @@
     margin-bottom: 3rem;
 
 
+    .searchBarContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .searchBar {
+            border-radius: 8px;
+            background-color: transparent;
+            border: 1px solid rgba(black, .5);
+            padding: 1rem 2rem;
+            color: black;
+            margin: 1rem 0;
+            outline: none;
+    
+            width: 80%;
+
+            &:focus, &:active, &:hover {
+                border-color: rgba(black, .8);
+            }
+        }
+    }
+    
+
+
     .headers {
         font-weight: 600;
         font-size: medium;

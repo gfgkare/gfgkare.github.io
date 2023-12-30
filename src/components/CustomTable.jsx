@@ -3,12 +3,17 @@ import useArray from "../hooks/useArray";
 import "../styles/CustomTable.scss";
 
 import { useState, useRef } from "react";
+import { useDebounce } from "use-debounce";
+
 
 
 export default function CustomTable(props) {
 
     const [startIndex, setStartIndex] = useState(0);
     const [stopIndex, setStopIndex] = useState(10);
+
+    const [searchValue, setSearchValue] = useState("");
+    const [debouncedValue] = useDebounce(searchValue, 500);
 
     const filteredRows = useArray(props.rows);
 
@@ -28,14 +33,24 @@ export default function CustomTable(props) {
     }
 
     const handlePageInputChange = () => {
-
         if ( pageInput.current.value > 0 && pageInput.current.value <= Math.ceil(props.rows.length / 10)  ) {
             setStartIndex( (pageInput.current.value - 1)*10 );
             setStopIndex( (pageInput.current.value)*10 );
         }
-
-        
     }
+
+    const handleRegNoSearch = (e) => {
+        setSearchValue(e.currentTarget.value);
+    }
+
+    useEffect(() => {
+        if (debouncedValue === "") {
+            filteredRows.setValue(props.rows.slice(startIndex, stopIndex));
+        }
+        else {
+            filteredRows.setValue( props.rows.filter((row) => row.userData.regNo.includes(debouncedValue) ) )
+        }
+    }, [debouncedValue])
 
     useEffect(() => {
         console.log(startIndex)
@@ -49,6 +64,11 @@ export default function CustomTable(props) {
     return (
 
         <div className="customTable">
+
+            <div className="searchBarContainer">
+                <input type="text" className="searchBar" placeholder="Enter register number to search..." onChange={handleRegNoSearch} />
+            </div>
+
             <div className="headers">
                 {
                     props.headers.map((header) => {
