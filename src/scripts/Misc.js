@@ -213,3 +213,54 @@ export const utcToLocalTimeStamp = (utcTimestamp) => {
     // const timestampLocalInSeconds = timestampLocal / 1000;
     return timestampLocal;
 }
+
+
+
+export function toReadableTime(timestamp) {
+    timestamp = parseFloat(timestamp)
+    let minutes = Math.floor(timestamp);
+    const seconds = Math.round((timestamp - minutes) * 60);
+  
+    let hours = 0;
+    if (minutes >= 60) {
+      hours = Math.floor(minutes / 60);
+      minutes %= 60;
+    }
+  
+    const timeParts = [];
+    if (hours > 0) {
+      timeParts.push(`${hours} ${hours === 1 ? 'hour' : 'hours'}`);
+    }
+    if (minutes > 0) {
+      timeParts.push(`${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`);
+    }
+    if (seconds > 0) {
+      timeParts.push(`${seconds} ${seconds === 1 ? 'second' : 'seconds'}`);
+    }
+  
+    if (timeParts.length > 1) {
+      const lastIndex = timeParts.length - 1;
+      timeParts.splice(lastIndex, 0, 'and');
+    }
+  
+    return timeParts.join(' ');
+  }
+
+export const getFirstName = (fullDisplayName) => {
+    if (fullDisplayName) return toCapitalCase(fullDisplayName?.split(" ")[0]);
+}
+
+export const extractName = (inputName) => {
+    const match = inputName.match(/^[^\d]+/);
+  
+    if (match) {
+      const formattedName = match[0].toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+      return formattedName;
+    }
+  
+    return inputName;
+  }
+
+export const toCapitalCase = (name) => {
+    return name[0].toUpperCase() + name?.slice(1).toLowerCase()
+}

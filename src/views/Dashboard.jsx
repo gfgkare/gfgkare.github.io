@@ -20,10 +20,12 @@ import "../styles/Dahsboard.scss";
 import { useAuth } from "../contexts/AuthContext"
 import gfgLogo from "../assets/GFG_KARE.svg"
 import Fade from "../components/Fade";
+import QualifiedPopup from '../components/QualifiedPopup';
 
 
 import axios from "../scripts/axiosConfig";
 import RollingLetters from "../components/RollingLetters";
+import { getFirstName } from "../scripts/Misc";
 
 export default function Dashboard() {
 
@@ -43,16 +45,9 @@ export default function Dashboard() {
 
 
     // MARKS VARS
-    const [totalMarks, setTotalMarks] = useState("-");
-    const [totalScoredMarks, setTotalScoredMarks] = useState("-");
-
-    const [correctlyAnswered, setCorrectlyAnswered] = useState("-");
-    const [incorrectlyAnswered, setIncorrectlyAnswered] = useState("-");
-
-    const [positiveMarks, setPositiveMarks] = useState("-");
-    const [negativeMarks, setNegativeMarks] = useState("-");
-
-
+    const [resultData, setResultData] = useState({});
+    const [qualified, setQualified] = useState(false);
+    const [showQualifiedPopup, setShowQualifiedPopup] = useState(true);
 
     const visualsRef = useRef(null);
 
@@ -71,30 +66,25 @@ export default function Dashboard() {
 
             axios.post(
             "get_dashdata", 
-            { eventID: "algo2024" },  //admin: "ohyes"
+            { eventID: "algo2024", admin: "ohyea" },  //admin: "ohyes"
             { headers: { "Authorization": `${currentUser.accessToken}` } })
             .then((res) => {
                 console.log(res.data);
 
-                setTotalMarks(res.data.totalMarks);
-                setTotalScoredMarks(res.data.totalScoredMarks);
-
-                setCorrectlyAnswered(res.data.correctlyAnswered);
-                setIncorrectlyAnswered(res.data.incorrectlyAnswered);
-                
-                setPositiveMarks(res.data.positiveMarks);
-                setNegativeMarks(res.data.negativeMarks);
-
+                setResultData(res.data);
                 setPageToShow("open");
 
                 setTimeout(() => {
                     setCirclePerc(res.data.percentage);
-                }, 1000)
+
+                    setTimeout(() => {
+                        setQualified(res.data.qualified);
+                    }, 5000);
+                }, 1000);
 
             })
             .catch((e) => {
-                console.error(e);
-                setError(e.response.data.error);
+                setError(e.response?.data?.error);
                 setPageToShow("open")
                 navigate("/dashboard/error");
             })
@@ -116,6 +106,9 @@ export default function Dashboard() {
 
     return (
             <div className="dashboard">
+                {
+                    (qualified && showQualifiedPopup) ? <QualifiedPopup name={ getFirstName(currentUser.displayName) } close={() => setShowQualifiedPopup(false)} /> : <></>
+                }
                 {
                     (pageToShow === "open") ? (
                         <Fade>
@@ -176,8 +169,7 @@ export default function Dashboard() {
                                     {
                                         (USER_PRESENT()) ? (
                                             <Outlet context={
-                                                [currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, 
-                                                totalMarks, totalScoredMarks, correctlyAnswered, incorrectlyAnswered,positiveMarks, negativeMarks, error ]} />
+                                                [ currentUser, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, setShowQualifiedPopup, error ]} />
                                         ) : (
                                             <></>
                                         )

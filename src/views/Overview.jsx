@@ -8,66 +8,25 @@ import { useEffect, useRef } from 'react';
 
 import Fade from '../components/Fade';
 
-
 import algo24Top from "../data/algo24Top";
+
+import { toReadableTime, getFirstName, extractName, toCapitalCase  } from "../scripts/Misc";
+
+import { GoStarFill } from "react-icons/go";
+import { GiExpand } from "react-icons/gi";
+
 
 export default function Overview() {
 
     const navigate = useNavigate();
 
+    // const [
+    //     currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, totalMarks, totalScoredMarks, 
+    //     correctlyAnswered, incorrectlyAnswered,positiveMarks, negativeMarks, qualified, error] = useOutletContext();
+
     const [
-        currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, totalMarks, totalScoredMarks, 
-        correctlyAnswered, incorrectlyAnswered,positiveMarks, negativeMarks, error] = useOutletContext();
-
-    
-    function toReadableTime(timestamp) {
-        timestamp = parseFloat(timestamp)
-        let minutes = Math.floor(timestamp);
-        const seconds = Math.round((timestamp - minutes) * 60);
-      
-        let hours = 0;
-        if (minutes >= 60) {
-          hours = Math.floor(minutes / 60);
-          minutes %= 60;
-        }
-      
-        const timeParts = [];
-        if (hours > 0) {
-          timeParts.push(`${hours} ${hours === 1 ? 'hour' : 'hours'}`);
-        }
-        if (minutes > 0) {
-          timeParts.push(`${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`);
-        }
-        if (seconds > 0) {
-          timeParts.push(`${seconds} ${seconds === 1 ? 'second' : 'seconds'}`);
-        }
-      
-        if (timeParts.length > 1) {
-          const lastIndex = timeParts.length - 1;
-          timeParts.splice(lastIndex, 0, 'and');
-        }
-      
-        return timeParts.join(' ');
-      }
+        currentUser, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, setShowQualifiedPopup, error] = useOutletContext();
    
-    const getFirstName = (fullDisplayName) => {
-        if (fullDisplayName) return toTitleCase(fullDisplayName?.split(" ")[0]);
-    }
-
-    const extractName = (inputName) => {
-        const match = inputName.match(/^[^\d]+/);
-      
-        if (match) {
-          const formattedName = match[0].toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-          return formattedName;
-        }
-      
-        return inputName;
-      }
-
-    const toTitleCase = (name) => {
-        return name[0].toUpperCase() + name?.slice(1).toLowerCase()
-    }
 
     useEffect(() => {
         console.log("Overview init.");
@@ -91,7 +50,7 @@ export default function Overview() {
                         <div className="percentage">
                             <CircularProgressbarWithChildren
                                 className="compProgress"
-                                value={circlePerc}
+                                value={resultData.percentage}
                                 strokeWidth={6}
                                 styles={buildStyles({
                                     pathTransitionDuration: 3,
@@ -102,19 +61,19 @@ export default function Overview() {
                                         <CountUp
                                             className="circularProgressText"
                                             start={0}
-                                            end={circlePerc}
+                                            end={resultData.percentage}
                                             duration={5}
                                             onEnd={celebrate}
                                         />
                                         %
                                     </>
                                 ) : (
-                                    <>{circlePerc}%</>
+                                    <>{resultData.percentage}%</>
                                 )}
                             </CircularProgressbarWithChildren>
                         </div>
                         <div className="bottomText">
-                            {  (circlePerc > 50) ? <>Excellent Work!</> : (circlePerc > 40) ? <>Great Job!</> : (circlePerc > 20) ? <>Well done!</> : <>Great!</>   }
+                            {  (resultData.percentage > 50) ? <>Excellent Work!</> : (resultData.percentage > 40) ? <>Great Job!</> : (resultData.percentage > 20) ? <>Well done!</> : <>Great!</>   }
                         </div>
                     </div>
                 </div>
@@ -124,7 +83,7 @@ export default function Overview() {
                         <div className="marks">
                             <span className="title">Total Marks</span>
                             <span className="number">
-                                {totalScoredMarks}/{totalMarks}
+                                {resultData.totalScoredMarks}/{resultData.totalMarks}
                             </span>
                         </div>
                         {/* <div className="icon"></div> */}
@@ -133,8 +92,8 @@ export default function Overview() {
                         <div className="marks">
                             <span className="title">Correctly Answered</span>
                             <span className="number">
-                                <span className="large">{correctlyAnswered}</span>
-                                <span className="small">(+{positiveMarks})</span>
+                                <span className="large">{resultData.correctlyAnswered}</span>
+                                <span className="small">(+{resultData.positiveMarks})</span>
                             </span>
                         </div>
                         {/* <div className="icon"></div> */}
@@ -143,8 +102,8 @@ export default function Overview() {
                         <div className="marks">
                             <span className="title">Incorrectly Answered</span>
                             <span className="number">
-                                <span className="large">{incorrectlyAnswered}</span>
-                                <span className="small">({negativeMarks})</span>
+                                <span className="large">{resultData.incorrectlyAnswered}</span>
+                                <span className="small">({resultData.negativeMarks})</span>
                             </span>
                         </div>
                         {/* <div className="icon"></div> */}
@@ -160,7 +119,7 @@ export default function Overview() {
                     <div className="rows">
                         {algo24Top.slice(0,5).map((row, index) => {
                             return (
-                                <div className="rowContainer">
+                                <div className="rowContainer" key={index}>
                                     <div className="row">
                                         <span className="rank">
                                             #{index+1}
@@ -168,11 +127,11 @@ export default function Overview() {
                                         {/* <MdOutlineStars size={"40px"} /> */}
                                         <div className="name">
                                             <div className="left">
-                                                <Link
+                                                <div
                                                     className="displayName"
                                                 >
                                                     {extractName(row.userData.name)}
-                                                </Link>
+                                                </div>
                                                 <div className="dept">
                                                     Completed in {toReadableTime(row.userData.completionTime)}
                                                 </div>
@@ -194,8 +153,29 @@ export default function Overview() {
                 </div>
             </div>
 
-            {/* <div className="leaderboard" ref={leaderBoard}>
-            </div> */}
+            {
+                <div className="leaderboard" >
+                    <div className="container">
+                    <span className="statusMessage">
+                        {
+                            (resultData.qualified) ? (
+                                <>
+                                    <GoStarFill />
+                                    Congratulations { getFirstName(currentUser.displayName)  }! You have qualified for Round 2 of Algorithmist'24!
+                                    <span className="showPopup" onClick={() => {
+                                        celebrate();
+                                        setShowQualifiedPopup(true);
+                                    }}><GiExpand /></span>
+                                </>
+                            ) : (
+                                <>You did not qualify for Round 2, but be sure to join more contests. Can't wait to see you win!</>
+                            )
+                        }
+                        </span>
+                    </div>
+                </div>
+            }
+           
         </Fade>
     );
 }

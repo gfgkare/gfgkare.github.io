@@ -489,15 +489,12 @@ $leftNavOpenSize: 240px;
                                         justify-content: center;
                                         align-items: flex-start;
 
-                                        a.displayName {
-                                            all: unset;
-                                            cursor: pointer;
+                                        .displayName {
                                             font-size: 18px;
                                             font-weight: 600;
 
                                             &:hover {
                                                 color: $background !important;
-                                                text-decoration: underline;
                                             }
                                         }
                                         
@@ -537,12 +534,40 @@ $leftNavOpenSize: 240px;
                 }
             }
             .leaderboard {
+                width: 100%;
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
                 gap: 2rem;
                 padding: 2rem 0;
+
+                font-size: medium;
+
+                .statusMessage {
+                    font-weight: 600;
+                    max-width: max-content;
+                    padding: 1rem;
+                    background-color: rgb(127, 218, 115);
+                    border-radius: 8px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 1rem;
+
+                    span {
+                        cursor: pointer;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: .1rem;
+
+                        &:hover {
+                            background-color: rgba(white, .2);
+                        }
+                    }
+                }
 
             }
 
@@ -692,4 +717,11 @@ $leftNavOpenSize: 240px;
 
 #my-tooltip__show {
     opacity: 1 !important;
+}
+
+
+@media (max-width: 700px) {
+    .leaderboard {
+        padding: 2rem 0;
+    }    
 }

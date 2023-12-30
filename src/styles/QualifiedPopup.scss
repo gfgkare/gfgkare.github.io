@@ -1,0 +1,137 @@
+$green: #6EA644;
+$white: #fff;
+
+.qualifiedPopup {
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh;
+    width: 100vw;
+
+    opacity: .8;
+
+    z-index: 98;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(black, .6);
+    backdrop-filter: blur(4px);
+
+    transition: all .2s ease;
+
+    &.visible {
+        opacity: 1;
+
+        .box {
+            transform: scale(1);
+        }
+    }
+
+    &.closed {
+        opacity: 0;
+
+        .box {
+            transform: scale(.6);
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+        padding: 1rem 1.2rem;
+
+        background-color: rgba(white, .4);
+        border: none;
+        border-radius: 0 0 0 8px;
+        color: rgba(rgb(240, 43, 43), .6);
+        font-weight: 900;
+        font-size: large;
+        
+        transition: all .2s cubic-bezier(0.41, 1, 0.44, 1.04);
+
+        &:hover {
+            background-color: rgba(white, .6);
+            color: rgba(rgb(240, 43, 43), .8);
+        }
+    }
+
+
+    .box {
+        transform: scale(.7);
+        width: min(90%, 500px);
+        height: min(70%, 300px);
+        max-height: max-content;
+        background-color: rgba(white, .9);
+        border-radius: 8px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        transition: transform .3s cubic-bezier(0.41, 1, 0.44, 1.04);
+
+
+        .greet {
+            font-weight: 600;
+            font-size: x-large;
+        }
+
+        .qualifiedMessage {
+            font-weight: 600;
+            font-size: medium;
+
+            .rainbow {
+                text-align: center;
+                text-decoration: underline;
+                font-weight: 800;
+            }
+            .rainbow_text_animated {
+                background: linear-gradient(to right, #5151be, #0c72b7 , #19c119, #be196b, #2d2dd4);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: rainbow_animation 6s ease-in-out infinite;
+                background-size: 400% 100%;
+            }
+    
+        }
+
+        
+        @keyframes rainbow_animation {
+            0%,100% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 100% 0;
+            }
+        }
+
+        img {
+            max-width: 130px;
+            max-height: 130px;
+            object-fit: contain;
+        }
+
+    }
+}
+
+
+@media (max-width: 700px) {
+    .greet {
+        font-size: medium;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    .qualifiedMessage {
+        font-size: small;
+        text-align: center;
+        padding: 0 1rem;
+    }
+}
