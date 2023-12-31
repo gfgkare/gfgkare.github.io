@@ -725,7 +725,7 @@ $leftNavOpenSize: 240px;
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
     .bestPerformers {
 
@@ -748,5 +748,9 @@ $leftNavOpenSize: 240px;
 
     .leaderboard {
         padding: 2rem 0;
+
+        .container {
+            margin: 0 auto !important;
+        }
     }    
 }

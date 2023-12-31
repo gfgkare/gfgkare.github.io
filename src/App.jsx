@@ -79,14 +79,14 @@ export default function App() {
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
-                        {/* <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
+                        <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
                             <Route path="/dashboard" element={ <Overview /> }></Route>
                             <Route path="/dashboard/rounds" element={ <Rounds /> }></Route>
                             <Route path="/dashboard/results" element={ <DashboardResults /> }></Route>
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
-                        </Route> */}
-                        <Route path="/dashboard" element={ <Pickle /> }></Route>
+                        </Route>
+                        {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
 
                         <Route path="/*" element={ <NotFound /> }></Route>
                     </Routes>
