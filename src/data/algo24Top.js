@@ -33,7 +33,7 @@ const algo24Top = [
     {
         "userID": "I9vBBT4h1HNiPX0Xw5pmvBDvxZ22",
         "userData": {
-            "completionTime": "101.08",
+            "completionTime": "101.8",
             "name": "K YASHAS",
             "notes": "",
             "overallMarks": "61.75",
@@ -64,7 +64,7 @@ const algo24Top = [
     {
         "userID": "ro5KvjS1eHesilveNWivg5UTeH72",
         "userData": {
-            "completionTime": "97.00",
+            "completionTime": "99",
             "name": "Kovi Venkata Keerthi",
             "notes": "",
             "overallMarks": "47.5",
@@ -89,6 +89,37 @@ const algo24Top = [
                 "postiveMarks": "38",
                 "totalMarks": "36",
                 "wrongAnswers": "4"
+            }
+        }
+    },
+    {
+        "userID": "N3BFyfggbFfyg9q3tV8b6jpQAFy1",
+        "userData": {
+            "completionTime": "114.43",
+            "name": "MACHIREDDY DHAMINI ",
+            "notes": "",
+            "overallMarks": "46",
+            "regNo": "9921004910",
+            "section1": {
+                "correctAnswers": "13",
+                "negativeMarks": "-0.5",
+                "postiveMarks": "13",
+                "totalMarks": "12.5",
+                "wrongAnswers": "2"
+            },
+            "section2": {
+                "correctAnswers": "13",
+                "negativeMarks": "-0.5",
+                "postiveMarks": "13",
+                "totalMarks": "12.5",
+                "wrongAnswers": "2"
+            },
+            "section3": {
+                "correctAnswers": "12",
+                "negativeMarks": "-3",
+                "postiveMarks": "24",
+                "totalMarks": "21",
+                "wrongAnswers": "6"
             }
         }
     },
@@ -155,6 +186,37 @@ const algo24Top = [
         }
     },
     {
+        "userID": "Alv0tgzi0HftQy0GEZ07z3fCtwn2",
+        "userData": {
+            "completionTime": "110.10",
+            "name": "BRUNDAVANAM SUREKHA 2021-CSE",
+            "notes": "",
+            "overallMarks": "44.75",
+            "regNo": "98220040005",
+            "section1": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section2": {
+                "correctAnswers": "7",
+                "negativeMarks": "-2",
+                "postiveMarks": "7",
+                "totalMarks": "5",
+                "wrongAnswers": "8"
+            },
+            "section3": {
+                "correctAnswers": "20",
+                "negativeMarks": "-4",
+                "postiveMarks": "40",
+                "totalMarks": "36",
+                "wrongAnswers": "8"
+            }
+        }
+    },
+    {
         "userID": "wE3Z4RXkezesURCe13oJM5cgw3z1",
         "userData": {
             "completionTime": "90.21",
@@ -188,7 +250,7 @@ const algo24Top = [
     {
         "userID": "0blavzxdOCQVBPdPQOrshhCBwrn2",
         "userData": {
-            "completionTime": "65.28",
+            "completionTime": "65",
             "name": "MUTHALURU SRINADH 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "43.5",
@@ -219,7 +281,7 @@ const algo24Top = [
     {
         "userID": "P0Brbte3KMXHF1nMcsrNszB5P962",
         "userData": {
-            "completionTime": "82.22",
+            "completionTime": "72.22",
             "name": "Manju Vallabha Pavalla",
             "notes": "",
             "overallMarks": "40.75",
@@ -244,6 +306,37 @@ const algo24Top = [
                 "postiveMarks": "36",
                 "totalMarks": "32",
                 "wrongAnswers": "8"
+            }
+        }
+    },
+    {
+        "userID": "tyqBuOvGqXTwUuOOaoDp5X09wNr1",
+        "userData": {
+            "completionTime": "66.21",
+            "name": "KARNATAKAM ANVITHA",
+            "notes": "",
+            "overallMarks": "39.75",
+            "regNo": "9921004326",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-1.5",
+                "postiveMarks": "3",
+                "totalMarks": "1.5",
+                "wrongAnswers": "6"
+            },
+            "section2": {
+                "correctAnswers": "4",
+                "negativeMarks": "-1.75",
+                "postiveMarks": "4",
+                "totalMarks": "2.25",
+                "wrongAnswers": "7"
+            },
+            "section3": {
+                "correctAnswers": "19",
+                "negativeMarks": "-2",
+                "postiveMarks": "38",
+                "totalMarks": "36",
+                "wrongAnswers": "4"
             }
         }
     },
@@ -281,7 +374,7 @@ const algo24Top = [
     {
         "userID": "LtQ2JMw0cTfyc8OckZbDCpgp2n02",
         "userData": {
-            "completionTime": "82:31",
+            "completionTime": "88.31",
             "name": "NALLAMALLI VENKATA RAM TEJA 2022-CSE",
             "notes": "",
             "overallMarks": "39.5",
@@ -341,37 +434,6 @@ const algo24Top = [
         }
     },
     {
-        "userID": "N3BFyfggbFfyg9q3tV8b6jpQAFy1",
-        "userData": {
-            "completionTime": "114.43",
-            "name": "MACHIREDDY DHAMINI ",
-            "notes": "",
-            "overallMarks": "39.25",
-            "regNo": "9921004910",
-            "section1": {
-                "correctAnswers": "13",
-                "negativeMarks": "-0.5",
-                "postiveMarks": "13",
-                "totalMarks": "12.5",
-                "wrongAnswers": "2"
-            },
-            "section2": {
-                "correctAnswers": "12",
-                "negativeMarks": "-0.75",
-                "postiveMarks": "12",
-                "totalMarks": "11.25",
-                "wrongAnswers": "3"
-            },
-            "section3": {
-                "correctAnswers": "10",
-                "negativeMarks": "-4.5",
-                "postiveMarks": "20",
-                "totalMarks": "15.5",
-                "wrongAnswers": "9"
-            }
-        }
-    },
-    {
         "userID": "KfbYWBYhC5Y5ykiGUIOI9GbjXM52",
         "userData": {
             "completionTime": "99",
@@ -405,7 +467,7 @@ const algo24Top = [
     {
         "userID": "oTYisfqrExgAv3rYzObrs1B4zv43",
         "userData": {
-            "completionTime": "101.42",
+            "completionTime": "101",
             "name": "ANNAM HEMANTH KUMAR 2022-CSE",
             "notes": "",
             "overallMarks": "38.75",
@@ -436,7 +498,7 @@ const algo24Top = [
     {
         "userID": "icpkVAJfXaOzZcf5B3c06mGBV6r1",
         "userData": {
-            "completionTime": "96:00",
+            "completionTime": "96",
             "name": "JONNALAGADDA NIHIT 2022-CSE",
             "notes": "",
             "overallMarks": "37.75",
@@ -496,40 +558,40 @@ const algo24Top = [
         }
     },
     {
-        "userID": "tyqBuOvGqXTwUuOOaoDp5X09wNr1",
+        "userID": "bu87j37wuJhijP5DAgxtxHQpvVi2",
         "userData": {
-            "completionTime": "66.21",
-            "name": "KARNATAKAM ANVITHA",
+            "completionTime": "65.11",
+            "name": "null",
             "notes": "",
-            "overallMarks": "37.25",
-            "regNo": "9921004326",
+            "overallMarks": "37.5",
+            "regNo": "99210041733",
             "section1": {
-                "correctAnswers": "3",
-                "negativeMarks": "-1.5",
-                "postiveMarks": "3",
-                "totalMarks": "1.5",
-                "wrongAnswers": "6"
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
             },
             "section2": {
-                "correctAnswers": "4",
-                "negativeMarks": "-1.75",
-                "postiveMarks": "4",
-                "totalMarks": "2.25",
-                "wrongAnswers": "7"
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
             },
             "section3": {
-                "correctAnswers": "18",
-                "negativeMarks": "-2.5",
-                "postiveMarks": "36",
-                "totalMarks": "33.5",
-                "wrongAnswers": "5"
+                "correctAnswers": "19",
+                "negativeMarks": "-5.5",
+                "postiveMarks": "38",
+                "totalMarks": "32.5",
+                "wrongAnswers": "11"
             }
         }
     },
     {
         "userID": "8pV9wRgtbUOUhpNrOiO55euB5V23",
         "userData": {
-            "completionTime": "63.00",
+            "completionTime": "63",
             "name": "PIDIGUNDLA VENKATESWARA RAO 2022-CSE",
             "notes": "",
             "overallMarks": "36.75",
@@ -591,7 +653,7 @@ const algo24Top = [
     {
         "userID": "YFC4DfN5W9UEbIdC3NUzMVy8OGJ2",
         "userData": {
-            "completionTime": "77.12",
+            "completionTime": "77",
             "name": "TANGUDU AAKASH ",
             "notes": "",
             "overallMarks": "36.25",
@@ -622,7 +684,7 @@ const algo24Top = [
     {
         "userID": "2BSWt9454yWAFmFVKrgdO2aENK22",
         "userData": {
-            "completionTime": "103.01",
+            "completionTime": "103.1",
             "name": "MuraliDharan",
             "notes": "",
             "overallMarks": "35",
@@ -653,7 +715,7 @@ const algo24Top = [
     {
         "userID": "MkRlwHELbZYAXSu7R3gDPoHvply1",
         "userData": {
-            "completionTime": "87.56",
+            "completionTime": "87",
             "name": "NOORA HARISH",
             "notes": "",
             "overallMarks": "35",
@@ -688,7 +750,7 @@ const algo24Top = [
             "name": "A.VENKATESWARA REDDY ",
             "notes": "",
             "overallMarks": "35",
-            "regNo": "9921004052",
+            "regNo": "9921004053",
             "section1": {
                 "correctAnswers": "3",
                 "negativeMarks": "-2.25",
@@ -715,7 +777,7 @@ const algo24Top = [
     {
         "userID": "LDmda4vfJAWC7jUU0syGUIsWtC93",
         "userData": {
-            "completionTime": "92:22",
+            "completionTime": "92.22",
             "name": "BOYA PRANAVI",
             "notes": "",
             "overallMarks": "34.5",
@@ -746,7 +808,7 @@ const algo24Top = [
     {
         "userID": "X56tmoVbClXkGi0PsCpaBIDfJU03",
         "userData": {
-            "completionTime": "88.54",
+            "completionTime": "88.5",
             "name": "Batta Malleswari",
             "notes": "",
             "overallMarks": "34.5",
@@ -777,7 +839,7 @@ const algo24Top = [
     {
         "userID": "dMHSkrfxBVZBuWdpIRoQeQ8ST1r2",
         "userData": {
-            "completionTime": "96.02",
+            "completionTime": "96.2",
             "name": "BHAVANAM SAMYUKTHA",
             "notes": "",
             "overallMarks": "34.5",
@@ -808,7 +870,7 @@ const algo24Top = [
     {
         "userID": "SzON80qP5fXo1pVeRZPj8vcSY843",
         "userData": {
-            "completionTime": "106.40",
+            "completionTime": "106",
             "name": "PENDYALA SAI KUMAR 2021-CSEUG",
             "notes": "",
             "overallMarks": "34.25",
@@ -876,11 +938,11 @@ const algo24Top = [
             "overallMarks": "33.75",
             "regNo": "99220040182",
             "section1": {
-                "correctAnswers": "7",
-                "negativeMarks": "-2",
-                "postiveMarks": "7",
-                "totalMarks": "5",
-                "wrongAnswers": "8"
+                "correctAnswers": "9",
+                "negativeMarks": "-1.5",
+                "postiveMarks": "9",
+                "totalMarks": "7.5",
+                "wrongAnswers": "6"
             },
             "section2": {
                 "correctAnswers": "6",
@@ -890,11 +952,11 @@ const algo24Top = [
                 "wrongAnswers": "9"
             },
             "section3": {
-                "correctAnswers": "16",
-                "negativeMarks": "-7",
-                "postiveMarks": "32",
-                "totalMarks": "25",
-                "wrongAnswers": "14"
+                "correctAnswers": "15",
+                "negativeMarks": "-7.5",
+                "postiveMarks": "30",
+                "totalMarks": "22.5",
+                "wrongAnswers": "15"
             }
         }
     },
@@ -963,7 +1025,7 @@ const algo24Top = [
     {
         "userID": "kgaevdNMzQfweynoZ2qp5nKw36F2",
         "userData": {
-            "completionTime": "89",
+            "completionTime": "79",
             "name": "VIBHUTHI VISHWARADHYA 2022-CSE",
             "notes": "",
             "overallMarks": "33.5",
@@ -1054,9 +1116,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "ChguBxGI0tfQ01UcHjSJ0YJxtNr2",
+        "userData": {
+            "completionTime": "90.31",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "31.5",
+            "regNo": "9921001071",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "4",
+                "totalMarks": "1.5",
+                "wrongAnswers": "10"
+            },
+            "section2": {
+                "correctAnswers": "2",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "2",
+                "totalMarks": "-0.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "17",
+                "negativeMarks": "-3.5",
+                "postiveMarks": "34",
+                "totalMarks": "30.5",
+                "wrongAnswers": "7"
+            }
+        }
+    },
+    {
         "userID": "EN4q4rGYAoVqsLEBCqpTyCtQl4r2",
         "userData": {
-            "completionTime": "111.43",
+            "completionTime": "112.43",
             "name": "DUDEKULA SANA HOMERA",
             "notes": "",
             "overallMarks": "31.5",
@@ -1085,40 +1178,9 @@ const algo24Top = [
         }
     },
     {
-        "userID": "THWcZ4lRQVPyM1HEPQw32zHF8DF2",
-        "userData": {
-            "completionTime": "84.49",
-            "name": "PALLE VARSHITH 2021-CSEUG BATCH",
-            "notes": "",
-            "overallMarks": "31.25",
-            "regNo": "9921004528",
-            "section1": {
-                "correctAnswers": "8",
-                "negativeMarks": "-1.75",
-                "postiveMarks": "8",
-                "totalMarks": "6.25",
-                "wrongAnswers": "7"
-            },
-            "section2": {
-                "correctAnswers": "7",
-                "negativeMarks": "-2",
-                "postiveMarks": "7",
-                "totalMarks": "5",
-                "wrongAnswers": "8"
-            },
-            "section3": {
-                "correctAnswers": "14",
-                "negativeMarks": "-8",
-                "postiveMarks": "28",
-                "totalMarks": "20",
-                "wrongAnswers": "16"
-            }
-        }
-    },
-    {
         "userID": "rvO29YkOuENM73IcY82oXWqdYmx1",
         "userData": {
-            "completionTime": "99.20",
+            "completionTime": "9920",
             "name": "MD SHAHID ALAM",
             "notes": "",
             "overallMarks": "31.25",
@@ -1182,7 +1244,7 @@ const algo24Top = [
         "userData": {
             "completionTime": "95.12",
             "name": "null",
-            "notes": "Pula Bhargavi",
+            "notes": "Bhargavi Pula",
             "overallMarks": "31",
             "regNo": "99210041484",
             "section1": {
@@ -1304,7 +1366,7 @@ const algo24Top = [
     {
         "userID": "sjTskGeSr0dKIFpWcapLfrj6dS63",
         "userData": {
-            "completionTime": "71.26",
+            "completionTime": "71",
             "name": "KASALA ABHINAV 2022-CSE",
             "notes": "",
             "overallMarks": "30.25",
@@ -1364,9 +1426,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "9diBuXXeJ1baVpwgzguFknmc3sJ3",
+        "userData": {
+            "completionTime": "68.92",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "30",
+            "regNo": "9921004768",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-3",
+                "postiveMarks": "3",
+                "totalMarks": "0",
+                "wrongAnswers": "12"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "17",
+                "negativeMarks": "-6.5",
+                "postiveMarks": "34",
+                "totalMarks": "27.5",
+                "wrongAnswers": "13"
+            }
+        }
+    },
+    {
         "userID": "EP4I23O6dDcQLb2wEaugHsX8yHB3",
         "userData": {
-            "completionTime": "67.36",
+            "completionTime": "71",
             "name": "JAIANANDAKRISHNAA K 2021-CSE UG",
             "notes": "",
             "overallMarks": "30",
@@ -1428,7 +1521,7 @@ const algo24Top = [
     {
         "userID": "TqHvqyGW5rf9P0H4CIsYJ1fI4e62",
         "userData": {
-            "completionTime": "88.39",
+            "completionTime": "82.39",
             "name": "Aitha Veera Naga Riyesh",
             "notes": "",
             "overallMarks": "30",
@@ -1459,7 +1552,7 @@ const algo24Top = [
     {
         "userID": "XRXB8FthLZXWb31pMjz2OmPCABM2",
         "userData": {
-            "completionTime": "62.03",
+            "completionTime": "63",
             "name": "RATNALA OMKARA ANJANEYA KUMAR 2022-CSE",
             "notes": "",
             "overallMarks": "29.25",
@@ -1519,6 +1612,37 @@ const algo24Top = [
         }
     },
     {
+        "userID": "THWcZ4lRQVPyM1HEPQw32zHF8DF2",
+        "userData": {
+            "completionTime": "84.49",
+            "name": "PALLE VARSHITH 2021-CSEUG BATCH",
+            "notes": "",
+            "overallMarks": "28.75",
+            "regNo": "9921004528",
+            "section1": {
+                "correctAnswers": "8",
+                "negativeMarks": "-1.75",
+                "postiveMarks": "8",
+                "totalMarks": "6.25",
+                "wrongAnswers": "7"
+            },
+            "section2": {
+                "correctAnswers": "7",
+                "negativeMarks": "-2",
+                "postiveMarks": "7",
+                "totalMarks": "5",
+                "wrongAnswers": "8"
+            },
+            "section3": {
+                "correctAnswers": "13",
+                "negativeMarks": "-8.5",
+                "postiveMarks": "26",
+                "totalMarks": "17.5",
+                "wrongAnswers": "17"
+            }
+        }
+    },
+    {
         "userID": "WvoMJ894HghLwjYIi1HLkayyKKQ2",
         "userData": {
             "completionTime": "90.44",
@@ -1546,6 +1670,37 @@ const algo24Top = [
                 "postiveMarks": "32",
                 "totalMarks": "25",
                 "wrongAnswers": "14"
+            }
+        }
+    },
+    {
+        "userID": "by7N7xGrFkc4m93eXLQBqVH2viO2",
+        "userData": {
+            "completionTime": "78",
+            "name": "SARIBALA UDAYKIRAN KUMAR REDDY 2021-CSEUG",
+            "notes": "",
+            "overallMarks": "28.75",
+            "regNo": "9921004971",
+            "section1": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "15",
+                "negativeMarks": "-7.5",
+                "postiveMarks": "30",
+                "totalMarks": "22.5",
+                "wrongAnswers": "15"
             }
         }
     },
@@ -1583,7 +1738,7 @@ const algo24Top = [
     {
         "userID": "yOD98IU7ScbrSbH3A54Fy7oKJOw2",
         "userData": {
-            "completionTime": "59.00",
+            "completionTime": "61",
             "name": "AKILAN P 2022-CSE",
             "notes": "",
             "overallMarks": "28.75",
@@ -1614,7 +1769,7 @@ const algo24Top = [
     {
         "userID": "13S5KZbZvtcOgGVlj2yOnT8z0tg2",
         "userData": {
-            "completionTime": "87.00",
+            "completionTime": "60.27",
             "name": "Lavanya Mudumala",
             "notes": "",
             "overallMarks": "28.5",
@@ -1643,40 +1798,40 @@ const algo24Top = [
         }
     },
     {
-        "userID": "by7N7xGrFkc4m93eXLQBqVH2viO2",
+        "userID": "tBloE2aG5PMjYvVKfZQyYZY2Hj13",
         "userData": {
-            "completionTime": "78.00",
-            "name": "SARIBALA UDAYKIRAN KUMAR REDDY 2021-CSEUG",
+            "completionTime": "94",
+            "name": "LINGAMDINNE UDAY KUMAR REDDY 2021-CSEUG BATCH",
             "notes": "",
-            "overallMarks": "28.5",
-            "regNo": "9921004971",
+            "overallMarks": "28.25",
+            "regNo": "99210041574",
             "section1": {
-                "correctAnswers": "6",
-                "negativeMarks": "-1.5",
-                "postiveMarks": "6",
-                "totalMarks": "4.5",
-                "wrongAnswers": "6"
+                "correctAnswers": "3",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "3",
+                "totalMarks": "0.75",
+                "wrongAnswers": "9"
             },
             "section2": {
                 "correctAnswers": "5",
-                "negativeMarks": "-2.5",
+                "negativeMarks": "-1",
                 "postiveMarks": "5",
-                "totalMarks": "2.5",
-                "wrongAnswers": "10"
+                "totalMarks": "4",
+                "wrongAnswers": "4"
             },
             "section3": {
-                "correctAnswers": "14",
-                "negativeMarks": "-6.5",
-                "postiveMarks": "28",
-                "totalMarks": "21.5",
-                "wrongAnswers": "13"
+                "correctAnswers": "13",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "26",
+                "totalMarks": "23.5",
+                "wrongAnswers": "5"
             }
         }
     },
     {
         "userID": "ARSva8kUqAaECR8DbBpEQc8V5Iv2",
         "userData": {
-            "completionTime": "95.00",
+            "completionTime": "95",
             "name": "JAKKU VEERA JAGADESWAR REDDY 2022-CSE",
             "notes": "",
             "overallMarks": "28",
@@ -1738,7 +1893,7 @@ const algo24Top = [
     {
         "userID": "yu81nksKTVTrkJOF5de1at1y6782",
         "userData": {
-            "completionTime": "62.35",
+            "completionTime": "95",
             "name": "PAKAM DIVYA DURGA VIGNESH 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "28",
@@ -1800,7 +1955,7 @@ const algo24Top = [
     {
         "userID": "S3V9jWGGD4Q9fp0QdspogadTrOM2",
         "userData": {
-            "completionTime": "108.03",
+            "completionTime": "108",
             "name": "MALEPATI VIDYADHARI 2021-CSEUG",
             "notes": "",
             "overallMarks": "27.75",
@@ -1856,37 +2011,6 @@ const algo24Top = [
                 "postiveMarks": "26",
                 "totalMarks": "24.5",
                 "wrongAnswers": "3"
-            }
-        }
-    },
-    {
-        "userID": "OHiUx65CQlcgoilzdUFqv1VfCJD2",
-        "userData": {
-            "completionTime": "77.07",
-            "name": "CHALLA MAHESH BABU 2021-CSEUG BATCH",
-            "notes": "",
-            "overallMarks": "27.5",
-            "regNo": "9921004122",
-            "section1": {
-                "correctAnswers": "3",
-                "negativeMarks": "-3",
-                "postiveMarks": "3",
-                "totalMarks": "0",
-                "wrongAnswers": "12"
-            },
-            "section2": {
-                "correctAnswers": "5",
-                "negativeMarks": "-2.5",
-                "postiveMarks": "5",
-                "totalMarks": "2.5",
-                "wrongAnswers": "10"
-            },
-            "section3": {
-                "correctAnswers": "16",
-                "negativeMarks": "-7",
-                "postiveMarks": "32",
-                "totalMarks": "25",
-                "wrongAnswers": "14"
             }
         }
     },
@@ -2015,37 +2139,6 @@ const algo24Top = [
         }
     },
     {
-        "userID": "tBloE2aG5PMjYvVKfZQyYZY2Hj13",
-        "userData": {
-            "completionTime": "94 :00",
-            "name": "LINGAMDINNE UDAY KUMAR REDDY 2021-CSEUG BATCH",
-            "notes": "",
-            "overallMarks": "27",
-            "regNo": "99210041574",
-            "section1": {
-                "correctAnswers": "3",
-                "negativeMarks": "-2.25",
-                "postiveMarks": "3",
-                "totalMarks": "0.75",
-                "wrongAnswers": "9"
-            },
-            "section2": {
-                "correctAnswers": "4",
-                "negativeMarks": "-1.25",
-                "postiveMarks": "4",
-                "totalMarks": "2.75",
-                "wrongAnswers": "5"
-            },
-            "section3": {
-                "correctAnswers": "13",
-                "negativeMarks": "-2.5",
-                "postiveMarks": "26",
-                "totalMarks": "23.5",
-                "wrongAnswers": "5"
-            }
-        }
-    },
-    {
         "userID": "5biqvKqkfpW1axoJDV6cbChGZcq1",
         "userData": {
             "completionTime": "81.31",
@@ -2110,7 +2203,7 @@ const algo24Top = [
     {
         "userID": "DhSLgSyKlAUDSaND3voFI4QQdlH2",
         "userData": {
-            "completionTime": "65.25",
+            "completionTime": "65",
             "name": "SHIVAM KUMAR",
             "notes": "",
             "overallMarks": "26.25",
@@ -2141,7 +2234,7 @@ const algo24Top = [
     {
         "userID": "grunknqrrveJV1Ukp5eEfyMPIJt2",
         "userData": {
-            "completionTime": "73.33",
+            "completionTime": "73.39",
             "name": "DASAYYA REVANTH 2022-CSE",
             "notes": "",
             "overallMarks": "26.25",
@@ -2166,6 +2259,68 @@ const algo24Top = [
                 "postiveMarks": "24",
                 "totalMarks": "15",
                 "wrongAnswers": "18"
+            }
+        }
+    },
+    {
+        "userID": "veyRVIu4wjNTigDbsIS4XfYRy3F2",
+        "userData": {
+            "completionTime": "75.20",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "26.25",
+            "regNo": "99220041577",
+            "section1": {
+                "correctAnswers": "1",
+                "negativeMarks": "-0.25",
+                "postiveMarks": "1",
+                "totalMarks": "0.75",
+                "wrongAnswers": "1"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-1",
+                "postiveMarks": "5",
+                "totalMarks": "4",
+                "wrongAnswers": "4"
+            },
+            "section3": {
+                "correctAnswers": "12",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "24",
+                "totalMarks": "21.5",
+                "wrongAnswers": "5"
+            }
+        }
+    },
+    {
+        "userID": "2B8UiBLX88RqRuIFMEfYwJobBDo2",
+        "userData": {
+            "completionTime": "87.03",
+            "name": "VANGALA BHARATH REDDY ",
+            "notes": "",
+            "overallMarks": "25.75",
+            "regNo": "9921004990",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "13",
+                "negativeMarks": "-4",
+                "postiveMarks": "26",
+                "totalMarks": "22",
+                "wrongAnswers": "8"
             }
         }
     },
@@ -2203,7 +2358,7 @@ const algo24Top = [
     {
         "userID": "A3YqQhXz7zMfuueSoiUZKSFmYhw1",
         "userData": {
-            "completionTime": "85",
+            "completionTime": "85.00",
             "name": "NAGAVETI VAMSI SAI 2021-CSE",
             "notes": "",
             "overallMarks": "25.75",
@@ -2265,7 +2420,7 @@ const algo24Top = [
     {
         "userID": "4ckFWXBGLsTCRtYkessesHXtS2F2",
         "userData": {
-            "completionTime": "78.28",
+            "completionTime": "78.2",
             "name": "VASANI VENKATA SURYA PRAKASH 2022-CSE",
             "notes": "",
             "overallMarks": "25.5",
@@ -2296,16 +2451,16 @@ const algo24Top = [
     {
         "userID": "9NaycHnePpYuYxQ7H6AW7Z1GNOs2",
         "userData": {
-            "completionTime": "91.0",
+            "completionTime": "91",
             "name": "MUNAGALA ANIL",
             "notes": "",
             "overallMarks": "25.5",
             "regNo": "9921004469",
             "section1": {
-                "correctAnswers": "6",
+                "correctAnswers": "7",
                 "negativeMarks": "-1.5",
-                "postiveMarks": "6",
-                "totalMarks": "4.5",
+                "postiveMarks": "7",
+                "totalMarks": "5.5",
                 "wrongAnswers": "6"
             },
             "section2": {
@@ -2317,17 +2472,17 @@ const algo24Top = [
             },
             "section3": {
                 "correctAnswers": "10",
-                "negativeMarks": "-2",
+                "negativeMarks": "-3",
                 "postiveMarks": "20",
-                "totalMarks": "18",
-                "wrongAnswers": "4"
+                "totalMarks": "17",
+                "wrongAnswers": "6"
             }
         }
     },
     {
         "userID": "4uO9htWgjLdiNYXJG5H0nPyYVEw1",
         "userData": {
-            "completionTime": "88",
+            "completionTime": "78",
             "name": "K Devisree",
             "notes": "",
             "overallMarks": "25.25",
@@ -2358,7 +2513,7 @@ const algo24Top = [
     {
         "userID": "Nwkv7GFbq5dPNUzu6pdYI2lvX6y2",
         "userData": {
-            "completionTime": "62.58",
+            "completionTime": "108",
             "name": "Prashant Kumar",
             "notes": "",
             "overallMarks": "25.25",
@@ -2387,9 +2542,71 @@ const algo24Top = [
         }
     },
     {
+        "userID": "OHiUx65CQlcgoilzdUFqv1VfCJD2",
+        "userData": {
+            "completionTime": "77.7",
+            "name": "CHALLA MAHESH BABU 2021-CSEUG BATCH",
+            "notes": "",
+            "overallMarks": "25",
+            "regNo": "9921004122",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-3",
+                "postiveMarks": "3",
+                "totalMarks": "0",
+                "wrongAnswers": "12"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "15",
+                "negativeMarks": "-7.5",
+                "postiveMarks": "30",
+                "totalMarks": "22.5",
+                "wrongAnswers": "15"
+            }
+        }
+    },
+    {
+        "userID": "bn96jrWtK8Sz7aXvtxLm8TVggQK2",
+        "userData": {
+            "completionTime": "64.19",
+            "name": "KOTA VENKATA PAVAN TEJA 2021-CSEUG BATCH",
+            "notes": "",
+            "overallMarks": "25",
+            "regNo": "9921004372",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
+            },
+            "section2": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "14",
+                "negativeMarks": "-8",
+                "postiveMarks": "28",
+                "totalMarks": "20",
+                "wrongAnswers": "16"
+            }
+        }
+    },
+    {
         "userID": "iULVZUivoYSJjhegVTksK7FzqHe2",
         "userData": {
-            "completionTime": "88.0",
+            "completionTime": "88",
             "name": "PENMETSA SANDEEP VARMA 2022-CSE",
             "notes": "",
             "overallMarks": "25",
@@ -2420,7 +2637,7 @@ const algo24Top = [
     {
         "userID": "miHHHf2G0ZMhNoYXvuDRDuQ2HE32",
         "userData": {
-            "completionTime": "67.00",
+            "completionTime": "60.7",
             "name": "NARRA VENKATESH 2022-CSE",
             "notes": "",
             "overallMarks": "25",
@@ -2451,7 +2668,7 @@ const algo24Top = [
     {
         "userID": "rpuuo43LuTbg82MekmfEqTCnXP33",
         "userData": {
-            "completionTime": "57.48",
+            "completionTime": "57",
             "name": "KANCHIMIREDDY LASYA",
             "notes": "",
             "overallMarks": "25",
@@ -2575,7 +2792,7 @@ const algo24Top = [
     {
         "userID": "EY1VfTbYBEd6HtChTRI0MlGmnbI2",
         "userData": {
-            "completionTime": "86.32",
+            "completionTime": "80.32",
             "name": "DIVYA K 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "24.5",
@@ -2606,7 +2823,7 @@ const algo24Top = [
     {
         "userID": "s0c8FlrI2gVskplOcp1WDdpjcUD3",
         "userData": {
-            "completionTime": "99:00",
+            "completionTime": "92",
             "name": "GARNEPUDI PRASANTHI ",
             "notes": "",
             "overallMarks": "24.5",
@@ -2637,7 +2854,7 @@ const algo24Top = [
     {
         "userID": "RfGGPYk0Hnd4wSUbepFeBCiMcKf2",
         "userData": {
-            "completionTime": "86:09",
+            "completionTime": "88.09",
             "name": "THARUN KUMAAR U",
             "notes": "",
             "overallMarks": "24.25",
@@ -2662,6 +2879,37 @@ const algo24Top = [
                 "postiveMarks": "24",
                 "totalMarks": "21",
                 "wrongAnswers": "6"
+            }
+        }
+    },
+    {
+        "userID": "kAzBLZpsGVgISlBFn8bhQk3bUR23",
+        "userData": {
+            "completionTime": "67",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "24.25",
+            "regNo": "99220040236",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-1",
+                "postiveMarks": "4",
+                "totalMarks": "3",
+                "wrongAnswers": "4"
+            },
+            "section2": {
+                "correctAnswers": "2",
+                "negativeMarks": "-1.25",
+                "postiveMarks": "2",
+                "totalMarks": "0.75",
+                "wrongAnswers": "5"
+            },
+            "section3": {
+                "correctAnswers": "12",
+                "negativeMarks": "-3.5",
+                "postiveMarks": "24",
+                "totalMarks": "20.5",
+                "wrongAnswers": "7"
             }
         }
     },
@@ -2730,7 +2978,7 @@ const algo24Top = [
     {
         "userID": "4eQU2yWlkyP7fGtcAj8Jn0lsuYu1",
         "userData": {
-            "completionTime": "94.00",
+            "completionTime": "94.8",
             "name": "PALA VENKATA DINESH REDDY 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "24",
@@ -2751,7 +2999,7 @@ const algo24Top = [
             },
             "section3": {
                 "correctAnswers": "15",
-                "negativeMarks": "-5.5",
+                "negativeMarks": "-4.5",
                 "postiveMarks": "30",
                 "totalMarks": "25.5",
                 "wrongAnswers": "9"
@@ -2761,7 +3009,7 @@ const algo24Top = [
     {
         "userID": "OMoUPS35JGRGWULclwpbidTUm9E3",
         "userData": {
-            "completionTime": "50.03",
+            "completionTime": "15.3",
             "name": "ARIGELA HEMA KUMAR ",
             "notes": "",
             "overallMarks": "24",
@@ -2790,40 +3038,40 @@ const algo24Top = [
         }
     },
     {
-        "userID": "bn96jrWtK8Sz7aXvtxLm8TVggQK2",
+        "userID": "djZlxTU0hVM2EAC7Wv9DhYkkgJ93",
         "userData": {
-            "completionTime": "64.19",
-            "name": "KOTA VENKATA PAVAN TEJA 2021-CSEUG BATCH",
+            "completionTime": "77.59",
+            "name": "null",
             "notes": "",
-            "overallMarks": "24",
-            "regNo": "9921004372",
+            "overallMarks": "23.75",
+            "regNo": "9921004582",
             "section1": {
                 "correctAnswers": "3",
-                "negativeMarks": "-2.75",
+                "negativeMarks": "-3",
                 "postiveMarks": "3",
-                "totalMarks": "0.25",
-                "wrongAnswers": "11"
+                "totalMarks": "0",
+                "wrongAnswers": "12"
             },
             "section2": {
-                "correctAnswers": "6",
-                "negativeMarks": "-2.25",
-                "postiveMarks": "6",
-                "totalMarks": "3.75",
-                "wrongAnswers": "9"
+                "correctAnswers": "8",
+                "negativeMarks": "-1.75",
+                "postiveMarks": "8",
+                "totalMarks": "6.25",
+                "wrongAnswers": "7"
             },
             "section3": {
-                "correctAnswers": "14",
-                "negativeMarks": "-8",
-                "postiveMarks": "28",
-                "totalMarks": "20",
-                "wrongAnswers": "16"
+                "correctAnswers": "13",
+                "negativeMarks": "-8.5",
+                "postiveMarks": "26",
+                "totalMarks": "17.5",
+                "wrongAnswers": "17"
             }
         }
     },
     {
         "userID": "weU2a4F8TkUCtaOLqZdldsY6Yw93",
         "userData": {
-            "completionTime": "79",
+            "completionTime": "78",
             "name": "DEVANGAM AMBE PAVANI ",
             "notes": "",
             "overallMarks": "23.75",
@@ -2882,6 +3130,37 @@ const algo24Top = [
             }
         }
     },
+    // {
+    //     "userID": "WpEWauqy2qfPUTTXglyI8nEMZe63",
+    //     "userData": {
+    //         "completionTime": "54.18",
+    //         "name": "MAHA SRI. B",
+    //         "notes": "",
+    //         "overallMarks": "23.25",
+    //         "regNo": "99220041631",
+    //         "section1": {
+    //             "correctAnswers": "3",
+    //             "negativeMarks": "-1.25",
+    //             "postiveMarks": "3",
+    //             "totalMarks": "1.75",
+    //             "wrongAnswers": "5"
+    //         },
+    //         "section2": {
+    //             "correctAnswers": "4",
+    //             "negativeMarks": "-1.5",
+    //             "postiveMarks": "4",
+    //             "totalMarks": "2.5",
+    //             "wrongAnswers": "6"
+    //         },
+    //         "section3": {
+    //             "correctAnswers": "11",
+    //             "negativeMarks": "-3",
+    //             "postiveMarks": "22",
+    //             "totalMarks": "19",
+    //             "wrongAnswers": "6"
+    //         }
+    //     }
+    // },
     {
         "userID": "ZFxwbRNWK9hwPJg487LRnXNrrtd2",
         "userData": {
@@ -2978,7 +3257,7 @@ const algo24Top = [
     {
         "userID": "UWNO5Tl7P6SSbnZXbPVhzkuSWbU2",
         "userData": {
-            "completionTime": "65.00",
+            "completionTime": "60",
             "name": "SRUNGARAPU LAKSHMI LAVANYA 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "23",
@@ -3007,9 +3286,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "qyuYtLv48NfC3QUSFph7XLOYmcv2",
+        "userData": {
+            "completionTime": "70.17",
+            "name": "YOGAVIGNESH R 2022-CSE",
+            "notes": "",
+            "overallMarks": "23",
+            "regNo": "99220042058",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "3",
+                "totalMarks": "0.5",
+                "wrongAnswers": "10"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "14",
+                "negativeMarks": "-8",
+                "postiveMarks": "28",
+                "totalMarks": "20",
+                "wrongAnswers": "16"
+            }
+        }
+    },
+    {
         "userID": "ymYkKp6BXJfjgoaRFflkRIlq9rq2",
         "userData": {
-            "completionTime": "99.2",
+            "completionTime": "90",
             "name": "KOMURAVELLI SRIKARTHIK ",
             "notes": "",
             "overallMarks": "23",
@@ -3071,7 +3381,7 @@ const algo24Top = [
     {
         "userID": "hokxrY3yO3OpBjq55WtOkxgQSue2",
         "userData": {
-            "completionTime": "62.09",
+            "completionTime": "69",
             "name": "BIPIN KUMAR 2022-CSE",
             "notes": "",
             "overallMarks": "22.75",
@@ -3133,7 +3443,7 @@ const algo24Top = [
     {
         "userID": "ZRj5LeayOSVFOBDbzelM1O7JK2P2",
         "userData": {
-            "completionTime": "78.01",
+            "completionTime": "78.1",
             "name": "Elambharati E",
             "notes": "",
             "overallMarks": "22.5",
@@ -3164,7 +3474,7 @@ const algo24Top = [
     {
         "userID": "kGKMLhgcwhW4dUP89U1kGO4qdaV2",
         "userData": {
-            "completionTime": "60.56",
+            "completionTime": "60",
             "name": "SUDHA SIVA KUMAR REDDY 2021-CSE",
             "notes": "",
             "overallMarks": "22.5",
@@ -3195,7 +3505,7 @@ const algo24Top = [
     {
         "userID": "nBsYMWO6lHXp1AacQYZgMIdf0uL2",
         "userData": {
-            "completionTime": "61.01",
+            "completionTime": "61",
             "name": "DAMULURI HARIKA 2021-CSE",
             "notes": "",
             "overallMarks": "22.5",
@@ -3319,7 +3629,7 @@ const algo24Top = [
     {
         "userID": "ykalY16dhPVOP031lEfOHrlSMEm1",
         "userData": {
-            "completionTime": "62.26",
+            "completionTime": "86",
             "name": "SHAIK MOHAMMAD GOUSE ",
             "notes": "",
             "overallMarks": "22",
@@ -3350,7 +3660,7 @@ const algo24Top = [
     {
         "userID": "Tb0kAjwEIFQuqM3K4gSKUxf0RPo2",
         "userData": {
-            "completionTime": "81.00",
+            "completionTime": "81",
             "name": "KAPILAVAI HANUMAAN 2022-CSE",
             "notes": "",
             "overallMarks": "21.75",
@@ -3381,7 +3691,7 @@ const algo24Top = [
     {
         "userID": "qqB30noSOMWJegglBEjai9x9W3B2",
         "userData": {
-            "completionTime": "77.00",
+            "completionTime": "77",
             "name": "Narala Ramesh ",
             "notes": "",
             "overallMarks": "21.75",
@@ -3443,7 +3753,7 @@ const algo24Top = [
     {
         "userID": "s70Kg2cp29UhRoCfLcxRghkb2gH3",
         "userData": {
-            "completionTime": "64.05",
+            "completionTime": "64.5",
             "name": "KARANAM SAI SHARAN 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "21.5",
@@ -3478,7 +3788,7 @@ const algo24Top = [
             "name": "YELLA SIRI CHOWDARY 2022-CSE",
             "notes": "",
             "overallMarks": "21.25",
-            "regNo": "99220041035",
+            "regNo": "99220041036",
             "section1": {
                 "correctAnswers": "3",
                 "negativeMarks": "-0.5",
@@ -3505,11 +3815,11 @@ const algo24Top = [
     {
         "userID": "BIQBUZrtjXf88ImNP3VFkYmmJJA2",
         "userData": {
-            "completionTime": "77.46",
+            "completionTime": "77",
             "name": "KAVYA SREE CHINTA 2021-CSE",
             "notes": "",
             "overallMarks": "21.25",
-            "regNo": "99210042201",
+            "regNo": "99210042202",
             "section1": {
                 "correctAnswers": "6",
                 "negativeMarks": "-2.25",
@@ -3567,7 +3877,7 @@ const algo24Top = [
     {
         "userID": "NBx1hV1OmzRBT2EvTz1JBHlqb4S2",
         "userData": {
-            "completionTime": "71.16",
+            "completionTime": "81",
             "name": "MADHAV KUMAR 2021-CSE BATCH",
             "notes": "",
             "overallMarks": "21.25",
@@ -3629,7 +3939,7 @@ const algo24Top = [
     {
         "userID": "rcXSYiC8koM39ApzF8uUV1HLvDQ2",
         "userData": {
-            "completionTime": "73.35",
+            "completionTime": "83.35",
             "name": "G.BALAJI ",
             "notes": "",
             "overallMarks": "21.25",
@@ -3660,7 +3970,7 @@ const algo24Top = [
     {
         "userID": "F0JTAabbeMR491DdvoNhHtGSpRH2",
         "userData": {
-            "completionTime": "60.00",
+            "completionTime": "70",
             "name": "GEETHESHWAR SRI RANGA SAI GADAMSETTY 2022-CSE",
             "notes": "",
             "overallMarks": "21",
@@ -3695,7 +4005,7 @@ const algo24Top = [
             "name": "Malapati Anusha ",
             "notes": "",
             "overallMarks": "21",
-            "regNo": "99210042174",
+            "regNo": "99210042175",
             "section1": {
                 "correctAnswers": "5",
                 "negativeMarks": "-1",
@@ -3722,7 +4032,7 @@ const algo24Top = [
     {
         "userID": "soq2DoQE9hcPwtLimPWzf4aydWH2",
         "userData": {
-            "completionTime": "82.00",
+            "completionTime": "82.55",
             "name": "YARABOTHULA SRIYA 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "20.75",
@@ -3753,7 +4063,7 @@ const algo24Top = [
     {
         "userID": "1UMvhshVjUXs47Y2TlLacfnXbhr1",
         "userData": {
-            "completionTime": "90.00",
+            "completionTime": "90",
             "name": "MARNI SRIJA 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "20.25",
@@ -3846,7 +4156,7 @@ const algo24Top = [
     {
         "userID": "payS3IeWeQfhEPHZyZj8yczlWl32",
         "userData": {
-            "completionTime": "65.00",
+            "completionTime": "65",
             "name": "T.RAMA SAI",
             "notes": "",
             "overallMarks": "20.25",
@@ -3877,7 +4187,7 @@ const algo24Top = [
     {
         "userID": "7Jt77UipBJQeXGfOUOQuos0duM13",
         "userData": {
-            "completionTime": "67.06",
+            "completionTime": "67.6",
             "name": "YANAMALA MANJUNATHA REDDY 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "20",
@@ -3908,7 +4218,7 @@ const algo24Top = [
     {
         "userID": "8WoZf7pwHRNUfuqM5b2TP0HMqwz1",
         "userData": {
-            "completionTime": "59.32",
+            "completionTime": "91.36",
             "name": "ULICHI BHANU PRASAD 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "20",
@@ -3939,7 +4249,7 @@ const algo24Top = [
     {
         "userID": "Oyai4ARpxfMVYqdqSFeVItLRdu52",
         "userData": {
-            "completionTime": "70.00",
+            "completionTime": "70",
             "name": "DEVANGA AMBE USHA",
             "notes": "",
             "overallMarks": "20",
@@ -3968,9 +4278,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "RvTkBd9mBEQH2grm5rtHWBm3WZF3",
+        "userData": {
+            "completionTime": "61",
+            "name": "SRI CHARAN TEJA REDDY G 2021-CSEUG BATCH",
+            "notes": "",
+            "overallMarks": "20",
+            "regNo": "9921004686",
+            "section1": {
+                "correctAnswers": "0",
+                "negativeMarks": "-2",
+                "postiveMarks": "0",
+                "totalMarks": "-2",
+                "wrongAnswers": "8"
+            },
+            "section2": {
+                "correctAnswers": "3",
+                "negativeMarks": "-1.5",
+                "postiveMarks": "3",
+                "totalMarks": "1.5",
+                "wrongAnswers": "6"
+            },
+            "section3": {
+                "correctAnswers": "13",
+                "negativeMarks": "-5.5",
+                "postiveMarks": "26",
+                "totalMarks": "20.5",
+                "wrongAnswers": "11"
+            }
+        }
+    },
+    {
         "userID": "TXa71N8HItgPSiWB2159SfBW7bC3",
         "userData": {
-            "completionTime": "67.00",
+            "completionTime": "67",
             "name": "SEELAM MOHAN KRISHNA",
             "notes": "",
             "overallMarks": "20",
@@ -4063,7 +4404,7 @@ const algo24Top = [
     {
         "userID": "1HZLqyIyfmdzDZyv37ObcKPiRDh2",
         "userData": {
-            "completionTime": "85.24",
+            "completionTime": "85",
             "name": "MARELLA VENKATA SAI NITHIN REDDY 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "19.75",
@@ -4154,37 +4495,6 @@ const algo24Top = [
         }
     },
     {
-        "userID": "RvTkBd9mBEQH2grm5rtHWBm3WZF3",
-        "userData": {
-            "completionTime": "70.00",
-            "name": "SRI CHARAN TEJA REDDY G 2021-CSEUG BATCH",
-            "notes": "",
-            "overallMarks": "19.75",
-            "regNo": "9921004686",
-            "section1": {
-                "correctAnswers": "0",
-                "negativeMarks": "-2.25",
-                "postiveMarks": "0",
-                "totalMarks": "-2.25",
-                "wrongAnswers": "9"
-            },
-            "section2": {
-                "correctAnswers": "3",
-                "negativeMarks": "-1.5",
-                "postiveMarks": "3",
-                "totalMarks": "1.5",
-                "wrongAnswers": "6"
-            },
-            "section3": {
-                "correctAnswers": "13",
-                "negativeMarks": "-5.5",
-                "postiveMarks": "26",
-                "totalMarks": "20.5",
-                "wrongAnswers": "11"
-            }
-        }
-    },
-    {
         "userID": "jNuNFyU9rDXdQP8Jcyhmm8zfXyu1",
         "userData": {
             "completionTime": "80.54",
@@ -4218,7 +4528,7 @@ const algo24Top = [
     {
         "userID": "zXBqIfjVOFdAa5mEyMz0OB8QBhD2",
         "userData": {
-            "completionTime": "94.00",
+            "completionTime": "94.44",
             "name": "POTHUGANTI YASWANTH GUPTHA ",
             "notes": "",
             "overallMarks": "19.75",
@@ -4249,7 +4559,7 @@ const algo24Top = [
     {
         "userID": "EhpZm5EsBtgnoaaqlLfpyYa6Y3v1",
         "userData": {
-            "completionTime": "60.00",
+            "completionTime": "60",
             "name": "KAKUMURI VIDHISHAW 2021-CSE UG",
             "notes": "",
             "overallMarks": "19.5",
@@ -4309,19 +4619,19 @@ const algo24Top = [
         }
     },
     {
-        "userID": "qyuYtLv48NfC3QUSFph7XLOYmcv2",
+        "userID": "Px2J7nIjCWaQQBZRC9q2roZHen53",
         "userData": {
-            "completionTime": "70.17",
-            "name": "YOGAVIGNESH R 2022-CSE",
+            "completionTime": "67.24",
+            "name": "null",
             "notes": "",
-            "overallMarks": "19.5",
-            "regNo": "99220042058",
+            "overallMarks": "19.25",
+            "regNo": "992200413644",
             "section1": {
-                "correctAnswers": "1",
-                "negativeMarks": "0",
-                "postiveMarks": "1",
-                "totalMarks": "1",
-                "wrongAnswers": "0"
+                "correctAnswers": "4",
+                "negativeMarks": "-1.75",
+                "postiveMarks": "4",
+                "totalMarks": "2.25",
+                "wrongAnswers": "7"
             },
             "section2": {
                 "correctAnswers": "3",
@@ -4331,11 +4641,11 @@ const algo24Top = [
                 "wrongAnswers": "6"
             },
             "section3": {
-                "correctAnswers": "12",
-                "negativeMarks": "-7",
-                "postiveMarks": "24",
-                "totalMarks": "17",
-                "wrongAnswers": "14"
+                "correctAnswers": "9",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "18",
+                "totalMarks": "15.5",
+                "wrongAnswers": "5"
             }
         }
     },
@@ -4373,7 +4683,7 @@ const algo24Top = [
     {
         "userID": "r4kA2RwAjbhOVq5COQc9AtmeaEm1",
         "userData": {
-            "completionTime": "92:16",
+            "completionTime": "92.16",
             "name": "ATUKURI JEEVANA KAVYA SAI RUKMINI 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "19.25",
@@ -4528,7 +4838,7 @@ const algo24Top = [
     {
         "userID": "adphp7o2blY8dhsvEkf64mtHfC82",
         "userData": {
-            "completionTime": "71.00",
+            "completionTime": "73",
             "name": "POTHARLA KRISHNA YADAV 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "18.5",
@@ -4559,7 +4869,7 @@ const algo24Top = [
     {
         "userID": "btBSiyBmYGVZ60DjYFrHl0zcH7g1",
         "userData": {
-            "completionTime": "64..53",
+            "completionTime": "64.53",
             "name": "MADINENI PRAVEEN KUMAR 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "18.5",
@@ -4619,9 +4929,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "94m2yV45Q0NcyLnlqprEFUcLHO63",
+        "userData": {
+            "completionTime": "61.36",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "18.25",
+            "regNo": "99220040844",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "4",
+                "totalMarks": "1.5",
+                "wrongAnswers": "10"
+            },
+            "section2": {
+                "correctAnswers": "2",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "2",
+                "totalMarks": "-0.25",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "11",
+                "negativeMarks": "-5",
+                "postiveMarks": "22",
+                "totalMarks": "17",
+                "wrongAnswers": "10"
+            }
+        }
+    },
+    {
         "userID": "D64HFkc15HMXQOIAFKHcB0YT0rK2",
         "userData": {
-            "completionTime": "45.02",
+            "completionTime": "45.2",
             "name": "Hitesh Kumar Kothapalli",
             "notes": "",
             "overallMarks": "18.25",
@@ -4652,7 +4993,7 @@ const algo24Top = [
     {
         "userID": "e9gXDFwT90QHdMQy1Q3d6DiYdpx2",
         "userData": {
-            "completionTime": "68.00",
+            "completionTime": "60",
             "name": "Sujith Gopi",
             "notes": "",
             "overallMarks": "18",
@@ -4677,6 +5018,37 @@ const algo24Top = [
                 "postiveMarks": "22",
                 "totalMarks": "17",
                 "wrongAnswers": "10"
+            }
+        }
+    },
+    {
+        "userID": "Az2I2lxXGbN9eZahoHO5F1aReZx2",
+        "userData": {
+            "completionTime": "61.19",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "17.75",
+            "regNo": "99220041630",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-1.25",
+                "postiveMarks": "3",
+                "totalMarks": "1.75",
+                "wrongAnswers": "5"
+            },
+            "section2": {
+                "correctAnswers": "4",
+                "negativeMarks": "-1.5",
+                "postiveMarks": "4",
+                "totalMarks": "2.5",
+                "wrongAnswers": "6"
+            },
+            "section3": {
+                "correctAnswers": "9",
+                "negativeMarks": "-4.5",
+                "postiveMarks": "18",
+                "totalMarks": "13.5",
+                "wrongAnswers": "9"
             }
         }
     },
@@ -4714,7 +5086,7 @@ const algo24Top = [
     {
         "userID": "0IXz1s2Q3ze2cE0SX6eVKrGwyyM2",
         "userData": {
-            "completionTime": "62.54",
+            "completionTime": "62",
             "name": "KAPU KRISHNAVENI 2021-CSE UG",
             "notes": "",
             "overallMarks": "17.5",
@@ -4766,7 +5138,7 @@ const algo24Top = [
             },
             "section3": {
                 "correctAnswers": "9",
-                "negativeMarks": "-3",
+                "negativeMarks": "-2",
                 "postiveMarks": "18",
                 "totalMarks": "16",
                 "wrongAnswers": "4"
@@ -4776,7 +5148,7 @@ const algo24Top = [
     {
         "userID": "DF3xN3v3RTUR9pWOW8dLW4a7EK33",
         "userData": {
-            "completionTime": "72.05",
+            "completionTime": "72.4",
             "name": "DONGALA SAI VARDHAN REDDY",
             "notes": "",
             "overallMarks": "17.5",
@@ -4807,7 +5179,7 @@ const algo24Top = [
     {
         "userID": "JNTddj2qXARQchgrPEfSHLJpfjD2",
         "userData": {
-            "completionTime": "59.00",
+            "completionTime": "65.12",
             "name": "JEBI NALATHARAJ R",
             "notes": "",
             "overallMarks": "17.5",
@@ -4838,7 +5210,7 @@ const algo24Top = [
     {
         "userID": "JPlKjUzWKfV6w8zxmARLLJGyB8i2",
         "userData": {
-            "completionTime": "62.14",
+            "completionTime": "74",
             "name": "Vivek Kumar",
             "notes": "",
             "overallMarks": "17.5",
@@ -4869,7 +5241,7 @@ const algo24Top = [
     {
         "userID": "JWhqkF2HooSz6snskjdZeolMoHW2",
         "userData": {
-            "completionTime": "75.36",
+            "completionTime": "75",
             "name": "MANDALA SAI 2022-CSE",
             "notes": "",
             "overallMarks": "17.5",
@@ -4931,7 +5303,7 @@ const algo24Top = [
     {
         "userID": "hWyQRnz0HGTXEpEnHGml9tv82AB2",
         "userData": {
-            "completionTime": "86.00",
+            "completionTime": "88",
             "name": "DEVI CHAITHRA 2021-CSE UG",
             "notes": "",
             "overallMarks": "17.5",
@@ -5022,9 +5394,71 @@ const algo24Top = [
         }
     },
     {
+        "userID": "Fn6DGz9HKMTSbpsON2BoEuTkr7I3",
+        "userData": {
+            "completionTime": "71.00",
+            "name": "LEKKALA MOKSHITH CHOWDARY 2021-CSEUG BATCH",
+            "notes": "",
+            "overallMarks": "17",
+            "regNo": "9921004391",
+            "section1": {
+                "correctAnswers": "2",
+                "negativeMarks": "-1.25",
+                "postiveMarks": "2",
+                "totalMarks": "0.75",
+                "wrongAnswers": "5"
+            },
+            "section2": {
+                "correctAnswers": "6",
+                "negativeMarks": "-0.75",
+                "postiveMarks": "6",
+                "totalMarks": "5.25",
+                "wrongAnswers": "3"
+            },
+            "section3": {
+                "correctAnswers": "8",
+                "negativeMarks": "-5",
+                "postiveMarks": "16",
+                "totalMarks": "11",
+                "wrongAnswers": "10"
+            }
+        }
+    },
+    {
+        "userID": "XjBtseYvdsQKb3N0WkitA3fmlzD2",
+        "userData": {
+            "completionTime": "76.54",
+            "name": "PUCHAKAYALA BALAJI 2021-CSE BATCH",
+            "notes": "",
+            "overallMarks": "17",
+            "regNo": "99210041409",
+            "section1": {
+                "correctAnswers": "0",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "0",
+                "totalMarks": "-2.75",
+                "wrongAnswers": "11"
+            },
+            "section2": {
+                "correctAnswers": "2",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "2",
+                "totalMarks": "-0.25",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "12",
+                "negativeMarks": "-4",
+                "postiveMarks": "24",
+                "totalMarks": "20",
+                "wrongAnswers": "8"
+            }
+        }
+    },
+    {
         "userID": "cHIQiF29sgeR8Nlkg6QpVJ5Fpjw2",
         "userData": {
-            "completionTime": "60.02",
+            "completionTime": "60.20",
             "name": "MD SANAUWAR ALAM 2021-CSE",
             "notes": "",
             "overallMarks": "17",
@@ -5053,9 +5487,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "OZGqdMQDKcN0LbfPBBK5Q5CjTUT2",
+        "userData": {
+            "completionTime": "98.03",
+            "name": "KOVURI NAGA BHUVANESH ",
+            "notes": "",
+            "overallMarks": "16.75",
+            "regNo": "9921004378",
+            "section1": {
+                "correctAnswers": "1",
+                "negativeMarks": "-1.5",
+                "postiveMarks": "1",
+                "totalMarks": "-0.5",
+                "wrongAnswers": "6"
+            },
+            "section2": {
+                "correctAnswers": "4",
+                "negativeMarks": "-0.75",
+                "postiveMarks": "4",
+                "totalMarks": "3.25",
+                "wrongAnswers": "3"
+            },
+            "section3": {
+                "correctAnswers": "9",
+                "negativeMarks": "-4",
+                "postiveMarks": "18",
+                "totalMarks": "14",
+                "wrongAnswers": "8"
+            }
+        }
+    },
+    {
         "userID": "h4SMo4gWaOhouGgrkOZ0rLUa9PE3",
         "userData": {
-            "completionTime": "62.31",
+            "completionTime": "91",
             "name": "SINGAMREDDY VISHNU 2022-CSE",
             "notes": "",
             "overallMarks": "16.75",
@@ -5080,6 +5545,37 @@ const algo24Top = [
                 "postiveMarks": "18",
                 "totalMarks": "13",
                 "wrongAnswers": "10"
+            }
+        }
+    },
+    {
+        "userID": "jzMFciywoVbFvn0bnFoj8sNGDCH3",
+        "userData": {
+            "completionTime": "73",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "16.75",
+            "regNo": "9921004897",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-1.25",
+                "postiveMarks": "4",
+                "totalMarks": "2.75",
+                "wrongAnswers": "5"
+            },
+            "section2": {
+                "correctAnswers": "6",
+                "negativeMarks": "-1",
+                "postiveMarks": "6",
+                "totalMarks": "5",
+                "wrongAnswers": "4"
+            },
+            "section3": {
+                "correctAnswers": "6",
+                "negativeMarks": "-3",
+                "postiveMarks": "12",
+                "totalMarks": "9",
+                "wrongAnswers": "6"
             }
         }
     },
@@ -5117,7 +5613,7 @@ const algo24Top = [
     {
         "userID": "6wAbVHecaTRzY05XkXUU3kT3L5B3",
         "userData": {
-            "completionTime": "85.37",
+            "completionTime": "85",
             "name": "LAGIESETTY RAVI KIRAN 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "16.5",
@@ -5139,7 +5635,7 @@ const algo24Top = [
             "section3": {
                 "correctAnswers": "8",
                 "negativeMarks": "-7",
-                "postiveMarks": "15",
+                "postiveMarks": "16",
                 "totalMarks": "9",
                 "wrongAnswers": "14"
             }
@@ -5179,7 +5675,7 @@ const algo24Top = [
     {
         "userID": "IDreI41iM6gy9iLkt4DOP7QRTAK2",
         "userData": {
-            "completionTime": "79.00",
+            "completionTime": "60.19",
             "name": "Abhishek Kumar ",
             "notes": "",
             "overallMarks": "16.5",
@@ -5210,7 +5706,7 @@ const algo24Top = [
     {
         "userID": "b7SCcdxJmofYyTioCYD0ubswpJh2",
         "userData": {
-            "completionTime": "66",
+            "completionTime": "61.6",
             "name": "PARUCHURI MEGHANA ",
             "notes": "",
             "overallMarks": "16.5",
@@ -5235,6 +5731,37 @@ const algo24Top = [
                 "postiveMarks": "16",
                 "totalMarks": "14",
                 "wrongAnswers": "4"
+            }
+        }
+    },
+    {
+        "userID": "vW5vuQrJHlOISMzyPYbmHSQ4Bu52",
+        "userData": {
+            "completionTime": "75",
+            "name": "BODDU MANIKANTH ",
+            "notes": "",
+            "overallMarks": "16.5",
+            "regNo": "99210041765",
+            "section1": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "5",
+                "totalMarks": "2.75",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "9",
+                "negativeMarks": "-8",
+                "postiveMarks": "18",
+                "totalMarks": "10",
+                "wrongAnswers": "16"
             }
         }
     },
@@ -5276,7 +5803,7 @@ const algo24Top = [
             "name": "A MEGHANA 2022-CSE",
             "notes": "",
             "overallMarks": "16.25",
-            "regNo": "99220041099",
+            "regNo": "99220041100",
             "section1": {
                 "correctAnswers": "1",
                 "negativeMarks": "-2",
@@ -5334,7 +5861,7 @@ const algo24Top = [
     {
         "userID": "cOPxalLtGBS5ye12JGBp3zYmm2u2",
         "userData": {
-            "completionTime": "62",
+            "completionTime": "61.858",
             "name": "GANGIREDDY VENKATA AJAY KUMAR REDDY 2021-CSE BATCH",
             "notes": "",
             "overallMarks": "16.25",
@@ -5352,6 +5879,37 @@ const algo24Top = [
                 "postiveMarks": "4",
                 "totalMarks": "1.25",
                 "wrongAnswers": "11"
+            },
+            "section3": {
+                "correctAnswers": "12",
+                "negativeMarks": "-9",
+                "postiveMarks": "24",
+                "totalMarks": "15",
+                "wrongAnswers": "18"
+            }
+        }
+    },
+    {
+        "userID": "rj42ywvEBJczQOA2xB0BQYql0WK2",
+        "userData": {
+            "completionTime": "67.04",
+            "name": "SHAIK SOHEL ",
+            "notes": "",
+            "overallMarks": "16.25",
+            "regNo": "9921004817",
+            "section1": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section2": {
+                "correctAnswers": "2",
+                "negativeMarks": "-3.25",
+                "postiveMarks": "2",
+                "totalMarks": "-1.25",
+                "wrongAnswers": "13"
             },
             "section3": {
                 "correctAnswers": "12",
@@ -5396,7 +5954,7 @@ const algo24Top = [
     {
         "userID": "F1mQBY7baDOTtTDIzkuyX5QZGc53",
         "userData": {
-            "completionTime": "96.11",
+            "completionTime": "86.11",
             "name": "THARSHAN R S ",
             "notes": "",
             "overallMarks": "15.75",
@@ -5427,7 +5985,7 @@ const algo24Top = [
     {
         "userID": "SD3TyBVcqKRua46qx6kJ3aNyBYN2",
         "userData": {
-            "completionTime": "62.04",
+            "completionTime": "64",
             "name": "BODDU NITHIN 2021-CSE",
             "notes": "",
             "overallMarks": "15.75",
@@ -5489,7 +6047,7 @@ const algo24Top = [
     {
         "userID": "pBXKW6usTLeWaRz2wHws2VSpkeG3",
         "userData": {
-            "completionTime": "62.00",
+            "completionTime": "62",
             "name": "KALLURI BHANU PRASAD 2022-CSE",
             "notes": "",
             "overallMarks": "15.5",
@@ -5582,7 +6140,7 @@ const algo24Top = [
     {
         "userID": "SvmB0R601uT3vXZQAnf5wLX2ne43",
         "userData": {
-            "completionTime": "83.46",
+            "completionTime": "83",
             "name": "AMIR RAZA",
             "notes": "",
             "overallMarks": "15",
@@ -5613,7 +6171,7 @@ const algo24Top = [
     {
         "userID": "UG94tb8xCofjTPK472Er6kcb5zI2",
         "userData": {
-            "completionTime": "87.00",
+            "completionTime": "87",
             "name": "ARIGELA VENKATA PRADEEP KUMAR 2022-CSE",
             "notes": "",
             "overallMarks": "15",
@@ -5644,7 +6202,7 @@ const algo24Top = [
     {
         "userID": "VHTLJzH39zbFGnbZx1diAH8o6Hx1",
         "userData": {
-            "completionTime": "96.15",
+            "completionTime": "95",
             "name": "Kunal Anand Chettiar 2022-CSE",
             "notes": "",
             "overallMarks": "15",
@@ -5797,9 +6355,71 @@ const algo24Top = [
         }
     },
     {
+        "userID": "ItsuGQYxFhPAflKwal20G1eDN1F3",
+        "userData": {
+            "completionTime": "88.19",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "14.5",
+            "regNo": "9921004594",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
+            },
+            "section2": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "4",
+                "totalMarks": "1.75",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "7",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "14",
+                "totalMarks": "11.5",
+                "wrongAnswers": "5"
+            }
+        }
+    },
+    {
+        "userID": "LOthso6DwkN0tuhl9PbIuu4BUIh1",
+        "userData": {
+            "completionTime": "64.38",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "14.5",
+            "regNo": "99210041150",
+            "section1": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section3": {
+                "correctAnswers": "8",
+                "negativeMarks": "-6.5",
+                "postiveMarks": "16",
+                "totalMarks": "9.5",
+                "wrongAnswers": "13"
+            }
+        }
+    },
+    {
         "userID": "LXm04KeRx0PxGdZZafySPcx456S2",
         "userData": {
-            "completionTime": "73.53",
+            "completionTime": "83.53",
             "name": "MANUGUNTA CHENCHU MANVITHA",
             "notes": "",
             "overallMarks": "14.5",
@@ -5824,37 +6444,6 @@ const algo24Top = [
                 "postiveMarks": "18",
                 "totalMarks": "13",
                 "wrongAnswers": "10"
-            }
-        }
-    },
-    {
-        "userID": "XjBtseYvdsQKb3N0WkitA3fmlzD2",
-        "userData": {
-            "completionTime": "77.54",
-            "name": "PUCHAKAYALA BALAJI 2021-CSE BATCH",
-            "notes": "",
-            "overallMarks": "14.5",
-            "regNo": "99210041409",
-            "section1": {
-                "correctAnswers": "0",
-                "negativeMarks": "-2.75",
-                "postiveMarks": "0",
-                "totalMarks": "-2.75",
-                "wrongAnswers": "11"
-            },
-            "section2": {
-                "correctAnswers": "2",
-                "negativeMarks": "-2.25",
-                "postiveMarks": "2",
-                "totalMarks": "-0.25",
-                "wrongAnswers": "9"
-            },
-            "section3": {
-                "correctAnswers": "11",
-                "negativeMarks": "-4.5",
-                "postiveMarks": "22",
-                "totalMarks": "17.5",
-                "wrongAnswers": "9"
             }
         }
     },
@@ -5892,7 +6481,7 @@ const algo24Top = [
     {
         "userID": "RDGTBwzr3ggChiEhYOAWtL3jl6g1",
         "userData": {
-            "completionTime": "92.00",
+            "completionTime": "92",
             "name": "NITHISH RAJ.K",
             "notes": "",
             "overallMarks": "13.75",
@@ -5923,7 +6512,7 @@ const algo24Top = [
     {
         "userID": "gzMMaLTHMDTTyKV7qDEsnABdMJS2",
         "userData": {
-            "completionTime": "58.04",
+            "completionTime": "58.4",
             "name": "NEELI PHANEENDRA 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "13.75",
@@ -5954,11 +6543,11 @@ const algo24Top = [
     {
         "userID": "x8oWfUyMc2UkJx1aKe2MUyRToXh1",
         "userData": {
-            "completionTime": "75.46",
+            "completionTime": "74",
             "name": "MEDA KARTHIK ",
             "notes": "",
             "overallMarks": "13.75",
-            "regNo": "99210042188",
+            "regNo": "99210042189",
             "section1": {
                 "correctAnswers": "5",
                 "negativeMarks": "-2.5",
@@ -6016,7 +6605,7 @@ const algo24Top = [
     {
         "userID": "SlUt3eJjNzWoyhVjFdnECG01Ufs1",
         "userData": {
-            "completionTime": "58.04",
+            "completionTime": "58.05",
             "name": "YENDURU LIKITH SAI NAGA RATNA MANIKANATA 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "13.5",
@@ -6140,7 +6729,7 @@ const algo24Top = [
     {
         "userID": "sGt6mUCfq2SN16PwAYvgxip0Zkt2",
         "userData": {
-            "completionTime": "82.01",
+            "completionTime": "82.1",
             "name": "POTURI SANSKAR ",
             "notes": "",
             "overallMarks": "13.25",
@@ -6171,7 +6760,7 @@ const algo24Top = [
     {
         "userID": "FV84XyVxByYpM67PLKCBu61d2Ao2",
         "userData": {
-            "completionTime": "52.09",
+            "completionTime": "52.9",
             "name": "GATIKOPPU SAI PHANINDRA PAVAN KUMAR 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "13",
@@ -6202,7 +6791,7 @@ const algo24Top = [
     {
         "userID": "AxeYyTD167Y3rEN6QbdiItykN0o1",
         "userData": {
-            "completionTime": "62.22",
+            "completionTime": "82",
             "name": "THIRUMALAKONDA SREENU 2021-CSE BATCH",
             "notes": "",
             "overallMarks": "12.75",
@@ -6264,11 +6853,11 @@ const algo24Top = [
     {
         "userID": "ZwCYGsoDX8XC3GW1lj9jIfVkkee2",
         "userData": {
-            "completionTime": "67.56",
+            "completionTime": "67",
             "name": "VALAMETI AVINASH ",
             "notes": "",
             "overallMarks": "12.75",
-            "regNo": "99220040763",
+            "regNo": "99220040764",
             "section1": {
                 "correctAnswers": "1",
                 "negativeMarks": "-1",
@@ -6299,7 +6888,7 @@ const algo24Top = [
             "name": "NELAKURTHI KAVYA 2021-CSE UG",
             "notes": "",
             "overallMarks": "12.25",
-            "regNo": "99210041893",
+            "regNo": "99210041894",
             "section1": {
                 "correctAnswers": "3",
                 "negativeMarks": "-1.75",
@@ -6324,64 +6913,33 @@ const algo24Top = [
         }
     },
     {
-        "userID": "vW5vuQrJHlOISMzyPYbmHSQ4Bu52",
+        "userID": "M9J1LK5WhZgayHaqQHlh0Q3eyeA2",
         "userData": {
-            "completionTime": "77.00",
-            "name": "BODDU MANIKANTH ",
+            "completionTime": "77.40",
+            "name": "null",
             "notes": "",
-            "overallMarks": "12.25",
-            "regNo": "99210041765",
+            "overallMarks": "12",
+            "regNo": "99210041735",
             "section1": {
                 "correctAnswers": "4",
-                "negativeMarks": "-1.5",
+                "negativeMarks": "-2",
                 "postiveMarks": "4",
-                "totalMarks": "2.5",
-                "wrongAnswers": "6"
+                "totalMarks": "2",
+                "wrongAnswers": "8"
             },
             "section2": {
-                "correctAnswers": "5",
-                "negativeMarks": "-2.25",
-                "postiveMarks": "5",
-                "totalMarks": "2.75",
-                "wrongAnswers": "9"
+                "correctAnswers": "3",
+                "negativeMarks": "-2",
+                "postiveMarks": "3",
+                "totalMarks": "1",
+                "wrongAnswers": "8"
             },
             "section3": {
                 "correctAnswers": "7",
-                "negativeMarks": "-7",
+                "negativeMarks": "-5",
                 "postiveMarks": "14",
-                "totalMarks": "7",
-                "wrongAnswers": "14"
-            }
-        }
-    },
-    {
-        "userID": "mjQI1d764pWcu7RpZ48qKH95vjK2",
-        "userData": {
-            "completionTime": "40.25",
-            "name": "SHIVAM SATYARTHI 2021-CSE",
-            "notes": "",
-            "overallMarks": "12",
-            "regNo": "99210042275",
-            "section1": {
-                "correctAnswers": "5",
-                "negativeMarks": "-2.5",
-                "postiveMarks": "5",
-                "totalMarks": "2.5",
+                "totalMarks": "9",
                 "wrongAnswers": "10"
-            },
-            "section2": {
-                "correctAnswers": "2",
-                "negativeMarks": "-3",
-                "postiveMarks": "2",
-                "totalMarks": "-1",
-                "wrongAnswers": "12"
-            },
-            "section3": {
-                "correctAnswers": "9",
-                "negativeMarks": "-7.5",
-                "postiveMarks": "18",
-                "totalMarks": "10.5",
-                "wrongAnswers": "15"
             }
         }
     },
@@ -6416,6 +6974,37 @@ const algo24Top = [
             }
         }
     },
+    // {
+    //     "userID": "HHUmHnwKyCP6S3Tcl1qBNDguQD83",
+    //     "userData": {
+    //         "completionTime": "61",
+    //         "name": "Deeksha ",
+    //         "notes": "",
+    //         "overallMarks": "11.75",
+    //         "regNo": "99220040981",
+    //         "section1": {
+    //             "correctAnswers": "0",
+    //             "negativeMarks": "0",
+    //             "postiveMarks": "0",
+    //             "totalMarks": "0",
+    //             "wrongAnswers": "0"
+    //         },
+    //         "section2": {
+    //             "correctAnswers": "2",
+    //             "negativeMarks": "-0.25",
+    //             "postiveMarks": "2",
+    //             "totalMarks": "1.75",
+    //             "wrongAnswers": "1"
+    //         },
+    //         "section3": {
+    //             "correctAnswers": "6",
+    //             "negativeMarks": "-2",
+    //             "postiveMarks": "12",
+    //             "totalMarks": "10",
+    //             "wrongAnswers": "4"
+    //         }
+    //     }
+    // },
     {
         "userID": "TgcRMaRQfeOw0IJfY3qFI2qy8ra2",
         "userData": {
@@ -6450,7 +7039,7 @@ const algo24Top = [
     {
         "userID": "oHLAVQms7hb48yoaP6sAg266Ivj1",
         "userData": {
-            "completionTime": "87",
+            "completionTime": "77",
             "name": "SHAIK REENA",
             "notes": "",
             "overallMarks": "11.75",
@@ -6510,9 +7099,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "Gvnsdsy99FM3tILmeGPHyjjYjO43",
+        "userData": {
+            "completionTime": "65",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "11.25",
+            "regNo": "99220041361",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-3",
+                "postiveMarks": "3",
+                "totalMarks": "0",
+                "wrongAnswers": "12"
+            },
+            "section2": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "9",
+                "negativeMarks": "-10.5",
+                "postiveMarks": "18",
+                "totalMarks": "7.5",
+                "wrongAnswers": "21"
+            }
+        }
+    },
+    {
         "userID": "ti54zifKDOYj6ntxoncDeMJ4d4n1",
         "userData": {
-            "completionTime": "61.00",
+            "completionTime": "60",
             "name": "MUPPA PRADEEP 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "11.25",
@@ -6574,7 +7194,7 @@ const algo24Top = [
     {
         "userID": "6kOLF8r0dHW5ice5f8iCoaumt6W2",
         "userData": {
-            "completionTime": "77",
+            "completionTime": "87",
             "name": "NILAPU PAVANI ",
             "notes": "",
             "overallMarks": "11",
@@ -6605,7 +7225,7 @@ const algo24Top = [
     {
         "userID": "pExhQrpl11QIv01b1chIkduZESi1",
         "userData": {
-            "completionTime": "65",
+            "completionTime": "65.6",
             "name": "PYNAMUDI NIKHIL SAI",
             "notes": "",
             "overallMarks": "11",
@@ -6665,9 +7285,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "mjQI1d764pWcu7RpZ48qKH95vjK2",
+        "userData": {
+            "completionTime": "40",
+            "name": "SHIVAM SATYARTHI 2021-CSE",
+            "notes": "",
+            "overallMarks": "10.75",
+            "regNo": "99210042275",
+            "section1": {
+                "correctAnswers": "3",
+                "negativeMarks": "-3",
+                "postiveMarks": "3",
+                "totalMarks": "0",
+                "wrongAnswers": "12"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "5",
+                "totalMarks": "2.75",
+                "wrongAnswers": "9"
+            },
+            "section3": {
+                "correctAnswers": "8",
+                "negativeMarks": "-8",
+                "postiveMarks": "16",
+                "totalMarks": "8",
+                "wrongAnswers": "16"
+            }
+        }
+    },
+    {
         "userID": "eBNw3nPQiZNcuzAJMswuDsDDvKe2",
         "userData": {
-            "completionTime": "74.25",
+            "completionTime": "64.05",
             "name": "Vennapusa Baby Manikavya ",
             "notes": "",
             "overallMarks": "10.25",
@@ -6698,7 +7349,7 @@ const algo24Top = [
     {
         "userID": "v2TidR1WngQBv1kgdiD4gS4saF03",
         "userData": {
-            "completionTime": "90.40",
+            "completionTime": "80.40",
             "name": "CHAGANTI LAKSHMI PRANITHA 2021",
             "notes": "",
             "overallMarks": "10.25",
@@ -6760,7 +7411,7 @@ const algo24Top = [
     {
         "userID": "fmRxUnyLNqZLM6QaASE9Hb79LMN2",
         "userData": {
-            "completionTime": "70.54",
+            "completionTime": "70",
             "name": "PANDIRI GAYATHRI 2021-CSEUG",
             "notes": "",
             "overallMarks": "10",
@@ -6785,6 +7436,68 @@ const algo24Top = [
                 "postiveMarks": "10",
                 "totalMarks": "6",
                 "wrongAnswers": "8"
+            }
+        }
+    },
+    {
+        "userID": "uGMfTf18Exbr7YAEkyg0ErZPKfk1",
+        "userData": {
+            "completionTime": "64.40",
+            "name": "KOLAPARTHI VENKATA SATYA NAGA SAI KISHAN ",
+            "notes": "",
+            "overallMarks": "10",
+            "regNo": "9921004347",
+            "section1": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
+            },
+            "section2": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
+            },
+            "section3": {
+                "correctAnswers": "9",
+                "negativeMarks": "-10.5",
+                "postiveMarks": "18",
+                "totalMarks": "7.5",
+                "wrongAnswers": "21"
+            }
+        }
+    },
+    {
+        "userID": "xoiTLjncWqgIUr7fFz0rXeCSBnq1",
+        "userData": {
+            "completionTime": "63.04",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "10",
+            "regNo": "9921004744",
+            "section1": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section2": {
+                "correctAnswers": "4",
+                "negativeMarks": "-2.75",
+                "postiveMarks": "4",
+                "totalMarks": "1.25",
+                "wrongAnswers": "11"
+            },
+            "section3": {
+                "correctAnswers": "8",
+                "negativeMarks": "-11",
+                "postiveMarks": "16",
+                "totalMarks": "5",
+                "wrongAnswers": "22"
             }
         }
     },
@@ -6822,7 +7535,7 @@ const algo24Top = [
     {
         "userID": "fOIO5goYKrTijRxH5Ty8aNTH2oi2",
         "userData": {
-            "completionTime": "66.54",
+            "completionTime": "66.12",
             "name": "BAKKAMUNTHALA ASHOK 2022-CSE",
             "notes": "",
             "overallMarks": "9.75",
@@ -6882,9 +7595,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "Vs9eySb1z7gwQCzQkDL0jTAy6kG3",
+        "userData": {
+            "completionTime": "87",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "9.25",
+            "regNo": "99220040048",
+            "section1": {
+                "correctAnswers": "6",
+                "negativeMarks": "-2.25",
+                "postiveMarks": "6",
+                "totalMarks": "3.75",
+                "wrongAnswers": "9"
+            },
+            "section2": {
+                "correctAnswers": "3",
+                "negativeMarks": "-3",
+                "postiveMarks": "3",
+                "totalMarks": "0",
+                "wrongAnswers": "12"
+            },
+            "section3": {
+                "correctAnswers": "7",
+                "negativeMarks": "-8.5",
+                "postiveMarks": "14",
+                "totalMarks": "5.5",
+                "wrongAnswers": "17"
+            }
+        }
+    },
+    {
         "userID": "iV9nKxaVp1YQhD7l3xdgTB2IK862",
         "userData": {
-            "completionTime": "87.05",
+            "completionTime": "87",
             "name": "CHAKALI SHASHI KIRAN 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "9.25",
@@ -6944,37 +7688,6 @@ const algo24Top = [
         }
     },
     {
-        "userID": "uGMfTf18Exbr7YAEkyg0ErZPKfk1",
-        "userData": {
-            "completionTime": "64.40",
-            "name": "KOLAPARTHI VENKATA SATYA NAGA SAI KISHAN ",
-            "notes": "",
-            "overallMarks": "9",
-            "regNo": "9921004347",
-            "section1": {
-                "correctAnswers": "3",
-                "negativeMarks": "-2.75",
-                "postiveMarks": "3",
-                "totalMarks": "0.25",
-                "wrongAnswers": "11"
-            },
-            "section2": {
-                "correctAnswers": "4",
-                "negativeMarks": "-2.75",
-                "postiveMarks": "4",
-                "totalMarks": "1.25",
-                "wrongAnswers": "11"
-            },
-            "section3": {
-                "correctAnswers": "9",
-                "negativeMarks": "-10.5",
-                "postiveMarks": "18",
-                "totalMarks": "7.5",
-                "wrongAnswers": "21"
-            }
-        }
-    },
-    {
         "userID": "6swfiEMqgDPilK0HFlRgmVGUHuZ2",
         "userData": {
             "completionTime": "80.44",
@@ -7002,6 +7715,37 @@ const algo24Top = [
                 "postiveMarks": "18",
                 "totalMarks": "7.5",
                 "wrongAnswers": "21"
+            }
+        }
+    },
+    {
+        "userID": "kWmvWegehYcJe27s5A9DyJyfMu03",
+        "userData": {
+            "completionTime": "63.52",
+            "name": "null",
+            "notes": "",
+            "overallMarks": "8.75",
+            "regNo": "99220041888",
+            "section1": {
+                "correctAnswers": "1",
+                "negativeMarks": "-1",
+                "postiveMarks": "1",
+                "totalMarks": "0",
+                "wrongAnswers": "4"
+            },
+            "section2": {
+                "correctAnswers": "5",
+                "negativeMarks": "-0.25",
+                "postiveMarks": "5",
+                "totalMarks": "4.75",
+                "wrongAnswers": "1"
+            },
+            "section3": {
+                "correctAnswers": "5",
+                "negativeMarks": "-6",
+                "postiveMarks": "10",
+                "totalMarks": "4",
+                "wrongAnswers": "12"
             }
         }
     },
@@ -7039,7 +7783,7 @@ const algo24Top = [
     {
         "userID": "eGaB41pbrYTIA1kGELnFpKmi9y62",
         "userData": {
-            "completionTime": "66.22",
+            "completionTime": "66.36",
             "name": "VANJARI VAMSHI KRISHNA ",
             "notes": "",
             "overallMarks": "8.25",
@@ -7067,6 +7811,37 @@ const algo24Top = [
             }
         }
     },
+    // {
+    //     "userID": "akJYjonwq9VWtrnLsiFxnggfDi33",
+    //     "userData": {
+    //         "completionTime": "57.30",
+    //         "name": "Shamyuktha ",
+    //         "notes": "",
+    //         "overallMarks": "8",
+    //         "regNo": "99220041872",
+    //         "section1": {
+    //             "correctAnswers": "2",
+    //             "negativeMarks": "-1.25",
+    //             "postiveMarks": "2",
+    //             "totalMarks": "0.75",
+    //             "wrongAnswers": "5"
+    //         },
+    //         "section2": {
+    //             "correctAnswers": "3",
+    //             "negativeMarks": "-1.75",
+    //             "postiveMarks": "3",
+    //             "totalMarks": "1.25",
+    //             "wrongAnswers": "7"
+    //         },
+    //         "section3": {
+    //             "correctAnswers": "5",
+    //             "negativeMarks": "-4",
+    //             "postiveMarks": "10",
+    //             "totalMarks": "6",
+    //             "wrongAnswers": "8"
+    //         }
+    //     }
+    // },
     {
         "userID": "bXFwtZ02ANPLCKoiVBUeACC1Q6H3",
         "userData": {
@@ -7130,37 +7905,6 @@ const algo24Top = [
         }
     },
     {
-        "userID": "q3hP2wHwxjd93V9c1E6BBg8vzF92",
-        "userData": {
-            "completionTime": "59.48",
-            "name": "Harish Krishna",
-            "notes": "",
-            "overallMarks": "7.75",
-            "regNo": "9922008209",
-            "section1": {
-                "correctAnswers": "5",
-                "negativeMarks": "-2.25",
-                "postiveMarks": "5",
-                "totalMarks": "2.75",
-                "wrongAnswers": "9"
-            },
-            "section2": {
-                "correctAnswers": "3",
-                "negativeMarks": "-3",
-                "postiveMarks": "3",
-                "totalMarks": "0",
-                "wrongAnswers": "12"
-            },
-            "section3": {
-                "correctAnswers": "6",
-                "negativeMarks": "-7",
-                "postiveMarks": "12",
-                "totalMarks": "5",
-                "wrongAnswers": "14"
-            }
-        }
-    },
-    {
         "userID": "7ffzvRKxyWS2CiTJsYGDW1ca77m2",
         "userData": {
             "completionTime": "56.42",
@@ -7192,9 +7936,40 @@ const algo24Top = [
         }
     },
     {
+        "userID": "q3hP2wHwxjd93V9c1E6BBg8vzF92",
+        "userData": {
+            "completionTime": "59.48",
+            "name": "Harish Krishna",
+            "notes": "",
+            "overallMarks": "7.5",
+            "regNo": "9922008209",
+            "section1": {
+                "correctAnswers": "5",
+                "negativeMarks": "-2.5",
+                "postiveMarks": "5",
+                "totalMarks": "2.5",
+                "wrongAnswers": "10"
+            },
+            "section2": {
+                "correctAnswers": "3",
+                "negativeMarks": "-3",
+                "postiveMarks": "3",
+                "totalMarks": "0",
+                "wrongAnswers": "12"
+            },
+            "section3": {
+                "correctAnswers": "6",
+                "negativeMarks": "-7",
+                "postiveMarks": "12",
+                "totalMarks": "5",
+                "wrongAnswers": "14"
+            }
+        }
+    },
+    {
         "userID": "uX32AFmbnURy4nXrNbnFu70JyPm2",
         "userData": {
-            "completionTime": "62.03",
+            "completionTime": "63",
             "name": "GORIJALA VENUMADHAV 2021-CSE UG BATCH",
             "notes": "",
             "overallMarks": "7.5",
@@ -7225,7 +8000,7 @@ const algo24Top = [
     {
         "userID": "6dEXj0guoIS92ZMrjGlmz2avmhD2",
         "userData": {
-            "completionTime": "91",
+            "completionTime": "89",
             "name": "MARRI SARITHA 2021-CSE",
             "notes": "",
             "overallMarks": "7.25",
@@ -7287,7 +8062,7 @@ const algo24Top = [
     {
         "userID": "AXMoH8FbsydYNDbAfYwLpG44Plz2",
         "userData": {
-            "completionTime": "30.27",
+            "completionTime": "30.28",
             "name": "SHAMEEM MOHAMED A R ",
             "notes": "",
             "overallMarks": "6.25",
@@ -7318,7 +8093,7 @@ const algo24Top = [
     {
         "userID": "g0JdWOfbxBM9zkpB1lEc9wc6VN43",
         "userData": {
-            "completionTime": "62.02",
+            "completionTime": "62",
             "name": "SRUNGARAPU GOPI KRISHNA 2021-CSE",
             "notes": "",
             "overallMarks": "6",
@@ -7380,7 +8155,7 @@ const algo24Top = [
     {
         "userID": "LF593hgi1QQBRq9UfQA0epVKxDf1",
         "userData": {
-            "completionTime": "77.0",
+            "completionTime": "77",
             "name": "panuganti sasank",
             "notes": "",
             "overallMarks": "5",
@@ -7411,7 +8186,7 @@ const algo24Top = [
     {
         "userID": "hfj0puyphubqPxNpuEAozRnMCfg2",
         "userData": {
-            "completionTime": "82.00",
+            "completionTime": "72.39",
             "name": "DUMALA NITHISH 2021-CSEUG BATCH",
             "notes": "",
             "overallMarks": "5",
@@ -7473,7 +8248,7 @@ const algo24Top = [
     {
         "userID": "KgZDRtXqDZO4ZvF9Z56BNJ8kxSA3",
         "userData": {
-            "completionTime": "59.59",
+            "completionTime": "60",
             "name": "ANNAPAREDDY HARIKA 2021-CSEUG",
             "notes": "",
             "overallMarks": "4.5",
@@ -7504,7 +8279,7 @@ const algo24Top = [
     {
         "userID": "ARx3JC6fHMX0rie9QjcJhE3G5QN2",
         "userData": {
-            "completionTime": "62.00",
+            "completionTime": "60.2",
             "name": "MUPPA NETHRANAND ",
             "notes": "",
             "overallMarks": "3.75",
@@ -7535,7 +8310,7 @@ const algo24Top = [
     {
         "userID": "15AXPjOGS1ebXrJghJBXqTF9Ibn2",
         "userData": {
-            "completionTime": "62.04",
+            "completionTime": "64",
             "name": "PADMAVATHI A",
             "notes": "",
             "overallMarks": "3",
@@ -7566,7 +8341,7 @@ const algo24Top = [
     {
         "userID": "1Bi83OrOMqOXoDoWSuhrKHG6CcW2",
         "userData": {
-            "completionTime": "46.30",
+            "completionTime": "46.3",
             "name": "PULLAGURU SATHVIKA 2022-CSE",
             "notes": "",
             "overallMarks": "-2.5",

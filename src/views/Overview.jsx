@@ -156,7 +156,7 @@ export default function Overview() {
             {
                 <div className="leaderboard" >
                     <div className="container">
-                    <span className="statusMessage">
+                    <span className={"statusMessage " + (resultData.qualified ? "qualified" : "" ) }>
                         {
                             (resultData.qualified) ? (
                                 <>

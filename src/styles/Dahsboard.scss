@@ -547,13 +547,17 @@ $leftNavOpenSize: 240px;
                     font-weight: 600;
                     max-width: max-content;
                     padding: 1rem;
-                    background-color: rgb(127, 218, 115);
+                    background-color: rgb(218, 196, 115);
                     border-radius: 8px;
 
                     display: flex;
                     align-items: center;
                     justify-content: flex-start;
                     gap: 1rem;
+
+                    &.qualified {
+                        background-color: rgb(127, 218, 115);
+                    }
 
                     span {
                         cursor: pointer;
