@@ -728,6 +728,11 @@ $leftNavOpenSize: 240px;
 @media (max-width: 700px) {
 
     .bestPerformers {
+
+        .rowContainer {
+            gap: 1.5rem;
+        }
+
         .row {
             height: 70px;
             max-height: max-content;
