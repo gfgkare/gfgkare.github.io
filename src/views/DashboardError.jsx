@@ -7,8 +7,7 @@ export default function DashboardError() {
     const { signinwithpopup } = useAuth();
     
     const [
-        currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, totalMarks, totalScoredMarks, 
-        correctlyAnswered, incorrectlyAnswered,positiveMarks, negativeMarks, error] = useOutletContext();
+        currentUser, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, setShowQualifiedPopup, error ] = useOutletContext();
 
 
     return (
