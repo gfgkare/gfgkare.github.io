@@ -45,6 +45,7 @@ export default function CustomTable(props) {
 
     useEffect(() => {
         if (debouncedValue === "") {
+
             filteredRows.setValue(props.rows.slice(startIndex, stopIndex));
         }
         else {
@@ -87,7 +88,7 @@ export default function CustomTable(props) {
                                 <div className="regNo">{row.userData.section2.totalMarks}</div>
                                 <div className="regNo">{row.userData.section3.totalMarks}</div>
                                 <div className="regNo">{row.userData.overallMarks}</div>
-                                <div className="regNo">{ parseInt((row.userData.overallMarks / 90) * 100) }%</div>
+                                <div className="regNo">{ row.userData.completionTime }</div>
                                 
                             </div>
                         )                        

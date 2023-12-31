@@ -554,6 +554,7 @@ $leftNavOpenSize: 240px;
                     align-items: center;
                     justify-content: flex-start;
                     gap: 1rem;
+                    margin-bottom: 3rem;
 
                     &.qualified {
                         background-color: rgb(127, 218, 115);
@@ -725,6 +726,21 @@ $leftNavOpenSize: 240px;
 
 
 @media (max-width: 700px) {
+
+    .bestPerformers {
+        .row {
+            height: 70px;
+            max-height: max-content;
+        }
+        .displayName {
+            font-size: medium !important;
+        }
+        .dept {
+            font-size: small !important;
+        }
+    }
+
+
     .leaderboard {
         padding: 2rem 0;
     }    
