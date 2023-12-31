@@ -229,13 +229,13 @@ export function toReadableTime(timestamp) {
   
     const timeParts = [];
     if (hours > 0) {
-      timeParts.push(`${hours} ${hours === 1 ? 'hour' : 'hours'}`);
+      timeParts.push(`${hours}h`);
     }
     if (minutes > 0) {
-      timeParts.push(`${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`);
+      timeParts.push(`${minutes}m`);
     }
     if (seconds > 0) {
-      timeParts.push(`${seconds} ${seconds === 1 ? 'second' : 'seconds'}`);
+      timeParts.push(`${seconds}s`);
     }
   
     if (timeParts.length > 1) {
