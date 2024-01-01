@@ -83,8 +83,8 @@ export default function CustomTable(props) {
                     filteredRows.value.map((row, index) => {
                         return (
                             <div className={"row " + ((index % 2 == 0) ? "even" : "odd")}>
+                                <div className="regNo">{(row.rank)}</div>
                                 <div className="regNo">{row.userData.regNo}</div>
-
                                  {/* if from database > row.userData.section1.totalMarks */}
                                 <div className="regNo">{row.userData.section1}</div> 
                                 <div className="regNo">{row.userData.section2}</div>
