@@ -24,8 +24,11 @@ export default function Overview() {
     //     currentUser, circlePerc, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, totalMarks, totalScoredMarks, 
     //     correctlyAnswered, incorrectlyAnswered,positiveMarks, negativeMarks, qualified, error] = useOutletContext();
 
-    const [
-        currentUser, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, setShowQualifiedPopup, error] = useOutletContext();
+    const [ currentUser, 
+        isVisible, visualsRef, celebrate, animationDone, setAnimationDone,
+        resultData, setShowQualifiedPopup, setShowTimeBookPopup, setSelectedSlot,  
+        booked,
+        error ] = useOutletContext();
    
 
     useEffect(() => {

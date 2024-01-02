@@ -8,7 +8,7 @@ import { TbSpeakerphone } from "react-icons/tb";
 
 
 import { VscLinkExternal, VscLayers } from "react-icons/vsc";
-import { CiCircleList } from "react-icons/ci";
+import { CiCircleList, CiClock2 } from "react-icons/ci";
 import { LuBrainCircuit } from "react-icons/lu";
 
 
@@ -21,7 +21,7 @@ import { useAuth } from "../contexts/AuthContext"
 import gfgLogo from "../assets/GFG_KARE.svg"
 import Fade from "../components/Fade";
 import QualifiedPopup from '../components/QualifiedPopup';
-
+import SlotBookPopup from "../components/SlotBookPopup";
 
 import axios from "../scripts/axiosConfig";
 import RollingLetters from "../components/RollingLetters";
@@ -41,12 +41,16 @@ export default function Dashboard() {
     const [pageToShow, setPageToShow] = useState("loading");
     const [error, setError] = useState("");
 
-    const [tableRows, setTableRows] = useState([]);
-
 
     // MARKS VARS
     const [resultData, setResultData] = useState({});
     const [qualified, setQualified] = useState(false);
+    
+    // ROUND 2 BOOKING VARS
+    const [showTimeBookPopup, setShowTimeBookPopup] = useState(false);
+    const [selectedSlot, setSelectedSlot] = useState(null);
+    const [booked, setBooked] = useState(false);
+
     const [showQualifiedPopup, setShowQualifiedPopup] = useState(true);
 
     const visualsRef = useRef(null);
@@ -54,6 +58,10 @@ export default function Dashboard() {
    const celebrate = () => {
         setIsExploding(true);
         setAnimationDone(true);
+    }
+
+    const handleSuccessfulBook = () => {
+        setBooked(true);
     }
 
    
@@ -66,7 +74,7 @@ export default function Dashboard() {
 
             axios.post(
             "get_dashdata", 
-            { eventID: "algo2024" },  //admin: "ohyes"
+            { eventID: "algo2024", admin: "ohyea" },  //admin: "ohyes"
             { headers: { "Authorization": `${currentUser.accessToken}` } })
             .then((res) => {
                 console.log(res.data);
@@ -110,6 +118,14 @@ export default function Dashboard() {
                     (qualified && showQualifiedPopup) ? <QualifiedPopup name={ getFirstName(currentUser.displayName) } close={() => setShowQualifiedPopup(false)} /> : <></>
                 }
                 {
+                    (showTimeBookPopup) ? <SlotBookPopup 
+                                                currentUser={currentUser} 
+                                                selectedSlot={selectedSlot} 
+                                                onSuccessfulBook={handleSuccessfulBook}
+                                                close={() => setShowTimeBookPopup(false)} 
+                                           /> : <></>
+                }
+                {
                     (pageToShow === "open") ? (
                         <Fade>
                             {isExploding ? <ConfettiExplosion zIndex={99} duration={5000} particleCount={50} width={3000} force={1} onComplete={() => setIsExploding(false)} /> : <></>}
@@ -132,6 +148,11 @@ export default function Dashboard() {
                                     <div className="tab"  onClick={() => navigate("/dashboard/results")}>
                                         <div className="icon"> <TbSpeakerphone size="25px" strokeWidth={1} /> </div>
                                         <span className="name">Results</span>
+                                    </div>
+
+                                     <div className="tab"  onClick={() => navigate("/dashboard/slots")}>
+                                        <div className="icon"> <CiClock2 size="25px" strokeWidth={.3} /> </div>
+                                        <span className="name">Round 2 Slots</span>
                                     </div>
 
                                     {/* <Link className="tab" target="_blank">
@@ -169,7 +190,11 @@ export default function Dashboard() {
                                     {
                                         (USER_PRESENT()) ? (
                                             <Outlet context={
-                                                [ currentUser, isVisible, visualsRef, celebrate, animationDone, setAnimationDone, resultData, setShowQualifiedPopup, error ]} />
+                                                [ currentUser, 
+                                                  isVisible, visualsRef, celebrate, animationDone, setAnimationDone,
+                                                  resultData, setShowQualifiedPopup, setShowTimeBookPopup, setSelectedSlot,  
+                                                  booked,
+                                                  error ]} />
                                         ) : (
                                             <></>
                                         )
