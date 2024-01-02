@@ -58,6 +58,18 @@ export default function SlotSelection() {
         }, 10000);
         setSlotCountInterval(slotCountUpdater)
 
+        axios.post(
+            "get_round2_booked_data", 
+            { eventID: "algo2024" },  //admin: "ohyes"
+            { headers: { "Authorization": `${currentUser.accessToken}` } })
+            .then((res) => {
+                console.log(res.data);
+                setBookedDetails(res.data);
+            })
+            .catch((e) => {
+                console.log("Error in getting booked stat.")
+            })
+
         return () => clearInterval(slotCountUpdater);
     }, [])
 
