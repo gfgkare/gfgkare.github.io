@@ -13,9 +13,9 @@ export default function Profile() {
 
             <div className="profileBox">
                 <button className="back">
-                    <Link to={"/events/algo2024"}>
+                    <Link to={"/dashboard/slots"}>
                         <IoIosArrowBack />
-                        Algo24
+                        Slots
                     </Link>
                 </button>
 
