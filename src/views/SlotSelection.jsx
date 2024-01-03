@@ -168,7 +168,7 @@ export default function SlotSelection() {
                                                 
                                             </div>
                                             <div className="slotBody">
-                                                <h3>Algorithms</h3>
+                                                <h3>Algorithms to learn</h3>
                                                 <ul className="algos">
                                                     {
                                                         (slot.algorithms?.map((algo, i) => <li className="algo" key={i}>{algo}</li> ))
