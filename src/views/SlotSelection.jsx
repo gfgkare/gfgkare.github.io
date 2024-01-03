@@ -157,7 +157,7 @@ export default function SlotSelection() {
                                                     {
                                                         (!booked) ? (
                                                             <span className="available"> 
-                                                                Available Seats: { ( slotCount[`Slot ${index+1}`]?.count || slotCount[`Slot ${index+1}`]?.count === 0 ) ? ( slot.max - slotCount[`Slot ${index+1}`]?.count )  : "-"} / { slot.max }
+                                                                Available Seats: { ( slotCount[`Slot ${index+1}`]?.count || slotCount[`Slot ${index+1}`]?.count === 0 ) ? ( slot.max - slotCount[`Slot ${index+1}`]?.count )  : "-"}
                                                             </span>
                                                         ) : (
                                                         <></>

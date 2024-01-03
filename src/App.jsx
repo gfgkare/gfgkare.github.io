@@ -30,6 +30,7 @@ import Rounds from "./views/Rounds";
 import DashboardError from "./views/DashboardError";
 import DashboardResults from "./views/DashboardResults";
 import SlotSelection from "./views/SlotSelection";
+import SlotSuspend from "./views/SlotSuspend";
 
 import Pickle from "./views/Pickle";
 
@@ -85,7 +86,7 @@ export default function App() {
                             <Route path="/dashboard" element={ <Overview /> }></Route>
                             <Route path="/dashboard/rounds" element={ <Rounds /> }></Route>
                             <Route path="/dashboard/results" element={ <DashboardResults /> }></Route>
-                            <Route path="/dashboard/slots" element={ <SlotSelection /> }></Route>
+                            <Route path="/dashboard/slots" element={ <SlotSuspend /> }></Route>
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
                         </Route>
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
