@@ -183,7 +183,8 @@ export default function SlotSuspend() {
 '9921004746@klu.ac.in',
 'incrediblesabari02@gmail.com',
 'gvsskvineeth@gmail.com',
-'balajinbtt@gmail.com'
+'balajinbtt@gmail.com',
+'99210042002@klu.ac.in',
     ]
 
     return (
