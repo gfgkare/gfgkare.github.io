@@ -87,6 +87,7 @@ export default function App() {
                             <Route path="/dashboard/rounds" element={ <Rounds /> }></Route>
                             <Route path="/dashboard/results" element={ <DashboardResults /> }></Route>
                             <Route path="/dashboard/slots" element={ <SlotSuspend /> }></Route>
+                            <Route path="/dashboard/low" element={ <SlotSelection /> }></Route>
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
                         </Route>
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
