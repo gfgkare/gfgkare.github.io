@@ -1,3 +1,12 @@
+.Toastify {
+    position: relative;
+    z-index: 50 !important;
+}
+
+.Toastify__toast {
+    // background-color: red !important;
+}
+
 .Toastify__toast--warning {
     background: #ffe8bc !important;
 }
@@ -6,7 +15,6 @@
     // background: #f53639 !important;
 
     .toastProgress, .progressbar {
-        background: #bc1613 !important;
     }
 }
 
@@ -18,7 +26,6 @@
 
     .toastBody {
         color: #10171d;
-        // background-color: red;
         // font-size: 0.875rem !important;
     }
 

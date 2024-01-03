@@ -27,6 +27,10 @@ import axios from "../scripts/axiosConfig";
 import RollingLetters from "../components/RollingLetters";
 import { getFirstName } from "../scripts/Misc";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../styles/customToastStyle.scss";
+
 export default function Dashboard() {
 
     const { currentUser, USER_PRESENT, USER_LOADING, signinwithpopup } = useAuth();
@@ -94,7 +98,6 @@ export default function Dashboard() {
             .catch((e) => {
                 setError(e.response?.data?.error);
                 setPageToShow("open")
-                navigate("/dashboard/error");
             })
             
         }
@@ -102,6 +105,7 @@ export default function Dashboard() {
         else if (!USER_PRESENT()) setPageToShow("login");
 
     }, [currentUser])
+
 
     useEffect(() => {
         if (pageToShow === "open") {
@@ -113,15 +117,22 @@ export default function Dashboard() {
     }, [pageToShow])
 
     return (
+        <>
+            <ToastContainer zIndex={50} progressClassName="toastProgress" bodyClassName="toastBody" />
+
             <div className="dashboard">
                 {
-                    (qualified && showQualifiedPopup) ? <QualifiedPopup name={ getFirstName(currentUser.displayName) } close={() => setShowQualifiedPopup(false)} /> : <></>
+                    (qualified && showQualifiedPopup) ? <QualifiedPopup 
+                                                            name={ getFirstName(currentUser.displayName) }
+                                                            close={() => setShowQualifiedPopup(false)} /> : <></>
                 }
                 {
                     (showTimeBookPopup) ? <SlotBookPopup 
                                                 currentUser={currentUser} 
                                                 selectedSlot={selectedSlot} 
                                                 onSuccessfulBook={handleSuccessfulBook}
+                                                toastSuccess={ (message) => toast.success(message)  }
+                                                toastError={ (message) => toast.error(message)  } 
                                                 close={() => setShowTimeBookPopup(false)} 
                                            /> : <></>
                 }
@@ -148,12 +159,7 @@ export default function Dashboard() {
                                     <div className="tab"  onClick={() => navigate("/dashboard/results")}>
                                         <div className="icon"> <TbSpeakerphone size="25px" strokeWidth={1} /> </div>
                                         <span className="name">Results</span>
-                                    </div>
-
-                                     <div className="tab"  onClick={() => navigate("/dashboard/slots")}>
-                                        <div className="icon"> <CiClock2 size="25px" strokeWidth={.3} /> </div>
-                                        <span className="name">Round 2 Slots</span>
-                                    </div>
+                                    </div>    
 
                                     {/* <Link className="tab" target="_blank">
                                         <div className="icon"> <GoInfo  size="25px" /> </div>
@@ -190,11 +196,11 @@ export default function Dashboard() {
                                     {
                                         (USER_PRESENT()) ? (
                                             <Outlet context={
-                                                [ currentUser, 
+                                                { currentUser, 
                                                   isVisible, visualsRef, celebrate, animationDone, setAnimationDone,
                                                   resultData, setShowQualifiedPopup, setShowTimeBookPopup, setSelectedSlot,  
-                                                  booked,
-                                                  error ]} />
+                                                  booked, setBooked,
+                                                  error }} />
                                         ) : (
                                             <></>
                                         )
@@ -216,6 +222,7 @@ export default function Dashboard() {
                     )
                 }
             </div>
-       
+
+        </>       
     )
 }

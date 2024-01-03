@@ -3,7 +3,7 @@
 
 
 .slotBookPopup{
-    z-index: 50;
+    z-index: 10;
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -84,6 +84,16 @@
                 width: 65%;
                 display: flex;
                 justify-content: space-between;
+
+                &.full {
+                    text-decoration: line-through;
+                    opacity: .7;
+                }
+
+                &.left {
+                    text-decoration: none;
+                    opacity: 1;
+                }
             }
 
             .seats {
@@ -127,7 +137,7 @@
             align-items: center;
 
             .radio {
-                width: 90% !important;
+                max-width: max-content !important;
                 flex-direction: column;
 
                 label {

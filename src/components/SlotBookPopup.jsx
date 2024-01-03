@@ -57,7 +57,10 @@ export default function SlotBookPopup(props) {
     }
 
     const confirm = (e) => {
-        if (!timing) return;
+        if (!timing) {
+            props.toastError("Select one timing.");
+            return;
+        }
 
         let uploadObj = {}
 
@@ -65,20 +68,25 @@ export default function SlotBookPopup(props) {
         uploadObj["timing"] = timing;
         uploadObj["regNo"] = 9922008342;
         uploadObj["nameFromEmail"] = props.currentUser.displayName;
+
+        console.log(uploadObj)
         
         axios.post(
             "/book_slot", 
             { eventID: "algo2024", admin: "ohyea", uploadObj: uploadObj },  //admin: "ohyes"
             { headers: { "Authorization": `${props.currentUser.accessToken}` } })
             .then((res) => {
-                console.log(res.data);
-                toast.success(res.data);
+                console.log(props);
                 props.onSuccessfulBook();
+                props.toastSuccess(`You have registered for Slot ${props.selectedSlot} on ${timing}`)
                 closePopup();
             })
             .catch((err) => {
                 console.log(err);
-                toast.error(err);
+                props.toastError(err.response.data.error);
+                if (err.response.data.error === "Slot is full. Please select another slot." ) {
+                    closePopup();
+                }
             });
 
 
@@ -93,16 +101,16 @@ export default function SlotBookPopup(props) {
             <div className="box">
                 Select one timing under Slot {props.selectedSlot}
                 <div className="radioContainer" onChange={handleTimeSelect}>
-                    <span className="radio"> <label> <input type="radio" name="timingSelect" id="Jan 5" /> Jan 5 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 5`]?.count) ?? "-"} /45 seats full</span>  </span>
-                    <span className="radio"> <label> <input type="radio" name="timingSelect" id="Jan 6" /> Jan 6 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 6`]?.count) ?? "-"} /45 seats full</span>  </span>
-                    <span className="radio"> <label> <input type="radio" name="timingSelect" id="Jan 8" /> Jan 8 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 8`]?.count) ?? "-"} /45 seats full</span>  </span>
-                    <span className="radio"> <label> <input type="radio" name="timingSelect" id="Jan 9" /> Jan 9 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 9`]?.count) ?? "-"} /45 seats full</span>  </span>
+                    <span className={ ( (timingCount[`Jan 5`]?.count >= 45) ? "radio full" : "radio left" ) }> <label> <input type="radio" disabled={(timingCount[`Jan 5`]?.count >= 45)} name="timingSelect" id="Jan 5" /> Jan 5 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 5`]?.count) ?? "-"} /45 seats full</span>  </span>
+                    <span className={ ( (timingCount[`Jan 6`]?.count >= 45) ? "radio full" : "radio left" ) }> <label> <input type="radio" disabled={(timingCount[`Jan 6`]?.count >= 45)} name="timingSelect" id="Jan 6" /> Jan 6 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 6`]?.count) ?? "-"} /45 seats full</span>  </span>
+                    <span className={ ( (timingCount[`Jan 8`]?.count >= 45) ? "radio full" : "radio left" ) }> <label> <input type="radio" disabled={(timingCount[`Jan 8`]?.count >= 45)} name="timingSelect" id="Jan 8" /> Jan 8 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 8`]?.count) ?? "-"} /45 seats full</span>  </span>
+                    <span className={ ( (timingCount[`Jan 9`]?.count >= 45) ? "radio full" : "radio left" ) }> <label> <input type="radio" disabled={(timingCount[`Jan 9`]?.count >= 45)} name="timingSelect" id="Jan 9" /> Jan 9 2024, 04:30PM - 06:30PM </label> <span className="seats"> {(timingCount[`Jan 9`]?.count) ?? "-"} /45 seats full</span>  </span>
                 </div>
 
 
                 <button onClick={confirm}>Confirm</button>
 
-                <sub className="note">Once selected, timing cannot be changed.</sub>
+                <sub className="note">Once selected, slot and timing cannot be changed.</sub>
                 
             </div>
             

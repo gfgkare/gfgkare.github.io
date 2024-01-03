@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/QualifiedPopup.scss";
 import rocketSvg from "../assets/rocket.webp"
+import { Link } from "react-router-dom";
 
 
 export default function QualifiedPopup(props) {
@@ -28,6 +29,7 @@ export default function QualifiedPopup(props) {
                 <div className="greet">Congratulations {props.name}!</div>
                 <img src={rocketSvg} alt="" />
                 <div className="qualifiedMessage">You have <span className="rainbow rainbow_text_animated"> qualified </span> for Round 2 of Algorithmist'24!</div>
+                <Link to={"/dashboard/slots"} className="bookSlotMessage" onClick={() => closePopup()}  >Book your Slots for Round 2!</Link>
             </div>
 
         </div>
