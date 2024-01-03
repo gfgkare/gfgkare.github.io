@@ -68,6 +68,7 @@ export default function SlotBookPopup(props) {
         uploadObj["timing"] = timing;
         uploadObj["email"] = props.currentUser.email;
         uploadObj["nameFromEmail"] = props.currentUser.displayName;
+        uploadObj["registeredAt"] = new Date();
 
         console.log(uploadObj)
         
