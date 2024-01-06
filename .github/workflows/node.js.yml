@@ -14,6 +14,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+     env:
+      TZ: 'Asia/Kolkata'
 
     strategy:
       matrix:
@@ -27,6 +29,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+  
+    - name: Update Meta
+      run: |
+        DATE=$(date +'%B %d')
+        sed -i "s/{currentDate}/$DATE/g" src/pages/Meta.jsx
 
     - name: Install Dependencies
       run: npm ci -f
