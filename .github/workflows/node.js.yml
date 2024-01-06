@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-     env:
+    env:
       TZ: 'Asia/Kolkata'
 
     strategy:
