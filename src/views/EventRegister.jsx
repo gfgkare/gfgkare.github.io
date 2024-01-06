@@ -203,36 +203,6 @@ export default function EventRegister() {
                                 <div className="eventTitle">
                                     Algorithmist 2024
                                 </div>
-                                {/* <div className="conductedBy">
-                                    Brought to you by GeeksForGeeks KARE Student
-                                    Chapter
-                                </div> */}
-
-                                {/* <div className="whereWhenContainer">
-                                    <div className="where">
-                                        <span className="title">
-                                            <IoLocationSharp /> Where{" "}
-                                        </span>
-                                        <div className="content">
-                                            <div>8th block Seminar hall</div>
-                                            <div>KARE</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="when">
-                                        <span className="title">
-                                            <AiFillClockCircle /> When{" "}
-                                        </span>
-                                        <div className="content">
-                                            <div className="date">
-                                                Monday, October 30, 2023
-                                            </div>
-                                            <div className="time">
-                                                10:00AM - 12:00PM GMT+5:30
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
 
                                 <div className="aboutEvent">
                                     Algorithmist 24" is a series of coding
@@ -443,15 +413,12 @@ export default function EventRegister() {
                                 </div>
                             </div>
                         </div>
-                        {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                {/* <img src={debug} alt="Round 4 Debugging" /> */}
                                 <span className="number">4</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    {/* <div className="roundNo">Round 4</div> */}
                                     <div className="roundName">Debugging</div>
                                 </div>
                                 
@@ -461,15 +428,12 @@ export default function EventRegister() {
                                 </div>
                             </div>
                         </div>
-                        {/* <BsArrowDown size={"60px"} /> */}
                         <div className="round">
                             <div className="icon">
-                                {/* <img src={coding} alt="Round 1 Quiz" /> */}
                                 <span className="number">5</span>
                             </div>
                             <div className="info">
                                 <div className="noAndName">
-                                    {/* <div className="roundNo">Round 5</div> */}
                                     <div className="roundName">Coding</div>
                                 </div>
                                 
@@ -592,7 +556,7 @@ export default function EventRegister() {
                     <div className="links">
                         <div className="header">CONNECT WITH US</div>
                         <div className="icons">
-                            <a href="https://www.instagram.com/gfg_kare_student_chapter">
+                            <a href="https://www.instagram.com/gfgkare">
                                 <AiFillInstagram size={"30px"} />
                             </a>
                             <a href="https://www.linkedin.com/company/gfg-kare-student-chapter" target="_blank">
