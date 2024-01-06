@@ -64,13 +64,6 @@ export default function App() {
                                     return ( <Route key={index} path={`/core/${key}`} element={ <TeamMember info={coreTeamMembers[key]} /> } /> )
                                 })
                             }
-                            {/*                             
-                                {
-                                    Object.keys(chapterMembersInfo).map((key) => {
-                                        return ( <Route path={`/members/${key}`} element={ <ChapterMember info={{ id: key, ...chapterMembersInfo[key]}} /> } /> )
-                                })
-                            } */}
-
                             {
                                 allData.map((memberData, index) => {
                                     return ( <Route key={index} path={`members/${memberData["Membership ID"]}`} element={ <ChapterMember info={{ ...memberData }}  /> } /> )
@@ -78,6 +71,8 @@ export default function App() {
                             }
 
                             <Route path="/events/:eventname" element={<UnderConstruction />}></Route>
+                            <Route path="/:eventname/" element={<UnderConstruction />}></Route>
+                            <Route path="/:eventname/code" element={<UnderConstruction />}></Route>
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>

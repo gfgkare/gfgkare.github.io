@@ -183,7 +183,7 @@ export default function Dashboard() {
 
                                 </div>
                                 
-                                <Link to="/profile">
+                                <Link to="/profile" state={{from: location.pathname }} >
                                     <div className="profileImage">
                                         <img src={currentUser.photoURL} />
                                     </div>

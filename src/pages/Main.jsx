@@ -67,7 +67,7 @@ export default function Main() {
                         </div> */}
                         {
                             (USER_PRESENT()) ? 
-                                <div onClick={() => navigate("/profile")} className="menuLink hideOnMobile account">
+                                <div onClick={() => navigate("/profile", { state: { from: location.pathname } } )} className="menuLink hideOnMobile account">
                                     <img src={currentUser.photoURL} referrerPolicy="no-referrer" alt="user's profile image" />
                                 </div>
                             :
