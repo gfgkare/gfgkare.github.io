@@ -17,6 +17,7 @@ export default function Meta() {
                 <li>Notes: release</li>
                 <li>Status: dev</li>
                 <li>Last Updated: {currentDate}</li>
+                <li>Latest commit message: {commitMessage}</li>
             </ul>
 
 
