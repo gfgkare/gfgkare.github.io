@@ -1,6 +1,7 @@
 {
   "name": "gfgweb",
   "private": true,
+  "homepage": "https://gfgkare.github.io",
   "author": "https://www.github.com/sabzdotpy",
   "version": "0.0.0",
   "type": "module",
