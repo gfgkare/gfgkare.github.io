@@ -25,6 +25,61 @@
         }
     }
 
+    .round2Best {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        gap: 1rem;
+
+        .day {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 70%;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+
+            .dayTitle {
+                font-weight: 600;
+                font-size: large;
+                max-width: max-content;
+                margin: 0 auto;
+            }
+
+            div.toppers {
+                margin: 0 auto;
+                width: min(400px, 80%);
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .student {
+                    font-size: larger;
+                    display: flex;
+
+                    .position {
+                        font-weight: 600;
+                        font-style: italic;
+                        margin-right: 1rem;
+                    }
+
+                    .nameAndRegNo {
+                        display: flex;
+                        width: 100%;
+
+                        .regNo {
+                            margin-left: .5rem;
+                            opacity: .7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .round5 {
         margin-bottom: 5rem;
     }
@@ -59,6 +114,30 @@
 
         .pagination {
             transform: scale(.7);
+        }
+    }
+
+    .round2Best {
+        .student {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .position {
+                font-size: x-large;
+            }
+            
+            .nameAndRegNo {
+                flex-direction: column !important;
+
+                .name {
+                    word-wrap: normal;
+                }
+
+                .regNo {
+                    margin-left: 0 !important;
+                }
+            }
         }
     }
 }
