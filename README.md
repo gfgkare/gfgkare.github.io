@@ -2,7 +2,13 @@
 
 This is the official website for GeeksForGeeks KARE Student Chapter.  
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=gfgkare&label=Views&color=0e75b6&style=flat" alt="gfgkare" /> </p> 
+<p align="left"> 
+  
+  [![Build](https://github.com/gfgkare/gfgkare.github.io/actions/workflows/node.js.yml/badge.svg)](https://github.com/gfgkare/gfgkare.github.io/actions/workflows/node.js.yml)
+
+  <img src="https://komarev.com/ghpvc/?username=gfgkare&label=Views&color=0e75b6&style=flat" alt="gfgkare" />  
+  
+</p> 
 
 
 ## Run Locally
