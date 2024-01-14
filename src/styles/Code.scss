@@ -1,0 +1,138 @@
+@import "./Variables.scss";
+
+$codeNavSize: 70px;
+
+.Code {
+    height: 100vh;
+    width: 100vw;
+
+    background-color: $background;
+    color: $text;
+
+    nav.codeNav {
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: $codeNavSize;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: lighten($background, 10%);
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: grey;
+        }
+        
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 0;
+                height: $codeNavSize;
+                width: 100%;
+                border: 1px solid darken(rgba($text, .4), 30);
+                border-bottom-color: transparent;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: transparent;
+                cursor: pointer;
+                font-size: larger;
+                font-weight: 600;
+                transition: background-color .4s ease;
+
+                &:first-child {
+                    border-top-color: transparent;
+                }
+
+                &.errored {
+                    background-color: rgba(210, 49, 49, 0.5);
+
+                    &:hover {
+                        background-color: rgba(255, 68, 68, 0.6);
+                    }
+                }
+
+                &.done {
+                    background-color: rgba(47, 168, 47, 0.5);
+
+                    &:hover {
+                        background-color: rgba(49, 221, 49, 0.5);
+                    }
+                }
+
+                &.visited {
+                    background-color: rgba(201, 142, 33, .5);
+
+                    &:hover {
+                        background-color: rgba(227, 157, 27, 0.7);
+                    }
+                }
+
+                &:hover {
+                    background-color: lighten($background, 7%);
+                }
+            }
+        }
+    }
+
+    .codeContent {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        margin-left: $codeNavSize !important;
+
+        .questionContainer {
+            height: 100vh;
+            width: 100%;
+            // background-color: blue;
+            flex: 0.4;
+        }
+
+        .resizeHandle {
+            width: 5px;
+            height: 100vh;
+            cursor: col-resize !important;
+            transition: width .05s ease;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: x-small;
+            color: rgba($text, .6);
+
+            &:hover {
+                color: $text;
+                width: 10px;
+            }
+        }
+    
+        .codeEditor {
+            flex: 1;
+            height: 100vh;
+            width: 100%;
+            // background-color: red;
+        }
+    }
+
+    
+}

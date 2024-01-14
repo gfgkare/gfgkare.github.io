@@ -136,18 +136,18 @@ export default function Overview() {
                                                             <div
                                                                 className="displayName"
                                                             >
-                                                                {extractName(row.userData.name)}
+                                                                {extractName(row.name)}
                                                             </div>
                                                             <div className="dept">
-                                                                Completed in {toReadableTime(row.userData.completionTime)}
+                                                                Completed in {toReadableTime(row.completionTime)}
                                                             </div>
                                                         </div>
                                                         <div className="right">
                                                             <div className="accuracy">
-                                                                { parseInt((row.userData.overallMarks / 90) * 100) }%
+                                                                { parseInt((row.overallMarks / 90) * 100) }%
                                                             </div>
                                                             <div className="scored">
-                                                                {row.userData.overallMarks}/90
+                                                                {row.overallMarks}/90
                                                             </div>
                                                         </div>
                                                     </div>

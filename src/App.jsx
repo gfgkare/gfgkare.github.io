@@ -32,6 +32,8 @@ import DashboardResults from "./views/DashboardResults";
 import SlotSelection from "./views/SlotSelection";
 import SlotSuspend from "./views/SlotSuspend";
 
+import Code from "./views/Code";
+
 import Pickle from "./views/Pickle";
 
 
@@ -71,11 +73,11 @@ export default function App() {
                             }
 
                             <Route path="/events/:eventname" element={<UnderConstruction />}></Route>
-                            <Route path="/:eventname/" element={<UnderConstruction />}></Route>
-                            <Route path="/:eventname/code" element={<UnderConstruction />}></Route>
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
+                        <Route path="/:eventname/code" element={<Code />}></Route>
+
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
                             <Route path="/dashboard" element={ <Overview /> }></Route>

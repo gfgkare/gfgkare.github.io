@@ -78,7 +78,7 @@ export default function Dashboard() {
 
             axios.post(
             "get_dashdata", 
-            { eventID: "algo2024" },  //admin: "ohyes"
+            { eventID: "algo2024", admin : "ohyea" },  //admin: "ohyes"
             { headers: { "Authorization": `${currentUser.accessToken}` } })
             .then((res) => {
                 console.log(res.data);
