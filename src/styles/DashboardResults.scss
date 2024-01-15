@@ -33,6 +33,10 @@
         // justify-content: center;
         // align-items: center;
         gap: 1rem;
+        
+        &:not(:has(.customTable)) {
+            margin-bottom: 3rem;
+        }
 
         .day {
             display: flex;
