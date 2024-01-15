@@ -16,7 +16,7 @@ export default function CustomTable(props) {
         "section2": "Section 2 Marks",
         "section3": "Section 3 Marks",
         "overallMarks": "Total",
-        "completionTime": "Completion Time (hh.mm)",
+        "completionTime": "Completion Time (mm.ss)",
         "explanation": "Explanation Marks",
         "complexity": "Complexity Marks",
         "realtime": "Realtime Application Marks",
