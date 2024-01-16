@@ -15,7 +15,7 @@ import { LuBrainCircuit } from "react-icons/lu";
 import ConfettiExplosion from 'react-confetti-explosion';
 
 
-import "../styles/Dahsboard.scss";
+import "../styles/Dashboard.scss";
 
 import { useAuth } from "../contexts/AuthContext"
 import gfgLogo from "../assets/GFG_KARE.svg"
