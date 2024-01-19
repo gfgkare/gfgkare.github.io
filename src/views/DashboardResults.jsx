@@ -21,6 +21,8 @@ export default function DashboardResults(props) {
     const day3Results = useArray([]);
     const day4Results = useArray([]);
 
+    const round2Results = useArray([])
+
     const round2Best = {
         "Day One - 05/01/24": { 
             top3: [
@@ -65,17 +67,22 @@ export default function DashboardResults(props) {
                 { eventID: "algo2024" },  //admin: "ohyes"
                 { headers: { "Authorization": `${currentUser.accessToken}` } })
                 .then((res) => {
-                    console.log(res.data);
-                    day1Results.setValue(res.data.dayWiseData.Day1);
-                    console.log("Set Day 1 value");
+                    // console.log("%cGetting round 2 Data", "color: green");
+                    // console.log(res.data.result);
+                    // console.log(res.data);
+                    // day1Results.setValue(res.data.dayWiseData.Day1);
+                    // console.log("Set Day 1 value");
 
-                    console.log(day1Results)
-                    console.log(day1Results.value)
-                    console.log(day1Results.value.length)
+                    // console.log(day1Results)
+                    // console.log(day1Results.value)
+                    // console.log(day1Results.value.length)
 
-                    day2Results.setValue(res.data.dayWiseData.Day2);
-                    day3Results.setValue(res.data.dayWiseData.Day3);
-                    day4Results.setValue(res.data.dayWiseData.Day4);
+                    // day2Results.setValue(res.data.dayWiseData.Day2);
+                    // day3Results.setValue(res.data.dayWiseData.Day3);
+                    // day4Results.setValue(res.data.dayWiseData.Day4);
+                    
+                    // XLS FILE
+                    round2Results.setValue(res.data.result)
                 })
                 .catch((err) => {
                     console.log(err)
@@ -95,7 +102,7 @@ export default function DashboardResults(props) {
 
             <div className="title">Round 2 - Seminar</div>
             <div className="round2Best">
-                {Object.keys(round2Best).map((key) => (
+                {/* {Object.keys(round2Best).map((key) => (
                     <>
                     
                         <div className="day" key={key}>
@@ -124,7 +131,11 @@ export default function DashboardResults(props) {
                             )
                         }
                     </>
-                ))}
+                ))} */}
+
+                {
+                    (round2Results.value.length > 0) ? <CustomTable headers={["regNo", "explanation", "complexity", "realtime", "viva", "overallMarks"]} rows={round2Results.value} /> : <></> 
+                }
 
                 
             </div>

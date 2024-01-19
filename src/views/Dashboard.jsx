@@ -75,30 +75,30 @@ export default function Dashboard() {
         console.log(currentUser);
         if (USER_PRESENT()) { 
             console.log(currentUser.displayName);
+            setPageToShow("open");
+            // axios.post(
+            // "get_dashdata", 
+            // { eventID: "algo2024", admin: "ohyea" },  //admin: "ohyes"
+            // { headers: { "Authorization": `${currentUser.accessToken}` } })
+            // .then((res) => {
+            //     console.log(res.data);
 
-            axios.post(
-            "get_dashdata", 
-            { eventID: "algo2024" },  //admin: "ohyes"
-            { headers: { "Authorization": `${currentUser.accessToken}` } })
-            .then((res) => {
-                console.log(res.data);
+            //     setResultData(res.data);
+            //     setPageToShow("open");
 
-                setResultData(res.data);
-                setPageToShow("open");
+            //     setTimeout(() => {
+            //         setCirclePerc(res.data.percentage);
 
-                setTimeout(() => {
-                    setCirclePerc(res.data.percentage);
+            //         setTimeout(() => {
+            //             setQualified(res.data.qualified);
+            //         }, 5000);
+            //     }, 1000);
 
-                    setTimeout(() => {
-                        setQualified(res.data.qualified);
-                    }, 5000);
-                }, 1000);
-
-            })
-            .catch((e) => {
-                setError(e.response?.data?.error);
-                setPageToShow("open")
-            })
+            // })
+            // .catch((e) => {
+            //     setError(e.response?.data?.error);
+            //     setPageToShow("open")
+            // })
             
         }
         else if (USER_LOADING()) setPageToShow("loading");

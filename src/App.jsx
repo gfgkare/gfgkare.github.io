@@ -80,7 +80,7 @@ export default function App() {
 
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
-                            <Route path="/dashboard" element={ <Overview /> }></Route>
+                            {/* <Route path="/dashboard" element={ <Overview /> }></Route> */}
                             <Route path="/dashboard/rounds" element={ <Rounds /> }></Route>
                             <Route path="/dashboard/results" element={ <DashboardResults /> }></Route>
                             <Route path="/dashboard/slots" element={ <SlotSuspend /> }></Route>

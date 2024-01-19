@@ -82,6 +82,8 @@ export default function CustomTable(props) {
 
     useEffect(() => {
         console.log("%c------------------------ Custom Table ---------------", "color: red")
+        console.log("Headers: --------------------------------------------")
+        console.log(props.headers)
         console.log("Rows: --------------------------------------------")
         console.log(props.rows);
         props.rows.map((row, index) => {
@@ -101,9 +103,15 @@ export default function CustomTable(props) {
 
             <div className="headers">
                 {
-                    props.headers.map((header) => {
-                        return ( <div className="header" >{headerMap[header]} </div> )
-                    })
+                    (props.headersNoModify) ? (
+                        props.headers.map((header) => {
+                            return ( <div className="header" >{header} </div> )
+                        })
+                    ) : (
+                        props.headers.map((header) => {
+                            return ( <div className="header" >{headerMap[header]} </div> )
+                        })
+                    )
                 }
             </div>
 
