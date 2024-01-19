@@ -146,10 +146,10 @@ export default function Dashboard() {
                                 </div>
 
                                 <div className="icons">
-                                    { (!error) ?  ( <div className="tab" onClick={() => navigate("/dashboard")}>
+                                    {/* { (!error) ?  ( <div className="tab" onClick={() => navigate("/dashboard")}>
                                         <div className="icon"><LuLayoutDashboard size="25px" strokeWidth={1.25} /></div>
                                         <span className="name">Dashboard</span>
-                                    </div> ) : <></>}
+                                    </div> ) : <></>} */}
 
                                     <div className="tab"  onClick={() => navigate("/dashboard/rounds")}>
                                         <div className="icon"> <VscLayers size="25px" /> </div>
