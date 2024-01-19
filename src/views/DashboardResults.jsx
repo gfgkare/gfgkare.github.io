@@ -93,12 +93,6 @@ export default function DashboardResults(props) {
     return (
         <div className="dashboardResults">
             <div className="resultBigTitle">Results</div>
-            <div className="title">Round 1 - Quiz</div>
-            <CustomTable 
-                headers={["rank","regNo", "section1", "section2", "section3", "overallMarks", "completionTime"]} 
-                rows={algo24Top} />
-
-            <div className="splitter"></div>
 
             <div className="title">Round 2 - Seminar</div>
             <div className="round2Best">
@@ -139,6 +133,13 @@ export default function DashboardResults(props) {
 
                 
             </div>
+
+            <div className="splitter"></div>
+
+            <div className="title">Round 1 - Quiz</div>
+            <CustomTable 
+                headers={["rank","regNo", "section1", "section2", "section3", "overallMarks", "completionTime"]} 
+                rows={algo24Top} />
 
             <div className="splitter"></div>
 
