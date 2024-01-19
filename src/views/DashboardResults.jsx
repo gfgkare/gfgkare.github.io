@@ -134,7 +134,7 @@ export default function DashboardResults(props) {
                 ))} */}
 
                 {
-                    (round2Results.value.length > 0) ? <CustomTable headers={["regNo", "explanation", "complexity", "realtime", "viva", "overallMarks"]} rows={round2Results.value} /> : <></> 
+                    (round2Results.value.length > 0) ? <CustomTable headers={["rank", "regNo", "explanation", "complexity", "realtime", "viva", "overallMarks"]} rows={round2Results.value} /> : <></> 
                 }
 
                 
