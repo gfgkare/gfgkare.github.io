@@ -147,11 +147,8 @@ export default function EventRegister() {
 
                                 <div className="aboutEvent">
                                     Codeathon is a coding
-                                    event organized by the GFG KARE Student
-                                    Chapter. The competition comprises two
-                                    rounds. More details will be updated soon!
-
-                                    <strong> Cash prizes are provided for the top three!</strong>
+                                    event organized by GFG KARE Student
+                                    Chapter. More details will be updated soon!
                                 </div>
 
                                 {/* <div className="startsIn">
