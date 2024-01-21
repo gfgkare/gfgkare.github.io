@@ -114,34 +114,7 @@ export default function EventRegister() {
 
         console.log(`Width: ${window.innerWidth}px`);
 
-        axios
-            .post("/get_event_reg", {
-                eventID: window.location.pathname.split("/")[2],
-            })
-            .then((res) => {
-                console.log("------- Event REgistration staus");
-                console.log(res.data.status);
-                setEventRegistrationStatus(res.data.status);
-            });
-
-        axios
-            .post("/get_event_start_time", {
-                eventID: window.location.pathname.split("/")[2],
-            })
-            .then((res) => {
-                console.log("setting start time");
-                console.log(utcToLocalTimeStamp(res.data.time));
-                setEventStart(utcToLocalTimeStamp(res.data.time));
-            });
-        // axios
-        // .post("/get_event_max_count", {
-        //     eventID: window.location.pathname.split("/")[2],
-        // })
-        // .then((res) => {
-        //     setMaxCount(res.data.count);
-        // });
-        
-        setTimeout(() => {
+	setTimeout(() => {
             setFadeStatus("visible");
         }, 500);
 
@@ -157,38 +130,6 @@ export default function EventRegister() {
         console.log(currentUser);
     }, [modalOpen]);
 
-    useEffect(() => {
-        if (eventStart) {
-            console.log(
-                `Time difference is : ${parseInt(
-                    (eventStart - new Date().getTime()) / 1000
-                )}`
-            );
-            setCountdownTime(
-                parseInt((eventStart - new Date().getTime()) / 1000)
-            );
-        }
-    }, [eventStart]);
-
-    useEffect(() => {
-        setEventRegisteringInProgress(true);
-        if (currentUser && currentUser !== "none") {
-            currentUser.getIdToken().then((token) => {
-                axios
-                    .post(
-                        "/get_event_reg_status",
-                        { userID: currentUser.uid, eventID: eventID },
-                        { headers: { Authorization: token } }
-                    )
-                    .then((res) => {
-                        if (res.data.status == "Registered")
-                            setEventRegisterStatus("registered");
-                        else setEventRegisterStatus("not_registered");
-                    })
-                    .finally(() => setEventRegisteringInProgress(false));
-            });
-        }
-    }, [currentUser]);
 
     return (
         <>
@@ -201,27 +142,19 @@ export default function EventRegister() {
                         <div className="eventInfoWrapper">
                             <div className="eventInfo">
                                 <div className="eventTitle">
-                                    Codeathon
+                                    Codeathon - Euphoria'24
                                 </div>
 
                                 <div className="aboutEvent">
-                                    Algorithmist 24" is a series of coding
-                                    events organized by the GFG KARE Student
-                                    Chapter in sponsorship with GeeksforGeeks at
-                                    Kalasalingam Academy of Research and
-                                    Education. The competition comprises five
-                                    rounds, each progressively raising the bar
-                                    in terms of complexity and challenge.
-                                    Participants will become familiar with 50
-                                    different algorithms and gain practical
-                                    skills to apply them in real-world
-                                    scenarios. 
-                                    <strong>Cash prizes and exciting rewards
-                                    from GeeksforGeeks are provided for the top
-                                    three performers in each round.</strong>
+                                    Codeathon is a coding
+                                    event organized by the GFG KARE Student
+                                    Chapter. The competition comprises two
+                                    rounds. More details will be updated soon!
+
+                                    <strong> Cash prizes are provided for the top three!</strong>
                                 </div>
 
-                                <div className="startsIn">
+                                {/* <div className="startsIn">
                                     <div className="title">Registration ends in: </div>
                                     <div className="time">
                                         {countdownTime ? (
@@ -235,13 +168,13 @@ export default function EventRegister() {
                                             <></>
                                         )}
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
                         <div className="eventRegisterPanel">
                             <div className="row registerBtn">
-                                {USER_PRESENT() ? (
+                                {/* {USER_PRESENT() ? (
                                     <button
                                         className={
                                             eventRegisterStatus === "registered"
@@ -283,7 +216,7 @@ export default function EventRegister() {
                                     >
                                         Sign in to Register
                                     </button>)
-                                )}
+                                )} */}
                             </div>
                             <div className="row">
                                 <div className="registerPanelItem">
@@ -296,8 +229,24 @@ export default function EventRegister() {
                                         </div>
                                         <div className="content">
                                             {/* {noOfRegistered}/{maxCount} */}
-                                            Register now!
+                                            Opening soon
                                             {/* {"  ⠀⠀"} */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div className="row">
+                                <div className="registerPanelItem">
+                                    <div className="icon">
+                                        <FaCalendarAlt />
+                                    </div>
+                                    <div className="info">
+                                        <div className="heading">
+                                            Event Date
+                                        </div>
+                                        <div className="content">
+                                            26th Mar 2024
                                         </div>
                                     </div>
                                 </div>
@@ -312,22 +261,6 @@ export default function EventRegister() {
                                         <div className="heading">Team Size</div>
                                         <div className="content">
                                             Individual
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="registerPanelItem">
-                                    <div className="icon">
-                                        <FaCalendarAlt />
-                                    </div>
-                                    <div className="info">
-                                        <div className="heading">
-                                            Registration Deadline
-                                        </div>
-                                        <div className="content">
-                                            22nd Dec 2023, 6PM
                                         </div>
                                     </div>
                                 </div>
@@ -368,12 +301,11 @@ export default function EventRegister() {
                             <div className="info">
                                 <div className="noAndName">
                                     {/* <div className="roundNo">Round 1</div> */}
-                                    <div className="roundName">Quiz</div>
+                                    <div className="roundName">MCQs</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Get ready for a fun knowledge challenge! You'll answer 60 questions about
-                                    50 algorithms. Can you beat the clock?
+	    			    Details will be updated soon.
                                 </div>
                             </div>
                         </div>
@@ -386,110 +318,18 @@ export default function EventRegister() {
                             <div className="info">
                                 <div className="noAndName">
                                     {/* <div className="roundNo">Round 2</div> */}
-                                    <div className="roundName">Seminar</div>
-                                </div>
-                                
-                                <div className="roundDesc">
-                                    Share your coding expertise! During the Seminar round from Jan 7 to 9, 2024, you'll have 4-5 minutes to
-                                    present an algorithm. Be the start of the show!
-                                </div>
-                            </div>
-                        </div>
-                        {/* <BsArrowDown size={"60px"} /> */}
-                        <div className="round">
-                            <div className="icon">
-                                {/* <img src={qna} alt="Round 3 qna" /> */}
-                                <span className="number">3</span>
-                            </div>
-                            <div className="info">
-                                <div className="noAndName">
-                                    {/* <div className="roundNo">Round 3</div> */}
-                                    <div className="roundName">QnA Challenge</div>
-                                </div>
-                                
-                                <div className="roundDesc">
-                                    Work together to solve problems in our Q&A Formation Round on Jan 28, 2024. Create tricky questions for others
-                                    to answer. How good is your teamwork?
-                                </div>
-                            </div>
-                        </div>
-                        <div className="round">
-                            <div className="icon">
-                                <span className="number">4</span>
-                            </div>
-                            <div className="info">
-                                <div className="noAndName">
-                                    <div className="roundName">Debugging</div>
-                                </div>
-                                
-                                <div className="roundDesc">
-                                    Time to tackle tricky bugs! In the Debugging round of Feb 28, 2024, you'll solve 10 questions.
-                                    Can you outsmart the code?
-                                </div>
-                            </div>
-                        </div>
-                        <div className="round">
-                            <div className="icon">
-                                <span className="number">5</span>
-                            </div>
-                            <div className="info">
-                                <div className="noAndName">
                                     <div className="roundName">Coding</div>
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    It's the ultimate showdown! Join the Grand Finale on Mar 20, 2024, and show off your coding skills.
-                                    Be the coding champion!
+	    			   Details will be updated soon.
                                 </div>
                             </div>
                         </div>
-                        <span className="external">
-                            More info about the 50 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist24" target="_blank">here. <BiLinkExternal /></a>
-                        </span>
-                        <span className="external">
-                            More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist2024Rounds/" target="_blank">here. <BiLinkExternal /></a>
-                        </span>
-
+                        {/* <BsArrowDown size={"60px"} /> */}
                     </div>
 
                 </div>
-
-                {(eventRegisterStatus !== "registered" && eventRegistrationStatus === "accepting" ) ? (
-                    <div className="reminder">
-                        <div className="subHeadings">
-                            Hurry up and secure your spot before registration closes!
-                        </div>
-                        <div className="registerBtnContainer">
-                            {USER_PRESENT() ? (
-                                eventRegisteringInProgress ? (
-                                    <div className="registerBtn">
-                                        Registering...
-                                    </div>
-                                ) : eventRegisterStatus === "registered" ? (
-                                    <div className="registerBtn">
-                                        Registered.
-                                    </div>
-                                ) : (
-                                    <div
-                                        className="registerBtn"
-                                        onClick={() => setModalOpen(true)}
-                                    >
-                                        Register!
-                                    </div>
-                                )
-                            ) : (
-                                <div
-                                    className="registerBtn"
-                                    onClick={() => signinwithpopup("google")}
-                                >
-                                    Sign in to Register
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                ) : (
-                    <></>
-                )}
 
                 <div className="contact">
                     <div className="header">

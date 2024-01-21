@@ -43,17 +43,19 @@ strong {
 
     .coverImage {
         min-width: 100vw;
-        height: 200px;
-        overflow: hidden;
+        height: 150px;
+        // overflow: hidden;
 
         img {
-            // max-height: 100%;
-            // object-fit: cover;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
         }
     }
 
     .rest {
         flex: 4;
+        transform: translateY(-100px);
 
         .eventBox {
             margin: 0 auto;
@@ -68,7 +70,6 @@ strong {
             // gap: 1rem;
             // justify-content: space-between;
             align-items: stretch;
-            transform: translateY(-30px);
 
             .eventInfoWrapper {
                 padding: 3rem 2rem;
