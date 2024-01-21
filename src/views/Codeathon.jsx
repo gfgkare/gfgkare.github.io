@@ -262,22 +262,23 @@ export default function EventRegister() {
                                     </div>
                                 </div>
                             </div>
-
+			    {/*
                             <div className="row">
                                 <div className="registerPanelItem">
                                     <div className="icon">
                                         <TfiMoney />
                                     </div>
-                                    <div className="info">
-                                        <div className="heading">
-                                            Entry Fee
+	   			     <div className="info">
+                                   	     <div className="heading">
+                                        	    Entry Fee
+                                       		</div>	
+                                             <div className="content">
+                                                 Free
+                                             </div>
                                         </div>
-                                        <div className="content">
-                                            Free
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+			    */}
 
                             {/* <div className="row">
                                 <button>Register!</button>
