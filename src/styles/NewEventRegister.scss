@@ -100,7 +100,7 @@ div.newEventRegister {
 
 .gradientText {
     background-color: #f1f1f1;
-    background-image: linear-gradient(to top, #f1f1f1, #c383f2);
+    background-image: linear-gradient(to top, #ffffff, #dfb1ff);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -115,31 +115,37 @@ div.newEventRegister {
 @media screen and (max-width: 750px) {
 
     .newEventRegister {
+
+
         .bigImageContainer {
 
+            .navigation {
+                padding: 0 .5rem !important;
+                padding-left: 1rem !important;
+            }
             
             .text {
                 width: 80% !important;
                 margin: 0 auto;
-                padding: 0 1rem !important;
                 align-items: center !important;
 
                 .name {
                     .year {
                         font-weight: 800 !important;
-                        font-size: 70px !important;
+                        font-size: 4rem !important;
                         display: flex;
                         justify-content: center;
                     }
 
                     .event {
-                        font-size: 80px !important;
+                        font-size: 4rem !important;
+                        font-weight: 800 !important;
                     }
                 }
 
                 .shortAbout {
                     padding-left: 0 !important;
-                    width: 90% !important;
+                    width: 100% !important;
                     text-align: center;
                 }
             }
