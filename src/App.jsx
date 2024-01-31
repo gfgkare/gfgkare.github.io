@@ -36,6 +36,7 @@ import SlotSuspend from "./views/SlotSuspend";
 import Code from "./views/Code";
 
 import Pickle from "./views/Pickle";
+import NewEventRegister from "./views/NewEventRegister";
 
 
 
@@ -62,7 +63,6 @@ export default function App() {
                             <Route path="/members" element={<AllMembers />}></Route>
                             {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
                             <Route path="/events/algo2024" element={<EventRegister />}></Route>
-                            <Route path="/events/codeathon" element={<Codeathon />}></Route>
 
                             {
                                 Object.keys(coreTeamMembers).map((key, index) => {
@@ -79,6 +79,8 @@ export default function App() {
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
+
+                        <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
                         <Route path="/:eventname/code" element={<Code />}></Route>
 
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
