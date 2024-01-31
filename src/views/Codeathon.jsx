@@ -38,6 +38,8 @@ import "react-component-countdown-timer/lib/styles.css";
 
 import "../styles/EventRegister.scss";
 
+import Footer from "../components/Footer";
+
 const env = import.meta.env;
 
 export default function EventRegister() {
@@ -359,56 +361,7 @@ export default function EventRegister() {
                     This site is under development, more details will be updated soon.
                 </div>
 
-                <div className="connect">
-                    <div className="chapterName">
-                        <div className="gfgkare">
-                            {["G", "F", "G", "   ", "K", "A", "R", "E"].map(
-                                (letter) => (
-                                    <div>{letter}</div>
-                                )
-                            )}
-                        </div>
-                        <div className="sc">
-                            {[
-                                "S",
-                                "T",
-                                "U",
-                                "D",
-                                "E",
-                                "N",
-                                "T",
-                                " ",
-                                "C",
-                                "H",
-                                "A",
-                                "P",
-                                "T",
-                                "E",
-                                "R",
-                            ].map((letter) => (
-                                <div>{letter}</div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="links">
-                        <div className="header">CONNECT WITH US</div>
-                        <div className="icons">
-                            <a href="https://www.instagram.com/gfgkare">
-                                <AiFillInstagram size={"30px"} />
-                            </a>
-                            <a href="https://www.linkedin.com/company/gfg-kare-student-chapter" target="_blank">
-                                <AiFillLinkedin size={"30px"} />
-                            </a>
-                            <a href="https://www.github.com/gfgkare" target="_blank">
-                                <AiFillGithub size={"30px"} />
-                            </a>
-                            {/* <a href="https://www." target="_blank">
-                                <AiOutlineWhatsApp size={"30px"} />
-                            </a> */}
-                        </div>
-                    </div>
-                </div>
+                <Footer />
             </div>
 
             <div

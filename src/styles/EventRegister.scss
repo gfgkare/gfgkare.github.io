@@ -459,56 +459,6 @@ strong {
 
         }
     }
-
-    .connect {
-        background-color: rgba(0,0,0,.3);
-        padding: 2rem 1rem;
-        
-        .chapterName {
-            margin: 0 auto;
-            width: min(90%, 180px);
-
-            .gfgkare {
-                display: flex;
-                justify-content: space-between;
-                font-weight: 800;
-                font-size: 32px;
-            }
-
-            .sc {
-                display: flex;
-                justify-content: space-evenly;
-                font-weight: 600;
-            }
-        }
-
-        .links {
-            max-width: max-content;
-            margin: 2rem auto 0 auto;
-
-            .icons {
-                margin-top: .5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: .5rem;
-
-                a {
-                    all: unset;
-
-                    &:hover {
-                        color: black !important;
-                    }
-                }
-                
-                * {
-                    cursor: pointer;
-                    size: 20px;
-                }
-            }
-        }
-
-    }
 }
 
 .modal {
