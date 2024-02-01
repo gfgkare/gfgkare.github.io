@@ -3,11 +3,11 @@ import "../styles/Footer.scss";
 import { AiFillInstagram, AiFillLinkedin, AiFillGithub } from "react-icons/ai"
 
 
-export default function Footer() {
+export default function Footer(props) {
 
 
     return (
-        <div className="connect">
+        <div className="connect" style={{ backgroundColor: props.bgColor }}>
             <div className="chapterName">
                 <div className="gfgkare">
                     {["G", "F", "G", "   ", "K", "A", "R", "E"].map(

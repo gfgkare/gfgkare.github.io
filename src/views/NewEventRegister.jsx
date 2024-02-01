@@ -1,5 +1,6 @@
 import "../styles/NewEventRegister.scss";
 
+import Footer from "../components/Footer";
 
 export default function NewEventRegister() {
 
@@ -13,9 +14,9 @@ export default function NewEventRegister() {
 						X
 					</div>
 					<div className="links">
-						<span>About</span>
-						<span>Rounds</span>
-						<span>Sponsors</span>
+                        <a href="#about">About</a>
+                        <a href="#rounds">Rounds</a>
+                        <a href="#sponsors">Sponsors</a>
 					</div>
                 </div>
 
@@ -33,13 +34,13 @@ export default function NewEventRegister() {
                 </div>
             </section>
 
-            <section className="about">
+            <section className="about" id="about">
                 Codeathon, a challenging algorithmic event under EUPHORIA 2K24 held by Kalasalingam Academy of Research and Education.
                 This competetion challenges and invites the participants all over the country to showcase their excellent problem-solving skills
                 in the area Algorithmic Analysis and Competetive Programming.
             </section>
 
-            <section className="rounds">
+            <section className="rounds" id="rounds">
                 <div className="round">
                     <div className="title">
                         Round 1
@@ -68,11 +69,12 @@ export default function NewEventRegister() {
                 </button>
             </section>
 
-			<section className="sponsors">
+			<section className="sponsors" id="sponsors">
 				<div className="klu">KLU</div>
 				<div className="gfgkare">GFG KARE</div>
 			</section>
 
+            <Footer bgColor={"rgb(15,15,15)"} />
         </div>
     )
 }
