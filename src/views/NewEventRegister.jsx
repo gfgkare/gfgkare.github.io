@@ -13,9 +13,9 @@ export default function NewEventRegister() {
 						X
 					</div>
 					<div className="links">
+						<span>About</span>
+						<span>Rounds</span>
 						<span>Sponsors</span>
-						<span>Q&A</span>
-						<span>Join now</span>
 					</div>
                 </div>
 
@@ -25,7 +25,7 @@ export default function NewEventRegister() {
                         <div className="event">Codeathon</div>
                     </div>
                     <div className="shortAbout">
-                        Contribute code, meet community members, participate in workshops, and win more SWAG.
+                        Contribute, code, compete, and WIN!
                     </div>
                     <button className="cta">
                         Register
@@ -61,13 +61,13 @@ export default function NewEventRegister() {
                     </div>
                 </div>
             </section>
-            
+
             <section className="ctaReminder">
                 <button className="cta">
                     Register Now!
                 </button>
             </section>
-            
+
 			<section className="sponsors">
 				<div className="klu">KLU</div>
 				<div className="gfgkare">GFG KARE</div>
