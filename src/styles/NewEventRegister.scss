@@ -2,16 +2,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap');
 
 
+@mixin smallSection {
+    height: 40%;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 6rem 0;
+    margin: 0 auto;
+}
+
 div.newEventRegister {
     background-color: rgba(5, 5, 5);
     color: rgb(240, 240, 240);
     font-family: "Inter";
 
+
+    button.cta {
+        max-width: max-content;
+        padding: .75rem 2rem;
+        margin-left: 1rem;
+        margin-top: 1rem;
+        background-color: transparent;
+        border: 2px dotted white;
+        color: white;
+        font-weight: 800;
+        font-size: 1rem;
+        transition: all .2s ease;
+
+        &:hover {
+            background-color: white;
+            color: black;
+
+            box-shadow: 0 0 25px 3px rgba(250, 250, 250, 0.6);
+        }
+    }
+
     section.bigImageContainer {
         height: 100vh;
         width: 100vw;
 
-        box-shadow: inset 2px 3px 50px 10px #000000, 0px 1px 1px #333;
 
         background-image: url("../assets/hq_bg.avif");
         background-size: cover;
@@ -58,10 +88,12 @@ div.newEventRegister {
 
             .name {
                 .year {
+                    animation: glow 4s ease infinite;
                     font-size: 5rem;
                     font-weight: 600
                 }
                 .event {
+                    animation: glow 4s ease infinite;
                     font-size: 7rem;
                     font-weight: 600;
                     
@@ -74,26 +106,72 @@ div.newEventRegister {
                 font-size: 1.2rem;
             }
 
-            button.cta {
-                max-width: max-content;
-                padding: .75rem 2rem;
-                margin-left: 1rem;
-                margin-top: 1rem;
-                background-color: transparent;
-                border: 2px dotted white;
-                color: white;
-                font-weight: 800;
-                font-size: 1rem;
-                transition: all .2s ease;
+        }
+    }
 
-                &:hover {
-                    background-color: white;
-                    color: black;
+    section.about {
+        @include smallSection;
+        width: 60%;
+        line-height: 2rem;
+        opacity: .85;
+        font-size: 1.3rem;
+        
+        text-align: center;
+    }
 
-                    box-shadow: 0 0 25px 3px rgba(250, 250, 250, 0.6);
-                }
+    section.rounds {
+        @include smallSection;
+        height: 60%;
+        padding: 1rem 0;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+
+        div.round {
+            height: 90%;
+            width: min(400px, 40%);
+            background: linear-gradient(45deg, rgba(10, 10, 10, .4), rgba(10, 10, 10, .7));
+            border: 1px solid rgba(white, .1);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .title {
+                padding: 2rem 0 1rem 0;
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+
+            .info {
+                opacity: .9;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: .5rem;
+                padding: 1rem 0 2rem 0;
             }
         }
+    }
+
+    section.ctaReminder {
+        @include smallSection;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 0;
+    }
+
+    section.sponsors {
+        @include smallSection;
+        padding: 2rem 0;
+        gap: 3rem;
+        background-color: red;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
     }
 }
 
@@ -118,6 +196,7 @@ div.newEventRegister {
 
 
         .bigImageContainer {
+            // box-shadow: inset 0 0 1000px 20px rgba(0,0,0,.6);
 
             .navigation {
                 padding: 0 .5rem !important;
@@ -152,3 +231,18 @@ div.newEventRegister {
         }
     }
 }
+
+
+@keyframes glow {
+    0% {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb2(230, 0, 115, 0), 0 0 40px rgb2(230, 0, 115, 0), 0 0 50px rgb2(230, 0, 115, 0), 0 0 60px rgb2(230, 0, 115, 0), 0 0 70px rgb2(230, 0, 115, 0);
+    }
+    
+    60% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, .1), 0 0 30px rgba(255, 77, 166, .05), 0 0 40px rgba(255, 77, 166, .05), 0 0 50px rgba(255, 77, 166, .05), 0 0 60px rgba(255, 77, 166, .05), 0 0 70px rgba(255, 77, 166, .05), 0 0 80px rgba(255, 77, 166, .2);
+    }
+    100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb2(230, 0, 115, 0), 0 0 40px rgb2(230, 0, 115, 0), 0 0 50px rgb2(230, 0, 115, 0), 0 0 60px rgb2(230, 0, 115, 0), 0 0 70px rgb2(230, 0, 115, 0);
+      }
+  };   
+  
