@@ -104,8 +104,31 @@ $codeNavSize: 70px;
         .questionContainer {
             height: 100vh;
             width: 100%;
-            // background-color: blue;
+            min-width: 30%;
             flex: 0.4;
+
+            padding: 1rem !important;
+
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            div.box {
+                width: 100%;
+                padding: 1rem 0 1rem .5rem;
+
+                .title {
+                    font-weight: 800;
+                    font-size: 1.2rem;
+                }
+
+                .content {
+                    opacity: .9;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    margin-top: .5rem;
+                }
+            }
         }
 
         .resizeHandle {
@@ -129,8 +152,34 @@ $codeNavSize: 70px;
         .codeEditor {
             flex: 1;
             height: 100vh;
-            width: 100%;
-            // background-color: red;
+            width: 50% !important;
+            min-width: 40%;
+            background-color: red;
+
+            overflow: auto;
+
+            .editorBars {
+                width: 85%;
+                padding: .5rem 0;
+                margin: 0 auto;
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 1rem;
+            }
+
+            .editor {
+                .aceEditor {
+                    width: 100%;
+                }
+            }
+
+            .runStatus {
+                border: 1px solid white;
+                height: 400px;
+            }
+
         }
     }
 
