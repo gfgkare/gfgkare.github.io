@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Flickity from "react-flickity-component";
 import Fade from "../components/Fade";
+import Footer from "../components/Footer";
 
 import ImageComp from "../components/ImageComp";
 
@@ -268,8 +269,7 @@ export default function New() {
                         </div>
                     </div>
                 </section>
-                
-                
+                            
                 {/* <div className="section events">
                     <div className="sectionTitle">EVENTS</div>
 
@@ -339,6 +339,9 @@ export default function New() {
                     </Flickity>
                 </div> */}
             </div>
+            
+            <Footer />
+
         </>
     );
 }
