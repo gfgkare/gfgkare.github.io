@@ -8,7 +8,7 @@
         flex-direction: column;
         gap: .5rem;
         margin: 0 auto;
-        width: min(90%, 280px);
+        width: min(90%, 260px);
 
         .gfgkare {
             display: flex;
@@ -19,7 +19,7 @@
 
         .sc {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             font-weight: 600;
         }
     }

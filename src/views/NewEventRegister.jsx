@@ -1,6 +1,11 @@
 import "../styles/NewEventRegister.scss";
 
+import { Link } from "react-router-dom";
+
 import Footer from "../components/Footer";
+
+import kluSquareLogo from "../assets/klu_square_logo.png";
+import gfgSquareLogo from "../assets/gfgkare_square_logo.jpg";
 
 export default function NewEventRegister() {
 
@@ -10,9 +15,9 @@ export default function NewEventRegister() {
 
             <section className="bigImageContainer">
                 <div className="navigation">
-					<div className="logo">
-						X
-					</div>
+					<Link className="logo" to={"/"} target="_blank" >
+						GFG KARE
+					</Link>
 					<div className="links">
                         <a href="#about">About</a>
                         <a href="#rounds">Rounds</a>
@@ -70,8 +75,17 @@ export default function NewEventRegister() {
             </section>
 
 			<section className="sponsors" id="sponsors">
-				<div className="klu">KLU</div>
-				<div className="gfgkare">GFG KARE</div>
+                <div className="sponsorTitle">SPONSORS</div>
+
+                <div className="sponsorsContainer">
+                    <div className="sponsor klu">
+                        <img src={kluSquareLogo} alt="" />
+                    </div>
+                    <div className="sponsor gfgkare">
+                        <img src={gfgSquareLogo} alt="" />
+                    </div>
+                </div>
+				
 			</section>
 
             <Footer bgColor={"rgb(15,15,15)"} />
