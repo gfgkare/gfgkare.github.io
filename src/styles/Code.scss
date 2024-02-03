@@ -1,6 +1,6 @@
 @import "./Variables.scss";
 
-$codeNavSize: 70px;
+$codeNavClosedSize: 70px;
 
 .Code {
     height: 100vh;
@@ -14,11 +14,22 @@ $codeNavSize: 70px;
         max-height: 100vh;
         overflow-y: auto;
         overflow-x: hidden;
-        width: $codeNavSize;
+        width: $codeNavClosedSize;
         position: absolute;
         left: 0;
         top: 0;
-        background-color: lighten($background, 10%);
+        background-color: lighten($background, 5);
+        z-index: 9;
+
+        transition: all .5s ease;
+
+        &:hover {
+            width: 250px;
+
+            &::-webkit-scrollbar {
+                width: 10px !important;
+            }
+        }
 
         &::-webkit-scrollbar {
             width: 6px;
@@ -40,15 +51,25 @@ $codeNavSize: 70px;
             padding: 0;
             margin: 0;
 
-            li {
+            &:hover {
+                li.navItem {
+                    span.icon {
+                        border-radius: 10px;
+                    }
+                }
+            }
+
+            li.navItem {
+                padding: 0 !important;
                 margin: 0;
-                height: $codeNavSize;
+                height: $codeNavClosedSize;
                 width: 100%;
                 border: 1px solid darken(rgba($text, .4), 30);
                 border-bottom-color: transparent;
 
                 display: flex;
-                justify-content: center;
+                flex-direction: row;
+                justify-content: flex-start;
                 align-items: center;
 
                 background-color: transparent;
@@ -57,8 +78,42 @@ $codeNavSize: 70px;
                 font-weight: 600;
                 transition: background-color .4s ease;
 
-                &:first-child {
+                span.icon {
+                    height: 100%;
+                    min-width: $codeNavClosedSize - 5;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    background-color: rgba(0, 0, 0, .3);
+                }
+
+                span.text {
+                    font-weight: normal;
+                    font-size: 1rem;
+
+                    height: 100%;
+                    min-width: 180px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &.timer {
+                    background-color: rgba(0, 0, 0, .3);
                     border-top-color: transparent;
+                    font-weight: 800;
+                    cursor: pointer;
+
+                    span.icon {
+                        background-color: transparent;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, .3);
+                    }
                 }
 
                 &.errored {
@@ -99,7 +154,7 @@ $codeNavSize: 70px;
         justify-content: center;
         align-items: center;
         position: absolute;
-        margin-left: $codeNavSize !important;
+        margin-left: $codeNavClosedSize !important;
 
         .questionContainer {
             height: 100vh;
@@ -111,7 +166,7 @@ $codeNavSize: 70px;
 
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1rem;
 
             div.box {
                 width: 100%;
@@ -154,14 +209,62 @@ $codeNavSize: 70px;
             height: 100vh;
             width: 50% !important;
             min-width: 40%;
-            background-color: red;
 
             overflow: auto;
 
+            button {
+                border-radius: 8px;
+                color: white;
+                
+
+                transition: all .5s ease;
+
+                &.green {
+                    $bg: rgb(41, 139, 41);
+                    background-color: $bg;
+                    border: 3px solid lighten($bg, 5);
+
+                    &:hover {
+                        background-color: lighten($bg, 5);
+                        border: 3px solid lighten($bg, 30);
+                    }
+                }
+
+                &.red {
+                    $bg: rgb(161, 44, 44);
+                    background-color: $bg;
+                    border: 3px solid lighten($bg, 3);
+
+                    &:hover {
+                        background-color: lighten($bg, 5);
+                        border: 3px solid lighten($bg, 30);
+                    }
+                }
+
+                &.orange {
+                    $bg: rgb(162, 124, 34);
+                    background-color: $bg;
+                    border: 3px solid lighten($bg, 3);
+
+                    &:hover {
+                        background-color: lighten($bg, 5);
+                        border: 3px solid lighten($bg, 30);
+                    }
+                
+                }
+
+            }
+
+            select {
+                padding: .5rem;
+                border-radius: 4px;
+            }
+
             .editorBars {
-                width: 85%;
-                padding: .5rem 0;
-                margin: 0 auto;
+                background-color: rgba(70, 70, 70, .6);
+                width: 90%;
+                padding: .5rem 1rem;
+                // margin: 0 auto;
 
                 display: flex;
                 align-items: center;

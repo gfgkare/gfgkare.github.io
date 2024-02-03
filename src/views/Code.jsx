@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
+import CodeSnippet from "../components/CodeSnippet";
 
 import AceEditor from "react-ace";
 
@@ -56,9 +57,15 @@ const Code = () => {
         <div className="Code">
             <nav className="codeNav">
                 <ul>
-                    <li>Back</li>
+                    <li className="navItem timer" title="59 minutes 27 seconds remaining">
+                        <span className="icon">59:27</span>
+                        <span className="text">Time remaining</span>
+                    </li>
                     {[...Array(10)].map((e, i) => (
-                        <li key={i}>{i + 1}</li>
+                        <li key={i} className="navItem">
+                            <span className="icon">{i + 1}</span>
+                            <span className="text">Qn Name</span>
+                        </li>
                     ))}
                 </ul>
             </nav>
@@ -82,7 +89,7 @@ const Code = () => {
                     </div>
 
 					<div className="box inputOutputFormat">
-                        <div className="title">Input/Output Fornat</div>
+                        <div className="title">Input/Output Format</div>
                         <div className="content">
                             Lorem ipsum dolor sit amet consectetur, adipisicing
                             elit. Sed a, at tempore provident, aspernatur animi
@@ -95,22 +102,19 @@ const Code = () => {
 					<div className="box sampleInput">
                         <div className="title">Sample Input</div>
                         <div className="content">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Sed a, at tempore provident, aspernatur animi
-                            architecto facere impedit facilis magni ducimus,
-                            minima quos! Molestias corrupti assumenda ab eius,
-                            tempore magnam.
+                            <CodeSnippet>
+                                <span>1 5</span>
+                                <span>2 4 6 8 10</span>
+                            </CodeSnippet>
                         </div>
                     </div>
 
 					<div className="box outputFormat">
                         <div className="title">Sample Output</div>
                         <div className="content">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Sed a, at tempore provident, aspernatur animi
-                            architecto facere impedit facilis magni ducimus,
-                            minima quos! Molestias corrupti assumenda ab eius,
-                            tempore magnam.
+                            <CodeSnippet>
+                                <span>1 2 3 4 5</span>
+                            </CodeSnippet>
                         </div>
                     </div>
                 </div>
@@ -122,8 +126,14 @@ const Code = () => {
                     style={{ flex: 1 - flexValue }}
                 >
                     <div className="editorBars header">
-						<button>Submit</button>
-						<button>Reset Code</button>
+                        <select>
+                            <option value="java">Java</option>
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                            <option value="python">Python</option>
+                        </select>
+						<button className="green">Run</button>
+						<button className="orange">Reset Code</button>
 					</div>
 
 					<div className="editor">
@@ -137,8 +147,8 @@ const Code = () => {
 					</div>
 					
 					<div className="editorBars bottomBar">
-						<button>Submit</button>
-						<button>Reset Code</button>
+						<button className="green">Run</button>
+						<button className="red">Finish</button>
 					</div>
 
 					<div className="runStatus">
