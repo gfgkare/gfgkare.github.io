@@ -5,14 +5,18 @@ import CodeSnippet from "../components/CodeSnippet";
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 import "../styles/Code.scss";
 
 const Code = () => {
     const handleRef = useRef(null);
+    const runStatus = useRef(null);
+    const languageSelect = useRef(null);
+
     const [flexValue, setFlexValue] = useState(0.4);
+    const [chosenLanguage, setChosenLanguage] = useState(0.4);
 	
 	function onChange(newValue) {
 		console.log("change", newValue);
@@ -125,35 +129,50 @@ const Code = () => {
                     className="codeEditor"
                     style={{ flex: 1 - flexValue }}
                 >
-                    <div className="editorBars header">
-                        <select>
-                            <option value="java">Java</option>
-                            <option value="c">C</option>
-                            <option value="cpp">C++</option>
-                            <option value="python">Python</option>
-                        </select>
-						<button className="green">Run</button>
-						<button className="orange">Reset Code</button>
-					</div>
+                    <div className="editorContainer">
 
-					<div className="editor">
-						<AceEditor
-							mode="java"
-							theme="github"
-							onChange={onChange}
-							name="aceEditor"
-							editorProps={{ $blockScrolling: true }}
-						/>
-					</div>
-					
-					<div className="editorBars bottomBar">
-						<button className="green">Run</button>
-						<button className="red">Finish</button>
-					</div>
+                        <div className="editorBars header">
+                            <select onChange={(e) => setChosenLanguage(e.target.value)}>
+                                <option value="java">Java</option>
+                                <option value="c">C</option>
+                                <option value="cpp">C++</option>
+                                <option value="python">Python</option>
+                            </select>
+                            <button className="green" onClick={() => runStatus.current.scrollIntoView()}>Run</button>
+                            <button className="orange">Reset Code</button>
+                        </div>
 
-					<div className="runStatus">
-						Running Code...
-					</div>
+                        <div className="editor">
+                            <AceEditor
+                                mode={chosenLanguage}
+                                theme="monokai"
+                                onChange={onChange}
+                                name="aceEditor"
+                                fontSize={14}
+                                showPrintMargin={false}
+                                showGutter={true}
+                                debounceChangePeriod={2000}
+                                annotations={[{ row: 0, column: 2, type: 'error', text: 'Some error.'}]}
+                                editorProps={{ $blockScrolling: true }}
+                                setOptions={{
+                                    enableBasicAutocompletion: true,
+                                    enableLiveAutocompletion: true,
+                                    enableSnippets: true,
+                                    showLineNumbers: true,
+                                }}
+                            />
+                        </div>
+                        
+                        <div className="editorBars bottomBar">
+                            <button className="green">Run</button>
+                            <button className="red">Finish</button>
+                        </div>
+
+                        <div className="runStatus" ref={runStatus}>
+                            Running Code...
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
