@@ -25,10 +25,18 @@ const Code = () => {
     const [flexValue, setFlexValue] = useState(0.4);
     const [chosenLanguage, setChosenLanguage] = useState("java");
 
+    const [userCode, setUserCode] = useState('');
 
-	function onChange(newValue) {
+
+	const onChange = (newValue) => {
 		console.log("change", newValue);
+        setUserCode(newValue);
 	}
+
+    const runCode = () => {
+        console.log(userCode);
+        runStatus.current.scrollIntoView()
+    }
 
     useEffect(() => {
         setTimeout(() => setFlexValue(0.4), 10);
@@ -86,47 +94,49 @@ const Code = () => {
                 style={{ display: "flex", height: "100%" }}
             >
                 <div
-                    className="questionContainer"
-                    style={{ flex: flexValue, border: "1px solid black" }}
+                    className="questionContainerBox"
+                    style={{ flex: flexValue }}
                 >
-                    <div className="box problemStatement">
-                        <div className="title">Problem Statement</div>
-                        <div className="content">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Sed a, at tempore provident, aspernatur animi
-                            architecto facere impedit facilis magni ducimus,
-                            minima quos! Molestias corrupti assumenda ab eius,
-                            tempore magnam.
+                    <div className="questionContainer">
+                        <div className="box problemStatement">
+                            <div className="title">Problem Statement</div>
+                            <div className="content">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit. Sed a, at tempore provident, aspernatur animi
+                                architecto facere impedit facilis magni ducimus,
+                                minima quos! Molestias corrupti assumenda ab eius,
+                                tempore magnam.
+                            </div>
                         </div>
-                    </div>
 
-					<div className="box inputOutputFormat">
-                        <div className="title">Input/Output Format</div>
-                        <div className="content">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Sed a, at tempore provident, aspernatur animi
-                            architecto facere impedit facilis magni ducimus,
-                            minima quos! Molestias corrupti assumenda ab eius,
-                            tempore magnam.
+                        <div className="box inputOutputFormat">
+                            <div className="title">Input/Output Format</div>
+                            <div className="content">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit. Sed a, at tempore provident, aspernatur animi
+                                architecto facere impedit facilis magni ducimus,
+                                minima quos! Molestias corrupti assumenda ab eius,
+                                tempore magnam.
+                            </div>
                         </div>
-                    </div>
 
-					<div className="box sampleInput">
-                        <div className="title">Sample Input</div>
-                        <div className="content">
-                            <CodeSnippet>
-                                <span>1 5</span>
-                                <span>2 4 6 8 10</span>
-                            </CodeSnippet>
+                        <div className="box sampleInput">
+                            <div className="title">Sample Input</div>
+                            <div className="content">
+                                <CodeSnippet>
+                                    <span>1 5</span>
+                                    <span>2 4 6 8 10</span>
+                                </CodeSnippet>
+                            </div>
                         </div>
-                    </div>
 
-					<div className="box outputFormat">
-                        <div className="title">Sample Output</div>
-                        <div className="content">
-                            <CodeSnippet>
-                                <span>1 2 3 4 5</span>
-                            </CodeSnippet>
+                        <div className="box outputFormat">
+                            <div className="title">Sample Output</div>
+                            <div className="content">
+                                <CodeSnippet>
+                                    <span>1 2 3 4 5</span>
+                                </CodeSnippet>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,7 +156,7 @@ const Code = () => {
                                 <option value="c_cpp">C++</option>
                                 <option value="python">Python</option>
                             </select>
-                            <button className="green" onClick={() => runStatus.current.scrollIntoView()}>Run</button>
+                            <button className="green" onClick={runCode}>Run</button>
                             <button className="orange">Reset Code</button>
                         </div>
 
@@ -173,7 +183,7 @@ const Code = () => {
                         </div>
                         
                         <div className="editorBars bottomBar">
-                            <button className="green">Run</button>
+                            <button className="green" onClick={runCode}>Run</button>
                             <button className="red">Finish</button>
                         </div>
 

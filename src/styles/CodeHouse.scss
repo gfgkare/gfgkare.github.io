@@ -1,0 +1,37 @@
+
+
+
+
+
+div.codeHouse {
+    height: 100vh;
+    width: 100vw;
+
+
+    .loadingScreen {
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        margin: auto 0;
+
+
+        .progressBar {
+            width: 100vw;
+            height: 20px;
+    
+            .progressBar-thumb {
+                height: 100%;
+                border-radius: 0 6px 6px 0;
+                background: linear-gradient(to right, rgb(77, 199, 77), rgb(61, 162, 61), rgb(72, 209, 72));
+                transition: width 2s ease;
+            }
+        }
+
+        .loadingText {
+            height: 40%;
+            width: 100%;
+            padding: 4rem auto;
+        }
+    
+    }
+}

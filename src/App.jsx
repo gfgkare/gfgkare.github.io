@@ -33,6 +33,7 @@ import DashboardResults from "./views/DashboardResults";
 import SlotSelection from "./views/SlotSelection";
 import SlotSuspend from "./views/SlotSuspend";
 
+import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
 import Pickle from "./views/Pickle";
@@ -81,7 +82,11 @@ export default function App() {
                         </Route>
 
                         <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
-                        <Route path="/:eventname/code" element={<Code />}></Route>
+
+                        <Route path="/:eventname/code" element={<CodeHouse />}>
+                            <Route path="/:eventname/code" element={<Code />}></Route>
+                        </Route>
+                        
 
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
