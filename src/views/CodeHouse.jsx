@@ -9,13 +9,11 @@ export default function CodeHouse() {
     const [loadingPercentage, setLoadingPercentage] = useState(0);
 
     useEffect(() => {
-        // setTimeout(() => {
-            setTimeout(() => setLoadingPercentage(25), 1000);
-            setTimeout(() => setLoadingPercentage(50), 1000);
-            setTimeout(() => setLoadingPercentage(60), 1000);
-            setTimeout(() => setLoadingPercentage(90), 1000);
-            setTimeout(() => setLoadingStatus("done"), 5000);
-        // }, 4000);
+        setTimeout(() => setLoadingPercentage(25), 1000);
+        setTimeout(() => setLoadingPercentage(50), 2000);
+        setTimeout(() => setLoadingPercentage(60), 3000);
+        setTimeout(() => setLoadingPercentage(100), 5000);
+        setTimeout(() => setLoadingStatus("done"), 6000);
     }, [])
 
     return (

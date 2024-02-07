@@ -11,7 +11,7 @@ div.codeHouse {
     .loadingScreen {
         display: flex;
         flex-direction: column;
-        height: 500px;
+        height: 100vh;
         margin: auto 0;
 
 
@@ -28,9 +28,17 @@ div.codeHouse {
         }
 
         .loadingText {
-            height: 40%;
+            height: 100%;
             width: 100%;
-            padding: 4rem auto;
+            margin: auto 0 !important;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            font-weight: 600;
+            font-size: large;
         }
     
     }
