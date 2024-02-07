@@ -5,6 +5,13 @@ import CodeSnippet from "../components/CodeSnippet";
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-python";
+import 'ace-builds/src-noconflict/mode-c_cpp';
+
+import "ace-builds/src-noconflict/snippets/java";
+import "ace-builds/src-noconflict/snippets/python";
+import "ace-builds/src-noconflict/snippets/c_cpp";
+
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 
@@ -16,8 +23,9 @@ const Code = () => {
     const languageSelect = useRef(null);
 
     const [flexValue, setFlexValue] = useState(0.4);
-    const [chosenLanguage, setChosenLanguage] = useState(0.4);
-	
+    const [chosenLanguage, setChosenLanguage] = useState("java");
+
+
 	function onChange(newValue) {
 		console.log("change", newValue);
 	}
@@ -134,8 +142,8 @@ const Code = () => {
                         <div className="editorBars header">
                             <select onChange={(e) => setChosenLanguage(e.target.value)}>
                                 <option value="java">Java</option>
-                                <option value="c">C</option>
-                                <option value="cpp">C++</option>
+                                <option value="c_cpp">C</option>
+                                <option value="c_cpp">C++</option>
                                 <option value="python">Python</option>
                             </select>
                             <button className="green" onClick={() => runStatus.current.scrollIntoView()}>Run</button>
@@ -145,9 +153,10 @@ const Code = () => {
                         <div className="editor">
                             <AceEditor
                                 mode={chosenLanguage}
+                                width={'100%'}
                                 theme="monokai"
                                 onChange={onChange}
-                                name="aceEditor"
+                                name={"aceEditor"}
                                 fontSize={14}
                                 showPrintMargin={false}
                                 showGutter={true}

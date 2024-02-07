@@ -211,6 +211,28 @@ $codeNavClosedSize: 70px;
             overflow-y: auto;
             overflow-x: hidden;
 
+            .ace_scrollbar::-webkit-scrollbar {
+                width: 20px;
+            }
+            
+            .ace_scrollbar::-webkit-scrollbar-track
+            {
+                width: 20px;
+                box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                background-color: transparent;
+            }
+            
+            .ace_scrollbar::-webkit-scrollbar-thumb {
+                background-color: rgba(240, 240, 240, .2);
+                outline: 1px solid slategrey;
+                border-radius: 0;
+
+                &:hover {
+                    background-color: rgba(240, 240, 240, .25);
+                }
+            }
+
+
             
             .editorContainer {
                 display: flex;
@@ -237,19 +259,6 @@ $codeNavClosedSize: 70px;
                     background-color: rgb(229, 229, 229);
                     // height: 400px;
                     overflow: auto;
-
-                    &::-webkit-scrollbar {
-                        width: 13px !important;
-                    }
-
-                    &::-webkit-scrollbar-thumb {
-                        border-radius: 0 !important;
-                        background-color: rgba(10, 10, 10, .3) !important;
-
-                        &:hover {
-                            background-color: rgba(10, 10, 10, .35) !important;   
-                        }
-                    }
 
                     .aceEditor {
                         position: relative;
@@ -318,3 +327,4 @@ $codeNavClosedSize: 70px;
 
     
 }
+
