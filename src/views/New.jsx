@@ -109,7 +109,10 @@ export default function New() {
                     <section>
                         <div className="introDiv">
                             <div className="leftText">
-                                <div className="head">Welcome to GFG KARE</div>
+                                <div className="head">
+                                    <div className="title">GFG KARE Student Chapter</div>
+                                    <div className="welcome">Welcome!</div>
+                                </div>
                                 <div className="sub">
                                     GFG KARE student chapter has been established in Kalasalingam University.
                                     This chapter aimed to enhance the coding, technical, personality and communication of our students.
