@@ -134,7 +134,6 @@ export default function New() {
                                 : "numbersDiv"
                         }
                     >
-                        <div className="shape hideOnMobile"></div>
                         <div className="text">
                             We are a team of aspiring students from Kalasalingam
                             University focused on making education and problem
