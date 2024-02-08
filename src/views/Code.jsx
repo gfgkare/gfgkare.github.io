@@ -28,6 +28,8 @@ const Code = () => {
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
     const [problemStatement, setProblemStatement] = useState(problemsList.value[0].problemStatement);
     const [inputOutputFormat, setInputOutputFormat] = useState(problemsList.value[0].inputOutputFormat);
+    const [sampleInput, setSampleInput] = useState(problemsList.value[0].sampleInput);
+    const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
     const [editorCode, setEditorCode] = useState(problemsCode.value[0]);
 
     const [flexValue, setFlexValue] = useState(0.4);
@@ -35,10 +37,10 @@ const Code = () => {
 
     const [userCode, setUserCode] = useState("");
 
-    useEffect(() => {
-        alert(editorCode.slice(0, 40));
+    // useEffect(() => {
+    //     alert(editorCode.slice(0, 40));
 
-    }, [editorCode]);
+    // }, [editorCode]);
 
     const onChange = (newValue) => {
         console.log("change", newValue);
@@ -51,6 +53,8 @@ const Code = () => {
         setSelectedProblemIndex(index);
         setProblemStatement(problemsList.value[index].problemStatement);
         setInputOutputFormat(problemsList.value[index].inputOutputFormat);
+        setSampleInput(problemsList.value[index].sampleInput);
+        setSampleOutput(problemsList.value[index].sampleOutput);
         setEditorCode(problemsCode.value[index])
     }
 
@@ -144,19 +148,14 @@ const Code = () => {
                         <div className="box sampleInput">
                             <div className="title">Sample Input</div>
                             <div className="content">
-                                <CodeSnippet>
-                                    <span>1 5</span>
-                                    <span>2 4 6 8 10</span>
-                                </CodeSnippet>
+                                <CodeSnippet codeSnippet={sampleInput} />
                             </div>
                         </div>
 
                         <div className="box outputFormat">
                             <div className="title">Sample Output</div>
                             <div className="content">
-                                <CodeSnippet>
-                                    <span>1 2 3 4 5</span>
-                                </CodeSnippet>
+                                <CodeSnippet codeSnippet={sampleOutput} />
                             </div>
                         </div>
                     </div>

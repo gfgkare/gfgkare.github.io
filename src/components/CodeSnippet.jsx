@@ -2,10 +2,19 @@ import "../styles/CodeSnippet.scss";
 
 export default function CodeSnippet(props) {
 
-    return (
 
+
+    return (
         <div className="codeSnippet">
-            {props.children}
+            {
+                props.codeSnippet.split("|").map((line, index) => {
+                    return (
+                        <span key={index} className="line">
+                            {line}
+                        </span>
+                    )
+                })
+            }
         </div>
     )
 }

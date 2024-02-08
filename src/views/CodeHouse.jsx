@@ -15,21 +15,21 @@ export default function CodeHouse() {
             title: "Problem 1", 
             problemStatement: "1.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
             inputOutputFormat: "1.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            sampleInput: "1 5 | 2 4 6 8 10",
+            sampleInput: "Problem 1 | 2 4 6 8 10 | 3 7 8",
             sampleOutput: "1 2 3 4 5",
         },
         {
             title: "Problem 2", 
             problemStatement: "2.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
             inputOutputFormat: "2.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            sampleInput: "1 5 | 2 4 6 8 10",
+            sampleInput: "Problem 2 | 2 4 6 8 10",
             sampleOutput: "1 2 3 4 5",
         },
         {
             title: "Problem 3", 
             problemStatement: "3.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
             inputOutputFormat: "3.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            sampleInput: "1 5 | 2 4 6 8 10",
+            sampleInput: "Problem 3 | 2 4 6 8 10 | 55 49 | 0 0 0 0 | 1 2 3 4",
             sampleOutput: "1 2 3 4 5",
         }
     ]);
