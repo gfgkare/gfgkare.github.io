@@ -109,15 +109,18 @@ export default function New() {
                     <section>
                         <div className="introDiv">
                             <div className="leftText">
-                                <div className="head">Welcome to GFG KARE</div>
+                                <div className="head">
+                                    <div className="title">GeeksforGeeks KARE Student Chapter</div>
+                                    <div className="welcome">Welcome!</div>
+                                </div>
                                 <div className="sub">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Sint blanditiis modi
-                                    minus, culpa in vel, labore provident atque,
-                                    asperiores autem adipisci velit totam!
+                                    GFG KARE student chapter has been established in Kalasalingam University.
+                                    This chapter aimed to enhance the coding, technical, personality and communication of our students.
                                 </div>
 
-                                <div className="cta">Explore events</div>
+                                <div className="cta">
+                                    <Link to="/events/algo2024">Algorithmist '24</Link>
+                                </div>
                             </div>
                             <div className="imageContainer hideOnMobile">
                                 <img src={kluTeam} alt="" />
@@ -134,7 +137,6 @@ export default function New() {
                                 : "numbersDiv"
                         }
                     >
-                        <div className="shape hideOnMobile"></div>
                         <div className="text">
                             We are a team of aspiring students from Kalasalingam
                             University focused on making education and problem

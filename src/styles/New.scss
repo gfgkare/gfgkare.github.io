@@ -50,7 +50,12 @@ div.new {
 
             .head {
                 font-weight: 700;
-                font-size: 30px;
+                font-size: 26px;
+
+                .welcome {
+                    font-size: 20px;
+                    font-weight: 400;
+                }
             }
             .sub {
                 font-family: "Segoe UI";
@@ -65,6 +70,16 @@ div.new {
                 color: $background;
                 cursor: pointer;
                 transition: color 0.1s ease, background-color 0.1s ease !important; 
+
+                a {
+                    all: unset !important;
+                    text-decoration: none;
+                    color: rgb(9, 9, 9);
+
+                    &:hover {
+                        color: white;
+                    }
+                }
 
                 &:hover {
                     color: $text;
