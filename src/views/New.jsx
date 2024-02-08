@@ -110,7 +110,7 @@ export default function New() {
                         <div className="introDiv">
                             <div className="leftText">
                                 <div className="head">
-                                    <div className="title">GFG KARE Student Chapter</div>
+                                    <div className="title">GeeksforGeeks KARE Student Chapter</div>
                                     <div className="welcome">Welcome!</div>
                                 </div>
                                 <div className="sub">
