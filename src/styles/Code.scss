@@ -50,21 +50,21 @@ $codeNavClosedSize: 70px;
             padding: 0;
             margin: 0;
 
-            &:hover {
-                li.navItem {
-                    span.icon {
-                        border-radius: 10px;
-                    }
-                }
-            }
+            // &:hover {
+            //     li.navItem {
+            //         span.icon {
+            //             border-radius: 10px;
+            //         }
+            //     }
+            // }
 
             li.navItem {
                 padding: 0 !important;
                 margin: 0;
                 height: $codeNavClosedSize;
                 width: 100%;
-                border: 1px solid darken(rgba($text, .4), 30);
-                border-bottom-color: transparent;
+                // border: 1px solid darken(rgba($text, .4), 30);
+                // border-bottom-color: transparent;
 
                 display: flex;
                 flex-direction: row;
@@ -76,6 +76,14 @@ $codeNavClosedSize: 70px;
                 font-size: larger;
                 font-weight: 600;
                 transition: background-color .4s ease;
+
+                &.active {
+                    background-color: lighten($background, 20%);
+
+                    &:hover {
+                        background-color: lighten($background, 20%);
+                    }
+                }
 
                 span.icon {
                     height: 100%;
@@ -102,7 +110,6 @@ $codeNavClosedSize: 70px;
 
                 &.timer {
                     background-color: rgba(0, 0, 0, .3);
-                    border-top-color: transparent;
                     font-weight: 800;
                     cursor: pointer;
 
@@ -260,6 +267,27 @@ $codeNavClosedSize: 70px;
                     align-items: center;
                     justify-content: flex-end;
                     gap: 1rem;
+
+                    &.bottomBar {
+                        justify-content: flex-end;
+                    }
+
+                    &:has(.saveIndicator) {
+                        justify-content: space-between;
+                    }
+
+                    .saveIndicator {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: .5rem;
+                        padding-right: auto;
+                    }
+
+                    .options {
+                        display: flex;
+                        gap: 1rem;
+                    }
                 }
     
                 .editor {

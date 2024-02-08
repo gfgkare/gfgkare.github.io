@@ -4,7 +4,6 @@ import { useOutletContext } from "react-router-dom";
 import CodeSnippet from "../components/CodeSnippet";
 
 import AceEditor from "react-ace";
-
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-c_cpp";
@@ -15,6 +14,8 @@ import "ace-builds/src-noconflict/snippets/c_cpp";
 
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
+
+import { HiOutlineSave } from "react-icons/hi";
 
 import "../styles/Code.scss";
 
@@ -35,19 +36,25 @@ const Code = () => {
     const [flexValue, setFlexValue] = useState(0.4);
     const [chosenLanguage, setChosenLanguage] = useState("java");
 
-    const [userCode, setUserCode] = useState("");
-
-    // useEffect(() => {
-    //     alert(editorCode.slice(0, 40));
-
-    // }, [editorCode]);
+    const [savingIndicator, setSavingIndicator] = useState("");
+    
 
     const onChange = (newValue) => {
-        console.log("change", newValue);
-        setUserCode(newValue);
+        console.log("new code: ", newValue);
+        console.log("Changing  local comp variable code to: ", newValue);
+        setEditorCode(newValue);
 
+        console.log("Changing parent code array to", newValue)
+        showLocalSaveIcon();
         problemsCode.value[selectedProblemIndex] = newValue;
     };
+
+    const showLocalSaveIcon = () => {
+        setSavingIndicator("saving locally...");
+        setTimeout(() => {
+            setSavingIndicator("");
+        }, 1000);
+    }
 
     const changeProblem = (index) => {
         setSelectedProblemIndex(index);
@@ -59,7 +66,6 @@ const Code = () => {
     }
 
     const runCode = () => {
-        console.log(userCode);
         runStatus.current.scrollIntoView();
     };
 
@@ -111,7 +117,7 @@ const Code = () => {
                     </li>
                     {problemsList.value.map((problemObj, index) => {
                         return (
-                            <li key={index} className="navItem" onClick={() => {
+                            <li key={index} className={("navItem" + ((selectedProblemIndex === index) ? " active" : "") )} onClick={() => {
                                 changeProblem(index);
                                 console.log(index);
                             } }>
@@ -166,20 +172,34 @@ const Code = () => {
                 <div className="codeEditor" style={{ flex: 1 - flexValue }}>
                     <div className="editorContainer">
                         <div className="editorBars header">
-                            <select
-                                onChange={(e) =>
-                                    setChosenLanguage(e.target.value)
-                                }
-                            >
-                                <option value="java">Java</option>
-                                <option value="c_cpp">C</option>
-                                <option value="c_cpp">C++</option>
-                                <option value="python">Python</option>
-                            </select>
-                            <button className="green" onClick={runCode}>
-                                Run
-                            </button>
-                            <button className="orange">Reset Code</button>
+                            
+                            {
+                                (savingIndicator) ? (
+                                    <div className="saveIndicator">
+                                        <HiOutlineSave />
+                                        {savingIndicator}
+                                    </div>
+                                ) : (
+                                    <></>
+                                )
+                            }
+                            
+                            <div className="options">
+                                <select
+                                    onChange={(e) =>
+                                        setChosenLanguage(e.target.value)
+                                    }
+                                >
+                                    <option value="java">Java</option>
+                                    <option value="c_cpp">C</option>
+                                    <option value="c_cpp">C++</option>
+                                    <option value="python">Python</option>
+                                </select>
+                                <button className="green" onClick={runCode}>
+                                    Run
+                                </button>
+                                <button className="orange">Reset Code</button>
+                            </div>
                         </div>
 
                         <div className="editor">
@@ -193,7 +213,7 @@ const Code = () => {
                                 fontSize={14}
                                 showPrintMargin={false}
                                 showGutter={true}
-                                debounceChangePeriod={2000}
+                                debounceChangePeriod={500}
                                 annotations={[
                                     {
                                         row: 0,
@@ -213,10 +233,12 @@ const Code = () => {
                         </div>
 
                         <div className="editorBars bottomBar">
-                            <button className="green" onClick={runCode}>
-                                Run
-                            </button>
-                            <button className="red">Finish</button>
+                            <div className="options">
+                                <button className="green" onClick={runCode}>
+                                    Run
+                                </button>
+                                <button className="red">Finish</button>
+                            </div>
                         </div>
 
                         <div className="runStatus" ref={runStatus}>

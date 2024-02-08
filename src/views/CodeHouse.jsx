@@ -12,11 +12,11 @@ export default function CodeHouse() {
 
     const problemsList = useArray([
         {
-            title: "Problem 1", 
-            problemStatement: "1.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            inputOutputFormat: "1.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            sampleInput: "Problem 1 | 2 4 6 8 10 | 3 7 8",
-            sampleOutput: "1 2 3 4 5",
+            title: "Alice and Bob", 
+            problemStatement: "Alice and Bob are studying for their computer science exam, and they are practicing solving dynamic programming problems. Alice is working on a problem related to finding the Longest Common Subsequence (LCS) between two strings. She wants to test her code with different inputs.",
+            inputOutputFormat: "Input consists of two lines each containing string A and B. Output the LCS in a single line.",
+            sampleInput: " ABCDEF | ACDE",
+            sampleOutput: "4",
         },
         {
             title: "Problem 2", 
