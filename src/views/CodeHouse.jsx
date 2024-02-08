@@ -32,7 +32,13 @@ export default function CodeHouse() {
             sampleInput: "1 5 | 2 4 6 8 10",
             sampleOutput: "1 2 3 4 5",
         }
-    ])
+    ]);
+
+    const problemsCode = useArray([
+        "problem 1 code",
+        "problem 2 code",
+        "problem 3 code",
+    ]);
 
     useEffect(() => {
         setTimeout(() => setLoadingPercentage(25), 1000);
@@ -57,7 +63,7 @@ export default function CodeHouse() {
                         </div>
                     </div>
                 ) : (
-                    <Outlet context={ {problemsList} } />
+                    <Outlet context={ {problemsList, problemsCode} } />
                 )
             }
             

@@ -19,23 +19,40 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import "../styles/Code.scss";
 
 const Code = () => {
-    const { problemsList } = useOutletContext();
+    const { problemsList, problemsCode } = useOutletContext();
 
     const handleRef = useRef(null);
     const runStatus = useRef(null);
     const languageSelect = useRef(null);
 
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
+    const [problemStatement, setProblemStatement] = useState(problemsList.value[0].problemStatement);
+    const [inputOutputFormat, setInputOutputFormat] = useState(problemsList.value[0].inputOutputFormat);
+    const [editorCode, setEditorCode] = useState(problemsCode.value[0]);
 
     const [flexValue, setFlexValue] = useState(0.4);
     const [chosenLanguage, setChosenLanguage] = useState("java");
 
     const [userCode, setUserCode] = useState("");
 
+    useEffect(() => {
+        alert(editorCode.slice(0, 40));
+
+    }, [editorCode]);
+
     const onChange = (newValue) => {
         console.log("change", newValue);
         setUserCode(newValue);
+
+        problemsCode.value[selectedProblemIndex] = newValue;
     };
+
+    const changeProblem = (index) => {
+        setSelectedProblemIndex(index);
+        setProblemStatement(problemsList.value[index].problemStatement);
+        setInputOutputFormat(problemsList.value[index].inputOutputFormat);
+        setEditorCode(problemsCode.value[index])
+    }
 
     const runCode = () => {
         console.log(userCode);
@@ -91,7 +108,7 @@ const Code = () => {
                     {problemsList.value.map((problemObj, index) => {
                         return (
                             <li key={index} className="navItem" onClick={() => {
-                                setSelectedProblemIndex(index);
+                                changeProblem(index);
                                 console.log(index);
                             } }>
                                 <span className="icon">{index + 1}</span>
@@ -113,14 +130,14 @@ const Code = () => {
                         <div className="box problemStatement">
                             <div className="title">Problem Statement</div>
                             <div className="content">
-                                {problemsList.value[selectedProblemIndex].problemStatement}
+                                {problemStatement}
                             </div>
                         </div>
 
                         <div className="box inputOutputFormat">
                             <div className="title">Input/Output Format</div>
                             <div className="content">
-                                {problemsList.value[selectedProblemIndex].inputOutputFormat}
+                                {inputOutputFormat}
                             </div>
                         </div>
 
@@ -168,6 +185,7 @@ const Code = () => {
 
                         <div className="editor">
                             <AceEditor
+                                value={editorCode}
                                 mode={chosenLanguage}
                                 width={"100%"}
                                 theme="monokai"
