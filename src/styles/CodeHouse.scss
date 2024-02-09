@@ -6,40 +6,48 @@
 div.codeHouse {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-
-    .loadingScreen {
+    .instructions {
+        width: min(90%, 600px);
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 3rem 1rem;
         display: flex;
         flex-direction: column;
-        height: 100vh;
-        margin: auto 0;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
 
+        .title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+        }
 
-        .progressBar {
-            width: 100vw;
-            height: 20px;
-    
-            .progressBar-thumb {
-                height: 100%;
-                border-radius: 0 6px 6px 0;
-                background: linear-gradient(to right, rgb(77, 199, 77), rgb(61, 162, 61), rgb(72, 209, 72));
-                transition: width 2s ease;
+        ol {
+            width: 80%;
+
+            li {
+                margin-top: .5rem;
             }
         }
+    }
 
-        .loadingText {
+    .progressBar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 20px;
+
+        .progressBar-thumb {
             height: 100%;
-            width: 100%;
-            margin: auto 0 !important;
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            font-weight: 600;
-            font-size: large;
+            border-radius: 0 6px 6px 0;
+            background: linear-gradient(to right, rgb(77, 199, 77), rgb(61, 162, 61), rgb(72, 209, 72));
+            transition: width 2s ease;
         }
-    
     }
 }

@@ -72,29 +72,42 @@ export default function CodeHouse() {
 
         <div className="codeHouse">
             {
-                (pageToShow === 'instructions') ? (
-                    <div className="instructions">
-                        this is the isntructions page.
-                        <button onClick={startRound}>Start</button>
-                    </div>
+                (pageToShow === 'instructions' || pageToShow === 'loading') ? (
+                    <>
+                        {
+                            (pageToShow === "loading") ? (
+                                <div className="progressBar">
+                                    <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
+                                </div>
+                            ) : (
+                                <></>
+                            )
+                        }
+                    
+                        <div className="instructions">
+                            <div className="title">READ ME!</div>
+                            <div className="points">
+                                <ol>
+                                    <li>Do not exit from the page. You will die.</li>
+                                    <li>Do not try to switch tabs. You will die.</li>
+                                    <li>Do not try to copy and paste in the code editor. You will die.</li>
+                                    <li>Do not try to logout and login in your own or your friends' laptops. You will die.</li>
+                                    <li>Have fun! :)</li>
+                                </ol>
+                            </div>
+                            <button onClick={startRound} disabled={pageToShow === "loading"}>
+                                {
+                                    (pageToShow === "instructions") ? "Start" : "..."
+                                }
+                            </button>
+                        </div>
+
+                    </>
                 ) : (
                     <></>
                 )
             }
-            {
-                (pageToShow === "loading") ? (
-                    <div className="loadingScreen">
-                        <div className="progressBar">
-                            <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
-                        </div>
-                        <div className="loadingText">
-                            Loading... Get Ready!
-                        </div>
-                    </div>
-                ) : (
-                    <></>
-                )
-            }
+            
             {
                 (pageToShow === "code") ? (
                     <Outlet context={ { problemsList, problemsCode, finishRound } } />
