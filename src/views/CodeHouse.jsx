@@ -7,7 +7,7 @@ import "../styles/CodeHouse.scss";
 
 export default function CodeHouse() {
 
-    const [loadingStatus, setLoadingStatus] = useState("loading");
+    const [pageToShow, setPageToShow] = useState("instructions");
     const [loadingPercentage, setLoadingPercentage] = useState(0);
 
     const problemsList = useArray([
@@ -40,20 +40,49 @@ export default function CodeHouse() {
         "problem 3 code",
     ]);
 
-    useEffect(() => {
+    const startRound = () => {
+        setPageToShow("loading");
         setTimeout(() => setLoadingPercentage(25), 1000);
         setTimeout(() => setLoadingPercentage(50), 2000);
         setTimeout(() => setLoadingPercentage(60), 3000);
         setTimeout(() => setLoadingPercentage(100), 5000);
-        setTimeout(() => setLoadingStatus("done"), 6000);
-    }, [])
+        setTimeout(() => setPageToShow("code"), 6000);
+    }
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', alertUser)
+        return () => {
+          window.removeEventListener('beforeunload', alertUser)
+        }
+      }, [])
+
+      const alertUser = e => {
+        e.preventDefault()
+        e.returnValue = ''
+      }
+
+      const finishRound = e => {
+        window.removeEventListener('beforeunload', alertUser);
+        console.log("set to true");
+        setPageToShow("instructions");
+      }
+
 
     return (
 
         <div className="codeHouse">
-
             {
-                (loadingStatus === 'loading') ? (
+                (pageToShow === 'instructions') ? (
+                    <div className="instructions">
+                        this is the isntructions page.
+                        <button onClick={startRound}>Start</button>
+                    </div>
+                ) : (
+                    <></>
+                )
+            }
+            {
+                (pageToShow === "loading") ? (
                     <div className="loadingScreen">
                         <div className="progressBar">
                             <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
@@ -63,10 +92,16 @@ export default function CodeHouse() {
                         </div>
                     </div>
                 ) : (
-                    <Outlet context={ {problemsList, problemsCode} } />
+                    <></>
                 )
             }
-            
+            {
+                (pageToShow === "code") ? (
+                    <Outlet context={ { problemsList, problemsCode, finishRound } } />
+                ) : (
+                    <></>
+                )
+            }
 
         </div>
 

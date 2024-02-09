@@ -20,7 +20,7 @@ import { HiOutlineSave } from "react-icons/hi";
 import "../styles/Code.scss";
 
 const Code = () => {
-    const { problemsList, problemsCode } = useOutletContext();
+    const { problemsList, problemsCode, finishRound } = useOutletContext();
 
     const handleRef = useRef(null);
     const runStatus = useRef(null);
@@ -57,6 +57,9 @@ const Code = () => {
     }
 
     const changeProblem = (index) => {
+        showLocalSaveIcon();
+        problemsCode.value[selectedProblemIndex] = editorCode;
+
         setSelectedProblemIndex(index);
         setProblemStatement(problemsList.value[index].problemStatement);
         setInputOutputFormat(problemsList.value[index].inputOutputFormat);
@@ -213,7 +216,7 @@ const Code = () => {
                                 fontSize={14}
                                 showPrintMargin={false}
                                 showGutter={true}
-                                debounceChangePeriod={500}
+                                debounceChangePeriod={2000}
                                 annotations={[
                                     {
                                         row: 0,
@@ -237,7 +240,13 @@ const Code = () => {
                                 <button className="green" onClick={runCode}>
                                     Run
                                 </button>
-                                <button className="red">Finish</button>
+                                {
+                                    (selectedProblemIndex === problemsList.value.length-1) ? (
+                                        <button className="red" onClick={finishRound}>Finish</button>
+                                    ) : (
+                                        <></>
+                                    )
+                                }
                             </div>
                         </div>
 
