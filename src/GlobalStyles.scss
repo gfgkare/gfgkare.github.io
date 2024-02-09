@@ -30,6 +30,9 @@ button {
     cursor: pointer;
     transition: border-color 0.25s;
 }
+button:disabled {
+    cursor: not-allowed;
+}
 button:hover {
     border-color: #646cff;
 }
