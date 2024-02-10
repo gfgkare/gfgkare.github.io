@@ -10,7 +10,16 @@ div.codeHouse {
     justify-content: center;
     align-items: center;
 
-    .instructions {
+    a {
+        color: rgb(80, 80, 80);
+
+
+        &:hover {
+            color: rgb(5, 5, 5) !important;
+        }
+    }
+
+    .instructions, .rejected, .out {
         width: min(90%, 600px);
         border: 1px solid black;
         border-radius: 8px;
@@ -25,6 +34,17 @@ div.codeHouse {
             font-size: 2rem;
             font-weight: 800;
             text-align: center;
+        }
+
+        ul {
+            margin: 0 auto;
+            padding: 0;
+            width: 80%;
+            list-style-type: none;
+
+            li {
+                margin-top: .5rem;
+            }
         }
 
         ol {
@@ -49,5 +69,12 @@ div.codeHouse {
             background: linear-gradient(to right, rgb(77, 199, 77), rgb(61, 162, 61), rgb(72, 209, 72));
             transition: width 2s ease;
         }
+    }
+
+
+    .out {
+        max-width: max-content;
+        padding: 2rem 4rem;
+        border: 1px solid black;
     }
 }
