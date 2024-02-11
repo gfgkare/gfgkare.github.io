@@ -63,65 +63,36 @@ export default function DashboardResults(props) {
         <div className="dashboardResults">
             <div className="resultBigTitle">Results</div>
 
-            <div className="title">Round 3 - QnA</div>
-            {/* <CustomTable 
-                headers={["rank","regNo", "section1", "section2", "section3", "overallMarks", "completionTime"]} 
-                rows={algo24Top} /> */}
-                <div className="round3">
-                    <div className="teamBoxesContainer">
+            {/* <div className="title">Round 3 - QnA</div> */}
+            
+            {/* <div className="round3">
+                <div className="teamBoxesContainer">
 
-                        {
-                            round3Sample.map((team, index) => (
-                                <div className="teamBox" key={index}>
-                                    <div className="teamPosition">#{team.teamPosition}</div>
-                                    <div className="teamNumber">Team {team.teamNumber}</div>
-                                    <div className="teamDetails">
-                                        <div className="teamMarks">
-                                            <div className="teamMarksTitle">Scored</div>
-                                            <div className="marks">{team.teamMarks}/100</div>
-                                        </div>
-                                        <div className="teamBoxMembers">
-                                            <div className="teamMembersTitle">Members</div>
-                                            {team.teamMembers.map((member, index) => (
-                                                <div className="member" key={index}>
-                                                    <div className="name">{member.name}</div>
-                                                    <div className="regNo">{member.regNo}</div>
-                                                </div>
-                                            ))}
-                                        </div>
+                    {
+                        round3Sample.map((team, index) => (
+                            <div className="teamBox" key={index}>
+                                <div className="teamPosition">#{team.teamPosition}</div>
+                                <div className="teamNumber">Team {team.teamNumber}</div>
+                                <div className="teamDetails">
+                                    <div className="teamMarks">
+                                        <div className="teamMarksTitle">Scored</div>
+                                        <div className="marks">{team.teamMarks}/100</div>
                                     </div>
-                                </div>
-                            ))
-                        }
-
-                        {/* <div className="teamBox">
-                            <div className="teamPosition">#1</div>
-                            <div className="teamNumber">Team 1</div>
-                            <div className="teamDetails">
-                                <div className="teamMarks">
-                                    <div className="teamMarksTitle">Scored</div>
-                                    <div className="marks">97/100</div>
-                                </div>
-                                <div className="teamBoxMembers">
-                                    <div className="teamMembersTitle">Members</div>
-                                    <div className="member">
-                                        <div className="name">Sabari</div>
-                                        <div className="regNo">9922008342</div>
-                                    </div>
-                                    <div className="member">
-                                        <div className="name">Sabari</div>
-                                        <div className="regNo">9922008342</div>
-                                    </div>
-                                    <div className="member">
-                                        <div className="name">Sabari</div>
-                                        <div className="regNo">9922008342</div>
+                                    <div className="teamBoxMembers">
+                                        <div className="teamMembersTitle">Members</div>
+                                        {team.teamMembers.map((member, index) => (
+                                            <div className="member" key={index}>
+                                                <div className="name">{member.name}</div>
+                                                <div className="regNo">{member.regNo}</div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
-                            
-                        </div> */}
-                    </div>
+                        ))
+                    }
                 </div>
+            </div> */}
                 
 
             <div className="splitter"></div>
