@@ -73,7 +73,7 @@ const Code = () => {
     const runCode = () => {
         runStatus.current.scrollIntoView();
 
-        const eventSource = new EventSource('http://localhost:5000/run_code');
+        const eventSource = new EventSource(import.meta.env.VITE_API + '/run_code');
 
         eventSource.onopen = () => {
             console.log("EventStream Opened.")
