@@ -18,6 +18,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import { HiOutlineSave } from "react-icons/hi";
 
 import "../styles/Code.scss";
+import { set } from "firebase/database";
 
 const Code = () => {
     const { problemsList, problemsCode, finishRound } = useOutletContext();
@@ -32,6 +33,7 @@ const Code = () => {
     const [sampleInput, setSampleInput] = useState(problemsList.value[0].sampleInput);
     const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
     const [editorCode, setEditorCode] = useState(problemsCode.value[0]);
+    const [codeRunningStatus, setCodeRunningStatus] = useState("");
 
     const [flexValue, setFlexValue] = useState(0.4);
     const [chosenLanguage, setChosenLanguage] = useState("java");
@@ -70,6 +72,32 @@ const Code = () => {
 
     const runCode = () => {
         runStatus.current.scrollIntoView();
+
+        const eventSource = new EventSource('http://localhost:5000/run_code');
+
+        eventSource.onopen = () => {
+            console.log("EventStream Opened.")
+        }
+
+        eventSource.onmessage = (event) => {
+            const eventData = JSON.parse(event.data);
+            console.log(eventData);
+            setCodeRunningStatus(eventData.message);
+
+            if (eventData.isLastEvent === "true") {
+                console.log("isLastEvent is true. Closing EventSource.")
+                eventSource.close();
+            }
+        };
+
+        eventSource.onerror = (error) => {
+            console.error('EventSource failed:', error);
+            eventSource.close();
+        };
+
+        eventSource.onend = () => {
+            console.log('EventSource connection closed');
+        };
     };
 
     useEffect(() => {
@@ -251,7 +279,7 @@ const Code = () => {
                         </div>
 
                         <div className="runStatus" ref={runStatus}>
-                            Running Code...
+                            {codeRunningStatus}
                         </div>
                     </div>
                 </div>
