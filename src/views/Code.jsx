@@ -29,10 +29,10 @@ const Code = () => {
 
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
     const [problemStatement, setProblemStatement] = useState(problemsList.value[0].problemStatement);
-    const [inputOutputFormat, setInputOutputFormat] = useState(problemsList.value[0].inputOutputFormat);
+    const [inputOutputFormat, setInputOutputFormat] = useState(problemsList.value[0].inputOutput);
     const [sampleInput, setSampleInput] = useState(problemsList.value[0].sampleInput);
     const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
-    const [editorCode, setEditorCode] = useState(problemsCode.value[0]);
+    const [editorCode, setEditorCode] = useState(problemsList.value[0].code);
     const [codeRunningStatus, setCodeRunningStatus] = useState("");
 
     const [flexValue, setFlexValue] = useState(0.4);
@@ -49,6 +49,7 @@ const Code = () => {
         console.log("Changing parent code array to", newValue)
         showLocalSaveIcon();
         problemsCode.value[selectedProblemIndex] = newValue;
+        console.log(problemsList.value[selectedProblemIndex]);
     };
 
     const showLocalSaveIcon = () => {
@@ -60,14 +61,14 @@ const Code = () => {
 
     const changeProblem = (index) => {
         showLocalSaveIcon();
-        problemsCode.value[selectedProblemIndex] = editorCode;
-
+        // problemsCode.value[selectedProblemIndex] = editorCode;
+        problemsList.value[selectedProblemIndex].code = editorCode;
         setSelectedProblemIndex(index);
         setProblemStatement(problemsList.value[index].problemStatement);
-        setInputOutputFormat(problemsList.value[index].inputOutputFormat);
+        setInputOutputFormat(problemsList.value[index].inputOutput);
         setSampleInput(problemsList.value[index].sampleInput);
         setSampleOutput(problemsList.value[index].sampleOutput);
-        setEditorCode(problemsCode.value[index])
+        setEditorCode((problemsList.value[index].code.replace(/\\n/g, '\n')) )
     }
 
     const runCode = () => {

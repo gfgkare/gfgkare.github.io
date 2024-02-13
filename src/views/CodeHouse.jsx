@@ -4,7 +4,13 @@ import { Link, Outlet } from "react-router-dom"
 import useArray from "../hooks/useArray";
 import {useAuth} from "../contexts/AuthContext";
 
+import axios from "../scripts/axiosConfig.js";
+
 import "../styles/CodeHouse.scss";
+
+import { NativeEventSource, EventSourcePolyfill } from 'event-source-polyfill';
+
+const EventSource = NativeEventSource || EventSourcePolyfill;
 
 export default function CodeHouse() {
 
@@ -48,11 +54,45 @@ export default function CodeHouse() {
 
     const startRound = () => {
         setPageToShow("loading");
-        setTimeout(() => setLoadingPercentage(25), 1000);
-        setTimeout(() => setLoadingPercentage(50), 2000);
-        setTimeout(() => setLoadingPercentage(60), 3000);
-        setTimeout(() => setLoadingPercentage(100), 5000);
-        setTimeout(() => setPageToShow("code"), 6000);
+        // axios.post("/start_round4", {}, {headers: {Authorization: `${currentUser.accessToken}`}})
+        // .then((res) => {
+        //     setLoadingPercentage(100);
+        //     problemsList.setValue(res.data.problems);
+        //     setPageToShow("code");
+        // })
+        
+        // const eventSource = new EventSource();
+
+        const eventSource = new EventSourcePolyfill(import.meta.env.VITE_API + '/start_round4', {
+            headers: {
+                'Authorization': `${currentUser.accessToken}`
+            }
+        });
+
+        eventSource.onopen = () => {
+            console.log("Start_Round4 EventStream Opened.")
+        }
+
+        eventSource.onmessage = (event) => {
+            const eventData = JSON.parse(event.data);
+            console.log(eventData);
+            // setCodeRunningStatus(eventData.message);
+
+            if (eventData.isLastEvent === "true") {
+                console.log("isLastEvent is true. Closing EventSource.")
+                eventSource.close();
+            }
+        };
+
+        eventSource.onerror = (error) => {
+            console.error('EventSource failed:', error);
+            eventSource.close();
+        };
+
+        eventSource.onend = () => {
+            console.log('EventSource connection closed');
+        };
+
     }
 
 
@@ -87,6 +127,12 @@ export default function CodeHouse() {
         window.removeEventListener('beforeunload', alertUser);
         console.log("set to true");
         setPageToShow("instructions");
+      }
+
+      const saveEditorCodeLocally = (problemIndex, editorCode) => {
+        console.log("CodeHouse: setting code locally...");
+        console.log(editorCode);
+        problemsList.value[problemIndex].code = editorCode;
       }
 
 
@@ -135,7 +181,7 @@ export default function CodeHouse() {
                     
                     {
                         (pageToShow === "code") ? (
-                            <Outlet context={ { problemsList, problemsCode, finishRound } } />
+                            <Outlet context={ { problemsList, problemsCode, saveEditorCodeLocally, finishRound } } />
                         ) : (
                             <></>
                         )
