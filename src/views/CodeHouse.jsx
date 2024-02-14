@@ -10,7 +10,7 @@ import "../styles/CodeHouse.scss";
 
 import { NativeEventSource, EventSourcePolyfill } from 'event-source-polyfill';
 
-const EventSource = NativeEventSource || EventSourcePolyfill;
+// const EventSource = NativeEventSource || EventSourcePolyfill;
 
 export default function CodeHouse() {
 
@@ -22,35 +22,9 @@ export default function CodeHouse() {
 
     const { currentUser } = useAuth();
 
-    const problemsList = useArray([
-        {
-            title: "Alice and Bob", 
-            problemStatement: "Alice and Bob are studying for their computer science exam, and they are practicing solving dynamic programming problems. Alice is working on a problem related to finding the Longest Common Subsequence (LCS) between two strings. She wants to test her code with different inputs.",
-            inputOutputFormat: "Input consists of two lines each containing string A and B. Output the LCS in a single line.",
-            sampleInput: " ABCDEF | ACDE",
-            sampleOutput: "4",
-        },
-        {
-            title: "Problem 2", 
-            problemStatement: "2.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            inputOutputFormat: "2.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            sampleInput: "Problem 2 | 2 4 6 8 10",
-            sampleOutput: "1 2 3 4 5",
-        },
-        {
-            title: "Problem 3", 
-            problemStatement: "3.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            inputOutputFormat: "3.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed a, at tempore provident, aspernatur animi architecto facere impedit facilis magni ducimus, minima quos! Molestias corrupti assumenda ab eius, tempore magnam.",
-            sampleInput: "Problem 3 | 2 4 6 8 10 | 55 49 | 0 0 0 0 | 1 2 3 4",
-            sampleOutput: "1 2 3 4 5",
-        }
-    ]);
+    const problemsList = useArray([]);
 
-    const problemsCode = useArray([
-        "problem 1 code",
-        "problem 2 code",
-        "problem 3 code",
-    ]);
+    const problemsCode = useArray([]);
 
     const startRound = () => {
         setPageToShow("loading");
@@ -62,42 +36,31 @@ export default function CodeHouse() {
         // })
         
         // const eventSource = new EventSource();
+        setLoadingPercentage(30);
+        axios.post(`${import.meta.env.VITE_API}/start_round4`, {}, {headers: {Authorization: `${currentUser.accessToken}`}})
+        .then((response) => {
+                console.log(response);
 
-        const eventSource = new EventSourcePolyfill(import.meta.env.VITE_API + '/start_round4', {
-            headers: {
-                'Authorization': `${currentUser.accessToken}`
-            }
-        });
+                if (response.data.message === "got_problems") {
+                    setLoadingPercentage(100);
+                    problemsList.setValue(response.data.problems);
+                    setPageToShow("code");
+                }
+                else {
+                    setLoadingPercentage(0);
+                    console.log("Error: ", response.data.message);
+                }
 
-        eventSource.onopen = () => {
-            console.log("Start_Round4 EventStream Opened.")
-        }
 
-        eventSource.onmessage = (event) => {
-            const eventData = JSON.parse(event.data);
-            console.log(eventData);
-            // setCodeRunningStatus(eventData.message);
-
-            if (eventData.isLastEvent === "true") {
-                console.log("isLastEvent is true. Closing EventSource.")
-                eventSource.close();
-            }
-        };
-
-        eventSource.onerror = (error) => {
-            console.error('EventSource failed:', error);
-            eventSource.close();
-        };
-
-        eventSource.onend = () => {
-            console.log('EventSource connection closed');
-        };
-
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+                console.log("Error: ", error.response.data.message);
+            });
     }
 
 
     useEffect(() => {
-        console.log("currentUser", currentUser);
         if (currentUser && currentUser !== "none") {
             if (allowedEmails.includes(currentUser.email)) {
                 setUserStatus("approved");
@@ -170,6 +133,9 @@ export default function CodeHouse() {
                                         {
                                             (pageToShow === "instructions") ? "Start" : "..."
                                         }
+                                    </button>
+                                    <button onClick={startRound}>
+                                        Dev Force
                                     </button>
                                 </div>
 
