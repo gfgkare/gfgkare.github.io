@@ -38,7 +38,7 @@ import Code from "./views/Code";
 
 import Pickle from "./views/Pickle";
 import NewEventRegister from "./views/NewEventRegister";
-
+import { ToastContainer } from "react-toastify";
 
 
 export default function App() {
@@ -52,6 +52,8 @@ export default function App() {
     return (
         <>
             {/* <Router> */}
+            <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
+
             <TransitionGroup component={null}>
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
@@ -83,10 +85,6 @@ export default function App() {
 
                         <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
 
-                        <Route path="/:eventname/code" element={<CodeHouse />}>
-                            <Route path="/:eventname/code" element={<Code />}></Route>
-                        </Route>
-                        
 
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
@@ -96,6 +94,10 @@ export default function App() {
                             <Route path="/dashboard/slots" element={ <SlotSuspend /> }></Route>
                             <Route path="/dashboard/low" element={ <SlotSelection /> }></Route>
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
+                        </Route>
+
+                        <Route path="/:eventname/code" element={<CodeHouse />}>
+                            <Route path="/:eventname/code" element={<Code />}></Route>
                         </Route>
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
 

@@ -9,7 +9,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import gfgLogo from "../assets/GFG_KARE.svg";
 import { useMisc } from "../contexts/MiscContext";
 import { useAuth } from "../contexts/AuthContext";
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 
 export default function Main() {
     const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
@@ -148,7 +148,7 @@ export default function Main() {
                 </div>
             </div>
 
-            <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
+            {/* <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" /> */}
 
             <div className="out" >
                 <Outlet />

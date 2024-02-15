@@ -2,15 +2,13 @@ import { useState, useEffect } from "react"
 import { Link, Outlet } from "react-router-dom"
 
 import useArray from "../hooks/useArray";
-import {useAuth} from "../contexts/AuthContext";
-
+import { useAuth } from "../contexts/AuthContext";
 import axios from "../scripts/axiosConfig.js";
 
 import "../styles/CodeHouse.scss";
 
-import { NativeEventSource, EventSourcePolyfill } from 'event-source-polyfill';
+import { toast } from "react-toastify"
 
-// const EventSource = NativeEventSource || EventSourcePolyfill;
 
 export default function CodeHouse() {
 
@@ -18,7 +16,7 @@ export default function CodeHouse() {
     const [pageToShow, setPageToShow] = useState("instructions");
     const [loadingPercentage, setLoadingPercentage] = useState(0);
 
-    const allowedEmails = ["incrediblesabari02@gmail.com", "9922008342@klu.ac.in"];
+    const allowedEmails = ["incrediblesabari02@gmail.com", "9922008342@klu.ac.in", "adiniparimal229@gmail.com"];
 
     const { currentUser } = useAuth();
 
@@ -47,6 +45,7 @@ export default function CodeHouse() {
                     setPageToShow("code");
                 }
                 else {
+                    toast.error(response.data.message);
                     setLoadingPercentage(0);
                     console.log("Error: ", response.data.message);
                 }
@@ -54,6 +53,7 @@ export default function CodeHouse() {
 
             })
             .catch((error) => {
+                toast.error(error.response.data.message);
                 console.error("Error fetching data:", error);
                 console.log("Error: ", error.response.data.message);
             });
