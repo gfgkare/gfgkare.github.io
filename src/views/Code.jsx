@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 
 import CodeSnippet from "../components/CodeSnippet";
+import axios from "../scripts/axiosConfig";
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
@@ -18,7 +19,6 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import { HiOutlineSave } from "react-icons/hi";
 
 import "../styles/Code.scss";
-import { set } from "firebase/database";
 
 const Code = () => {
     const { problemsList, problemsCode, finishRound } = useOutletContext();
@@ -73,32 +73,44 @@ const Code = () => {
 
     const runCode = () => {
         runStatus.current.scrollIntoView();
+        alert("running code.")
 
-        const eventSource = new EventSource(import.meta.env.VITE_API + '/run_code');
+        axios.post("/run_code", {
+            code: "print('Hello world!')",
+            lang: chosenLanguage,
+         })
+         .then((res) => {
+            setCodeRunningStatus(JSON.stringify(res));
+         })
+         .catch((err) => {
+            setCodeRunningStatus(JSON.stringify(err));
+         });
 
-        eventSource.onopen = () => {
-            console.log("EventStream Opened.")
-        }
+        // const eventSource = new EventSource(import.meta.env.VITE_API + '/run_code');
 
-        eventSource.onmessage = (event) => {
-            const eventData = JSON.parse(event.data);
-            console.log(eventData);
-            setCodeRunningStatus(eventData.message);
+        // eventSource.onopen = () => {
+        //     console.log("EventStream Opened.")
+        // }
 
-            if (eventData.isLastEvent === "true") {
-                console.log("isLastEvent is true. Closing EventSource.")
-                eventSource.close();
-            }
-        };
+        // eventSource.onmessage = (event) => {
+        //     const eventData = JSON.parse(event.data);
+        //     console.log(eventData);
+        //     setCodeRunningStatus(eventData.message);
 
-        eventSource.onerror = (error) => {
-            console.error('EventSource failed:', error);
-            eventSource.close();
-        };
+        //     if (eventData.isLastEvent === "true") {
+        //         console.log("isLastEvent is true. Closing EventSource.")
+        //         eventSource.close();
+        //     }
+        // };
 
-        eventSource.onend = () => {
-            console.log('EventSource connection closed');
-        };
+        // eventSource.onerror = (error) => {
+        //     console.error('EventSource failed:', error);
+        //     eventSource.close();
+        // };
+
+        // eventSource.onend = () => {
+        //     console.log('EventSource connection closed');
+        // };
     };
 
     useEffect(() => {
@@ -222,10 +234,9 @@ const Code = () => {
                                         setChosenLanguage(e.target.value)
                                     }
                                 >
-                                    <option value="java">Java</option>
-                                    <option value="c_cpp">C</option>
-                                    <option value="c_cpp">C++</option>
-                                    <option value="python">Python</option>
+                                    <option value="JAVA8">Java</option>
+                                    <option value="CPP17">C++</option>
+                                    <option value="PYTHON3">Python 3</option>
                                 </select>
                                 <button className="green" onClick={runCode}>
                                     Run

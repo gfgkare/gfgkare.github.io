@@ -62,12 +62,13 @@ export default function CodeHouse() {
 
     useEffect(() => {
         if (currentUser && currentUser !== "none") {
-            if (allowedEmails.includes(currentUser.email)) {
-                setUserStatus("approved");
-            }
-            else {
-                setUserStatus("rejected");
-            }
+            setUserStatus("approved");
+            // if (allowedEmails.includes(currentUser.email)) {
+            //     setUserStatus("approved");
+            // }
+            // else {
+            //     setUserStatus("rejected");
+            // }
         }
         else {
             setUserStatus("out");
