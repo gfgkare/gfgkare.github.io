@@ -73,14 +73,15 @@ const Code = () => {
 
     const runCode = () => {
         runStatus.current.scrollIntoView();
-        alert("running code.")
-
+        setCodeRunningStatus("Running code...");
+        
         axios.post("/run_code", {
-            code: "print('Hello world!')",
+            code: editorCode,
             lang: chosenLanguage,
          })
          .then((res) => {
-            setCodeRunningStatus(JSON.stringify(res));
+            console.log(res)
+            setCodeRunningStatus(res["data"]["CODE_OUTPUT"]);
          })
          .catch((err) => {
             setCodeRunningStatus(JSON.stringify(err));
