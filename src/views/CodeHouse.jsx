@@ -26,14 +26,7 @@ export default function CodeHouse() {
 
     const startRound = () => {
         setPageToShow("loading");
-        // axios.post("/start_round4", {}, {headers: {Authorization: `${currentUser.accessToken}`}})
-        // .then((res) => {
-        //     setLoadingPercentage(100);
-        //     problemsList.setValue(res.data.problems);
-        //     setPageToShow("code");
-        // })
-        
-        // const eventSource = new EventSource();
+
         setLoadingPercentage(30);
         axios.post(`${import.meta.env.VITE_API}/start_round4`, {}, {headers: {Authorization: `${currentUser.accessToken}`}})
         .then((response) => {
@@ -76,11 +69,23 @@ export default function CodeHouse() {
     })
 
     useEffect(() => {
-        window.addEventListener('beforeunload', alertUser)
+        window.addEventListener('beforeunload', alertUser);
+
         return () => {
-          window.removeEventListener('beforeunload', alertUser)
+          window.removeEventListener('beforeunload', alertUser);
         }
       }, [])
+
+    useEffect(() => {
+        if (pageToShow !== "code") {
+            console.log("removing alertUser");
+            window.removeEventListener('beforeunload', alertUser);
+        }
+        else {
+            console.log("adding alertUser");
+            window.addEventListener('beforeunload', alertUser);
+        }
+    }, [pageToShow])
 
       const alertUser = e => {
         e.preventDefault()
@@ -107,52 +112,93 @@ export default function CodeHouse() {
                 (userStatus === "approved") ? (
                     <>
                         {
-                        (pageToShow === 'instructions' || pageToShow === 'loading') ? (
-                            <>
-                                {
-                                    (pageToShow === "loading") ? (
-                                        <div className="progressBar">
-                                            <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
+                            (pageToShow === 'instructions' || pageToShow === 'loading') ? (
+                                <>
+                                    {
+                                        (pageToShow === "loading") ? (
+                                            <div className="progressBar">
+                                                <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
+                                            </div>
+                                        ) : (
+                                            <></>
+                                        )
+                                    }
+                                
+                                    <div className="instructions">
+                                        <div className="title">READ ME!</div>
+                                        <div className="points">
+                                            <ol>
+                                                <li>Do not exit from the page. You will die.</li>
+                                                <li>Do not try to switch tabs. You will die.</li>
+                                                <li>Do not try to copy and paste in the code editor. You will die.</li>
+                                                <li>Do not try to logout and login in your own or your friends' laptops. You will die.</li>
+                                                <li>Have fun! :)</li>
+                                            </ol>
                                         </div>
-                                    ) : (
-                                        <></>
-                                    )
-                                }
-                            
-                                <div className="instructions">
-                                    <div className="title">READ ME!</div>
-                                    <div className="points">
-                                        <ol>
-                                            <li>Do not exit from the page. You will die.</li>
-                                            <li>Do not try to switch tabs. You will die.</li>
-                                            <li>Do not try to copy and paste in the code editor. You will die.</li>
-                                            <li>Do not try to logout and login in your own or your friends' laptops. You will die.</li>
-                                            <li>Have fun! :)</li>
-                                        </ol>
+                                        <button onClick={startRound} disabled={pageToShow === "loading"}>
+                                            {
+                                                (pageToShow === "instructions") ? "Start" : "..."
+                                            }
+                                        </button>
+                                        <button onClick={startRound}>
+                                            Dev Force
+                                        </button>
                                     </div>
-                                    <button onClick={startRound} disabled={pageToShow === "loading"}>
-                                        {
-                                            (pageToShow === "instructions") ? "Start" : "..."
-                                        }
-                                    </button>
-                                    <button onClick={startRound}>
-                                        Dev Force
-                                    </button>
-                                </div>
 
-                            </>
-                        ) : (
-                            <></>
-                        )
-                    }
+                                </>
+                            ) : (
+                                <></>
+                            )
+                        }
+
+                        {
+                            (pageToShow === 'loggedout') ? (
+                                <>
+                                    {/* {
+                                        (pageToShow === "loading") ? (
+                                            <div className="progressBar">
+                                                <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
+                                            </div>
+                                        ) : (
+                                            <></>
+                                        )
+                                    } */}
+                                
+                                    <div className="instructions">
+                                        <div className="title">You have logged out!</div>
+                                        <div className="points">
+                                            You have logged out from the page. You can continue the contest in another device.
+                                            {/* <ol>
+                                                <li>Do not exit from the page. You will die.</li>
+                                                <li>Do not try to switch tabs. You will die.</li>
+                                                <li>Do not try to copy and paste in the code editor. You will die.</li>
+                                                <li>Do not try to logout and login in your own or your friends' laptops. You will die.</li>
+                                                <li>Have fun! :)</li>
+                                            </ol> */}
+                                        </div>
+                                        {/* <button onClick={startRound} disabled={pageToShow === "loading"}>
+                                            {
+                                                (pageToShow === "instructions") ? "Start" : "..."
+                                            }
+                                        </button>
+                                        <button onClick={startRound}>
+                                            Dev Force
+                                        </button> */}
+                                    </div>
+
+                                </>
+                            ) : (
+                                <></>
+                            )
+                        }
                     
-                    {
-                        (pageToShow === "code") ? (
-                            <Outlet context={ { problemsList, problemsCode, saveEditorCodeLocally, finishRound } } />
-                        ) : (
-                            <></>
-                        )
-                    }
+                        {
+                            (pageToShow === "code") ? (
+                                <Outlet context={ { setPageToShow, problemsList, problemsCode, saveEditorCodeLocally, finishRound } } />
+                            ) : (
+                                <></>
+                            )
+                        }
                     </>
                 ) : (
                     <></>

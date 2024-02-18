@@ -3,6 +3,8 @@ import { useOutletContext } from "react-router-dom";
 
 import CodeSnippet from "../components/CodeSnippet";
 import axios from "../scripts/axiosConfig";
+import { useAuth } from "../contexts/AuthContext";
+import MessagePopup from "../components/MessagePopup";
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
@@ -17,11 +19,16 @@ import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 import { HiOutlineSave } from "react-icons/hi";
+import { IoIosLogOut } from "react-icons/io";
 
 import "../styles/Code.scss";
 
+import { toast } from "react-toastify";
+
 const Code = () => {
-    const { problemsList, problemsCode, finishRound } = useOutletContext();
+    const { setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
+
+    const { currentUser } = useAuth();
 
     const handleRef = useRef(null);
     const runStatus = useRef(null);
@@ -36,10 +43,10 @@ const Code = () => {
     const [codeRunningStatus, setCodeRunningStatus] = useState("");
 
     const [flexValue, setFlexValue] = useState(0.4);
-    const [chosenLanguage, setChosenLanguage] = useState("java");
+    const [chosenLanguage, setChosenLanguage] = useState("JAVA8");
 
     const [savingIndicator, setSavingIndicator] = useState("");
-    
+    const [showLogoutPopup, setShowLogoutPopup] = useState(false);    
 
     const onChange = (newValue) => {
         console.log("new code: ", newValue);
@@ -59,6 +66,19 @@ const Code = () => {
         }, 1000);
     }
 
+    const logOutFromCurrentSession = () => {
+
+        axios.post("/logout_from_session", {}, { headers: { Authorization: `${currentUser.accessToken}` } })
+        .then((res) => {
+            setPageToShow("loggedout");
+        })
+        .catch((err) => {
+            toast.error(err);
+            console.log("Error in logging out from contest: ");
+            console.error(err);
+        })
+    }
+
     const changeProblem = (index) => {
         showLocalSaveIcon();
         // problemsCode.value[selectedProblemIndex] = editorCode;
@@ -73,6 +93,11 @@ const Code = () => {
 
     const runCode = () => {
         runStatus.current.scrollIntoView();
+
+        if (!editorCode) {
+            toast.error("Code cannot be empty.")
+            return;
+        }
         setCodeRunningStatus("Running code...");
         
         axios.post("/run_code", {
@@ -84,7 +109,12 @@ const Code = () => {
             setCodeRunningStatus(res["data"]["CODE_OUTPUT"]);
          })
          .catch((err) => {
-            setCodeRunningStatus(JSON.stringify(err));
+            console.log("%c ERROR FROM CODE RUN API", "color: orange")
+            console.log(err);
+
+            if (err.response.data["SUCCESSFUL"] === false) {
+                setCodeRunningStatus(`Error: ${err.response.data["MESSAGE"]}`)
+            }
          });
 
         // const eventSource = new EventSource(import.meta.env.VITE_API + '/run_code');
@@ -151,6 +181,23 @@ const Code = () => {
 
     return (
         <div className="Code">
+            {
+                (showLogoutPopup) 
+                ? 
+                    <MessagePopup close={() => setShowLogoutPopup(false)} 
+                                  title={"Are you sure you want to log out?"} 
+                                  content={"Your code will be saved so you can continue in another device."}              
+                                  buttons={
+                                    [
+                                        { label: "Log out", color: "red", onClick: () => logOutFromCurrentSession() },
+                                        { label: "Cancel", color: "white", onClick: "close" }
+                                    ]
+                                  }
+                    /> 
+                : 
+                    <></>
+            }
+            
             <nav className="codeNav">
                 <ul>
                     <li
@@ -239,10 +286,11 @@ const Code = () => {
                                     <option value="CPP17">C++</option>
                                     <option value="PYTHON3">Python 3</option>
                                 </select>
-                                <button className="green" onClick={runCode}>
+                                <button className="green" onClick={runCode} disabled={codeRunningStatus === "running code..."}>
                                     Run
                                 </button>
                                 <button className="orange">Reset Code</button>
+                                <div className="logout" title="Log out" onClick={() => setShowLogoutPopup(true)} ><IoIosLogOut size={"20px"} /></div>
                             </div>
                         </div>
 
@@ -278,7 +326,7 @@ const Code = () => {
 
                         <div className="editorBars bottomBar">
                             <div className="options">
-                                <button className="green" onClick={runCode}>
+                                <button className="green" onClick={runCode} disabled={codeRunningStatus === "running code..."}>
                                     Run
                                 </button>
                                 {
