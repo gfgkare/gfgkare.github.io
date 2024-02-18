@@ -26,7 +26,7 @@ import "../styles/Code.scss";
 import { toast } from "react-toastify";
 
 const Code = () => {
-    const { setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
+    const { contestName, setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
 
     const { currentUser } = useAuth();
 
@@ -68,7 +68,7 @@ const Code = () => {
 
     const logOutFromCurrentSession = () => {
 
-        axios.post("/logout_from_session", {}, { headers: { Authorization: `${currentUser.accessToken}` } })
+        axios.post("/logout_from_session", { contest: contestName }, { headers: { Authorization: `${currentUser.accessToken}` } })
         .then((res) => {
             setPageToShow("loggedout");
         })

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useParams } from "react-router-dom"
 
 import useArray from "../hooks/useArray";
 import { useAuth } from "../contexts/AuthContext";
@@ -15,10 +15,12 @@ export default function CodeHouse() {
     const [userStatus, setUserStatus] = useState("out");
     const [pageToShow, setPageToShow] = useState("instructions");
     const [loadingPercentage, setLoadingPercentage] = useState(0);
+    const [contestName, setContestName] = useState("")
 
     const allowedEmails = ["incrediblesabari02@gmail.com", "9922008342@klu.ac.in", "adiniparimal229@gmail.com"];
 
     const { currentUser } = useAuth();
+    const params = useParams();
 
     const problemsList = useArray([]);
 
@@ -28,7 +30,7 @@ export default function CodeHouse() {
         setPageToShow("loading");
 
         setLoadingPercentage(30);
-        axios.post(`${import.meta.env.VITE_API}/start_round4`, {}, {headers: {Authorization: `${currentUser.accessToken}`}})
+        axios.post(`${import.meta.env.VITE_API}/start_round4`, { contest: contestName }, {headers: {Authorization: `${currentUser.accessToken}`}})
         .then((response) => {
                 console.log(response);
 
@@ -70,6 +72,7 @@ export default function CodeHouse() {
 
     useEffect(() => {
         window.addEventListener('beforeunload', alertUser);
+        setContestName(params.eventname);
 
         return () => {
           window.removeEventListener('beforeunload', alertUser);
@@ -194,7 +197,7 @@ export default function CodeHouse() {
                     
                         {
                             (pageToShow === "code") ? (
-                                <Outlet context={ { setPageToShow, problemsList, problemsCode, saveEditorCodeLocally, finishRound } } />
+                                <Outlet context={ { contestName, setPageToShow, problemsList, problemsCode, saveEditorCodeLocally, finishRound } } />
                             ) : (
                                 <></>
                             )
