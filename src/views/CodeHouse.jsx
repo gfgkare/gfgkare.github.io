@@ -16,6 +16,7 @@ export default function CodeHouse() {
     const [pageToShow, setPageToShow] = useState("instructions");
     const [loadingPercentage, setLoadingPercentage] = useState(0);
     const [contestName, setContestName] = useState("")
+    const [contestTime, setContestTime] = useState(0);
 
     const allowedEmails = ["incrediblesabari02@gmail.com", "9922008342@klu.ac.in", "adiniparimal229@gmail.com"];
 
@@ -23,8 +24,9 @@ export default function CodeHouse() {
     const params = useParams();
 
     const problemsList = useArray([]);
-
     const problemsCode = useArray([]);
+
+
 
     const startRound = () => {
         setPageToShow("loading");
@@ -36,6 +38,7 @@ export default function CodeHouse() {
 
                 if (response.data.message === "got_problems") {
                     setLoadingPercentage(100);
+                    setContestTime(response.data.time);
                     problemsList.setValue(response.data.problems);
                     setPageToShow("code");
                 }
@@ -197,7 +200,7 @@ export default function CodeHouse() {
                     
                         {
                             (pageToShow === "code") ? (
-                                <Outlet context={ { contestName, setPageToShow, problemsList, problemsCode, saveEditorCodeLocally, finishRound } } />
+                                <Outlet context={ { contestName, setPageToShow, problemsList, problemsCode, contestTime, saveEditorCodeLocally, finishRound } } />
                             ) : (
                                 <></>
                             )

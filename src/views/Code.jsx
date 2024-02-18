@@ -26,13 +26,19 @@ import "../styles/Code.scss";
 import { toast } from "react-toastify";
 
 const Code = () => {
-    const { contestName, setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
+    const { contestTime, contestName, setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
 
     const { currentUser } = useAuth();
 
     const handleRef = useRef(null);
     const runStatus = useRef(null);
     const languageSelect = useRef(null);
+
+    const [timerValue, setTimerValue] = useState(contestTime);
+    const [warnedLessThan10, setWarnedLessThan10] = useState(false);
+    const [warnedLessThan5, setWarnedLessThan5] = useState(false);
+    const [warnedLessThan1, setWarnedLessThan1] = useState(false);
+  
 
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
     const [problemStatement, setProblemStatement] = useState(problemsList.value[0].problemStatement);
@@ -144,6 +150,25 @@ const Code = () => {
         // };
     };
 
+
+    const formatTime = (seconds, returnFullTime) => {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+        
+        if (returnFullTime) {
+            return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+        }
+        else {
+            if (hours > 0) {
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+            } else {
+                return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+            }
+        }
+        
+      };
+
     useEffect(() => {
         setTimeout(() => setFlexValue(0.4), 10);
 
@@ -168,8 +193,40 @@ const Code = () => {
                 document.addEventListener("mouseup", handleMouseUp);
             });
         }
+        // let warnedLessThan10 = false;
+        // let warnedLessThan5 = false;
+        // let warnedLessThan1 = false;
+
+        // const timerInterval = setInterval(() => {
+        //     setTimerValue((prevCount) => {
+        //         if (prevCount <= 1) {
+        //             toast.info("Contest has ended.")
+        //             clearInterval(timerInterval);
+        //         }
+        //         // else if (prevCount <= 60) {
+        //         //     if (!warnedLessThan1) {
+        //         //         warnedLessThan1 = true;
+        //         //         toast.warn("Contest ends in less than one minute. Complete fast!");
+        //         //     }
+        //         // }
+        //         // else if (prevCount <= 300) {
+        //         //     if (!warnedLessThan5) {
+        //         //         warnedLessThan5 = true;
+        //         //         toast.warn("Contest ends in less than 5 minutes.");
+        //         //     }
+        //         // }
+        //         // else if (prevCount <= 600) {
+        //         //     if (!warnedLessThan10) {
+        //         //         warnedLessThan10 = true;
+        //         //         toast.info("Contest ends in less than 10 minutes.");
+        //         //     }
+        //         // }
+        //         return (prevCount - 1);
+        //     })
+        //   }, 1000);
 
         return () => {
+            clearInterval(timerInterval);
             if (handleRef.current) {
                 handleRef.current.removeEventListener("mousedown", () => {
                     document.removeEventListener("mousemove", handleResize);
@@ -202,10 +259,10 @@ const Code = () => {
                 <ul>
                     <li
                         className="navItem timer"
-                        title="59 minutes 27 seconds remaining"
+                        title="Time remaining"
                     >
-                        <span className="icon">59:27</span>
-                        <span className="text">Time remaining</span>
+                        <span className="icon">{formatTime(timerValue)}</span>
+                        <span className="text">{formatTime(timerValue, true)}</span>
                     </li>
                     {problemsList.value.map((problemObj, index) => {
                         return (
