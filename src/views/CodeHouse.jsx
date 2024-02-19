@@ -9,7 +9,6 @@ import "../styles/CodeHouse.scss";
 
 import { toast } from "react-toastify"
 
-
 export default function CodeHouse() {
 
     const [userStatus, setUserStatus] = useState("out");

@@ -25,6 +25,8 @@ import "../styles/Code.scss";
 
 import { toast } from "react-toastify";
 
+
+
 const Code = () => {
     const { contestTime, contestName, setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
 
@@ -34,11 +36,11 @@ const Code = () => {
     const runStatus = useRef(null);
     const languageSelect = useRef(null);
 
+    const timerIcon = useRef();
+    const timerFullValue = useRef();
+
     const [timerValue, setTimerValue] = useState(contestTime);
-    const [warnedLessThan10, setWarnedLessThan10] = useState(false);
-    const [warnedLessThan5, setWarnedLessThan5] = useState(false);
-    const [warnedLessThan1, setWarnedLessThan1] = useState(false);
-  
+    const [codeTimerInterval, setCodeTimerInterval] = useState(null);
 
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
     const [problemStatement, setProblemStatement] = useState(problemsList.value[0].problemStatement);
@@ -171,6 +173,7 @@ const Code = () => {
 
     useEffect(() => {
         setTimeout(() => setFlexValue(0.4), 10);
+        setTimerValue();
 
         const handleResize = (event) => {
             if (handleRef.current) {
@@ -193,40 +196,49 @@ const Code = () => {
                 document.addEventListener("mouseup", handleMouseUp);
             });
         }
-        // let warnedLessThan10 = false;
-        // let warnedLessThan5 = false;
-        // let warnedLessThan1 = false;
 
-        // const timerInterval = setInterval(() => {
-        //     setTimerValue((prevCount) => {
-        //         if (prevCount <= 1) {
-        //             toast.info("Contest has ended.")
-        //             clearInterval(timerInterval);
-        //         }
-        //         // else if (prevCount <= 60) {
-        //         //     if (!warnedLessThan1) {
-        //         //         warnedLessThan1 = true;
-        //         //         toast.warn("Contest ends in less than one minute. Complete fast!");
-        //         //     }
-        //         // }
-        //         // else if (prevCount <= 300) {
-        //         //     if (!warnedLessThan5) {
-        //         //         warnedLessThan5 = true;
-        //         //         toast.warn("Contest ends in less than 5 minutes.");
-        //         //     }
-        //         // }
-        //         // else if (prevCount <= 600) {
-        //         //     if (!warnedLessThan10) {
-        //         //         warnedLessThan10 = true;
-        //         //         toast.info("Contest ends in less than 10 minutes.");
-        //         //     }
-        //         // }
-        //         return (prevCount - 1);
-        //     })
-        //   }, 1000);
+        let value = contestTime;
+        let warnedLessThan10 = false;
+        let warnedLessThan5 = false;
+        let warnedLessThan1 = false;
+
+        const timer = setInterval(() => {
+            value--;
+            if (value <= 1) {
+                toast.info("Contest has ended.")
+                clearInterval(timer);
+            }
+            else if (value <= 60) {
+                if (!warnedLessThan1) {
+                    warnedLessThan1 = true;
+                    toast.warn("Contest ends in less than one minute. Complete fast!");
+                }
+            }
+            else if (value <= 300) {
+                if (!warnedLessThan5) {
+                    warnedLessThan5 = true;
+                    toast.warn("Contest ends in less than 5 minutes.");
+                }
+            }
+            else if (value <= 600) {
+                if (!warnedLessThan10) {
+                    warnedLessThan10 = true;
+                    toast.info("Contest ends in less than 10 minutes.");
+                }
+            }
+            timerIcon.current.innerText = formatTime(value);
+            timerFullValue.current.innerText = formatTime(value, true);
+
+        }, 1000);
+
+        setCodeTimerInterval(timer);
 
         return () => {
-            clearInterval(timerInterval);
+            try {
+                clearInterval(codeTimerInterval);
+            }
+            catch {}
+
             if (handleRef.current) {
                 handleRef.current.removeEventListener("mousedown", () => {
                     document.removeEventListener("mousemove", handleResize);
@@ -235,6 +247,10 @@ const Code = () => {
             }
         };
     }, []);
+
+    const decrementTimer = () => {
+
+    }
 
     return (
         <div className="Code">
@@ -261,8 +277,8 @@ const Code = () => {
                         className="navItem timer"
                         title="Time remaining"
                     >
-                        <span className="icon">{formatTime(timerValue)}</span>
-                        <span className="text">{formatTime(timerValue, true)}</span>
+                        <span className="icon" ref={timerIcon}>{formatTime(timerValue)}</span>
+                        <span className="text" ref={timerFullValue}>{formatTime(timerValue, true)}</span>
                     </li>
                     {problemsList.value.map((problemObj, index) => {
                         return (
