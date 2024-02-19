@@ -23,7 +23,7 @@ export default function CodeHouse() {
     const params = useParams();
 
     const problemsList = useArray([]);
-    const problemsCode = useArray([]);
+    const problemsUserCode = useArray([]);
 
 
 
@@ -39,6 +39,11 @@ export default function CodeHouse() {
                     setLoadingPercentage(100);
                     setContestTime(response.data.time);
                     problemsList.setValue(response.data.problems);
+                    console.log("%cGETTING DATA ABOUT PROBLEMS")
+                    console.log(response.data.problems);
+                    response.data.problems.map((problem, index) => {
+                        problemsUserCode.value[index] = problem.code;
+                    })
                     setPageToShow("code");
                 }
                 else {
@@ -199,7 +204,7 @@ export default function CodeHouse() {
                     
                         {
                             (pageToShow === "code") ? (
-                                <Outlet context={ { contestName, setPageToShow, problemsList, problemsCode, contestTime, saveEditorCodeLocally, finishRound } } />
+                                <Outlet context={ { contestName, setPageToShow, problemsList, problemsUserCode, contestTime, saveEditorCodeLocally, finishRound } } />
                             ) : (
                                 <></>
                             )

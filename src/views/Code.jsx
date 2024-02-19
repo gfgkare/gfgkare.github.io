@@ -28,7 +28,7 @@ import { toast } from "react-toastify";
 
 
 const Code = () => {
-    const { contestTime, contestName, setPageToShow, problemsList, problemsCode, finishRound } = useOutletContext();
+    const { contestTime, contestName, setPageToShow, problemsList, problemsUserCode, finishRound } = useOutletContext();
 
     const { currentUser } = useAuth();
 
@@ -58,11 +58,10 @@ const Code = () => {
 
     const saveUserCodeLocally = (problemIndex, code) => {
         console.log("new code: ", code);
-        console.log("Changing  local comp variable code to: ", code);
 
-        console.log("Changing parent code array to", code)
+        console.log("Changing parent problemsUserCode array to", code)
         showLocalSaveIcon();
-        problemsCode.value[problemIndex] = code;
+        problemsUserCode.value[problemIndex] = code;
         console.log("changed global user code")
     };
 
@@ -85,15 +84,15 @@ const Code = () => {
         })
     }
 
-    const changeProblem = (index) => {
+    const changeProblem = (newIndex) => {
         showLocalSaveIcon();
-        problemsList.value[selectedProblemIndex].code = editorRef.current.editor.getValue();
-        setSelectedProblemIndex(index);
-        setProblemStatement(problemsList.value[index].problemStatement);
-        setInputOutputFormat(problemsList.value[index].inputOutput);
-        setSampleInput(problemsList.value[index].sampleInput);
-        setSampleOutput(problemsList.value[index].sampleOutput);
-        editorRef.current.editor.setValue( problemsList.value[index].code.replace(/\\n/g, '\n') );
+        saveUserCodeLocally(selectedProblemIndex, editorRef.current.editor.getValue());
+        setSelectedProblemIndex(newIndex);
+        setProblemStatement(problemsList.value[newIndex].problemStatement);
+        setInputOutputFormat(problemsList.value[newIndex].inputOutput);
+        setSampleInput(problemsList.value[newIndex].sampleInput);
+        setSampleOutput(problemsList.value[newIndex].sampleOutput);
+        editorRef.current.editor.setValue( problemsUserCode.value[newIndex].replace(/\\n/g, '\n') );
     }
 
     const runCode = () => {
@@ -204,7 +203,6 @@ const Code = () => {
         let warnedLessThan1 = false;
 
         const timer = setInterval(() => {
-            console.log(`-- timer is running ${value}`)
             value--;
             if (value <= 1) {
                 toast.info("Contest has ended.")
@@ -361,7 +359,11 @@ const Code = () => {
                                 <button className="green" onClick={runCode} disabled={codeRunningStatus === "running code..."}>
                                     Run
                                 </button>
-                                <button className="orange">Reset Code</button>
+                                <button className="orange" onClick={
+                                    () => {
+                                        editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
+                                    }
+                                }>Reset Code</button>
                                 <div className="logout" title="Log out" onClick={() => setShowLogoutPopup(true)} ><IoIosLogOut size={"20px"} /></div>
                             </div>
                         </div>
