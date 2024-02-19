@@ -32,6 +32,7 @@ const Code = () => {
 
     const { currentUser } = useAuth();
 
+    const editorRef = useRef(null);
     const handleRef = useRef(null);
     const runStatus = useRef(null);
     const languageSelect = useRef(null);
@@ -39,7 +40,6 @@ const Code = () => {
     const timerIcon = useRef();
     const timerFullValue = useRef();
 
-    const [timerValue, setTimerValue] = useState(contestTime);
     const [codeTimerInterval, setCodeTimerInterval] = useState(null);
 
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
@@ -47,7 +47,7 @@ const Code = () => {
     const [inputOutputFormat, setInputOutputFormat] = useState(problemsList.value[0].inputOutput);
     const [sampleInput, setSampleInput] = useState(problemsList.value[0].sampleInput);
     const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
-    const [editorCode, setEditorCode] = useState(problemsList.value[0].code);
+    // const [editorCode, setEditorCode] = useState();
     const [codeRunningStatus, setCodeRunningStatus] = useState("");
 
     const [flexValue, setFlexValue] = useState(0.4);
@@ -56,15 +56,14 @@ const Code = () => {
     const [savingIndicator, setSavingIndicator] = useState("");
     const [showLogoutPopup, setShowLogoutPopup] = useState(false);    
 
-    const onChange = (newValue) => {
-        console.log("new code: ", newValue);
-        console.log("Changing  local comp variable code to: ", newValue);
-        setEditorCode(newValue);
+    const saveUserCodeLocally = (problemIndex, code) => {
+        console.log("new code: ", code);
+        console.log("Changing  local comp variable code to: ", code);
 
-        console.log("Changing parent code array to", newValue)
+        console.log("Changing parent code array to", code)
         showLocalSaveIcon();
-        problemsCode.value[selectedProblemIndex] = newValue;
-        console.log(problemsList.value[selectedProblemIndex]);
+        problemsCode.value[problemIndex] = code;
+        console.log("changed global user code")
     };
 
     const showLocalSaveIcon = () => {
@@ -75,7 +74,6 @@ const Code = () => {
     }
 
     const logOutFromCurrentSession = () => {
-
         axios.post("/logout_from_session", { contest: contestName }, { headers: { Authorization: `${currentUser.accessToken}` } })
         .then((res) => {
             setPageToShow("loggedout");
@@ -89,18 +87,20 @@ const Code = () => {
 
     const changeProblem = (index) => {
         showLocalSaveIcon();
-        // problemsCode.value[selectedProblemIndex] = editorCode;
-        problemsList.value[selectedProblemIndex].code = editorCode;
+        problemsList.value[selectedProblemIndex].code = editorRef.current.editor.getValue();
         setSelectedProblemIndex(index);
         setProblemStatement(problemsList.value[index].problemStatement);
         setInputOutputFormat(problemsList.value[index].inputOutput);
         setSampleInput(problemsList.value[index].sampleInput);
         setSampleOutput(problemsList.value[index].sampleOutput);
-        setEditorCode((problemsList.value[index].code.replace(/\\n/g, '\n')) )
+        editorRef.current.editor.setValue( problemsList.value[index].code.replace(/\\n/g, '\n') );
     }
 
     const runCode = () => {
         runStatus.current.scrollIntoView();
+        let editorCode = editorRef.current.editor.getValue();
+        saveUserCodeLocally(selectedProblemIndex, editorCode);
+        console.log(editorCode);
 
         if (!editorCode) {
             toast.error("Code cannot be empty.")
@@ -173,7 +173,6 @@ const Code = () => {
 
     useEffect(() => {
         setTimeout(() => setFlexValue(0.4), 10);
-        setTimerValue();
 
         const handleResize = (event) => {
             if (handleRef.current) {
@@ -197,16 +196,20 @@ const Code = () => {
             });
         }
 
+        editorRef.current.editor.setValue(problemsList.value[0].code);
+
         let value = contestTime;
         let warnedLessThan10 = false;
         let warnedLessThan5 = false;
         let warnedLessThan1 = false;
 
         const timer = setInterval(() => {
+            console.log(`-- timer is running ${value}`)
             value--;
             if (value <= 1) {
                 toast.info("Contest has ended.")
                 clearInterval(timer);
+                // save all the code, submit a run request, call logout function.
             }
             else if (value <= 60) {
                 if (!warnedLessThan1) {
@@ -248,10 +251,6 @@ const Code = () => {
         };
     }, []);
 
-    const decrementTimer = () => {
-
-    }
-
     return (
         <div className="Code">
             {
@@ -277,8 +276,8 @@ const Code = () => {
                         className="navItem timer"
                         title="Time remaining"
                     >
-                        <span className="icon" ref={timerIcon}>{formatTime(timerValue)}</span>
-                        <span className="text" ref={timerFullValue}>{formatTime(timerValue, true)}</span>
+                        <span className="icon" ref={timerIcon}>00:00</span>
+                        <span className="text" ref={timerFullValue}>00:00:00</span>
                     </li>
                     {problemsList.value.map((problemObj, index) => {
                         return (
@@ -369,11 +368,12 @@ const Code = () => {
 
                         <div className="editor">
                             <AceEditor
-                                value={editorCode}
+                                ref={editorRef}
+                                // value={editorCode}
                                 mode={chosenLanguage}
                                 width={"100%"}
                                 theme="monokai"
-                                onChange={onChange}
+                                // onChange={onChange}
                                 name={"aceEditor"}
                                 fontSize={14}
                                 showPrintMargin={false}
