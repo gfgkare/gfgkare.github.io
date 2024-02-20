@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "../styles/MessagePopup.scss";
-import { Link } from "react-router-dom";
 
 
 export default function QualifiedPopup(props) {
@@ -30,7 +29,7 @@ export default function QualifiedPopup(props) {
 
                 <div className="buttonsRow">
                     {
-                        (props.buttons.map((button, index) => {
+                        (props.buttons?.map((button, index) => {
                             return (
                                 <button key={index} className={button.color} onClick={ () => (button.onClick === "close") ? closePopup() : button.onClick() }>{button.label}</button>
                             )

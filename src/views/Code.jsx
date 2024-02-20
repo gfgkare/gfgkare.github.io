@@ -24,11 +24,36 @@ import { IoIosLogOut } from "react-icons/io";
 import "../styles/Code.scss";
 
 import { toast } from "react-toastify";
+import useArray from "../hooks/useArray";
 
 
 
 const Code = () => {
     const { contestTime, contestName, setPageToShow, problemsList, problemsUserCode, finishRound } = useOutletContext();
+    const [testcaseResults, setTestcaseResults] = useState(
+        [
+            {
+                testCase0Output: "NA",
+                passedTestcases: ["NA", "NA", "NA"]
+            },
+            {
+                testCase0Output: "NA",
+                passedTestcases: ["NA", "NA", "NA"]
+            },
+            {
+                testCase0Output: "NA",
+                passedTestcases: ["NA", "NA", "NA"]
+            },
+            {
+                testCase0Output: "NA",
+                passedTestcases: ["NA", "NA", "NA"]
+            },
+            {
+                testCase0Output: "NA",
+                passedTestcases: ["NA", "NA", "NA"]
+            }
+        ]
+    );
 
     const { currentUser } = useAuth();
 
@@ -47,14 +72,25 @@ const Code = () => {
     const [inputOutputFormat, setInputOutputFormat] = useState(problemsList.value[0].inputOutput);
     const [sampleInput, setSampleInput] = useState(problemsList.value[0].sampleInput);
     const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
-    // const [editorCode, setEditorCode] = useState();
+
     const [codeRunningStatus, setCodeRunningStatus] = useState("");
 
     const [flexValue, setFlexValue] = useState(0.4);
     const [chosenLanguage, setChosenLanguage] = useState("JAVA8");
-
     const [savingIndicator, setSavingIndicator] = useState("");
-    const [showLogoutPopup, setShowLogoutPopup] = useState(false);    
+    const [showMessagePopup, setShowMessagePopup] = useState(false);
+
+    const [popupTitle, setPopupTitle] = useState(null);
+    const [popupContent, setPopupContent] = useState(null);
+    const [popupButtons, setPopupButtons] = useState(null);
+
+
+    const openMessagePopup = (title, content, buttons) => {
+        setPopupTitle(title);
+        setPopupContent(content);
+        setPopupButtons(buttons);
+        setShowMessagePopup(true);
+    }
 
     const saveUserCodeLocally = (problemIndex, code) => {
         console.log("new code: ", code);
@@ -88,6 +124,7 @@ const Code = () => {
         showLocalSaveIcon();
         saveUserCodeLocally(selectedProblemIndex, editorRef.current.editor.getValue());
         setSelectedProblemIndex(newIndex);
+        setCodeRunningStatus(testcaseResults[newIndex].testCase0Output);
         setProblemStatement(problemsList.value[newIndex].problemStatement);
         setInputOutputFormat(problemsList.value[newIndex].inputOutput);
         setSampleInput(problemsList.value[newIndex].sampleInput);
@@ -96,59 +133,46 @@ const Code = () => {
     }
 
     const runCode = () => {
-        runStatus.current.scrollIntoView();
         let editorCode = editorRef.current.editor.getValue();
-        saveUserCodeLocally(selectedProblemIndex, editorCode);
-        console.log(editorCode);
-
         if (!editorCode) {
             toast.error("Code cannot be empty.")
             return;
         }
+
+        runStatus.current.scrollIntoView();
+        saveUserCodeLocally(selectedProblemIndex, editorCode);
+        console.log(editorCode);
+
         setCodeRunningStatus("Running code...");
         
         axios.post("/run_code", {
             code: editorCode,
             lang: chosenLanguage,
+            contest: contestName,
+            qnID: problemsList.value[selectedProblemIndex].title
          })
          .then((res) => {
             console.log(res)
             setCodeRunningStatus(res["data"]["CODE_OUTPUT"]);
+            let tempArray = [...testcaseResults];
+
+            tempArray[selectedProblemIndex] = {
+                testCase0Output: res["data"]["CODE_OUTPUT"],
+                passedTestcases: res["data"]["PASSED_TESTCASES"]
+            };
+
+            setTestcaseResults(tempArray);
+
          })
          .catch((err) => {
             console.log("%c ERROR FROM CODE RUN API", "color: orange")
             console.log(err);
+            toast.error(err.message)
 
             if (err.response.data["SUCCESSFUL"] === false) {
                 setCodeRunningStatus(`Error: ${err.response.data["MESSAGE"]}`)
             }
          });
-
-        // const eventSource = new EventSource(import.meta.env.VITE_API + '/run_code');
-
-        // eventSource.onopen = () => {
-        //     console.log("EventStream Opened.")
-        // }
-
-        // eventSource.onmessage = (event) => {
-        //     const eventData = JSON.parse(event.data);
-        //     console.log(eventData);
-        //     setCodeRunningStatus(eventData.message);
-
-        //     if (eventData.isLastEvent === "true") {
-        //         console.log("isLastEvent is true. Closing EventSource.")
-        //         eventSource.close();
-        //     }
-        // };
-
-        // eventSource.onerror = (error) => {
-        //     console.error('EventSource failed:', error);
-        //     eventSource.close();
-        // };
-
-        // eventSource.onend = () => {
-        //     console.log('EventSource connection closed');
-        // };
     };
 
 
@@ -167,11 +191,12 @@ const Code = () => {
                 return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
             }
         }
-        
       };
 
+      
     useEffect(() => {
         setTimeout(() => setFlexValue(0.4), 10);
+        setCodeRunningStatus( testcaseResults[selectedProblemIndex].testCase0Output )
 
         const handleResize = (event) => {
             if (handleRef.current) {
@@ -204,10 +229,15 @@ const Code = () => {
 
         const timer = setInterval(() => {
             value--;
-            if (value <= 1) {
+            if (value <= 0) {
                 toast.info("Contest has ended.")
                 clearInterval(timer);
                 // save all the code, submit a run request, call logout function.
+                openMessagePopup(
+                    "Saving your progress...",
+                    "The contest has ended. Your progress is being automatically saved. Please do not close the tab until this process completes.",
+                    []
+                )
             }
             else if (value <= 60) {
                 if (!warnedLessThan1) {
@@ -249,20 +279,40 @@ const Code = () => {
         };
     }, []);
 
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
     return (
         <div className="Code">
             {
-                (showLogoutPopup) 
+                (showMessagePopup) 
                 ? 
-                    <MessagePopup close={() => setShowLogoutPopup(false)} 
-                                  title={"Are you sure you want to log out?"} 
-                                  content={"Your code will be saved so you can continue in another device."}              
-                                  buttons={
-                                    [
-                                        { label: "Log out", color: "red", onClick: () => logOutFromCurrentSession() },
-                                        { label: "Cancel", color: "white", onClick: "close" }
-                                    ]
-                                  }
+                    <MessagePopup 
+                        close={() => setShowMessagePopup(false)} 
+                        title={popupTitle} 
+                        content={popupContent}              
+                        buttons={popupButtons}
                     /> 
                 : 
                     <></>
@@ -361,10 +411,20 @@ const Code = () => {
                                 </button>
                                 <button className="orange" onClick={
                                     () => {
-                                        editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
+                                        // editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
+                                        console.log(testcaseResults)
                                     }
                                 }>Reset Code</button>
-                                <div className="logout" title="Log out" onClick={() => setShowLogoutPopup(true)} ><IoIosLogOut size={"20px"} /></div>
+                                <div className="logout" title="Log out" onClick={() => {
+                                    openMessagePopup(
+                                        "Are you sure you want to log out?", 
+                                        "Your progress will be saved.",
+                                        [
+                                            { label: "Log out", onClick: logOutFromCurrentSession, color: "red" }, 
+                                            { label: "cancel", onClick: "close", color: "white" }
+                                        ]
+                                    )
+                                }} ><IoIosLogOut size={"20px"} /></div>
                             </div>
                         </div>
 
@@ -415,7 +475,55 @@ const Code = () => {
                         </div>
 
                         <div className="runStatus" ref={runStatus}>
-                            {codeRunningStatus}
+                            {
+                                (codeRunningStatus !== "Running code...") ? (
+                                    <>
+                                    <div className="testcase0Output">
+                                        <div className="panel">
+                                            <div className="title">Testcase 0 Output</div>
+                                            <div className="result">
+                                                {codeRunningStatus}
+                                            </div>
+                                        </div>
+                                        <div className="panel">
+                                            <div className="title">Expected Output</div>
+                                            <div className="result">
+                                                {sampleOutput}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="testCasesPassed"
+                                        onClick={() => {
+                                            console.log(
+                                                testcaseResults[selectedProblemIndex]
+                                            )
+                                        }}
+                                    >
+                                        Testcases passed: {testcaseResults[selectedProblemIndex].passedTestcases.filter(x => x === 'PASSED').length || 0}/3
+                                    </div>
+                                    
+                                    <div className="hiddenTestCases">
+                                        {
+                                            [0,1,2].map((index) => {
+                                                return (
+                                                    <div className="testCase" key={index}>
+                                                        <div className="left">Testcase {index}</div>
+                                                        <div className="right">{testcaseResults[selectedProblemIndex].passedTestcases[index]}</div>
+                                                    </div>      
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    </>
+                                ) : (
+                                    <div className="runningCode">
+                                        Queuerd... Running ... executed....
+                                    </div>
+                                )
+                            }
+                            
+                            
                         </div>
                     </div>
                 </div>
