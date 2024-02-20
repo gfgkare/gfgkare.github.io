@@ -20,6 +20,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 import { HiOutlineSave } from "react-icons/hi";
 import { IoIosLogOut } from "react-icons/io";
+import { AiOutlineLoading } from "react-icons/ai";
 
 import "../styles/Code.scss";
 
@@ -74,6 +75,7 @@ const Code = () => {
     const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
 
     const [codeRunningStatus, setCodeRunningStatus] = useState("");
+    const [runMessage, setRunMessage] = useState("Submitted in queue...")
 
     const [flexValue, setFlexValue] = useState(0.4);
     const [chosenLanguage, setChosenLanguage] = useState("JAVA8");
@@ -280,22 +282,17 @@ const Code = () => {
     }, []);
 
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
+    useEffect(() => {
+        if (codeRunningStatus === "Running code...") {
+            setRunMessage("Queueud...");
+            setTimeout(() => {
+                setRunMessage("Executing your code...");
+            }, 1500);
+            setTimeout(() => {
+                setRunMessage("Fetching results....");
+            }, 4000);
+        }
+    }, [codeRunningStatus])
 
 
 
@@ -518,7 +515,8 @@ const Code = () => {
                                     </>
                                 ) : (
                                     <div className="runningCode">
-                                        Queuerd... Running ... executed....
+                                        <AiOutlineLoading className="runLoader" size="50px" />
+                                        {runMessage}
                                     </div>
                                 )
                             }

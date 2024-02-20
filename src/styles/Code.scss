@@ -375,6 +375,20 @@ $codeNavClosedSize: 70px;
                             }
                         }
                     }
+
+                    div.runningCode {
+                        height: 100%;
+                        border: 1px solid rgba(240, 240, 240, .1);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 1rem;
+
+                        .runLoader {
+                            animation: rotate 1.5s linear infinite;
+                        }
+                    }
                 }
             } 
 
@@ -432,3 +446,12 @@ $codeNavClosedSize: 70px;
     
 }
 
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
