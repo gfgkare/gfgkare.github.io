@@ -47,6 +47,7 @@ export default function CodeHouse() {
                     setPageToShow("code");
                 }
                 else {
+                    setPageToShow("instructions");
                     toast.error(response.data.message || response.data.error);
                     setLoadingPercentage(0);
                     console.log("Error: ", response.data.message || response.data.error);
@@ -55,7 +56,9 @@ export default function CodeHouse() {
 
             })
             .catch((error) => {
-                toast.error(error.response.data.message || error.response.data.error);
+                setPageToShow("instructions");
+                console.log("catch")
+                toast.error(error?.response?.data?.message || error?.response?.data?.error || "Something went wrong." );
                 console.error("Error fetching data:", error);
                 console.log("Error: ", error.response.data.message || error.response.data.error);
             });
@@ -163,40 +166,12 @@ export default function CodeHouse() {
 
                         {
                             (pageToShow === 'loggedout') ? (
-                                <>
-                                    {/* {
-                                        (pageToShow === "loading") ? (
-                                            <div className="progressBar">
-                                                <div className="progressBar-thumb" style={{ width: `${loadingPercentage}%` }}></div>
-                                            </div>
-                                        ) : (
-                                            <></>
-                                        )
-                                    } */}
-                                
                                     <div className="instructions">
                                         <div className="title">You have logged out!</div>
                                         <div className="points">
                                             You have logged out from the page. You can continue the contest in another device.
-                                            {/* <ol>
-                                                <li>Do not exit from the page. You will die.</li>
-                                                <li>Do not try to switch tabs. You will die.</li>
-                                                <li>Do not try to copy and paste in the code editor. You will die.</li>
-                                                <li>Do not try to logout and login in your own or your friends' laptops. You will die.</li>
-                                                <li>Have fun! :)</li>
-                                            </ol> */}
                                         </div>
-                                        {/* <button onClick={startRound} disabled={pageToShow === "loading"}>
-                                            {
-                                                (pageToShow === "instructions") ? "Start" : "..."
-                                            }
-                                        </button>
-                                        <button onClick={startRound}>
-                                            Dev Force
-                                        </button> */}
                                     </div>
-
-                                </>
                             ) : (
                                 <></>
                             )

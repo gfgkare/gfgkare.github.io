@@ -407,8 +407,8 @@ const Code = () => {
                                 </button>
                                 <button className="orange" onClick={
                                     () => {
-                                        editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
-                                        // console.log(testcaseResults)
+                                        // editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
+                                        console.log(problemsUserCode.value)
                                     }
                                 }>Reset Code</button>
                                 <div className="logout" title="Log out" onClick={() => {
