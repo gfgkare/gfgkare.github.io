@@ -61,7 +61,6 @@ const Code = () => {
     const editorRef = useRef(null);
     const handleRef = useRef(null);
     const runStatus = useRef(null);
-    const languageSelect = useRef(null);
 
     const timerIcon = useRef();
     const timerFullValue = useRef();
@@ -75,6 +74,7 @@ const Code = () => {
     const [sampleOutput, setSampleOutput] = useState(problemsList.value[0].sampleOutput);
 
     const [codeRunningStatus, setCodeRunningStatus] = useState("");
+    const [runButtonDisabled, setRunButtonDisabled] = useState(false);
     const [runMessage, setRunMessage] = useState("Submitted in queue...")
 
     const [flexValue, setFlexValue] = useState(0.4);
@@ -140,6 +140,11 @@ const Code = () => {
             toast.error("Code cannot be empty.")
             return;
         }
+        setRunButtonDisabled(true);
+        setTimeout(() => {
+            console.log("enable btn");
+            setRunButtonDisabled(false);
+        }, 15000);
 
         runStatus.current.scrollIntoView();
         saveUserCodeLocally(selectedProblemIndex, editorCode);
@@ -294,12 +299,6 @@ const Code = () => {
         }
     }, [codeRunningStatus])
 
-
-
-
-
-    
-
     return (
         <div className="Code">
             {
@@ -403,13 +402,13 @@ const Code = () => {
                                     <option value="CPP17">C++</option>
                                     <option value="PYTHON3">Python 3</option>
                                 </select>
-                                <button className="green" onClick={runCode} disabled={codeRunningStatus === "running code..."}>
+                                <button className="green" onClick={runCode} disabled={runButtonDisabled}>
                                     Run
                                 </button>
                                 <button className="orange" onClick={
                                     () => {
-                                        // editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
-                                        console.log(testcaseResults)
+                                        editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
+                                        // console.log(testcaseResults)
                                     }
                                 }>Reset Code</button>
                                 <div className="logout" title="Log out" onClick={() => {
@@ -458,12 +457,23 @@ const Code = () => {
 
                         <div className="editorBars bottomBar">
                             <div className="options">
-                                <button className="green" onClick={runCode} disabled={codeRunningStatus === "running code..."}>
+                                <button className="green" onClick={runCode} disabled={runButtonDisabled}>
                                     Run
                                 </button>
                                 {
                                     (selectedProblemIndex === problemsList.value.length-1) ? (
-                                        <button className="red" onClick={finishRound}>Finish</button>
+                                        <button className="red" onClick={
+                                            () => {
+                                                openMessagePopup(
+                                                    "Are you sure you want to finish the contest?", 
+                                                    "Your progress will be saved.",
+                                                    [
+                                                        { label: "Finish", onClick: finishRound, color: "red" }, 
+                                                        { label: "cancel", onClick: "close", color: "white" }
+                                                    ]
+                                                )
+                                            }
+                                        }>Finish</button>
                                     ) : (
                                         <></>
                                     )
@@ -506,7 +516,7 @@ const Code = () => {
                                                 return (
                                                     <div className="testCase" key={index}>
                                                         <div className="left">Testcase {index}</div>
-                                                        <div className="right">{testcaseResults[selectedProblemIndex].passedTestcases[index]}</div>
+                                                        <div className={`right ${testcaseResults[selectedProblemIndex].passedTestcases[index]}`}>{testcaseResults[selectedProblemIndex].passedTestcases[index]}</div>
                                                     </div>      
                                                 )
                                             })

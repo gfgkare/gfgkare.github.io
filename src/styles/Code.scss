@@ -372,6 +372,18 @@ $codeNavClosedSize: 70px;
                             .right {
                                 padding: 1rem;
                                 flex: 1;
+
+                                &.FAILED {
+                                    color: rgb(228, 87, 72);
+                                }
+
+                                &.PASSED {
+                                    color: rgb(106, 218, 106);
+                                }
+
+                                &.ERROR {
+                                    color: rgb(242, 130, 65);
+                                }
                             }
                         }
                     }
@@ -407,6 +419,11 @@ $codeNavClosedSize: 70px;
                     &:hover {
                         background-color: lighten($bg, 5);
                         border: 3px solid lighten($bg, 30);
+                    }
+
+                    &:disabled {
+                        background-color: rgba(54, 120, 54, 0.5);
+                        border: 3px solid rgba(56, 123, 56, 0.5);
                     }
                 }
 

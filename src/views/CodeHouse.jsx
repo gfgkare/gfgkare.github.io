@@ -47,17 +47,17 @@ export default function CodeHouse() {
                     setPageToShow("code");
                 }
                 else {
-                    toast.error(response.data.message);
+                    toast.error(response.data.message || response.data.error);
                     setLoadingPercentage(0);
-                    console.log("Error: ", response.data.message);
+                    console.log("Error: ", response.data.message || response.data.error);
                 }
 
 
             })
             .catch((error) => {
-                toast.error(error.response.data.message);
+                toast.error(error.response.data.message || error.response.data.error);
                 console.error("Error fetching data:", error);
-                console.log("Error: ", error.response.data.message);
+                console.log("Error: ", error.response.data.message || error.response.data.error);
             });
     }
 
