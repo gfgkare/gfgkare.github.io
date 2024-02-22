@@ -78,7 +78,11 @@ const Code = () => {
     const [runMessage, setRunMessage] = useState("Submitted in queue...")
 
     const [flexValue, setFlexValue] = useState(0.4);
+
     const [chosenLanguage, setChosenLanguage] = useState("JAVA8");
+    const [prevChosenLanguage, setPrevChosenLanguage] = useState(chosenLanguage);
+    const [initialRenderCall, setInitialRenderCall] = useState(true);
+
     const [savingIndicator, setSavingIndicator] = useState("");
     const [showMessagePopup, setShowMessagePopup] = useState(false);
 
@@ -94,12 +98,13 @@ const Code = () => {
         setShowMessagePopup(true);
     }
 
-    const saveUserCodeLocally = (problemIndex, code) => {
-        console.log("new code: ", code);
+    const saveUserCodeLocally = (problemIndex, code, prevChosenLanguage) => {
+        console.log(`%c new code: ${code}`, "color: orange");
 
-        console.log("Changing parent problemsUserCode array to", code)
+        console.log(`Changing parent problemsUserCode ${chosenLanguage} array to`, code)
         showLocalSaveIcon();
-        problemsUserCode.value[problemIndex] = code;
+        console.log( (prevChosenLanguage) ? "saving in previous language" : "saving in current language." )
+        problemsUserCode.value[problemIndex][ prevChosenLanguage || chosenLanguage] = code;
         console.log("changed global user code")
     };
 
@@ -131,8 +136,23 @@ const Code = () => {
         setInputOutputFormat(problemsList.value[newIndex].inputOutput);
         setSampleInput(problemsList.value[newIndex].sampleInput);
         setSampleOutput(problemsList.value[newIndex].sampleOutput);
-        editorRef.current.editor.setValue( problemsUserCode.value[newIndex].replace(/\\n/g, '\n') );
+        console.log("Setting editor code to:")
+        console.log(problemsUserCode.value)
+        editorRef.current.editor.setValue( problemsUserCode.value[newIndex][chosenLanguage].replace(/\\n/g, '\n') );
     }
+
+    // ON LANGUAGE CHANGE
+    useEffect(() => {
+        console.log("%c LANGUAGE CHANGED", "color: pink");
+        if (initialRenderCall) {
+            console.log("%c Initial render call, ignoring.", "color: pink");
+            setInitialRenderCall(false);
+            return;
+        }
+        console.log(chosenLanguage, " -> " ,prevChosenLanguage)
+        saveUserCodeLocally(selectedProblemIndex, editorRef.current.editor.getValue(), prevChosenLanguage);
+        editorRef.current.editor.setValue( problemsUserCode.value[selectedProblemIndex][chosenLanguage].replace(/\\n/g, '\n') );
+    }, [chosenLanguage])
 
     const runCode = () => {
         let editorCode = editorRef.current.editor.getValue();
@@ -227,7 +247,7 @@ const Code = () => {
             });
         }
 
-        editorRef.current.editor.setValue(problemsList.value[0].code);
+        editorRef.current.editor.setValue(problemsUserCode.value[0][chosenLanguage]);
 
         let value = contestTime;
         let warnedLessThan10 = false;
@@ -394,9 +414,11 @@ const Code = () => {
                             
                             <div className="options">
                                 <select
-                                    onChange={(e) =>
-                                        setChosenLanguage(e.target.value)
-                                    }
+                                    onChange={(e) => {
+                                        setPrevChosenLanguage(chosenLanguage);
+                                        setChosenLanguage(e.target.value);
+                                        console.log(chosenLanguage, e.target.value);
+                                    }}
                                 >
                                     <option value="JAVA8">Java</option>
                                     <option value="CPP17">C++</option>
@@ -408,7 +430,9 @@ const Code = () => {
                                 <button className="orange" onClick={
                                     () => {
                                         // editorRef.current.editor.setValue(problemsList.value[selectedProblemIndex].code)
-                                        console.log(problemsUserCode.value)
+                                        console.log(problemsList.value[selectedProblemIndex].code);
+                                        console.log("-------------")
+                                        console.log(problemsUserCode.value[selectedProblemIndex]);
                                     }
                                 }>Reset Code</button>
                                 <div className="logout" title="Log out" onClick={() => {
