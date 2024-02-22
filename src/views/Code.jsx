@@ -161,10 +161,6 @@ const Code = () => {
             return;
         }
         setRunButtonDisabled(true);
-        setTimeout(() => {
-            console.log("enable btn");
-            setRunButtonDisabled(false);
-        }, 15000);
 
         runStatus.current.scrollIntoView();
         saveUserCodeLocally(selectedProblemIndex, editorCode);
@@ -189,7 +185,9 @@ const Code = () => {
             };
 
             setTestcaseResults(tempArray);
-
+            setTimeout(() => {
+                setRunButtonDisabled(false);
+            }, 10000);
          })
          .catch((err) => {
             console.log("%c ERROR FROM CODE RUN API", "color: orange")
