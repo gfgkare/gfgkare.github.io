@@ -375,7 +375,7 @@ const Code = () => {
                         <div className="box inputOutputFormat">
                             <div className="title">Input/Output Format</div>
                             <div className="content">
-                                {inputOutputFormat}
+                                {inputOutputFormat.replaceAll("_b", "\n")}
                             </div>
                         </div>
 
