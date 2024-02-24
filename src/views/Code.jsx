@@ -173,7 +173,7 @@ const Code = () => {
             lang: chosenLanguage,
             contest: contestName,
             qnID: problemsList.value[selectedProblemIndex].title
-         })
+         }, { headers: {  Authorization: `${currentUser.accessToken}` } })
          .then((res) => {
             console.log(res)
             setCodeRunningStatus(res["data"]["CODE_OUTPUT"]);
@@ -193,6 +193,7 @@ const Code = () => {
             console.log("%c ERROR FROM CODE RUN API", "color: orange")
             console.log(err);
             toast.error(err.message)
+            setRunButtonDisabled(false);
 
             if (err.response.data["SUCCESSFUL"] === false) {
                 setCodeRunningStatus(`Error: ${err.response.data["MESSAGE"]}`)
