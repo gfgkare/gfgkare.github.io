@@ -224,6 +224,24 @@ const Code = () => {
         setTimeout(() => setFlexValue(0.4), 10);
         setCodeRunningStatus( testcaseResults[selectedProblemIndex].testCase0Output )
 
+        // SECURITY
+        window.oncontextmenu = () => {
+            toast.error("Right click is not allowed.");
+            return false;
+        };
+        window.addEventListener('keydown', function(event) {
+            if (event.keyCode === 123) {
+                event.preventDefault();
+            }
+        });
+        window.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
+                event.preventDefault();
+            }
+        });
+        document.addEventListener("fullscreenchange", handleFullScreenChange);
+        // SECURITY END.
+
         const handleResize = (event) => {
             if (handleRef.current) {
                 const parentRect =
@@ -291,6 +309,7 @@ const Code = () => {
         setCodeTimerInterval(timer);
 
         return () => {
+            document.removeEventListener("fullscreenchange", handleFullScreenChange);
             try {
                 clearInterval(codeTimerInterval);
             }
@@ -317,6 +336,12 @@ const Code = () => {
             }, 4000);
         }
     }, [codeRunningStatus])
+
+    // SECURITY
+
+    const handleFullScreenChange = () => {
+        console.log(`Is full screen: ${document.fullscreenElement}`); 
+    }
 
     return (
         <div className="Code">
