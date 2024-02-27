@@ -7,16 +7,17 @@ import { useAuth } from "../contexts/AuthContext";
 import MessagePopup from "../components/MessagePopup";
 
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/mode-python";
-import "ace-builds/src-noconflict/mode-c_cpp";
+import modeJava from "ace-builds/src-noconflict/mode-java";
+import modePython from "ace-builds/src-noconflict/mode-python";
+import modeCCPP from "ace-builds/src-noconflict/mode-c_cpp";
 
+import { config } from "ace-builds";
 import "ace-builds/src-noconflict/snippets/java";
 import "ace-builds/src-noconflict/snippets/python";
 import "ace-builds/src-noconflict/snippets/c_cpp";
 
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/ext-language_tools";
+import monokaiTheme from "ace-builds/src-noconflict/theme-monokai";
+// import "ace-builds/src-noconflict/ext-language_tools";
 
 import { HiOutlineSave } from "react-icons/hi";
 import { IoIosLogOut } from "react-icons/io";
@@ -25,7 +26,6 @@ import { AiOutlineLoading } from "react-icons/ai";
 import "../styles/Code.scss";
 
 import { toast } from "react-toastify";
-import useArray from "../hooks/useArray";
 
 
 
@@ -55,6 +55,11 @@ const Code = () => {
             }
         ]
     );
+    const editorToThemeLangMap = {
+        "JAVA8": "java",
+        "PYTHON3": "python",
+        "CPP17": "c_cpp"
+    }
 
     const { currentUser } = useAuth();
 
@@ -66,6 +71,9 @@ const Code = () => {
     const timerFullValue = useRef();
 
     const [codeTimerInterval, setCodeTimerInterval] = useState(null);
+    const [loseFocusTimer, setLoseFocusTimer] = useState(null);
+
+    const [contestTimerValue, setContestTimerValue] = useState(contestTime);
 
     const [selectedProblemIndex, setSelectedProblemIndex] = useState(0);
     const [problemStatement, setProblemStatement] = useState(problemsList.value[0].problemStatement);
@@ -119,6 +127,9 @@ const Code = () => {
         axios.post("/logout_from_session", { contest: contestName }, { headers: { Authorization: `${currentUser.accessToken}` } })
         .then((res) => {
             setPageToShow("loggedout");
+            clearInterval(codeTimerInterval);
+            clearInterval(loseFocusTimer);
+            document.exitFullscreen();
         })
         .catch((err) => {
             toast.error(err);
@@ -224,22 +235,58 @@ const Code = () => {
         setTimeout(() => setFlexValue(0.4), 10);
         setCodeRunningStatus( testcaseResults[selectedProblemIndex].testCase0Output )
 
+        // ace.config.set('basePath', '/assets/ui/');
+        // ace.config.set('basePath', "https://unpkg.com/ace-builds@1.4.6/src-noconflict")
+        // ace.config.set('modePath', '');
+        // ace.config.set('themePath', '');
+
+        config.setModuleUrl("ace/mode/java", modeJava);
+        config.setModuleUrl("ace/mode/c_cpp", modeCCPP);
+        config.setModuleUrl("ace/mode/python", modePython);
+
+        config.setModuleUrl("ace/theme/monokai", monokaiTheme);
+
+        // editorRef.current.setTheme("theme-monokai")
+
         // SECURITY
-        window.oncontextmenu = () => {
-            toast.error("Right click is not allowed.");
-            return false;
-        };
+        // window.oncontextmenu = () => {
+        //     toast.error("Right click is not allowed.");
+        //     return false;
+        // };
+
+        
+        // F12
         window.addEventListener('keydown', function(event) {
             if (event.keyCode === 123) {
                 event.preventDefault();
             }
         });
+
+        // ctrl shift i
         window.addEventListener('keydown', function(event) {
             if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
                 event.preventDefault();
             }
         });
+
+        // copy
+        window.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.keyCode === 67) {
+                event.preventDefault();
+            }
+        });
+
+        // paste
+        window.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.keyCode === 86) {
+                event.preventDefault();
+            }
+        });
+
+        // set to fullscreen
         document.addEventListener("fullscreenchange", handleFullScreenChange);
+        window.onblur = handleBlur;
+
         // SECURITY END.
 
         const handleResize = (event) => {
@@ -277,11 +324,12 @@ const Code = () => {
                 toast.info("Contest has ended.")
                 clearInterval(timer);
                 // save all the code, submit a run request, call logout function.
-                openMessagePopup(
-                    "Saving your progress...",
-                    "The contest has ended. Your progress is being automatically saved. Please do not close the tab until this process completes.",
-                    []
-                )
+                // openMessagePopup(
+                //     "Saving your progress...",
+                //     "The contest has ended. Your progress is being automatically saved. Please do not close the tab until this process completes.",
+                //     []
+                // )
+                setPageToShow("ended")
             }
             else if (value <= 60) {
                 if (!warnedLessThan1) {
@@ -301,6 +349,7 @@ const Code = () => {
                     toast.info("Contest ends in less than 10 minutes.");
                 }
             }
+            setContestTimerValue(value);
             timerIcon.current.innerText = formatTime(value);
             timerFullValue.current.innerText = formatTime(value, true);
 
@@ -310,6 +359,8 @@ const Code = () => {
 
         return () => {
             document.removeEventListener("fullscreenchange", handleFullScreenChange);
+            window.onblur = null;
+
             try {
                 clearInterval(codeTimerInterval);
             }
@@ -340,7 +391,84 @@ const Code = () => {
     // SECURITY
 
     const handleFullScreenChange = () => {
-        console.log(`Is full screen: ${document.fullscreenElement}`); 
+        console.log(`Is full screen: ${document.fullscreenElement}`)
+        console.log(document.fullscreenElement);
+        
+        if (!document.fullscreenElement) {
+            let time = 15;
+            let fullscreenTimer = setInterval(() => {
+                if (time <= 0) {
+                    console.log("Eliminated.");
+                    clearInterval(fullscreenTimer);
+                    clearInterval(codeTimerInterval);
+                    setPageToShow("malpractice")
+                    // send a malpractice logout request.
+                    axios.post("/logout_from_session", { contest: contestName, malpractice: "exitfullscreen" }, { headers: { Authorization: `${currentUser.accessToken}` } })
+                    .then(() => {
+                        toast.error("You have been eliminated.")
+                    })
+                    .catch((e) => {
+                        toast.error(e.message);
+                    })
+                    return;
+                }
+                setPopupTitle("You will be eliminated.");
+                setPopupContent(`Go fullscreen to continue the contest. You have ${time--} seconds to do so.`);
+                setPopupButtons(
+                    [
+                        {
+                            label: "Go Fullscreen",
+                            onClick: () => {
+                                document.documentElement.requestFullscreen();
+                                setShowMessagePopup(false);
+                                clearInterval(fullscreenTimer);
+                            },
+                        }
+                    ]
+                )
+                setShowMessagePopup(true);
+                console.log(`Come back and go full screen in ${time--}seconds.`)
+            }, 1000)
+        }
+    }
+
+    const handleBlur = () => {
+        console.log("Blurred.")
+        let time = 15;
+        let blurTimer = setInterval(() => {
+            if (time <= 0) {
+                console.log("Eliminated.");
+                clearInterval(blurTimer);
+                clearInterval(codeTimerInterval);
+                setPageToShow("malpractice")
+                // send a malpractice logout request.
+                axios.post("/logout_from_session", { contest: contestName, malpractice: "tabchange" }, { headers: { Authorization: `${currentUser.accessToken}` } })
+                .then(() => {
+                    toast.error("You have been eliminated.")
+                })
+                .catch((e) => {
+                    toast.error(e.message);
+                })
+                return;
+            }
+            setPopupTitle("You will be eliminated.");
+            setPopupContent(`Come back to the contest window. You have ${time--} seconds to do so.`);
+            setPopupButtons(
+                [
+                    {
+                        label: "I'm back",
+                        onClick: () => {
+                            setShowMessagePopup(false);
+                            clearInterval(blurTimer);
+                        },
+                    }
+                ]
+            )
+
+            setLoseFocusTimer(blurTimer)
+            setShowMessagePopup(true);
+            console.log(`Come back in ${time--}seconds.`)
+        }, 1000)
     }
 
     return (
@@ -476,23 +604,15 @@ const Code = () => {
                             <AceEditor
                                 ref={editorRef}
                                 // value={editorCode}
-                                mode={chosenLanguage}
+                                mode={editorToThemeLangMap[chosenLanguage]}
                                 width={"100%"}
-                                theme="monokai"
+                                theme={"monokai"}
                                 // onChange={onChange}
                                 name={"aceEditor"}
                                 fontSize={14}
                                 showPrintMargin={false}
                                 showGutter={true}
                                 debounceChangePeriod={2000}
-                                annotations={[
-                                    {
-                                        row: 0,
-                                        column: 2,
-                                        type: "error",
-                                        text: "Some error.",
-                                    },
-                                ]}
                                 editorProps={{ $blockScrolling: true }}
                                 setOptions={{
                                     enableBasicAutocompletion: true,
@@ -516,7 +636,7 @@ const Code = () => {
                                                     "Are you sure you want to finish the contest?", 
                                                     "Your progress will be saved.",
                                                     [
-                                                        { label: "Finish", onClick: finishRound, color: "red" }, 
+                                                        { label: "Finish", onClick: () => finishRound( contestTime - contestTimerValue ), color: "red" }, 
                                                         { label: "cancel", onClick: "close", color: "white" }
                                                     ]
                                                 )

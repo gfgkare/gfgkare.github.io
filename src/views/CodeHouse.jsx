@@ -29,6 +29,7 @@ export default function CodeHouse() {
 
     const startRound = () => {
         setPageToShow("loading");
+        document.documentElement.requestFullscreen();
 
         setLoadingPercentage(30);
         axios.post(`${import.meta.env.VITE_API}/start_round4`, { contest: contestName }, {headers: {Authorization: `${currentUser.accessToken}`}})
@@ -105,10 +106,20 @@ export default function CodeHouse() {
         e.returnValue = ''
       }
 
-      const finishRound = e => {
+      const finishRound = (finishTime) => {
+        axios.post(`${import.meta.env.VITE_API}/finish_round4`, { contest: contestName, time: finishTime }, {headers: {Authorization: `${currentUser.accessToken}`}})
+        .then((response) => {   
+            console.log(response);
+        })
+        .catch((error) => {
+            toast.error(error?.response?.data?.message || error?.response?.data?.error || "Something went wrong." );
+            console.error("Error fetching data:", error);
+        });
+        
+        document.exitFullscreen();
         window.removeEventListener('beforeunload', alertUser);
         console.log("set to true");
-        setPageToShow("instructions");
+        setPageToShow("finished");
       }
 
       const saveEditorCodeLocally = (problemIndex, editorCode) => {
@@ -141,20 +152,18 @@ export default function CodeHouse() {
                                         <div className="title">READ ME!</div>
                                         <div className="points">
                                             <ol>
-                                                <li>Do not exit from the page. You will die.</li>
-                                                <li>Do not try to switch tabs. You will die.</li>
-                                                <li>Do not try to copy and paste in the code editor. You will die.</li>
-                                                <li>Do not try to logout and login in your own or your friends' laptops. You will die.</li>
-                                                <li>Have fun! :)</li>
+                                                <li>This is a proctored contest.</li>
+                                                <li>Do not exit from the page.</li>
+                                                <li>Do not switch tabs.</li>
+                                                <li>Copy and Pasting code is disabled.</li>
+                                                <li>Do not try to login and participate in two devices at the same time.</li>
+                                                <li>But most importantly, be calm and have fun! :)</li>
                                             </ol>
                                         </div>
-                                        <button onClick={startRound} disabled={pageToShow === "loading"}>
+                                        <button className="startRoundBtn" onClick={startRound} disabled={pageToShow === "loading"}>
                                             {
                                                 (pageToShow === "instructions") ? "Start" : "..."
                                             }
-                                        </button>
-                                        <button onClick={startRound}>
-                                            Dev Force
                                         </button>
                                     </div>
 
@@ -176,6 +185,49 @@ export default function CodeHouse() {
                                 <></>
                             )
                         }
+
+                        
+                        {
+                            (pageToShow === 'ended') ? (
+                                        <div className="instructions">
+                                            <div className="title">The contest has ended!</div>
+                                            <div className="points">
+                                                Thank you for participating. We hope you had fun! Results will be released shortly.
+                                            </div>
+                                        </div>
+                                ) : (
+                                    <></>
+                                )
+                        }
+
+                        {
+                            (pageToShow === 'finished') ? (
+                                        <div className="instructions">
+                                            <div className="title">You have finished the contest!</div>
+                                            <div className="points">
+                                                Thank you for participating. We hope you had fun! Results will be released shortly.
+                                            </div>
+                                        </div>
+                                ) : (
+                                    <></>
+                                )
+                        }
+
+
+                        {
+                            (pageToShow === 'malpractice') ? (
+                                        <div className="instructions">
+                                            <div className="title">You have been eliminated!</div>
+                                            <div className="points">
+                                                You have been eliminated from the contest. Contact the event coordinators.
+                                            </div>
+                                        </div>
+                                ) : (
+                                    <></>
+                                )
+                        }
+
+                        
                     
                         {
                             (pageToShow === "code") ? (

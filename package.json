@@ -15,6 +15,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ace-builds": "^1.32.6",
     "axios": "^1.5.1",
     "dotenv": "^16.3.1",
     "event-source-polyfill": "^1.0.31",

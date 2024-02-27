@@ -19,9 +19,12 @@ div.codeHouse {
         }
     }
 
+    
+
     .instructions, .rejected, .out {
         width: min(90%, 600px);
         border: 1px solid black;
+        box-shadow: 0 5px 10px 5px rgba(0, 0, 0, .1);
         border-radius: 8px;
         padding: 3rem 1rem;
         display: flex;
@@ -29,6 +32,10 @@ div.codeHouse {
         justify-content: center;
         align-items: center;
         gap: 2rem;
+
+        .startRoundBtn {
+            border-radius: 8px;
+        }
 
         .title {
             font-size: 2rem;
