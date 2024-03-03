@@ -21,6 +21,7 @@ export default function CustomTable(props) {
         "complexity": "Complexity Marks",
         "realtime": "Realtime Application Marks",
         "viva": "Viva Marks",
+        "score": "Score"
     }
 
     const [startIndex, setStartIndex] = useState(0);

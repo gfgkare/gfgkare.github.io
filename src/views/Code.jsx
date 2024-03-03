@@ -235,11 +235,6 @@ const Code = () => {
         setTimeout(() => setFlexValue(0.4), 10);
         setCodeRunningStatus( testcaseResults[selectedProblemIndex].testCase0Output )
 
-        // ace.config.set('basePath', '/assets/ui/');
-        // ace.config.set('basePath', "https://unpkg.com/ace-builds@1.4.6/src-noconflict")
-        // ace.config.set('modePath', '');
-        // ace.config.set('themePath', '');
-
         config.setModuleUrl("ace/mode/java", modeJava);
         config.setModuleUrl("ace/mode/c_cpp", modeCCPP);
         config.setModuleUrl("ace/mode/python", modePython);
@@ -253,6 +248,7 @@ const Code = () => {
         //     toast.error("Right click is not allowed.");
         //     return false;
         // };
+        
 
         
         // F12
@@ -262,21 +258,21 @@ const Code = () => {
             }
         });
 
-        // ctrl shift i
+        // prevnt ctrl shift i
         window.addEventListener('keydown', function(event) {
             if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
                 event.preventDefault();
             }
         });
 
-        // copy
+        // prevnt copy
         window.addEventListener('keydown', function(event) {
             if (event.ctrlKey && event.keyCode === 67) {
                 event.preventDefault();
             }
         });
 
-        // paste
+        // prevnt paste
         window.addEventListener('keydown', function(event) {
             if (event.ctrlKey && event.keyCode === 86) {
                 event.preventDefault();
@@ -329,8 +325,8 @@ const Code = () => {
                 //     "The contest has ended. Your progress is being automatically saved. Please do not close the tab until this process completes.",
                 //     []
                 // )
-                setPageToShow("ended")
-            }
+                setPageToShow("ended");
+            } 
             else if (value <= 60) {
                 if (!warnedLessThan1) {
                     warnedLessThan1 = true;
@@ -351,7 +347,7 @@ const Code = () => {
             }
             setContestTimerValue(value);
             timerIcon.current.innerText = formatTime(value);
-            timerFullValue.current.innerText = formatTime(value, true);
+            timerFullValue.current.innerText = formattime(value, true);
 
         }, 1000);
 
@@ -495,6 +491,7 @@ const Code = () => {
                         <span className="icon" ref={timerIcon}>00:00</span>
                         <span className="text" ref={timerFullValue}>00:00:00</span>
                     </li>
+                    
                     {problemsList.value.map((problemObj, index) => {
                         return (
                             <li key={index} className={("navItem" + ((selectedProblemIndex === index) ? " active" : "") )} onClick={() => {
