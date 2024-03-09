@@ -47,14 +47,27 @@
 
         padding: .5rem 0;
 
-        
-        div {
+        // &:has(.rank) {
+        //     .rank {
+        //         max-width: 200px;
+        //     }
+
+        //     & + .rows .row {
+        //         div:first-child {
+        //             max-width: 200px;
+        //         }
+        //     }
+            
+        // }
+
+        div.header {
             text-align: center;
             padding: 1rem 0;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+
 
             &:first-child {
                 border-radius: 8px 0 0 0;

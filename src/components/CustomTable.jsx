@@ -104,15 +104,9 @@ export default function CustomTable(props) {
 
             <div className="headers">
                 {
-                    (props.headersNoModify) ? (
-                        props.headers.map((header) => {
-                            return ( <div className="header" >{header} </div> )
-                        })
-                    ) : (
-                        props.headers.map((header) => {
-                            return ( <div className="header" >{headerMap[header]} </div> )
-                        })
-                    )
+                    props.headers.map((header) => {
+                        return ( <div className={`header ${header}`} >{  (props.headersNoModify) ? header : headerMap[header]  } </div> )
+                    })
                 }
             </div>
 
