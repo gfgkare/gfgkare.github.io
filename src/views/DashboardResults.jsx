@@ -358,7 +358,7 @@ export default function DashboardResults(props) {
         <div className="dashboardResults">
             <div className="resultBigTitle">Results</div>
 
-            <div className="title">Round 4 - Debugging</div>
+            {/* <div className="title">Round 4 - Debugging</div>
 
             <div className="round4">
                 {
@@ -369,7 +369,7 @@ export default function DashboardResults(props) {
                 }
             </div>
 
-            <div className="splitter"></div>
+            <div className="splitter"></div> */}
 
             <div className="title">Round 3 - QnA</div>
             <div className="round3">
