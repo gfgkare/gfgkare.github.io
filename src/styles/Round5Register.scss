@@ -10,8 +10,14 @@ html, body, #root {
     color: white;
     height: max-content;
     width: 100vw;
+    background-image: url("../assets/blur_texture.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
 
     .wrapper {
+        backdrop-filter: blur(50px) brightness(0.8);
+
         nav.topNav {
             background: linear-gradient(to right, rgba(160, 160, 160, 0.1), rgba(190, 190, 190, 0.06));
             height: 100px;
@@ -26,9 +32,19 @@ html, body, #root {
                 width: 70px;
 
                 img {
+                    border-radius: 50%;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                }
+            }
+
+            .user img {
+                cursor: pointer;
+                border: 1px solid rgba(250, 250, 250, .6);
+
+                &:hover {
+                    border-color: rgba(250, 250, 250, .8);
                 }
             }
 
@@ -73,7 +89,8 @@ html, body, #root {
                 }
 
                 .about {
-                    width: 80%;
+                    width: min(600px, 90%);
+                    text-align: center;
                 }
 
                 .register {
@@ -111,7 +128,7 @@ html, body, #root {
                 .box {
                     border: 1px solid red;
                     padding: 2rem;
-                    width: min(60%, 500px);
+                    width: min(80%, 500px);
                     border-radius: 10px;
                     border-color: rgba(230, 230, 230, 0.3);
                     background: linear-gradient(135deg, rgba(50, 50, 50, .4), rgba(120, 120, 120, .3));

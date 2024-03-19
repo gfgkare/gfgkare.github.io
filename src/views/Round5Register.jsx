@@ -20,7 +20,7 @@ export default function Round5Register() {
                         <img src={gfgKare} />
                     </div>
                     <div className="user">
-                        {(currentUser && currentUser !== "none") ? <img src={currentUser.photoURL} /> : <button onClick={ () => navigate( "/profile", { state: { from: location.href } } ) }>Login</button> }
+                        {(currentUser && currentUser !== "none") ? <img onClick={ () => navigate("/profile", { state: { from: location.pathname } }) } src={currentUser.photoURL} /> : <button onClick={ () => navigate( "/profile", { state: { from: location.pathname } } ) }>Login</button> }
                     </div>
                 </nav>
 
@@ -31,11 +31,22 @@ export default function Round5Register() {
                             Algorithmist '24 - Round 5
                         </span>
                         <span className="about">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis neque aut tenetur accusantium, excepturi sit, nobis dolorum corrupti consequuntur laborum distinctio, possimus similique quo. Optio quia officia voluptate nemo maiores?
+                        Prepare for the ultimate challenge! Round 5 calls out to those who dare to push their limits. 
+                        After conquering four rounds of intense coding battles, you've proven your resilience.
+                        Ready to showcase your mastery in the final round? Register now!
                         </span>
-                        <button className="register">
-                            Register Now
-                        </button>
+                        {
+                            ( currentUser && currentUser !== "none" ) ? (
+                                <button className="register">
+                                    Register Now
+                                </button>
+                            ) : (
+                                <button className="register" onClick={ () => navigate("/profile", { state: { from: location.pathname } }) }>
+                                    Log in to register
+                                </button>
+                            )
+                        }
+                        
                     </div>
 
 
