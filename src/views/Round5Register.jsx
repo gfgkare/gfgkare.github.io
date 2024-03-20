@@ -103,7 +103,7 @@ export default function Round5Register() {
                         <span className="title">
                             Algorithmist '24 - Grand Finale
                         </span>
-                        <span className="about" onClick={ () => alert(currentUser.email) }>
+                        <span className="about">
                         Prepare for the ultimate challenge! Round 5 calls out to those who dare to push their limits. 
                         After conquering four rounds of intense coding battles, you've proven your resilience.
                         Ready to showcase your mastery in the final round? Register now!
