@@ -28,7 +28,7 @@ export default function Round5Register() {
 
                     <div className="bigText">
                         <span className="title">
-                            Algorithmist '24 - Round 5
+                            Algorithmist '24 - Grand Finale
                         </span>
                         <span className="about">
                         Prepare for the ultimate challenge! Round 5 calls out to those who dare to push their limits. 
