@@ -97,6 +97,14 @@ html, body, #root {
                     text-align: center;
                 }
 
+                span.error {
+                    margin-top: 1rem;
+                    font-weight: 500;
+                    color: rgb(255, 106, 20);
+                    width: min(80%, 800px);
+                    text-align: center;
+                }
+
                 .register {
                     max-width: max-content;
                     padding: 1rem 2rem;
