@@ -110,7 +110,7 @@ export default function Round5Register() {
                         </span>
                         {
                             ( currentUser && currentUser !== "none" ) ? (
-                                ( validEmails.includes(currentUser.email) ) ? (
+                                ( true ) ? (
                                     <button className="register" onClick={ () => window.location.href = "https://practice.geeksforgeeks.org/contest/algorithmist-24-finale" }>
                                         Register Now
                                     </button>
