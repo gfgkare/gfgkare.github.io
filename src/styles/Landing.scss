@@ -1,0 +1,241 @@
+@import "Variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+$text: white;
+
+@mixin volkorn {
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+}
+
+.landing {
+    font-family: "Outfit";
+    height: 100vh;
+    scroll-snap-type: y proximity;
+    overflow: auto;
+
+    nav {
+        max-height: max-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba($text, .3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        position: fixed;
+        width: 96%;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+
+
+        .logoContainer {
+            margin-left: 1rem;
+
+            img.gfgLogo {
+                height: 70px;
+                width: 70px;
+                object-fit: contain;
+            }
+        }
+
+        .rightMenu {
+            margin-right: 1rem;
+
+            button.menuButton {
+                all: unset;
+
+                z-index: 110 !important;
+                cursor: pointer;
+                border: 2px solid $background;
+                background-color: rgba($text, .5);
+                border-radius: 15px;
+                padding: .75rem 2.5rem;
+                
+                transition: all .3s ease;
+
+                &:hover {
+                    background-color: $background;
+                    color: $text;
+                }
+            }
+        }
+    }
+
+    .fullScreenNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+
+        z-index: 101;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(4px);
+
+        transition: all .25s cubic-bezier(1 , 0 , 0 , 1);
+
+        &.open {
+            transform: translateY(0);
+
+            .fullScreenItemsContainer {
+                .fullScreenItem {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                    animation: fadeInFromLeft .5s ease-out forwards;
+
+                    // dynamically add a delay to each item.
+                    // since it is not possible to find exact number of items present
+                    // choose a number that is more than the number of items that will be present.
+                    @for $i from 1 through 6 {
+                        &:nth-child(#{$i}n) {
+                            animation-delay: #{$i * 0.15}s;
+                        }
+                    }
+                }
+            }
+        }
+
+        .closeMenuButton {
+            all: unset;
+            color: rgb(255, 99, 99);
+            cursor: pointer;
+            font-size: 4rem;
+            font-weight: 800;
+            font-family: sans-serif !important;
+            position: absolute;
+            right: 3rem;
+            top: 1rem;
+
+            &:hover {
+                color: rgb(255, 151, 151)
+            }
+        }
+
+        .fullScreenItemsContainer {
+            width: 50vw;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+
+            .fullScreenItem {
+                a {
+                    all: unset;
+                    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+
+                    color: $text; 
+                    cursor: pointer;
+                    padding: 1rem;
+                    margin-left: 2rem;
+                    font-size: 3rem;
+
+                    transition: all .4s ease ;
+
+                    &:hover, &:focus {
+                        background-color: rgb(163, 252, 130);
+                        color: $background !important;
+                    }
+                }
+            }
+        }
+    }
+
+    section.divider {
+        scroll-snap-align: start;
+        scroll-margin: 0 0 .5rem 0;
+
+        height: 4rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color:rgba(0, 0, 0, 0.95);
+        color: $text;
+
+        div.bigText {
+            @include volkorn();
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        div.subText {
+            opacity: .9rem;
+            font-size: 1rem;
+            width: min(90%, 400px);
+            text-align: center;
+        }
+
+    }
+
+    // section.fullScreenSection {
+    // }
+
+    section.chapterIntro {
+
+        &::after {
+            content: "";
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+            background-image:  linear-gradient(#666666 1px, transparent 1px), linear-gradient(to right, #666666 1px, transparent 1px);
+            background-size: 30px 30px;
+            mask-image: radial-gradient(circle, white, transparent);
+            mask-position: 50% 50%;
+            mask-size: 80%;
+            mask-repeat: no-repeat;
+        }
+
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .bigText {
+            @include volkorn();
+            font-size: 4rem;
+            font-weight: 600;
+        }
+
+        .subText {
+            font-size: 1rem;
+            font-weight: 500;
+            width: min(90%, 400px);
+            text-align: center;
+        }
+    }
+
+    section.eventsDiv {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+@keyframes fadeInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
