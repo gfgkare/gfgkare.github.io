@@ -1,25 +1,38 @@
 @import "Variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
-$text: white;
+$text: #e0e1e1;
 
 @mixin volkorn {
     font-family: "Vollkorn", serif;
     font-optical-sizing: auto;
 }
 
+
+.textShine {
+    color: red;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(232, 232, 232, 0.75) 30%, #000 50%, rgba(242, 242, 242, 0.75) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  from { -webkit-mask-position: 150%; }
+  to { -webkit-mask-position: -50%; }
+}
+
 .landing {
     font-family: "Outfit";
     height: 100vh;
     scroll-snap-type: y proximity;
-    overflow: auto;
+    overflow-y: auto;
 
     nav {
         max-height: max-content;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba($text, .3);
+        background-color: rgba(lighten($text, 20), .3);
         backdrop-filter: blur(4px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         z-index: 100;
@@ -27,8 +40,18 @@ $text: white;
         width: 96%;
         top: 1rem;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(-150%);
         border-radius: 10px;
+
+        transition: transform .3s cubic-bezier(1 , 0 , 0 , 1);
+
+        &.hidden {
+            transform: translateX(-50%) translateY(-150%) rotateY(-90deg);
+        }
+
+        &.shown {
+            transform: translateX(-50%) translateY(0) rotateY(0deg);
+        }
 
 
         .logoContainer {
@@ -50,7 +73,7 @@ $text: white;
                 z-index: 110 !important;
                 cursor: pointer;
                 border: 2px solid $background;
-                background-color: rgba($text, .5);
+                background-color: rgba( lighten($text, 10) , .9);
                 border-radius: 15px;
                 padding: .75rem 2.5rem;
                 
@@ -69,6 +92,7 @@ $text: white;
         top: 0;
         left: 0;
         transform: translateY(-100%);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
         z-index: 101;
         height: 100vh;
@@ -149,8 +173,7 @@ $text: white;
     section.divider {
         scroll-snap-align: start;
         scroll-margin: 0 0 .5rem 0;
-
-        height: 4rem;
+        height: 2rem;
         padding: 3rem;
         display: flex;
         flex-direction: column;
@@ -158,12 +181,14 @@ $text: white;
         align-items: center;
 
         background-color:rgba(0, 0, 0, 0.95);
-        color: $text;
+        box-shadow: inset 0 0 200px 200px rgba(0, 0, 0, 0.5);
+        color: #e7e7ff;
+
 
         div.bigText {
             @include volkorn();
             font-size: 2.5rem;
-            font-weight: 600;
+            font-weight: bolder;
         }
 
         div.subText {
@@ -182,15 +207,15 @@ $text: white;
 
         &::after {
             content: "";
-            background-color: transparent;
+            background-color: #e0e1e1;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.2;
-            background-image:  linear-gradient(#666666 1px, transparent 1px), linear-gradient(to right, #666666 1px, transparent 1px);
+            opacity: 0.35;
+            background-image:  linear-gradient(#3f3f3f 1px, transparent 1px), linear-gradient(to right, #3f3f3f 1px, transparent 1px);
             background-size: 30px 30px;
             mask-image: radial-gradient(circle, white, transparent);
             mask-position: 50% 50%;
@@ -205,10 +230,25 @@ $text: white;
         justify-content: center;
         align-items: center;
 
+        // //////////////////////////////////////////////////////////////////
+            
+  
+        // ///////////////////////////////////////////////////////////////
+
+        .outlineText {
+            font-size: 6rem;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px;
+            opacity: .3;
+            text-wrap: nowrap;
+        }
+
         .bigText {
             @include volkorn();
-            font-size: 4rem;
+            color: rgb(2, 69, 2);
+            font-size: 5rem;
             font-weight: 600;
+            text-align: center;
         }
 
         .subText {
@@ -216,6 +256,138 @@ $text: white;
             font-weight: 500;
             width: min(90%, 400px);
             text-align: center;
+        }
+
+        .cardsContainer {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: .15rem;
+            transform: translateY(5rem);
+
+            .card {
+
+                .pin {
+                    position: relative;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    z-index: 6 !important;
+                }
+
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}n) {
+                        z-index: $i;
+                    }
+                }
+
+                &:hover {
+                    z-index: 5;
+                }
+
+                &:nth-child(1) .cardContent { 
+                    transform: rotateZ( -10deg ) translateY(-0px) translateX(1rem); 
+
+                    &:hover {
+                        transform: rotateZ( -10deg ) translateY(-0px) translateX(1rem) rotateX(10deg) scale(1.05); 
+                    }
+                }
+
+                &:nth-child(1) .pin {
+                    transform: translateX(600%) translateY(-.4rem) rotate(15deg);
+                }
+
+                &:nth-child(2) .cardContent { 
+                    transform: rotateZ( -3deg ) translateY(-20px) translateX(.5rem); 
+
+                    &:hover {
+                        transform: rotateZ( -3deg ) translateY(-20px) translateX(.5rem) rotateX(10deg) scale(1.05); 
+                    }
+                }
+
+                &:nth-child(2) .pin {
+                    transform: translateX(550%) translateY(-1.3rem) rotate(15deg);
+                }
+
+                &:nth-child(3) .cardContent { 
+                    transform: rotateZ( 5deg ) translateY(-20px) translateX(0rem); 
+
+                    &:hover {
+                        transform: rotateZ( 5deg ) translateY(-20px) translateX(0rem) rotateX(10deg) scale(1.05); 
+                    }
+                }
+
+                &:nth-child(3) .pin {
+                    transform: translateX(600%) translateY(-1.5rem) rotate(15deg);
+                }
+
+                &:nth-child(4) .cardContent { 
+                    transform: rotateZ( 10deg ) translateY(5px) translateX(-.5rem); 
+
+                    &:hover {
+                        transform: rotateZ( 10deg ) translateY(5px) translateX(-.5rem) rotateX(10deg) scale(1.05); 
+                    }
+                }
+
+                &:nth-child(4) .pin {
+                    transform: translateX(500%) translateY(0) rotate(15deg);
+                }
+
+                .cardContent {
+                    background-color: rgba(250, 250, 250, 0.95);
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    border: 1px solid rgba(0, 0, 0, .8);
+                    border-radius: 3px;
+                    padding: 1rem .5rem .5rem .5rem;
+                    width: 100px;
+                    height: 100px;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .15rem;
+
+                    cursor: pointer;
+                    transform: rotateZ(-10deg);
+                    transition: transform .3s ease !important;
+                    
+                    .cardImage {
+                        position: relative;
+                        width: 95px;
+                        height: 90px;
+                        object-fit: cover;
+
+                        img {
+                            border: 1px solid rgba(0, 0, 0, .4);
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .cardText {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        max-height: 30px;
+                    }
+                   
+                }
+            }
+
+            .card {
+                .cardTitle {
+                    @include volkorn();
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+
+                .cardText {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    text-align: center;
+                }
+            }
         }
     }
 
@@ -239,3 +411,26 @@ $text: white;
         opacity: 1;
     }
 }
+
+
+@media screen and (max-width: 470px) {
+    .cardsContainer {
+        .card {
+            &:nth-child(4) .cardContent { 
+                transform: rotateZ( 10deg ) translateY(-20px) translateX(-.5rem) !important; 
+                background-color: teal !important;
+        
+                &:hover {
+                    transform: rotateZ( 10deg ) translateY(-20px) translateX(-.5rem) rotateX(10deg) scale(1.05) !important; 
+                }
+            }
+            &:nth-child(4) .pin {
+                transform: translateX(550%) translateY(-1.5rem) rotate(15deg) !important;
+            }
+        }
+    }
+    
+}
+
+
+

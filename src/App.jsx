@@ -39,6 +39,8 @@ import Code from "./views/Code";
 
 import Round5 from "./views/Round5";
 
+import Landing from "./views/Landing";
+
 import Pickle from "./views/Pickle";
 import NewEventRegister from "./views/NewEventRegister";
 import { ToastContainer } from "react-toastify";
@@ -86,6 +88,9 @@ export default function App() {
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
 
+                        <Route path="/hero" element={<Landing />}></Route>
+
+                        
                         <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
 
 
