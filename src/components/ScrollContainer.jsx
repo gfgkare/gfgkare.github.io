@@ -13,7 +13,7 @@ export default props => {
   const spacer = useRef(null);
   const container = useRef(null);
   const blocks = useRef([]);
-  const ease = 0.03;
+  const ease = 0.1;
   let yCurrent = 0;
   let yScroll = 0;
   let animationFrame;
