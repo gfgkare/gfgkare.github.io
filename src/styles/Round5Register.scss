@@ -11,6 +11,7 @@ html, body, #root {
     height: max-content;
     width: 100vw;
     background-image: url("../assets/blur_texture.svg");
+    background-position: 50% 40%;
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: fixed;
@@ -63,10 +64,7 @@ html, body, #root {
     
         .round5 {
             margin: 0;
-            // height: 160vh;
             width: 100vw;
-    
-            padding: 1rem .5rem;
     
             overflow: scroll;
     
@@ -95,6 +93,11 @@ html, body, #root {
                 .about {
                     width: min(600px, 90%);
                     text-align: center;
+                }
+
+                .time {
+                    opacity: .7;
+                    font-weight: bold;
                 }
 
                 span.error {
@@ -159,6 +162,7 @@ html, body, #root {
                         font-weight: 800;
                         font-size: large;
                         text-align: center;
+                        letter-spacing: .075rem;
                     }
 
                     .stepAbout {
@@ -178,6 +182,49 @@ html, body, #root {
                     height: 50px;
                 }
 
+            }
+
+            .contact {
+                margin-top: 5rem;
+
+                .title {
+                    font-size: x-large;
+                    font-weight: 900;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    background: linear-gradient(to left, rgb(186, 255, 186), rgb(204, 241, 251));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                .numbers {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+
+                    span {
+                        font-weight: bold;
+
+                        a {
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+
+
+            footer {
+                margin-top: 4rem;
+                font-size: 2rem;
+                padding: 3rem 0;
+                text-align: center;
+                background-color: rgba(250, 250, 250, .1);
+                font-weight: bolder;
+                // color: rgb(102, 102, 102);
+                filter: grayscale(100%);
+                opacity: .3;
             }
     
         }

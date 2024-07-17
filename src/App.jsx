@@ -14,7 +14,7 @@ import ChapterMember from "./views/ChapterMember";
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 import EventRegister from "./views/EventRegister";
-import Round5Register from "./views/Round5Register";
+import Round5Register from "./views/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
@@ -37,7 +37,7 @@ import SlotSuspend from "./views/SlotSuspend";
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
-import Round5 from "./views/Round5";
+import RoadToMernRegister from "./views/RoadToMernRegister";
 
 import Landing from "./views/Landing";
 
@@ -107,7 +107,7 @@ export default function App() {
                         <Route path="/:eventname/code" element={<CodeHouse />}>
                             <Route path="/:eventname/code" element={<Code />}></Route>
                         </Route>
-                        <Route path="/round5" element={<Round5Register />}></Route>
+                        <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
 
 
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
