@@ -108,7 +108,7 @@ export default function RoadToMernRegister() {
                         </span>
 
                         <span className="time">
-                            {/* Jul 17 2024, 5:30 - 6:30 PM */}
+                            Jul 29 2024, 5:30 - 6:30 PM
                         </span>
 
                         <button className="register" onClick={ () => window.location.href = "https://www.geeksforgeeks.org/event/roadmap-to-mern-stack-kalasalingam-academy-of-research-and-education-gfg" }>
