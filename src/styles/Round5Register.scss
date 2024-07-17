@@ -208,7 +208,12 @@ html, body, #root {
                         font-weight: bold;
 
                         a {
-                            font-style: italic;
+                            font-style: italic !important; 
+                            color: rgb(129, 76, 221) !important;
+
+                            &:hover {
+                                color: rgb(110, 242, 110) !important;
+                            }
                         }
                     }
                 }
