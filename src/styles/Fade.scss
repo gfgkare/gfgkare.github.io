@@ -15,7 +15,7 @@
 
     @for $i from 1 through 99 {
         *:nth-child(#{$i}) {
-            transition-delay: #{$i * 0.2}s !important;
+            transition-delay: #{$i * 0.2}s;
         }
     }
 

@@ -3,29 +3,28 @@ import "../styles/RocketIntro.scss";
 import rocketOutline from "../assets/rocket_outline.png";
 
 
-export default function RocketIntro() {
-
+export default function RocketIntro({ animationOver }) {
 
     return (
         <>
+            <div className={`rocketIntro ${(animationOver) && 'unmount'}`}>
 
-            <div className="rocketIntro">
-
-                <div class="rain">
+                <div class={`rain ${(animationOver) ? 'hidden' : ''}`}>
                     {
                         new Array(30).fill(0).map((_, i) => (
                             <div class="drop" key={i}></div>
                         ))
                     }
                 </div>
+
                 <div className="rocketContainer">
-                    <img className="rocketImage" src={rocketOutline} alt="" />
+                    <img className={`rocketImage ${(animationOver) && 'nitro'}`} src={rocketOutline} alt="" />
                 </div>
-                loading...
 
-
+                <div className="text">
+                    Preparing your environment...
+                </div>
             </div>
-        
         </>
         
     )

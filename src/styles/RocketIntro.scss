@@ -6,6 +6,13 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    opacity: 1;
+    transition: opacity .5s ease !important;
+    transition-delay: .5s !important;
+
+    &.unmount {
+        opacity: 0.01;
+    }
 
     .rain {
         position: absolute;
@@ -16,7 +23,13 @@
         overflow: hidden;
         pointer-events: none;
         z-index: 1;
+        opacity: 1;
         transform: rotate(2deg);
+        transition: opacity 1s ease;
+
+        &.hidden {
+            opacity: 0;
+        }
 
         .drop {
             position: absolute;
@@ -31,6 +44,7 @@
         @for $i from 1 through 100 {
             .drop:nth-child(#{$i}) {
                 left: random(100) + vw;
+                // top: random(100) + vh;
                 animation-delay: random() + s;
             }
         }
@@ -46,7 +60,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 300px;
+        height: 100vh;
         width: 300px;
         z-index: 2;
         overflow: hidden;
@@ -58,7 +72,20 @@
             animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
             backface-visibility: hidden;
             perspective: 1000px;
+            transition: transform .5s ease;
+
+            &.nitro {
+                animation: fuckingGo .5s ease forwards;
+            }
         }
+    }
+
+    .text {
+        opacity: .75;
+        position: absolute;
+        left: 50%;
+        bottom: 10vh;
+        transform: translateX(-50%);
     }
    
 }
@@ -78,6 +105,18 @@
   
     40%, 60% {
       transform: translate3d(3px, 0, 0);
+    }
+}
+
+@keyframes fuckingGo {
+    40% {
+        transform: translateY(50px);
+    }
+    70% {
+        transform: translateY(60px);
+    }
+    100% {
+        transform: translateY(-80vh);
     }
 }
 

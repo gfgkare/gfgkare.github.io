@@ -211,7 +211,7 @@ export default function Dashboard() {
                     ) : (
                         // (USER_LOADING()) ? (
                         (pageToShow === "loading") ? (
-                            <RollingLetters />
+                            <RollingLetters word={"ALGORITHMIST'24"} />
                         ) : (
                             <div className="notSignedIn">
                                 Log in to use the dashboard.
