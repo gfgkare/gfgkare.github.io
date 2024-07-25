@@ -14,6 +14,7 @@ import ChapterMember from "./views/ChapterMember";
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 import EventRegister from "./views/EventRegister";
+import DynamicEventPage from "./views/DynamicEventPage";
 import Round5Register from "./views/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
 import Login from "./views/Login";
@@ -71,6 +72,9 @@ export default function App() {
                             <Route path="/members" element={<AllMembers />}></Route>
                             {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
                             <Route path="/events/algo2024" element={<EventRegister />}></Route>
+                            {/* <Route path="/events/java-code-fest" element={<EventRegister />}></Route>
+                            <Route path="/events/geekfest-24" element={<EventRegister />}></Route> */}
+
 
                             {
                                 Object.keys(coreTeamMembers).map((key, index) => {
@@ -83,7 +87,7 @@ export default function App() {
                                 })
                             }
 
-                            <Route path="/events/:eventname" element={<UnderConstruction />}></Route>
+                            <Route path="/events/:eventname" element={<DynamicEventPage />}></Route>
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>

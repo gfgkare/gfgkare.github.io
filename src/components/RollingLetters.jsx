@@ -8,11 +8,10 @@ export default function RollingLetters(props) {
         <div className="rollingLetters">
 
             <div className="box">
-
                 {
                     props.word.split("").map((letter, index) => {
                         return (
-                            <div className={`container ${ index % 2 == 0 ? 'even' : 'odd' }`} key={index}>
+                            <div className={`container ${ index % 2 == 0 ? 'even' : 'odd' } ${ letter == 'G' ? 'letterG' : '' }`} key={index}>
                                 <div>{letter}</div>
                                 <div>0</div>
                                 <div>1</div>
@@ -36,6 +35,9 @@ export default function RollingLetters(props) {
                         )
                     })
                 }
+            </div>
+            <div className="subText">
+                    {props.subText}
             </div>
         </div>
     )

@@ -29,7 +29,7 @@ export const MiscProvider = ({ children }) => {
 
         if (match && match[1]) {
             console.log("Match found: " + `https://drive.google.com/uc?id=${match[1]}` )
-            return (`https://drive.google.com/uc?id=${match[1]}`);
+            return `https://drive.google.com/uc?id=${match[1]}`;
 
         } else {
             console.log("Match not found.")

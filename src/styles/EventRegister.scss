@@ -284,7 +284,7 @@ strong {
         max-height: max-content;
         background-color: rgba(240, 240, 240, 0.96);
         border: 2px solid white;
-        box-shadow: 0px 1px 20px 10px rgba(0, 0, 0, 0.1);
+        // box-shadow: 0px 1px 20px 10px rgba(0, 0, 0, 0.1);
         border-radius: 16px;
         // padding: 3rem 2rem;
         display: flex;
@@ -292,6 +292,60 @@ strong {
         // justify-content: space-between;
         align-items: stretch;
         transform: translateY(-30px);
+
+        .questionsContainer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .circle {
+                height: 10rem;
+                width: 10rem;
+                border-radius: 50%;
+                font-size: 24px;
+                border:  .7rem solid green;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: .25rem;
+
+                &.easy {
+                    border-color: rgb(74, 173, 74);
+                    background-color: rgba(128, 255, 117, 0.2);
+                }
+
+                &.medium {
+                    border-color: rgb(239, 183, 80);
+                    background-color: rgba(255, 164, 73, 0.2);
+                }
+
+                &.hard {
+                    border-color: rgb(251, 134, 134);
+                    background-color: rgba(255, 52, 52, 0.2);
+                }
+
+                .index {
+                    font-weight: 800;
+                    font-style: italic;
+                }
+                
+                .difficulty {
+                    font-weight: 600;
+                }
+
+                .marks {
+                    font-size: .9rem;
+                }
+            }
+
+            .line {
+                height: .5rem;
+                width: 1rem;
+                background-color: green;
+            }
+        }
 
         .allRounds {
             // background-color: red;
@@ -432,7 +486,7 @@ strong {
         padding: 2rem .5rem;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-evenly;
         gap: 1rem;
 
@@ -444,6 +498,7 @@ strong {
         .people {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: .8rem;
 
             a {
@@ -587,11 +642,18 @@ strong {
         font-weight: 700 !important;
     }
 
+
+
     .eventBox {
         flex-direction: column;
 
         .eventInfoWrapper .eventInfo .whereWhenContainer {
             flex-direction: column;
+        }
+
+        .startsIn {
+            justify-content: center;
+            align-items: center;
         }
 
         .eventRegisterPanel {
@@ -614,6 +676,16 @@ strong {
     }
 
     .eventDetails {
+
+        .questionsContainer {
+            flex-direction: column;
+            
+            .line {
+                height: 2rem !important;
+                width: .6rem !important;
+            }
+        }
+
         .allRounds {
             width: 99% !important;
             padding: 1rem !important;

@@ -1,6 +1,6 @@
 import "../styles/RocketIntro.scss";
 
-import rocketOutline from "../assets/rocket_outline.png";
+import rocketOutline from "../assets/rocket_fill-min.png";
 
 
 export default function RocketIntro({ animationOver }) {
@@ -18,7 +18,7 @@ export default function RocketIntro({ animationOver }) {
                 </div>
 
                 <div className="rocketContainer">
-                    <img className={`rocketImage ${(animationOver) && 'nitro'}`} src={rocketOutline} alt="" />
+                    <img className={`rocketImage ${(animationOver) && 'nitro'}`} src={rocketOutline} loading="eager" />
                 </div>
 
                 <div className="text">

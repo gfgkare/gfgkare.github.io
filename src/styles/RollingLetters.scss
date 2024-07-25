@@ -3,10 +3,15 @@
 
 
 .rollingLetters {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
 
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
 
@@ -14,47 +19,56 @@
         font-size: 50px;
         font-weight: 600;
         font-family: "Outfit";
-        // border: 1px solid black;
         height: 50px;
         width:100%;
-    
+
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
-    }
     
-    .container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      height: max-content;
-      width: 50px;
+        .container {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          height: max-content;
+          width: 50px;
 
-      .letterG {
-        color: rgb(28, 131, 28);
-      }
-      
-      &.even {
-        flex-direction: column-reverse;
-        // background-color: red;
-        animation: rollUp 1.5s forwards;
-      }
-      
-      &.odd {
-        flex-direction: column;
-        // background-color: blue;
-        animation: rollDown 1.5s forwards;
-      }
-    }
-    
-    @for $i from 1 through 20 {
-        .box .container:nth-child(#{$i}n) {
-            // background-color:rgba(0,0,0,$i*.5);
-            animation-delay: #{$i * 0.05}s;
+          .letterG {
+            color: rgb(28, 131, 28);
+          }
+          
+          &.even {
+            flex-direction: column-reverse;
+            // background-color: red;
+            animation: rollUp 1.5s forwards;
+          }
+          
+          &.odd {
+            flex-direction: column;
+            // background-color: blue;
+            animation: rollDown 1.5s forwards;
+          }
         }
+
+        @for $i from 1 through 20 {
+            .box .container:nth-child(#{$i}n) {
+                // background-color:rgba(0,0,0,$i*.5);
+                animation-delay: #{$i * 0.05}s;
+            }
+        }
+
+    }
+
+    .subText {
+      font-size: .9rem;
+      font-weight: 600;
+      font-style: italic;
+      opacity: .7;
+      animation: blink 3s ease infinite;
     }
     
+   
     @keyframes rollUp {
       from {
         transform: translate(0);
@@ -81,4 +95,16 @@
         }
     }
 
+}
+
+@keyframes blink {
+  0% {
+    opacity: .7;
+  }
+  50% {
+    opacity: .3;
+  }
+  100% {
+    opacity: .7;
+  }
 }
