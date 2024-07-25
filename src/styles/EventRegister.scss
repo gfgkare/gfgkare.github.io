@@ -737,6 +737,10 @@ strong {
             font-size: 12px !important;
         }
     }
+    
+    .modal .box {
+        height: 70vh;
+    }
 
     .modal.open {
         padding-top: 2rem;
