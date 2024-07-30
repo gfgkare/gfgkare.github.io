@@ -71,9 +71,6 @@ export default function App() {
                             {/* <Route path="/core" element={<CoreTeam />}></Route> */}
                             <Route path="/members" element={<AllMembers />}></Route>
                             {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
-                            <Route path="/events/algo2024" element={<EventRegister />}></Route>
-                            {/* <Route path="/events/java-code-fest" element={<EventRegister />}></Route>
-                            <Route path="/events/geekfest-24" element={<EventRegister />}></Route> */}
 
 
                             {
@@ -95,9 +92,12 @@ export default function App() {
                         <Route path="/hero" element={<Landing />}></Route>
 
                         
-                        <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
+                        {/* PAST EVENTS */}
+                        {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
+                        {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
 
 
+                        {/* DASHBOARD */}
                         <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
                             {/* <Route path="/dashboard" element={ <Overview /> }></Route> */}

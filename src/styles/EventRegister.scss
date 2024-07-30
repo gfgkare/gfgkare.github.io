@@ -71,6 +71,12 @@ strong {
             // justify-content: space-between;
             align-items: stretch;
 
+            transition: all .2s ease;
+
+            &:hover {
+                border-color: rgb(52, 212, 52);
+            }
+
             .eventInfoWrapper {
                 padding: 3rem 2rem;
                 flex: 4;
@@ -121,6 +127,7 @@ strong {
                     }
 
                     .aboutEvent {
+                        white-space: pre-wrap;
                         // background-color: red;
                     }
 
@@ -278,159 +285,176 @@ strong {
         }
     }
 
-    .eventDetails {
-        margin: 0 auto;
-        width: min(90%, 1100px);
+    .databaseContent {
         max-height: max-content;
-        background-color: rgba(240, 240, 240, 0.96);
-        border: 2px solid white;
-        // box-shadow: 0px 1px 20px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 16px;
-        // padding: 3rem 2rem;
-        display: flex;
-        // gap: 1rem;
-        // justify-content: space-between;
-        align-items: stretch;
-        transform: translateY(-30px);
 
-        .questionsContainer {
-            width: 100%;
+        .headings {
+            margin-bottom: 1rem;
+        }
+
+        .subHeading {
+            margin-bottom: 5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-style: italic;
+            // font-weight: bold;
+            opacity: 0.7;
+        }
+
+        .eventDetails {
+            margin: 0 auto;
+            width: min(90%, 1100px);
+            max-height: max-content;
+            background-color: rgba(240, 240, 240, 0.96);
+            // box-shadow: 0px 1px 20px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            // padding: 3rem 2rem;
             display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .circle {
-                height: 10rem;
-                width: 10rem;
-                border-radius: 50%;
-                font-size: 24px;
-                border:  .7rem solid green;
+            // gap: 1rem;
+            // justify-content: space-between;
+            align-items: stretch;
+            transform: translateY(-30px);
+    
+            .questionsContainer {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                .circle {
+                    height: clamp(10rem, 15vw, 10rem);
+                    width: clamp(10rem, 15vw, 10rem);
+                    border-radius: 50%;
+                    font-size: 24px;
+                    border:  .7rem solid green;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .25rem;
+    
+                    &.easy {
+                        border-color: rgb(74, 173, 74);
+                        background-color: rgba(128, 255, 117, 0.2);
+                    }
+    
+                    &.medium {
+                        border-color: rgb(239, 183, 80);
+                        background-color: rgba(255, 164, 73, 0.2);
+                    }
+    
+                    &.hard {
+                        border-color: rgb(251, 134, 134);
+                        background-color: rgba(255, 52, 52, 0.2);
+                    }
+    
+                    .index {
+                        font-weight: 800;
+                        font-style: italic;
+                    }
+                    
+                    .difficulty {
+                        font-weight: 600;
+                    }
+    
+                    .marks {
+                        font-size: .9rem;
+                    }
+                }
+    
+                .line {
+                    height: .5rem;
+                    width: 1rem;
+                    background-color: green;
+                }
+            }
+    
+            .allRounds {
+                // background-color: red;
+                width: 80%;
+                padding: 4rem 0 2rem 0;
+                margin: 0 auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                gap: .25rem;
-
-                &.easy {
-                    border-color: rgb(74, 173, 74);
-                    background-color: rgba(128, 255, 117, 0.2);
-                }
-
-                &.medium {
-                    border-color: rgb(239, 183, 80);
-                    background-color: rgba(255, 164, 73, 0.2);
-                }
-
-                &.hard {
-                    border-color: rgb(251, 134, 134);
-                    background-color: rgba(255, 52, 52, 0.2);
-                }
-
-                .index {
-                    font-weight: 800;
-                    font-style: italic;
-                }
-                
-                .difficulty {
-                    font-weight: 600;
-                }
-
-                .marks {
-                    font-size: .9rem;
-                }
-            }
-
-            .line {
-                height: .5rem;
-                width: 1rem;
-                background-color: green;
-            }
-        }
-
-        .allRounds {
-            // background-color: red;
-            width: 80%;
-            padding: 4rem 0 2rem 0;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-
-            div.round {
-                width: 100%;
-                display: flex;
                 gap: 1rem;
-                border: 1px solid black;
-                border-radius: 16px;
-
-                .icon {
-                    flex: 2;
-                    height: 140px;
-                    width: 140px;
-                    border-radius: 14px;
-
-                    span {
+    
+                div.round {
+                    width: 100%;
+                    display: flex;
+                    gap: 1rem;
+                    border: 1px solid black;
+                    border-radius: 16px;
+    
+                    .icon {
+                        flex: 2;
+                        height: 140px;
+                        width: 140px;
+                        border-radius: 14px;
+    
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: rgb(2, 78, 2);
+                            color: white;
+                            font-weight: 800;
+                            font-size: 40px; 
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 14px;
+                        }
+                    }
+                    .info {
+                        padding-top: 1rem;
+                        flex: 9;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        gap: .5rem;
+    
+                        .noAndName {
+                            .roundNo {
+                                font-weight: 600;
+                                font-size: 22px;
+                            }
+        
+                            .roundName {
+                                font-weight: 800;
+                                font-size: 20px;
+                            }
+                        }
+    
+                        
+    
+                        .roundDesc {
+                            // background-color: yellow;
+                        }
+                    }
+                }
+    
+                .external {
+    
+                    a {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        background-color: rgb(2, 78, 2);
-                        color: white;
-                        font-weight: 800;
-                        font-size: 40px; 
-                        height: 100%;
-                        width: 100%;
-                        object-fit: cover;
-                        border-radius: 14px;
-                    }
-                }
-                .info {
-                    padding-top: 1rem;
-                    flex: 9;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    gap: .5rem;
-
-                    .noAndName {
-                        .roundNo {
-                            font-weight: 600;
-                            font-size: 22px;
-                        }
+                        all: unset;
+                        font-weight: 500;
+                        cursor: pointer;
+                        text-decoration: underline;
     
-                        .roundName {
-                            font-weight: 800;
-                            font-size: 20px;
+                        &:hover {
+                            color: black;
                         }
-                    }
-
-                    
-
-                    .roundDesc {
-                        // background-color: yellow;
-                    }
-                }
-            }
-
-            .external {
-
-                a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    all: unset;
-                    font-weight: 500;
-                    cursor: pointer;
-                    text-decoration: underline;
-
-                    &:hover {
-                        color: black;
                     }
                 }
             }
         }
+
     }
 
     .reminder {
@@ -574,11 +598,15 @@ strong {
                     margin-bottom: 2rem !important;
                 }
 
+                label {
+                    margin-bottom: .5rem;
+                }
+
                 input,
                 select {
                     color: black;
                     background-color: transparent;
-                    border: 2px solid black;
+                    border: 2px solid rgb(130, 130, 130);
                     padding: 0.75rem 1.25rem;
                     border-radius: 8px;
                 }
@@ -587,10 +615,17 @@ strong {
                     max-width: 80%;
                     margin: 1rem auto 2rem auto;
                     border-radius: 10px;
+                    transition: all .3s ease;
+
+                    &:hover {
+                        border-color: transparent;
+                        background-color: rgba(rgb(10, 132, 6), .9);
+                        color: rgba(white, .9);
+                    }
                 }
 
                 .emailIndication {
-                    border: 1px solid black;
+                    border: 1px solid rgb(77, 77, 77);
                     border-radius: 8px;
                     padding: 0.8rem;
                     display: flex;
@@ -602,7 +637,7 @@ strong {
                     font-size: 12px;
 
                     &:hover {
-                        background-color: rgba(0, 0, 0, 0.05);
+                        background-color: rgba(0, 0, 0, 0.1);
                     }
 
                     img {

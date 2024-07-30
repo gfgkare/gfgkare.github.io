@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import eventCoverImage from "../assets/events_cover.jpeg";
 
 // -----------------------------------
@@ -125,6 +125,7 @@ export default function DynamicEventPage() {
 
     useEffect(() => {
         setLoading(true);
+        setModalOpen(false);
         window.scrollTo(0, 0);
         let eventID = window.location.pathname.split("/")[2];
         setEventID(eventID);
@@ -133,6 +134,9 @@ export default function DynamicEventPage() {
 
         axios.post("/get_event_details", {
             eventID: window.location.pathname.split("/")[2],
+        }, {
+            timeout: 10000,
+            timeoutErrorMessage: "Server is not responding. Please try again after sometime."
         })
         .then((res) => {
             console.log("Got event details.");
@@ -144,7 +148,7 @@ export default function DynamicEventPage() {
         })
         .catch((err) => {
             console.error(err);
-            toast.error(err.message);
+            toast.error( err.response.data.message || err.message);
         });
     
         setTimeout(() => {
@@ -214,7 +218,7 @@ export default function DynamicEventPage() {
                                     </div>
 
                                     <div className="aboutEvent">
-                                        {eventData ? eventData.about : "-"}
+                                        {eventData ? eventData.about.replaceAll("\\n", "\n") : "-"}
                                     </div>
 
                                     <div className="startsIn">
@@ -274,7 +278,8 @@ export default function DynamicEventPage() {
                                         (<button
                                             onClick={() => {
                                                 console.log("registering...");
-                                                signinwithpopup("google");
+                                                signinwithpopup("google")
+                                                .then(() => setModalOpen(true));
                                             }}
                                         >
                                             Sign in to Register
@@ -351,45 +356,11 @@ export default function DynamicEventPage() {
                             </div>
                         </div>
                     </div>
-
-                    <div className="headings">QUESTION DETAILS</div>
-
-                    <div className="eventDetails">
-
-                        <div className="questionsContainer">
-                            <div className="circle easy">
-                                <span className="index">1</span>
-                                <span className="difficulty">Easy</span>
-                                <span className="marks">10 marks</span>
-                            </div>
-                            <div className="line"></div>
-                            <div className="circle easy">
-                                <span className="index">2</span>
-                                <span className="difficulty">Easy</span>
-                                <span className="marks">10 marks</span>
-                            </div>
-                            <div className="line"></div>
-                            <div className="circle medium">
-                                <span className="index">3</span>
-                                <span className="difficulty">Medium</span>
-                                <span className="marks">20 marks</span>
-                            </div>
-                            <div className="line"></div>
-                            <div className="circle medium">
-                                <span className="index">4</span>
-                                <span className="difficulty">Medium</span>
-                                <span className="marks">20 marks</span>
-                            </div>
-                            <div className="line"></div>
-                            <div className="circle hard">
-                                <span className="index">5</span>
-                                <span className="difficulty">Hard</span>
-                                <span className="marks">40 marks</span>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
+                    
+                    <section 
+                        className="databaseContent"
+                        dangerouslySetInnerHTML={{ __html: eventData?.htmlContent }}
+                    />
 
                     {(eventRegisterStatus !== "registered" && eventRegistrationStatus === "accepting" ) ? (
                         <div className="reminder">
@@ -465,7 +436,7 @@ export default function DynamicEventPage() {
                         e.stopPropagation();
                     }}
                 >
-                    <h2>Complete your registration</h2>
+                    <h2>Complete your registration!</h2>
                     <form
                         autoComplete="off"
                         onSubmit={(e) => {
