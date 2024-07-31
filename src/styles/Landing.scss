@@ -26,6 +26,10 @@ $text: #e0e1e1;
     scroll-snap-type: y proximity;
     overflow: auto;
 
+    &.loading {
+        overflow: hidden;
+    }
+
     .loading {
         position: absolute;
         width: 100vw;
