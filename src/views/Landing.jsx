@@ -18,7 +18,7 @@ import ScrollContainer from "../components/ScrollContainer";
 
 // Images.
 import kluTeam from "../assets/klu_team.jpg"
-import gfgLogo from '../assets/gfgkare_square_logo.jpg';
+import gfgLogo from '../assets/gfg_student_chapter_transparent.png';
 // import gemoetricCircle from "../assets/floral_pattern.svg";
 import gemoetricCircle from "../assets/geometric_circle.svg";
 import elem1 from "../assets/landing_page_elements/elem1.svg";
@@ -118,9 +118,10 @@ export default function Landing() {
                     </div>
                 </div>
 
-                <nav className={ (direction === "down") ? "nav hidden" : "nav shown" }>
+                <nav className={"nav"}>
                     <div className="logoContainer">
                         <img className="gfgLogo" src={gfgLogo} alt="Gfg Kare's logo"/>
+                        <span className="gfgText">GFG KARE</span>
                     </div>
 
                     <div className="rightMenu">
@@ -129,7 +130,7 @@ export default function Landing() {
                 </nav>
                 
 
-                <Fade delay={"1s"}>
+                <Fade delay={".5s"}>
                     <section className="fullScreenSection chapterIntro">
 
                         <motion.div
@@ -192,12 +193,17 @@ export default function Landing() {
                             transition={{ type: "spring", stiffness: 100 }}
                         />
 
-                        <div className="subText">Welcome to</div>
+                        <div className="subText">We are</div>
                         <div className="bigText textShine">
                             GFG KARE
                         </div>
                         <div className="subText">
-                            We make the impossible possible through hardwork, teamwork, dedication, and a whole fuckin ton of coffee!
+                            <div>
+                                We are a student chapter backed by GeeksForGeeks at Kalasalingam University.
+                                Over the past year we have hosted 15+ events with flagship ones
+                                such as Algorithmist, Geekfest and tons of other insightful workshops!
+                            </div>
+                            <div>We achieve this through hardwork, a passion to help students and unholy amounts of coffee!</div>
                         </div>
 
                         <div className="cardsContainer">
