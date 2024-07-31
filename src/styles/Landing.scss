@@ -370,7 +370,7 @@ $text: #e0e1e1;
         }
 
         .subText {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
             width: min(90%, 800px);
             line-height: 1.4rem;
@@ -607,6 +607,27 @@ $text: #e0e1e1;
 
 // MEDIA QUERIES AND ANIMATIONS.
 @media screen and (max-width: 470px) {
+
+    nav.nav {
+        .logoContainer {
+            img.gfgLogo {
+                height: 45px;
+                width: 45px;
+            }
+
+            .gfgText {
+                font-size: .75rem;
+            }
+        }
+
+        .rightMenu {
+            button.menuButton {
+                font-size: .75rem;
+            }
+        }
+    }
+
+   
 
     .chapterIntro {
         height: 90vh;
