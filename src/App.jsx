@@ -39,6 +39,7 @@ import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
 import RoadToMernRegister from "./views/RoadToMernRegister";
+import GeekFest24 from "./views/HardcodedEventPages/Geekfest24";
 
 import Landing from "./views/Landing";
 
@@ -90,11 +91,21 @@ export default function App() {
                         </Route>
 
                         <Route path="/hero" element={<Landing />}></Route>
+       
+       
+                        {/* EVENTS */}
+
+                        <Route path="/events/geekfest24" element={<GeekFest24 />}></Route>
+                        <Route path="/:eventname/code" element={<CodeHouse />}>
+                            <Route path="/:eventname/code" element={<Code />}></Route>
+                        </Route>
+
 
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
                         {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
+                        <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
 
 
                         {/* DASHBOARD */}
@@ -108,12 +119,9 @@ export default function App() {
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
                         </Route>
 
-                        <Route path="/:eventname/code" element={<CodeHouse />}>
-                            <Route path="/:eventname/code" element={<Code />}></Route>
-                        </Route>
-                        <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
 
 
+                 
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
 
                         <Route path="/*" element={ <NotFound /> }></Route>
