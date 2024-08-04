@@ -321,6 +321,23 @@ $textWhite: rgb(231, 231, 231);
                     line-height: 1.5;
                     max-height: max-content;
 
+                    &.map {
+                        display: flex;
+                        gap: 1rem;
+
+                        .text {
+                            flex: 1;
+                            text-align: left;
+                        }
+
+                        .map {
+                            flex: 1;
+                            iframe {
+                                border-radius: 12px;                                
+                            }
+                        }
+                    }
+
                     .rulesList {
                         // background-color: red;
                         width: min(700px, 80%);
@@ -356,17 +373,50 @@ $textWhite: rgb(231, 231, 231);
                         margin: 0 auto;
                         display: grid;
                         gap: 1rem;
-                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+                        padding: 1rem 0;
 
                         .card {
-                            background-color: dodgerblue;
+                            border: 2px solid rgba(white, .3);
                             color: white;
-                            padding: 1rem;
                             height: 240px;
                             border-radius: 12px;
+                            overflow: hidden;
                             display: flex;
                             justify-content: center;
                             align-items: center;
+                            cursor: pointer;
+
+                            transition: all .3s ease;
+
+                            &:hover {
+                                border-color: rgba(white, .6);
+                            }
+
+                            &.healthcare {
+                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/doctor.webp");
+                                background-size: cover;
+                            }
+
+                            &.agrotech {
+                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/agrotech.webp");
+                                background-size: cover;
+                            }
+
+                            &.fintech {
+                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/fintech.jpg");
+                                background-size: cover;
+                            }
+
+                            &.fitness {
+                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/fitness.png");
+                                background-size: cover;
+                            }
+
+                            &.blockchain {
+                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/blockchain.webp");
+                                background-size: cover;
+                            }
                         }  
                     }
 
@@ -495,6 +545,10 @@ $textWhite: rgb(231, 231, 231);
                 }
 
                 .normalSectionText {
+
+                    &.map {
+                        flex-direction: column;
+                    }
 
                     .rulesList {
                         width: 85vw;

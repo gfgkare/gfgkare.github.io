@@ -17,6 +17,13 @@ import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
 import axios from "../../scripts/axiosConfig";
 import { toast } from "react-toastify";
 
+import healthcareImage from "../../assets/project-expo-stock-images/doctor.webp"
+import fintechImage from "../../assets/project-expo-stock-images/fintech.jpg"
+import agrotechImage from "../../assets/project-expo-stock-images/agrotech.webp"
+import fitnessImage from "../../assets/project-expo-stock-images/fitness.png"
+import blockchainImage from "../../assets/project-expo-stock-images/blockchain.webp"
+
+
 import { useAuth } from "../../contexts/AuthContext";
 
 export default function ProjectExpo() {
@@ -298,7 +305,7 @@ export default function ProjectExpo() {
 
                         <Slide direction="right" triggerOnce>
                             <div className="normalSectionText">
-                                Project Expo welcomes participation from both <span className="color pink">undergraduate and postgraduate students from any institution </span> all over India. You can <span className="color yellow">join individually or form a team of up to four members.</span> Each participant is permitted to register only once and may be a member of only one team. This ensures fairness and integrity in the competition.
+                                Project Expo welcomes participation from both <span className="color pink">undergraduate and postgraduate students from any institution </span> all over India. You can <span className="color yellow">join with team of two to four members.</span> Each participant is permitted to register only once and may be a member of only one team. This ensures fairness and integrity in the competition.
                             </div>
                         </Slide>
                     </Fade>
@@ -336,8 +343,14 @@ export default function ProjectExpo() {
                             </div>
                         </div>
                         <Slide direction="right" triggerOnce>
-                            <div className="normalSectionText">
-                                Project Expo is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">September 6, 2024</span>, and the winners will be announced on the same day.
+                            <div className="normalSectionText map">
+                                <div className="text">
+                                    Project Expo is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">September 27, 2024</span>, and the winners will be announced on the same day.
+                                </div>
+                                <div className="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.2384182267283!2d77.67723340993616!3d9.574705190470475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06dbc06968e9eb%3A0x6cfd8f94e42f98c4!2sKalasalingam%20Academy%20of%20Research%20and%20Education!5e0!3m2!1sen!2sin!4v1722789691882!5m2!1sen!2sin" width="400" height="300" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                                
                             </div>
                         </Slide>
                         
@@ -356,10 +369,10 @@ export default function ProjectExpo() {
                             </div> */}
                         </div>
                         <div className="normalSectionText">
-                            <Slide triggerOnce>
-                                1st prize - 10000
-                                2nd prize - 5000
-                                3rd prize - 3000
+                            <Slide className="prizesContainer" triggerOnce>
+                                <div className="prizeCard first">
+                                    
+                                </div>
                             </Slide>
                         </div>
                     </Fade>
@@ -391,11 +404,11 @@ export default function ProjectExpo() {
                         <div className="normalSectionText">
                             <div className="themesGrid">
                                 <Slide triggerOnce>
-                                    <div className="card">Healthcare</div>
-                                    <div className="card">FinTech</div>
-                                    <div className="card">AgroTech</div>
-                                    <div className="card">Fitness and Sports</div>
-                                    <div className="card">BlockChain</div>
+                                    <div className="card healthcare">Healthcare</div>
+                                    <div className="card fintech">FinTech</div>
+                                    <div className="card agrotech">AgroTech</div>
+                                    <div className="card fitness">Fitness and Sports</div>
+                                    <div className="card blockchain">BlockChain</div>
                                 </Slide>
                             </div>
                         </div>
@@ -419,7 +432,7 @@ export default function ProjectExpo() {
                                         <RiGroupFill size={"25px"} />
                                     </div>
                                     <div className="text">
-                                        Team of 1 - 4 people
+                                        Team of 2 - 4 people
                                     </div>
                                 </div>
                                 <div className="rule">
@@ -494,7 +507,6 @@ export default function ProjectExpo() {
                                 <div className="formGroup">
                                     <label htmlFor="numberOfMembers">Number of Members:</label>
                                     <select id="numberOfMembers" name="numberOfMembers" defaultValue={4} onChange={(e) => setNumberOfMembers(e.target.value)}>
-                                        <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -605,9 +617,6 @@ export default function ProjectExpo() {
             <footer>
                 <div className="club">
                     With love, from GFG KARE
-                </div>
-                <div className="creator">
-                    Crafted by <a href="https://www.github.com/sabzdotpy">sabzdotpy</a>
                 </div>
             </footer>
 
