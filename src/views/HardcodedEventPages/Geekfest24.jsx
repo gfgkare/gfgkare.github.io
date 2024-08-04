@@ -42,7 +42,7 @@ export default function GeekFest24() {
                                 Aug 12 2024, 4 - 7 PM
                             </span>
 
-                            <button className="register" onClick={ () => window.location.href = "https://www.geeksforgeeks.org/contest/geek-fest-2k24" }>
+                            <button className="register" onClick={ () => window.location.href = "https://practice.geeksforgeeks.org/contest/geek-fest-2k24" }>
                                 Register Now
                             </button>
                             {/* {
