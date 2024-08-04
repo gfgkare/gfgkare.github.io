@@ -85,7 +85,7 @@ export default function App() {
                                 })
                             }
 
-                            <Route path="/events/:eventname" element={<DynamicEventPage />}></Route>
+                            {/* <Route path="/events/:eventname" element={<DynamicEventPage />}></Route> */}
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
