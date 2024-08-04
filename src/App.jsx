@@ -38,8 +38,8 @@ import SlotSuspend from "./views/SlotSuspend";
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
-import RoadToMernRegister from "./views/RoadToMernRegister";
 import GeekFest24 from "./views/HardcodedEventPages/Geekfest24";
+import ProjectExpo from "./views/HardcodedEventPages/ProjectExpo";
 
 import Landing from "./views/Landing";
 
@@ -94,11 +94,10 @@ export default function App() {
        
        
                         {/* EVENTS */}
-
+                        <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/geekfest24" element={<GeekFest24 />}></Route>
-                        <Route path="/:eventname/code" element={<CodeHouse />}>
-                            <Route path="/:eventname/code" element={<Code />}></Route>
-                        </Route>
+
+                       
 
 
                         
@@ -119,7 +118,9 @@ export default function App() {
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
                         </Route>
 
-
+                        <Route path="/:eventname/code" element={<CodeHouse />}>
+                            <Route path="/:eventname/code" element={<Code />}></Route>
+                        </Route>
 
                  
                         {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}

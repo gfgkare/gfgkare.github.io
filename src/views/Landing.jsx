@@ -11,12 +11,14 @@ import { IoPin } from "react-icons/io5";
 import { FaRegCopyright, FaLinkedin, FaInstagram, FaYoutube, FaGithub } from "react-icons/fa"
 
 // Custom.
+import CLink from "../components/CLink";
 import Fade from "../components/Fade";
 import RollingLetters from "../components/RollingLetters"
 import RocketIntro from "../components/RocketIntro";
 import ScrollContainer from "../components/ScrollContainer";
 
 // Images.
+import eventPlaceholderImage from "../assets/pinkAndWhiteMovement.gif"
 import kluTeam from "../assets/klu_team.jpg"
 import gfgLogo from '../assets/gfg_student_chapter_transparent.png';
 // import gemoetricCircle from "../assets/floral_pattern.svg";
@@ -44,11 +46,11 @@ export default function Landing() {
 
     const { scrollYProgress, scrollY } = useScroll();
 
-    const rightCircleX = useTransform(scrollYProgress, [0, 0.5], ['55%', '-100%']);
-    const leftCircleX = useTransform(scrollYProgress, [0, 0.5], ['-55%', '100%']);
+    // const rightCircleX = useTransform(scrollYProgress, [0, 0.5], ['55%', '-100%']);
+    // const leftCircleX = useTransform(scrollYProgress, [0, 0.5], ['-55%', '100%']);
 
-    const rightCircleRotation = useTransform(scrollYProgress, [0, 0.25], ['0deg', '-360deg']);
-    const leftCircleRotation = useTransform(scrollYProgress, [0, 0.25], ['0deg', '360deg']);
+    // const rightCircleRotation = useTransform(scrollYProgress, [0, 0.25], ['0deg', '-360deg']);
+    // const leftCircleRotation = useTransform(scrollYProgress, [0, 0.25], ['0deg', '360deg']);
 
     const fullScreenNav = useRef(null);
     
@@ -133,7 +135,7 @@ export default function Landing() {
                 <Fade delay={".5s"}>
                     <section className="fullScreenSection chapterIntro">
 
-                        <motion.div
+                        {/* <motion.div
                             className="circlePatternContainer left hideOnMobile"
                             initial={{ translateX: leftCircleX }}
                             style={{ translateX: leftCircleX, rotate: leftCircleRotation  }}
@@ -147,7 +149,7 @@ export default function Landing() {
                             style={{ translateX: (rightCircleX), rotate: rightCircleRotation }}
                         >
                             <img src={gemoetricCircle} loading="lazy" />
-                        </motion.div>
+                        </motion.div> */}
 
                         {/*
                         <div className="outlineTextContainer">
@@ -275,10 +277,6 @@ export default function Landing() {
                                 </div>
                             </Fade>
                         </div>
-                    
-
-                        
-                        
 
                     </section>
                 </Fade>
@@ -291,52 +289,135 @@ export default function Landing() {
 
                 <section className="fullScreenSection eventsDiv">
 
+                {/* <div class="container">
+                    <div class="card">
+                        <img class="background" src={kluTeam} alt="" />
+
+                        <div class="card-content">
+                        <div class="profile-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+                            <line x1="6" x2="10" y1="11" y2="11" />
+                            <line x1="8" x2="8" y1="9" y2="13" />
+                            <line x1="15" x2="15.01" y1="12" y2="12" />
+                            <line x1="18" x2="18.01" y1="10" y2="10" />
+                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="title">GTA 6</h3>
+                        </div>
+                        <div class="backdrop"></div>
+                    </div>
+
+                    <div class="card">
+                        <img class="background" src={kluTeam} alt="" />
+
+                        <div class="card-content">
+                        <div class="profile-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+                            <line x1="6" x2="10" y1="11" y2="11" />
+                            <line x1="8" x2="8" y1="9" y2="13" />
+                            <line x1="15" x2="15.01" y1="12" y2="12" />
+                            <line x1="18" x2="18.01" y1="10" y2="10" />
+                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="title">Spider-Man PS5</h3>
+                        </div>
+                        <div class="backdrop"></div>
+                    </div>
+
+                    <div class="card">
+                        <img class="background" src={kluTeam} alt="" />
+
+                        <div class="card-content">
+                        <div class="profile-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+                            <line x1="6" x2="10" y1="11" y2="11" />
+                            <line x1="8" x2="8" y1="9" y2="13" />
+                            <line x1="15" x2="15.01" y1="12" y2="12" />
+                            <line x1="18" x2="18.01" y1="10" y2="10" />
+                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="title">God Of War</h3>
+                        </div>
+                        <div class="backdrop"></div>
+                    </div>
+
+                    <div class="card">
+                        <img class="background" src={kluTeam} alt="" />
+
+                        <div class="card-content">
+                        <div class="profile-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+                            <line x1="6" x2="10" y1="11" y2="11" />
+                            <line x1="8" x2="8" y1="9" y2="13" />
+                            <line x1="15" x2="15.01" y1="12" y2="12" />
+                            <line x1="18" x2="18.01" y1="10" y2="10" />
+                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="title">The Last of Us</h3>
+                        </div>
+                        <div class="backdrop"></div>
+                    </div>
+
+                    <div class="card">
+                        <img class="background" src={kluTeam} alt="" />
+
+                        <div class="card-content">
+                        <div class="profile-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
+                            <line x1="6" x2="10" y1="11" y2="11" />
+                            <line x1="8" x2="8" y1="9" y2="13" />
+                            <line x1="15" x2="15.01" y1="12" y2="12" />
+                            <line x1="18" x2="18.01" y1="10" y2="10" />
+                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="title">Elden Ring</h3>
+                        </div>
+                        <div class="backdrop"></div>
+                    </div>
+                    </div> */}
                     <div className="eventsContainer">
-                        <div className="goToPreviousEvent">
-                            {"<<"}
+
+                        <div className="eventNamesContainer">
+                            <CLink className="event" to={"/events/algo2024"} >
+                                <div className="title">Algorithmist '24</div>
+                                <div className="date">Oct '23 - Feb '24</div>
+                            </CLink>
+                            <CLink className="event" to={"/events/algo2024"} >
+                                <div className="title">Algorithmist '24</div>
+                                <div className="date">Oct '23 - Feb '24</div>
+                            </CLink>
+                            <CLink className="event" to={"/events/algo2024"} >
+                                <div className="title">Algorithmist '24</div>
+                                <div className="date">Oct '23 - Feb '24</div>
+                            </CLink>
+                            <CLink className="event" to={"/events/algo2024"} >
+                                <div className="title">Algorithmist '24</div>
+                                <div className="date">Oct '23 - Feb '24</div>
+                            </CLink>
+                            <CLink className="event" to={"/events/algo2024"} >
+                                <div className="title">Algorithmist '24</div>
+                                <div className="date">Oct '23 - Feb '24</div>
+                            </CLink>
                         </div>
-
-                        <div className="eventCardsContainer">
-                            <div className="eventBox">
-                                <img src="" alt="" />
-                                <div className="eventInfo">
-                                    <div className="title">Algorithmist '24</div>
-                                    <div className="when">Aug 2024</div>
-                                    <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, eum.</div>
-                                </div>
+                        <div className="eventCanvas">
+                            <div className="eventCard">
+                                <img src={eventPlaceholderImage} alt="" />
                             </div>
-                            <div className="eventBox">
-                                <img src="" alt="" />
-                                <div className="eventInfo">
-                                    <div className="title">Algorithmist '24</div>
-                                    <div className="when">Aug 2024</div>
-                                    <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, eum.</div>
-                                </div>
-                            </div>
-                            <div className="eventBox">
-                                <img src="" alt="" />
-                                <div className="eventInfo">
-                                    <div className="title">Algorithmist '24</div>
-                                    <div className="when">Aug 2024</div>
-                                    <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, eum.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-
-                        <div className="goToNextEvent">
-                            {">>"}
                         </div>
 
                     </div>
-                    <div className="timelineContainer">
-                        <div className="timeline">
-                            <div className="indicator">
-                                
-                            </div>
-                        </div>
-                    </div>
+
+                    
 
                 </section>
 

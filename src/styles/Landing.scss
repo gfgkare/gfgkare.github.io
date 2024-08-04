@@ -518,69 +518,248 @@ $text: #e0e1e1;
     section.eventsDiv {
         height: 100vh;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 3rem;
 
         .eventsContainer {
             display: flex;
+            gap: 1rem;
+            width: min(1000px, 95%);
+            height: 80%;
 
-            .goToPreviousEvent, .goToNextEvent {
-                height: 100%;
-                width: 90px;
-                cursor: pointer;
+            &:has(.event:hover) {
+                .eventCard {
+                    background-color: red;
+                }
+            }
+
+            .eventNamesContainer {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                flex: 1;
+
+                .event {
+                    all: unset;
+                    width: 100%;
+                    padding: 1rem 0;
+                    border: 3px solid $text;
+                    background: transparent;
+                    border-color: $background transparent $background transparent;
+                    cursor: pointer;
+                    transition: all .3s ease !important;
+                    padding-left: 1rem;
+
+                    &:hover {
+                        color: $background !important;
+                        background: linear-gradient(to right, transparent 3%, $text 80%, transparent 100%);
+                    }
+
+                    .title {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    }
+
+                    .date {
+                        font-size: 1rem;
+                        opacity: .7;
+                    }
+                }
+            }
+
+            .eventCanvas {
+                flex: 1.2;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                z-index: 2;
-                transition: all .3s ease;
 
-                &:hover {
-                    color: $background;
-                }
-            }
+                .eventCard {
+                    transform-style: preserve-3d;
+                    height: 95%;
+                    width: 90%;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    background-color: blue;
+                    transition: all .3s ease;
 
-            .goToPreviousEvent {
-                transform: translateX(40px);
-                border-radius: .8rem 0 0 .8rem;
-                background: linear-gradient(to right, white 50%, transparent 100%);
-            }
-
-            .goToNextEvent {
-                transform: translateX(-40px);
-                border-radius: 0 .8rem .8rem 0;
-                background: linear-gradient(to right, transparent 0%, white 50%);
-            }
-
-            .eventCardsContainer {
-                border-radius: .8rem;
-                padding: 1rem;
-                width: min(1200px, 70vw);
-                height: 70vh;
-                
-                display: flex;
-                gap: 1rem;
-                overflow: hidden;
-
-                &:hover {
-                    .eventBox {
-                        transform: translateX(-102%);
+                    img {
+                        border-radius: 12px;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
-
-                .eventBox {
-                    flex-shrink: 0;
-                    position: relative;
-                    width: 100%;
-                    height: 100%;
-                    background-color: aquamarine;
-                    border: 3px solid orange;
-                    border-radius: 12px;
-                    transition: all .5s ease-out;
-                }
             }
+
         }
+
+
+        // .container {
+        //     width: 70%;
+        //     height: 340px;
+        //     display: flex;
+        //     gap: 10px;
+        //     margin-inline: 50px;
+        // }
+        
+        // .card {
+        //     min-width: 20px;
+        //     height: 100%;
+        //     border-radius: 30px;
+        //     overflow: hidden;
+        
+        //     display: flex;
+        //     align-items: flex-end;
+        //     flex-grow: 1;
+        //     cursor: pointer;
+        //     position: relative;
+        //     transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        //     --transition-timing: 0.35s;
+        // }
+
+        // .card:hover {
+        //     flex-grow: 10;
+        // }
+        
+        // .card > .background {
+        //     position: absolute;
+        //     inset: 0;
+        //     object-fit: cover;
+        //     object-position: center;
+        //     filter: brightness(0.4);
+        //     z-index: -1;
+        //     transition: var(--transition-timing) ease;
+        // }
+        // .card:hover > .background {
+        //     filter: brightness(1);
+        // }
+        
+        // .card > .card-content {
+        //     display: flex;
+        //     align-items: center;
+        //     position: absolute;
+        //     left: 10px;
+        //     right: 10px;
+        //     bottom: 20px;
+        //     overflow: hidden;
+        //     transition: var(--transition-timing);
+        //     z-index: 10;
+        // }
+        // .card:hover > .card-content {
+        //     inset: 20px;
+        //     top: auto;
+        // }
+        
+        // .card-content > * {
+        //     transition: var(--transition-timing);
+        // }
+        
+        // .card-content > .profile-image {
+        //     min-width: 50px;
+        //     max-width: 50px;
+        //     height: 50px;
+        //     border: 1px solid white;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     border-radius: 50%;
+        //     overflow: hidden;
+        // }
+        // .card:hover .profile-image {
+        //     border: 1px solid rgb(110, 252, 205);
+        // }
+        // .profile-image > svg {
+        //     stroke: #fefefe;
+        // }
+        // .card:hover .profile-image > svg {
+        //     stroke: rgb(110, 252, 205);
+        // }
+        
+        // .card-content > .title {
+        //     white-space: pre;
+        //     margin-left: 10px;
+        //     translate: 0 100%;
+        //     opacity: 0;
+        // }
+        // .card:hover .title {
+        //     opacity: 1;
+        //     translate: 0 0;
+        // }
+        
+        // .card > .backdrop {
+        //     position: absolute;
+        //     left: 0;
+        //     right: 0;
+        //     bottom: 0;
+        //     height: 100px;
+        //     z-index: 0;
+        //     background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+        // }
+
+
+
+        // .eventsContainer {
+        //     display: flex;
+
+        //     .goToPreviousEvent, .goToNextEvent {
+        //         height: 100%;
+        //         width: 90px;
+        //         cursor: pointer;
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
+        //         z-index: 2;
+        //         transition: all .3s ease;
+
+        //         &:hover {
+        //             color: $background;
+        //         }
+        //     }
+
+        //     .goToPreviousEvent {
+        //         transform: translateX(40px);
+        //         border-radius: .8rem 0 0 .8rem;
+        //         background: linear-gradient(to right, white 50%, transparent 100%);
+        //     }
+
+        //     .goToNextEvent {
+        //         transform: translateX(-40px);
+        //         border-radius: 0 .8rem .8rem 0;
+        //         background: linear-gradient(to right, transparent 0%, white 50%);
+        //     }
+
+        //     .eventCardsContainer {
+        //         border-radius: .8rem;
+        //         padding: 1rem;
+        //         width: min(1200px, 70vw);
+        //         height: 70vh;
+                
+        //         display: flex;
+        //         gap: 1rem;
+        //         overflow: hidden;
+
+        //         &:hover {
+        //             .eventBox {
+        //                 transform: translateX(-102%);
+        //             }
+        //         }
+
+        //         .eventBox {
+        //             flex-shrink: 0;
+        //             position: relative;
+        //             width: 100%;
+        //             height: 100%;
+        //             background-color: aquamarine;
+        //             border: 3px solid orange;
+        //             border-radius: 12px;
+        //             transition: all .5s ease-out;
+        //         }
+        //     }
+        // }
 
         .timelineContainer {
             display: flex;
@@ -626,11 +805,10 @@ $text: #e0e1e1;
             }
         }
     }
-
    
 
     .chapterIntro {
-        height: 90vh;
+        height: 80vh;
 
         .subText {
             margin-bottom: 1rem;
