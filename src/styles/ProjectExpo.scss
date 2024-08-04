@@ -11,10 +11,85 @@
 $textWhite: rgb(231, 231, 231);
 
 .projectExpo {
+    scroll-behavior: smooth;
     color: $textWhite;
     background-color: rgb(23, 16, 34);
     height: 100vh;
     overflow: scroll;
+    overflow-x: hidden;
+
+
+    .confirmModalBackground {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        background-color: rgba(black, .8);
+        backdrop-filter: blur(3px);
+        z-index: 9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .confirmModal {
+            height: 80vh;
+            width: min(700px, 70vw);
+            border-radius: 2rem;
+            background-color: rgb(43, 43, 43);
+            color: $textWhite;
+            padding: 2rem;
+            padding-top: 0;
+            overflow: scroll;
+
+            button.close {
+                margin: 0 !important;
+                margin-top: 2rem !important;
+                margin-left: auto !important;
+                padding: .4rem 1rem !important;
+            }
+
+            .heading {
+                font-size: x-large;
+                text-align: center;
+                font-weight: 800;
+                width: 100%;
+                margin: 1rem 0;
+            }
+
+            .title {
+                font-weight: 600;
+                font-size: medium;
+                margin-bottom: 1rem;
+            }
+
+            .ss {
+                color: rgb(250, 139, 139);
+            }
+
+            .field {
+                margin-bottom: 1rem;
+
+                .title {
+                    font-weight: 600;
+                    font-size: medium;
+                    margin-bottom: 0;
+                }
+                .value {
+                    font-size: small;
+                    opacity: .9;
+                }
+            }
+
+            button {
+                display: block;
+                margin: 2rem auto;
+                border-radius: 12px;
+                border-style: none;
+                padding: 1rem 2rem;
+            }
+        }
+    }
 
     .color {
         &.green {
@@ -79,8 +154,18 @@ $textWhite: rgb(231, 231, 231);
             justify-content: center;
             align-items: center;
             height: 1rem;
-            border: 1px solid white;
             border-radius: .8rem;
+            cursor: pointer;
+
+            &:not(:has(img)) {
+                border: 1px solid $textWhite;
+            }
+
+            img {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+            }
         }
     }
 
@@ -102,8 +187,15 @@ $textWhite: rgb(231, 231, 231);
             .gfgKarePresents {
                 font-size: 2rem;
                 display: flex;
-                align-items: flex-end;
                 gap: 1rem;
+
+                .awesomeFade {
+                    display: flex;
+                    gap: .5rem;
+                    justify-content: center;
+                    align-items: flex-end;
+                }
+
 
                 .title {
                     font-size: 3rem;
@@ -131,37 +223,43 @@ $textWhite: rgb(231, 231, 231);
             .actionButtonContainer {
                 margin: 3rem 0;
 
-                .actionButton {
-                    font-family: "Unbounded";
-                    opacity: .7;
-                    background-color: rgb(197, 186, 240);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: .75rem 1.75rem;
-                    border-radius: 3rem;
-                    transform: scale(.9);
-                    transition: all .3s ease;
-                    transition-delay: 0;
+                a {
+                    text-decoration: none;
 
-                    display: flex;
-                    gap: .5rem;
+                    .actionButton {
+                        font-family: "Unbounded";
+                        opacity: .7;
+                        background-color: rgb(197, 186, 240);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: .75rem 1.75rem;
+                        border-radius: 3rem;
+                        transform: scale(.9);
+                        transition: all .3s ease;
+                        transition-delay: 0;
 
-                    svg {
-                        animation: hoverUpAndDown 1s infinite ease;
-                    }
+                        display: flex;
+                        gap: .5rem;
 
-                    &:hover {
-                        opacity: 1;
-                        transform: scale(1);
+                        svg {
+                            animation: hoverUpAndDown 1s infinite ease;
+                        }
+
+                        &:hover {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
                     }
                 }
+
+                
             }
             
             .FourQuestionSection {
-                margin: 2rem 0;
+                margin: 5rem 0;
                 padding: 2rem 0;
-                min-height: 90vh;
+                min-height: 70vh;
                 max-height: max-content;
 
                 .sectionTitleText {
@@ -271,11 +369,143 @@ $textWhite: rgb(231, 231, 231);
                             align-items: center;
                         }  
                     }
+
+                    .registrationForm {
+                        input, select {
+                            border-radius: 12px;
+                            border-style: none;
+                            padding: 1rem 2rem;
+                            background-color: rgba(white, .2);
+                            color: $textWhite;
+                            border: 2px solid rgba(white, .3);
+                            outline: none;
+
+                            &:focus, &:active {
+                                border-color: rgba(white, .7);
+                            }
+                        }
+
+                        button:disabled {
+                            cursor: not-allowed;
+                        }
+
+                        .registrationInfo {
+                            display: flex;
+                            flex-direction: column;
+                            font-size: 1rem;
+                            margin: 0;
+                            margin-top: 1.5rem;
+                        }
+
+                        .formGroup {
+                            margin-bottom: 4rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.2rem;
+
+                            &.memberDetails {
+                                padding-bottom: 5rem;
+                                border: 3px dashed transparent;
+                                border-bottom-color: rgba(bisque, .2);
+
+                                input {
+                                    margin-bottom: 2rem;
+                                }
+
+                                &.zero {
+                                    border-top-color: rgba(bisque, .2);
+                                    padding-top: 5rem;
+                                }
+    
+                            }
+                        }
+                    }
+
+                    .contact {
+                        margin-bottom: 4rem;
+
+                        .numbers {
+                            font-size: 1rem;
+                            margin-top: 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                        }
+                    }
                 }
             }
-            
+        }    
 
-        }        
+        footer {
+            background: rgba(white, .1);
+            padding: 3rem 0;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            .creator {
+                opacity: .7;
+
+                a {
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                    color: rgb(178, 238, 178);
+                    text-decoration: wavy;
+                    font-style: italic;
+
+                    &:hover {
+                        color: rgb(253, 149, 128) !important;
+                    }
+                }
+            }
+        }    
+}
+
+
+@media screen and (max-width: 700px) {
+    .projectExpo {
+        width: 100vw;
+        overflow-x: hidden;
+
+        .content {
+            .heroDiv {
+                .gfgKarePresents {
+                    font-size: 1.5rem;
+                    
+                    .awesomeFade {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .title {
+                        font-size: 1.85rem;
+                    }
+                }
+
+                .projectExpoText {
+                    font-size: 4rem;
+                }
+            }
+
+            .FourQuestionSection {
+                .subText {
+                    text-align: center;
+                }
+
+                .normalSectionText {
+
+                    .rulesList {
+                        width: 85vw;
+
+                        .rule {
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 

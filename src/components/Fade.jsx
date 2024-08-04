@@ -12,7 +12,7 @@ export default function Fade(props) {
             (entries) => {
                 if (entries[0].isIntersecting) {
                     setTimeout(() => {
-                        setShown(true)
+                        setShown(true);
                     }, props.delay);
 
                     observer.unobserve(elem.current);
