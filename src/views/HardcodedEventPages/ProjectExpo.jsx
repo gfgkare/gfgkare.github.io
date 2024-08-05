@@ -30,107 +30,107 @@ export default function ProjectExpo() {
 
     const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
 
-    const [numberOfMembers, setNumberOfMembers] = useState(4);
-    const [confirmModalShown, setConfirmModalShown] = useState(false);
-    const [confirmChecked, setConfirmChecked] = useState(false);
-    const [teamMembers, setTeamMembers] = useState({});
-    const [txnID, setTxnId] = useState("-");
+    // const [numberOfMembers, setNumberOfMembers] = useState(4);
+    // const [confirmModalShown, setConfirmModalShown] = useState(false);
+    // const [confirmChecked, setConfirmChecked] = useState(false);
+    // const [teamMembers, setTeamMembers] = useState({});
+    // const [txnID, setTxnId] = useState("-");
 
-    const [paymentStatus, setPaymentStatus] = useState("unpaid");
-    const [registrationStatus, setRegistrationStatus] = useState("not_registererd");
+    // const [paymentStatus, setPaymentStatus] = useState("unpaid");
+    // const [registrationStatus, setRegistrationStatus] = useState("not_registererd");
 
-    const form = useRef();
+    // const form = useRef();
     const whatSection = useRef();
     const themesSection = useRef();
 
-    const startPayment = (e) => {
-        e.preventDefault();
-        console.log("Initiating payment with razorpay");
-        setTimeout(() => {
-            setPaymentStatus("paid");
-            setTxnId("999999328476");
-            toast.success("Payment is successful. Please proceed with the registration process.");
-            let teamSize = form.current.elements.numberOfMembers.value;
+    // const startPayment = (e) => {
+    //     e.preventDefault();
+    //     console.log("Initiating payment with razorpay");
+    //     setTimeout(() => {
+    //         setPaymentStatus("paid");
+    //         setTxnId("999999328476");
+    //         toast.success("Payment is successful. Please proceed with the registration process.");
+    //         let teamSize = form.current.elements.numberOfMembers.value;
 
-            let team = {}
-            for (let i = 1; i <= teamSize; i++) {
-                console.log(`Reading for memberName${i}`)
-                team[`member${i}`] = {
-                    name: form.current.elements[`memberName${i}`].value,
-                    email: form.current.elements[`memberEmail${i}`].value
-                };
-            }
-            setTeamMembers(team);
-            setConfirmModalShown(true);
-        }, 2000);
-    }
+    //         let team = {}
+    //         for (let i = 1; i <= teamSize; i++) {
+    //             console.log(`Reading for memberName${i}`)
+    //             team[`member${i}`] = {
+    //                 name: form.current.elements[`memberName${i}`].value,
+    //                 email: form.current.elements[`memberEmail${i}`].value
+    //             };
+    //         }
+    //         setTeamMembers(team);
+    //         setConfirmModalShown(true);
+    //     }, 2000);
+    // }
 
-    const storeMembers = (e) => {
-        e.preventDefault();
-        let teamSize = e.target.elements.numberOfMembers.value;
+    // const storeMembers = (e) => {
+    //     e.preventDefault();
+    //     let teamSize = e.target.elements.numberOfMembers.value;
 
-        let team = {}
-        for (let i = 1; i <= teamSize; i++) {
-            console.log(`Reading for memberName${i}`)
-            team[`member${i}`] = {
-                name: e.target.elements[`memberName${i}`].value,
-                email: e.target.elements[`memberEmail${i}`].value
-            };
-        }
-        setTeamMembers(team);
-        setConfirmModalShown(true);
-    }
+    //     let team = {}
+    //     for (let i = 1; i <= teamSize; i++) {
+    //         console.log(`Reading for memberName${i}`)
+    //         team[`member${i}`] = {
+    //             name: e.target.elements[`memberName${i}`].value,
+    //             email: e.target.elements[`memberEmail${i}`].value
+    //         };
+    //     }
+    //     setTeamMembers(team);
+    //     setConfirmModalShown(true);
+    // }
 
-    const register = async (e) => {
-        e.preventDefault();
+    // const register = async (e) => {
+    //     e.preventDefault();
 
-        if (!USER_PRESENT()) {
-            toast.error("You have to be logged in to complete registration.");
-            return;
-        }
+    //     if (!USER_PRESENT()) {
+    //         toast.error("You have to be logged in to complete registration.");
+    //         return;
+    //     }
 
-        let teamName = form.current.elements.teamName.value;
-        let theme = form.current.elements.theme.value;
-        let teamSize = form.current.elements.numberOfMembers.value;
+    //     let teamName = form.current.elements.teamName.value;
+    //     let theme = form.current.elements.theme.value;
+    //     let teamSize = form.current.elements.numberOfMembers.value;
 
-        let teamMembers = {}
-        for (let i = 1; i <= teamSize; i++) {
-            console.log(`Reading for memberName${i}`)
-            teamMembers[`member${i}`] = {
-                name: form.current.elements[`memberName${i}`].value,
-                email: form.current.elements[`memberEmail${i}`].value
-            };
-        }
+    //     let teamMembers = {}
+    //     for (let i = 1; i <= teamSize; i++) {
+    //         console.log(`Reading for memberName${i}`)
+    //         teamMembers[`member${i}`] = {
+    //             name: form.current.elements[`memberName${i}`].value,
+    //             email: form.current.elements[`memberEmail${i}`].value
+    //         };
+    //     }
 
-        axios.post('/register_projectexpo', {
-            teamName: teamName,
-            theme: theme,
-            teamSize: teamSize,
-            teamMembers: teamMembers,
-            txnID: txnID
-        }, 
-        { headers: { Authorization: await currentUser.getIdToken() } }
-        )
-        .then((res) => {
-            console.log(res);
-            setRegistrationStatus("registered");
-            setConfirmModalShown(false);
-            toast.info(res.data.message);
-        })
-        .catch((err) => {
-            console.log("Error in registering proejct epxo")
-            console.error(err);
-            toast.error(err.response.data.message || err.response.data.error || err.message);
-        })
+    //     axios.post('/register_projectexpo', {
+    //         teamName: teamName,
+    //         theme: theme,
+    //         teamSize: teamSize,
+    //         teamMembers: teamMembers,
+    //         txnID: txnID
+    //     }, 
+    //     { headers: { Authorization: await currentUser.getIdToken() } }
+    //     )
+    //     .then((res) => {
+    //         console.log(res);
+    //         setRegistrationStatus("registered");
+    //         setConfirmModalShown(false);
+    //         toast.info(res.data.message);
+    //     })
+    //     .catch((err) => {
+    //         console.log("Error in registering proejct epxo")
+    //         console.error(err);
+    //         toast.error(err.response.data.message || err.response.data.error || err.message);
+    //     })
 
 
-    }
+    // }
 
     return (
 
         <div className="projectExpo">
 
-            {
+            {/* {
                 (confirmModalShown) && (
                     <div className="confirmModalBackground">
                         <div className="confirmModal">
@@ -205,7 +205,7 @@ export default function ProjectExpo() {
                     </div>
                     
                 )
-            }
+            } */}
             
             <nav className="nav">
                 <div className="logo">
@@ -262,12 +262,12 @@ export default function ProjectExpo() {
                 
                 <div className="actionButtonContainer">
                     <AttentionSeeker effect="tada" delay={3000}>
-                        <a href="#detailed">
-                            <button className="actionButton" onClick={() => whatSection?.current.scrollIntoView() }>
+                            <button className="actionButton" onClick={() => {
+                                whatSection?.current.scrollIntoView()
+                             }}>
                                 <BsChevronDoubleDown size={"40px"} />
                                 LET'S GO!
                             </button>
-                        </a>
                     </AttentionSeeker>
                     
                 </div>
@@ -486,7 +486,11 @@ export default function ProjectExpo() {
                             </div>
                         </div>
 
-                        <div className="normalSectionText">
+                        <CLink to="/events/project-expo/register">
+                            <button>GO TO REGISTER PAGE!</button>
+                        </CLink>
+
+                        {/* <div className="normalSectionText">
                             <form className="registrationForm" ref={form} onSubmit={storeMembers}>
                                 <div className="formGroup">
                                     <label htmlFor="teamName">Team Name:</label>
@@ -581,7 +585,7 @@ export default function ProjectExpo() {
                                 </button>
                                 )
                             }
-                        </div>
+                        </div> */}
                     </Fade>
                     
                 </div>

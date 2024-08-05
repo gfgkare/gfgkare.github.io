@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+ 
+@font-face {
+    font-family: "Supercharge";
+    src: url("../fonts/SuperchargeHalftone.otf") format("opentype");
+    font-weight: normal;
+    font-style: halftone;
+}
+
+$textWhite: rgb(230, 230, 230);
+
+.confirmModalBackground {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(black, .8);
+    backdrop-filter: blur(3px);
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .confirmModal {
+        height: 80vh;
+        width: min(700px, 70vw);
+        border-radius: 2rem;
+        background-color: rgb(43, 43, 43);
+        color: $textWhite;
+        padding: 2rem;
+        padding-top: 0;
+        overflow: scroll;
+
+        button.close {
+            margin: 0 !important;
+            margin-top: 2rem !important;
+            margin-left: auto !important;
+            padding: .4rem 1rem !important;
+        }
+
+        .heading {
+            font-size: x-large;
+            text-align: center;
+            font-weight: 800;
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .title {
+            font-weight: 600;
+            font-size: medium;
+            margin-bottom: 1rem;
+        }
+
+        .ss {
+            color: rgb(250, 139, 139);
+        }
+
+        .field {
+            margin-bottom: 1rem;
+
+            .title {
+                font-weight: 600;
+                font-size: medium;
+                margin-bottom: 0;
+            }
+            .value {
+                font-size: small;
+                opacity: .9;
+            }
+        }
+
+        button {
+            display: block;
+            margin: 2rem auto;
+            border-radius: 12px;
+            border-style: none;
+            padding: 1rem 2rem;
+        }
+    }
+}
+
+nav.projectExpoNav {
+    height: 80px;
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(35, 26, 50);
+
+    div.back {
+        height: 60px;
+        width: 60px;
+        background-color: $textWhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+
+        svg {
+            color: rgb(35, 26, 50);
+        }
+    }
+
+    div.profile {
+        padding: 1rem 2rem;
+        padding-right: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1rem;
+        border-radius: .8rem;
+        cursor: pointer;
+        color: $textWhite;
+
+        &:not(:has(img)) {
+            padding: 1rem 1.5rem;
+            border: 1px solid $textWhite;
+        }
+
+        img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.projectExpoRegistration {
+    scroll-behavior: smooth;
+    color: $textWhite;
+    background-color: rgb(23, 16, 34);
+    overflow-x: hidden;
+
+    button {
+        font-family: "Unbounded";
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 6rem;
+    }
+
+    .bigText {
+        max-width: max-content;
+        text-align: center;
+        margin: 3rem auto 0 auto;
+        font-size: 3.5rem;
+        font-weight: 600;
+
+        &.projectExpoText {
+            font-family: "Supercharge";
+        }
+    }
+
+    .titleText {
+        max-width: max-content;
+        margin: 0 auto;
+        margin-top: 1rem;
+        font-family: "Unbounded";
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .registrationForm {
+        width: min(600px, 80vw);
+        margin: 0 auto;
+        padding: 3rem 0;
+
+        input, select {
+            border-radius: 12px;
+            border-style: none;
+            padding: 1rem 2rem;
+            background-color: rgba(white, .2);
+            color: $textWhite;
+            border: 2px solid rgba(white, .3);
+            outline: none;
+
+            &:focus, &:active {
+                border-color: rgba(white, .7);
+            }
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+        }
+
+        .registrationInfo {
+            display: flex;
+            flex-direction: column;
+            font-size: 1rem;
+            margin: 0;
+            margin-top: 1.5rem;
+        }
+
+        .formGroup {
+            margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+
+            &.memberDetails {
+                padding-bottom: 5rem;
+                border: 3px dashed transparent;
+                border-bottom-color: rgba(bisque, .2);
+
+                input {
+                    margin-bottom: 2rem;
+                }
+
+                &.zero {
+                    border-top-color: rgba(bisque, .2);
+                    padding-top: 5rem;
+                }
+
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .projectExpoRegistration {
+        .bigText {
+            font-size: 2.5rem;
+        }
+
+        .titleText {
+            font-size: 1.5rem;
+        }
+    }
+}

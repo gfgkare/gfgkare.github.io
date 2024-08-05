@@ -40,6 +40,7 @@ import Code from "./views/Code";
 
 import GeekFest24 from "./views/HardcodedEventPages/Geekfest24";
 import ProjectExpo from "./views/HardcodedEventPages/ProjectExpo";
+import ProjectExpoRegister from "./views/HardcodedEventPages/ProjectExpoRegistration";
 
 import Landing from "./views/Landing";
 
@@ -95,6 +96,7 @@ export default function App() {
        
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
+                        <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
                         <Route path="/events/geekfest24" element={<GeekFest24 />}></Route>
 
                        

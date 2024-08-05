@@ -149,6 +149,7 @@ $textWhite: rgb(231, 231, 231);
 
         div.profile {
             padding: 1rem 2rem;
+            padding-right: 0;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -223,37 +224,31 @@ $textWhite: rgb(231, 231, 231);
             .actionButtonContainer {
                 margin: 3rem 0;
 
-                a {
-                    text-decoration: none;
+                .actionButton {
+                    font-family: "Unbounded";
+                    opacity: .7;
+                    background-color: rgb(197, 186, 240);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: .75rem 1.75rem;
+                    border-radius: 3rem;
+                    transform: scale(.9);
+                    transition: all .3s ease;
+                    transition-delay: 0;
 
-                    .actionButton {
-                        font-family: "Unbounded";
-                        opacity: .7;
-                        background-color: rgb(197, 186, 240);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: .75rem 1.75rem;
-                        border-radius: 3rem;
-                        transform: scale(.9);
-                        transition: all .3s ease;
-                        transition-delay: 0;
+                    display: flex;
+                    gap: .5rem;
 
-                        display: flex;
-                        gap: .5rem;
-
-                        svg {
-                            animation: hoverUpAndDown 1s infinite ease;
-                        }
-
-                        &:hover {
-                            opacity: 1;
-                            transform: scale(1);
-                        }
+                    svg {
+                        animation: hoverUpAndDown 1s infinite ease;
                     }
-                }
 
-                
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }                
             }
             
             .FourQuestionSection {
@@ -418,57 +413,6 @@ $textWhite: rgb(231, 231, 231);
                                 background-size: cover;
                             }
                         }  
-                    }
-
-                    .registrationForm {
-                        input, select {
-                            border-radius: 12px;
-                            border-style: none;
-                            padding: 1rem 2rem;
-                            background-color: rgba(white, .2);
-                            color: $textWhite;
-                            border: 2px solid rgba(white, .3);
-                            outline: none;
-
-                            &:focus, &:active {
-                                border-color: rgba(white, .7);
-                            }
-                        }
-
-                        button:disabled {
-                            cursor: not-allowed;
-                        }
-
-                        .registrationInfo {
-                            display: flex;
-                            flex-direction: column;
-                            font-size: 1rem;
-                            margin: 0;
-                            margin-top: 1.5rem;
-                        }
-
-                        .formGroup {
-                            margin-bottom: 4rem;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 1.2rem;
-
-                            &.memberDetails {
-                                padding-bottom: 5rem;
-                                border: 3px dashed transparent;
-                                border-bottom-color: rgba(bisque, .2);
-
-                                input {
-                                    margin-bottom: 2rem;
-                                }
-
-                                &.zero {
-                                    border-top-color: rgba(bisque, .2);
-                                    padding-top: 5rem;
-                                }
-    
-                            }
-                        }
                     }
 
                     .contact {
