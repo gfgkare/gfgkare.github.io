@@ -160,6 +160,7 @@ $textWhite: rgb(231, 231, 231);
 
             &:not(:has(img)) {
                 border: 1px solid $textWhite;
+                padding: 1rem 1.5rem !important;
             }
 
             img {
@@ -413,6 +414,14 @@ $textWhite: rgb(231, 231, 231);
                                 background-size: cover;
                             }
                         }  
+                    }
+
+                    &.register {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 2rem;
                     }
 
                     .contact {
