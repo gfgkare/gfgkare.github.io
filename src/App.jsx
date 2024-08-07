@@ -86,7 +86,7 @@ export default function App() {
                                 })
                             }
 
-                            {/* <Route path="/events/:eventname" element={<DynamicEventPage />}></Route> */}
+                            <Route path="/events/:eventname" element={<DynamicEventPage />}></Route>
     
                             <Route path="/meta" element={ <Meta /> }></Route>
                         </Route>
@@ -97,10 +97,6 @@ export default function App() {
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
-                        <Route path="/events/geekfest24" element={<GeekFest24 />}></Route>
-
-                       
-
 
                         
                         {/* PAST EVENTS */}
