@@ -32,12 +32,14 @@ import CountdownTimer from "react-component-countdown-timer";
 import "react-component-countdown-timer/lib/styles.css";
 
 import "../styles/EventRegister.scss";
+import { useNavigate } from "react-router-dom";
 
 const env = import.meta.env;
 
 export default function DynamicEventPage() {
     const { USER_PRESENT, currentUser, signinwithpopup } = useAuth();
     const { readableError, setNavTitle } = useMisc();
+    const navigate = useNavigate();
 
     const [eventID, setEventID] = useState();
     const [eventRegisterStatus, setEventRegisterStatus] =
@@ -251,7 +253,14 @@ export default function DynamicEventPage() {
                                             disabled={
                                                 (eventRegisterStatus === "registered" || eventRegisteringInProgress === true || eventRegistrationStatus !== "accepting")
                                             }
-                                            onClick={() => setModalOpen(true)}
+                                            onClick={() => {
+                                                if (eventData.externalRegistrationLink) {
+                                                    window.location.href = eventData.externalRegistrationLink;
+                                                }
+                                                else {
+                                                    setModalOpen(true);
+                                                }
+                                            }}
                                         >
                                             { (eventRegistrationStatus !== "accepting") ? "Registration Closed" :
                                             (eventRegisteringInProgress) ? (
@@ -279,7 +288,11 @@ export default function DynamicEventPage() {
                                             onClick={() => {
                                                 console.log("registering...");
                                                 signinwithpopup("google")
-                                                .then(() => setModalOpen(true));
+                                                .then(() => {
+                                                    if (!eventData.externalRegistrationLink) {
+                                                        setModalOpen(true);
+                                                    }
+                                                });
                                             }}
                                         >
                                             Sign in to Register
