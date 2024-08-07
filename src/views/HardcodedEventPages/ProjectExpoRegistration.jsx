@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Fade } from "react-awesome-reveal";
+import Accomidation from "./Accomidation";
 
 
 import axios from "../../scripts/axiosConfig";
@@ -99,7 +100,9 @@ export default function ProjectExpoRegistration() {
             theme: theme,
             teamSize: teamSize,
             teamMembers: teamMembers,
-            txnID: txnID
+            txnID: txnID,
+            // accomidation daata
+            
         }, 
         { headers: { Authorization: await currentUser.getIdToken() } }
         )
@@ -112,7 +115,7 @@ export default function ProjectExpoRegistration() {
         .catch((err) => {
             console.log("Error in registering proejct epxo")
             console.error(err);
-            toast.error(err.response.data.message || err.response.data.error || err.message);
+            console.error(err.response.data.message || err.response.data.error || err.message);
         })
 
 
@@ -301,6 +304,7 @@ export default function ProjectExpoRegistration() {
                             />
                         </div>
                     ))}
+                    <Accomidation />
                     {
                         (USER_PRESENT()) && (
                             <>
@@ -336,6 +340,7 @@ export default function ProjectExpoRegistration() {
                         )
                     }
                 </form>
+                
                 {
                     (USER_PRESENT() && paymentStatus === "unpaid") && (
                         <button onClick={startPayment}>Proceed with payment</button>

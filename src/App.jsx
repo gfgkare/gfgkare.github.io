@@ -19,7 +19,7 @@ import Round5Register from "./views/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
-
+import "./App.css"
 import { Routes, Route } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
