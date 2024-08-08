@@ -197,29 +197,25 @@ export default function ProjectExpo() {
                             
                         </div>
 
-                        <div className="FourQuestionSection" id="detailed" ref={whatSection}>
-                            <Fade cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText red">
-                                        WHAT
-                                    </div>
-                                    <div className="subText">
-                                        IS PRAJÑOTSAVAH?
-                                    </div>
-                                </div>
-                                <Slide triggerOnce>
-                                    <div className="normalSectionText">
-                                        <div className="normalSectionContent">
-                                            Prajñotsavah is an Inter College competition organized by <span className="color green">GeeksforGeeks KARE Student Chapter</span> from Kalasalingam Academy of Research and Education on 28th September, 2024. It comprises two rounds for exhibiting your projects. The presented solution for the problem statement can be either software or hardware model. 
-                                        </div>
-                                        <div className="normalSectionContent">
-                                            This event is a unique opportunity to <span className="color purple"> bridge the gap between technology advancement and sustainability practices.</span> This is an opportunity to interact and demonstrate your unique skills to a broader community beyond your college.
-                                        </div>
-                                    
-                                    </div>
-                                </Slide>
-                            </Fade>
+                <div className="FourQuestionSection" id="detailed" ref={whatSection}  style={{ scrollMargin: "100px" }}>
+                    <Fade cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText red">
+                                WHAT
+                            </div>
+                            <div className="subText">
+                                IS PROJECT EXPO?
+                            </div>
                         </div>
+                        <Slide triggerOnce>
+                            <div className="normalSectionText">
+                                ProjectExpo is an inter-college event proudly hosted by GeeksForGeeks KARE Student Chapter. We invite you to <span className="color purple">showcase your innovative project and compete for the top prize.</span> Choose from a selection of captivating themes, develop a project, and present it to our esteemed panel. Impress us with your project's uniqueness, practical usability, and real-life application. The most exceptional teams will walk away with magnificent grand prizes.
+                            </div>
+                        </Slide>
+                        
+                    </Fade>
+                    
+                </div>
 
                         <div className="FourQuestionSection">
                             <Fade cascade damping={.1} triggerOnce>
@@ -391,13 +387,13 @@ export default function ProjectExpo() {
                         </Fade>
                         
 
-                        <div className="FourQuestionSection" id="themes" ref={themesSection}>
-                            <Fade cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText purple">
-                                        THEMES
-                                    </div>
-                                </div>
+                <div className="FourQuestionSection" id="themes" ref={themesSection} style={{ scrollMargin: "100px" }}>
+                    <Fade cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText purple">
+                                THEMES
+                            </div>
+                        </div>
 
                                 <div className="normalSectionText">
                                     <div className="themesGrid">
