@@ -170,6 +170,11 @@ nav.projectExpoNav {
     background-color: rgb(23, 16, 34);
     overflow-x: hidden;
 
+    label, h4 {
+        font-family: "Unbounded";
+        font-weight: 500;
+    }
+
     button {
         font-family: "Unbounded";
         position: relative;
@@ -224,6 +229,46 @@ nav.projectExpoNav {
 
         button:disabled {
             cursor: not-allowed;
+        }
+
+        .accomodationDetails {
+
+            .textInputs {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                .inputGroup {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                }
+            }
+
+            .inputs {
+                margin-bottom: 3rem;
+            }
+
+            .dateAndTimeInput {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 3rem;
+
+                .input-group {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            } 
         }
 
         .registrationInfo {

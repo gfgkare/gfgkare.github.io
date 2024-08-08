@@ -25,6 +25,7 @@ export default function ProjectExpoRegistration() {
   const [paymentconfirmation, setPaymentConfirmation] = useState(false)
 
   const [accomodationDetails, setAccomodationDetails] = useState({});
+  const [needAccomodation, setNeedAccomomdation] = useState(false);
 
   const form = useRef(null);
   const validateFunction = () => {
@@ -118,23 +119,50 @@ export default function ProjectExpoRegistration() {
       };
     }
     setTeamMembers(team)
+    let accomodationDetails = {};
+
+    if (form.current.elements["needAccomodation"].checked) {
+      const noOfDays = form.current.elements["noOfDays"].value;
+      const noOfMembers = form.current.elements["noOfMembers"].value;
+      const checkInDate = form.current.elements["checkInDate"].value;
+      const checkInTime = form.current.elements["checkInTime"].value;
+      const checkOutDate = form.current.elements["checkOutDate"].value;
+      const checkOutTime = form.current.elements["checkOutTime"].value;
+      accomodationDetails = {
+        noOfDays,
+        noOfMembers,
+        checkInDate,
+        checkInTime,
+        checkOutDate,
+        checkOutTime
+      };
+    }
 
     await axios.post('/register_projectexpo', {
       teamName,
       theme,
       teamSize,
       teamMembers: team,
-      txnID
-    }, { headers: { Authorization: await currentUser.getIdToken() } });
-
-    setRegistrationStatus("registered");
-    setConfirmModalShown(false);
-    toast.info("Registration successful!");
+      txnID,
+      needAccomodation: form.current.elements["needAccomodation"].checked,
+      ...accomodationDetails
+    }, 
+    { headers: { Authorization: await currentUser.getIdToken() } })
+    .then((response) => {
+      console.log(response.data);
+      toast.success(response.data.message || "Registration successful!");
+      setRegistrationStatus("registered");
+      setConfirmModalShown(false);
+      toast.info("Registration successful!");
+    })
+    .catch((error) => {
+      toast.error(error.response.data.message ||  "Registration failed. Please try again later.");
+      setConfirmModalShown(false);
+    })
   };
 
   useEffect(() => {
     if (confirmModalShown) {
-      // window.scrollTo(0, 0);
       document.body.style.overflowY = "hidden";
     } else {
       document.body.style.overflowY = "auto";
@@ -236,7 +264,7 @@ export default function ProjectExpoRegistration() {
               <input required type="text" id={`memberName${index + 1}`} name={`memberName${index + 1}`} defaultValue={index === 0 ? currentUser?.displayName : ''} />
               <label htmlFor={`memberEmail${index + 1}`}>Member {index + 1} Email:</label>
               <input required type="email" id={`memberEmail${index + 1}`} name={`memberEmail${index + 1}`} defaultValue={index === 0 ? currentUser?.email : ''} />
-              <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Phone Number:</label>
+              <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
               <input required type="number" id={`memberNumber${index + 1}`} name={`memberNumber${index + 1}`} />
               <label htmlFor={`memberCollege${index + 1}`}>Member {index + 1} College:</label>
               <input required type="text" id={`memberInstitution${index + 1}`} name={`memberInstitution${index + 1}`} />
@@ -246,91 +274,91 @@ export default function ProjectExpoRegistration() {
           ))}
 
           <div className="accomodationDetails">
-            <div className='inputs1'>
-                <div className="input-group">
-                    <input
-                        required
-                        type="number"
-                        max={2}
-                        name="noOfDays"
-                        // onChange={(e) => setnoOfDays(e.target.value)}
-                        autoComplete="off"
-                        className="input"
-                    />
-                    <label className="user-label">How many days</label>
-                </div>
-                <div className="input-group">
-                    <input
-                        required
-                        type="number"
-                        max={4}
-                        name="noOfMembers"
-                        // onChange={(e) => setnoOfMembers(e.target.value)}
-                        autoComplete="off"
-                        className="input"
-                    />
-                    <label className="user-label">How many members</label>
-                </div>
-                </div>
-                <h4>Checkin date and time :</h4>
-                <div className='inputs1'>
-                    
-                <div className="input-group">
-                    <input
-                        required
-                        type="date"
-                        name="checkInDate"
-                        // onChange={(e) => setCheckindate(e.target.value)}
-                        autoComplete="off"
-                        className="input"
-                    />
-                </div>
-                <div className="input-group">
-                    <input
-                        required
-                        type="time"
-                        name="checkInTime"
-                        autoComplete="off"
-                        // onChange={(e) => setCheckintime(e.target.value)}
-                        className="input1"
-                    />
-                </div>
-                </div>
-                <h4>Checkout date and time :</h4>
-                <div className='inputs1'>
-                    
-                <div className="input-group">
-                    <input 
-                        type="date"
-                        name="checkOutDate"
-                        // onChange={(e) => setCheckoutdate(e.target.value)}
-                        autoComplete="off"
-                        className="input"
-                    />
-                </div>
-                <div className="input-group">
-                    <input
-                        required
-                        type="time"
-                        name="checkOutTime"
-                        // onChange={(e) => setCheckouttime(e.target.value)}
-                        autoComplete="off"
-                        className="input1"
-                    />
-                </div>
-                </div>
 
+            <div className="accomodationCheckBoxContainer">
+              <input type="checkbox" name="needAccomodation" onChange={(e) => setNeedAccomomdation(e.target.checked)} />
+              <label htmlFor="needAccomodationCheckbox">
+                Need accomodation for the event?
+              </label>
+            </div>
 
-                {/* <input type="email" id="email" name="email" required /><br /><br /> */}
-                {/* <div className='accomidation-buttons'> */}
-                    {/* <button type="button" onClick={handleSubmit} className='button1'>OK</button> */}
-                    
-                    {/* <button type="button" onClick={handleClose} className='button1'>Close</button> */}
-                    {/* <button className='button2' type='button' onClick={handleClose}>Cancel</button> */}
-                    {/* <button className="button1" type='button' onClick={handleSubmit}> OK</button> */}
-                {/* </div> */}
+            {
+              (needAccomodation) && (
+                <>
+                  <div className='inputs'>
+                    <div className="textInputs">
+                      <div className="inputGroup">
+                          <label className="label">How many days</label>
+                          <input
+                              required
+                              type="number"
+                              max={2}
+                              name="noOfDays"
+                              autoComplete="off"
+                              className="input"
+                          />
+                      </div>
+                      <div className="inputGroup">
+                        <label className="label">How many members</label>
+                          <input
+                              required
+                              type="number"
+                              max={4}
+                              name="noOfMembers"
+                              autoComplete="off"
+                              className="input"
+                          />
+                      </div>
+                    </div>
+                  </div>
+                  <h4>Checkin date and time :</h4>
+                  <div className='dateAndTimeInput'>
+                      
+                  <div className="input-group">
+                      <input
+                          required
+                          type="date"
+                          name="checkInDate"
+                          autoComplete="off"
+                          className="input"
+                      />
+                  </div>
+                  <div className="input-group">
+                      <input
+                          required
+                          type="time"
+                          name="checkInTime"
+                          autoComplete="off"
+                          className="input1"
+                      />
+                  </div>
+                  </div>
+                  <h4>Checkout date and time :</h4>
+                  <div className='dateAndTimeInput'>
+                      
+                  <div className="input-group">
+                      <input 
+                          type="date"
+                          name="checkOutDate"
+                          autoComplete="off"
+                          className="input"
+                      />
+                  </div>
+                  <div className="input-group">
+                      <input
+                          required
+                          type="time"
+                          name="checkOutTime"
+                          autoComplete="off"
+                          className="input1"
+                      />
+                  </div>
+                  </div>
+                </>
+              )
+            }
           </div>
-
+            
           {/* <Accomidation setAccomodationDetails={setAccomodationDetails} /> */}
           {USER_PRESENT() && (
             <>
@@ -351,8 +379,8 @@ export default function ProjectExpoRegistration() {
                         <div><span className="color green">Paid</span> (ID: {txnID})</div>
                       </div>
                       <div className="icon"><IoShieldCheckmark size={"40px"} /></div>
-                      {/* Paid with txn id <span className="color purple">{txnID}</span> */}
                     </div>
+                    
                     <div className="payment">
                       <button type="button" onClick={() => {
                         if (form.current.checkValidity()) {

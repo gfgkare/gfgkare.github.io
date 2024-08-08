@@ -48,7 +48,7 @@ const Accomidation = () => {
         <div className='accomidation-div'>
             <h1>Need Accomidation ?</h1>
 
-            {/* <label>
+            <label>
                 <input
                     type="checkbox"
                     checked={isFormVisible}
@@ -61,18 +61,18 @@ const Accomidation = () => {
             <input id="checkbox" type="checkbox" checked={isFormVisible}
                     onChange={handleCheckboxChange} />{" "} Click here to get Accomidation form
             <span className="checkmark"></span>
-            </label> */}
-            <div className='accomidation-checkbox'>
-            <div className="container">
-            <input type="checkbox" id="cbx2" style={{ display: 'none' }} onChange={handleCheckboxChange} checked={checkbox}/>
-            <label htmlFor="cbx2" className="check">
-                <svg width="18px" height="18px" viewBox="0 0 18 18">
-                    <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                    <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
             </label>
-        </div>
-        <div>{""}
+            <div className='accomidation-checkbox'>
+                <div className="container">
+                <input type="checkbox" id="cbx2" style={{ display: 'none' }} onChange={handleCheckboxChange} checked={checkbox}/>
+                <label htmlFor="cbx2" className="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+            </div>
+        <div>
         <h3 className='check-line'>{formSubmitted ? "Accomidation form Submitted" : "Check the circle to get Accomidation form."}</h3></div>
         </div>
 
