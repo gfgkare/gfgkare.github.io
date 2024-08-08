@@ -14,7 +14,7 @@ $textWhite: rgb(231, 231, 231);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgb(23, 16, 34) !important;
+    background-color: rgb(23, 16, 34);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -40,7 +40,8 @@ $textWhite: rgb(231, 231, 231);
         color: $textWhite;
         width: min(700px, 90%);
         max-height: 90vh;
-        overflow: scroll;
+        overflow: auto;
+
 
         button.close {
             position: absolute;
@@ -63,11 +64,13 @@ $textWhite: rgb(231, 231, 231);
             font-weight: 800;
             width: 100%;
             margin: 1rem 0 .5rem 0;
+            font-family: "Unbounded";
         }
 
         .normalText {
             font-size: medium;
             text-align: center;
+            font-family: "Unbounded";
         }
 
         .sampleProblemStatement {
@@ -94,14 +97,25 @@ $textWhite: rgb(231, 231, 231);
 
 
     .backgroundElement {
-        position: absolute;
-        top: 5rem;
-        left: 5rem;
+        z-index: 0 !important;
+        position: fixed;
+        opacity: .7;        
         color: rgb(105, 74, 153);
+        animation: rotate 7s linear infinite;
+        animation-delay: 5s;
+
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                filter: hue-rotate($i * 80deg);
+                left: $i * 20%;
+                transition-delay: $i * 1s !important;
+            }
+        }
     }
 
+
     .navContainer {
-        z-index: 2;
+        z-index: 9;
         background-color: rgb(23, 16, 34);
         border: 1px solid transparent;
         border-bottom-color: rgba(230, 230, 230, .1);
@@ -356,6 +370,7 @@ $textWhite: rgb(231, 231, 231);
 
             .actionButtonContainer {
                 margin: 3rem 0;
+                z-index: 3 !important;
 
                 .actionButton {
                     font-family: "Unbounded";
@@ -373,6 +388,10 @@ $textWhite: rgb(231, 231, 231);
                     display: flex;
                     gap: 0.5rem;
 
+                    a {
+                        text-decoration: none !important;
+                    }
+
                     svg {
                         animation: hoverUpAndDown 1s infinite ease;
                     }
@@ -385,6 +404,7 @@ $textWhite: rgb(231, 231, 231);
             }
 
             .FourQuestionSection {
+                z-index: 2;
                 margin: 5rem 0;
                 padding: 2rem 0;
                 max-height: max-content;
@@ -475,11 +495,10 @@ $textWhite: rgb(231, 231, 231);
 
                                 background: linear-gradient(
                                         45deg,
-                                        rgba(0, 0, 0, 0.75),
-                                        rgba(0, 0, 0, 0.9),
+                                        rgba(0, 0, 0, 0.65),
+                                        rgba(0, 0, 0, 0.8),
                                     ),
                                     url("../assets/patterns/squiggles-blue.svg");
-                                border: 2px solid rgba(200, 200, 200, .15);
                                 background-size: cover;
                                 font-weight: 500;
 
@@ -502,6 +521,7 @@ $textWhite: rgb(231, 231, 231);
                             margin-top: 2rem;
 
                             .slidePrizeCard {
+                                z-index: 2 !important;
                                 min-width: 270px;
                                 max-width: max-content;
                                 min-height: 140px;
@@ -513,6 +533,7 @@ $textWhite: rgb(231, 231, 231);
                                 align-items: flex-start;
                                 justify-content: center;
                                 background: linear-gradient(60deg, rgba(230, 230, 230, .1), rgba(240, 240, 240, .15));
+                                backdrop-filter: blur(3px);
 
                                 .prizeCard {
                                     display: flex;
@@ -544,7 +565,7 @@ $textWhite: rgb(231, 231, 231);
                                         flex: 1;
                                         background-color: rgb(72, 132, 22);
                                         border-radius: 4px;
-                                        padding: .15rem .7rem;
+                                        padding: .15rem .7rem 0 .7rem;
                                         
                                     }
                                 }                                
@@ -764,11 +785,11 @@ $textWhite: rgb(231, 231, 231);
 
                     .awesomeFade {
                         flex-direction: column;
-                        align-items: center;
+                        align-items: center !important;
                     }
 
                     .title {
-                        font-size: 1.5rem;
+                        font-size: 2rem !important;
                     }
 
                     .presents {
@@ -778,11 +799,11 @@ $textWhite: rgb(231, 231, 231);
 
                 .projectExpoText {
                     .name {
-                        font-size: 2.5rem;
+                        font-size: 3rem !important;
                     }
 
                     .year {
-                        font-size: 1.75rem;
+                        font-size: 2rem !important;
                     }
                 }
             }
@@ -831,5 +852,15 @@ $textWhite: rgb(231, 231, 231);
     }
     66% {
         transform: translateY(-1rem);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

@@ -9,7 +9,7 @@ import { FaRegClock } from "react-icons/fa";
 import { MdOutlineListAlt } from "react-icons/md";
 import { IoTicket } from "react-icons/io5";
 import { GoPlus } from "react-icons/go";
-import { FaDiamond } from "react-icons/fa6";
+import { FaDiamond, FaRocket } from "react-icons/fa6";
 import { GiAlarmClock } from "react-icons/gi";
 
 
@@ -93,9 +93,30 @@ export default function ProjectExpo() {
             }
 
             <div className="projectExpoContainer">
-                {/* <div className="backgroundElement"><GoPlus size={"35px"} /></div>
-                <div className="backgroundElement"><FaDiamond size={"35px"} /></div>
-                <div className="backgroundElement"><GiAlarmClock size={"35px"} /></div> */}
+                <motion.div 
+                    className="backgroundElement"
+                    initial={{ transform: "scale(0)", top: "40%" }}
+                    animate={{ transform: "scale(1)" }}
+                    transition={{ duration: 1, delay: 3 }}
+                >
+                    <GoPlus size={"35px"} />
+                </motion.div>
+                <motion.div 
+                    className="backgroundElement"
+                    initial={{ transform: "scale(0)", top: "70%" }}
+                    animate={{ transform: "scale(1)" }}
+                    transition={{ duration: 1, delay: 3 }}
+                >
+                    <FaDiamond size={"35px"} />
+                </motion.div>
+                <motion.div 
+                    className="backgroundElement"
+                    initial={{ transform: "scale(0)", top: "50%" }}
+                    animate={{ transform: "scale(1)" }}
+                    transition={{ duration: 1, delay: 3 }}
+                >
+                    <FaRocket size={"35px"} />
+                </motion.div>
 
                 <div className="navContainer">
                     <nav className="nav">
@@ -362,13 +383,10 @@ export default function ProjectExpo() {
                         
                         <Fade>
                             <div className="actionButtonContainer">
-                                <a href="#themes">
                                     <button className="actionButton" onClick={() => themesSection?.current.scrollIntoView()}>
                                     <BsChevronDoubleDown size={"40px"} />
                                     PICK A THEME!
                                 </button>
-                                </a>
-                                
                             </div>    
                         </Fade>
                         
