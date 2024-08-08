@@ -135,8 +135,7 @@ const Accomidation = () => {
                         <div className='inputs1'>
                             
                         <div className="input-group">
-                            <input
-                                required
+                            <input 
                                 type="date"
                                 name="text"
                                 onChange={(e) => setCheckoutdate(e.target.value)}
