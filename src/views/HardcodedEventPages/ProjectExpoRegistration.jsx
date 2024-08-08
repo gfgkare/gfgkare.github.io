@@ -40,12 +40,14 @@ export default function ProjectExpoRegistration() {
     const response = await axios.post('https://gfg-server.onrender.com/createOrder');
     const order = response.data;
 
+    console.log("Initiating payment.");
+
     const options = {
       key: 'rzp_live_QdGShimqqkNStv',
       amount: order.amount,
       currency: 'INR',
-      name: 'GFG ProjectEXPO',
-      description: 'Transaction For Project Expo',
+      name: 'GFG KARE Prajñotsavah',
+      description: 'Registration fee for GFG KARE Prajñotsavah',
       order_id: order.id,
       handler: async function (response) {
         const teamSize = form.current.elements.numberOfMembers.value;

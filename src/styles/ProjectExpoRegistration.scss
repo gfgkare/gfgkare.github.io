@@ -359,5 +359,13 @@ nav.projectExpoNav {
         .titleText {
             font-size: 1.5rem;
         }
+
+        .inputs .textInputs {
+            flex-direction: column;
+
+            .inputGroup {
+                width: 100%;
+            }
+        }
     }
 }
