@@ -6,8 +6,10 @@ import axios from "../../scripts/axiosConfig";
 import { useAuth } from "../../contexts/AuthContext";
 import CLink from "../../components/CLink";
 import { FiChevronLeft } from "react-icons/fi";
+import { IoShieldCheckmark } from "react-icons/io5";
 import "../../styles/ProjectExpoRegistration.scss";
-import Accomidation from "./Accomidation";
+
+// import Accomidation from "./Accomidation";
 
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
@@ -21,6 +23,8 @@ export default function ProjectExpoRegistration() {
   const [registrationStatus, setRegistrationStatus] = useState("not_registered");
   const [paymentStatus, setPaymentStatus] = useState("unpaid");
   const [paymentconfirmation, setPaymentConfirmation] = useState(false)
+
+  const [accomodationDetails, setAccomodationDetails] = useState({});
 
   const form = useRef(null);
   const validateFunction = () => {
@@ -67,8 +71,13 @@ export default function ProjectExpoRegistration() {
           await axios.post('https://gfg-server.onrender.com/verifyPayment', paymentInfo);
           setTxnID(response.razorpay_payment_id);
           setPaymentStatus("paid");
+          if (form.current.checkValidity()) {
           toast.success("Payment is successful. Please proceed with the registration process.");
-          setConfirmModalShown(true);
+            setConfirmModalShown(true);
+          }
+          else {
+            toast.info("Some fields are not filled. Kindly fill all the fields to register.")
+          }
         } catch (error) {
           console.error("Payment verification failed", error);
           toast.error("Payment verification failed. Please try again later.");
@@ -125,7 +134,7 @@ export default function ProjectExpoRegistration() {
 
   useEffect(() => {
     if (confirmModalShown) {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
       document.body.style.overflowY = "hidden";
     } else {
       document.body.style.overflowY = "auto";
@@ -209,7 +218,13 @@ export default function ProjectExpoRegistration() {
           </div>
           <div className="formGroup">
             <label htmlFor="numberOfMembers">Number of Members:</label>
-            <select id="numberOfMembers" name="numberOfMembers" defaultValue={4} onChange={(e) => setNumberOfMembers(e.target.value)}>
+            <select 
+              id="numberOfMembers" 
+              name="numberOfMembers" 
+              defaultValue={4} 
+              onChange={(e) => setNumberOfMembers(e.target.value)}
+              required
+            >
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -229,7 +244,94 @@ export default function ProjectExpoRegistration() {
               <input required type="location" id={`memberLocation${index + 1}`} name={`memberLocation${index + 1}`} />
             </div>
           ))}
-          <Accomidation />
+
+          <div className="accomodationDetails">
+            <div className='inputs1'>
+                <div className="input-group">
+                    <input
+                        required
+                        type="number"
+                        max={2}
+                        name="noOfDays"
+                        // onChange={(e) => setnoOfDays(e.target.value)}
+                        autoComplete="off"
+                        className="input"
+                    />
+                    <label className="user-label">How many days</label>
+                </div>
+                <div className="input-group">
+                    <input
+                        required
+                        type="number"
+                        max={4}
+                        name="noOfMembers"
+                        // onChange={(e) => setnoOfMembers(e.target.value)}
+                        autoComplete="off"
+                        className="input"
+                    />
+                    <label className="user-label">How many members</label>
+                </div>
+                </div>
+                <h4>Checkin date and time :</h4>
+                <div className='inputs1'>
+                    
+                <div className="input-group">
+                    <input
+                        required
+                        type="date"
+                        name="checkInDate"
+                        // onChange={(e) => setCheckindate(e.target.value)}
+                        autoComplete="off"
+                        className="input"
+                    />
+                </div>
+                <div className="input-group">
+                    <input
+                        required
+                        type="time"
+                        name="checkInTime"
+                        autoComplete="off"
+                        // onChange={(e) => setCheckintime(e.target.value)}
+                        className="input1"
+                    />
+                </div>
+                </div>
+                <h4>Checkout date and time :</h4>
+                <div className='inputs1'>
+                    
+                <div className="input-group">
+                    <input 
+                        type="date"
+                        name="checkOutDate"
+                        // onChange={(e) => setCheckoutdate(e.target.value)}
+                        autoComplete="off"
+                        className="input"
+                    />
+                </div>
+                <div className="input-group">
+                    <input
+                        required
+                        type="time"
+                        name="checkOutTime"
+                        // onChange={(e) => setCheckouttime(e.target.value)}
+                        autoComplete="off"
+                        className="input1"
+                    />
+                </div>
+                </div>
+
+
+                {/* <input type="email" id="email" name="email" required /><br /><br /> */}
+                {/* <div className='accomidation-buttons'> */}
+                    {/* <button type="button" onClick={handleSubmit} className='button1'>OK</button> */}
+                    
+                    {/* <button type="button" onClick={handleClose} className='button1'>Close</button> */}
+                    {/* <button className='button2' type='button' onClick={handleClose}>Cancel</button> */}
+                    {/* <button className="button1" type='button' onClick={handleSubmit}> OK</button> */}
+                {/* </div> */}
+          </div>
+
+          {/* <Accomidation setAccomodationDetails={setAccomodationDetails} /> */}
           {USER_PRESENT() && (
             <>
               {registrationStatus === "registered" ? (
@@ -243,9 +345,24 @@ export default function ProjectExpoRegistration() {
               ) : (
                 paymentStatus === "paid" && (
                   <>
-                    <div>Paid with txn id {txnID}</div>
+                    <div className="paymentSuccessInfo">
+                      <div className="text">
+                        <div className="title">Payment Status</div>
+                        <div><span className="color green">Paid</span> (ID: {txnID})</div>
+                      </div>
+                      <div className="icon"><IoShieldCheckmark size={"40px"} /></div>
+                      {/* Paid with txn id <span className="color purple">{txnID}</span> */}
+                    </div>
                     <div className="payment">
-                      <button type="button" onClick={() => setConfirmModalShown(true)}>Register</button>
+                      <button type="button" onClick={() => {
+                        if (form.current.checkValidity()) {
+                          console.log("All fields valid. Showing preview modal.")
+                          setConfirmModalShown(true);
+                        }
+                        else {
+                          toast.info("Some fields are not filled. Kindly fill all the fields to register.");
+                        }
+                      }}>Register</button>
                     </div>
                   </>
                 )

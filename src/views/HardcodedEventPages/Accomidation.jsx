@@ -162,7 +162,7 @@ const Accomidation = () => {
                             
                             {/* <button type="button" onClick={handleClose} className='button1'>Close</button> */}
                             <button className='button2' type='button' onClick={handleClose}>Cancel</button>
-                            <button className="button1" type='button' onClick={handleSubmit}> OK</button>
+                            {/* <button className="button1" type='button' onClick={handleSubmit}> OK</button> */}
                         </div>
                     </form>
                 </div>
