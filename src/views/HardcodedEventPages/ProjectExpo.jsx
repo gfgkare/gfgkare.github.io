@@ -103,7 +103,7 @@ export default function ProjectExpo() {
                     
                 </div>
 
-                <div className="FourQuestionSection" id="detailed" ref={whatSection}>
+                <div className="FourQuestionSection" id="detailed" ref={whatSection}  style={{ scrollMargin: "100px" }}>
                     <Fade cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText red">
@@ -224,7 +224,7 @@ export default function ProjectExpo() {
                 </Fade>
                 
 
-                <div className="FourQuestionSection" id="themes" ref={themesSection}>
+                <div className="FourQuestionSection" id="themes" ref={themesSection} style={{ scrollMargin: "100px" }}>
                     <Fade cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText purple">
