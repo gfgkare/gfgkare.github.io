@@ -16,6 +16,8 @@ import { GiAlarmClock } from "react-icons/gi";
 
 import kluLogo from "../../assets/klu.png";
 import gfgkareLogo from "../../assets/gfgkare_square_logo.jpg";
+import gfgLogo from "../../assets/gfg.png";
+
 import { useState, useRef } from "react";
 import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
 
@@ -54,6 +56,7 @@ export default function ProjectExpo() {
 
     const whatSection = useRef();
     const themesSection = useRef();
+    const registerSection = useRef();
 
     const handleThemeClick = (theme) => {
         document.body.style.overflow = 'hidden'
@@ -62,7 +65,7 @@ export default function ProjectExpo() {
         setShowThemeDetailsModal(true);
     }
 
-    const closeThemeDetailsModal= () => {
+    const closeThemeDetailsModal = () => {
         document.body.style.overflow = 'auto'
         setShowThemeDetailsModal(false);
     }
@@ -73,7 +76,9 @@ export default function ProjectExpo() {
                 (showThemeDetailsModal) && (
                     <div className="themeDetailsModalContainer">
                         <div className="themeDetailsModal">
-                            <button className="close" onClick={closeThemeDetailsModal}>Close</button>
+                            <div className="closeButtonContainer">
+                                <button onClick={closeThemeDetailsModal}>Close</button>
+                            </div>
                             <div className="theme bigText">{ selectedTheme }</div>
                             <div className="normalText">Sample Problem Statement</div>
 
@@ -136,7 +141,7 @@ export default function ProjectExpo() {
                             {
                                 (USER_PRESENT()) ? (
                                     <>
-                                        <button>Register</button>
+                                        <button onClick={() => registerSection.current.scrollIntoView()}>Register</button>
                                         <CLink to={"/profile"}>
                                             <img src={currentUser.photoURL} alt="" />
                                         </CLink>
@@ -204,12 +209,12 @@ export default function ProjectExpo() {
                                 WHAT
                             </div>
                             <div className="subText">
-                                IS PROJECT EXPO?
+                                IS PRAJÑOTSAVAH?
                             </div>
                         </div>
                         <Slide triggerOnce>
                             <div className="normalSectionText">
-                                ProjectExpo is an inter-college event proudly hosted by GeeksForGeeks KARE Student Chapter. We invite you to <span className="color purple">showcase your innovative project and compete for the top prize.</span> Choose from a selection of captivating themes, develop a project, and present it to our esteemed panel. Impress us with your project's uniqueness, practical usability, and real-life application. The most exceptional teams will walk away with magnificent grand prizes.
+                                Prajñotsavah is an inter-college event proudly hosted by GeeksForGeeks KARE Student Chapter. We invite you to <span className="color purple">showcase your innovative project and compete for the top prize.</span> Choose from a selection of captivating themes, develop a project, and present it to our esteemed panel. Impress us with your project's uniqueness, practical usability, and real-life application. The most exceptional teams will walk away with magnificent grand prizes.
                             </div>
                         </Slide>
                         
@@ -285,7 +290,7 @@ export default function ProjectExpo() {
 
                                 <Slide triggerOnce>
                                     <div className="normalSectionText why">
-                                        Project Expo offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 20,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
+                                        Prajñotsavah offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 20,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
 
                                         <div className="whyReasonsContainer">
                                             <div className="whyReason">
@@ -313,13 +318,13 @@ export default function ProjectExpo() {
                                         WHERE
                                     </div>
                                     <div className="subText">
-                                        IS PROJECT EXPO HAPPENING!?
+                                        IS THIS HAPPENING!?
                                     </div>
                                 </div>
                                 <Slide direction="right" triggerOnce>
                                     <div className="normalSectionText map">
                                         <div className="text">
-                                            Project Expo is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">September 27, 2024</span>, and the winners will be announced on the same day.
+                                            Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">September 27, 2024</span>, and the winners will be announced on the same day.
                                         </div>
                                         <div className="map">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.2384182267283!2d77.67723340993616!3d9.574705190470475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06dbc06968e9eb%3A0x6cfd8f94e42f98c4!2sKalasalingam%20Academy%20of%20Research%20and%20Education!5e0!3m2!1sen!2sin!4v1722789691882!5m2!1sen!2sin" width="400" height="300" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -345,25 +350,25 @@ export default function ProjectExpo() {
                                 <div className="normalSectionText prizes">
                                     <div className="prizesGrid">
                                         <Slide className="slidePrizeCard" triggerOnce>
-                                            <div className="prizeCard">
+                                            <div className="prizeCard first">
                                                 <div className="circle"></div>
                                                 <div className="position">WINNER</div>
                                                 <div className="prize">₹ 10,000</div>
                                                 <div className="and">+ certificate and GFG swags!</div>
                                             </div>
-                                            <div className="prizeCard">
+                                            <div className="prizeCard second">
                                                 <div className="circle"></div>
                                                 <div className="position">1ST RUNNER UP</div>
                                                 <div className="prize">₹ 7,000</div>
                                                 <div className="and">+ certificate and GFG swags!</div>
                                             </div>
-                                            <div className="prizeCard">
+                                            <div className="prizeCard third">
                                                 <div className="circle"></div>
                                                 <div className="position">2ND RUNNER UP</div>
                                                 <div className="prize">₹ 5,000</div>
                                                 <div className="and">+ certificate and GFG swags!</div>
                                             </div>
-                                            <div className="prizeCard">
+                                            <div className="prizeCard participation">
                                                 <div className="circle"></div>
                                                 <div className="position">PARTICIPANTS</div>
                                                 <div className="prize"></div>
@@ -472,7 +477,7 @@ export default function ProjectExpo() {
                         </div>
 
 
-                        <div className="FourQuestionSection">
+                        <div className="FourQuestionSection" ref={registerSection} style={{ scrollMargin: "100px" }}>
                             <Fade cascade damping={.1} triggerOnce>
                                 <div className="sectionTitleText">
                                     <div className="bigText">
@@ -509,7 +514,12 @@ export default function ProjectExpo() {
                                 <div className="normalSectionText sponsors">
                                     <div className="themesGrid">
                                         <Slide className="slideSponsor" triggerOnce>
-                                            <div className="sponsorCard">GeeksForGeeks</div>
+                                            <div className="sponsorCard">
+                                                <div className="sponsorLogo">
+                                                    <img src={gfgLogo} />
+                                                </div>
+                                                <div className="sponsorName">GeeksForGeeks</div>
+                                            </div>
                                         </Slide>
                                     </div>
                                 </div>
@@ -538,7 +548,7 @@ export default function ProjectExpo() {
                                     <span>Siri Chowdary - <a href="tel:+91 94911 46276">94911 46276</a> </span>
                                 </div>
                                 <div className="email">
-                                    Or drop a mail to gfgkarestudentchapter@gmail.com
+                                    Or drop a mail to <a href="mailto:gfgkarestudentchapter@gmail.com">gfgkarestudentchapter@gmail.com</a>
                                 </div>
                             </div>
                             </div>

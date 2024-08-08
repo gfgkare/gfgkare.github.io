@@ -54,7 +54,11 @@ export default function ProjectExpoRegistration() {
         for (let i = 1; i <= teamSize; i++) {
           team[`member${i}`] = {
             name: form.current.elements[`memberName${i}`].value,
-            email: form.current.elements[`memberEmail${i}`].value
+            email: form.current.elements[`memberEmail${i}`].value,
+            registerNo: form.current.elements[`memberRegisterNo${i}`].value,
+            number: form.current.elements[`memberNumber${i}`].value,
+            institution: form.current.elements[`memberInstitution${i}`].value,
+            location: form.current.elements[`memberLocation${i}`].value,
           };
         }
         setTeamMembers(team)
@@ -115,7 +119,11 @@ export default function ProjectExpoRegistration() {
     for (let i = 1; i <= teamSize; i++) {
       team[`member${i}`] = {
         name: form.current.elements[`memberName${i}`].value,
-        email: form.current.elements[`memberEmail${i}`].value
+        email: form.current.elements[`memberEmail${i}`].value,
+        registerNo: form.current.elements[`memberRegisterNo${i}`].value,
+        number: form.current.elements[`memberNumber${i}`].value,
+        institution: form.current.elements[`memberInstitution${i}`].value,
+        location: form.current.elements[`memberLocation${i}`].value,
       };
     }
     setTeamMembers(team)
@@ -138,6 +146,18 @@ export default function ProjectExpoRegistration() {
       };
     }
 
+    console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    console.log({
+      teamName,
+      theme,
+      teamSize,
+      teamMembers: team,
+      txnID,
+      needAccomodation: form.current.elements["needAccomodation"].checked,
+      accomodationDetails: accomodationDetails
+    });
+    console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
     await axios.post('/register_projectexpo', {
       teamName,
       theme,
@@ -145,7 +165,7 @@ export default function ProjectExpoRegistration() {
       teamMembers: team,
       txnID,
       needAccomodation: form.current.elements["needAccomodation"].checked,
-      ...accomodationDetails
+      accomodationDetails: accomodationDetails
     }, 
     { headers: { Authorization: await currentUser.getIdToken() } })
     .then((response) => {
@@ -153,7 +173,6 @@ export default function ProjectExpoRegistration() {
       toast.success(response.data.message || "Registration successful!");
       setRegistrationStatus("registered");
       setConfirmModalShown(false);
-      toast.info("Registration successful!");
     })
     .catch((error) => {
       toast.error(error.response.data.message ||  "Registration failed. Please try again later.");
@@ -271,6 +290,8 @@ export default function ProjectExpoRegistration() {
               <input required type="text" id={`memberName${index + 1}`} name={`memberName${index + 1}`} defaultValue={index === 0 ? currentUser?.displayName : ''} />
               <label htmlFor={`memberEmail${index + 1}`}>Member {index + 1} Email:</label>
               <input required type="email" id={`memberEmail${index + 1}`} name={`memberEmail${index + 1}`} defaultValue={index === 0 ? currentUser?.email : ''} />
+              <label htmlFor={`memberRegisterNo${index + 1}`}>Member {index + 1} College Register No:</label>
+              <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} />
               <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
               <input required type="number" id={`memberNumber${index + 1}`} name={`memberNumber${index + 1}`} />
               <label htmlFor={`memberCollege${index + 1}`}>Member {index + 1} College:</label>

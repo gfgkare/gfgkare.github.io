@@ -42,19 +42,15 @@ $textWhite: rgb(231, 231, 231);
         max-height: 90vh;
         overflow: auto;
 
+        .closeButtonContainer {
+            width: 100%;
+            height: max-content;
 
-        button.close {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            background: rgba(240, 240, 240, .2);
-            color: $textWhite;
-            border-radius: 8px;
-            margin: 0 !important;
-            padding: 0.4rem 1rem !important;
-
-            &:hover, &:active {
-                background: rgba(240, 240, 240, .3);
+            button {
+                border-style: none;
+                border-radius: 1rem;
+                transform: scale(.8);
+                float: right;
             }
         }
 
@@ -65,6 +61,7 @@ $textWhite: rgb(231, 231, 231);
             width: 100%;
             margin: 1rem 0 .5rem 0;
             font-family: "Unbounded";
+            overflow-x: hidden;
         }
 
         .normalText {
@@ -107,7 +104,7 @@ $textWhite: rgb(231, 231, 231);
         @for $i from 1 through 5 {
             &:nth-child(#{$i}) {
                 filter: hue-rotate($i * 80deg);
-                left: $i * 20%;
+                left: $i * 25%;
                 transition-delay: $i * 1s !important;
             }
         }
@@ -174,7 +171,8 @@ $textWhite: rgb(231, 231, 231);
                 button {
                     padding: .7rem 1.5rem;
                     background-color: transparent;
-                    border: 1px solid $textWhite;
+                    border: 1px solid rgba($textWhite, .5);
+                    color: $textWhite;
                     border-radius: 2px;
 
                     &:hover {
@@ -559,8 +557,10 @@ $textWhite: rgb(231, 231, 231);
     
                                     .and {
                                         min-height: 1rem;
+                                        max-height: auto;
                                         margin-top: .8rem;
                                         font-size: .9rem;
+                                        text-align: left;
                                         font-weight: 500;
                                         flex: 1;
                                         background-color: rgb(72, 132, 22);
@@ -715,11 +715,29 @@ $textWhite: rgb(231, 231, 231);
                             gap: 1rem;
 
                             .slideSponsor .sponsorCard {
-                                background-color: #e60073;
+                                background-color: #dedede;
+                                color: rgb(30, 30, 30);
                                 margin: 0 auto;
                                 max-width: max-content;
-                                border-radius: 6px;
+                                border-radius: .5rem;
                                 padding: 1rem 1.6rem;
+
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 1rem;
+
+                                .sponsorLogo {
+                                    flex: .5;
+
+                                    img {
+                                        max-height: 40px;
+                                    }
+                                }
+
+                                .sponsorName {
+                                    flex: 1;
+                                }
                             }
                         }
                     }
