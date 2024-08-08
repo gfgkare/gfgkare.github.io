@@ -24,6 +24,7 @@ export default function ProjectExpoRegistration() {
   const [paymentStatus, setPaymentStatus] = useState("unpaid");
   const [paymentconfirmation, setPaymentConfirmation] = useState(false)
 
+  const [registrationDisabled, setRegistrationDisabled] = useState(false);
   const [accomodationDetails, setAccomodationDetails] = useState({});
   const [needAccomodation, setNeedAccomomdation] = useState(false);
 
@@ -293,7 +294,12 @@ export default function ProjectExpoRegistration() {
               <label htmlFor={`memberEmail${index + 1}`}>Member {index + 1} Email:</label>
               <input required type="email" id={`memberEmail${index + 1}`} name={`memberEmail${index + 1}`} defaultValue={index === 0 ? currentUser?.email : ''} />
               <label htmlFor={`memberRegisterNo${index + 1}`}>Member {index + 1} College Register No:</label>
-              <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} />
+              <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} onChange={(e) => {
+                if (e.target.value.startsWith("99")) {
+                  setRegistrationDisabled(true);
+                  toast.error("KARE Students are not allowed to register at this time. Contact us for more information.");
+                }
+              }} />
               <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
               <input required type="number" id={`memberNumber${index + 1}`} name={`memberNumber${index + 1}`} />
               <label htmlFor={`memberCollege${index + 1}`}>Member {index + 1} College:</label>
@@ -306,7 +312,13 @@ export default function ProjectExpoRegistration() {
           <div className="accomodationDetails">
 
             <div className="accomodationCheckBoxContainer">
-              <input type="checkbox" name="needAccomodation" onChange={(e) => setNeedAccomomdation(e.target.checked)} />
+
+              <input 
+                type="checkbox" 
+                name="needAccomodation" 
+                onChange={(e) => setNeedAccomomdation(e.target.checked)} 
+                disabled={registrationDisabled}
+              />
               <label htmlFor="needAccomodationCheckbox">
                 Need accomodation for the event?
               </label>
@@ -412,7 +424,10 @@ export default function ProjectExpoRegistration() {
                     </div>
                     
                     <div className="payment">
-                      <button type="button" onClick={() => {
+                      <button 
+                        type="button"
+                        disabled={registrationDisabled} 
+                        onClick={() => {
                         if (form.current.checkValidity()) {
                           console.log("All fields valid. Showing preview modal.")
                           setConfirmModalShown(true);
@@ -429,10 +444,10 @@ export default function ProjectExpoRegistration() {
           )}
         </form>
         {USER_PRESENT() && paymentStatus === "unpaid" && (
-          <button onClick={startPayment}>Proceed with payment</button>
+          <button disabled={registrationDisabled} onClick={startPayment}>Proceed with payment</button>
         )}
         {!USER_PRESENT() && (
-          <button onClick={() => signinwithpopup("google")}>Sign in to Register!</button>
+          <button disabled={registrationDisabled} onClick={() => signinwithpopup("google")}>Sign in to Register!</button>
         )}
       </div>
     </>

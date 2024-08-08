@@ -193,6 +193,10 @@ nav.projectExpoNav {
         left: 50%;
         transform: translateX(-50%);
         margin-bottom: 6rem;
+
+        &:disabled {
+            opacity: .3;
+        }
     }
 
     select {
