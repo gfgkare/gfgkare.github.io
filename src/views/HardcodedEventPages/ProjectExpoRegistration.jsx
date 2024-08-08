@@ -20,9 +20,16 @@ export default function ProjectExpoRegistration() {
   const [numberOfMembers, setNumberOfMembers] = useState(4);
   const [registrationStatus, setRegistrationStatus] = useState("not_registered");
   const [paymentStatus, setPaymentStatus] = useState("unpaid");
+  const [paymentconfirmation, setPaymentConfirmation] = useState(false)
 
   const form = useRef(null);
-
+  const validateFunction = () => {
+    if (paymentconfirmation) {
+      console.log("Payment successfull")
+    } else {
+      toast.error("Payment declined")
+    }
+  }
   const startPayment = async (e) => {
     e.preventDefault();
     const response = await axios.post('https://gfg-server.onrender.com/createOrder');
@@ -38,6 +45,7 @@ export default function ProjectExpoRegistration() {
       handler: async function (response) {
         const teamSize = form.current.elements.numberOfMembers.value;
         const team = {};
+        setPaymentConfirmation(true)
         for (let i = 1; i <= teamSize; i++) {
           team[`member${i}`] = {
             name: form.current.elements[`memberName${i}`].value,
@@ -46,21 +54,25 @@ export default function ProjectExpoRegistration() {
         }
         setTeamMembers(team)
 
-        const paymentInfo = {
-         payment_id: response.razorpay_payment_id,
-          order_id: response.razorpay_order_id,
-          email: currentUser.email,
-          name: currentUser.displayName,
-          teamName: form.current.elements.teamName.value,
-          theme: form.current.elements.theme.value,
-          teamMembers: team
-        };
-
-        await axios.post('https://gfg-server.onrender.com/verifyPayment', paymentInfo);
-        setTxnID(response.razorpay_payment_id);
-        setPaymentStatus("paid");
-        toast.success("Payment is successful. Please proceed with the registration process.");
-        setConfirmModalShown(true);
+        try {
+          const paymentInfo = {
+            payment_id: response.razorpay_payment_id,
+            order_id: response.razorpay_order_id,
+            email: currentUser.email,
+            name: currentUser.displayName,
+            teamName: form.current.elements.teamName.value,
+            theme: form.current.elements.theme.value,
+            teamMembers: team
+          };
+          await axios.post('https://gfg-server.onrender.com/verifyPayment', paymentInfo);
+          setTxnID(response.razorpay_payment_id);
+          setPaymentStatus("paid");
+          toast.success("Payment is successful. Please proceed with the registration process.");
+          setConfirmModalShown(true);
+        } catch (error) {
+          console.error("Payment verification failed", error);
+          toast.error("Payment verification failed. Please try again later.");
+        }
       },
       prefill: {
         name: currentUser.displayName,
@@ -76,6 +88,7 @@ export default function ProjectExpoRegistration() {
     };
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
+    validateFunction()
   };
 
   const register = async (e) => {
