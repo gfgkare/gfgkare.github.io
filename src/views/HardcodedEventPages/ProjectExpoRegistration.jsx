@@ -209,9 +209,13 @@ export default function ProjectExpoRegistration() {
 
             <nav className="projectExpoNav">
                 <div className="back">
-                    <CLink to={location.state?.from || "/events/project-expo"}>
+                    <CLink to={location?.state?.from || "/events/project-expo"}>
                         <FiChevronLeft size={"25px"} />
                     </CLink>
+                </div>
+
+                <div className="bigText projectExpoText">
+                    PRAJNOTSavaH
                 </div>
 
                 <div className="profile">
@@ -229,9 +233,9 @@ export default function ProjectExpoRegistration() {
 
 
             <div className="projectExpoRegistration">
-                <div className="bigText projectExpoText">
+                {/* <div className="bigText projectExpoText">
                     PROJECT EXPO
-                </div>
+                </div> */}
                 <div className="titleText">Registration</div>
 
                 <form className="registrationForm" ref={form} onSubmit={storeMembers}>

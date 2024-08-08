@@ -104,6 +104,18 @@ nav.projectExpoNav {
         }
     }
 
+    .bigText {
+        max-width: max-content;
+        text-align: center;
+        font-size: 3rem;
+        color: $textWhite;
+        font-weight: 600;
+
+        &.projectExpoText {
+            font-family: "Supercharge";
+        }
+    }
+
     div.profile {
         padding: 1rem 2rem;
         padding-right: 0;
@@ -143,22 +155,10 @@ nav.projectExpoNav {
         margin-bottom: 6rem;
     }
 
-    .bigText {
-        max-width: max-content;
-        text-align: center;
-        margin: 3rem auto 0 auto;
-        font-size: 3.5rem;
-        font-weight: 600;
-
-        &.projectExpoText {
-            font-family: "Supercharge";
-        }
-    }
-
     .titleText {
         max-width: max-content;
         margin: 0 auto;
-        margin-top: 1rem;
+        margin-top: 3rem;
         font-family: "Unbounded";
         font-size: 2rem;
         font-weight: 500;

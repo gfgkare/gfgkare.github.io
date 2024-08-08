@@ -1,225 +1,357 @@
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap");
 
-  
 @font-face {
     font-family: "Supercharge";
-    src: url("../fonts/SuperchargeHalftone.otf") format("opentype");
+    src: url("../fonts/SuperchargeLaser.otf") format("opentype");
     font-weight: normal;
     font-style: halftone;
 }
 
 $textWhite: rgb(231, 231, 231);
 
-.projectExpo {
-    scroll-behavior: smooth;
-    color: $textWhite;
-    background-color: rgb(23, 16, 34);
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(23, 16, 34) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.themeDetailsModalContainer {
+    position: fixed;
     height: 100vh;
-    overflow: scroll;
-    overflow-x: hidden;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    z-index: 99;
 
-
-    .confirmModalBackground {
+    .themeDetailsModal {
         position: absolute;
-        height: 100vh;
-        width: 100vw;
-        top: 0;
-        left: 0;
-        background-color: rgba(black, .8);
-        backdrop-filter: blur(3px);
-        z-index: 9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(23, 16, 34);
+        border-radius: 1rem;
+        padding: 2rem;
+        color: $textWhite;
+        width: min(700px, 90%);
+        max-height: 90vh;
+        overflow: scroll;
 
-        .confirmModal {
-            height: 80vh;
-            width: min(700px, 70vw);
-            border-radius: 2rem;
-            background-color: rgb(43, 43, 43);
+        button.close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background: rgba(240, 240, 240, .2);
             color: $textWhite;
-            padding: 2rem;
-            padding-top: 0;
-            overflow: scroll;
+            border-radius: 8px;
+            margin: 0 !important;
+            padding: 0.4rem 1rem !important;
 
-            button.close {
-                margin: 0 !important;
-                margin-top: 2rem !important;
-                margin-left: auto !important;
-                padding: .4rem 1rem !important;
+            &:hover, &:active {
+                background: rgba(240, 240, 240, .3);
             }
+        }
 
-            .heading {
-                font-size: x-large;
-                text-align: center;
-                font-weight: 800;
-                width: 100%;
-                margin: 1rem 0;
-            }
+        .bigText {
+            font-size: x-large;
+            text-align: center;
+            font-weight: 800;
+            width: 100%;
+            margin: 1rem 0 .5rem 0;
+        }
+
+        .normalText {
+            font-size: medium;
+            text-align: center;
+        }
+
+        .sampleProblemStatement {
+            margin-top: 2rem;
 
             .title {
                 font-weight: 600;
                 font-size: medium;
                 margin-bottom: 1rem;
             }
+        }
 
-            .ss {
-                color: rgb(250, 139, 139);
+        .note {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: rgb(250, 139, 139);
+        }
+
+    }
+}
+
+.projectExpoContainer {
+    height: 100vh;
+
+
+    .backgroundElement {
+        position: absolute;
+        top: 5rem;
+        left: 5rem;
+        color: rgb(105, 74, 153);
+    }
+
+    .navContainer {
+        z-index: 2;
+        background-color: rgb(23, 16, 34);
+        border: 1px solid transparent;
+        border-bottom-color: rgba(230, 230, 230, .1);
+        width: 100vw;
+        height: 80px;
+        position: fixed;
+
+        nav.nav {
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logoContainer {
+                display: flex;
+                gap: 1rem;
+                
+                div.logo {
+                    height: 60px;
+                    width: 60px;
+                    background-color: $textWhite;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    overflow: hidden;
+        
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    &.klu {
+                        img {
+                            width: 60%;
+                            height: 60%;
+                        }
+                    }
+                }
             }
+    
+            
+            div.profile {
+                padding: 1rem 2rem;
+                padding-right: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                height: 1rem;
+                border-radius: 0.8rem;
+                cursor: pointer;
+                color: $textWhite;
 
-            .field {
-                margin-bottom: 1rem;
+                button {
+                    padding: .7rem 1.5rem;
+                    background-color: transparent;
+                    border: 1px solid $textWhite;
+                    border-radius: 2px;
+
+                    &:hover {
+                        background-color: rgba(200, 200, 200, .1);
+                    }
+                }
+    
+                &:not(:has(img)) {
+                    border: 1px solid $textWhite;
+                    padding: 1rem 1.5rem !important;
+                }
+    
+                img {
+                    border: 1px solid rgba(200, 200, 200, 0.5);
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+   
+
+    .projectExpo {
+        z-index: 1;
+        scroll-behavior: smooth;
+        color: $textWhite;
+        background-color: rgb(23, 16, 34);
+        overflow: scroll;
+        overflow-x: hidden;
+
+        .confirmModalBackground {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            background-color: rgba(black, 0.8);
+            backdrop-filter: blur(3px);
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .confirmModal {
+                height: 80vh;
+                width: min(700px, 70vw);
+                border-radius: 2rem;
+                background-color: rgb(43, 43, 43);
+                color: $textWhite;
+                padding: 2rem;
+                padding-top: 0;
+                overflow: scroll;
+
+                button.close {
+                    margin: 0 !important;
+                    margin-top: 2rem !important;
+                    margin-left: auto !important;
+                    padding: 0.4rem 1rem !important;
+                }
+
+                .heading {
+                    font-size: x-large;
+                    text-align: center;
+                    font-weight: 800;
+                    width: 100%;
+                    margin: 1rem 0;
+                }
 
                 .title {
                     font-weight: 600;
                     font-size: medium;
-                    margin-bottom: 0;
+                    margin-bottom: 1rem;
                 }
-                .value {
-                    font-size: small;
-                    opacity: .9;
+
+                .ss {
+                    color: rgb(250, 139, 139);
+                }
+
+                .field {
+                    margin-bottom: 1rem;
+
+                    .title {
+                        font-weight: 600;
+                        font-size: medium;
+                        margin-bottom: 0;
+                    }
+                    .value {
+                        font-size: small;
+                        opacity: 0.9;
+                    }
+                }
+
+                button {
+                    display: block;
+                    margin: 2rem auto;
+                    border-radius: 12px;
+                    border-style: none;
+                    padding: 1rem 2rem;
                 }
             }
+        }
 
-            button {
-                display: block;
-                margin: 2rem auto;
-                border-radius: 12px;
-                border-style: none;
-                padding: 1rem 2rem;
+        .color {
+            &.green {
+                color: rgb(141, 227, 141);
+            }
+
+            &.blue {
+                color: rgb(98, 98, 255);
+            }
+
+            &.yellow {
+                color: rgb(242, 242, 110);
+            }
+
+            &.red {
+                color: rgb(239, 97, 97);
+            }
+
+            &.purple {
+                color: rgb(199, 119, 221);
+            }
+
+            &.orange {
+                color: rgb(255, 165, 0);
+            }
+
+            &.pink {
+                color: rgb(255, 105, 180);
+            }
+
+            &.cyan {
+                color: rgb(0, 255, 255);
             }
         }
-    }
 
-    .color {
-        &.green {
-            color: rgb(141, 227, 141);
-        }
-
-        &.blue {
-            color: rgb(98, 98, 255);
-        }
-
-        &.yellow {
-            color: rgb(242, 242, 110);
-        }
-
-        &.red {
-            color: rgb(239, 97, 97);
-        }
-
-        &.purple {
-            color: rgb(199, 119, 221);
-        }
-
-        &.orange {
-            color: rgb(255, 165, 0);
-        }
-
-        &.pink {
-            color: rgb(255, 105, 180);
-        }
-
-        &.cyan {
-            color: rgb(0, 255, 255);
-        }
-    }
-
-    nav.nav {
-        height: 80px;
-        padding: .5rem 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        div.logo {
-            height: 60px;
-            width: 60px;
-            background-color: $textWhite;
+        .content {
+            margin-top: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
-
-            img {
-                height: 30px;
-                width: 30px;
-            }
-        }
-
-        div.profile {
-            padding: 1rem 2rem;
-            padding-right: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 1rem;
-            border-radius: .8rem;
-            cursor: pointer;
-
-            &:not(:has(img)) {
-                border: 1px solid $textWhite;
-                padding: 1rem 1.5rem !important;
-            }
-
-            img {
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
-            }
-        }
-    }
-
-    .content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        line-height: 1.2;
-        height: max-content;
-
-        .heroDiv {
-            height: calc(70vh);
-            display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            line-height: 1.2;
+            height: max-content;
 
-            .gfgKarePresents {
-                font-size: 2rem;
+            .heroDiv {
+                height: calc(70vh);
                 display: flex;
-                gap: 1rem;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
 
-                .awesomeFade {
+                .gfgKarePresents {
+                    font-size: 2rem;
                     display: flex;
-                    gap: .5rem;
-                    justify-content: center;
-                    align-items: flex-end;
+                    gap: 1rem;
+
+                    .awesomeFade {
+                        display: flex;
+                        gap: 0.5rem;
+                        justify-content: center;
+                        align-items: flex-end;
+                    }
+
+                    .title {
+                        font-size: 3rem;
+                        font-family: "Unbounded", sans-serif;
+                        font-weight: bold;
+                        color: rgb(141, 227, 141);
+                    }
                 }
 
-
-                .title {
-                    font-size: 3rem;
-                    font-family: 'Unbounded', sans-serif;
-                    font-weight: bold;
-                    color: rgb(141, 227, 141);
-                }
-            }
-    
                 .projectExpoText {
                     transform: translateX(1rem);
                     margin-top: 2rem;
                     font-family: "Supercharge";
-                    font-size: 6rem;
                     animation: glow 5s infinite linear;
+
+                    .name {
+                        font-size: 6rem;
+                    }
+
+                    .year {
+                        font-size: 4rem;
+                    }
 
                     span {
                         display: block;
                     }
                 }
-
-                
             }
 
             .actionButtonContainer {
@@ -227,19 +359,19 @@ $textWhite: rgb(231, 231, 231);
 
                 .actionButton {
                     font-family: "Unbounded";
-                    opacity: .7;
+                    opacity: 0.7;
                     background-color: rgb(197, 186, 240);
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: .75rem 1.75rem;
+                    padding: 0.75rem 1.75rem;
                     border-radius: 3rem;
-                    transform: scale(.9);
-                    transition: all .3s ease;
+                    transform: scale(0.9);
+                    transition: all 0.3s ease;
                     transition-delay: 0;
 
                     display: flex;
-                    gap: .5rem;
+                    gap: 0.5rem;
 
                     svg {
                         animation: hoverUpAndDown 1s infinite ease;
@@ -249,14 +381,17 @@ $textWhite: rgb(231, 231, 231);
                         opacity: 1;
                         transform: scale(1);
                     }
-                }                
+                }
             }
-            
+
             .FourQuestionSection {
                 margin: 5rem 0;
                 padding: 2rem 0;
-                min-height: 70vh;
                 max-height: max-content;
+
+                &.prizes {
+                    width: 100%;
+                }
 
                 .sectionTitleText {
                     display: flex;
@@ -266,7 +401,7 @@ $textWhite: rgb(231, 231, 231);
 
                     .bigText {
                         font-size: 3.5rem;
-                        font-family: 'Unbounded', sans-serif;
+                        font-family: "Unbounded", sans-serif;
                         font-weight: bold;
                         color: rgb(141, 227, 141);
 
@@ -298,24 +433,124 @@ $textWhite: rgb(231, 231, 231);
                             color: rgb(248, 84, 166);
                         }
                     }
-                    
+
                     .subText {
                         font-size: 2rem;
                         font-weight: bold;
                     }
-                    
                 }
 
                 .normalSectionText {
-                    opacity: .95;
+                    opacity: 0.95;
                     padding: 0 2rem;
                     margin: 5rem auto 0 auto;
                     text-align: center;
                     width: min(1100px, 80%);
                     font-size: 1.2rem;
-                    font-family: 'Unbounded', serif;
+                    font-family: "Unbounded", serif;
                     line-height: 1.5;
                     max-height: max-content;
+
+                    .normalSectionContent {
+                        margin-bottom: 1rem;
+                    }
+
+
+                    &.why {
+                        .whyReasonsContainer {
+                            width: 100%;
+                            margin: 0 auto;
+                            margin-top: 5rem;
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                            gap: 1rem;
+
+                            .whyReason {
+                                padding: 1.5rem 1rem;
+                                background-color: blue;
+                                border-radius: 8px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                background: linear-gradient(
+                                        45deg,
+                                        rgba(0, 0, 0, 0.75),
+                                        rgba(0, 0, 0, 0.9),
+                                    ),
+                                    url("../assets/patterns/squiggles-blue.svg");
+                                border: 2px solid rgba(200, 200, 200, .15);
+                                background-size: cover;
+                                font-weight: 500;
+
+                                @for $i from 1 through 3 {
+                                    &:nth-child(#{$i}) {
+                                        filter: hue-rotate($i * 80deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.prizes {
+                        .prizesGrid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+                            grid-row-gap: 3rem;
+                            grid-column-gap: 1rem;
+                            // gap: 1rem;
+                            margin-top: 2rem;
+
+                            .slidePrizeCard {
+                                min-width: 270px;
+                                max-width: max-content;
+                                min-height: 140px;
+                                padding: 1rem 2rem;
+                                margin: 0 auto;
+                                border-radius: .8rem;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                justify-content: center;
+                                background: linear-gradient(60deg, rgba(230, 230, 230, .1), rgba(240, 240, 240, .15));
+
+                                .prizeCard {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                    justify-content: center;
+                                    max-width: max-content;
+
+                                    .position {
+                                        font-weight: 600;
+                                        font-size: 1.2rem;
+                                        flex: 1.1;
+                                    }
+    
+                                    .prize {
+                                        min-width: 1rem;
+                                        min-height: 1.5rem;
+                                        font-family: "Supercharge";
+                                        font-size: 1.5rem;
+                                        font-weight: 600;
+                                        flex: 1.1;
+                                    }
+    
+                                    .and {
+                                        min-height: 1rem;
+                                        margin-top: .8rem;
+                                        font-size: .9rem;
+                                        font-weight: 500;
+                                        flex: 1;
+                                        background-color: rgb(72, 132, 22);
+                                        border-radius: 4px;
+                                        padding: .15rem .7rem;
+                                        
+                                    }
+                                }                                
+                            }
+                        }
+                    }
 
                     &.map {
                         display: flex;
@@ -329,7 +564,7 @@ $textWhite: rgb(231, 231, 231);
                         .map {
                             flex: 1;
                             iframe {
-                                border-radius: 12px;                                
+                                border-radius: 12px;
                             }
                         }
                     }
@@ -359,21 +594,22 @@ $textWhite: rgb(231, 231, 231);
                                 // background-color: blue;
                                 text-align: left;
                             }
-
                         }
                     }
 
-                    
                     .themesGrid {
                         max-width: 95vw;
                         margin: 0 auto;
                         display: grid;
                         gap: 1rem;
-                        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+                        grid-template-columns: repeat(
+                            auto-fit,
+                            minmax(170px, 1fr)
+                        );
                         padding: 1rem 0;
 
                         .card {
-                            border: 2px solid rgba(white, .3);
+                            border: 2px solid rgba(white, 0.3);
                             color: white;
                             height: 240px;
                             border-radius: 12px;
@@ -383,37 +619,57 @@ $textWhite: rgb(231, 231, 231);
                             align-items: center;
                             cursor: pointer;
 
-                            transition: all .3s ease;
+                            transition: all 0.3s ease;
 
                             &:hover {
-                                border-color: rgba(white, .6);
+                                border-color: rgba(white, 0.6);
                             }
 
                             &.healthcare {
-                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/doctor.webp");
+                                background: linear-gradient(
+                                        rgba(0, 0, 0, 0.7),
+                                        rgba(0, 0, 0, 0.7)
+                                    ),
+                                    url("../assets/project-expo-stock-images/doctor.webp");
                                 background-size: cover;
                             }
 
                             &.agrotech {
-                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/agrotech.webp");
+                                background: linear-gradient(
+                                        rgba(0, 0, 0, 0.7),
+                                        rgba(0, 0, 0, 0.7)
+                                    ),
+                                    url("../assets/project-expo-stock-images/agrotech.webp");
                                 background-size: cover;
                             }
 
                             &.fintech {
-                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/fintech.jpg");
+                                background: linear-gradient(
+                                        rgba(0, 0, 0, 0.7),
+                                        rgba(0, 0, 0, 0.7)
+                                    ),
+                                    url("../assets/project-expo-stock-images/fintech.jpg");
                                 background-size: cover;
                             }
 
                             &.fitness {
-                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/fitness.png");
+                                background: linear-gradient(
+                                        rgba(0, 0, 0, 0.7),
+                                        rgba(0, 0, 0, 0.7)
+                                    ),
+                                    url("../assets/project-expo-stock-images/fitness.png");
                                 background-size: cover;
                             }
 
                             &.blockchain {
-                                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/project-expo-stock-images/blockchain.webp");
+                                background: linear-gradient(
+                                        rgba(0, 0, 0, 0.7),
+                                        rgba(0, 0, 0, 0.7)
+                                    ),
+                                    url("../assets/project-expo-stock-images/blockchain.webp");
                                 background-size: cover;
                             }
-                        }  
+                        }
                     }
 
                     &.register {
@@ -422,6 +678,29 @@ $textWhite: rgb(231, 231, 231);
                         align-items: center;
                         flex-direction: column;
                         gap: 2rem;
+
+                        .note {
+                            font-size: 1rem;
+                        }
+
+                        a {
+                            margin-top: 2.5rem;
+                        }
+                    }
+
+                    &.sponsors {
+                        div.themesGrid {
+                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                            gap: 1rem;
+
+                            .slideSponsor .sponsorCard {
+                                background-color: #e60073;
+                                margin: 0 auto;
+                                max-width: max-content;
+                                border-radius: 6px;
+                                padding: 1rem 1.6rem;
+                            }
+                        }
                     }
 
                     .contact {
@@ -434,13 +713,18 @@ $textWhite: rgb(231, 231, 231);
                             flex-direction: column;
                             gap: 1rem;
                         }
+
+                        .email {
+                            font-size: 1rem;
+                            margin-top: 2rem;
+                        }
                     }
                 }
             }
-        }    
+        }
 
         footer {
-            background: rgba(white, .1);
+            background: rgba(white, 0.1);
             padding: 3rem 0;
             font-weight: bold;
             display: flex;
@@ -450,10 +734,11 @@ $textWhite: rgb(231, 231, 231);
             gap: 2rem;
 
             .creator {
-                opacity: .7;
+                opacity: 0.7;
 
                 a {
-                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                    font-family: Cambria, Cochin, Georgia, Times,
+                        "Times New Roman", serif;
                     color: rgb(178, 238, 178);
                     text-decoration: wavy;
                     font-style: italic;
@@ -463,9 +748,9 @@ $textWhite: rgb(231, 231, 231);
                     }
                 }
             }
-        }    
+        }
+    }
 }
-
 
 @media screen and (max-width: 700px) {
     .projectExpo {
@@ -476,19 +761,29 @@ $textWhite: rgb(231, 231, 231);
             .heroDiv {
                 .gfgKarePresents {
                     font-size: 1.5rem;
-                    
+
                     .awesomeFade {
                         flex-direction: column;
                         align-items: center;
                     }
 
                     .title {
-                        font-size: 1.85rem;
+                        font-size: 1.5rem;
+                    }
+
+                    .presents {
+                        font-size: 1.2rem;
                     }
                 }
 
                 .projectExpoText {
-                    font-size: 4rem;
+                    .name {
+                        font-size: 2.5rem;
+                    }
+
+                    .year {
+                        font-size: 1.75rem;
+                    }
                 }
             }
 
@@ -498,7 +793,6 @@ $textWhite: rgb(231, 231, 231);
                 }
 
                 .normalSectionText {
-
                     &.map {
                         flex-direction: column;
                     }
@@ -515,13 +809,16 @@ $textWhite: rgb(231, 231, 231);
     }
 }
 
-
 @keyframes glow {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+            0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073,
+            0 0 70px #e60073;
     }
     to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+            0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6,
+            0 0 80px #ff4da6;
     }
 }
 
@@ -530,9 +827,9 @@ $textWhite: rgb(231, 231, 231);
         transform: translateY(0);
     }
     33% {
-        transform: translateY(.5rem);
+        transform: translateY(0.5rem);
     }
     66% {
-        transform: translateY(-1rem)
+        transform: translateY(-1rem);
     }
 }
