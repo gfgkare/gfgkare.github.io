@@ -391,12 +391,7 @@ export default function DynamicEventPage() {
                                             Registered.
                                         </div>
                                     ) : (
-                                        <div
-                                            className="registerBtn"
-                                            onClick={() => setModalOpen(true)}
-                                        >
-                                            Register!
-                                        </div>
+                                        <></>
                                     )
                                 ) : (
                                     <div
