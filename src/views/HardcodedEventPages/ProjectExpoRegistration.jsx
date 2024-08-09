@@ -24,6 +24,9 @@ export default function ProjectExpoRegistration() {
   const [paymentStatus, setPaymentStatus] = useState("unpaid");
   const [paymentconfirmation, setPaymentConfirmation] = useState(false)
 
+  const [paymentLoading, setPaymentLoading] = useState(false);
+  const [registrationLoading, setRegistrationLoading] = useState(false);
+
   const [registrationDisabled, setRegistrationDisabled] = useState(false);
   const [accomodationDetails, setAccomodationDetails] = useState({});
   const [needAccomodation, setNeedAccomomdation] = useState(false);
@@ -31,12 +34,22 @@ export default function ProjectExpoRegistration() {
   const form = useRef(null);
   const validateFunction = () => {
     if (paymentconfirmation) {
-      console.log("Payment successfull")
+      console.log("Payment successfull");
+      setPaymentLoading(false);
     } else {
-      toast.error("Payment declined")
+      toast.error("Payment declined");
+      setPaymentLoading(false);
     }
   }
   const startPayment = async (e) => {
+    setPaymentLoading(true);
+
+    if (!form.current.checkValidity()) {
+      toast.info("Please fill all the fields to continue.");
+      setPaymentLoading(false);
+      return;
+    }
+
     e.preventDefault();
     const response = await axios.post('https://gfg-server.onrender.com/createOrder');
     const order = response.data;
@@ -80,13 +93,16 @@ export default function ProjectExpoRegistration() {
           setTxnID(response.razorpay_payment_id);
           setPaymentStatus("paid");
           if (form.current.checkValidity()) {
+          setPaymentLoading(false);
           toast.success("Payment is successful. Please proceed with the registration process.");
             setConfirmModalShown(true);
           }
           else {
-            toast.info("Some fields are not filled. Kindly fill all the fields to register.")
+            toast.info("Some fields are not filled. Kindly fill all the fields to register.");
+            setPaymentLoading(false);
           }
         } catch (error) {
+          setPaymentLoading(false);
           console.error("Payment verification failed", error);
           toast.error("Payment verification failed. Please try again later.");
         }
@@ -109,9 +125,11 @@ export default function ProjectExpoRegistration() {
   };
 
   const register = async (e) => {
+    setRegistrationLoading(true);
     e.preventDefault();
     if (!USER_PRESENT()) {
       toast.error("You have to be logged in to complete registration.");
+      setRegistrationLoading(false);
       return;
     }
 
@@ -172,12 +190,14 @@ export default function ProjectExpoRegistration() {
     }, 
     { headers: { Authorization: await currentUser.getIdToken() } })
     .then((response) => {
+      setRegistrationLoading(false);
       console.log(response.data);
       toast.success(response.data.message || "Registration successful!");
       setRegistrationStatus("registered");
       setConfirmModalShown(false);
     })
     .catch((error) => {
+      setRegistrationLoading(false);
       toast.error(error.response.data.message ||  "Registration failed. Please try again later.");
       setConfirmModalShown(false);
     })
@@ -295,9 +315,12 @@ export default function ProjectExpoRegistration() {
               <input required type="email" id={`memberEmail${index + 1}`} name={`memberEmail${index + 1}`} defaultValue={index === 0 ? currentUser?.email : ''} />
               <label htmlFor={`memberRegisterNo${index + 1}`}>Member {index + 1} College Register No:</label>
               <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} onChange={(e) => {
-                if (e.target.value.startsWith("99")) {
+                if (e.target.value.startsWith("99") || e.target.value.startsWith("98") ) {
                   setRegistrationDisabled(true);
                   toast.error("KARE Students are not allowed to register at this time. Contact us for more information.");
+                }
+                else {
+                  setRegistrationDisabled(false);
                 }
               }} />
               <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
@@ -406,10 +429,17 @@ export default function ProjectExpoRegistration() {
             <>
               {registrationStatus === "registered" ? (
                 <>
-                  <button disabled>Registered!</button>
                   <div className="registrationInfo">
-                    <span>You have registered under the team: {form.current.elements.teamName.value}.</span>
-                    <span>Your transaction ID is {txnID}</span>
+                    <span className="team">You have registered under the team: {form.current.elements.teamName.value}.</span>
+                    <div className="paymentSuccessInfo">
+                      <div className="text">
+                        <div className="title">Payment Status</div>
+                        <div><span className="color green">Paid</span> (ID: {txnID})</div>
+                      </div>
+                      <div className="icon"><IoShieldCheckmark size={"40px"} /></div>
+                    </div>
+
+                    <button disabled>Registered!</button>
                   </div>
                 </>
               ) : (
@@ -426,10 +456,10 @@ export default function ProjectExpoRegistration() {
                     <div className="payment">
                       <button 
                         type="button"
-                        disabled={registrationDisabled} 
+                        disabled={registrationDisabled || paymentLoading || registrationLoading} 
                         onClick={() => {
                         if (form.current.checkValidity()) {
-                          console.log("All fields valid. Showing preview modal.")
+                          console.log("All fields valid. Showing preview modal.");
                           setConfirmModalShown(true);
                         }
                         else {
@@ -444,10 +474,14 @@ export default function ProjectExpoRegistration() {
           )}
         </form>
         {USER_PRESENT() && paymentStatus === "unpaid" && (
-          <button disabled={registrationDisabled} onClick={startPayment}>Proceed with payment</button>
+          <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={startPayment}>
+            {
+              (paymentLoading) ? "Starting payment..." : "Proceed with payment"
+            }
+          </button>
         )}
         {!USER_PRESENT() && (
-          <button disabled={registrationDisabled} onClick={() => signinwithpopup("google")}>Sign in to Register!</button>
+          <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={() => signinwithpopup("google")}>Sign in to Register!</button>
         )}
       </div>
     </>
