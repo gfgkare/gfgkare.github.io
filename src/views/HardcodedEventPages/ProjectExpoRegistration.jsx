@@ -87,7 +87,8 @@ export default function ProjectExpoRegistration() {
             name: currentUser.displayName,
             teamName: form.current.elements.teamName.value,
             theme: form.current.elements.theme.value,
-            teamMembers: team
+            teamMembers: team,
+            accomodationDetails: accomodationDetails
           };
           await axios.post('https://gfg-server.onrender.com/verifyPayment', paymentInfo);
           setTxnID(response.razorpay_payment_id);
