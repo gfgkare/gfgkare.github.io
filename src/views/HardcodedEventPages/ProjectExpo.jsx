@@ -542,10 +542,11 @@ export default function ProjectExpo() {
                             <div className="contact">
                                 <div className="title">For any queries, feel free to contact</div>
                                 <div className="numbers">
-                                    <span>Sabari S - <a href="tel:+91 87546 05197">87546 05197</a> </span>
-                                    <span>Navadeep Marella - <a href="tel:+91 70750 72880">70750 72880</a> </span>
-                                    <span>Venkateswara Rao - <a href="tel:+91 93981 07277">93981 07277</a> </span>
-                                    <span>Siri Chowdary - <a href="tel:+91 94911 46276">94911 46276</a> </span>
+                                    <span>Ashok Reddu Cheluri - <a href="tel:+91 87546 05197">95158 22637</a> </span>
+                                    <span>Krishna Vineeth - <a href="tel:+91 70750 72880">96762 15354</a> </span>
+                                    <span>Navuluri Balaji - <a href="tel:+91 93981 07277">93468 30134</a> </span>
+                                    <span>Mallavarapu Vaishnavi - <a href="tel:+91 94911 46276">90590 93929</a> </span>
+                                    <span>Yaramasu Sravani - <a href="tel:+91 94911 46276">93982 36858</a> </span>
                                 </div>
                                 <div className="email">
                                     Or drop a mail to <a href="mailto:gfgkarestudentchapter@gmail.com">gfgkarestudentchapter@gmail.com</a>
