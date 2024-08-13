@@ -9,6 +9,7 @@ import { FiChevronLeft } from "react-icons/fi";
 import { IoShieldCheckmark } from "react-icons/io5";
 import "../../styles/ProjectExpoRegistration.scss";
 
+
 // import Accomidation from "./Accomidation";
 
 export default function ProjectExpoRegistration() {
@@ -60,8 +61,8 @@ export default function ProjectExpoRegistration() {
       key: 'rzp_live_QdGShimqqkNStv',
       amount: order.amount,
       currency: 'INR',
-      name: 'GFG KARE Prajñotsavah',
-      description: 'Registration fee for GFG KARE Prajñotsavah',
+      name: 'GFG KARE Prajnotsavah',
+      description: 'Registration fee for GFG KARE Prajnotsavah',
       order_id: order.id,
       handler: async function (response) {
         const teamSize = form.current.elements.numberOfMembers.value;
@@ -110,7 +111,7 @@ export default function ProjectExpoRegistration() {
       prefill: {
         name: currentUser.displayName,
         email: currentUser.email,
-        contact: ''
+        contact: form?.current?.elements["memberNumber1"].value
       },
       notes: {
         address: 'GFG-KARE'
@@ -317,7 +318,7 @@ export default function ProjectExpoRegistration() {
               <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} onChange={(e) => {
                 if (e.target.value.startsWith("99") || e.target.value.startsWith("98") ) {
                   setRegistrationDisabled(true);
-                  toast.error("KARE Students are not allowed to register at this time. Contact us for more information.");
+                  toast.error("KARE Students are not allowed to register at this time. Contact us for more information.", { toastId: "reg_no_error" });
                 }
                 else {
                   setRegistrationDisabled(false);
@@ -474,11 +475,36 @@ export default function ProjectExpoRegistration() {
           )}
         </form>
         {USER_PRESENT() && paymentStatus === "unpaid" && (
-          <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={startPayment}>
-            {
-              (paymentLoading) ? "Starting payment..." : "Proceed with payment"
-            }
-          </button>
+          <div className="payFeeDiv">
+            <div className="title">Payment</div>
+            <div className="feeBreakdown">
+              <div className="row">
+                <div className="name">Registration Fee</div>
+                <div className="amount">₹500</div>
+              </div>
+              <div className="row">
+                <div className="name">Convinience Fee</div>
+                <div className="amount faded">₹17</div>
+              </div>
+              <div className="row bold">
+                <div className="name">Total</div>
+                <div className="amount">₹517</div>
+              </div>
+
+            </div>
+              
+
+              {
+                (!paymentLoading) ? (
+                  <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={startPayment}>
+                    Proceed with payment
+                  </button>
+                ) : (
+                  <button disabled>Starting payment...</button>
+                )
+              }
+          </div>
+          
         )}
         {!USER_PRESENT() && (
           <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={() => signinwithpopup("google")}>Sign in to Register!</button>

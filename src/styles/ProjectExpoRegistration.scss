@@ -288,6 +288,7 @@ nav.projectExpoNav {
             } 
         }
 
+
         .registrationInfo {
             display: flex;
             flex-direction: column;
@@ -352,6 +353,66 @@ nav.projectExpoNav {
             }
         }
     }
+
+        
+    .payFeeDiv {
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: "Unbounded";
+            max-width: max-content;
+            margin: 0 auto 2rem auto;
+        }
+
+        .feeBreakdown {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            margin-bottom: 4rem;
+            padding: 1rem;
+            max-width: min(400px, 90vw);
+            border: 4px dashed rgba(white, .2);
+            border-radius: 4px;
+
+            .row {
+                width: 100%;
+                padding: 1rem 0;
+                display: flex;
+
+                &.bold {
+                    font-weight: 700;
+                }
+                
+                &:first-child {
+                    border-bottom: 1px solid rgba(white, .3);
+                }
+
+                &:last-child {
+                    border-top: 1px solid rgba(white, .3);
+                    padding-bottom: .5rem;
+                }
+
+                .name {
+                    width: 60%;
+                    padding-left: 2rem;
+                }
+
+                .amount {
+                    width: 40%;
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 2rem;
+
+                    &.faded {
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 
