@@ -791,6 +791,32 @@ $textWhite: rgb(231, 231, 231);
     }
 }
 
+
+@media screen and (max-width: 1040px) {
+    .projectExpoContainer .projectExpo .content .heroDiv  {
+        
+        .gfgKarePresents {
+            .title {
+                font-size: 2rem;
+            }
+            .presents {
+                font-size: 1rem;
+            }
+        }
+
+        .projectExpoText {
+            .name {
+                font-size: 4rem;
+            }
+    
+            .year {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+
 @media screen and (max-width: 700px) {
     .projectExpo {
         width: 100vw;
