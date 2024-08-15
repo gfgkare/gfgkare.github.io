@@ -6,7 +6,7 @@ import axios from "../../scripts/axiosConfig";
 import { useAuth } from "../../contexts/AuthContext";
 import CLink from "../../components/CLink";
 import { FiChevronLeft } from "react-icons/fi";
-import { IoShieldCheckmark } from "react-icons/io5";
+import { IoShieldCheckmark, IoClose } from "react-icons/io5";
 import "../../styles/ProjectExpoRegistration.scss";
 
 
@@ -16,14 +16,15 @@ export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
 
-  const [txnID, setTxnID] = useState("");
+  const [txnID, setTxnID] = useState( localStorage.getItem("txnID") || null );
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [confirmModalShown, setConfirmModalShown] = useState(false);
   const [teamMembers, setTeamMembers] = useState({});
   const [numberOfMembers, setNumberOfMembers] = useState(4);
   const [registrationStatus, setRegistrationStatus] = useState("not_registered");
-  const [paymentStatus, setPaymentStatus] = useState("unpaid");
+  const [paymentStatus, setPaymentStatus] = useState( localStorage.getItem("paymentStatus") || "unpaid" );
   const [paymentconfirmation, setPaymentConfirmation] = useState(false)
+  const [paymentLoadingText, setPaymentLoadingText] = useState("");
 
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [registrationLoading, setRegistrationLoading] = useState(false);
@@ -33,6 +34,13 @@ export default function ProjectExpoRegistration() {
   const [needAccomodation, setNeedAccomomdation] = useState(false);
 
   const form = useRef(null);
+
+
+  const formatDate = (date) => {
+    console.log(typeof date);
+    return date;
+  }
+
   const validateFunction = () => {
     if (paymentconfirmation) {
       console.log("Payment successfull");
@@ -42,6 +50,7 @@ export default function ProjectExpoRegistration() {
       setPaymentLoading(false);
     }
   }
+
   const startPayment = async (e) => {
     setPaymentLoading(true);
 
@@ -52,6 +61,7 @@ export default function ProjectExpoRegistration() {
     }
 
     e.preventDefault();
+    setPaymentLoading(true);
     const response = await axios.post('https://gfg-server.onrender.com/createOrder');
     const order = response.data;
 
@@ -62,7 +72,7 @@ export default function ProjectExpoRegistration() {
       amount: order.amount,
       currency: 'INR',
       name: 'GFG KARE Prajnotsavah',
-      description: 'Registration fee for GFG KARE Prajnotsavah',
+      description: 'Registration Fee for GFG KARE Prajnotsavah',
       order_id: order.id,
       handler: async function (response) {
         const teamSize = form.current.elements.numberOfMembers.value;
@@ -78,9 +88,10 @@ export default function ProjectExpoRegistration() {
             location: form.current.elements[`memberLocation${i}`].value,
           };
         }
-        setTeamMembers(team)
+        setTeamMembers(team);
 
         try {
+          setPaymentLoadingText("Verifying payment...");
           const paymentInfo = {
             payment_id: response.razorpay_payment_id,
             order_id: response.razorpay_order_id,
@@ -95,15 +106,20 @@ export default function ProjectExpoRegistration() {
           setTxnID(response.razorpay_payment_id);
           setPaymentStatus("paid");
           if (form.current.checkValidity()) {
-          setPaymentLoading(false);
-          toast.success("Payment is successful. Please proceed with the registration process.");
+            setPaymentLoadingText(null);
+            toast.success("Payment is successful. Please proceed with the registration process.");
+            localStorage.setItem("paymentStatus", "paid");
+            localStorage.setItem("txnID", response.razorpay_payment_id);
             setConfirmModalShown(true);
+            setPaymentLoading(false);
           }
           else {
+            setPaymentLoadingText(null);
             toast.info("Some fields are not filled. Kindly fill all the fields to register.");
             setPaymentLoading(false);
           }
         } catch (error) {
+          setPaymentLoadingText(null);
           setPaymentLoading(false);
           console.error("Payment verification failed", error);
           toast.error("Payment verification failed. Please try again later.");
@@ -112,7 +128,7 @@ export default function ProjectExpoRegistration() {
       prefill: {
         name: currentUser.displayName,
         email: currentUser.email,
-        contact: form?.current?.elements["memberNumber1"].value
+        contact: form.current.elements["memberNumber1"].value
       },
       notes: {
         address: 'GFG-KARE'
@@ -121,6 +137,7 @@ export default function ProjectExpoRegistration() {
         color: '#2e8d46'
       }
     };
+
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
     validateFunction()
@@ -192,6 +209,7 @@ export default function ProjectExpoRegistration() {
     }, 
     { headers: { Authorization: await currentUser.getIdToken() } })
     .then((response) => {
+      localStorage.clear();
       setRegistrationLoading(false);
       console.log(response.data);
       toast.success(response.data.message || "Registration successful!");
@@ -218,7 +236,7 @@ export default function ProjectExpoRegistration() {
       {confirmModalShown && (
         <div className="confirmModalBackground">
           <div className="confirmModal">
-            <button className="close" onClick={() => setConfirmModalShown(false)}>Close</button>
+            <button className="close" onClick={() => setConfirmModalShown(false)}><IoClose size={"30px"} /></button>
             <div className="heading">Confirm Details</div>
             <div className="field">
               <div className="title color green">Team Name</div>
@@ -239,6 +257,21 @@ export default function ProjectExpoRegistration() {
                 <div className="value">{teamMembers[memberKey].email}</div>
               </div>
             ))}
+            <div className="accomodationDetailsConfirm">
+              <div className="field">
+                <div className="title color green">Need Accomodation</div>
+                <div className="value">{form.current?.elements["needAccomodation"].checked ? "Yes" : "No"}</div>
+              </div>
+              {
+                form.current?.elements["needAccomodation"].checked && (
+                  <div className="field">
+                    <div className="value">
+                      Accomodation needed for {form.current?.elements["noOfMembers"].value} members for {form.current?.elements["noOfDays"].value} days from {formatDate(form.current?.elements["checkInDate"].value)} {form.current?.elements["checkInTime"].value} to {form.current?.elements["checkOutDate"].value} {form.current?.elements["checkOutTime"].value}.
+                    </div>
+                  </div>
+                )
+              }
+            </div>
             <div className="field">
               <div className="title">TXN ID</div>
               <div className="value">{txnID}</div>
@@ -248,7 +281,7 @@ export default function ProjectExpoRegistration() {
             <label htmlFor="detailsCorrectCheckbox">
               The details are correct and I wish to go for the registration. I understand that modification of these details are not possible.
             </label>
-            {confirmChecked && <Fade><button onClick={register}>Register!</button></Fade>}
+            {confirmChecked && <Fade className="finalRegisterButton"><button onClick={register}>Register!</button></Fade>}
           </div>
         </div>
       )}
@@ -465,7 +498,18 @@ export default function ProjectExpoRegistration() {
                           setConfirmModalShown(true);
                         }
                         else {
-                          toast.info("Some fields are not filled. Kindly fill all the fields to register.");
+                          const formElements = form.current.elements;
+                          for (let i = 0; i < formElements.length; i++) {
+                            const element = formElements[i];
+                            let erroredFields = [];
+                            if (element.required && !element.reportValidity()) {
+                              console.log(`Field ${element.name} is invalid.`);
+                              erroredFields.push(element.name);
+                            }
+                          }
+                          if (erroredFields.length) {
+                            toast.error(`Please fill in or correct the following fields: ${erroredFields.join(", ")}`);
+                          }
                         }
                       }}>Register</button>
                     </div>
@@ -488,8 +532,8 @@ export default function ProjectExpoRegistration() {
                 <div className="amount faded">₹17</div>
               </div>
               <div className="row bold">
-                <div className="name">Total</div>
-                <div className="amount">₹517</div>
+                <div className="name color green">Total</div>
+                <div className="amount color green">₹517</div>
               </div>
 
             </div>

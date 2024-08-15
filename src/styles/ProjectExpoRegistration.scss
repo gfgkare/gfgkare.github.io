@@ -60,19 +60,24 @@ $textWhite: rgb(230, 230, 230);
     .confirmModal {
         height: 80vh;
         width: min(700px, 70vw);
-        border-radius: 2rem;
         background-color: rgb(43, 43, 43);
         color: $textWhite;
         padding: 2rem;
-        padding-top: 0;
-        overflow: scroll;
+        overflow-y: auto;
 
         button.close {
+            all: unset;
             position: absolute;
-            // margin: 0 !important;
-            // margin-top: 2rem !important;
-            // margin-left: auto !important;
-            // padding: .4rem 1rem !important;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            background-color: rgba(rgb(248, 142, 142), .4);
+            border-radius: 12px;
+            padding: .5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
         }
 
         .heading {
@@ -107,9 +112,9 @@ $textWhite: rgb(230, 230, 230);
             }
         }
 
-        button {
+        .finalRegisterButton button {
             display: block;
-            margin: 2rem auto;
+            margin: 2rem auto !important;
             border-radius: 12px;
             border-style: none;
             padding: 1rem 2rem;
@@ -356,10 +361,11 @@ nav.projectExpoNav {
 
         
     .payFeeDiv {
+        font-family: "Unbounded";
+
         .title {
             font-size: 1.5rem;
             font-weight: 700;
-            font-family: "Unbounded";
             max-width: max-content;
             margin: 0 auto 2rem auto;
         }
@@ -386,11 +392,11 @@ nav.projectExpoNav {
                 }
                 
                 &:first-child {
-                    border-bottom: 1px solid rgba(white, .3);
+                    border-bottom: 2px dashed rgba(white, .2);
                 }
 
                 &:last-child {
-                    border-top: 1px solid rgba(white, .3);
+                    border-top: 2px dashed rgba(white, .2);
                     padding-bottom: .5rem;
                 }
 
