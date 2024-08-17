@@ -57,7 +57,7 @@ export default function ProjectExpoRegistration() {
     console.log("Initiating payment.");
 
     const options = {
-      key: 'rzp_live_QdGShimqqkNStv',
+      key: 'rzp_test_MBN7B4vWGiv12S',
       amount: order.amount,
       currency: 'INR',
       name: 'GFG KARE Prajñotsavah',
@@ -105,7 +105,7 @@ export default function ProjectExpoRegistration() {
         } catch (error) {
           setPaymentLoading(false);
           console.error("Payment verification failed", error);
-          toast.error("Payment verification failed. Please try again later.");
+          toast.error("Payment verification failed. Please try again later."); 
         }
       },
       prefill: {
