@@ -122,7 +122,7 @@ export default function ProjectExpoRegistration() {
           setPaymentLoadingText(null);
           setPaymentLoading(false);
           console.error("Payment verification failed", error);
-          toast.error("Payment verification failed. Please try again later.");
+          toast.error("Payment verification failed. Please try again later."); 
         }
       },
       prefill: {
