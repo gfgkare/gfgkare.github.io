@@ -12,8 +12,6 @@ import { GoPlus } from "react-icons/go";
 import { FaDiamond, FaRocket } from "react-icons/fa6";
 import { GiAlarmClock } from "react-icons/gi";
 
-
-
 import kluLogo from "../../assets/klu.png";
 import gfgkareLogo from "../../assets/gfgkare_square_logo.jpg";
 import gfgLogo from "../../assets/gfg.png";
