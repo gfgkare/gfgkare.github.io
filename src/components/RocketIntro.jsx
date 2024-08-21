@@ -9,7 +9,7 @@ export default function RocketIntro({ animationOver }) {
         <>
             <div className={`rocketIntro ${(animationOver) && 'unmount'}`}>
 
-                <div class={`rain ${(animationOver) ? 'hidden' : ''}`}>
+                <div className={`rain ${(animationOver) ? 'hidden' : ''}`}>
                     {
                         new Array(30).fill(0).map((_, i) => (
                             <div class="drop" key={i}></div>

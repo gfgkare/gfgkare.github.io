@@ -15,7 +15,7 @@ import AllMembers from "./views/AllMembers";
 import New from "./views/New";
 import EventRegister from "./views/EventRegister";
 import DynamicEventPage from "./views/DynamicEventPage";
-import Round5Register from "./views/RoadToMernRegister";
+import Round5Register from "./views/HardcodedEventPages/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
@@ -38,9 +38,9 @@ import SlotSuspend from "./views/SlotSuspend";
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
-import GeekFest24 from "./views/HardcodedEventPages/Geekfest24";
 import ProjectExpo from "./views/HardcodedEventPages/ProjectExpo";
 import ProjectExpoRegister from "./views/HardcodedEventPages/ProjectExpoRegistration";
+import StudentEnrollment from "./views/HardcodedEventPages/StudentEnrollment24-25"; 
 
 import Landing from "./views/Landing";
 
@@ -59,15 +59,12 @@ export default function App() {
 
     return (
         <>
-            {/* <Router> */}
             <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody" />
 
             <TransitionGroup component={null}>
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
                         <Route path="/" element={<Main />}>
-                            {/* <Route path="/" element={<Home />}></Route> */}
-                            {/* <Route path="/login" element={ <Login /> }></Route> */}
                             <Route path="/profile" element={ <Profile /> }></Route>
                             <Route path="/new" element={<New />}></Route>
                             {/* <Route path="/core" element={<CoreTeam />}></Route> */}
@@ -97,11 +94,12 @@ export default function App() {
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
+                        <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
 
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
-                        {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
+                        <Route path="/events/algo2024" element={<EventRegister />}></Route>
                         <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
 
 
@@ -119,15 +117,12 @@ export default function App() {
                         <Route path="/:eventname/code" element={<CodeHouse />}>
                             <Route path="/:eventname/code" element={<Code />}></Route>
                         </Route>
-
                  
-                        {/* <Route path="/dashboard" element={ <Pickle /> }></Route> */}
 
                         <Route path="/*" element={ <NotFound /> }></Route>
                     </Routes>
                     </CSSTransition>
                 </TransitionGroup>
-            {/* </Router> */}
         </>
     );
 }

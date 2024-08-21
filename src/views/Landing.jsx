@@ -1,7 +1,7 @@
 import {  useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { throttle } from "lodash"
-import { motion, useScroll, useTransform, spring } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 // Styles.
 import "../styles/Landing.scss";
@@ -13,7 +13,7 @@ import { FaRegCopyright, FaLinkedin, FaInstagram, FaYoutube, FaGithub } from "re
 // Custom.
 import CLink from "../components/CLink";
 import Fade from "../components/Fade";
-import RollingLetters from "../components/RollingLetters"
+// import RollingLetters from "../components/RollingLetters"
 import RocketIntro from "../components/RocketIntro";
 import ScrollContainer from "../components/ScrollContainer";
 
@@ -21,8 +21,7 @@ import ScrollContainer from "../components/ScrollContainer";
 import eventPlaceholderImage from "../assets/pinkAndWhiteMovement.gif"
 import kluTeam from "../assets/klu_team.jpg"
 import gfgLogo from '../assets/gfg_student_chapter_transparent.png';
-// import gemoetricCircle from "../assets/floral_pattern.svg";
-import gemoetricCircle from "../assets/geometric_circle.svg";
+// import gemoetricCircle from "../assets/geometric_circle.svg";
 import elem1 from "../assets/landing_page_elements/elem1.svg";
 import elem2 from "../assets/landing_page_elements/elem2.svg";
 import elem3 from "../assets/landing_page_elements/elem3.svg";
