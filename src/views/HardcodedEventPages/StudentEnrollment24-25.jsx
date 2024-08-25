@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import eventCoverImage from "../../assets/events_cover.jpeg";
-
+import {Link, useNavigate} from "react-router-dom"
 // -----------------------------------
 
 import { FaCalendarAlt } from "react-icons/fa";
@@ -37,8 +37,6 @@ Register now to be a part of this amazing community and make the most out of it!
 export default function StudentEnrollment() {
     const { USER_PRESENT, currentUser, signinwithpopup } = useAuth();
     const { readableError, setNavTitle } = useMisc();
-
-   
     const [fadeStatus, setFadeStatus] = useState("");
     const [countdownTime, setCountdownTime] = useState(500);
     const [eventRegistrationStatus, setEventRegistrationStatus] = useState("accepting");
@@ -49,6 +47,15 @@ export default function StudentEnrollment() {
         setTimeout(() => setFadeStatus("visible"), 500);
     }, [])
 
+    const navigate = useNavigate()
+
+    const handleMember = () => {
+        // Specify the URL you want to navigate to
+        const url = 'https://gfgkare.vercel.app/form';
+        
+        // Redirect the browser to the specified URL
+        window.location.href = url;
+    };
 
     return (
         <>
@@ -91,7 +98,7 @@ export default function StudentEnrollment() {
                             <div className="row registerBtn">
                                 {USER_PRESENT() ? (
                                     <AttentionSeeker effect="tada" delay={5000}>
-                                        <CLink to="/enrollment/form">
+                                        <CLink to="https://gfgkare.vercel.app/form">
                                             <button
                                                 className={
                                                     eventRegisterStatus === "registered"
@@ -101,6 +108,8 @@ export default function StudentEnrollment() {
                                                 disabled={
                                                     (eventRegisterStatus === "registered" || eventRegisteringInProgress === true || eventRegistrationStatus !== "accepting")
                                                 }
+
+                                                onClick={handleMember}
 
                                             > Become a Member
                                             </button>
@@ -228,12 +237,9 @@ export default function StudentEnrollment() {
                                         Registered.
                                     </div>
                                 ) : (
-                                    <CLink to="/enrollment/form">
-                                        <div className="registerBtn">
+                                        <div className="registerBtn" onClick={handleMember}>
                                             Become a member!
                                         </div>
-                                    </CLink>
-                                    
                                 )
                             ) : (
                                 <div

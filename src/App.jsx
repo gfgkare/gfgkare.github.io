@@ -5,8 +5,7 @@ import Main from "./pages/Main";
 import UnderConstruction from "./pages/UnderConstruction";
 import NotFound from "./pages/NotFound";
 import Meta from "./pages/Meta";
-
-
+import Student_enroll_form from "./views/HardcodedEventPages/Student_enroll_form";
 import Home from "./views/Home";
 import CoreTeam from "./views/CoreTeam";
 import TeamMember from "./views/TeamMember";
@@ -41,9 +40,7 @@ import Code from "./views/Code";
 import ProjectExpo from "./views/HardcodedEventPages/ProjectExpo";
 import ProjectExpoRegister from "./views/HardcodedEventPages/ProjectExpoRegistration";
 import StudentEnrollment from "./views/HardcodedEventPages/StudentEnrollment24-25"; 
-
 import Landing from "./views/Landing";
-
 import Pickle from "./views/Pickle";
 import NewEventRegister from "./views/NewEventRegister";
 import { ToastContainer } from "react-toastify";
@@ -95,6 +92,7 @@ export default function App() {
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
                         <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
+                        <Route path="/enrollmentform" element={<Student_enroll_form />}></Route>
 
                         
                         {/* PAST EVENTS */}
