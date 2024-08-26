@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
+import SuccessPage from "./SuccessPage";
 import axios from "axios";
 import "../../Form.css"
 
@@ -19,9 +20,12 @@ const Student_enroll_form = () => {
     const [message, setMessage] = useState("");
     const [errmsg, setErrmsg] = useState("");
     const [fullname, setFullname] = useState("");
-    const [photo, setPhoto] = useState(null);
+    const [photo, setPhoto] = useState("");
     const [photoPreview, setPhotoPreview] = useState("");
-    const [imageName,setimageName]=useState("")
+    const [imageName,setimageName]=useState("");
+    const [github, setGithub] = useState("");
+    const [linkedin, setLinkedin] = useState("");
+    const [showModal, setShowmodal] = useState(false)
 
     const handlePhotoChange = (e) => {
         const file = e.target.files[0];
@@ -30,7 +34,10 @@ const Student_enroll_form = () => {
         if (file) {
             setimageName(file.name)
             const reader = new FileReader();
-            reader.onloadend = () => {
+            reader.onloadend =async () => {
+                const response = await axios.post('https://api.cloudinary.com/v1_1/dvw9vd875/image/upload', {file:reader.result,upload_preset:"gfgcloud"});
+                console.log('File uploaded successfully:', response.data);
+                setPhoto(response.data.url)
                 setPhotoPreview(reader.result);
             };
             reader.readAsDataURL(file);
@@ -57,7 +64,7 @@ const Student_enroll_form = () => {
         setFullname(`${firstName} ${secondName}`);
     }, [firstName, secondName]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
         // Log the form data to check values
@@ -114,17 +121,15 @@ const Student_enroll_form = () => {
         if (photo) {
             formData.append("photo", photo);
         }
-    
-        axios.post("http://localhost:3001/register", formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        })
+
+        axios.post("https://gfg-cueb.onrender.com/register", {fullname,registrationno,email,year,department,mobileno,domain,additionalPreferences:JSON.stringify(Object.keys(additionalCheckboxes).filter(key => additionalCheckboxes[key])),photo, github, linkedin}
+        )
         .then((res) => {
             console.log(res.data);
             setLoading(false);
+            setMessage("✔️ Your registration was successful!");
             setimageName("")
-            setMessage("✔️ Your registration was successful. Please check your mail for further details.");
+            setShowmodal(true)
             resetForm();
         })
         .catch(error => {
@@ -174,7 +179,6 @@ const Student_enroll_form = () => {
         const { value } = e.target;
         setDomain(value);
 
-        // Reset additional checkboxes and count when domain changes
         if (value !== "Technical") {
             setAdditionalCheckboxes({
                 ML: false,
@@ -207,9 +211,15 @@ const Student_enroll_form = () => {
             agree4: false,
             agree5: false,
         });
-        setPhoto(null); // Clear the photo
-        setPhotoPreview(""); // Clear the photo preview
+        setPhoto(null);
+        setPhotoPreview("");
+        setGithub("");
+        setLinkedin("")
     };
+
+    const handleCloseModal = () => {
+        setShowmodal(false)
+    }
 
     return (
         <>
@@ -238,7 +248,7 @@ const Student_enroll_form = () => {
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Registration Number:</label><br />
-                            <input type="number" required placeholder="Enter your Registration number" className="input1" onChange={(e) => setRegistrationNo(e.target.value)} value={registrationno} />
+                            <input type="tel" required placeholder="Enter your Registration number" className="input1" onChange={(e) => setRegistrationNo(e.target.value)} value={registrationno} />
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Your Email:</label><br />
@@ -248,18 +258,24 @@ const Student_enroll_form = () => {
                             <label htmlFor="radio">Year:</label><br />
 
                             <fieldset>
-                                <div class="radio-item-container">
-                                    <div class="radio-item">
-                                        <label for="vanilla">
+                                <div className="radio-item-container">
+                                    <div className="radio-item">
+                                        <label htmlFor="vanilla">
                                         <input type="radio" required name="radio1" value="II Year (2023-2027 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "II Year (2023-2027 Batch)"} />
                                             <span>II Year (2023-2027 Batch)</span>
                                         </label>
                                     </div>
 
-                                    <div class="radio-item">
-                                        <label for="chocolate">
+                                    <div className="radio-item">
+                                        <label htmlFor="chocolate">
                                         <input type="radio" required name="radio1" value="III Year (2022-2026 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "III Year (2022-2026 Batch)"} />
                                             <span>III Year (2022-2026 Batch)</span>
+                                        </label>
+                                    </div>
+                                    <div className="radio-item">
+                                        <label htmlFor="chocolate">
+                                        <input type="radio" required name="radio1" value="IV Year (2021-2025 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "IV Year (2021-2025 Batch)"} />
+                                            <span>IV Year (2021-2025 Batch)</span>
                                         </label>
                                     </div>
                                 </div>
@@ -271,7 +287,7 @@ const Student_enroll_form = () => {
                         </div>
                         <div className="form-1">
                             <label htmlFor="number">Enter your Whatsapp No:</label><br />
-                            <input type="number" required placeholder="Enter your Whatsapp No" className="input1" onChange={(e) => setMobileNo(e.target.value)} value={mobileno} />
+                            <input type="tel" required placeholder="Enter your Whatsapp No" className="input1" onChange={(e) => setMobileNo(e.target.value)} value={mobileno} />
                         </div>
                         <div className="form-2">
                             <label htmlFor="text">Which Domain you are interested in?</label><br />
@@ -372,7 +388,14 @@ const Student_enroll_form = () => {
                                 </center>
                             </div>
                         </div>
-
+                        <div className="form-1">
+                            <label htmlFor="text">Your Github profile:</label><br />
+                            <input type="text" required placeholder="Paste your github profile link" className="input1" onChange={(e) => setGithub(e.target.value)} value={github}/>
+                        </div>
+                        <div className="form-1">
+                            <label htmlFor="text">Your LinkedIn profile:</label><br />
+                            <input type="text" required placeholder="Paste your linkedin profile link" className="input1" onChange={(e) => setLinkedin(e.target.value)} value={linkedin}/>
+                        </div>
                         <div className="form-1">
                             <label>I understand that being an active member is essential for the growth of the student chapter.</label><br />
                             <input type="checkbox" id="agree1" name="agree1" className="checkbox" checked={checkboxes.agree1} onChange={handleCheckboxChange} />
@@ -416,7 +439,9 @@ const Student_enroll_form = () => {
                     </form>
                 </div>
             </div>
+            {showModal && <SuccessPage onClose={handleCloseModal} />}
         </div>
+
 
 
         </>

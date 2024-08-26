@@ -1,0 +1,92 @@
+/* Keyframes for animations */
+@keyframes drawCircle {
+    from { stroke-dashoffset: 314; }
+    to { stroke-dashoffset: 0; }
+  }
+  
+  @keyframes drawCheck {
+    from { opacity: 0; height: 0; width: 0; }
+    to { opacity: 1; height: 40px; width: 40px; }
+  }
+  
+  /* Styles for the container */
+  .success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 160vh;
+    position: absolute;
+    overflow: hidden;
+    font-family: 'Google Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  
+  /* Styles for the SVG */
+  .success-svg {
+    width: 120px;
+    height: 120px;
+  }
+  
+  /* Styles for the circle path */
+  .circle-path {
+    fill: none;
+    stroke: #4CAF50;
+    stroke-width: 10;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    animation: drawCircle 2s ease-out forwards;
+  }
+  
+  /* Styles for the checkmark */
+  .checkmark {
+    width: 60px;
+    height: 60px;
+    border: solid #4CAF50;
+    border-width: 0 8px 8px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0;
+    animation: drawCheck 0.5s 2s ease-out forwards;
+  }
+  
+  /* Styles for success message */
+  .success-message {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Styles for info message */
+  .info-message {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5%;
+    color: #555;
+  }
+  .close-btn {
+    margin-top: 6%;
+    padding: 1.5%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 15px;
+    background-color: rgb(255, 77, 77);
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  .close-btn:hover {
+    background-color: rgb(255, 55, 55);
+  }
+  @media (max-width: 600px) {
+    .success-container {
+        height: 210vh;
+    }
+  }
