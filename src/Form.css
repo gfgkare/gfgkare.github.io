@@ -50,7 +50,6 @@ h1 {
 form {
     margin-top: 4%;
     width: 90%;
-    margin-left: 5%;
 }
 .form {
     width: 58%;
@@ -61,6 +60,11 @@ form {
     padding-top: 2rem;
     border-radius: 10px;
 }
+
+.form form {
+  margin: 2rem auto 0 auto;
+}
+
   .contact-blog {
     margin-left: 4%;
     width: 45%;
@@ -198,7 +202,6 @@ label {
     }
     .form, .contact-blog {
         width: 90%;
-        margin-left: 5%;
     }
     .contact-blog {
         margin-top: 8%;
