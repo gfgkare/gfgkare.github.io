@@ -542,6 +542,10 @@ fieldset input[type="radio"]:checked:after {
 	cursor: pointer;
 }
 
+fieldset input[type="radio"]:focus::after {
+  outline: 2px solid #0d5c1d;
+}
+
 fieldset input[type="radio"]:checked:before {
 	content: "";
 	position: absolute;
@@ -577,7 +581,7 @@ fieldset input[type="radio"]:checked:before {
   font-weight: 400;
 }
 
-fieldset input[type="checkbox"] {
+input[type="checkbox"] {
   margin-left: .5rem;
 	position: relative;
 	appearance: none;
@@ -588,7 +592,7 @@ fieldset input[type="checkbox"] {
 	-webkit-tap-highlight-color: transparent;
 }
 
-fieldset input[type="checkbox"]:after {
+input[type="checkbox"]:after {
 	content: "";
 	position: absolute;
 	height: 16px;
@@ -601,7 +605,7 @@ fieldset input[type="checkbox"]:after {
 	cursor: pointer;
 }
 
-fieldset input[type="checkbox"]:checked:after {
+input[type="checkbox"]:checked:after {
 	content: "";
 	position: absolute;
 	height: 16px;
@@ -611,7 +615,7 @@ fieldset input[type="checkbox"]:checked:after {
 	cursor: pointer;
 }
 
-fieldset input[type="checkbox"]:checked:before {
+input[type="checkbox"]:checked:before {
 	content: "";
 	position: absolute;
 	height: 8px;
@@ -622,6 +626,18 @@ fieldset input[type="checkbox"]:checked:before {
 	top: -4.5px;
 	z-index: 1;
 	cursor: pointer;
+}
+
+fieldset input[type="checkbox"]:focus::after {
+  outline: 2px solid #0d5c1d;
+}
+
+.termsCheckbox {
+  transform: translateX(1.3rem) !important;
+}
+
+.agreeLabel {
+  padding-left: .5rem;
 }
 
 
@@ -651,7 +667,9 @@ form input[type="text"], form input[type="email"], form input[type="number"] {
 }
 
 
-form input[type="text"]:active, form input[type="text"]:hover, form input[type="text"]:focus, form input[type="email"]:active, form input[type="email"]:hover, form input[type="email"]:focus, form input[type="number"]:active, form input[type="number"]:hover, form input[type="number"]:focus {
+form input[type="text"]:active, form input[type="text"]:hover, form input[type="text"]:focus, 
+form input[type="email"]:active, form input[type="email"]:hover, form input[type="email"]:focus, 
+form input[type="number"]:active, form input[type="number"]:hover, form input[type="number"]:focus {
   border-color: #23a93e !important;
 }
 

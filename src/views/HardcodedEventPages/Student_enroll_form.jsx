@@ -248,7 +248,7 @@ const Student_enroll_form = () => {
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Registration Number:</label><br />
-                            <input type="tel" required placeholder="Enter your Registration number" className="input1" onChange={(e) => setRegistrationNo(e.target.value)} value={registrationno} />
+                            <input type="number" required placeholder="Enter your Registration number" className="input1" onChange={(e) => setRegistrationNo(e.target.value)} value={registrationno} />
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Your Email:</label><br />
@@ -287,7 +287,7 @@ const Student_enroll_form = () => {
                         </div>
                         <div className="form-1">
                             <label htmlFor="number">Enter your Whatsapp No:</label><br />
-                            <input type="tel" required placeholder="Enter your Whatsapp No" className="input1" onChange={(e) => setMobileNo(e.target.value)} value={mobileno} />
+                            <input type="number" required placeholder="Enter your Whatsapp No" className="input1" onChange={(e) => setMobileNo(e.target.value)} value={mobileno} />
                         </div>
                         <div className="form-2">
                             <label htmlFor="text">Which Domain you are interested in?</label><br />
@@ -341,7 +341,7 @@ const Student_enroll_form = () => {
                         {domain === "Technical" && (
 
                             <fieldset>
-                                <label className="additionalPref">Additional Preferences in Technical Domain:</label><br />
+                                <label className="additionalPref">Additional Preferences in Technical Domain (1 - 2):</label><br />
 
 
                                 <div class="radio-item-container">
@@ -396,30 +396,32 @@ const Student_enroll_form = () => {
                             <label htmlFor="text">Your LinkedIn profile:</label><br />
                             <input type="text" required placeholder="Paste your linkedin profile link" className="input1" onChange={(e) => setLinkedin(e.target.value)} value={linkedin}/>
                         </div>
+
+
                         <div className="form-1">
                             <label>I understand that being an active member is essential for the growth of the student chapter.</label><br />
-                            <input type="checkbox" id="agree1" name="agree1" className="checkbox" checked={checkboxes.agree1} onChange={handleCheckboxChange} />
-                            <label htmlFor="agree1">I AGREE</label>
+                            <input type="checkbox" id="agree1" name="agree1" className="checkbox termsCheckbox" checked={checkboxes.agree1} onChange={handleCheckboxChange} />
+                            <label className="agreeLabel" htmlFor="agree1">I AGREE</label>
                         </div>
                         <div className="form-1">
                             <label>I commit to actively participate in the chapter's activities and contribute to its success.</label><br />
-                            <input type="checkbox" id="agree2" name="agree2" className="checkbox" checked={checkboxes.agree2} onChange={handleCheckboxChange} />
-                            <label htmlFor="agree2">I AGREE</label>
+                            <input type="checkbox" id="agree2" name="agree2" className="checkbox termsCheckbox" checked={checkboxes.agree2} onChange={handleCheckboxChange} />
+                            <label className="agreeLabel" htmlFor="agree2">I AGREE</label>
                         </div>
                         <div className="form-1">
                             <label>I commit to complete the tasks provided within the time period.</label><br />
-                            <input type="checkbox" id="agree3" name="agree3" className="checkbox" checked={checkboxes.agree3} onChange={handleCheckboxChange} />
-                            <label htmlFor="agree3">I AGREE</label>
+                            <input type="checkbox" id="agree3" name="agree3" className="checkbox termsCheckbox" checked={checkboxes.agree3} onChange={handleCheckboxChange} />
+                            <label className="agreeLabel" htmlFor="agree3">I AGREE</label>
                         </div>
                         <div className="form-1">
                             <label>I acknowledge that in case of any concerns or queries, I should reach out to the Chairperson or the other core team members.</label><br />
-                            <input type="checkbox" id="agree4" name="agree4" className="checkbox" checked={checkboxes.agree4} onChange={handleCheckboxChange} />
-                            <label htmlFor="agree4">I AGREE</label>
+                            <input type="checkbox" id="agree4" name="agree4" className="checkbox termsCheckbox" checked={checkboxes.agree4} onChange={handleCheckboxChange} />
+                            <label className="agreeLabel" htmlFor="agree4">I AGREE</label>
                         </div>
                         <div className="form-1">
                             <label>I agree not to disclose any information related to the chapter without core team permission.</label><br />
-                            <input type="checkbox" id="agree5" name="agree5" className="checkbox" checked={checkboxes.agree5} onChange={handleCheckboxChange} />
-                            <label htmlFor="agree5">I AGREE</label>
+                            <input type="checkbox" id="agree5" name="agree5" className="checkbox termsCheckbox" checked={checkboxes.agree5} onChange={handleCheckboxChange} />
+                            <label className="agreeLabel" htmlFor="agree5">I AGREE</label>
                         </div>
                         <div className="form-1">
                             {loading ? (
@@ -430,7 +432,7 @@ const Student_enroll_form = () => {
                                 </center>
                             ) : (
                                 <center>
-                                    <button className="button" type="submit">Register</button>
+                                    <button className="button" type="submit" disabled={ message === "✔️ Your registration was successful!" }>Register</button>
                                 </center>
                             )}
                         </div>
