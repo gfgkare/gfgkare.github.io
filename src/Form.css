@@ -461,3 +461,186 @@ label {
     }
   }
   
+
+
+/* radio buttons */
+
+
+fieldset {
+	padding: 1rem;
+	margin: 0;
+	border: 0;
+	max-width: 340px;
+	border-radius: 20px;
+	width: 100%;
+}
+
+fieldset label {
+	font-weight: 300;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	flex: 1;
+	box-sizing: border-box;
+	display: flex;
+	padding-left: 1rem;
+	font-weight: 500;
+	color: #191919;
+	-webkit-tap-highlight-color: transparent;
+}
+
+fieldset input[type="radio"] {
+	position: relative;
+	appearance: none;
+	-webkit-appearance: none;
+	transition: linear 0.8s;
+	height: 0;
+	width: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+fieldset input[type="radio"]:after {
+	content: "";
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	top: -10.5px;
+	left: -30px;
+	border-radius: 20px;
+	border: 2px solid #23a93e;
+	transition: linear 0.2s;
+	cursor: pointer;
+}
+
+fieldset input[type="radio"]:checked:after {
+	content: "";
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	background: #23a93e;
+	transition: linear 0.2s;
+	cursor: pointer;
+}
+
+fieldset input[type="radio"]:checked:before {
+	content: "";
+	position: absolute;
+	height: 8px;
+	width: 8px;
+	border-radius: 4px;
+	background: #fff;
+	left: -24px;
+	top: -4.5px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.radio-item-container {
+	display: flex;
+	flex-direction: column;
+	border-top: 0;
+	border-radius: 0 0 10px 10px;
+  gap: .6rem;
+}
+
+.radio-item {
+	display: flex;
+	position: relative;
+}
+
+
+/* checkbox */
+
+.additionalPref {
+  margin: 0 !important;
+  transform: translateX(-2rem);
+  font-weight: 400;
+}
+
+fieldset input[type="checkbox"] {
+  margin-left: .5rem;
+	position: relative;
+	appearance: none;
+	-webkit-appearance: none;
+	transition: linear 0.8s;
+	height: 0;
+	width: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+fieldset input[type="checkbox"]:after {
+	content: "";
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	top: -10.5px;
+	left: -30px;
+	border-radius: .25rem;
+	border: 2px solid #23a93e;
+	transition: linear 0.2s;
+	cursor: pointer;
+}
+
+fieldset input[type="checkbox"]:checked:after {
+	content: "";
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	background: #23a93e;
+	transition: linear 0.2s;
+	cursor: pointer;
+}
+
+fieldset input[type="checkbox"]:checked:before {
+	content: "";
+	position: absolute;
+	height: 8px;
+	width: 8px;
+	/* border-radius: 4px; */
+	background: #fff;
+	left: -24px;
+	top: -4.5px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+
+/* file */
+
+#file-upload {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #65ab42;
+  border-radius: .5rem;
+  margin-top: .5rem;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+
+/* regular inputs */
+
+
+form input[type="text"], form input[type="email"], form input[type="number"] {
+  border: 1px solid #ccc !important;
+  border-radius: .3rem !important;
+  outline: none !important;
+}
+
+
+form input[type="text"]:active, form input[type="text"]:hover, form input[type="text"]:focus, form input[type="email"]:active, form input[type="email"]:hover, form input[type="email"]:focus, form input[type="number"]:active, form input[type="number"]:hover, form input[type="number"]:focus {
+  border-color: #23a93e !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px rgb(240, 240, 240) inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px rgb(240, 240, 240) inset;/*your box-shadow*/
+    -webkit-text-fill-color: #333;
+} 

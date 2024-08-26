@@ -124,7 +124,7 @@ const Student_enroll_form = () => {
             console.log(res.data);
             setLoading(false);
             setimageName("")
-            setMessage("✔️ Your registration was successful!");
+            setMessage("✔️ Your registration was successful. Please check your mail for further details.");
             resetForm();
         })
         .catch(error => {
@@ -228,32 +228,42 @@ const Student_enroll_form = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="form-div-flex">
                             <div className="form-1-1">
-                                <label htmlFor="text">First Name :</label><br />
+                                <label htmlFor="text">First Name:</label><br />
                                 <input type="text" required placeholder="Enter your first name" className="input1-1" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
                             </div>
                             <div className="form-1-2">
-                                <label htmlFor="text">Last Name :</label><br />
+                                <label htmlFor="text">Last Name:</label><br />
                                 <input type="text" required placeholder="Enter your last name" className="input1-1" onChange={(e) => setLastName(e.target.value)} value={secondName} />
                             </div>
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Registration Number :</label><br />
+                            <label htmlFor="text">Registration Number:</label><br />
                             <input type="number" required placeholder="Enter your Registration number" className="input1" onChange={(e) => setRegistrationNo(e.target.value)} value={registrationno} />
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Your Email-Id :</label><br />
-                            <input type="email" required placeholder="Enter your Email id" className="input1" onChange={(e) => setEmail(e.target.value)} value={email} />
+                            <label htmlFor="text">Your Email:</label><br />
+                            <input type="email" required placeholder="Enter your KLU Email" className="input1" onChange={(e) => setEmail(e.target.value)} value={email} />
                         </div>
                         <div className="form-1">
-                            <label htmlFor="radio">Year :</label><br />
-                            <div className="checkbox-div">
-                                <input type="radio" required name="radio1" value="II Year (2023-2027 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "II Year (2023-2027 Batch)"} />
-                                <label htmlFor="radio1">II Year (2023-2027 Batch)</label>
-                            </div>
-                            <div className="checkbox-div">
-                                <input type="radio" required name="radio1" value="III Year (2022-2026 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "III Year (2022-2026 Batch)"} />
-                                <label htmlFor="radio1">III Year (2022-2026 Batch)</label>
-                            </div>
+                            <label htmlFor="radio">Year:</label><br />
+
+                            <fieldset>
+                                <div class="radio-item-container">
+                                    <div class="radio-item">
+                                        <label for="vanilla">
+                                        <input type="radio" required name="radio1" value="II Year (2023-2027 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "II Year (2023-2027 Batch)"} />
+                                            <span>II Year (2023-2027 Batch)</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="chocolate">
+                                        <input type="radio" required name="radio1" value="III Year (2022-2026 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "III Year (2022-2026 Batch)"} />
+                                            <span>III Year (2022-2026 Batch)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Your Department:</label><br />
@@ -264,45 +274,105 @@ const Student_enroll_form = () => {
                             <input type="number" required placeholder="Enter your Whatsapp No" className="input1" onChange={(e) => setMobileNo(e.target.value)} value={mobileno} />
                         </div>
                         <div className="form-2">
-                            <label htmlFor="text">Which Domain you are interested in ?</label><br />
-                            <input type="radio" required id="radio" name="radio" value="Technical" className="checkbox" onChange={handleDomainChange} checked={domain === "Technical"} />
-                            <label htmlFor="radio">Technical</label><br />
-                            <input type="radio" required id="radio" name="radio" value="Web Development" className="checkbox" onChange={handleDomainChange} checked={domain === "Web Development"} />
-                            <label htmlFor="radio">Web Development</label><br />
-                            <input type="radio" required id="radio" name="radio" value="Graphic Designing" className="checkbox" onChange={handleDomainChange} checked={domain === "Graphic Designing"} />
-                            <label htmlFor="radio">Graphic Designing</label><br />
-                            <input type="radio" required id="radio" name="radio" value="Social Media" className="checkbox" onChange={handleDomainChange} checked={domain === "Social Media"} />
-                            <label htmlFor="radio">Social Media</label><br />
-                            <input type="radio" required id="radio" name="radio" value="Article Writing & Report making" className="checkbox" onChange={handleDomainChange} checked={domain === "Article Writing & Report making"} />
-                            <label htmlFor="radio">Article Writing & Report making</label><br />
-                            <input type="radio" required id="radio" name="radio" value="Event Management" className="checkbox" onChange={handleDomainChange} checked={domain === "Event Management"} />
-                            <label htmlFor="radio">Event Management</label><br />
+                            <label htmlFor="text">Which Domain you are interested in?</label><br />
+
+                            <fieldset>
+                                <div class="radio-item-container">
+                                    <div class="radio-item">
+                                        <label for="vanilla">
+                                            <input type="radio" required id="radio" name="radio" value="Technical" className="checkbox" onChange={handleDomainChange} checked={domain === "Technical"} />
+                                            <span>Technical</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="chocolate">
+                                            <input type="radio" required id="radio" name="radio" value="Web Development" className="checkbox" onChange={handleDomainChange} checked={domain === "Web Development"} />
+                                            <span>Web Development</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="strawberry">
+                                            <input type="radio" required id="radio" name="radio" value="Graphic Designing" className="checkbox" onChange={handleDomainChange} checked={domain === "Graphic Designing"} />
+                                            <span>Graphic Designing</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="strawberry">
+                                            <input type="radio" required id="radio" name="radio" value="Social Media" className="checkbox" onChange={handleDomainChange} checked={domain === "Social Media"} />
+                                            <span>Social Media</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="strawberry">
+                                            <input type="radio" required id="radio" name="radio" value="Article Writing & Report making" className="checkbox" onChange={handleDomainChange} checked={domain === "Article Writing & Report making"} />
+                                            <span>Article Writing & Report making</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="strawberry">
+                                            <input type="radio" required id="radio" name="radio" value="Event Management" className="checkbox" onChange={handleDomainChange} checked={domain === "Event Management"} />
+                                            <span>Event Management</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                         {domain === "Technical" && (
-                            <div className="form-1">
-                                <label>Additional Preferences:</label><br />
-                                <input type="checkbox" id="ML" name="ML" className="checkbox" checked={additionalCheckboxes.ML} onChange={handleAdditionalCheckboxChange} />
-                                <label htmlFor="ML" className="custom-checkbox-label">ML</label><br />
-                                <input type="checkbox" id="DSA" name="DSA" className="checkbox" checked={additionalCheckboxes.DSA} onChange={handleAdditionalCheckboxChange} />
-                                <label htmlFor="DSA" className="custom-checkbox-label">DSA</label><br />
-                                <input type="checkbox" id="GATE" name="GATE" className="checkbox" checked={additionalCheckboxes.GATE} onChange={handleAdditionalCheckboxChange} />
-                                <label htmlFor="GATE" className="custom-checkbox-label">GATE</label><br />
-                            </div>
+
+                            <fieldset>
+                                <label className="additionalPref">Additional Preferences in Technical Domain:</label><br />
+
+
+                                <div class="radio-item-container">
+                                    <div class="radio-item">
+                                        <label for="vanilla">
+                                            <input type="checkbox" id="ML" name="ML" className="checkbox" checked={additionalCheckboxes.ML} onChange={handleAdditionalCheckboxChange} />
+                                            <span>DSA </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="chocolate">
+                                            <input type="checkbox" id="DSA" name="DSA" className="checkbox" checked={additionalCheckboxes.DSA} onChange={handleAdditionalCheckboxChange} />
+                                            <span>ML</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-item">
+                                        <label for="strawberry">
+                                            <input type="checkbox" id="GATE" name="GATE" className="checkbox" checked={additionalCheckboxes.GATE} onChange={handleAdditionalCheckboxChange} />
+                                            <span>GATE</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
                         )}
+
                         <div className="form-1">
                             <label htmlFor="photo">Upload your profile image (.jpg, .png):</label><br />
                             <div className="form-1-3">
+
+                                <label for="file-upload" class="custom-file-upload">
+                                    Choose a File
+                                </label>
+                                <input id="file-upload" type="file" className="hide" name="photo" accept="image/*" onChange={handlePhotoChange} />
                                 
-                            <input type="file"  id="photo" className="hide" name="photo" accept="image/*" onChange={handlePhotoChange} />
-                            <center>
-                            <div>
-                            {photoPreview && <img src={photoPreview} alt="Photo Preview" style={{ width: "100px", height: "100px", marginTop: "10px" }} />}
-                            <p className="line2">{imageName}</p>
-                            
-                            </div>
-                            </center>
+                                {/* <input type="file"  id="photo" className="hide" name="photo" accept="image/*" onChange={handlePhotoChange} /> */}
+                                <center>
+                                <div>
+                                {photoPreview && <img src={photoPreview} alt="Photo Preview" style={{ width: "100px", height: "100px", marginTop: "10px" }} />}
+                                <p className="line2">{imageName}</p>
+                                
+                                </div>
+                                </center>
                             </div>
                         </div>
+
                         <div className="form-1">
                             <label>I understand that being an active member is essential for the growth of the student chapter.</label><br />
                             <input type="checkbox" id="agree1" name="agree1" className="checkbox" checked={checkboxes.agree1} onChange={handleCheckboxChange} />
