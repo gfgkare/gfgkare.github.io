@@ -136,10 +136,10 @@ const Student_enroll_form = () => {
             setLoading(false);
             if (error.response && error.response.data && error.response.data.message) {
                 console.log("Error occurred:", error.response.data.message);
-                setErrmsg(error.response.data.message);
+                setMessage(error.response.data.message);
             } else {
                 console.log("Error occurred:", error.message);
-                setErrmsg("❌ An unexpected error occurred. Please try again.");
+                setMessage("❌ An unexpected error occurred. Please try again.");
             }
         });
     };
@@ -437,7 +437,6 @@ const Student_enroll_form = () => {
                             )}
                         </div>
                         {message && <p className="message-text">{message}</p>}
-                        {errmsg && <div className="message-text">{errmsg}</div>}
                     </form>
                 </div>
             </div>
