@@ -49,14 +49,6 @@ export default function StudentEnrollment() {
 
     const navigate = useNavigate()
 
-    const handleMember = () => {
-        // Specify the URL you want to navigate to
-        const url = 'https://gfgkare.vercel.app/form';
-        
-        // Redirect the browser to the specified URL
-        window.location.href = url;
-    };
-
     return (
         <>
             <div className={"eventRegister " + fadeStatus }>
@@ -98,7 +90,7 @@ export default function StudentEnrollment() {
                             <div className="row registerBtn">
                                 {USER_PRESENT() ? (
                                     <AttentionSeeker effect="tada" delay={5000}>
-                                        <CLink to="https://gfgkare.vercel.app/form">
+                                        <CLink to={"/enrollment/form"}>
                                             <button
                                                 className={
                                                     eventRegisterStatus === "registered"
@@ -109,7 +101,7 @@ export default function StudentEnrollment() {
                                                     (eventRegisterStatus === "registered" || eventRegisteringInProgress === true || eventRegistrationStatus !== "accepting")
                                                 }
 
-                                                onClick={handleMember}
+                                                onClick={() => navigate("/enrollment/form")}
 
                                             > Become a Member
                                             </button>
@@ -237,7 +229,7 @@ export default function StudentEnrollment() {
                                         Registered.
                                     </div>
                                 ) : (
-                                        <div className="registerBtn" onClick={handleMember}>
+                                        <div className="registerBtn" onClick={() => navigate('/enrollment/form')}>
                                             Become a member!
                                         </div>
                                 )

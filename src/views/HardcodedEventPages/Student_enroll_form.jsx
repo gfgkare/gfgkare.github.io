@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import axios from "axios";
 import "../../Form.css"
-import phone from "../../assets/phone.png";
+
+import gfgKare from "../../assets/gfgkare_square_logo.jpg"
 
 
 const Student_enroll_form = () => {
@@ -211,10 +212,19 @@ const Student_enroll_form = () => {
     };
 
     return (
+        <>
+
+        <nav>
+            <div className="logoContainer">
+                <img src={gfgKare} alt="" />
+            </div>
+        </nav>
+
         <div className="body-form">
             <div className="main-form">
                 <div className="form">
                     <h1 className="font1">REGISTRATION FORM</h1>
+                    <h3>Student Member Enrollment 24 - 25</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="form-div-flex">
                             <div className="form-1-1">
@@ -335,17 +345,12 @@ const Student_enroll_form = () => {
                         {errmsg && <div className="message-text">{errmsg}</div>}
                     </form>
                 </div>
-                <div className="contact-blog">
-                    <h1 className="caption1">All the best!</h1>
-                    <p className="caption2">After Registration check your mail for your domain whatsapp group link if you didn't find the email check spam folders.</p>
-                    <h3 className="caption3">For any queries</h3>
-                    <div className="contacts-phone">
-                        <img src={phone} alt="Phone icon" className="phone" />
-                        <p className="caption3">+91 6301181244</p>
-                    </div>
-                </div>
             </div>
         </div>
+
+
+        </>
+        
     );
 };
 export default Student_enroll_form
