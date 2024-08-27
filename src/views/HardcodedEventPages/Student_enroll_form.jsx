@@ -348,14 +348,14 @@ const Student_enroll_form = () => {
                                     <div class="radio-item">
                                         <label for="vanilla">
                                             <input type="checkbox" id="ML" name="ML" className="checkbox" checked={additionalCheckboxes.ML} onChange={handleAdditionalCheckboxChange} />
-                                            <span>DSA </span>
+                                            <span>ML</span>
                                         </label>
                                     </div>
 
                                     <div class="radio-item">
                                         <label for="chocolate">
                                             <input type="checkbox" id="DSA" name="DSA" className="checkbox" checked={additionalCheckboxes.DSA} onChange={handleAdditionalCheckboxChange} />
-                                            <span>ML</span>
+                                            <span>DSA</span>
                                         </label>
                                     </div>
 
