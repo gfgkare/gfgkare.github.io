@@ -272,12 +272,6 @@ const Student_enroll_form = () => {
                                             <span>III Year (2022-2026 Batch)</span>
                                         </label>
                                     </div>
-                                    <div className="radio-item">
-                                        <label htmlFor="chocolate">
-                                        <input type="radio" required name="radio1" value="IV Year (2021-2025 Batch)" className="checkbox" onChange={(e) => setYear(e.target.value)} checked={year === "IV Year (2021-2025 Batch)"} />
-                                            <span>IV Year (2021-2025 Batch)</span>
-                                        </label>
-                                    </div>
                                 </div>
                             </fieldset>
                         </div>
