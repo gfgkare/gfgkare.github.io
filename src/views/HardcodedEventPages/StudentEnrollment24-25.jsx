@@ -151,7 +151,7 @@ export default function StudentEnrollment() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            29th Aug 2024, 3PM
+                                            4th Sep 2024, 3PM
                                         </div>
                                     </div>
                                 </div>
