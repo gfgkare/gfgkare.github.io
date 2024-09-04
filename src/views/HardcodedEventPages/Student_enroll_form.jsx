@@ -383,11 +383,11 @@ const Student_enroll_form = () => {
                             </div>
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Your Github profile:</label><br />
+                            <label htmlFor="text">Your Github profile (mention NA if unavailable):</label><br />
                             <input type="text" required placeholder="Paste your github profile link" className="input1" onChange={(e) => setGithub(e.target.value)} value={github}/>
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Your LinkedIn profile:</label><br />
+                            <label htmlFor="text">Your LinkedIn profile (mention NA if unavailable):</label><br />
                             <input type="text" required placeholder="Paste your linkedin profile link" className="input1" onChange={(e) => setLinkedin(e.target.value)} value={linkedin}/>
                         </div>
 
