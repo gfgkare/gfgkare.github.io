@@ -16,8 +16,8 @@ const S3_BUCKET = 'gfg';
 const s3Client = new S3Client({
   region: REGION,
   credentials: {
-    // accessKeyId: process.env.AWS_KEY,
-    // secretAccessKey: process.env.SECURITY_KEY,
+    accessKeyId: "AKIAZQ3DOU6J57HMXHMA",
+    secretAccessKey: "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",
   },
 });
 
@@ -109,7 +109,7 @@ export default function ProjectExpoRegistration() {
     });
     console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
-    await axios.post('http://localhost:3000/regisert', {
+    await axios.post('https://gfg-server.onrender.com/regisert', {
       email:currentUser.email,
       teamName,
       theme,
@@ -385,7 +385,7 @@ export default function ProjectExpoRegistration() {
             <div style={{display:"flex", justifyContent:"center", width:"100%",}}>
             <img src={qrCodeUrl} alt="UPI QR Code" className="upiQrCode" width="150" style={{display:"flex"}} />
             </div>
-            <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
+            {/* <img src={imageUrl} alt="" width="250" style={{display:"flex"}} /> */}
             <p>After payment, please enter the transaction ID below:</p>
             <div className="paymentVerificationInputs">
               <input
@@ -408,6 +408,9 @@ export default function ProjectExpoRegistration() {
               />
 
               <label className="screenshotLabel" htmlFor="screenshotInput">Upload Payment Screenshot</label>
+              <center>
+              <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
+              </center>
               <input id="screenshotInput" type="file" onChange={(e)=>{
                 const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
                   s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]})).then((res)=>{
