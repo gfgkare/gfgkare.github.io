@@ -122,7 +122,7 @@ export default function ProjectExpo() {
                 </motion.div>
 
                 <div className="navContainer">
-                    <nav className="nav">
+                    <nav className="projectExpoNav">
                         <div className="logoContainer">
                             <div className="logo klu">
                                 <img src={kluLogo}/>

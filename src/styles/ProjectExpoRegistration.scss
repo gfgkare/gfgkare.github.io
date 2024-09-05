@@ -359,6 +359,27 @@ nav.projectExpoNav {
         }
     }
 
+    .upiPaymentSection {
+        p {
+            text-align: center;
+        }
+    }
+
+
+    .paymentVerificationInputs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+        gap: 1rem;
+
+       
+
+        input {
+            width: 80%;
+        }
+    }
         
     .payFeeDiv {
         font-family: "Unbounded";

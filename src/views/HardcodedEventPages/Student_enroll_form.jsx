@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import SuccessPage from "./SuccessPage";
 import axios from "axios";
-import "../../Form.css"
+import "../../styles/StudentEnrollmentForm.scss"
 
 import gfgKare from "../../assets/gfgkare_square_logo.jpg"
 
@@ -222,9 +222,9 @@ const Student_enroll_form = () => {
     }
 
     return (
-        <>
+        <div className="studentEnrollment">
 
-        <nav>
+        <nav className="studentEnrollmentNav">
             <div className="logoContainer">
                 <img src={gfgKare} alt="" />
             </div>
@@ -439,7 +439,7 @@ const Student_enroll_form = () => {
 
 
 
-        </>
+        </div>
         
     );
 };

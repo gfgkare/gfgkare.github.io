@@ -120,19 +120,19 @@ $textWhite: rgb(231, 231, 231);
         height: 80px;
         position: fixed;
 
-        nav.nav {
+        nav.projectExpoNav {
             padding: 0.5rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             .logoContainer {
-                display: flex;
+                display: flex !important;
                 gap: 1rem;
                 
                 div.logo {
                     height: 60px;
-                    width: 60px;
+                    width: 60px !important;
                     background-color: $textWhite;
                     display: flex;
                     justify-content: center;

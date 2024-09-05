@@ -16,8 +16,8 @@ const S3_BUCKET = 'gfg';
 const s3Client = new S3Client({
   region: REGION,
   credentials: {
-    accessKeyId: process.env.AWS_KEY,
-    secretAccessKey: process.env.SECURITY_KEY,
+    // accessKeyId: process.env.AWS_KEY,
+    // secretAccessKey: process.env.SECURITY_KEY,
   },
 });
 
@@ -53,6 +53,11 @@ export default function ProjectExpoRegistration() {
     e.preventDefault();
     if (!USER_PRESENT()) {
       toast.error("You have to be logged in to complete registration.");
+      setRegistrationLoading(false);
+      return;
+    }
+
+    if (!form.current.reportValidity()) {
       setRegistrationLoading(false);
       return;
     }
@@ -127,7 +132,7 @@ export default function ProjectExpoRegistration() {
     })
     .catch((error) => {
       setRegistrationLoading(false);
-      toast.error(error.response.data.message ||  "Registration failed. Please try again later.");
+      toast.error(error?.response?.data.message ||  "Registration failed. Please try again later.");
       setConfirmModalShown(false);
     })
   };
@@ -376,43 +381,48 @@ export default function ProjectExpoRegistration() {
             
           <div className="upiPaymentSection">
             <h3>Payment Instructions</h3>
-            <p>Please scan the QR code below to make a payment of ₹517 using any UPI app.</p>
+            <p>Please scan the QR code below to make a payment of <strong> <span className="color green">₹517</span> </strong> using any UPI app.</p>
             <div style={{display:"flex", justifyContent:"center", width:"100%",}}>
             <img src={qrCodeUrl} alt="UPI QR Code" className="upiQrCode" width="150" style={{display:"flex"}} />
             </div>
             <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
             <p>After payment, please enter the transaction ID below:</p>
-            <input
-              type="text"
-              id="tnr_number"
-              name="tnr_number"
-              value={tnr_number}
-              onChange={(e) => settnr_number(e.target.value)}
-              required
-              placeholder="Enter tnr_number"
-            />
-            <input
-              type="text"
-              id="upi_id"
-              name="upi_id"
-              value={upi_id}
-              onChange={(e) => setupi_id(e.target.value)}
-              required
-              placeholder="Enter upi_id"
-            />
-            <input type="file" onChange={(e)=>{
-              const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
-                s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]})).then((res)=>{
-  console.log(res)
-  // console.log(name)
-  // console.log(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
-  setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
-}).catch((err)=>{
-  console.log(err)
-})
-            }}/>
+            <div className="paymentVerificationInputs">
+              <input
+                type="text"
+                id="tnr_number"
+                name="tnr_number"
+                value={tnr_number}
+                onChange={(e) => settnr_number(e.target.value)}
+                required
+                placeholder="Enter UPI Transaction ID"
+              />
+              <input
+                type="text"
+                id="upi_id"
+                name="upi_id"
+                value={upi_id}
+                onChange={(e) => setupi_id(e.target.value)}
+                required
+                placeholder="Enter your UPI ID"
+              />
+
+              <label className="screenshotLabel" htmlFor="screenshotInput">Upload Payment Screenshot</label>
+              <input id="screenshotInput" type="file" onChange={(e)=>{
+                const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
+                  s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]})).then((res)=>{
+                  console.log(res)
+                  // console.log(name)
+                  // console.log(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+                  setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+                }).catch((err)=>{
+                  console.log(err)
+                })
+              }}/>
+            </div>
           </div>
-          <button onClick={register}>Register</button>
+
+          <button onClick={register} disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Registering..." : "Register" }</button>
 
           {! USER_PRESENT() && 
            (
