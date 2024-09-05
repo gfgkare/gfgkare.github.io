@@ -16,8 +16,8 @@ const S3_BUCKET = 'gfg';
 const s3Client = new S3Client({
   region: REGION,
   credentials: {
-    accessKeyId: 'AKIAZQ3DOU6J57HMXHMA',
-    secretAccessKey: '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',
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.SECURITY_KEY,
   },
 });
 
