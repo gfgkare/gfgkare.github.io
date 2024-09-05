@@ -6,28 +6,34 @@ import axios from "../../scripts/axiosConfig";
 import { useAuth } from "../../contexts/AuthContext";
 import CLink from "../../components/CLink";
 import { FiChevronLeft } from "react-icons/fi";
-import { IoShieldCheckmark, IoClose } from "react-icons/io5";
+import {  IoClose } from "react-icons/io5";
 import "../../styles/ProjectExpoRegistration.scss";
+import qrCodeUrl from "./Untitled 1.png";
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
-
-// import Accomidation from "./Accomidation";
+const REGION = 'ap-south-1';
+const S3_BUCKET = 'gfg';
+const s3Client = new S3Client({
+  region: REGION,
+  credentials: {
+    accessKeyId: 'AKIAZQ3DOU6J57HMXHMA',
+    secretAccessKey: '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',
+  },
+});
 
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
-
-  const [txnID, setTxnID] = useState( localStorage.getItem("txnID") || null );
+  const date=new Date()
+  const [tnr_number, settnr_number] = useState( localStorage.getItem("txnID") || null );
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [confirmModalShown, setConfirmModalShown] = useState(false);
   const [teamMembers, setTeamMembers] = useState({});
   const [numberOfMembers, setNumberOfMembers] = useState(4);
   const [registrationStatus, setRegistrationStatus] = useState("not_registered");
-  const [paymentStatus, setPaymentStatus] = useState( localStorage.getItem("paymentStatus") || "unpaid" );
-  const [paymentconfirmation, setPaymentConfirmation] = useState(false)
-  const [paymentLoadingText, setPaymentLoadingText] = useState("");
-
-  const [paymentLoading, setPaymentLoading] = useState(false);
   const [registrationLoading, setRegistrationLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState("")
+  const [upi_id, setupi_id] = useState("")
 
   const [registrationDisabled, setRegistrationDisabled] = useState(false);
   const [accomodationDetails, setAccomodationDetails] = useState({});
@@ -35,113 +41,12 @@ export default function ProjectExpoRegistration() {
 
   const form = useRef(null);
 
+  // Add this new state for the QR code image URL
 
   const formatDate = (date) => {
     console.log(typeof date);
     return date;
   }
-
-  const validateFunction = () => {
-    if (paymentconfirmation) {
-      console.log("Payment successfull");
-      setPaymentLoading(false);
-    } else {
-      toast.error("Payment declined");
-      setPaymentLoading(false);
-    }
-  }
-
-  const startPayment = async (e) => {
-    setPaymentLoading(true);
-
-    if (!form.current.checkValidity()) {
-      toast.info("Please fill all the fields to continue.");
-      setPaymentLoading(false);
-      return;
-    }
-
-    e.preventDefault();
-    setPaymentLoading(true);
-    const response = await axios.post('https://gfg-server.onrender.com/createOrder');
-    const order = response.data;
-
-    console.log("Initiating payment.");
-
-    const options = {
-      key: 'rzp_test_MBN7B4vWGiv12S',
-      amount: order.amount,
-      currency: 'INR',
-      name: 'GFG KARE Prajnotsavah',
-      description: 'Registration Fee for GFG KARE Prajnotsavah',
-      order_id: order.id,
-      handler: async function (response) {
-        const teamSize = form.current.elements.numberOfMembers.value;
-        const team = {};
-        setPaymentConfirmation(true)
-        for (let i = 1; i <= teamSize; i++) {
-          team[`member${i}`] = {
-            name: form.current.elements[`memberName${i}`].value,
-            email: form.current.elements[`memberEmail${i}`].value,
-            registerNo: form.current.elements[`memberRegisterNo${i}`].value,
-            number: form.current.elements[`memberNumber${i}`].value,
-            institution: form.current.elements[`memberInstitution${i}`].value,
-            location: form.current.elements[`memberLocation${i}`].value,
-          };
-        }
-        setTeamMembers(team);
-
-        try {
-          setPaymentLoadingText("Verifying payment...");
-          const paymentInfo = {
-            payment_id: response.razorpay_payment_id,
-            order_id: response.razorpay_order_id,
-            email: currentUser.email,
-            name: currentUser.displayName,
-            teamName: form.current.elements.teamName.value,
-            theme: form.current.elements.theme.value,
-            teamMembers: team,
-            accomodationDetails: accomodationDetails
-          };
-          await axios.post('https://gfg-server.onrender.com/verifyPayment', paymentInfo);
-          setTxnID(response.razorpay_payment_id);
-          setPaymentStatus("paid");
-          if (form.current.checkValidity()) {
-            setPaymentLoadingText(null);
-            toast.success("Payment is successful. Please proceed with the registration process.");
-            localStorage.setItem("paymentStatus", "paid");
-            localStorage.setItem("txnID", response.razorpay_payment_id);
-            setConfirmModalShown(true);
-            setPaymentLoading(false);
-          }
-          else {
-            setPaymentLoadingText(null);
-            toast.info("Some fields are not filled. Kindly fill all the fields to register.");
-            setPaymentLoading(false);
-          }
-        } catch (error) {
-          setPaymentLoadingText(null);
-          setPaymentLoading(false);
-          console.error("Payment verification failed", error);
-          toast.error("Payment verification failed. Please try again later."); 
-        }
-      },
-      prefill: {
-        name: currentUser.displayName,
-        email: currentUser.email,
-        contact: form.current.elements["memberNumber1"].value
-      },
-      notes: {
-        address: 'GFG-KARE'
-      },
-      theme: {
-        color: '#2e8d46'
-      }
-    };
-
-    const rzp1 = new window.Razorpay(options);
-    rzp1.open();
-    validateFunction()
-  };
 
   const register = async (e) => {
     setRegistrationLoading(true);
@@ -166,6 +71,7 @@ export default function ProjectExpoRegistration() {
         location: form.current.elements[`memberLocation${i}`].value,
       };
     }
+    console.log(team)
     setTeamMembers(team)
     let accomodationDetails = {};
 
@@ -192,18 +98,21 @@ export default function ProjectExpoRegistration() {
       theme,
       teamSize,
       teamMembers: team,
-      txnID,
+      tnr_number,
       needAccomodation: form.current.elements["needAccomodation"].checked,
       accomodationDetails: accomodationDetails
     });
     console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
-    await axios.post('/register_projectexpo', {
+    await axios.post('http://localhost:3000/regisert', {
+      email:currentUser.email,
       teamName,
       theme,
       teamSize,
       teamMembers: team,
-      txnID,
+      tnr_number,
+      upi_id,
+      screenshot:imageUrl,
       needAccomodation: form.current.elements["needAccomodation"].checked,
       accomodationDetails: accomodationDetails
     }, 
@@ -230,6 +139,12 @@ export default function ProjectExpoRegistration() {
       document.body.style.overflowY = "auto";
     }
   }, [confirmModalShown]);
+
+  // Modify the register function to handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setConfirmModalShown(true);
+  };
 
   return (
     <>
@@ -273,8 +188,8 @@ export default function ProjectExpoRegistration() {
               }
             </div>
             <div className="field">
-              <div className="title">TXN ID</div>
-              <div className="value">{txnID}</div>
+              <div className="title">tnr_number</div>
+              <div className="value">{tnr_number}</div>
             </div>
             <div className="title ss">Kindly take a screenshot of this page and keep it safe for confirmation.</div>
             <input type="checkbox" id="detailsCorrectCheckbox" onClick={(e) => setConfirmChecked(e.target.checked)} />
@@ -313,7 +228,7 @@ export default function ProjectExpoRegistration() {
 
       <div className="projectExpoRegistration">
         <div className="titleText">Registration</div>
-        <form className="registrationForm" ref={form} onSubmit={(e) => e.preventDefault()}>
+        <form className="registrationForm" ref={form} onSubmit={handleSubmit}>
           <div className="formGroup">
             <label htmlFor="teamName">Team Name:</label>
             <input required type="text" id="teamName" name="teamName" />
@@ -391,11 +306,11 @@ export default function ProjectExpoRegistration() {
                           <label className="label">How many days</label>
                           <input
                               required
+                              className="input"
                               type="number"
                               max={2}
                               name="noOfDays"
                               autoComplete="off"
-                              className="input"
                           />
                       </div>
                       <div className="inputGroup">
@@ -459,101 +374,58 @@ export default function ProjectExpoRegistration() {
             }
           </div>
             
-          {/* <Accomidation setAccomodationDetails={setAccomodationDetails} /> */}
-          {USER_PRESENT() && (
-            <>
-              {registrationStatus === "registered" ? (
-                <>
-                  <div className="registrationInfo">
-                    <span className="team">You have registered under the team: {form.current.elements.teamName.value}.</span>
-                    <div className="paymentSuccessInfo">
-                      <div className="text">
-                        <div className="title">Payment Status</div>
-                        <div><span className="color green">Paid</span> (ID: {txnID})</div>
-                      </div>
-                      <div className="icon"><IoShieldCheckmark size={"40px"} /></div>
-                    </div>
+          <div className="upiPaymentSection">
+            <h3>Payment Instructions</h3>
+            <p>Please scan the QR code below to make a payment of ₹517 using any UPI app.</p>
+            <div style={{display:"flex", justifyContent:"center", width:"100%",}}>
+            <img src={qrCodeUrl} alt="UPI QR Code" className="upiQrCode" width="150" style={{display:"flex"}} />
+            </div>
+            <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
+            <p>After payment, please enter the transaction ID below:</p>
+            <input
+              type="text"
+              id="tnr_number"
+              name="tnr_number"
+              value={tnr_number}
+              onChange={(e) => settnr_number(e.target.value)}
+              required
+              placeholder="Enter tnr_number"
+            />
+            <input
+              type="text"
+              id="upi_id"
+              name="upi_id"
+              value={upi_id}
+              onChange={(e) => setupi_id(e.target.value)}
+              required
+              placeholder="Enter upi_id"
+            />
+            <input type="file" onChange={(e)=>{
+              const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
+                s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]})).then((res)=>{
+  console.log(res)
+  // console.log(name)
+  // console.log(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+  setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+}).catch((err)=>{
+  console.log(err)
+})
+            }}/>
+          </div>
+          <button onClick={register}>Register</button>
 
-                    <button disabled>Registered!</button>
-                  </div>
-                </>
-              ) : (
-                paymentStatus === "paid" && (
-                  <>
-                    <div className="paymentSuccessInfo">
-                      <div className="text">
-                        <div className="title">Payment Status</div>
-                        <div><span className="color green">Paid</span> (ID: {txnID})</div>
-                      </div>
-                      <div className="icon"><IoShieldCheckmark size={"40px"} /></div>
-                    </div>
-                    
-                    <div className="payment">
-                      <button 
-                        type="button"
-                        disabled={registrationDisabled || paymentLoading || registrationLoading} 
-                        onClick={() => {
-                        if (form.current.checkValidity()) {
-                          console.log("All fields valid. Showing preview modal.");
-                          setConfirmModalShown(true);
-                        }
-                        else {
-                          const formElements = form.current.elements;
-                          for (let i = 0; i < formElements.length; i++) {
-                            const element = formElements[i];
-                            let erroredFields = [];
-                            if (element.required && !element.reportValidity()) {
-                              console.log(`Field ${element.name} is invalid.`);
-                              erroredFields.push(element.name);
-                            }
-                          }
-                          if (erroredFields.length) {
-                            toast.error(`Please fill in or correct the following fields: ${erroredFields.join(", ")}`);
-                          }
-                        }
-                      }}>Register</button>
-                    </div>
-                  </>
-                )
-              )}
-            </>
+          {! USER_PRESENT() && 
+           (
+            <button
+              type="button"
+              disabled={registrationDisabled || registrationLoading}
+              onClick={() => signinwithpopup("google")}
+              className="signInButton"
+            >
+              Sign in to Register!
+            </button>
           )}
         </form>
-        {USER_PRESENT() && paymentStatus === "unpaid" && (
-          <div className="payFeeDiv">
-            <div className="title">Payment</div>
-            <div className="feeBreakdown">
-              <div className="row">
-                <div className="name">Registration Fee</div>
-                <div className="amount">₹500</div>
-              </div>
-              <div className="row">
-                <div className="name">Convinience Fee</div>
-                <div className="amount faded">₹17</div>
-              </div>
-              <div className="row bold">
-                <div className="name color green">Total</div>
-                <div className="amount color green">₹517</div>
-              </div>
-
-            </div>
-              
-
-              {
-                (!paymentLoading) ? (
-                  <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={startPayment}>
-                    Proceed with payment
-                  </button>
-                ) : (
-                  <button disabled>Starting payment...</button>
-                )
-              }
-          </div>
-          
-        )}
-        {!USER_PRESENT() && (
-          <button disabled={registrationDisabled || paymentLoading || registrationLoading} onClick={() => signinwithpopup("google")}>Sign in to Register!</button>
-        )}
       </div>
     </>
   );
