@@ -1,0 +1,5 @@
+.required {
+    color: rgb(255, 51, 51);
+    font-weight: bold;
+    margin-left: 4px; /* Adjust spacing as needed */
+}

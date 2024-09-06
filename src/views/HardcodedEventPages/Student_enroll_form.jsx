@@ -3,7 +3,7 @@ import Loader from "./Loader";
 import SuccessPage from "./SuccessPage";
 import axios from "axios";
 import "../../styles/StudentEnrollmentForm.scss"
-
+import "./enrollment.css"
 import gfgKare from "../../assets/gfgkare_square_logo.jpg"
 
 
@@ -237,24 +237,24 @@ const Student_enroll_form = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="form-div-flex">
                             <div className="form-1-1">
-                                <label htmlFor="text">First Name:</label><br />
+                                <label htmlFor="text">First Name:<span className="required">*</span></label><br />
                                 <input type="text" required placeholder="Enter your first name" className="input1-1" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
                             </div>
                             <div className="form-1-2">
-                                <label htmlFor="text">Last Name:</label><br />
+                                <label htmlFor="text">Last Name:<span className="required">*</span></label><br />
                                 <input type="text" required placeholder="Enter your last name" className="input1-1" onChange={(e) => setLastName(e.target.value)} value={secondName} />
                             </div>
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Registration Number:</label><br />
+                            <label htmlFor="text">Registration Number:<span className="required">*</span></label><br />
                             <input type="number" required placeholder="Enter your Registration number" className="input1" onChange={(e) => setRegistrationNo(e.target.value)} value={registrationno} />
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Your Email:</label><br />
+                            <label htmlFor="text">Your Email:<span className="required">*</span></label><br />
                             <input type="email" required placeholder="Enter your KLU Email" className="input1" onChange={(e) => setEmail(e.target.value)} value={email} />
                         </div>
                         <div className="form-1">
-                            <label htmlFor="radio">Year:</label><br />
+                            <label htmlFor="radio">Year:<span className="required">*</span></label><br />
 
                             <fieldset>
                                 <div className="radio-item-container">
@@ -275,15 +275,15 @@ const Student_enroll_form = () => {
                             </fieldset>
                         </div>
                         <div className="form-1">
-                            <label htmlFor="text">Your Department:</label><br />
+                            <label htmlFor="text">Your Department: <span className="required">*</span></label><br />
                             <input type="text" required placeholder="Enter your Department" className="input1" onChange={(e) => setDepartment(e.target.value)} value={department} />
                         </div>
                         <div className="form-1">
-                            <label htmlFor="number">Enter your Whatsapp No:</label><br />
+                            <label htmlFor="number">Enter your Whatsapp No:<span className="required">*</span></label><br />
                             <input type="number" required placeholder="Enter your Whatsapp No" className="input1" onChange={(e) => setMobileNo(e.target.value)} value={mobileno} />
                         </div>
                         <div className="form-2">
-                            <label htmlFor="text">Which Domain you are interested in?</label><br />
+                            <label htmlFor="text">Which Domain you are interested in?<span className="required">*</span></label><br />
 
                             <fieldset>
                                 <div class="radio-item-container">
@@ -363,7 +363,7 @@ const Student_enroll_form = () => {
                         )}
 
                         <div className="form-1">
-                            <label htmlFor="photo">Upload your profile image (.jpg, .png):</label><br />
+                            <label htmlFor="photo">Upload your profile image (.jpg, .png):<span className="required">*</span></label><br />
                             <div className="form-1-3">
 
                                 <label for="file-upload" class="custom-file-upload">
@@ -392,27 +392,27 @@ const Student_enroll_form = () => {
 
 
                         <div className="form-1">
-                            <label>I understand that being an active member is essential for the growth of the student chapter.</label><br />
+                            <label>I understand that being an active member is essential for the growth of the student chapter.<span className="required">*</span></label><br />
                             <input type="checkbox" id="agree1" name="agree1" className="checkbox termsCheckbox" checked={checkboxes.agree1} onChange={handleCheckboxChange} />
                             <label className="agreeLabel" htmlFor="agree1">I AGREE</label>
                         </div>
                         <div className="form-1">
-                            <label>I commit to actively participate in the chapter's activities and contribute to its success.</label><br />
+                            <label>I commit to actively participate in the chapter's activities and contribute to its success.<span className="required">*</span></label><br />
                             <input type="checkbox" id="agree2" name="agree2" className="checkbox termsCheckbox" checked={checkboxes.agree2} onChange={handleCheckboxChange} />
                             <label className="agreeLabel" htmlFor="agree2">I AGREE</label>
                         </div>
                         <div className="form-1">
-                            <label>I commit to complete the tasks provided within the time period.</label><br />
+                            <label>I commit to complete the tasks provided within the time period.<span className="required">*</span></label><br />
                             <input type="checkbox" id="agree3" name="agree3" className="checkbox termsCheckbox" checked={checkboxes.agree3} onChange={handleCheckboxChange} />
                             <label className="agreeLabel" htmlFor="agree3">I AGREE</label>
                         </div>
                         <div className="form-1">
-                            <label>I acknowledge that in case of any concerns or queries, I should reach out to the Chairperson or the other core team members.</label><br />
+                            <label>I acknowledge that in case of any concerns or queries, I should reach out to the Chairperson or the other core team members.<span className="required">*</span></label><br />
                             <input type="checkbox" id="agree4" name="agree4" className="checkbox termsCheckbox" checked={checkboxes.agree4} onChange={handleCheckboxChange} />
                             <label className="agreeLabel" htmlFor="agree4">I AGREE</label>
                         </div>
                         <div className="form-1">
-                            <label>I agree not to disclose any information related to the chapter without core team permission.</label><br />
+                            <label>I agree not to disclose any information related to the chapter without core team permission.<span className="required">*</span></label><br />
                             <input type="checkbox" id="agree5" name="agree5" className="checkbox termsCheckbox" checked={checkboxes.agree5} onChange={handleCheckboxChange} />
                             <label className="agreeLabel" htmlFor="agree5">I AGREE</label>
                         </div>
