@@ -100,7 +100,6 @@ const Student_enroll_form = () => {
             alert("Please upload your profile image.");
             return;
         }
-    
         const allChecked = Object.values(checkboxes).every(value => value);
         if (!allChecked) {
             alert("Please accept all terms and conditions before submitting.");
@@ -384,11 +383,11 @@ const Student_enroll_form = () => {
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Your Github profile (mention NA if unavailable):</label><br />
-                            <input type="text" required placeholder="Paste your github profile link" className="input1" onChange={(e) => setGithub(e.target.value)} value={github}/>
+                            <input type="text" placeholder="Paste your github profile link" className="input1" onChange={(e) => setGithub(e.target.value)} value={github}/>
                         </div>
                         <div className="form-1">
                             <label htmlFor="text">Your LinkedIn profile (mention NA if unavailable):</label><br />
-                            <input type="text" required placeholder="Paste your linkedin profile link" className="input1" onChange={(e) => setLinkedin(e.target.value)} value={linkedin}/>
+                            <input type="text" placeholder="Paste your linkedin profile link" className="input1" onChange={(e) => setLinkedin(e.target.value)} value={linkedin}/>
                         </div>
 
 
