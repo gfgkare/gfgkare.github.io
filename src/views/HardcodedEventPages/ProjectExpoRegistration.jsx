@@ -21,6 +21,8 @@ const s3Client = new S3Client({
   },
 });
 
+const UPI_ID = "incrediblesabari02@oksbi"
+
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
@@ -48,8 +50,13 @@ export default function ProjectExpoRegistration() {
     return date;
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
+
   const register = async (e) => {
     setRegistrationLoading(true);
+    console.log(form.current.reportValidity());
     e.preventDefault();
     if (!USER_PRESENT()) {
       toast.error("You have to be logged in to complete registration.");
@@ -57,10 +64,13 @@ export default function ProjectExpoRegistration() {
       return;
     }
 
+    console.log("Form valid?");
+    console.log(form.current.reportValidity());
     if (!form.current.reportValidity()) {
       setRegistrationLoading(false);
       return;
     }
+
 
     const teamName = form.current.elements.teamName.value;
     const theme = form.current.elements.theme.value;
@@ -76,65 +86,84 @@ export default function ProjectExpoRegistration() {
         location: form.current.elements[`memberLocation${i}`].value,
       };
     }
+    
     console.log(team)
     setTeamMembers(team)
-    let accomodationDetails = {};
 
-    if (form.current.elements["needAccomodation"].checked) {
-      const noOfDays = form.current.elements["noOfDays"].value;
-      const noOfMembers = form.current.elements["noOfMembers"].value;
-      const checkInDate = form.current.elements["checkInDate"].value;
-      const checkInTime = form.current.elements["checkInTime"].value;
-      const checkOutDate = form.current.elements["checkOutDate"].value;
-      const checkOutTime = form.current.elements["checkOutTime"].value;
-      accomodationDetails = {
-        noOfDays,
-        noOfMembers,
-        checkInDate,
-        checkInTime,
-        checkOutDate,
-        checkOutTime
-      };
-    }
+    axios.post("/email_valid_for_event", {
+      emails: [...Object.values(team).map((member) => member.email)],
+      eventID: "project-expo"
+    }, { headers: { Authorization: await currentUser.getIdToken() }})
+    .then( async (res) => {
+      console.log("%c All emails are valid.", "color: green");
+      console.log(res.data.message);
+      let accomodationDetails = {};
 
-    console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-    console.log({
-      teamName,
-      theme,
-      teamSize,
-      teamMembers: team,
-      tnr_number,
-      needAccomodation: form.current.elements["needAccomodation"].checked,
-      accomodationDetails: accomodationDetails
-    });
-    console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+      if (form.current.elements["needAccomodation"].checked) {
+        const noOfDays = form.current.elements["noOfDays"].value;
+        const noOfMembers = form.current.elements["noOfMembers"].value;
+        const checkInDate = form.current.elements["checkInDate"].value;
+        const checkInTime = form.current.elements["checkInTime"].value;
+        const checkOutDate = form.current.elements["checkOutDate"].value;
+        const checkOutTime = form.current.elements["checkOutTime"].value;
+        accomodationDetails = {
+          noOfDays,
+          noOfMembers,
+          checkInDate,
+          checkInTime,
+          checkOutDate,
+          checkOutTime
+        };
+      }
 
-    await axios.post('https://gfg-server.onrender.com/regisert', {
-      email:currentUser.email,
-      teamName,
-      theme,
-      teamSize,
-      teamMembers: team,
-      tnr_number,
-      upi_id,
-      screenshot:imageUrl,
-      needAccomodation: form.current.elements["needAccomodation"].checked,
-      accomodationDetails: accomodationDetails
-    }, 
-    { headers: { Authorization: await currentUser.getIdToken() } })
-    .then((response) => {
-      localStorage.clear();
-      setRegistrationLoading(false);
-      console.log(response.data);
-      toast.success(response.data.message || "Registration successful!");
-      setRegistrationStatus("registered");
-      setConfirmModalShown(false);
+      console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+      console.log({
+        teamName,
+        theme,
+        teamSize,
+        teamMembers: team,
+        tnr_number,
+        needAccomodation: form.current.elements["needAccomodation"].checked,
+        accomodationDetails: accomodationDetails
+      });
+      console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
+      axios.post('https://gfg-server.onrender.com/regisert', {
+        email:currentUser.email,
+        teamName,
+        theme,
+        teamSize,
+        teamMembers: team,
+        tnr_number,
+        upi_id: form.current.elements["upi_id"].value,
+        screenshot: imageUrl,
+        needAccomodation: form.current.elements["needAccomodation"].checked,
+        accomodationDetails: accomodationDetails
+      }, 
+      { headers: { Authorization: await currentUser.getIdToken() } })
+      .then((response) => {
+        localStorage.clear();
+        setRegistrationLoading(false);
+        console.log(response.data);
+        toast.success(response.data.message || "Registration successful!");
+        setRegistrationStatus("registered");
+        setConfirmModalShown(false);
+      })
+      .catch((error) => {
+        setRegistrationLoading(false);
+        toast.error(error?.response?.data.message ||  "Registration failed. Please try again later.");
+        setConfirmModalShown(false);
+      })
     })
-    .catch((error) => {
+    .catch((err) => {
       setRegistrationLoading(false);
-      toast.error(error?.response?.data.message ||  "Registration failed. Please try again later.");
-      setConfirmModalShown(false);
+      console.log(err)
+      toast.error( err.response?.data?.message || err?.message || "Something went wrong while verifying the emails. Please try again." );
+      return;
     })
+
+    
+    
   };
 
   useEffect(() => {
@@ -233,7 +262,7 @@ export default function ProjectExpoRegistration() {
 
       <div className="projectExpoRegistration">
         <div className="titleText">Registration</div>
-        <form className="registrationForm" ref={form} onSubmit={handleSubmit}>
+        <form className="registrationForm" ref={form} onSubmit={register}>
           <div className="formGroup">
             <label htmlFor="teamName">Team Name:</label>
             <input required type="text" id="teamName" name="teamName" />
@@ -279,7 +308,14 @@ export default function ProjectExpoRegistration() {
                 }
               }} />
               <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
-              <input required type="number" id={`memberNumber${index + 1}`} name={`memberNumber${index + 1}`} />
+              <input 
+                type="text" 
+                id={`memberNumber${index + 1}`} 
+                name={`memberNumber${index + 1}`} 
+                // pattern={"/(7|8|9)\d{9}/"}
+                // onBlur={(e) => console.log( "Mobile validation:", e.currentTarget.checkValidity()) }
+                required 
+              />
               <label htmlFor={`memberCollege${index + 1}`}>Member {index + 1} College:</label>
               <input required type="text" id={`memberInstitution${index + 1}`} name={`memberInstitution${index + 1}`} />
               <label htmlFor={`memberLocation${index + 1}`}>Member {index + 1} Location:</label>
@@ -380,10 +416,11 @@ export default function ProjectExpoRegistration() {
           </div>
             
           <div className="upiPaymentSection">
-            <h3>Payment Instructions</h3>
-            <p>Please scan the QR code below to make a payment of <strong> <span className="color green">₹517</span> </strong> using any UPI app.</p>
-            <div style={{display:"flex", justifyContent:"center", width:"100%",}}>
-            <img src={qrCodeUrl} alt="UPI QR Code" className="upiQrCode" width="150" style={{display:"flex"}} />
+            <div className="title">Payment Instructions</div>
+            <p>Please scan the QR code below to make a payment of <strong> <span className="color green">500</span> </strong> using any UPI app.</p>
+            <div className="upiQRContainer">
+              <img src={qrCodeUrl} alt="UPI QR Code" className="upiQrCode" width="150" />
+              <a className="upiPayButton" href={`upi://pay?pa=${UPI_ID}&pn=GFGKARE&cu=INR&am=500`}>PAY WITH ANY <img src="https://www.pikpng.com/pngl/m/419-4195720_upi-icon-png-transparent-clipart.png" alt="" /> APP</a>
             </div>
             {/* <img src={imageUrl} alt="" width="250" style={{display:"flex"}} /> */}
             <p>After payment, please enter the transaction ID below:</p>
@@ -395,23 +432,21 @@ export default function ProjectExpoRegistration() {
                 value={tnr_number}
                 onChange={(e) => settnr_number(e.target.value)}
                 required
-                placeholder="Enter UPI Transaction ID"
+                placeholder="Enter 12 digit UPI Transaction ID"
               />
               <input
                 type="text"
                 id="upi_id"
                 name="upi_id"
-                value={upi_id}
-                onChange={(e) => setupi_id(e.target.value)}
+                // value={upi_id}
+                // onChange={(e) => setupi_id(e.target.value)}
                 required
-                placeholder="Enter your UPI ID"
+                placeholder="Enter your UPI ID. ex: example@oksbi"
               />
 
               <label className="screenshotLabel" htmlFor="screenshotInput">Upload Payment Screenshot</label>
-              <center>
               <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
-              </center>
-              <input id="screenshotInput" type="file" onChange={(e)=>{
+              <input id="screenshotInput" required type="file" onChange={(e) => {
                 const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
                   s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]})).then((res)=>{
                   console.log(res)
@@ -425,9 +460,7 @@ export default function ProjectExpoRegistration() {
             </div>
           </div>
 
-          <button onClick={register} disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Registering..." : "Register" }</button>
-
-          {! USER_PRESENT() && 
+          {!USER_PRESENT() ? 
            (
             <button
               type="button"
@@ -437,6 +470,8 @@ export default function ProjectExpoRegistration() {
             >
               Sign in to Register!
             </button>
+          ) : (
+            <button disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Registering..." : "Register" }</button>
           )}
         </form>
       </div>

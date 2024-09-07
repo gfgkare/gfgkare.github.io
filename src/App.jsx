@@ -91,6 +91,8 @@ export default function App() {
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
+                        <Route path="/events/prajnotsavah" element={ <ProjectExpo /> }></Route>
+                        <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route>
 
                         
                         {/* PAST EVENTS */}

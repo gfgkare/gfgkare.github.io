@@ -363,6 +363,43 @@ nav.projectExpoNav {
         p {
             text-align: center;
         }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 3rem 0 1rem 0;
+            text-align: center;
+        }
+
+        .upiQRContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
+
+
+            a {
+                font-family: "Outfit";
+                background-color: rgba(white, .3);
+                text-decoration: none;
+                color: white !important;
+                font-weight: 600;
+                padding: 1rem;
+                border-radius: .25rem;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: .5rem;
+
+                img {
+                    height: 20px;
+                    width: 70px;
+                }
+
+            }
+        }
     }
 
 
@@ -374,7 +411,9 @@ nav.projectExpoNav {
         margin: 2rem 0;
         gap: 1rem;
 
-       
+       .screenshotLabel {
+            margin-top: 1.5rem;
+       }
 
         input {
             width: 80%;

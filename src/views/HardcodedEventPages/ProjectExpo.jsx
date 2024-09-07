@@ -288,7 +288,7 @@ export default function ProjectExpo() {
 
                                 <Slide triggerOnce>
                                     <div className="normalSectionText why">
-                                        Prajñotsavah offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 20,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
+                                        Prajñotsavah offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 22,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
 
                                         <div className="whyReasonsContainer">
                                             <div className="whyReason">
@@ -322,7 +322,7 @@ export default function ProjectExpo() {
                                 <Slide direction="right" triggerOnce>
                                     <div className="normalSectionText map">
                                         <div className="text">
-                                            Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">September 27, 2024</span>, and the winners will be announced on the same day.
+                                            Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">October 25, 2024</span>, and the winners will be announced on the same day.
                                         </div>
                                         <div className="map">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.2384182267283!2d77.67723340993616!3d9.574705190470475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06dbc06968e9eb%3A0x6cfd8f94e42f98c4!2sKalasalingam%20Academy%20of%20Research%20and%20Education!5e0!3m2!1sen!2sin!4v1722789691882!5m2!1sen!2sin" width="400" height="300" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -492,7 +492,7 @@ export default function ProjectExpo() {
                                         <span className="color purple"> Use your college email address</span> if available.
                                     </div>
 
-                                    <CLink to="/events/project-expo/register">
+                                    <CLink to="/events/prajnotsavah/register">
                                         <button>GO TO REGISTER PAGE!</button>
                                     </CLink>
                                 </div>
@@ -540,11 +540,11 @@ export default function ProjectExpo() {
                             <div className="contact">
                                 <div className="title">For any queries, feel free to contact</div>
                                 <div className="numbers">
-                                    <span>Ashok Reddu Cheluri - <a href="tel:+91 87546 05197">95158 22637</a> </span>
-                                    <span>Krishna Vineeth - <a href="tel:+91 70750 72880">96762 15354</a> </span>
-                                    <span>Navuluri Balaji - <a href="tel:+91 93981 07277">93468 30134</a> </span>
-                                    <span>Mallavarapu Vaishnavi - <a href="tel:+91 94911 46276">90590 93929</a> </span>
-                                    <span>Yaramasu Sravani - <a href="tel:+91 94911 46276">93982 36858</a> </span>
+                                    <span>Ashok Reddy Cheluri - <a href="tel:+91 95158 22637">95158 22637</a> </span>
+                                    <span>Sabari S - <a href="tel:+91 87546 05197">+91 87546 05197</a> </span>
+                                    <span>Navuluri Balaji - <a href="tel:+91 93468 30134">93468 30134</a> </span>
+                                    <span>Mallavarapu Vaishnavi - <a href="tel:+91 90590 93929">90590 93929</a> </span>
+                                    <span>Yaramasu Sravani - <a href="tel:+91 93982 36858">93982 36858</a> </span>
                                 </div>
                                 <div className="email">
                                     Or drop a mail to <a href="mailto:gfgkarestudentchapter@gmail.com">gfgkarestudentchapter@gmail.com</a>
