@@ -52,7 +52,7 @@ export default function ProjectExpoRegistration() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  })
+  }, []);
 
   const register = async (e) => {
     setRegistrationLoading(true);
