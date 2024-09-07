@@ -91,14 +91,14 @@ export default function App() {
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
-                        <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
-                        <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>
 
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
                         <Route path="/events/algo2024" element={<EventRegister />}></Route>
                         <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
+                        <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
+                        {/* <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>  */} 
 
 
                         {/* DASHBOARD */}

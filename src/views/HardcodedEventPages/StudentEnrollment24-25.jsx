@@ -88,40 +88,7 @@ export default function StudentEnrollment() {
 
                         <div className="eventRegisterPanel">
                             <div className="row registerBtn">
-                                {USER_PRESENT() ? (
-                                    <AttentionSeeker effect="tada" delay={5000}>
-                                        <CLink to={"/enrollment/form"}>
-                                            <button
-                                                className={
-                                                    eventRegisterStatus === "registered"
-                                                        ? "registerDone"
-                                                        : ""
-                                                }
-                                                disabled={
-                                                    (eventRegisterStatus === "registered" || eventRegisteringInProgress === true || eventRegistrationStatus !== "accepting")
-                                                }
-
-                                                onClick={() => navigate("/enrollment/form")}
-
-                                            > Become a Member
-                                            </button>
-                                        </CLink>
-                                        
-                                    </AttentionSeeker>
-                                    
-                                ) : (
-                                    (eventRegistrationStatus !== "accepting") ? 
-                                    (<button className="closed" disabled>Registration Closed</button>)
-                                    :
-                                    (<button
-                                        onClick={() => {
-                                            console.log("registering...");
-                                            signinwithpopup("google");
-                                        }}
-                                    >
-                                        Sign in to Register
-                                    </button>)
-                                )}
+                                <button className="closed" disabled>Registration Closed</button>
                             </div>
                             <div className="row">
                                 <div className="registerPanelItem">
@@ -213,39 +180,6 @@ export default function StudentEnrollment() {
                     </div>
                 </div>
 
-                {(eventRegisterStatus !== "registered" && eventRegistrationStatus === "accepting" ) ? (
-                    <div className="reminder">
-                        <div className="subHeadings">
-                            Hurry up and secure your spot before registration closes!
-                        </div>
-                        <div className="registerBtnContainer">
-                            {USER_PRESENT() ? (
-                                eventRegisteringInProgress ? (
-                                    <div className="registerBtn">
-                                        Registering...
-                                    </div>
-                                ) : eventRegisterStatus === "registered" ? (
-                                    <div className="registerBtn">
-                                        Registered.
-                                    </div>
-                                ) : (
-                                        <div className="registerBtn" onClick={() => navigate('/enrollment/form')}>
-                                            Become a member!
-                                        </div>
-                                )
-                            ) : (
-                                <div
-                                    className="registerBtn"
-                                    onClick={() => signinwithpopup("google")}
-                                >
-                                    Sign in to Register
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                ) : (
-                    <></>
-                )}
 
                 <div className="contact">
                     <div className="header">
