@@ -8,7 +8,7 @@ import CLink from "../../components/CLink";
 import { FiChevronLeft } from "react-icons/fi";
 import {  IoClose } from "react-icons/io5";
 import "../../styles/ProjectExpoRegistration.scss";
-import qrCodeUrl from "./Untitled 1.png";
+import qrcode from "./qrcode.jpeg"
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 const REGION = 'ap-south-1';
@@ -21,7 +21,7 @@ const s3Client = new S3Client({
   },
 });
 
-const UPI_ID = "incrediblesabari02@oksbi"
+const UPI_ID = "69097701@ubin"
 
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
@@ -419,7 +419,7 @@ export default function ProjectExpoRegistration() {
             <div className="title">Payment Instructions</div>
             <p>Please scan the QR code below to make a payment of <strong> <span className="color green">500</span> </strong> using any UPI app.</p>
             <div className="upiQRContainer">
-              <img src={qrCodeUrl} alt="UPI QR Code" className="upiQrCode" width="150" />
+              <img src={qrcode} alt="UPI QR Code" className="upiQrCode" width="150" />
               <a className="upiPayButton" href={`upi://pay?pa=${UPI_ID}&pn=GFGKARE&cu=INR&am=500`}>PAY WITH ANY <img src="https://www.pikpng.com/pngl/m/419-4195720_upi-icon-png-transparent-clipart.png" alt="" /> APP</a>
             </div>
             {/* <img src={imageUrl} alt="" width="250" style={{display:"flex"}} /> */}

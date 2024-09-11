@@ -322,7 +322,7 @@ export default function ProjectExpo() {
                                 <Slide direction="right" triggerOnce>
                                     <div className="normalSectionText map">
                                         <div className="text">
-                                            Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">October 25, 2024</span>, and the winners will be announced on the same day.
+                                            Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">November 8, 2024</span>, and the winners will be announced on the same day.
                                         </div>
                                         <div className="map">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.2384182267283!2d77.67723340993616!3d9.574705190470475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06dbc06968e9eb%3A0x6cfd8f94e42f98c4!2sKalasalingam%20Academy%20of%20Research%20and%20Education!5e0!3m2!1sen!2sin!4v1722789691882!5m2!1sen!2sin" width="400" height="300" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -437,7 +437,7 @@ export default function ProjectExpo() {
                                                 <FaRegClock size={"25px"} />
                                             </div>
                                             <div className="text">
-                                                Only projects that have been started AFTER the stipulated time ( Aug 6 2024 ) will be accepted.
+                                                Only projects that have been started AFTER the stipulated time ( Sep 12th 2024 ) will be accepted.
                                             </div>
                                         </div>
                                         <div className="rule">
