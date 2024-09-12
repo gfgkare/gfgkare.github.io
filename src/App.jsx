@@ -100,7 +100,7 @@ export default function App() {
                         <Route path="/events/algo2024" element={<EventRegister />}></Route>
                         <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
                         <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
-                        {/* <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>  */} 
+                        <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>
 
 
                         {/* DASHBOARD */}
