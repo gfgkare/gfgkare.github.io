@@ -121,7 +121,7 @@ const Student_enroll_form = () => {
             formData.append("photo", photo);
         }
 
-        axios.post("http://localhost:3001/register", {fullname,registrationno,email,year,department,mobileno,domain,additionalPreferences:JSON.stringify(Object.keys(additionalCheckboxes).filter(key => additionalCheckboxes[key])),photo, github, linkedin}
+        axios.post("https://gfg-cueb.onrender.com/register", {fullname,registrationno,email,year,department,mobileno,domain,additionalPreferences:JSON.stringify(Object.keys(additionalCheckboxes).filter(key => additionalCheckboxes[key])),photo, github, linkedin}
         )
         .then((res) => {
             console.log(res.data);

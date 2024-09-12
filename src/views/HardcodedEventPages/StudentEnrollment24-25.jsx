@@ -49,6 +49,10 @@ export default function StudentEnrollment() {
 
     const navigate = useNavigate()
 
+    const handleRegister = () => {
+        navigate("/enrollment/form")
+    }
+
     return (
         <>
             <div className={"eventRegister " + fadeStatus }>
@@ -88,7 +92,7 @@ export default function StudentEnrollment() {
 
                         <div className="eventRegisterPanel">
                             <div className="row registerBtn">
-                                <button className="closed" disabled>Registration Closed</button>
+                                <button className="open" onClick={handleRegister}>Register now</button>
                             </div>
                             <div className="row">
                                 <div className="registerPanelItem">
