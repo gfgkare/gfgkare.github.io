@@ -237,7 +237,7 @@ export default function ProjectExpo() {
                                             The <span className="color green">GFG KARE Student Chapter</span>, proudly <span className="color green">affiliated with GeeksforGeeks</span>, is a vibrant community of tech enthusiasts and future innovators at Kalasalingam Academy of Research and Education.
                                         </div>
                                         <div className="normalSectionContent">
-                                            Our chapter serves as a bridge between academic knowledge and practical application, providing students with opportunities to enhance their skills in coding, problem-solving, and cutting-edge technologies. <span className="color red">We organize workshops, coding competitions, hackathons, and guest lectures</span> to create an environment where creativity and technical expertise can flourish.
+                                            <span className="color red">We organize workshops, coding competitions, hackathons, and guest lectures.</span>
                                         </div>
                                         <div className="normalSectionContent">
                                             Join us in our journey to push the boundaries of what's possible in the world of technology. Know more about our initiations at <a href="https://linktr.ee/gfg_kare" target="_blank">linktr.ee/gfg_kare</a>

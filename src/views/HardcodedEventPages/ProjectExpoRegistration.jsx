@@ -9,6 +9,7 @@ import { FiChevronLeft } from "react-icons/fi";
 import {  IoClose } from "react-icons/io5";
 import "../../styles/ProjectExpoRegistration.scss";
 import qrcode from "./qrcode.jpeg"
+import upiImage from "../../assets/upi.png"
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 const REGION = 'ap-south-1';
@@ -309,15 +310,32 @@ export default function ProjectExpoRegistration() {
               }} />
               <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
               <input 
-                type="text" 
+                type="tel" 
                 id={`memberNumber${index + 1}`} 
                 name={`memberNumber${index + 1}`} 
                 // pattern={"/(7|8|9)\d{9}/"}
                 // onBlur={(e) => console.log( "Mobile validation:", e.currentTarget.checkValidity()) }
+                defaultValue={"+91"}
+                minLength={10}
+                maxLength={13}
                 required 
               />
               <label htmlFor={`memberCollege${index + 1}`}>Member {index + 1} College:</label>
-              <input required type="text" id={`memberInstitution${index + 1}`} name={`memberInstitution${index + 1}`} />
+              <input 
+                required 
+                type="text" 
+                id={`memberInstitution${index + 1}`} 
+                name={`memberInstitution${index + 1}`} 
+                onChange={(e) => {
+                  if (e.target.value.toLowerCase().includes("kare") || e.target.value.toLowerCase().includes("kalasalingam")) {
+                    setRegistrationDisabled(true);
+                    toast.error("KARE Students are not allowed to register at this time. Contact us for more information.", { toastId: "kare_error" });
+                  }
+                  else {
+                    setRegistrationDisabled(false);
+                  }
+                }} 
+              />
               <label htmlFor={`memberLocation${index + 1}`}>Member {index + 1} Location:</label>
               <input required type="location" id={`memberLocation${index + 1}`} name={`memberLocation${index + 1}`} />
             </div>
@@ -420,7 +438,7 @@ export default function ProjectExpoRegistration() {
             <p>Please scan the QR code below to make a payment of <strong> <span className="color green">500</span> </strong> using any UPI app.</p>
             <div className="upiQRContainer">
               <img src={qrcode} alt="UPI QR Code" className="upiQrCode" width="150" />
-              <a className="upiPayButton" href={`upi://pay?pa=${UPI_ID}&pn=GFGKARE&cu=INR&am=500`}>PAY WITH ANY <img src="https://www.pikpng.com/pngl/m/419-4195720_upi-icon-png-transparent-clipart.png" alt="" /> APP</a>
+              <a className="upiPayButton" href={`upi://pay?pa=${UPI_ID}&pn=GFGKARE&cu=INR&am=500`}>PAY WITH ANY <img src={upiImage} alt="" /> APP</a>
             </div>
             {/* <img src={imageUrl} alt="" width="250" style={{display:"flex"}} /> */}
             <p>After payment, please enter the transaction ID below:</p>
@@ -433,6 +451,9 @@ export default function ProjectExpoRegistration() {
                 onChange={(e) => settnr_number(e.target.value)}
                 required
                 placeholder="Enter 12 digit UPI Transaction ID"
+                minLength={12}
+                maxLength={12}
+                title="Enter a valid 12 digit UPI Transaction ID"
               />
               <input
                 type="text"

@@ -379,23 +379,33 @@ nav.projectExpoNav {
             gap: 1.5rem;
 
 
-            a {
+            a.upiPayButton {
                 font-family: "Outfit";
-                background-color: rgba(white, .3);
+                background-color: rgba(white, .8);
                 text-decoration: none;
-                color: white !important;
-                font-weight: 600;
+                color:rgba(black, .85);
+                font-weight: 800;
                 padding: 1rem;
-                border-radius: .25rem;
+                border-radius: .15rem;
 
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: .5rem;
 
+                &:hover {
+                    background-color: rgba(white, .9);
+                    color:rgba(black, .65) !important;
+
+                    img {
+                        filter: brightness(1)
+                    }
+                }
+
                 img {
                     height: 20px;
                     width: 70px;
+                    filter: brightness(.7);
                 }
 
             }
@@ -418,6 +428,7 @@ nav.projectExpoNav {
         input {
             width: 80%;
         }
+        
     }
         
     .payFeeDiv {
