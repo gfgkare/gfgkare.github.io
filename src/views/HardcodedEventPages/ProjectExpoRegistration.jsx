@@ -28,7 +28,7 @@ export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
   const date=new Date()
-  const [tnr_number, settnr_number] = useState( localStorage.getItem("txnID") || null );
+  // const [tnr_number: form.current.elements["tnr_number"].value, settnr_number: form.current.elements["tnr_number"].value] = useState( localStorage.getItem("txnID") || null );
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [confirmModalShown, setConfirmModalShown] = useState(false);
   const [teamMembers, setTeamMembers] = useState({});
@@ -56,115 +56,154 @@ export default function ProjectExpoRegistration() {
   }, []);
 
   const register = async (e) => {
-    setRegistrationLoading(true);
-    console.log(form.current.reportValidity());
-    e.preventDefault();
-    if (!USER_PRESENT()) {
-      toast.error("You have to be logged in to complete registration.");
-      setRegistrationLoading(false);
-      return;
-    }
-
-    console.log("Form valid?");
-    console.log(form.current.reportValidity());
-    if (!form.current.reportValidity()) {
-      setRegistrationLoading(false);
-      return;
-    }
-
-
-    const teamName = form.current.elements.teamName.value;
-    const theme = form.current.elements.theme.value;
-    const teamSize = form.current.elements.numberOfMembers.value;
-    const team = {};
-    for (let i = 1; i <= teamSize; i++) {
-      team[`member${i}`] = {
-        name: form.current.elements[`memberName${i}`].value,
-        email: form.current.elements[`memberEmail${i}`].value,
-        registerNo: form.current.elements[`memberRegisterNo${i}`].value,
-        number: form.current.elements[`memberNumber${i}`].value,
-        institution: form.current.elements[`memberInstitution${i}`].value,
-        location: form.current.elements[`memberLocation${i}`].value,
-      };
-    }
-    
-    console.log(team)
-    setTeamMembers(team)
-
-    axios.post("/email_valid_for_event", {
-      emails: [...Object.values(team).map((member) => member.email)],
-      eventID: "project-expo"
-    }, { headers: { Authorization: await currentUser.getIdToken() }})
-    .then( async (res) => {
-      console.log("%c All emails are valid.", "color: green");
-      console.log(res.data.message);
-      let accomodationDetails = {};
-
-      if (form.current.elements["needAccomodation"].checked) {
-        const noOfDays = form.current.elements["noOfDays"].value;
-        const noOfMembers = form.current.elements["noOfMembers"].value;
-        const checkInDate = form.current.elements["checkInDate"].value;
-        const checkInTime = form.current.elements["checkInTime"].value;
-        const checkOutDate = form.current.elements["checkOutDate"].value;
-        const checkOutTime = form.current.elements["checkOutTime"].value;
-        accomodationDetails = {
-          noOfDays,
-          noOfMembers,
-          checkInDate,
-          checkInTime,
-          checkOutDate,
-          checkOutTime
-        };
+      setRegistrationLoading(true);
+      console.log(form.current.reportValidity());
+      e.preventDefault();
+      if (!USER_PRESENT()) {
+          toast.error("You have to be logged in to complete registration.");
+          setRegistrationLoading(false);
+          return;
       }
 
-      console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-      console.log({
-        teamName,
-        theme,
-        teamSize,
-        teamMembers: team,
-        tnr_number,
-        needAccomodation: form.current.elements["needAccomodation"].checked,
-        accomodationDetails: accomodationDetails
-      });
-      console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+      console.log("Form valid?");
+      console.log(form.current.reportValidity());
+      if (!form.current.reportValidity()) {
+          setRegistrationLoading(false);
+          return;
+      }
 
-      axios.post('https://gfg-server.onrender.com/regisert', {
-        email:currentUser.email,
-        teamName,
-        theme,
-        teamSize,
-        teamMembers: team,
-        tnr_number,
-        upi_id: form.current.elements["upi_id"].value,
-        screenshot: imageUrl,
-        needAccomodation: form.current.elements["needAccomodation"].checked,
-        accomodationDetails: accomodationDetails
-      }, 
-      { headers: { Authorization: await currentUser.getIdToken() } })
-      .then((response) => {
-        localStorage.clear();
-        setRegistrationLoading(false);
-        console.log(response.data);
-        toast.success(response.data.message || "Registration successful!");
-        setRegistrationStatus("registered");
-        setConfirmModalShown(false);
-      })
-      .catch((error) => {
-        setRegistrationLoading(false);
-        toast.error(error?.response?.data.message ||  "Registration failed. Please try again later.");
-        setConfirmModalShown(false);
-      })
-    })
-    .catch((err) => {
-      setRegistrationLoading(false);
-      console.log(err)
-      toast.error( err.response?.data?.message || err?.message || "Something went wrong while verifying the emails. Please try again." );
-      return;
-    })
+      const teamName = form.current.elements.teamName.value;
+      const theme = form.current.elements.theme.value;
+      const teamSize = form.current.elements.numberOfMembers.value;
+      const team = {};
+      for (let i = 1; i <= teamSize; i++) {
+          team[`member${i}`] = {
+              name: form.current.elements[`memberName${i}`].value,
+              email: form.current.elements[`memberEmail${i}`].value,
+              registerNo: form.current.elements[`memberRegisterNo${i}`].value,
+              number: form.current.elements[`memberNumber${i}`].value,
+              institution: form.current.elements[`memberInstitution${i}`].value,
+              location: form.current.elements[`memberLocation${i}`].value,
+          };
+      }
 
-    
-    
+      console.log(team);
+      setTeamMembers(team);
+
+      axios
+          .post(
+              "/email_valid_for_event",
+              {
+                  emails: [
+                      ...Object.values(team).map((member) => member.email),
+                  ],
+                  eventID: "project-expo",
+              },
+              { headers: { Authorization: await currentUser.getIdToken() } }
+          )
+          .then(async (res) => {
+              console.log("%c All emails are valid.", "color: green");
+              console.log(res.data.message);
+              let accomodationDetails = {};
+
+              if (form.current.elements["needAccomodation"].checked) {
+                  const noOfDays = form.current.elements["noOfDays"].value;
+                  const noOfMembers =
+                      form.current.elements["noOfMembers"].value;
+                  const checkInDate =
+                      form.current.elements["checkInDate"].value;
+                  const checkInTime =
+                      form.current.elements["checkInTime"].value;
+                  const checkOutDate =
+                      form.current.elements["checkOutDate"].value;
+                  const checkOutTime =
+                      form.current.elements["checkOutTime"].value;
+                  accomodationDetails = {
+                      noOfDays,
+                      noOfMembers,
+                      checkInDate,
+                      checkInTime,
+                      checkOutDate,
+                      checkOutTime,
+                  };
+              }
+
+              console.log({
+                  teamName,
+                  theme,
+                  teamSize,
+                  teamMembers: team,
+                  tnr_number: form.current.elements["tnr_number"].value,
+                  needAccomodation:
+                      form.current.elements["needAccomodation"].checked,
+                  accomodationDetails: accomodationDetails,
+              });
+
+              axios
+                  .post(
+                      "https://gfg-server.onrender.com/regisert",
+                      {
+                          email: currentUser.email,
+                          teamName,
+                          theme,
+                          teamSize,
+                          teamMembers: team,
+                          tnr_number: form.current.elements["tnr_number"].value,
+                          upi_id: form.current.elements["upi_id"].value,
+                          screenshot: imageUrl,
+                          needAccomodation:
+                              form.current.elements["needAccomodation"].checked,
+                          accomodationDetails: accomodationDetails,
+                      },
+                      {
+                          headers: {
+                              Authorization: await currentUser.getIdToken(),
+                          },
+                      }
+                  )
+                  .then((response) => {
+                      axios
+                          .post("/register_emails_for_event")
+                          .then((res) => {
+                              console.log(res.data);
+
+                              localStorage.clear();
+                              setRegistrationLoading(false);
+                              console.log(response.data);
+                              toast.success(
+                                  response.data.message || "Registration successful!"
+                              );
+                              setRegistrationStatus("registered");
+                              setConfirmModalShown(false);
+                          })
+                          .catch((err) => {
+                              console.log(err);
+                              toast.error(
+                                  "Something went wrong while storing the emails. Please try again later."
+                              );
+                              return;
+                          });
+                  })
+                  .catch((error) => {
+                      setRegistrationLoading(false);
+                      toast.error(
+                          error?.response?.data.message ||
+                              "Registration failed. Please try again later."
+                      );
+                      setConfirmModalShown(false);
+                      return;
+                  });
+          })
+          .catch((err) => {
+              setRegistrationLoading(false);
+              console.log(err);
+              toast.error(
+                  err.response?.data?.message ||
+                      err?.message ||
+                      "Something went wrong while verifying the emails. Please try again."
+              );
+              return;
+          });
   };
 
   useEffect(() => {
@@ -266,7 +305,7 @@ export default function ProjectExpoRegistration() {
         <form className="registrationForm" ref={form} onSubmit={register}>
           <div className="formGroup">
             <label htmlFor="teamName">Team Name:</label>
-            <input required type="text" id="teamName" name="teamName" />
+            <input required type="text" id="teamName" name="teamName" title="Please enter a team name" />
           </div>
           <div className="formGroup">
             <label htmlFor="theme">Theme:</label>
@@ -297,7 +336,14 @@ export default function ProjectExpoRegistration() {
               <label htmlFor={`memberName${index + 1}`}>Member {index + 1} Name:</label>
               <input required type="text" id={`memberName${index + 1}`} name={`memberName${index + 1}`} defaultValue={index === 0 ? currentUser?.displayName : ''} />
               <label htmlFor={`memberEmail${index + 1}`}>Member {index + 1} Email:</label>
-              <input required type="email" id={`memberEmail${index + 1}`} name={`memberEmail${index + 1}`} defaultValue={index === 0 ? currentUser?.email : ''} />
+              <input 
+                required 
+                type="email" 
+                id={`memberEmail${index + 1}`} 
+                name={`memberEmail${index + 1}`} 
+                defaultValue={index === 0 ? currentUser?.email : ''} 
+                title="Enter a valid email address"
+              />
               <label htmlFor={`memberRegisterNo${index + 1}`}>Member {index + 1} College Register No:</label>
               <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} onChange={(e) => {
                 if (e.target.value.startsWith("99") || e.target.value.startsWith("98") ) {
@@ -316,6 +362,7 @@ export default function ProjectExpoRegistration() {
                 // pattern={"/(7|8|9)\d{9}/"}
                 // onBlur={(e) => console.log( "Mobile validation:", e.currentTarget.checkValidity()) }
                 defaultValue={"+91"}
+                title="Enter a valid 10 digit mobile number, or 13 digits including +91"
                 minLength={10}
                 maxLength={13}
                 required 
@@ -447,8 +494,8 @@ export default function ProjectExpoRegistration() {
                 type="text"
                 id="tnr_number"
                 name="tnr_number"
-                value={tnr_number}
-                onChange={(e) => settnr_number(e.target.value)}
+                // value={tnr_number: form.current.elements["tnr_number"].value}
+                // onChange={(e) => settnr_number(e.target.value)}: form.current.elements["tnr_number"].value
                 required
                 placeholder="Enter 12 digit UPI Transaction ID"
                 minLength={12}
@@ -462,21 +509,33 @@ export default function ProjectExpoRegistration() {
                 // value={upi_id}
                 // onChange={(e) => setupi_id(e.target.value)}
                 required
+                pattern="[\w]+@[\w]+"
+                title="Enter a valid UPI ID"
                 placeholder="Enter your UPI ID. ex: example@oksbi"
               />
 
               <label className="screenshotLabel" htmlFor="screenshotInput">Upload Payment Screenshot</label>
               <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
-              <input id="screenshotInput" required type="file" onChange={(e) => {
-                const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
-                  s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]})).then((res)=>{
-                  console.log(res)
-                  // console.log(name)
-                  // console.log(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
-                  setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
-                }).catch((err)=>{
-                  console.log(err)
-                })
+              <input id="screenshotInput" required type="file" accept="image/*" onChange={(e) => {
+                console.log(e.target.files);
+                if (e.target.files.length) {
+                  const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
+                  s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]}))
+                  .then((res)=>{
+                    console.log(res)
+                    // console.log(name)
+                    // console.log(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+                    setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+                  }).catch((err)=>{
+                    console.log(err);
+                    setImageUrl("");
+                  })
+                }
+                else {
+                  console.log("clearing");
+                  setImageUrl("");
+                }
+                
               }}/>
             </div>
           </div>
