@@ -12,6 +12,8 @@ import qrcode from "./qrcode.jpeg"
 import upiImage from "../../assets/upi.png"
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
+import { useNavigate } from "react-router-dom"
+
 const REGION = 'ap-south-1';
 const S3_BUCKET = 'gfg';
 const s3Client = new S3Client({
@@ -27,7 +29,9 @@ const UPI_ID = "69097701@ubin"
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
-  const date=new Date()
+  const navigate = useNavigate()
+  const date = new Date()
+
   // const [tnr_number: form.current.elements["tnr_number"].value, settnr_number: form.current.elements["tnr_number"].value] = useState( localStorage.getItem("txnID") || null );
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [confirmModalShown, setConfirmModalShown] = useState(false);
@@ -161,20 +165,22 @@ export default function ProjectExpoRegistration() {
                           },
                       }
                   )
-                  .then((response) => {
+                  .then(async (response) => {
                       axios
-                          .post("/register_emails_for_event")
+                          .post("/register_emails_for_event", 
+                            {
+                              eventID: "project-expo",
+                              emails: [...Object.values(team).map((member) => member.email) ] 
+                            }, { headers: { Authorization: await currentUser.getIdToken() } })
                           .then((res) => {
                               console.log(res.data);
-
-                              localStorage.clear();
                               setRegistrationLoading(false);
                               console.log(response.data);
-                              toast.success(
-                                  response.data.message || "Registration successful!"
-                              );
+                              toast.success("Registration successful! Please check your mail!");
+                              form.current.reset();
                               setRegistrationStatus("registered");
                               setConfirmModalShown(false);
+                              navigate("/events/prajnotsavah");
                           })
                           .catch((err) => {
                               console.log(err);
@@ -215,8 +221,22 @@ export default function ProjectExpoRegistration() {
   }, [confirmModalShown]);
 
   // Modify the register function to handle form submission
-  const handleSubmit = (e) => {
+  const showConfirmationModal = (e) => {
     e.preventDefault();
+    const teamSize = form.current.elements.numberOfMembers.value;
+    const team = {};
+    for (let i = 1; i <= teamSize; i++) {
+        team[`member${i}`] = {
+            name: form.current.elements[`memberName${i}`].value,
+            email: form.current.elements[`memberEmail${i}`].value,
+            registerNo: form.current.elements[`memberRegisterNo${i}`].value,
+            number: form.current.elements[`memberNumber${i}`].value,
+            institution: form.current.elements[`memberInstitution${i}`].value,
+            location: form.current.elements[`memberLocation${i}`].value,
+        };
+    }
+    setTeamMembers(team);
+    
     setConfirmModalShown(true);
   };
 
@@ -235,6 +255,7 @@ export default function ProjectExpoRegistration() {
               <div className="title color green">Theme</div>
               <div className="value">{form.current?.elements.theme?.value}</div>
             </div>
+            
             <div className="field">
               <div className="title color green">Number of members</div>
               <div className="value">{form.current?.elements.numberOfMembers?.value}</div>
@@ -262,15 +283,15 @@ export default function ProjectExpoRegistration() {
               }
             </div>
             <div className="field">
-              <div className="title">tnr_number</div>
-              <div className="value">{tnr_number}</div>
+              <div className="title color green">Transaction ID</div>
+              <div className="value">{form.current?.elements["tnr_number"].value}</div>
             </div>
             <div className="title ss">Kindly take a screenshot of this page and keep it safe for confirmation.</div>
             <input type="checkbox" id="detailsCorrectCheckbox" onClick={(e) => setConfirmChecked(e.target.checked)} />
             <label htmlFor="detailsCorrectCheckbox">
               The details are correct and I wish to go for the registration. I understand that modification of these details are not possible.
             </label>
-            {confirmChecked && <Fade className="finalRegisterButton"><button onClick={register}>Register!</button></Fade>}
+            {confirmChecked && <Fade className="finalRegisterButton"><button disabled={ registrationDisabled || registrationLoading } onClick={register}>{ (registrationLoading) ? "Registering..." : "Register!"}</button></Fade>}
           </div>
         </div>
       )}
@@ -302,7 +323,7 @@ export default function ProjectExpoRegistration() {
 
       <div className="projectExpoRegistration">
         <div className="titleText">Registration</div>
-        <form className="registrationForm" ref={form} onSubmit={register}>
+        <form className="registrationForm" ref={form} onSubmit={showConfirmationModal}>
           <div className="formGroup">
             <label htmlFor="teamName">Team Name:</label>
             <input required type="text" id="teamName" name="teamName" title="Please enter a team name" />
@@ -519,19 +540,22 @@ export default function ProjectExpoRegistration() {
               <input id="screenshotInput" required type="file" accept="image/*" onChange={(e) => {
                 console.log(e.target.files);
                 if (e.target.files.length) {
+                  setRegistrationLoading(true);
                   const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
                   s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]}))
                   .then((res)=>{
                     console.log(res)
-                    // console.log(name)
-                    // console.log(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
-                    setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`)
+                    setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`);
+                    setRegistrationLoading(false);
                   }).catch((err)=>{
                     console.log(err);
+                    setRegistrationLoading(false);
+                    toast.error( "Error during S3 Image Upload: " + err?.message );
                     setImageUrl("");
                   })
                 }
                 else {
+                  setRegistrationLoading(false);
                   console.log("clearing");
                   setImageUrl("");
                 }
@@ -551,7 +575,7 @@ export default function ProjectExpoRegistration() {
               Sign in to Register!
             </button>
           ) : (
-            <button disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Registering..." : "Register" }</button>
+            <button disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Please wait..." : "Register" }</button>            
           )}
         </form>
       </div>
