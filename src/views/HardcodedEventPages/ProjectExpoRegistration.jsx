@@ -291,7 +291,7 @@ export default function ProjectExpoRegistration() {
             <label htmlFor="detailsCorrectCheckbox">
               The details are correct and I wish to go for the registration. I understand that modification of these details are not possible.
             </label>
-            {confirmChecked && <Fade className="finalRegisterButton"><button disabled={ registrationDisabled || registrationLoading } onClick={register}>{ (registrationLoading) ? "Registering..." : "Register!"}</button></Fade>}
+            {confirmChecked && <Fade className="finalRegisterButton"><button disabled={ registrationDisabled || registrationLoading } onClick={register}>{ (registrationLoading) ? "Registering... Keep this tab open" : "Register!"}</button></Fade>}
           </div>
         </div>
       )}
