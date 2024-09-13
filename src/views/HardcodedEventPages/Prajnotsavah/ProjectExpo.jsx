@@ -1,4 +1,4 @@
-import "../../styles/ProjectExpo.scss";
+import "@/styles/ProjectExpo.scss";
 
 
 import { motion } from "framer-motion";
@@ -12,15 +12,15 @@ import { GoPlus } from "react-icons/go";
 import { FaDiamond, FaRocket } from "react-icons/fa6";
 import { GiAlarmClock } from "react-icons/gi";
 
-import kluLogo from "../../assets/klu.png";
-import gfgkareLogo from "../../assets/gfgkare_square_logo.jpg";
-import gfgLogo from "../../assets/gfg.png";
+import kluLogo from "@/assets/klu.png";
+import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
+import gfgLogo from "@/assets/gfg.png";
 
 import { useState, useRef } from "react";
 import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
 
-import CLink from "../../components/CLink";
-import { useAuth } from "../../contexts/AuthContext";
+import CLink from "@/components/CLink";
+import { useAuth } from "@/contexts/AuthContext";
 
 const themeDetails = {
     "Healthcare": {

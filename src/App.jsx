@@ -37,8 +37,8 @@ import SlotSuspend from "./views/SlotSuspend";
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
-import ProjectExpo from "./views/HardcodedEventPages/ProjectExpo";
-import ProjectExpoRegister from "./views/HardcodedEventPages/ProjectExpoRegistration";
+import ProjectExpo from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpo";
+import ProjectExpoRegister from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistration";
 import StudentEnrollment from "./views/HardcodedEventPages/StudentEnrollment24-25"; 
 import Landing from "./views/Landing";
 import Pickle from "./views/Pickle";

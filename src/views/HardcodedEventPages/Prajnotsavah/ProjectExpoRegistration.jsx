@@ -2,17 +2,19 @@ import { useState,useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Fade } from "react-awesome-reveal";
-import axios from "../../scripts/axiosConfig";
-import { useAuth } from "../../contexts/AuthContext";
-import CLink from "../../components/CLink";
+import axios from "@/scripts/axiosConfig";
+import { useAuth } from "@/contexts/AuthContext";
+import CLink from "@/components/CLink";
 import { FiChevronLeft } from "react-icons/fi";
 import {  IoClose } from "react-icons/io5";
-import "../../styles/ProjectExpoRegistration.scss";
 import qrcode from "./qrcode.jpeg"
-import upiImage from "../../assets/upi.png"
+import upiImage from "@/assets/upi.png"
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 import { useNavigate } from "react-router-dom"
+
+import "@/styles/ProjectExpoRegistration.scss";
+
 
 const REGION = 'ap-south-1';
 const S3_BUCKET = 'gfg';
