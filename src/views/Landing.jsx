@@ -105,6 +105,9 @@ export default function Landing() {
                     <button className="closeMenuButton" onClick={() => fullScreenNav.current.classList.remove("open")} >X</button>
                     <div className="fullScreenItemsContainer">
                         <div className="fullScreenItem">
+                            <CLink to="/events/prajnotsavah">Prajnotsavah 2K24</CLink>
+                        </div>
+                        {/* <div className="fullScreenItem">
                             <a href="#about" onClick={() => fullScreenNav.current.classList.remove("open")}>About</a>
                         </div>
                         <div className="fullScreenItem">
@@ -115,17 +118,18 @@ export default function Landing() {
                         </div>
                         <div className="fullScreenItem">
                             <a href="#contact" onClick={() => fullScreenNav.current.classList.remove("open")}>Contact</a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
                 <nav className={"nav"}>
                     <div className="logoContainer">
                         <img className="gfgLogo" src={gfgLogo} alt="Gfg Kare's logo"/>
-                        <span className="gfgText">GFG KARE</span>
+                        {/* <span className="gfgText">GFG KARE</span> */}
                     </div>
 
                     <div className="rightMenu">
+                        <button className="prajnotsavahButton">Prajnotsavah</button>
                         <button className="menuButton" onClick={() => fullScreenNav.current.classList.toggle("open")} >Menu</button>
                     </div>
                 </nav>
@@ -133,38 +137,6 @@ export default function Landing() {
 
                 <Fade delay={".5s"}>
                     <section className="fullScreenSection chapterIntro">
-
-                        {/* <motion.div
-                            className="circlePatternContainer left hideOnMobile"
-                            initial={{ translateX: leftCircleX }}
-                            style={{ translateX: leftCircleX, rotate: leftCircleRotation  }}
-                        >
-                            <img src={gemoetricCircle} loading="lazy" />
-                        </motion.div>
-
-                        <motion.div
-                            className="circlePatternContainer right hideOnMobile"
-                            initial={{ translateX: rightCircleX }}
-                            style={{ translateX: (rightCircleX), rotate: rightCircleRotation }}
-                        >
-                            <img src={gemoetricCircle} loading="lazy" />
-                        </motion.div> */}
-
-                        {/*
-                        <div className="outlineTextContainer">
-                            <div className="outlineText">
-                                GFG KARE
-                            </div>
-                            <div className="outlineText">
-                                GFG KARE
-                            </div>    
-                        </div> 
-                        */}
-
-                        {/* ===================================================================================== */}
-
-                        {/* ===================================================================================== */}
-
                         <motion.img 
                             className="landingPageElement" 
                             src={elem1}
@@ -282,108 +254,27 @@ export default function Landing() {
                 
 
                 <section className="divider" id="events">
-                    <div className="bigText">EVENTS</div>
-                    <div className="subText">Everything we've done in the past year!</div>
+                    <div className="bigText">PRAJNOTSAVAH 2K24</div>
+                    <div className="subText">Our newest event!</div>
                 </section>
 
-                <section className="fullScreenSection eventsDiv">
-
-                {/* <div class="container">
-                    <div class="card">
-                        <img class="background" src={kluTeam} alt="" />
-
-                        <div class="card-content">
-                        <div class="profile-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
-                            <line x1="6" x2="10" y1="11" y2="11" />
-                            <line x1="8" x2="8" y1="9" y2="13" />
-                            <line x1="15" x2="15.01" y1="12" y2="12" />
-                            <line x1="18" x2="18.01" y1="10" y2="10" />
-                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
-                            </svg>
+                <section className="fullScreenSection prajnotsavahDiv">
+                    <div className="prajnotsavahContainer">
+                        <div className="prajnotsavahText">
+                            <div className="prajnotsavahTitle">Prajnotsavah 2K24</div>
+                            <div className="prajnotsavahDate">Nov 8 2024</div>
+                            <div className="prajnotsavahDescription">
+                                Prajnotsavah is an inter-college project expo conducted by GFG KARE.
+                                It is a platform for students to showcase their projects and ideas.
+                            </div>
+                            <div className="prajnotsavahButton">
+                                <CLink to={"/events/prajnotsavah"}>Learn More</CLink>
+                            </div>
                         </div>
-
-                        <h3 class="title">GTA 6</h3>
-                        </div>
-                        <div class="backdrop"></div>
                     </div>
+                </section>
 
-                    <div class="card">
-                        <img class="background" src={kluTeam} alt="" />
-
-                        <div class="card-content">
-                        <div class="profile-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
-                            <line x1="6" x2="10" y1="11" y2="11" />
-                            <line x1="8" x2="8" y1="9" y2="13" />
-                            <line x1="15" x2="15.01" y1="12" y2="12" />
-                            <line x1="18" x2="18.01" y1="10" y2="10" />
-                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
-                            </svg>
-                        </div>
-
-                        <h3 class="title">Spider-Man PS5</h3>
-                        </div>
-                        <div class="backdrop"></div>
-                    </div>
-
-                    <div class="card">
-                        <img class="background" src={kluTeam} alt="" />
-
-                        <div class="card-content">
-                        <div class="profile-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
-                            <line x1="6" x2="10" y1="11" y2="11" />
-                            <line x1="8" x2="8" y1="9" y2="13" />
-                            <line x1="15" x2="15.01" y1="12" y2="12" />
-                            <line x1="18" x2="18.01" y1="10" y2="10" />
-                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
-                            </svg>
-                        </div>
-
-                        <h3 class="title">God Of War</h3>
-                        </div>
-                        <div class="backdrop"></div>
-                    </div>
-
-                    <div class="card">
-                        <img class="background" src={kluTeam} alt="" />
-
-                        <div class="card-content">
-                        <div class="profile-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
-                            <line x1="6" x2="10" y1="11" y2="11" />
-                            <line x1="8" x2="8" y1="9" y2="13" />
-                            <line x1="15" x2="15.01" y1="12" y2="12" />
-                            <line x1="18" x2="18.01" y1="10" y2="10" />
-                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
-                            </svg>
-                        </div>
-
-                        <h3 class="title">The Last of Us</h3>
-                        </div>
-                        <div class="backdrop"></div>
-                    </div>
-
-                    <div class="card">
-                        <img class="background" src={kluTeam} alt="" />
-
-                        <div class="card-content">
-                        <div class="profile-image">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad-2">
-                            <line x1="6" x2="10" y1="11" y2="11" />
-                            <line x1="8" x2="8" y1="9" y2="13" />
-                            <line x1="15" x2="15.01" y1="12" y2="12" />
-                            <line x1="18" x2="18.01" y1="10" y2="10" />
-                            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
-                            </svg>
-                        </div>
-
-                        <h3 class="title">Elden Ring</h3>
-                        </div>
-                        <div class="backdrop"></div>
-                    </div>
-                    </div> */}
+                {/* <section className="fullScreenSection eventsDiv">
                     <div className="eventsContainer">
 
                         <div className="eventNamesContainer">
@@ -463,7 +354,7 @@ export default function Landing() {
 
                 <section className="fullScreenSection eventsDiv">
 
-                </section>
+                </section> */}
             </ScrollContainer>
             
 

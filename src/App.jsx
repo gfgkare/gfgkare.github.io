@@ -62,6 +62,7 @@ export default function App() {
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
                         <Route path="/" element={<Main />}>
+                            <Route path="/" element={<Landing />}></Route>
                             <Route path="/profile" element={ <Profile /> }></Route>
                             <Route path="/new" element={<New />}></Route>
                             {/* <Route path="/core" element={<CoreTeam />}></Route> */}
