@@ -42,6 +42,10 @@ export default function Main() {
     const navigate = useNavigate();
 
     useEffect(() => {
+
+        navigate("/hero");
+        return;
+        
         createAndSetNewSlideInterval();
 
         const introObserver = new IntersectionObserver((entries) => {

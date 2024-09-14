@@ -50,8 +50,8 @@ export default function Main() {
                             </Link>
                         </div>
                          <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/events/algo2024">
-                                Algorithmist2024
+                            <Link className="noStyle" to="/events/prajnotsavah">
+                                Prajnotsavah
                             </Link>
                         </div>
                         <div className="menuLink hideOnMobile">
@@ -113,7 +113,7 @@ export default function Main() {
                                         <Link to="/members">Members</Link>
                                     </span>
                                     <span>
-                                        <Link to="/events/algo2024">Algorithmist2024</Link>
+                                        <Link to="/events/prajnotsavah">Prajnotsavah 2K24</Link>
                                     </span>
                                     {/* <span>Contact</span> */}
                                     {/* <span>

@@ -19,7 +19,9 @@ import Codeathon from "./views/Codeathon";
 import Login from "./views/Login";
 import Profile from "./views/Profile";
 import "./App.css"
-import { Routes, Route } from "react-router-dom";
+
+
+import { Routes, Route, Navigate } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 import { useEffect } from "react";
 
@@ -62,7 +64,7 @@ export default function App() {
                 <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Routes>
                         <Route path="/" element={<Main />}>
-                            <Route path="/" element={<Landing />}></Route>
+                            <Route path="/" element={<Navigate to="/hero" />}></Route>
                             <Route path="/profile" element={ <Profile /> }></Route>
                             <Route path="/new" element={<New />}></Route>
                             {/* <Route path="/core" element={<CoreTeam />}></Route> */}
