@@ -9,6 +9,8 @@ import { FaRegClock } from "react-icons/fa";
 import { MdOutlineListAlt } from "react-icons/md";
 import { IoTicket } from "react-icons/io5";
 import { GoPlus } from "react-icons/go";
+import { GoClock } from "react-icons/go";
+import { CiLocationOn } from "react-icons/ci";
 import { FaDiamond, FaRocket } from "react-icons/fa6";
 import { GiAlarmClock } from "react-icons/gi";
 
@@ -18,6 +20,8 @@ import gfgLogo from "@/assets/gfg.png";
 
 import { useState, useRef } from "react";
 import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
+import CountdownTimer from "react-component-countdown-timer";
+// import "react-component-countdown-timer/lib/styles.css";
 
 import CLink from "@/components/CLink";
 import { useAuth } from "@/contexts/AuthContext";
@@ -44,6 +48,8 @@ const themeDetails = {
         title: "Decentralized Identity Verification"
     }
 }
+
+const nov8 = 1731036600;
 
 export default function ProjectExpo() {
 
@@ -100,7 +106,7 @@ export default function ProjectExpo() {
                     className="backgroundElement"
                     initial={{ transform: "scale(0)", top: "40%" }}
                     animate={{ transform: "scale(1)" }}
-                    transition={{ duration: 1, delay: 3 }}
+                    transition={{ duration: 1, delay: 5 }}
                 >
                     <GoPlus size={"35px"} />
                 </motion.div>
@@ -108,7 +114,7 @@ export default function ProjectExpo() {
                     className="backgroundElement"
                     initial={{ transform: "scale(0)", top: "70%" }}
                     animate={{ transform: "scale(1)" }}
-                    transition={{ duration: 1, delay: 3 }}
+                    transition={{ duration: 1, delay: 5 }}
                 >
                     <FaDiamond size={"35px"} />
                 </motion.div>
@@ -116,7 +122,7 @@ export default function ProjectExpo() {
                     className="backgroundElement"
                     initial={{ transform: "scale(0)", top: "50%" }}
                     animate={{ transform: "scale(1)" }}
-                    transition={{ duration: 1, delay: 3 }}
+                    transition={{ duration: 1, delay: 5 }}
                 >
                     <FaRocket size={"35px"} />
                 </motion.div>
@@ -173,7 +179,7 @@ export default function ProjectExpo() {
                                     className={"name"}
                                     initial={{ x: "-250%" }} 
                                     animate={{ x: "-5%" }} 
-                                    transition={{ duration: .25, delay: 1.75 }}
+                                    transition={{ duration: .25, delay: 2 }}
                                 >
                                     PRAJñOTsavah
                                 </motion.span>
@@ -181,27 +187,53 @@ export default function ProjectExpo() {
                                     className={"year"}
                                     initial={{ x: "+200%" }} 
                                     animate={{ x: "72%" }} 
-                                    transition={{ duration: .25, delay: 1.75 }}
+                                    transition={{ duration: .25, delay: 2 }}
                                 >
                                     2K24
                                 </motion.span>
                             </div>
                         </div>
                         
-                        <div className="actionButtonContainer">
-                            <AttentionSeeker effect="tada" delay={3000}>
-                                    <button className="actionButton" onClick={() => {
-                                        whatSection?.current.scrollIntoView()
-                                    }}>
-                                        <BsChevronDoubleDown size={"40px"} />
-                                        LET'S GO!
-                                    </button>
-                            </AttentionSeeker>
-                            
-                        </div>
+                        <Fade delay={3000} triggerOnce cascade damping={0.85}>
+                            <div className="dateAndTime">
+                                <div className="row">
+                                    <div className="icon"><GoClock size={"20px"} /></div>
+                                    <div className="text">Nov 8, 2024</div>
+                                </div>
+                                <div className="row">
+                                    <div className="icon"><CiLocationOn size={"20px"} /></div>
+                                    <div className="text">Kalasalingam University</div>
+                                </div>
+                            </div>
+                        </Fade>
+                        
+                        <Fade delay={4000} triggerOnce cascade damping={0.5}>
+                            <div className="timerContainer">
+                                <CountdownTimer
+                                    count={parseInt((nov8 - (new Date().getTime()) / 1000))}
+                                    border
+                                    showTitle
+                                    size={(window.innerWidth > 900) ? 22 : 16}
+                                />
+                            </div>
+                        </Fade>
+                        
+                        <Fade delay={4700}>
+                            <div className="actionButtonContainer">
+                                <AttentionSeeker effect="tada" delay={5000}>
+                                        <button className="actionButton" onClick={() => {
+                                            whatSection?.current.scrollIntoView()
+                                        }}>
+                                            <BsChevronDoubleDown size={"40px"} />
+                                            LET'S GO!
+                                        </button>
+                                </AttentionSeeker>
+                            </div>
+                        </Fade>
+                        
 
                 <div className="FourQuestionSection" id="detailed" ref={whatSection}  style={{ scrollMargin: "100px" }}>
-                    <Fade cascade damping={.1} triggerOnce>
+                    <Fade cascade damping={.1} triggerOnce delay={6000}>
                         <div className="sectionTitleText">
                             <div className="bigText red">
                                 WHAT

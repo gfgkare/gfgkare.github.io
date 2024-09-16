@@ -320,14 +320,14 @@ $textWhite: rgb(231, 231, 231);
             height: max-content;
 
             .heroDiv {
-                height: calc(70vh);
+                margin-top: 4.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
                 .gfgKarePresents {
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                     display: flex;
                     gap: 1rem;
 
@@ -339,7 +339,7 @@ $textWhite: rgb(231, 231, 231);
                     }
 
                     .title {
-                        font-size: 3rem;
+                        font-size: 2rem;
                         font-family: "Unbounded", sans-serif;
                         font-weight: bold;
                         color: rgb(141, 227, 141);
@@ -353,15 +353,76 @@ $textWhite: rgb(231, 231, 231);
                     animation: glow 5s infinite linear;
 
                     .name {
-                        font-size: 6rem;
+                        font-size: 4rem;
                     }
 
                     .year {
-                        font-size: 4rem;
+                        font-size: 2rem;
                     }
 
                     span {
                         display: block;
+                    }
+                }
+            }
+
+            .dateAndTime {
+                display: flex;
+                flex-direction: column;
+                gap: .25rem;
+
+                justify-content: center;
+                align-items: center;
+                margin: 2.5rem 0 2rem 0;
+
+                font-weight: 600;
+
+                .row {
+                    display: flex;
+                    gap: .2rem;
+                }
+            }
+
+            .timerContainer {
+                z-index: 2;
+
+                .root-react-component-countdown-timer  {
+                    .displayedTime .countBox {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        align-items: flex-end;
+                        gap: .5rem;
+
+                        .split {
+                            padding: .5rem 0;
+                        }
+
+                        .countBoxItem {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: .25rem;
+                            
+                           
+                            .label {
+                                font-weight: 500;
+                            }
+
+                            .count {
+                                min-width: 30px;
+                                background-color: transparent !important;
+                                border: 1px solid $textWhite;
+                                color: $textWhite !important;
+                                border-radius: 8px;    
+                                padding: .5rem;
+
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                        }
                     }
                 }
             }
@@ -824,8 +885,10 @@ $textWhite: rgb(231, 231, 231);
 
         .content {
             .heroDiv {
+                margin-top: 5rem !important;
+
                 .gfgKarePresents {
-                    font-size: 1.5rem;
+                    font-size: 1.55rem;
 
                     .awesomeFade {
                         flex-direction: column;
@@ -833,23 +896,31 @@ $textWhite: rgb(231, 231, 231);
                     }
 
                     .title {
-                        font-size: 2rem !important;
+                        font-size: 1.7rem !important;
                     }
 
                     .presents {
-                        font-size: 1.2rem;
+                        font-size: 1rem;
                     }
                 }
 
                 .projectExpoText {
                     .name {
-                        font-size: 3rem !important;
+                        font-size: 2.7rem !important;
                     }
 
                     .year {
-                        font-size: 2rem !important;
+                        font-size: 1.8rem !important;
                     }
                 }
+            }
+
+            .dateAndTime {
+                margin: 4rem 0 !important;
+            }
+
+            .actionButtonContainer {
+                margin-top: 5rem !important;
             }
 
             .FourQuestionSection {
