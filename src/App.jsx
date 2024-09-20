@@ -36,6 +36,8 @@ import DashboardResults from "./views/DashboardResults";
 import SlotSelection from "./views/SlotSelection";
 import SlotSuspend from "./views/SlotSuspend";
 
+import CodeClash from "./views/HardcodedEventPages/CodeClash";
+
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
@@ -102,6 +104,7 @@ export default function App() {
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
                         <Route path="/events/algo2024" element={<EventRegister />}></Route>
                         <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
+                        <Route path="/Vintra24" element={<CodeClash />}></Route>
                         <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
                         <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>
 
