@@ -30,7 +30,8 @@ export default function CodeClash() {
 
                     <div className="bigText">
                         <span className="title">
-                            CodeClash
+                            <span className="name">CODECRAFT</span>
+                            <span className="year">2024</span>
                         </span>
                         <span className="subTitle">
                             A System Design Competetion

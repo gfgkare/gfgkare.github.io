@@ -1,5 +1,12 @@
 $navSize: 50px;
 
+ 
+@font-face {
+    font-family: "Terranore";
+    src: url("../fonts/Terranore.otf") format("opentype");
+    font-weight: normal;
+    font-style: bold;
+}
 
 html, body, #root {
     height: max-content;
@@ -64,7 +71,9 @@ html, body, #root {
     
         .round5 {
             margin: 0;
+            padding-top: 5rem;
             width: 100vw;
+            height: max-content;
             overflow: scroll;
 
             .register {
@@ -104,12 +113,27 @@ html, body, #root {
                 align-items: center;
 
                 .title {
-                    font-size: 3rem;
                     font-weight: 900;
+                    font-size: 2.5rem;
                     text-align: center;
-                    background: linear-gradient(to left, rgb(186, 255, 186), rgb(204, 241, 251));
+                    background-image: -webkit-linear-gradient(92deg, #ff825c, #fbba5e);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
+                    -webkit-animation: hue 10s infinite linear;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    animation: hue 5s ease infinite;
+
+                    .name {
+                        font-size: 4rem;
+                        font-family: "Terranore";
+                        margin-right: 1rem;
+                    }
+
+                    .year {
+                        font-size: 4rem;
+                        font-weight: 600 !important;
+                    }
                 }
 
                 .about {
@@ -148,6 +172,7 @@ html, body, #root {
 
             .timeline {
                 margin: 1.5rem auto 0 auto;
+                margin-top: 5rem;
                 width: min(80vw, 1200px);
 
                 display: flex;
@@ -330,3 +355,33 @@ html, body, #root {
     }
 
 }
+
+
+@-webkit-keyframes hue {
+    0% {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    50% {
+      -webkit-filter: hue-rotate(60deg);
+    }
+
+  }
+  
+
+@media screen and (max-width: 600px) {
+
+    .bigText {
+        .title {
+            .name {
+                display: block;
+                font-size: 3rem !important;
+                margin: 0 !important;
+            }
+
+            .year {
+                font-size: 3rem !important;
+                font-weight: 600 !important;
+            }
+        }
+
+}}
