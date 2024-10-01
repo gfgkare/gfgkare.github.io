@@ -164,7 +164,7 @@ export default function ProjectExpoRegistration() {
 
               axios
                   .post(
-                      "https://gfg-server.onrender.com/regisert",
+                      "https://gfg-server-ngaw.onrender.com//regisert",
                       {
                           email: currentUser.email,
                           teamName,
