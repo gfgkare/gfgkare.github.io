@@ -21,7 +21,7 @@ import gfgLogo from "@/assets/gfg.png";
 import { useState, useRef } from "react";
 import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
 import CountdownTimer from "react-component-countdown-timer";
-// import "react-component-countdown-timer/lib/styles.css";
+import "react-component-countdown-timer/lib/styles.css";
 
 import CLink from "@/components/CLink";
 import { useAuth } from "@/contexts/AuthContext";
@@ -198,7 +198,7 @@ export default function ProjectExpo() {
                             <div className="dateAndTime">
                                 <div className="row">
                                     <div className="icon"><GoClock size={"20px"} /></div>
-                                    <div className="text">Nov 8, 2024</div>
+                                    <div className="text">Nov 8, 2024, 9:30 AM</div>
                                 </div>
                                 <div className="row">
                                     <div className="icon"><CiLocationOn size={"20px"} /></div>
@@ -218,9 +218,9 @@ export default function ProjectExpo() {
                             </div>
                         </Fade>
                         
-                        <Fade delay={4700}>
+                        <Fade delay={5000}>
                             <div className="actionButtonContainer">
-                                <AttentionSeeker effect="tada" delay={5000}>
+                                <AttentionSeeker effect="tada" delay={6000}>
                                         <button className="actionButton" onClick={() => {
                                             whatSection?.current.scrollIntoView()
                                         }}>
@@ -264,7 +264,7 @@ export default function ProjectExpo() {
                                 </div>
 
                                 <Slide direction="right" triggerOnce>
-                                    <div className="normalSectionText">
+                                    <div className="normalSectionText who">
                                         <div className="normalSectionContent">
                                             The <span className="color green">GFG KARE Student Chapter</span>, proudly <span className="color green">affiliated with GeeksforGeeks</span>, is a vibrant community of tech enthusiasts and future innovators at Kalasalingam Academy of Research and Education.
                                         </div>
@@ -274,8 +274,39 @@ export default function ProjectExpo() {
                                         <div className="normalSectionContent">
                                             Join us in our journey to push the boundaries of what's possible in the world of technology. Know more about our initiations at <a href="https://linktr.ee/gfg_kare" target="_blank">linktr.ee/gfg_kare</a>
                                         </div>
+                                        
+                                        <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
+
+                                        <div className="pastEventsContainer">
+                                            <div className="pastEvent">
+                                                Geeks Summer Carnival 
+                                                <div className="explore">
+                                                    Visit
+                                                </div>
+                                            </div>
+                                            <div className="pastEvent">
+                                                Java CodeFest '23
+                                                <div className="explore">
+                                                    Visit
+                                                </div>
+                                            </div>
+                                            <div className="pastEvent">
+                                                GeekFest '24
+                                                <div className="explore">
+                                                    Visit
+                                                </div>
+                                            </div>
+                                            <div className="pastEvent">
+                                                Algorithmist '24
+                                                <div className="explore">
+                                                    Visit
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </Slide>
+
+                                
                             </Fade>
                         </div>
 
@@ -333,7 +364,6 @@ export default function ProjectExpo() {
                                                 And much more!
                                             </div>
                                         </div>
-                                        
                                     </div>
                                 </Slide>
                                 

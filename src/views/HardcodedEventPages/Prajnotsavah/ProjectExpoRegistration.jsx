@@ -145,6 +145,23 @@ export default function ProjectExpoRegistration() {
                   accomodationDetails: accomodationDetails,
               });
 
+              axios.post("/register_projectexpo", {
+                email: currentUser.email,
+                teamName,
+                theme,
+                teamSize,
+                teamMembers: team,
+                tnr_number: form.current.elements["tnr_number"].value,
+                upi_id: form.current.elements["upi_id"].value,
+                screenshot: imageUrl,
+                needAccomodation:
+                    form.current.elements["needAccomodation"].checked,
+                accomodationDetails: accomodationDetails,
+              }, { headers: { Authorization: await currentUser.getIdToken() } })
+              .then((res) => {
+                console.log("Stored information in Firebase.");
+              })
+
               axios
                   .post(
                       "https://gfg-server.onrender.com/regisert",
@@ -168,29 +185,15 @@ export default function ProjectExpoRegistration() {
                       }
                   )
                   .then(async (response) => {
-                      axios
-                          .post("/register_emails_for_event", 
-                            {
-                              eventID: "project-expo",
-                              emails: [...Object.values(team).map((member) => member.email) ] 
-                            }, { headers: { Authorization: await currentUser.getIdToken() } })
-                          .then((res) => {
-                              console.log(res.data);
-                              setRegistrationLoading(false);
-                              console.log(response.data);
-                              toast.success("Registration successful! Please check your mail!");
-                              form.current.reset();
-                              setRegistrationStatus("registered");
-                              setConfirmModalShown(false);
-                              navigate("/events/prajnotsavah");
-                          })
-                          .catch((err) => {
-                              console.log(err);
-                              toast.error(
-                                  "Something went wrong while storing the emails. Please try again later."
-                              );
-                              return;
-                          });
+                    console.log("Stored information in MongoDB.");
+                    console.log(res.data);
+                    setRegistrationLoading(false);
+                    console.log(response.data);
+                    toast.success("Registration successful! Please check your mail!");
+                    form.current.reset();
+                    setRegistrationStatus("registered");
+                    setConfirmModalShown(false);
+                    navigate("/events/prajnotsavah");
                   })
                   .catch((error) => {
                       setRegistrationLoading(false);

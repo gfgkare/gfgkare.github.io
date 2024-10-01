@@ -387,11 +387,14 @@ $textWhite: rgb(231, 231, 231);
                 z-index: 2;
 
                 .root-react-component-countdown-timer  {
+                    user-select: none;
+                    
                     .displayedTime .countBox {
                         display: flex;
                         flex-direction: row-reverse;
                         align-items: flex-end;
                         gap: .5rem;
+                        font-weight: bold;
 
                         .split {
                             padding: .5rem 0;
@@ -411,9 +414,8 @@ $textWhite: rgb(231, 231, 231);
 
                             .count {
                                 min-width: 30px;
-                                background-color: transparent !important;
-                                border: 1px solid $textWhite;
-                                color: $textWhite !important;
+                                background-color: rgba(197, 186, 240, .8) !important;
+                                color: rgb(23, 16, 34) !important;
                                 border-radius: 8px;    
                                 padding: .5rem;
 
@@ -535,23 +537,30 @@ $textWhite: rgb(231, 231, 231);
                     }
 
 
-                    &.why {
+                    &.why, &.who {
+
+                        .title {
+                            margin: 10rem 0 5rem 0;
+                            font-size: 1.75rem;
+                            text-align: center;
+                            font-weight: 800;
+                        }
+
                         .whyReasonsContainer {
                             width: 100%;
                             margin: 0 auto;
                             margin-top: 5rem;
                             display: grid;
                             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                            gap: 1rem;
+                            gap: 1rem;                      
 
                             .whyReason {
                                 padding: 1.5rem 1rem;
-                                background-color: blue;
+                                border: 2px solid rgba(white, .3);
                                 border-radius: 8px;
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-
                                 background: linear-gradient(
                                         45deg,
                                         rgba(0, 0, 0, 0.65),
@@ -565,6 +574,63 @@ $textWhite: rgb(231, 231, 231);
                                     &:nth-child(#{$i}) {
                                         filter: hue-rotate($i * 80deg);
                                     }
+                                }
+                            }
+                        }
+                        
+                        .pastEventsContainer {
+                            width: 100%;
+                            margin: 0 auto;
+                            margin-top: 2rem;
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+                            gap: 1rem;                      
+
+                            .pastEvent {
+                                height: 180px;
+                                padding: 1rem 1rem .75rem 1rem;
+                                border-radius: 12px;
+                                border: 1px solid white;
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: flex-end;
+                                font-weight: 500;
+                                transform: scale(1);
+                                transition: all .3s ease;
+                                cursor: pointer;
+                                overflow: hidden;
+
+                                &:hover {
+                                    transform: scale(1.005);
+
+                                    .explore {
+                                        right: -5%;
+                                        top: -15%;
+                                    }
+                                }
+
+                                @for $i from 1 through 4 {
+                                    &:nth-child(#{$i}) {
+                                        background: linear-gradient(
+                                            to bottom,
+                                            rgba(0, 0, 0, 0), 70%,
+                                            rgba(0, 0, 0, 0.8) 100%,
+                                        ),
+                                        url("../assets/prajnotsavah/#{$i}.jpg");
+                                        background-size: cover;
+                                        background-position-y: 20%;
+                                    }
+                                }
+
+                                .explore {
+                                    position: absolute;
+                                    right: -55%;
+                                    top: -45%;
+                                    background-color: rgb(253, 126, 253);
+                                    color: rgb(30, 30, 30);
+                                    padding: 2.5rem 2.5rem 1.5rem 1.5rem;
+                                    border-radius: 50%;
+                                    transition: all .2s ease;
                                 }
                             }
                         }
