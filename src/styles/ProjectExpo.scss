@@ -7,6 +7,12 @@
     font-style: halftone;
 }
 
+@font-face {
+    font-family: "Acquire";
+    src: url("../fonts/Acquire.otf") format("opentype");
+    font-weight: normal;
+}
+
 $textWhite: rgb(231, 231, 231);
 
 ::-webkit-scrollbar {
@@ -321,6 +327,7 @@ $textWhite: rgb(231, 231, 231);
 
             .heroDiv {
                 margin-top: 4.5rem;
+                margin-bottom: 1.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -366,6 +373,12 @@ $textWhite: rgb(231, 231, 231);
                 }
             }
 
+            .subTitle {
+                font-family: "Acquire";
+                font-size: 1.25rem;
+                opacity: .8;
+            }
+
             .dateAndTime {
                 display: flex;
                 flex-direction: column;
@@ -373,7 +386,7 @@ $textWhite: rgb(231, 231, 231);
 
                 justify-content: center;
                 align-items: center;
-                margin: 2.5rem 0 2rem 0;
+                margin: 3.25rem 0 2rem 0;
 
                 font-weight: 600;
 

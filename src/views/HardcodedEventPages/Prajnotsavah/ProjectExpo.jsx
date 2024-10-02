@@ -129,9 +129,11 @@ export default function ProjectExpo() {
                 <div className="navContainer">
                     <nav className="projectExpoNav">
                         <div className="logoContainer">
-                            <div className="logo klu">
-                                <img src={kluLogo}/>
-                            </div>
+                            <CLink to={"https://kalasalingam.ac.in"} target="_blank">
+                                <div className="logo klu">
+                                    <img src={kluLogo}/>
+                                </div>
+                            </CLink>
                             <div className="logo">
                                 <CLink to={"/"}>
                                     <img src={gfgkareLogo} />
@@ -192,8 +194,12 @@ export default function ProjectExpo() {
                                 </motion.span>
                             </div>
                         </div>
+
+                        <Fade delay={3000} triggerOnce damping={0.5}>
+                            <span className="subTitle">a national level project expo</span>
+                        </Fade>
                         
-                        <Fade delay={3000} triggerOnce cascade damping={0.85}>
+                        <Fade delay={3500} triggerOnce cascade damping={0.85}>
                             <div className="dateAndTime">
                                 <div className="row">
                                     <div className="icon"><GoClock size={"20px"} /></div>
@@ -206,7 +212,7 @@ export default function ProjectExpo() {
                             </div>
                         </Fade>
                         
-                        <Fade delay={4000} triggerOnce cascade damping={0.5}>
+                        <Fade delay={4500} triggerOnce cascade damping={0.5}>
                             <div className="timerContainer">
                                 <CountdownTimer
                                     count={parseInt((nov8 - (new Date().getTime()) / 1000))}
@@ -217,7 +223,7 @@ export default function ProjectExpo() {
                             </div>
                         </Fade>
                         
-                        <Fade delay={5000}>
+                        <Fade delay={5500}>
                             <div className="actionButtonContainer">
                                 <AttentionSeeker effect="tada" delay={6000}>
                                         <button className="actionButton" onClick={() => {
@@ -232,7 +238,7 @@ export default function ProjectExpo() {
                         
 
                 <div className="FourQuestionSection" id="detailed" ref={whatSection}  style={{ scrollMargin: "100px" }}>
-                    <Fade cascade damping={.1} triggerOnce delay={6000}>
+                    <Fade delay={500} cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText red">
                                 WHAT
@@ -243,7 +249,7 @@ export default function ProjectExpo() {
                         </div>
                         <Slide triggerOnce>
                             <div className="normalSectionText">
-                                Prajñotsavah is an inter-college event proudly hosted by GeeksForGeeks KARE Student Chapter. We invite you to <span className="color purple">showcase your innovative project and compete for the top prize.</span> Choose from a selection of captivating themes, develop a project, and present it to our esteemed panel. Impress us with your project's uniqueness, practical usability, and real-life application. The most exceptional teams will walk away with magnificent grand prizes.
+                                Prajñotsavah is an inter-college project exhibition event proudly hosted by GeeksForGeeks KARE Student Chapter. We invite you to <span className="color purple">showcase your innovative project and compete for the top prize.</span> Choose from a selection of captivating themes, develop a project, and present it to our esteemed panel. Impress us with your project's uniqueness, practical usability, and real-life application. The most exceptional teams will walk away with magnificent grand prizes.
                             </div>
                         </Slide>
                         
@@ -251,215 +257,215 @@ export default function ProjectExpo() {
                     
                 </div>
 
-                        <div className="FourQuestionSection">
-                            <Fade cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText green">
-                                        WHO
-                                    </div>
-                                    <div className="subText">
-                                        ARE WE?
-                                    </div>
+                <div className="FourQuestionSection">
+                    <Fade cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText green">
+                                WHO
+                            </div>
+                            <div className="subText">
+                                ARE WE?
+                            </div>
+                        </div>
+
+                        <Slide direction="right" triggerOnce>
+                            <div className="normalSectionText who">
+                                <div className="normalSectionContent">
+                                    The <span className="color green">GFG KARE Student Chapter</span>, proudly <span className="color green">affiliated with GeeksforGeeks</span>, is a vibrant community of tech enthusiasts and future innovators at Kalasalingam Academy of Research and Education.
                                 </div>
-
-                                <Slide direction="right" triggerOnce>
-                                    <div className="normalSectionText who">
-                                        <div className="normalSectionContent">
-                                            The <span className="color green">GFG KARE Student Chapter</span>, proudly <span className="color green">affiliated with GeeksforGeeks</span>, is a vibrant community of tech enthusiasts and future innovators at Kalasalingam Academy of Research and Education.
-                                        </div>
-                                        <div className="normalSectionContent">
-                                            <span className="color red">We organize workshops, coding competitions, hackathons, and guest lectures.</span>
-                                        </div>
-                                        <div className="normalSectionContent">
-                                            Join us in our journey to push the boundaries of what's possible in the world of technology. Know more about our initiations at <a href="https://linktr.ee/gfg_kare" target="_blank">linktr.ee/gfg_kare</a>
-                                        </div>
-                                        
-                                        <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
-
-                                        <div className="pastEventsContainer">
-                                            <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geeksforgeeks-gfgkare-gfgkarestudentchapter-activity-7056933306713477120-wh3V/"}>
-                                                <div className="pastEvent">
-                                                    Geeks Summer Carnival 
-                                                    <div className="explore">
-                                                        Visit
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            
-                                            <a target="_blank" href={"https://www.linkedin.com/posts/krishna-vineeth-12b780219_hello-everyone-i-am-very-excited-to-share-activity-6985549997480046592-_Yvy/"}>
-                                                <div className="pastEvent">
-                                                    Java CodeFest '22
-                                                    <div className="explore">
-                                                        Visit
-                                                    </div>
-                                                </div>
-                                            </a>
-
-                                            <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geekfest2k24-campaign-kare-activity-7227871557295951873-spSv/"}>
-                                                <div className="pastEvent">
-                                                    GeekFest '24
-                                                    <div className="explore">
-                                                        Visit
-                                                    </div>
-                                                </div>
-                                            </a>
-
-                                            <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_algorithmist24-gfg-gfgkare-activity-7178819835282300930-4Jht/"}>
-                                                <div className="pastEvent">
-                                                    Algorithmist '24
-                                                    <div className="explore">
-                                                        Visit
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </Slide>
-
+                                <div className="normalSectionContent">
+                                    <span className="color red">We organize workshops, coding competitions, hackathons, and guest lectures.</span>
+                                </div>
+                                <div className="normalSectionContent">
+                                    Join us in our journey to push the boundaries of what's possible in the world of technology. Know more about our initiations at <a href="https://linktr.ee/gfg_kare" target="_blank">linktr.ee/gfg_kare</a>
+                                </div>
                                 
-                            </Fade>
-                        </div>
+                                <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
 
-                        <div className="FourQuestionSection">
-                            <Fade cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText blue">
-                                        PROCESS
-                                    </div>
-                                    <div className="subText">
-                                        OF REGISTRATION
-                                    </div>
+                                <div className="pastEventsContainer">
+                                    <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geeksforgeeks-gfgkare-gfgkarestudentchapter-activity-7056933306713477120-wh3V/"}>
+                                        <div className="pastEvent">
+                                            Geeks Summer Carnival 
+                                            <div className="explore">
+                                                Visit
+                                            </div>
+                                        </div>
+                                    </a>
+                                    
+                                    <a target="_blank" href={"https://www.linkedin.com/posts/krishna-vineeth-12b780219_hello-everyone-i-am-very-excited-to-share-activity-6985549997480046592-_Yvy/"}>
+                                        <div className="pastEvent">
+                                            Java CodeFest '22
+                                            <div className="explore">
+                                                Visit
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geekfest2k24-campaign-kare-activity-7227871557295951873-spSv/"}>
+                                        <div className="pastEvent">
+                                            GeekFest '24
+                                            <div className="explore">
+                                                Visit
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_algorithmist24-gfg-gfgkare-activity-7178819835282300930-4Jht/"}>
+                                        <div className="pastEvent">
+                                            Algorithmist '24
+                                            <div className="explore">
+                                                Visit
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
+                            </div>
+                        </Slide>
 
-                                <Slide direction="right" triggerOnce>
-                                    <div className="normalSectionText">
-                                        <div className="normalSectionContent">
-                                            Prajñotsavah is <span className="color yellow">open to all engineering students</span>, irrespective of year and branch.
-                                        </div>
-                                        <div className="normalSectionContent">
-                                            A team can have a <span className="color green">maximum of 4 members</span> and a <span className="color green">minimum of 2 members.</span>
-                                        </div>
-                                        <div className="normalSectionContent">
-                                            Registration fee of Rs <span className="color red">500/- per team</span> should be paid to complete the registration process.
-                                        </div>
-                                    </div>
-                                </Slide>
-                            </Fade>
-                        </div>
-
-
-                        <div className="FourQuestionSection">
-                            <Fade cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText green">
-                                        WHY
-                                    </div>
-                                    <div className="subText">
-                                        JOIN PRAJÑOTSAVAH?
-                                    </div>
-                                </div>
-
-                                <Slide triggerOnce>
-                                    <div className="normalSectionText why">
-                                        Prajñotsavah offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 22,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
-
-                                        <div className="whyReasonsContainer">
-                                            <div className="whyReason">
-                                                Grand prizes upto 10K!
-                                            </div>
-                                            <div className="whyReason">
-                                                Exclusive swags from GeeksForGeeks!
-                                            </div>
-                                            <div className="whyReason">
-                                                And much more!
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Slide>
-                                
-                            </Fade>
-                            
-                        </div>
-
-                        <div className="FourQuestionSection">
-                            <Fade cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText yellow">
-                                        WHERE
-                                    </div>
-                                    <div className="subText">
-                                        IS THIS HAPPENING!?
-                                    </div>
-                                </div>
-                                <Slide direction="right" triggerOnce>
-                                    <div className="normalSectionText map">
-                                        <div className="text">
-                                            Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">November 8, 2024</span>, and the winners will be announced on the same day.
-                                        </div>
-                                        <div className="map">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.2384182267283!2d77.67723340993616!3d9.574705190470475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06dbc06968e9eb%3A0x6cfd8f94e42f98c4!2sKalasalingam%20Academy%20of%20Research%20and%20Education!5e0!3m2!1sen!2sin!4v1722789691882!5m2!1sen!2sin" width="400" height="300" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                        
-                                    </div>
-                                </Slide>
-                                
-                            </Fade>
-                            
-                        </div>
-
-
-                        <div className="FourQuestionSection prizes">
-                            <Fade className="fadePrizes" cascade damping={.1} triggerOnce>
-                                <div className="sectionTitleText">
-                                    <div className="bigText orange">
-                                        PRIZES
-                                    </div>
-                                    {/* <div className="subText">
-                                    </div> */}
-                                </div>
-                                <div className="normalSectionText prizes">
-                                    <div className="prizesGrid">
-                                        <Slide className="slidePrizeCard" triggerOnce>
-                                            <div className="prizeCard first">
-                                                <div className="circle"></div>
-                                                <div className="position">WINNER</div>
-                                                <div className="prize">₹ 10,000</div>
-                                                <div className="and">+ certificate and GFG swags!</div>
-                                            </div>
-                                            <div className="prizeCard second">
-                                                <div className="circle"></div>
-                                                <div className="position">1ST RUNNER UP</div>
-                                                <div className="prize">₹ 7,000</div>
-                                                <div className="and">+ certificate and GFG swags!</div>
-                                            </div>
-                                            <div className="prizeCard third">
-                                                <div className="circle"></div>
-                                                <div className="position">2ND RUNNER UP</div>
-                                                <div className="prize">₹ 5,000</div>
-                                                <div className="and">+ certificate and GFG swags!</div>
-                                            </div>
-                                            <div className="prizeCard participation">
-                                                <div className="circle"></div>
-                                                <div className="position">PARTICIPANTS</div>
-                                                <div className="prize"></div>
-                                                <div className="and">Certificate</div>
-                                            </div>
-                                        </Slide>
-                                    </div>
-                                </div>
-                            </Fade>
-                            
-                        </div>
                         
+                    </Fade>
+                </div>
+
+                <div className="FourQuestionSection">
+                    <Fade cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText blue">
+                                PROCESS
+                            </div>
+                            <div className="subText">
+                                OF REGISTRATION
+                            </div>
+                        </div>
+
+                        <Slide direction="right" triggerOnce>
+                            <div className="normalSectionText">
+                                <div className="normalSectionContent">
+                                    Prajñotsavah is <span className="color yellow">open to all engineering students</span>, irrespective of year and branch.
+                                </div>
+                                <div className="normalSectionContent">
+                                    A team can have a <span className="color green">maximum of 4 members</span> and a <span className="color green">minimum of 2 members.</span>
+                                </div>
+                                <div className="normalSectionContent">
+                                    Registration fee of Rs <span className="color red">500/- per team</span> should be paid to complete the registration process.
+                                </div>
+                            </div>
+                        </Slide>
+                    </Fade>
+                </div>
+
+
+                <div className="FourQuestionSection">
+                    <Fade cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText green">
+                                WHY
+                            </div>
+                            <div className="subText">
+                                JOIN PRAJÑOTSAVAH?
+                            </div>
+                        </div>
+
+                        <Slide triggerOnce>
+                            <div className="normalSectionText why">
+                                Prajñotsavah offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 22,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
+
+                                <div className="whyReasonsContainer">
+                                    <div className="whyReason">
+                                        Grand prizes upto 10K!
+                                    </div>
+                                    <div className="whyReason">
+                                        Exclusive swags from GeeksForGeeks!
+                                    </div>
+                                    <div className="whyReason">
+                                        And much more!
+                                    </div>
+                                </div>
+                            </div>
+                        </Slide>
                         
-                        <Fade>
-                            <div className="actionButtonContainer">
-                                    <button className="actionButton" onClick={() => themesSection?.current.scrollIntoView()}>
-                                    <BsChevronDoubleDown size={"40px"} />
-                                    PICK A THEME!
-                                </button>
-                            </div>    
-                        </Fade>
+                    </Fade>
+                    
+                </div>
+
+                <div className="FourQuestionSection">
+                    <Fade cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText yellow">
+                                WHERE
+                            </div>
+                            <div className="subText">
+                                IS THIS HAPPENING!?
+                            </div>
+                        </div>
+                        <Slide direction="right" triggerOnce>
+                            <div className="normalSectionText map">
+                                <div className="text">
+                                    Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">November 8, 2024</span>, and the winners will be announced on the same day.
+                                </div>
+                                <div className="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.2384182267283!2d77.67723340993616!3d9.574705190470475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06dbc06968e9eb%3A0x6cfd8f94e42f98c4!2sKalasalingam%20Academy%20of%20Research%20and%20Education!5e0!3m2!1sen!2sin!4v1722789691882!5m2!1sen!2sin" width="400" height="300" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                                
+                            </div>
+                        </Slide>
+                        
+                    </Fade>
+                    
+                </div>
+
+
+                <div className="FourQuestionSection prizes">
+                    <Fade className="fadePrizes" cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText orange">
+                                PRIZES
+                            </div>
+                            {/* <div className="subText">
+                            </div> */}
+                        </div>
+                        <div className="normalSectionText prizes">
+                            <div className="prizesGrid">
+                                <Slide className="slidePrizeCard" triggerOnce>
+                                    <div className="prizeCard first">
+                                        <div className="circle"></div>
+                                        <div className="position">WINNER</div>
+                                        <div className="prize">₹ 10,000</div>
+                                        <div className="and">+ certificate and GFG swags!</div>
+                                    </div>
+                                    <div className="prizeCard second">
+                                        <div className="circle"></div>
+                                        <div className="position">1ST RUNNER UP</div>
+                                        <div className="prize">₹ 7,000</div>
+                                        <div className="and">+ certificate and GFG swags!</div>
+                                    </div>
+                                    <div className="prizeCard third">
+                                        <div className="circle"></div>
+                                        <div className="position">2ND RUNNER UP</div>
+                                        <div className="prize">₹ 5,000</div>
+                                        <div className="and">+ certificate and GFG swags!</div>
+                                    </div>
+                                    <div className="prizeCard participation">
+                                        <div className="circle"></div>
+                                        <div className="position">PARTICIPANTS</div>
+                                        <div className="prize"></div>
+                                        <div className="and">Certificate</div>
+                                    </div>
+                                </Slide>
+                            </div>
+                        </div>
+                    </Fade>
+                    
+                </div>
+                
+                
+                <Fade>
+                    <div className="actionButtonContainer">
+                            <button className="actionButton" onClick={() => themesSection?.current.scrollIntoView()}>
+                            <BsChevronDoubleDown size={"40px"} />
+                            PICK A THEME!
+                        </button>
+                    </div>    
+                </Fade>
                         
 
                 <div className="FourQuestionSection" id="themes" ref={themesSection} style={{ scrollMargin: "100px" }}>
@@ -584,12 +590,15 @@ export default function ProjectExpo() {
                                 <div className="normalSectionText sponsors">
                                     <div className="themesGrid">
                                         <Slide className="slideSponsor" triggerOnce>
-                                            <div className="sponsorCard">
-                                                <div className="sponsorLogo">
-                                                    <img src={gfgLogo} />
+                                            <CLink to={"https://www.geeksforgeeks.org/"} target={"_blank"}>
+                                                <div className="sponsorCard">
+                                                    <div className="sponsorLogo">
+                                                        <img src={gfgLogo} />
+                                                    </div>
+                                                    <div className="sponsorName">GeeksForGeeks</div>
                                                 </div>
-                                                <div className="sponsorName">GeeksForGeeks</div>
-                                            </div>
+                                            </CLink>
+                                            
                                         </Slide>
                                     </div>
                                 </div>
