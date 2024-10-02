@@ -584,33 +584,18 @@ $textWhite: rgb(231, 231, 231);
                             margin-top: 2rem;
                             display: grid;
                             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-                            gap: 1rem;                      
+                            gap: 1rem;
 
-                            .pastEvent {
-                                height: 180px;
-                                padding: 1rem 1rem .75rem 1rem;
-                                border-radius: 12px;
-                                border: 1px solid white;
-                                display: flex;
-                                justify-content: flex-start;
-                                align-items: flex-end;
-                                font-weight: 500;
-                                transform: scale(1);
-                                transition: all .3s ease;
-                                cursor: pointer;
-                                overflow: hidden;
+                            a {
+                                text-decoration: none !important;
+                                color: $textWhite;
 
                                 &:hover {
-                                    transform: scale(1.005);
-
-                                    .explore {
-                                        right: -5%;
-                                        top: -15%;
-                                    }
+                                    color: rgb(247, 169, 247) !important;
                                 }
 
                                 @for $i from 1 through 4 {
-                                    &:nth-child(#{$i}) {
+                                    &:nth-child(#{$i}) .pastEvent {
                                         background: linear-gradient(
                                             to bottom,
                                             rgba(0, 0, 0, 0), 70%,
@@ -622,15 +607,39 @@ $textWhite: rgb(231, 231, 231);
                                     }
                                 }
 
-                                .explore {
-                                    position: absolute;
-                                    right: -55%;
-                                    top: -45%;
-                                    background-color: rgb(253, 126, 253);
-                                    color: rgb(30, 30, 30);
-                                    padding: 2.5rem 2.5rem 1.5rem 1.5rem;
-                                    border-radius: 50%;
-                                    transition: all .2s ease;
+                                .pastEvent {
+                                    height: 180px;
+                                    padding: 1rem 1rem .75rem 1rem;
+                                    border-radius: 12px;
+                                    border: 1px solid white;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: flex-end;
+                                    font-weight: 500;
+                                    transform: scale(1);
+                                    transition: all .3s ease;
+                                    cursor: pointer;
+                                    overflow: hidden;
+
+                                    &:hover {
+                                        transform: scale(1.005);
+
+                                        .explore {
+                                            right: -5%;
+                                            top: -15%;
+                                        }
+                                    }
+
+                                    .explore {
+                                        position: absolute;
+                                        right: -55%;
+                                        top: -45%;
+                                        background-color: rgb(253, 126, 253);
+                                        color: rgb(30, 30, 30);
+                                        padding: 2.5rem 2.5rem 1.5rem 1.5rem;
+                                        border-radius: 50%;
+                                        transition: all .2s ease;
+                                    }
                                 }
                             }
                         }

@@ -1,6 +1,5 @@
 import "@/styles/ProjectExpo.scss";
 
-
 import { motion } from "framer-motion";
 
 import { BsChevronDoubleDown } from "react-icons/bs";
@@ -278,30 +277,41 @@ export default function ProjectExpo() {
                                         <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
 
                                         <div className="pastEventsContainer">
-                                            <div className="pastEvent">
-                                                Geeks Summer Carnival 
-                                                <div className="explore">
-                                                    Visit
+                                            <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geeksforgeeks-gfgkare-gfgkarestudentchapter-activity-7056933306713477120-wh3V/"}>
+                                                <div className="pastEvent">
+                                                    Geeks Summer Carnival 
+                                                    <div className="explore">
+                                                        Visit
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="pastEvent">
-                                                Java CodeFest '23
-                                                <div className="explore">
-                                                    Visit
+                                            </a>
+                                            
+                                            <a target="_blank" href={"https://www.linkedin.com/posts/krishna-vineeth-12b780219_hello-everyone-i-am-very-excited-to-share-activity-6985549997480046592-_Yvy/"}>
+                                                <div className="pastEvent">
+                                                    Java CodeFest '22
+                                                    <div className="explore">
+                                                        Visit
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="pastEvent">
-                                                GeekFest '24
-                                                <div className="explore">
-                                                    Visit
+                                            </a>
+
+                                            <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geekfest2k24-campaign-kare-activity-7227871557295951873-spSv/"}>
+                                                <div className="pastEvent">
+                                                    GeekFest '24
+                                                    <div className="explore">
+                                                        Visit
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="pastEvent">
-                                                Algorithmist '24
-                                                <div className="explore">
-                                                    Visit
+                                            </a>
+
+                                            <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_algorithmist24-gfg-gfgkare-activity-7178819835282300930-4Jht/"}>
+                                                <div className="pastEvent">
+                                                    Algorithmist '24
+                                                    <div className="explore">
+                                                        Visit
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </Slide>
