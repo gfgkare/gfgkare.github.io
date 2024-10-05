@@ -497,7 +497,7 @@ export default function ProjectExpoRegistration() {
                 // value={upi_id}
                 // onChange={(e) => setupi_id(e.target.value)}
                 required
-                pattern="[\w]+@[\w]+"
+                pattern="[\w\s\.\-\_]+@[\w]+"
                 title="Enter a valid UPI ID"
                 placeholder="Enter your UPI ID. ex: example@oksbi"
               />
