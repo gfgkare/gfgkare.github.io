@@ -38,7 +38,7 @@ export default function ProjectExpoRegistrationSuccess() {
                 
                 <div id='lower-side'> 
                     <p id='message'> You have successfully registered for Prajnotsavah 2K24! Check <strong> leader's mail </strong> for more details. Join the WhatsApp group using the link below. </p> 
-                    <a href="https://chat.whatsapp.com/IN8OIvNLDzyIF0FR1yhqQK" id="contBtn">Join WhatsApp Group</a> 
+                    <a href="https://chat.whatsapp.com/H8RxdW4iLwi95OcFtAozqu" id="contBtn">Join WhatsApp Group</a> 
                 </div> 
             </div>
         </div>
