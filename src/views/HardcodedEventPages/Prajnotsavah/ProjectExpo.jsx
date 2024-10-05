@@ -23,6 +23,7 @@ import CountdownTimer from "react-component-countdown-timer";
 import "react-component-countdown-timer/lib/styles.css";
 
 import CLink from "@/components/CLink";
+import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
 
 const themeDetails = {
@@ -637,12 +638,7 @@ export default function ProjectExpo() {
                         
                     </div>
 
-                    <footer>
-                        <div className="club">
-                            With love, from GFG KARE
-                        </div>
-                    </footer>
-
+                    <Footer />
                 </div>
             
             </div>

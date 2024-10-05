@@ -96,125 +96,87 @@ export default function ProjectExpoRegistration() {
       console.log(team);
       setTeamMembers(team);
 
-      axios
-          .post(
-              "/email_valid_for_event",
-              {
-                  emails: [
-                      ...Object.values(team).map((member) => member.email),
-                  ],
-                  eventID: "project-expo",
-              },
-              { headers: { Authorization: await currentUser.getIdToken() } }
-          )
-          .then(async (res) => {
-              console.log("%c All emails are valid.", "color: green");
-              console.log(res.data.message);
-              let accomodationDetails = {};
+    axios.post(
+      "/email_valid_for_event", 
+      { emails: [...Object.values(team).map((member) => member.email)], eventID: "project-expo",},
+      { headers: { Authorization: await currentUser.getIdToken() } }
+    )
+    .then(async (res) => {
+        console.log("%c All emails are valid.", "color: green");
+        console.log(res.data.message);
+        let accomodationDetails = {};
 
-              if (form.current.elements["needAccomodation"].checked) {
-                  const noOfDays = form.current.elements["noOfDays"].value;
-                  const noOfMembers =
-                      form.current.elements["noOfMembers"].value;
-                  const checkInDate =
-                      form.current.elements["checkInDate"].value;
-                  const checkInTime =
-                      form.current.elements["checkInTime"].value;
-                  const checkOutDate =
-                      form.current.elements["checkOutDate"].value;
-                  const checkOutTime =
-                      form.current.elements["checkOutTime"].value;
-                  accomodationDetails = {
-                      noOfDays,
-                      noOfMembers,
-                      checkInDate,
-                      checkInTime,
-                      checkOutDate,
-                      checkOutTime,
-                  };
-              }
+        if (form.current.elements["needAccomodation"].checked) {
+            const noOfDays = form.current.elements["noOfDays"].value;
+            const noOfMembers =
+                form.current.elements["noOfMembers"].value;
+            const checkInDate =
+                form.current.elements["checkInDate"].value;
+            const checkInTime =
+                form.current.elements["checkInTime"].value;
+            const checkOutDate =
+                form.current.elements["checkOutDate"].value;
+            const checkOutTime =
+                form.current.elements["checkOutTime"].value;
+            accomodationDetails = {
+                noOfDays,
+                noOfMembers,
+                checkInDate,
+                checkInTime,
+                checkOutDate,
+                checkOutTime,
+            };
+        }
 
-              console.log({
-                  teamName,
-                  theme,
-                  teamSize,
-                  teamMembers: team,
-                  tnr_number: form.current.elements["tnr_number"].value,
-                  needAccomodation:
-                      form.current.elements["needAccomodation"].checked,
-                  accomodationDetails: accomodationDetails,
-              });
+        console.log({
+            teamName,
+            theme,
+            teamSize,
+            teamMembers: team,
+            tnr_number: form.current.elements["tnr_number"].value,
+            needAccomodation:
+                form.current.elements["needAccomodation"].checked,
+            accomodationDetails: accomodationDetails,
+        });
 
-              axios.post("/register_projectexpo", {
-                email: currentUser.email,
-                teamName,
-                theme,
-                teamSize,
-                teamMembers: team,
-                tnr_number: form.current.elements["tnr_number"].value,
-                upi_id: form.current.elements["upi_id"].value,
-                screenshot: imageUrl,
-                needAccomodation:
-                    form.current.elements["needAccomodation"].checked,
-                accomodationDetails: accomodationDetails,
-              }, { headers: { Authorization: await currentUser.getIdToken() } })
-              .then((res) => {
-                console.log("Stored information in Firebase.");
-              })
-
-              axios
-                  .post(
-                      "https://gfg-server-ngaw.onrender.com/regisert",
-                      {
-                          email: currentUser.email,
-                          teamName,
-                          theme,
-                          teamSize,
-                          teamMembers: team,
-                          tnr_number: form.current.elements["tnr_number"].value,
-                          upi_id: form.current.elements["upi_id"].value,
-                          screenshot: imageUrl,
-                          needAccomodation:
-                              form.current.elements["needAccomodation"].checked,
-                          accomodationDetails: accomodationDetails,
-                      },
-                      {
-                          headers: {
-                              Authorization: await currentUser.getIdToken(),
-                          },
-                      }
-                  )
-                  .then(async (response) => {
-                    console.log("Stored information in MongoDB.");
-                    console.log(res.data);
-                    setRegistrationLoading(false);
-                    console.log(response.data);
-                    toast.success("Registration successful! Please check your mail!");
-                    form.current.reset();
-                    setRegistrationStatus("registered");
-                    setConfirmModalShown(false);
-                    navigate("/events/prajnotsavah");
-                  })
-                  .catch((error) => {
-                      setRegistrationLoading(false);
-                      toast.error(
-                          error?.response?.data.message ||
-                              "Registration failed. Please try again later."
-                      );
-                      setConfirmModalShown(false);
-                      return;
-                  });
-          })
-          .catch((err) => {
-              setRegistrationLoading(false);
-              console.log(err);
-              toast.error(
-                  err.response?.data?.message ||
-                      err?.message ||
-                      "Something went wrong while verifying the emails. Please try again."
-              );
-              return;
-          });
+        axios.post("/register_projectexpo", {
+          email: currentUser.email,
+          teamName,
+          theme,
+          teamSize,
+          teamMembers: team,
+          tnr_number: form.current.elements["tnr_number"].value,
+          upi_id: form.current.elements["upi_id"].value,
+          screenshot: imageUrl,
+          needAccomodation:
+              form.current.elements["needAccomodation"].checked,
+          accomodationDetails: accomodationDetails,
+        }, { headers: { Authorization: await currentUser.getIdToken() } })
+        .then((res) => {
+          console.log("Stored information in Firebase.");
+          setRegistrationLoading(false);
+          console.log(res.data);
+          toast.success("Registration successful! Please check your mail!");
+          form.current.reset();
+          setRegistrationStatus("registered");
+          setConfirmModalShown(false);
+          navigate("/events/prajnotsavah/success", { state: { cred: "from_regn_success" } });
+        })
+        .catch((err) => {
+          console.error(err);
+          toast.error( err.data.message || err.message );
+        })
+      })
+      .catch((err) => {
+          setRegistrationLoading(false);
+          console.log(err);
+          toast.error(
+              err.response?.data?.message ||
+                  err?.message ||
+                  "Something went wrong while verifying the emails. Please try again."
+          );
+          return;
+      });
   };
 
   useEffect(() => {

@@ -48,6 +48,7 @@ import Landing from "./views/Landing";
 import Pickle from "./views/Pickle";
 import NewEventRegister from "./views/NewEventRegister";
 import { ToastContainer } from "react-toastify";
+import ProjectExpoRegistrationSuccess from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistrationSuccess";
 
 
 export default function App() {
@@ -98,6 +99,7 @@ export default function App() {
                         <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route>
                         <Route path="/events/prajnotsavah" element={ <ProjectExpo /> }></Route>
                         <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route>
+                        <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route>
 
                         
                         {/* PAST EVENTS */}
