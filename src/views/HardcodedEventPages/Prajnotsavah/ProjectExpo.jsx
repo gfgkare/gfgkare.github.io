@@ -4,20 +4,19 @@ import { motion } from "framer-motion";
 
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { RiGroupFill, RiErrorWarningLine } from "react-icons/ri";
-import { FaRegClock } from "react-icons/fa";
 import { MdOutlineListAlt } from "react-icons/md";
 import { IoTicket } from "react-icons/io5";
 import { GoPlus } from "react-icons/go";
 import { GoClock } from "react-icons/go";
 import { CiLocationOn } from "react-icons/ci";
-import { FaDiamond, FaRocket } from "react-icons/fa6";
-import { GiAlarmClock } from "react-icons/gi";
+import { FaDiamond, FaRocket, FaRegClock } from "react-icons/fa6";
+import { LuLoader } from "react-icons/lu";
 
 import kluLogo from "@/assets/klu.png";
 import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
 import gfgLogo from "@/assets/gfg.png";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
 import CountdownTimer from "react-component-countdown-timer";
 import "react-component-countdown-timer/lib/styles.css";
@@ -25,6 +24,7 @@ import "react-component-countdown-timer/lib/styles.css";
 import CLink from "@/components/CLink";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
+import axios from "@/scripts/axiosConfig";
 
 const themeDetails = {
     "Healthcare": {
@@ -57,11 +57,22 @@ export default function ProjectExpo() {
 
     const [showThemeDetailsModal, setShowThemeDetailsModal] = useState(false);
     const [selectedTheme, setSelectedTheme] = useState(null);
+    const [liveCountRefreshing, setLiveCountRefreshing] = useState(false);
+    const [liveCount, setLiveCount] = useState(
+        {
+            "AgroTech": 3,
+            "BlockChain": 0,
+            "FinTech": 2,
+            "Fitness and Sports": 1,
+            "Healthcare": 6
+        }
+    );
 
     const whatSection = useRef();
     const themesSection = useRef();
     const registerSection = useRef();
-
+ 
+ 
     const handleThemeClick = (theme) => {
         document.body.style.overflow = 'hidden'
         setSelectedTheme(theme);
@@ -73,6 +84,26 @@ export default function ProjectExpo() {
         document.body.style.overflow = 'auto'
         setShowThemeDetailsModal(false);
     }
+
+    const refreshLiveCount = () => {
+        console.log("Refreshing count...");
+        setLiveCountRefreshing(true);
+        axios.get("/projectexpo_livecount")
+        .then((res) => {
+            console.log(res.data.count);
+            setLiveCount(res.data.count);
+            setLiveCountRefreshing(false);
+        })
+    }
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+           refreshLiveCount();
+        }, 15000);
+        console.log("Set interval for live conut");
+        
+        return () => clearInterval(timer);
+    }, [])
 
     return (
         <>
@@ -548,6 +579,54 @@ export default function ProjectExpo() {
                                                 This fee covers the registration, mentorship, refreshments and the ticket for the offline presentation.
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </Fade>
+                        </div>
+
+                        <div className="FourQuestionSection liveCount">
+                            <Fade cascade damping={.1} triggerOnce>
+                                <div className="sectionTitleText">
+                                    <div className="bigText magenta">
+                                        LIVE COUNT
+                                    </div>
+                                    <div className="subText">
+                                        live count of all the registrations.
+                                    </div>
+                                </div>
+
+                                <div className="normalSectionText">
+                                    <div className="tableContainer">
+                                        <button className={`${liveCountRefreshing && 'show'}`}>
+                                            <LuLoader />
+                                            refreshing
+                                        </button>
+                                        <table id="countTable">
+                                            <tr>
+                                                <th>Theme</th>
+                                                <th>Count</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Healthcare</td>
+                                                <td>{liveCount['Healthcare']}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>FinTech</td>
+                                                <td>{liveCount['FinTech']}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AgroTech</td>
+                                                <td>{liveCount['AgroTech']}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fitness and Sports</td>
+                                                <td>{liveCount['Fitness and Sports']}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Blockchain</td>
+                                                <td>{liveCount['BlockChain']}</td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </Fade>

@@ -1,5 +1,5 @@
 import {  useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { throttle } from "lodash"
 import { motion, useScroll } from 'framer-motion';
 
@@ -42,7 +42,8 @@ const items = [
 ];
 
 export default function Landing() {
-
+    
+    const navigate = useNavigate();
     const { scrollYProgress, scrollY } = useScroll();
 
     // const rightCircleX = useTransform(scrollYProgress, [0, 0.5], ['55%', '-100%']);
@@ -129,7 +130,7 @@ export default function Landing() {
                     </div>
 
                     <div className="rightMenu">
-                        <button className="prajnotsavahButton">Prajnotsavah</button>
+                        <button onClick={() => navigate("/events/prajnotsavah")} className="prajnotsavahButton">Prajnotsavah</button>
                         <button className="menuButton" onClick={() => fullScreenNav.current.classList.toggle("open")} >Menu</button>
                     </div>
                 </nav>

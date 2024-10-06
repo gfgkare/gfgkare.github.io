@@ -487,6 +487,82 @@ $textWhite: rgb(231, 231, 231);
                     width: 100%;
                 }
 
+                
+                &.liveCount {
+                    width: min(90%, 700px);
+                    padding: 0 1rem;
+                    backdrop-filter: blur(8px);
+
+                    .tableContainer {
+
+                        button {
+                            z-index: 1 !important;
+                            opacity: 0;
+                            transform: translateY(10px);
+                            transition: all .25s ease;
+
+                            float: right;
+                            background-color: rgba(white, .2);
+                            color: $textWhite;
+                            border-radius: .7rem;
+                            font-size: .7rem;
+                            display: flex;
+                            gap: .25rem;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: auto;
+
+                            svg {
+                                animation: rotate 4s linear infinite;
+                            }
+
+                            &.show {
+                                opacity: 1;
+                                transform:  translateY(0);
+                            }
+                        }
+
+                        table {
+                            z-index: 2 !important;
+                            background: rgba(black, .1);
+                            border-radius: 1rem;
+                            overflow: hidden;
+                            width: 100%;
+                            margin: 0 auto;
+    
+                            tr {
+    
+                                th {
+                                    background-color: rgba(white, .05);
+                                    padding-top: 1rem;
+                                    padding-bottom: 1rem;
+                                }
+    
+                                &:nth-child(even) {
+                                    background-color: rgba(white, .1);
+                                }
+                                &:nth-child(odd) {
+                                    background-color: rgba(white, .15);
+                                }
+                            }
+    
+                            th, td {
+                                padding: .5rem .75rem;
+                                // border: 1px solid white;
+                            }
+                        }
+                    }
+
+
+                    .subText {
+                        font-size: 1.25rem !important;
+                        margin-top: .5rem;
+                        opacity: 0.5;
+                        font-weight: 500;
+                    }
+                    
+                }
+
                 .sectionTitleText {
                     display: flex;
                     flex-direction: column;
@@ -548,6 +624,7 @@ $textWhite: rgb(231, 231, 231);
                     .normalSectionContent {
                         margin-bottom: 1rem;
                     }
+
 
 
                     &.why, &.who {
