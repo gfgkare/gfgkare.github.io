@@ -6,11 +6,11 @@ import CountUp from "react-countup"
 import { useOutletContext, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 
-import Fade from '../components/Fade';
+import Fade from '../../components/Fade';
 
-import algo24Top from "../data/algo24Top";
+import algo24Top from "../../data/algo24Top";
 
-import { toReadableTime, getFirstName, extractName, toCapitalCase  } from "../scripts/Misc";
+import { toReadableTime, getFirstName, extractName, toCapitalCase  } from "../../scripts/Misc";
 
 import { GoStarFill } from "react-icons/go";
 import { GiExpand } from "react-icons/gi";

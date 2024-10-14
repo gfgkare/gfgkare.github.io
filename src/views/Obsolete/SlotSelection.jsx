@@ -5,7 +5,7 @@ import { useOutletContext } from 'react-router-dom';
 import { FaAngleDown, FaCheck } from "react-icons/fa";
 
 
-import axios from "../scripts/axiosConfig";
+import axios from "../../scripts/axiosConfig";
 
 
 export default function SlotSelection() {

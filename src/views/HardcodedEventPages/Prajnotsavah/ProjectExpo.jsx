@@ -254,8 +254,14 @@ export default function ProjectExpo() {
                                 />
                             </div>
                         </Fade>
+
+                        <Fade delay={5000} triggerOnce cascade damping={0.5}>
+                            <div className="closingSoon">
+                                Registrations closing soon!
+                            </div>
+                        </Fade>
                         
-                        <Fade delay={5500}>
+                        <Fade delay={6000}>
                             <div className="actionButtonContainer">
                                 <AttentionSeeker effect="tada" delay={6000}>
                                         <button className="actionButton" onClick={() => {
@@ -382,6 +388,15 @@ export default function ProjectExpo() {
                                 </div>
                             </div>
                         </Slide>
+
+                        <Fade delay={500}>
+                            <div className="closingSoon">
+                                We will be closing the registration form on Oct 20.
+                                Form a team and get the seat now!
+                                <CLink to={"/events/prajnotsavah/register"} > {"Register >"} </CLink>
+                            </div>
+                        </Fade>
+
                     </Fade>
                 </div>
 

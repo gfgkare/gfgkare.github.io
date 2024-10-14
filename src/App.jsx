@@ -2,7 +2,6 @@
 // import "./styles/Variables.scss";
 
 import Main from "./pages/Main";
-import UnderConstruction from "./pages/UnderConstruction";
 import NotFound from "./pages/NotFound";
 import Meta from "./pages/Meta";
 import Student_enroll_form from "./views/HardcodedEventPages/Student_enroll_form";
@@ -12,7 +11,8 @@ import TeamMember from "./views/TeamMember";
 import ChapterMember from "./views/ChapterMember";
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
-import EventRegister from "./views/EventRegister";
+// import EventRegister from "./views/EventRegister";
+import NewEventRegister from "./views/NewEventRegister";
 import DynamicEventPage from "./views/DynamicEventPage";
 import Round5Register from "./views/HardcodedEventPages/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
@@ -27,14 +27,10 @@ import { useEffect } from "react";
 
 import allData from "./data/all_data_merged"
 import coreTeamMembers from "./data/coreTeamInfo";
-import EventStatDashboard from "./views/EventStatDashboard";
 import Dashboard from "./views/Dashboard";
-import Overview from "./views/Overview";
 import Rounds from "./views/Rounds";
 import DashboardError from "./views/DashboardError";
 import DashboardResults from "./views/DashboardResults";
-import SlotSelection from "./views/SlotSelection";
-import SlotSuspend from "./views/SlotSuspend";
 
 import CodeClash from "./views/HardcodedEventPages/CodeClash";
 
@@ -46,7 +42,6 @@ import ProjectExpoRegister from "./views/HardcodedEventPages/Prajnotsavah/Projec
 import StudentEnrollment from "./views/HardcodedEventPages/StudentEnrollment24-25"; 
 import Landing from "./views/Landing";
 import Pickle from "./views/Pickle";
-import NewEventRegister from "./views/NewEventRegister";
 import { ToastContainer } from "react-toastify";
 import ProjectExpoRegistrationSuccess from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistrationSuccess";
 
@@ -103,8 +98,8 @@ export default function App() {
 
                         
                         {/* PAST EVENTS */}
-                        {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
-                        <Route path="/events/algo2024" element={<EventRegister />}></Route>
+                        <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
+                        {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
                         <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
                         <Route path="/codecraft" element={<CodeClash />}></Route>
                         <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
@@ -112,13 +107,10 @@ export default function App() {
 
 
                         {/* DASHBOARD */}
-                        <Route path="/ndashboard" element={<EventStatDashboard />}></Route>
                         <Route path="/dashboard" element={<Dashboard />}>
                             {/* <Route path="/dashboard" element={ <Overview /> }></Route> */}
                             <Route path="/dashboard/rounds" element={ <Rounds /> }></Route>
                             <Route path="/dashboard/results" element={ <DashboardResults /> }></Route>
-                            <Route path="/dashboard/slots" element={ <SlotSuspend /> }></Route>
-                            <Route path="/dashboard/low" element={ <SlotSelection /> }></Route>
                             <Route path="/dashboard/error" element={ <DashboardError /> }></Route>
                         </Route>
 
