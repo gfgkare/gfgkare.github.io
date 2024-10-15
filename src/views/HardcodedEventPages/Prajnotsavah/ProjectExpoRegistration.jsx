@@ -505,27 +505,55 @@ export default function ProjectExpoRegistration() {
               <label className="screenshotLabel" htmlFor="screenshotInput">Upload Payment Screenshot</label>
               <img src={imageUrl} alt="" width="250" style={{display:"flex"}} />
               <input id="screenshotInput" required type="file" accept="image/*" onChange={(e) => {
-                console.log(e.target.files);
-                if (e.target.files.length) {
-                  setRegistrationLoading(true);
-                  const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
-                  s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]}))
-                  .then((res)=>{
-                    console.log(res)
-                    setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`);
-                    setRegistrationLoading(false);
-                  }).catch((err)=>{
-                    console.log(err);
-                    setRegistrationLoading(false);
-                    toast.error( "Error during S3 Image Upload: " + err?.message );
-                    setImageUrl("");
-                  })
+                try {
+                  console.log(e.target.files);
+
+                  if (e.target.files.length) {
+                    if (e.target.files.length > 1) {
+                      toast.error("You can only upload one image.");
+                      return;
+                    }
+  
+                    const file = e.target.files[0];
+                    // setimageName(file.name)
+  
+                    const reader = new FileReader();
+                    reader.onloadend = async () => {
+                        const response = await axios.post('https://api.cloudinary.com/v1_1/dvw9vd875/image/upload', {file:reader.result, upload_preset:"gfgcloud"});
+                        console.log('File uploaded successfully:', response.data);
+                        setImageUrl(response.data.url)
+                        setRegistrationLoading(false);
+                        // setPhotoPreview(reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                  }
                 }
-                else {
-                  setRegistrationLoading(false);
-                  console.log("clearing");
+                catch (err) {
+                  console.log("Error during Screenshot upload. Clearing SS field.");
+                  toast.error(err.message);
                   setImageUrl("");
                 }
+                
+                // if (e.target.files.length) {
+                //   setRegistrationLoading(true);
+                //   const name=date.getTime()+"-"+"gfg-expo"+e.target.files[0].name.split(" ").join("")
+                //   s3Client.send(new PutObjectCommand({Bucket:S3_BUCKET,Key:name,Body:e.target.files[0]}))
+                //   .then((res)=>{
+                //     console.log(res)
+                //     setImageUrl(`https://gfg.s3.ap-south-1.amazonaws.com/${name}`);
+                //     setRegistrationLoading(false);
+                //   }).catch((err)=>{
+                //     console.log(err);
+                //     setRegistrationLoading(false);
+                //     toast.error( "Error during S3 Image Upload: " + err?.message );
+                //     setImageUrl("");
+                //   })
+                // }
+                // else {
+                //   setRegistrationLoading(false);
+                //   console.log("clearing");
+                //   setImageUrl("");
+                // }
                 
               }}/>
             </div>
