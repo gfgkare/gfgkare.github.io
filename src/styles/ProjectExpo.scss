@@ -1151,14 +1151,14 @@ $textWhite: rgb(231, 231, 231);
 
 @keyframes glow {
     from {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
-            0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073,
-            0 0 70px #e60073;
+        text-shadow: 0 0 10px rgba(#fff, .2), 0 0 20px rgba(#fff, .2), 0 0 30px rgba(#e60073, .2),
+            0 0 40px rgba(#e60073, .2), 0 0 50px rgba(#e60073, .2), 0 0 60px rgba(#e60073, .2),
+            0 0 70px rgba(#e60073, .2);
     }
     to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
-            0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6,
-            0 0 80px #ff4da6;
+        text-shadow: 0 0 20px rgba(#fff, .2), 0 0 30px rgba(#ff4da6, .2), 0 0 40px rgba(#ff4da6, .2),
+            0 0 50px rgba(#ff4da6, .2), 0 0 60px rgba(#ff4da6, .2), 0 0 70px rgba(#ff4da6, .2),
+            0 0 80px rgba(#ff4da6, .2);
     }
 }
 
