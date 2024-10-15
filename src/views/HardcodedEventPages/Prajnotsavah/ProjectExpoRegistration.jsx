@@ -507,6 +507,7 @@ export default function ProjectExpoRegistration() {
               <input id="screenshotInput" required type="file" accept="image/*" onChange={(e) => {
                 try {
                   console.log(e.target.files);
+                  setRegistrationLoading(true);
 
                   if (e.target.files.length) {
                     if (e.target.files.length > 1) {
@@ -532,6 +533,7 @@ export default function ProjectExpoRegistration() {
                   console.log("Error during Screenshot upload. Clearing SS field.");
                   toast.error(err.message);
                   setImageUrl("");
+                  setRegistrationLoading(false);
                 }
                 
                 // if (e.target.files.length) {
