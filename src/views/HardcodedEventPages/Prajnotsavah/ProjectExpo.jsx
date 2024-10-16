@@ -257,7 +257,7 @@ export default function ProjectExpo() {
 
                         <Fade delay={5000} triggerOnce cascade damping={0.5}>
                             <div className="closingSoon">
-                                Registrations Extended upto 18th Oct!
+                                Registrations Extended upto 20th Oct!
                             </div>
                         </Fade>
                         
