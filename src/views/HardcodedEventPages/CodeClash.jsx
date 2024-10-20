@@ -41,7 +41,7 @@ export default function CodeClash() {
                         </span>
 
                         <span className="time">
-                            Oct 18 2024
+                            Oct 19 2024
                         </span>
 
                         <button className="register" onClick={ () => toast.info("Will be opened soon.") }>
