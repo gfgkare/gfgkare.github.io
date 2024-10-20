@@ -1,6 +1,7 @@
 import "@/styles/ProjectExpo.scss";
 
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { RiGroupFill, RiErrorWarningLine } from "react-icons/ri";
@@ -53,6 +54,7 @@ const nov8 = 1731036600;
 
 export default function ProjectExpo() {
 
+    const location = useLocation();
     const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
 
     const [showThemeDetailsModal, setShowThemeDetailsModal] = useState(false);
@@ -97,10 +99,14 @@ export default function ProjectExpo() {
     }
 
     useEffect(() => {
+
+        const query = new URLSearchParams(location.search);
+        console.log(`Referred by '${query.get("ref")}'`)
+
         const timer = setInterval(() => {
            refreshLiveCount();
         }, 15000);
-        console.log("Set interval for live conut");
+        console.log("Set interval for live count");
         
         return () => clearInterval(timer);
     }, [])
@@ -393,7 +399,7 @@ export default function ProjectExpo() {
                             <div className="closingSoon">
                                 We will be closing the registration form on Oct 20.
                                 Form a team and get the seat now!
-                                <CLink to={"/events/prajnotsavah/register"} > {"Register >"} </CLink>
+                                <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`} > {"Register >"} </CLink>
                             </div>
                         </Fade>
 
@@ -665,7 +671,7 @@ export default function ProjectExpo() {
                                         <span className="color purple"> Use your college email address</span> if available.
                                     </div>
 
-                                    <CLink to="/events/prajnotsavah/register">
+                                    <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
                                         <button>GO TO REGISTER PAGE!</button>
                                     </CLink>
                                 </div>

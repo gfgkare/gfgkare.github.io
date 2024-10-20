@@ -9,22 +9,10 @@ import { FiChevronLeft } from "react-icons/fi";
 import {  IoClose } from "react-icons/io5";
 import qrcode from "./qrcode.jpeg"
 import upiImage from "@/assets/upi.png"
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 import { useNavigate } from "react-router-dom"
 
 import "@/styles/ProjectExpoRegistration.scss";
-
-
-const REGION = 'ap-south-1';
-const S3_BUCKET = 'gfg';
-const s3Client = new S3Client({
-  region: REGION,
-  credentials: {
-    accessKeyId: "AKIAZQ3DOU6J57HMXHMA",
-    secretAccessKey: "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",
-  },
-});
 
 const UPI_ID = "69097701@ubin"
 
@@ -32,9 +20,7 @@ export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
   const navigate = useNavigate()
-  const date = new Date()
 
-  // const [tnr_number: form.current.elements["tnr_number"].value, settnr_number: form.current.elements["tnr_number"].value] = useState( localStorage.getItem("txnID") || null );
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [confirmModalShown, setConfirmModalShown] = useState(false);
   const [teamMembers, setTeamMembers] = useState({});
@@ -42,7 +28,6 @@ export default function ProjectExpoRegistration() {
   const [registrationStatus, setRegistrationStatus] = useState("not_registered");
   const [registrationLoading, setRegistrationLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState("")
-  const [upi_id, setupi_id] = useState("")
 
   const [registrationDisabled, setRegistrationDisabled] = useState(false);
   const [accomodationDetails, setAccomodationDetails] = useState({});
@@ -151,6 +136,7 @@ export default function ProjectExpoRegistration() {
           needAccomodation:
               form.current.elements["needAccomodation"].checked,
           accomodationDetails: accomodationDetails,
+          referrer: form.current.elements["referrerInput"].value
         }, { headers: { Authorization: await currentUser.getIdToken() } })
         .then((res) => {
           console.log("Stored information in Firebase.");
@@ -333,15 +319,7 @@ export default function ProjectExpoRegistration() {
                 title="Enter a valid email address"
               />
               <label htmlFor={`memberRegisterNo${index + 1}`}>Member {index + 1} College Register No:</label>
-              <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} onChange={(e) => {
-                if (e.target.value.startsWith("99") || e.target.value.startsWith("98") ) {
-                  setRegistrationDisabled(true);
-                  toast.error("KARE Students are not allowed to register at this time. Contact us for more information.", { toastId: "reg_no_error" });
-                }
-                else {
-                  setRegistrationDisabled(false);
-                }
-              }} />
+              <input required type="text" id={`memberRegisterNo${index + 1}`} name={`memberRegisterNo${index + 1}`} />
               <label htmlFor={`memberPhone${index + 1}`}>Member {index + 1} Whatsapp Number:</label>
               <input 
                 type="tel" 
@@ -361,26 +339,29 @@ export default function ProjectExpoRegistration() {
                 type="text" 
                 id={`memberInstitution${index + 1}`} 
                 name={`memberInstitution${index + 1}`} 
-                onChange={(e) => {
-                  if (e.target.value.toLowerCase().includes("kare") || e.target.value.toLowerCase().includes("kalasalingam")) {
-                    setRegistrationDisabled(true);
-                    toast.error("KARE Students are not allowed to register at this time. Contact us for more information.", { toastId: "kare_error" });
-                  }
-                  else {
-                    setRegistrationDisabled(false);
-                  }
-                }} 
               />
               <label htmlFor={`memberLocation${index + 1}`}>Member {index + 1} Location:</label>
               <input required type="location" id={`memberLocation${index + 1}`} name={`memberLocation${index + 1}`} />
             </div>
           ))}
 
-          <div className="accomodationDetails">
+          <div className="referrer">
+            <label htmlFor="referrerInput">Referrer ID (leave blank if unsure)</label>
+            <input
+              className="referrerInput" 
+              name="referrerInput"
+              type="text" 
+              placeholder="Referrer ID" 
+              defaultValue={new URLSearchParams(location.search).get("ref")} 
+              disabled={!!(new URLSearchParams(location.search).get("ref"))} 
+            />
+          </div>
 
+          <div className="accomodationDetails">
             <div className="accomodationCheckBoxContainer">
 
               <input 
+                id="needAccomodationCheckbox"
                 type="checkbox" 
                 name="needAccomodation" 
                 onChange={(e) => setNeedAccomomdation(e.target.checked)} 

@@ -293,7 +293,6 @@ nav.projectExpoNav {
             } 
         }
 
-
         .registrationInfo {
             display: flex;
             flex-direction: column;
@@ -355,6 +354,30 @@ nav.projectExpoNav {
                     padding-top: 5rem;
                 }
 
+            }
+        }
+    }
+
+    .referrer {
+        margin-bottom: 2rem;
+        border: 2px dashed rgba(white, .2);
+        border-color: transparent transparent  rgba(white, .2) transparent;
+        padding-bottom: 4rem;
+
+        label {
+            display: block;
+        }
+
+        input.referrerInput {
+            width: 90%;
+            margin-top: 1rem;
+
+            &:disabled {
+                opacity: 1;
+                color: rgba(white, .5);
+                border-color: rgba(white, .1) !important;
+                font-weight: 600;
+                cursor: not-allowed;
             }
         }
     }
