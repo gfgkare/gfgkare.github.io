@@ -234,7 +234,7 @@ export default function ProjectExpo() {
                         </div>
 
                         <Fade delay={3000} triggerOnce damping={0.5}>
-                            <span className="subTitle">A National level project expo</span>
+                            <span className="quote">A NEXT LEVEL PROJECT EXPO</span>
                         </Fade>
                         
                         <Fade delay={3500} triggerOnce cascade damping={0.85}>
@@ -263,7 +263,7 @@ export default function ProjectExpo() {
 
                         <Fade delay={5000} triggerOnce cascade damping={0.5}>
                             <div className="closingSoon">
-                                Registrations Extended upto 20th Oct!
+                                Registrations closing soon!
                             </div>
                         </Fade>
                         
