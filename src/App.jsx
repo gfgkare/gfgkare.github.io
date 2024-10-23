@@ -44,6 +44,7 @@ import Landing from "./views/Landing";
 import Pickle from "./views/Pickle";
 import { ToastContainer } from "react-toastify";
 import ProjectExpoRegistrationSuccess from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistrationSuccess";
+import GeekfestResults from "./views/GeekfestResults";
 
 
 export default function App() {
@@ -96,14 +97,16 @@ export default function App() {
                         <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route>
                         <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route>
 
+                        <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
+
                         
                         {/* PAST EVENTS */}
-                        <Route path="/events/codeathon" element={<NewEventRegister />}></Route>
+                        {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
                         {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
-                        <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route>
-                        <Route path="/codecraft" element={<CodeClash />}></Route>
-                        <Route path="/enrollment" element={ <StudentEnrollment /> }></Route>
-                        <Route path="/enrollment/form" element={<Student_enroll_form />}></Route>
+                        {/* <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route> */}
+                        {/* <Route path="/co/decraft" element={<CodeClash />}></Route> */}
+                        {/* <Route path="/enrollment" element={ <StudentEnrollment /> }></Route> */}
+                        {/* <Route path="/enrollment/form" element={<Student_enroll_form />}></Route> */}
 
 
                         {/* DASHBOARD */}
