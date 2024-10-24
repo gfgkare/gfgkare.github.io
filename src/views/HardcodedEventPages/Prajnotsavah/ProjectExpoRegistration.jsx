@@ -63,6 +63,17 @@ export default function ProjectExpoRegistration() {
           return;
       }
 
+      const upiValue = form.current.elements["upi_id"].value;
+
+      if (upiValue == UPI_ID) {
+        setConfirmModalShown(false);
+        setRegistrationLoading(false);
+        setRegistrationDisabled(false);
+        form.current.elements["upi_id"].focus();
+        toast.info("Please enter *YOUR* UPI ID");
+        return;
+      };
+
       const teamName = form.current.elements.teamName.value;
       const theme = form.current.elements.theme.value;
       const teamSize = form.current.elements.numberOfMembers.value;
@@ -352,8 +363,13 @@ export default function ProjectExpoRegistration() {
               name="referrerInput"
               type="text" 
               placeholder="Referrer ID" 
-              defaultValue={new URLSearchParams(location.search).get("ref")} 
-              disabled={!!(new URLSearchParams(location.search).get("ref"))} 
+              defaultValue={
+                new URLSearchParams(location.search).get("ref") 
+                ? 
+                (new URLSearchParams(location.search).get("ref") != "null") ? new URLSearchParams(location.search).get("ref") : "" 
+                : ""
+              } 
+              disabled={!!(new URLSearchParams(location.search).get("ref") && new URLSearchParams(location.search).get("ref") != "null")} 
             />
           </div>
 
@@ -475,12 +491,10 @@ export default function ProjectExpoRegistration() {
                 type="text"
                 id="upi_id"
                 name="upi_id"
-                // value={upi_id}
-                // onChange={(e) => setupi_id(e.target.value)}
-                required
                 pattern="[\w\s\.\-\_]+@[\w]+"
-                title="Enter a valid UPI ID"
-                placeholder="Enter your UPI ID. ex: example@oksbi"
+                title="Enter YOUR valid UPI ID"
+                placeholder="Enter YOUR UPI ID. ex: example@oksbi"
+                required
               />
 
               <label className="screenshotLabel" htmlFor="screenshotInput">Upload Payment Screenshot</label>
@@ -555,6 +569,10 @@ export default function ProjectExpoRegistration() {
           ) : (
             <button disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Please wait..." : "Register" }</button>            
           )}
+
+          <div className="cancellationFee">
+            NOTE: Cancelling of registration will incur a cancellation fee set by the organiser.
+          </div>
         </form>
       </div>
     </>
