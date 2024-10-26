@@ -485,6 +485,7 @@ export default function ProjectExpoRegistration() {
                 placeholder="Enter 12 digit UPI Transaction ID / UTR Number"
                 minLength={12}
                 maxLength={12}
+                
                 title="Enter a valid 12 digit UPI Transaction ID / UTR Number"
               />
               <input
