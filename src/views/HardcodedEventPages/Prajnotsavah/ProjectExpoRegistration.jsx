@@ -482,11 +482,11 @@ export default function ProjectExpoRegistration() {
                 // value={tnr_number: form.current.elements["tnr_number"].value}
                 // onChange={(e) => settnr_number(e.target.value)}: form.current.elements["tnr_number"].value
                 required
-                placeholder="Enter 12 digit UPI Transaction ID / UTR Number"
+                placeholder="Enter 12 digit UTR Number / Transaction ID"
                 minLength={12}
                 maxLength={12}
                 
-                title="Enter a valid 12 digit UPI Transaction ID / UTR Number"
+                title="Enter a valid 12 digit UPI UTR Number / Transaction ID"
               />
               <input
                 type="text"
