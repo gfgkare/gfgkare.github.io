@@ -7,14 +7,14 @@ import { useAuth } from "@/contexts/AuthContext";
 import CLink from "@/components/CLink";
 import { FiChevronLeft } from "react-icons/fi";
 import {  IoClose } from "react-icons/io5";
-import qrcode from "./qrcode.jpeg"
+import qrcode from "./qrcode.png"
 import upiImage from "@/assets/upi.png"
 
 import { useNavigate } from "react-router-dom"
 
 import "@/styles/ProjectExpoRegistration.scss";
 
-const UPI_ID = "69097701@ubin"
+const UPI_ID = "gvsskvineeth-1@okicici"
 
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
