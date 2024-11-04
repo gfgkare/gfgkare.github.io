@@ -184,7 +184,7 @@ export default function ProjectExpo() {
                             {
                                 (USER_PRESENT()) ? (
                                     <>
-                                        <button onClick={() => registerSection.current.scrollIntoView()}>Register</button>
+                                        {/* <button onClick={() => registerSection.current.scrollIntoView()}>Closed</button> */}
                                         <CLink to={"/profile"}>
                                             <img src={currentUser.photoURL} alt="" />
                                         </CLink>
@@ -263,7 +263,7 @@ export default function ProjectExpo() {
 
                         <Fade delay={5000} triggerOnce cascade damping={0.5}>
                             <div className="closingSoon">
-                                Registrations closing soon!
+                                Registrations are closed.
                             </div>
                         </Fade>
                         
@@ -395,13 +395,13 @@ export default function ProjectExpo() {
                             </div>
                         </Slide>
 
-                        <Fade delay={500}>
+                        {/* <Fade delay={500}>
                             <div className="closingSoon">
                                 We will be closing the registration form on Oct 20.
                                 Form a team and get the seat now!
                                 <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`} > {"Register >"} </CLink>
                             </div>
-                        </Fade>
+                        </Fade> */}
 
                     </Fade>
                 </div>
@@ -671,9 +671,9 @@ export default function ProjectExpo() {
                                         <span className="color purple"> Use your college email address</span> if available.
                                     </div>
 
-                                    <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
-                                        <button>GO TO REGISTER PAGE!</button>
-                                    </CLink>
+                                    {/* <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`}> */}
+                                        <button disabled>REGISTRATIONS CLOSED</button>
+                                    {/* </CLink> */}
                                 </div>
 
                                 

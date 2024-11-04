@@ -287,6 +287,7 @@ export default function ProjectExpoRegistration() {
 
       <div className="projectExpoRegistration">
         <div className="titleText">Registration</div>
+        <div className="titleText">Registrations are closed!</div>
         <form className="registrationForm" ref={form} onSubmit={showConfirmationModal}>
           <div className="formGroup">
             <label htmlFor="teamName">Team Name:</label>
@@ -557,6 +558,12 @@ export default function ProjectExpoRegistration() {
             </div>
           </div>
 
+          <button
+            disabled
+          >
+            Registrations Closed
+          </button>
+{/* 
           {!USER_PRESENT() ? 
            (
             <button
@@ -569,7 +576,7 @@ export default function ProjectExpoRegistration() {
             </button>
           ) : (
             <button disabled={registrationLoading || registrationDisabled}>{ (registrationLoading) ? "Please wait..." : "Register" }</button>            
-          )}
+          )} */}
 
           <div className="cancellationFee">
             NOTE: Cancelling of registration will incur a cancellation fee set by the organiser.
