@@ -45,6 +45,7 @@ import Pickle from "./views/Pickle";
 import { ToastContainer } from "react-toastify";
 import ProjectExpoRegistrationSuccess from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistrationSuccess";
 import GeekfestResults from "./views/GeekfestResults";
+import CertificateViewer from "./views/CertificateViewer";
 
 
 export default function App() {
@@ -99,6 +100,7 @@ export default function App() {
 
                         <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
 
+                        <Route path="/certificates/:eventName/:certificateID" element={<CertificateViewer />}></Route>
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
