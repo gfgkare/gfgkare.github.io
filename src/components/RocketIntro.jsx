@@ -1,9 +1,20 @@
 import "../styles/RocketIntro.scss";
 
-import rocketOutline from "../assets/rocket_fill-min.png";
+import rocketOutline from "../assets/landing_page_elements/rocket_fill-min.png";
+import { useEffect } from "react";
 
 
 export default function RocketIntro({ animationOver }) {
+
+
+    // useEffect(() => {
+    //     if (animationOver) {
+    //         document.body.style.overflow = "hidden"
+    //     }
+    //     else {
+    //         document.body.style.overflow = "auto"
+    //     }
+    // }, [animationOver])
 
     return (
         <>
@@ -12,7 +23,7 @@ export default function RocketIntro({ animationOver }) {
                 <div className={`rain ${(animationOver) ? 'hidden' : ''}`}>
                     {
                         new Array(30).fill(0).map((_, i) => (
-                            <div class="drop" key={i}></div>
+                            <div className="drop" key={i}></div>
                         ))
                     }
                 </div>
@@ -22,7 +33,8 @@ export default function RocketIntro({ animationOver }) {
                 </div>
 
                 <div className="text">
-                    Preparing your environment...
+                    <div className="title">GFG KARE</div>
+                    <div>Preparing your environment...</div>
                 </div>
             </div>
         </>

@@ -190,9 +190,8 @@ body.light {
     }
 
     div.navBar {
-        background-color: rgba($text, 0.75);
-        border: 1px solid white;
-        border-color: transparent transparent darken($text, 15) transparent;
+        background-color: transparent;
+        border: 1px solid transparent;
         transition: border-color 0.2s ease;
 
         &:hover {

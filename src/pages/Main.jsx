@@ -3,7 +3,7 @@ import '../styles/customToastStyle.scss';
 
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 import gfgLogo from "../assets/GFG_KARE.svg";
@@ -18,6 +18,9 @@ export default function Main() {
     const [showNavBox, setShowNavBox] = useState(false);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const getActiveClass = (path) => (location.pathname === path ? 'active' : '');
 
     return (
         <>
@@ -44,27 +47,18 @@ export default function Main() {
                                 Events
                             </Link>
                         </div> */}
-                        <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/dashboard">
-                                Dashboard
-                            </Link>
-                        </div>
-                         <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/events/prajnotsavah">
-                                Prajnotsavah
-                            </Link>
-                        </div>
-                        <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/members">
-                                Members
-                            </Link>
-                        </div>
-                        {/*
-                        <div className="menuLink hideOnMobile">
-                            <Link className="noStyle" to="/contact">
-                                Contact
-                            </Link>
-                        </div> */}
+                        <NavLink to="/" className={({ isActive }) => (isActive ? 'menuLink hideOnMobile noStyle active' : 'menuLink hideOnMobile noStyle')}>
+                            Home
+                        </NavLink>
+
+                        <NavLink to="/events" className={({ isActive }) => (isActive ? 'menuLink hideOnMobile noStyle active' : 'menuLink hideOnMobile noStyle')}>
+                            Events
+                        </NavLink>
+
+                        <NavLink to="/contact" className={({ isActive }) => (isActive ? 'menuLink hideOnMobile noStyle active' : 'menuLink hideOnMobile noStyle')}>
+                            Contact
+                        </NavLink>
+                        
                         {
                             (USER_PRESENT()) ? 
                                 <div onClick={() => navigate("/profile", { state: { from: location.pathname } } )} className="menuLink hideOnMobile account">
@@ -76,10 +70,7 @@ export default function Main() {
                        
 
                         <div className="iconAndGrid showOnMobile">
-                            <div
-                                className="dropdown"
-                                onBlur={() => console.log("lose ir")}
-                            >
+                            <div className="dropdown">
                                 <RxHamburgerMenu
                                     size={"25px"}
                                     id="hamburger"

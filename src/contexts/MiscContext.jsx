@@ -13,6 +13,8 @@ export const MiscProvider = ({ children }) => {
     const [aboutRevealed, setAboutRevealed] = useState(false);
     const [teamRevealed, setTeamRevealed] = useState(false);
 
+    const [rocketAnimationOver, setRocketAnimationOver] = useState(false);
+
     const toTitleCase = (str) => {
         return str.replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -53,6 +55,8 @@ export const MiscProvider = ({ children }) => {
         setAboutRevealed,
         teamRevealed,
         setTeamRevealed,
+        rocketAnimationOver, 
+        setRocketAnimationOver,
         navTitle,
         setNavTitle,
         toTitleCase,

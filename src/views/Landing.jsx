@@ -9,6 +9,7 @@ import "../styles/Landing.scss";
 // React Icons.
 import { IoPin } from "react-icons/io5";
 import { FaRegCopyright, FaLinkedin, FaInstagram, FaYoutube, FaGithub } from "react-icons/fa"
+import { MdCloseFullscreen } from "react-icons/md";
 
 // Custom.
 import CLink from "../components/CLink";
@@ -19,13 +20,20 @@ import ScrollContainer from "../components/ScrollContainer";
 
 // Images.
 import eventPlaceholderImage from "../assets/pinkAndWhiteMovement.gif"
+
+// Hero section images
 import kluTeam from "../assets/klu_team.jpg"
+import algo2024 from "../assets/prajnotsavah/4.jpg"
+
+import prajnotsavah_guest from "../assets/landing_page_elements/landing_pe.png"
+
 import gfgLogo from '../assets/gfg_student_chapter_transparent.png';
 // import gemoetricCircle from "../assets/geometric_circle.svg";
 import elem1 from "../assets/landing_page_elements/elem1.svg";
 import elem2 from "../assets/landing_page_elements/elem2.svg";
 import elem3 from "../assets/landing_page_elements/elem3.svg";
 import elem4 from "../assets/landing_page_elements/elem4.svg";
+import { useMisc } from "@/contexts/MiscContext";
 // --------------------------------------------------------
 
 
@@ -43,51 +51,54 @@ const items = [
 
 export default function Landing() {
     
+    const { rocketAnimationOver, setRocketAnimationOver } = useMisc();
     const navigate = useNavigate();
-    const { scrollYProgress, scrollY } = useScroll();
-
-    // const rightCircleX = useTransform(scrollYProgress, [0, 0.5], ['55%', '-100%']);
-    // const leftCircleX = useTransform(scrollYProgress, [0, 0.5], ['-55%', '100%']);
-
-    // const rightCircleRotation = useTransform(scrollYProgress, [0, 0.25], ['0deg', '-360deg']);
-    // const leftCircleRotation = useTransform(scrollYProgress, [0, 0.25], ['0deg', '360deg']);
+    const { scrollY } = useScroll();
 
     const fullScreenNav = useRef(null);
     
     const [pageLoading, setPageLoading] = useState(true);
     const [direction, setDirection] = useState('up');
-    const [rocketAnimationOver, setRocketAnimationOver] = useState(false);
 
     const onAfterLoad = () => {
         setTimeout(() => setRocketAnimationOver(true), 500);
-        setTimeout(() => setPageLoading(false), 1000 );
+        setTimeout(() => setPageLoading(false), 2000 );
     }
 
     useEffect(() => {
-        window.addEventListener("load", onAfterLoad);
+        console.log("Init");
+        document.body.style.overflow = "auto";
+        if (!rocketAnimationOver) window.addEventListener("load", onAfterLoad);
+        else setPageLoading(false);
         
         let oldScrollY = 0
 
         scrollY.on("change", throttle((latestValue) => {
-            console.log( ( oldScrollY < latestValue ) ? "down" : "up" );
-
             setDirection(( oldScrollY < latestValue ) ? "down" : "up");
             oldScrollY = latestValue;
         }, 600) );
-
-        // setTimeout(() => {
-        //     setRocketAnimationOver(true);
-        // }, 2000);
-
-        // setTimeout(() => {
-        //     setPageLoading(false);
-        // }, 3000)
 
         return () =>{ 
             window.removeEventListener("load", onAfterLoad);
             scrollY.clearListeners()
         }
     },[])
+
+    useEffect(() => {
+        if (pageLoading) {
+            document.body.style.overflow = "hidden";
+        }
+        else {
+            document.body.style.overflow = "auto"
+        }
+    }, [pageLoading])
+
+    useEffect(() => {
+        if (rocketAnimationOver) {
+            window.scrollTo(0,0);
+            document.body.style.overflow = "auto";
+        }
+    }, []);
 
 
     return (
@@ -96,41 +107,33 @@ export default function Landing() {
             {
                 (pageLoading) && (
                     <div className="loading">
-                        <RocketIntro animationOver={rocketAnimationOver} word={"GFGKARE"} />
+                        <RocketIntro animationOver={rocketAnimationOver} />
                     </div>
                 )
             }
-
+            
+            {/* FULL SCREEN NAV, OPENS ONLY IN MOBILE VIEW. */}
             <ScrollContainer>
                 <div className="fullScreenNav" ref={fullScreenNav} >
-                    <button className="closeMenuButton" onClick={() => fullScreenNav.current.classList.remove("open")} >X</button>
+                    <button className="closeMenuButton" onClick={() => fullScreenNav.current.classList.remove("open")} >
+                        <MdCloseFullscreen />
+                    </button>
                     <div className="fullScreenItemsContainer">
                         <div className="fullScreenItem">
-                            <CLink to="/events/prajnotsavah">Prajnotsavah 2K24</CLink>
-                        </div>
-                        {/* <div className="fullScreenItem">
-                            <a href="#about" onClick={() => fullScreenNav.current.classList.remove("open")}>About</a>
+                            <CLink to="/events">Events</CLink>
                         </div>
                         <div className="fullScreenItem">
-                            <a href="#events" onClick={() => fullScreenNav.current.classList.remove("open")}>Events</a>
+                            <CLink to="/contact">Contact</CLink>
                         </div>
-                        <div className="fullScreenItem">
-                            <a href="#team" onClick={() => fullScreenNav.current.classList.remove("open")}>Team</a>
-                        </div>
-                        <div className="fullScreenItem">
-                            <a href="#contact" onClick={() => fullScreenNav.current.classList.remove("open")}>Contact</a>
-                        </div> */}
                     </div>
                 </div>
 
+                {/* NORMAL NAV, VISIBLE IN DESKTOP */}
                 <nav className={"nav"}>
                     <div className="logoContainer">
                         <img className="gfgLogo" src={gfgLogo} alt="Gfg Kare's logo"/>
-                        {/* <span className="gfgText">GFG KARE</span> */}
                     </div>
-
                     <div className="rightMenu">
-                        <button onClick={() => navigate("/events/prajnotsavah")} className="prajnotsavahButton">Prajnotsavah</button>
                         <button className="menuButton" onClick={() => fullScreenNav.current.classList.toggle("open")} >Menu</button>
                     </div>
                 </nav>
@@ -143,28 +146,28 @@ export default function Landing() {
                             src={elem1}
                             initial={{ bottom: "0", left: "20%" }}
                             animate={{ bottom: "30%" }}
-                            transition={{ type: "spring", stiffness: 70 }}
+                            transition={{ type: "tween", stiffness: 70 }}
                         />
                         <motion.img 
                             className="landingPageElement" 
                             src={elem2}
                             initial={{ bottom: "0", left: "40%", animationDuration: "1s" }}
                             animate={{ bottom: `70%` }}
-                            transition={{ type: "spring", stiffness: 100 }}
+                            transition={{ type: "tween", stiffness: 100 }}
                         />
                         <motion.img 
                             className="landingPageElement" 
                             src={elem3}
                             initial={{ bottom: "0", left: "65%", animationDuration: "1s" }}
                             animate={{ bottom: `66%` }}
-                            transition={{ type: "spring", stiffness: 100 }}
+                            transition={{ type: "tween", stiffness: 100 }}
                         />
                         <motion.img 
                             className="landingPageElement" 
                             src={elem4}
                             initial={{ bottom: "0", left: "80%", animationDuration: "1s" }}
                             animate={{ bottom: `50%`, left: "85%" }}
-                            transition={{ type: "spring", stiffness: 100 }}
+                            transition={{ type: "tween", stiffness: 100 }}
                         />
 
                         <div className="subText">We are</div>
@@ -177,7 +180,7 @@ export default function Landing() {
                                 Over the past year we have hosted 15+ events with flagship ones
                                 such as Algorithmist, Geekfest and tons of other insightful workshops!
                             </div>
-                            <div>We achieve this through hardwork, a passion to help students and unholy amounts of coffee!</div>
+                            <div>We achieve this through teamwork, a passion to help students (and a lot of coffee!)</div>
                         </div>
 
                         <div className="cardsContainer">
@@ -196,7 +199,7 @@ export default function Landing() {
                                 <div className="pin"><IoPin size={"25px"} /></div>
                                 <div className="cardContent">
                                     <div className="cardImage">
-                                        <img src={kluTeam} alt="" />
+                                        <img src={algo2024} alt="" />
                                     </div>
                                     <div className="cardText">
                                         06/09/2022
@@ -218,7 +221,7 @@ export default function Landing() {
                                 <div className="pin"><IoPin size={"25px"} /></div>
                                 <div className="cardContent">
                                     <div className="cardImage">
-                                        <img src={kluTeam} alt="" />
+                                        <img src={prajnotsavah_guest} alt="" />
                                     </div>
                                     <div className="cardText">
                                         06/09/2022
@@ -255,27 +258,11 @@ export default function Landing() {
                 
 
                 <section className="divider" id="events">
-                    <div className="bigText">PRAJNOTSAVAH 2K24</div>
-                    <div className="subText">Our newest event!</div>
+                    <div className="bigText">Events</div>
+                    <div className="subText">Our incredible works!</div>
                 </section>
 
-                <section className="fullScreenSection prajnotsavahDiv">
-                    <div className="prajnotsavahContainer">
-                        <div className="prajnotsavahText">
-                            <div className="prajnotsavahTitle">Prajnotsavah 2K24</div>
-                            <div className="prajnotsavahDate">Nov 8 2024</div>
-                            <div className="prajnotsavahDescription">
-                                Prajnotsavah is an inter-college project expo conducted by GFG KARE.
-                                It is a platform for students to showcase their projects and ideas.
-                            </div>
-                            <div className="prajnotsavahButton">
-                                <CLink to={"/events/prajnotsavah"}>Learn More</CLink>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* <section className="fullScreenSection eventsDiv">
+                <section className="fullScreenSection eventsDiv">
                     <div className="eventsContainer">
 
                         <div className="eventNamesContainer">
@@ -355,7 +342,7 @@ export default function Landing() {
 
                 <section className="fullScreenSection eventsDiv">
 
-                </section> */}
+                </section>
             </ScrollContainer>
             
 

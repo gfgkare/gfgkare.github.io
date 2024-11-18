@@ -1,21 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
 @import "./Variables.scss";
 
 
 div.navBar {
-    backdrop-filter: blur(5px);
+    font-family: "Syne";
     position: absolute;
     z-index: 999;
     left: 50%;
     transform: translateX(-50%);
     top: 0;
     width: 100%;
-    // background-color: blue;
-    padding: 0;
-    // display: flex;
-    // justify-content: space-between;
-    // margin: 0 .75rem
+    font-size: 1.1rem !important;
+    backdrop-filter: blur(5px);
 
-    font-size: .8rem !important;
+    button {
+        all: unset;
+        z-index: 9 !important;
+        cursor: pointer;
+        border: 2px solid $background;
+        background-color: rgba( lighten($text, 8) , .9);
+        border-radius: 20px;
+        padding: .75rem 2rem;
+        font-weight: bold;
+        font-size: .9rem;
+        transition: all .3s ease;
+
+        &:hover {
+            background-color: $background;
+            color: $text;
+        }
+    }
 
     div.navBarWrap {
         // width: 100%;
@@ -46,7 +61,6 @@ div.navBar {
         }
 
         div.rightMenu {
-            padding: 0.2rem;
             // min-height: calc(1rem + 50%) !important;
             display: flex;
             align-items: center;
@@ -55,8 +69,12 @@ div.navBar {
 
             .menuLink {
                 cursor: pointer;
-                font-size: large;
                 font-weight: 500;
+                transition: all .2s ease;
+
+                &.active {
+                    font-weight: 700;
+                }
             }
             
             .account {

@@ -81,15 +81,14 @@ $text: #e0e1e1;
 
             button.menuButton {
                 all: unset;
-
-                z-index: 110 !important;
+                z-index: 9 !important;
                 cursor: pointer;
-                border: 2px solid $background;
+                border: 1.5px solid $background;
                 background-color: rgba( lighten($text, 8) , .9);
                 border-radius: 20px;
-                padding: .75rem 2rem;
+                padding: .75rem 2.5rem;
                 font-weight: bold;
-                
+                font-size: .9rem;
                 transition: all .3s ease;
 
                 &:hover {
@@ -111,7 +110,7 @@ $text: #e0e1e1;
         height: 100vh;
         width: 100vw;
         background-color: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(8px);
 
         transition: all .25s cubic-bezier(1 , 0 , 0 , 1);
 
@@ -139,12 +138,13 @@ $text: #e0e1e1;
             all: unset;
             color: rgb(255, 99, 99);
             cursor: pointer;
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
             font-family: sans-serif !important;
             position: absolute;
-            right: 7rem;
+            right: 4rem;
             top: 1rem;
+            padding: 0 1rem;
 
             &:hover {
                 color: rgb(255, 151, 151)
@@ -157,8 +157,9 @@ $text: #e0e1e1;
 
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: center;
             align-items: flex-start;
+            gap: 4rem;
 
             .fullScreenItem {
                 a {
@@ -505,9 +506,9 @@ $text: #e0e1e1;
                         position: relative;
                         width: 95px;
                         height: 90px;
-                        object-fit: cover;
 
                         img {
+                            object-fit: cover;
                             border: 1px solid rgba(0, 0, 0, .4);
                             width: 100%;
                             height: 100%;
@@ -577,6 +578,8 @@ $text: #e0e1e1;
                     cursor: pointer;
                     transition: all .3s ease !important;
                     padding-left: 1rem;
+                    font-family: "Inter";
+                    font-weight: 600;
 
                     &:hover {
                         color: $background !important;
@@ -585,7 +588,8 @@ $text: #e0e1e1;
 
                     .title {
                         font-size: 1.5rem;
-                        font-weight: 600;
+                        margin-bottom: .25rem;
+                        font-weight: 800;
                     }
 
                     .date {

@@ -46,6 +46,8 @@ import { ToastContainer } from "react-toastify";
 import ProjectExpoRegistrationSuccess from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistrationSuccess";
 import GeekfestResults from "./views/GeekfestResults";
 import CertificateViewer from "./views/CertificateViewer";
+import EventTemplate from "./views/Event Pages/EventTemplate";
+import Contact from "./views/Contact";
 
 
 export default function App() {
@@ -70,6 +72,8 @@ export default function App() {
                             {/* <Route path="/core" element={<CoreTeam />}></Route> */}
                             <Route path="/members" element={<AllMembers />}></Route>
                             {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
+                            <Route path="/events" element={<EventTemplate />}></Route>
+                            <Route path="/contact" element={<Contact />}></Route>
 
 
                             {
@@ -89,7 +93,6 @@ export default function App() {
                         </Route>
 
                         <Route path="/hero" element={<Landing />}></Route>
-       
        
                         {/* EVENTS */}
                         <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>

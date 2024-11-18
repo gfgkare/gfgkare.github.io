@@ -85,6 +85,13 @@
         left: 50%;
         bottom: 10vh;
         transform: translateX(-50%);
+        text-align: center;
+
+        .title {
+            color: rgb(0, 65, 0) !important;
+            font-weight: bolder !important;
+            font-size: 1.25rem;
+        }
     }
    
 }
