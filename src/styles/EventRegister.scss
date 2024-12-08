@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
 // @import "~react-component-countdown-timer/lib/styles.css";
 
 @property --rotate {
@@ -40,6 +41,10 @@ strong {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+
+    .Toastify, .Toastify__toast-container {
+        z-index: 99999 !important;
+    }
 
     .coverImage {
         min-width: 100vw;
@@ -261,8 +266,9 @@ strong {
                     max-width: max-content;
                     min-width: 100px;
                     min-height: 30px;
+                    padding: .75rem 1.5rem;
                     border: 2px solid rgb(5, 135, 5);
-                    border-radius: 8px;
+                    border-radius: 2rem;
                     transition: color 0.25s ease, background-color 0.25s ease;
                     animation: none;
                     display: flex;
@@ -333,7 +339,7 @@ strong {
         }
     }
 
-    .databaseContent {
+    // .databaseContent {
         max-height: max-content;
 
         .headings {
@@ -503,7 +509,7 @@ strong {
             }
         }
 
-    }
+    // }
 
     .reminder {
         display: flex;
@@ -604,7 +610,6 @@ strong {
     left: 0;
     width: 100vw;
     height: 100vh;
-    // transform: translateY(-60px);
     background-color: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(7px);
     display: flex;
@@ -612,16 +617,31 @@ strong {
     // align-items: center;
     padding-top: 5rem;
 
+    
+    :-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
     ::-webkit-scrollbar-thumb {
-        background-color: rgba(0,0,0,.4) !important;
+        background: rgba(120, 120, 120, .25);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(128, 128, 128, .8);
     }
 
     .box {
-        width: min(90%, 500px);
-        height: min(80%, 400px);
+        width: min(90%, 600px);
+        height: min(80%, 500px);
         background-color: rgb(240, 240, 240);
-        border: 3px solid rgb(255, 255, 255);
-        border-radius: 8px;
+        border: 1px solid rgb(35, 82, 11);
+        border-radius: 1rem;
+        padding: 1rem .4rem;
         box-shadow: 0px 0px 30px 8px rgba(64, 64, 64, 0.5);
         overflow: auto;
 
@@ -658,9 +678,16 @@ strong {
                 select {
                     color: black;
                     background-color: transparent;
-                    border: 2px solid rgb(130, 130, 130);
+                    border: 1px solid rgb(77, 77, 77);
                     padding: 0.75rem 1.25rem;
                     border-radius: 8px;
+                }
+
+                input:disabled {
+                    color: rgba(120, 120, 120);
+                    background-color: rgb(230, 230, 230); 
+                    border: 1px solid rgba(10, 10, 10, .3);
+                    cursor: not-allowed;
                 }
 
                 button {
@@ -677,6 +704,7 @@ strong {
                 }
 
                 .emailIndication {
+                    background: linear-gradient(45deg, rgba(100, 100, 100, .05), rgba(100, 100, 100, .15));
                     border: 1px solid rgb(77, 77, 77);
                     border-radius: 8px;
                     padding: 0.8rem;
@@ -707,6 +735,29 @@ strong {
                         }
                     }
                 }
+
+                .kluMailReminder {
+                    display: inline-flex;
+                    flex-wrap: nowrap !important;
+                    align-items: center;
+                    gap: 8px;
+                    line-height: 1.5;
+                    flex-wrap: wrap;
+                    font-size: .8rem;
+                    color: rgba(170, 22, 22, .9);
+                    margin-bottom: .75rem;
+
+                    svg {
+                        flex-shrink: 0;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                    .text {
+                        display: inline;
+                        word-break: break-word;
+                     }
+                }
             }
         }
     }
@@ -717,6 +768,66 @@ strong {
     scale: 1;
     // transform: scale(1);
     transition: all 0.15s ease;
+}
+
+
+.changeMailModal {
+
+    .box {
+        border: 3px solid rgb(224, 96, 96);
+        box-shadow: 0 0 20px 4px rgba(255, 0, 0, .3);
+        width: min(90%, 600px);
+        height: min(45%, 300px) !important;
+        margin-top: 3rem;
+    }
+
+    span.info {
+        width: 90%;
+        margin-bottom: 1rem;
+        font-size: .9rem;
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    .emailIndication {
+        max-width: 85%;
+        border: 1px solid rgb(77, 77, 77);
+        border-radius: 8px;
+        padding: 1rem 0.8rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.4s ease;
+        font-size: 12px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-weight: 600;
+            }
+
+            span.email {
+                font-weight: normal;
+            }
+        }
+    }
+
 }
 
 @media screen and (max-width: 700px) {

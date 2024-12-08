@@ -12,15 +12,11 @@ import coding from "../assets/coding.png";
 import { FaCalendarAlt } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { BsFillPersonFill } from "react-icons/bs";
-import {
-    AiOutlineLoading,
-    AiOutlineCheck,
-    AiFillLinkedin,
-    AiFillGithub,
-    AiFillInstagram,
-    AiOutlineWhatsApp
-} from "react-icons/ai";
+import { AiOutlineLoading, AiOutlineCheck } from "react-icons/ai";
 import { BiSolidPhoneCall, BiLinkExternal } from "react-icons/bi";
+import { CiCircleInfo, CiWarning } from "react-icons/ci";
+import { PiSparkleThin } from "react-icons/pi";
+
 import { TfiMoney } from "react-icons/tfi";
 
 // -----------------------------------
@@ -45,6 +41,8 @@ export default function EventRegister() {
     const { USER_PRESENT, currentUser, signinwithpopup } = useAuth();
     const { readableError, setNavTitle } = useMisc();
 
+    const [usingKluMail, setUsingKluMail] = useState(false);
+
     const [eventID, setEventID] = useState();
     const [eventRegisterStatus, setEventRegisterStatus] =
         useState("not_registered");
@@ -60,6 +58,7 @@ export default function EventRegister() {
     const [userDept, setUserDept] = useState("");
     const [fadeStatus, setFadeStatus] = useState("");
 
+    const registrationForm = useRef();
     const fullName = useRef();
     const regNo = useRef();
     const email = useRef();
@@ -109,15 +108,67 @@ export default function EventRegister() {
             });
     };
 
+    const getFieldValues = (field, email) => {
+        console.log(`%c Prefilling details: ${email}`, "color: green");
+        console.log(`Finding out user's ${field}`);
+        
+        
+        if (field == "year") {
+            let year = email.split("@")[0].slice(2,4)
+            let years = { "21": "IV", "22": "III", "23": "II" }
+            console.log(`User is from ${years[year]} year.`);
+            return years[year];
+        }
+
+        if (field == "department") {
+            let departments = {
+                "8": "IT",
+                "4": "CSE",
+                "1": "BioTechnology",
+                "6": "EEE",
+                "5": "ECE", 
+            }
+            let dept = email.split("@")[0][6]
+            if (Object.keys(departments).includes(dept)) {
+                console.log(`User is from ${departments[dept]} department.`);
+                return departments[dept];
+            }
+            else {
+                return "OTHER"  // unknown reg no.
+            }
+        }
+    }
+
+    const prefillRegistrationFields = () => {
+        regNo.current.value = currentUser.email.split("@")[0]
+        year.current.value = getFieldValues("year", currentUser.email);
+        let department =  getFieldValues("department", currentUser.email);
+
+        if (department == "CSE" || department == "IT") {    // cse or it, set in dropdown alone, no need to show input field.
+            setUserDept(department);
+        }
+        else if (department == "OTHER") {
+            console.log("User is from OTHER department.");  // unknown department, set to other... and show empty input field.
+            setUserDept("OTHER");
+        }
+        else {                                              // some known deparment other than cse, it. show input field and fill it.
+            setUserDept("OTHER")
+            console.log(otherDept.current)
+            otherDept.current.value = department;
+        }
+        
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0);
-        setEventID(window.location.pathname.split("/")[2]);
+        setEventID(window.location.pathname.split("/")[1]);
 
         console.log(`Width: ${window.innerWidth}px`);
+        console.log(`Event ID: ${window.location.pathname.split("/")[1]}`)
 
         axios
             .post("/get_event_reg", {
-                eventID: window.location.pathname.split("/")[2],
+                eventID: window.location.pathname.split("/")[1],
             })
             .then((res) => {
                 console.log("------- Event REgistration staus");
@@ -127,21 +178,14 @@ export default function EventRegister() {
 
         axios
             .post("/get_event_start_time", {
-                eventID: window.location.pathname.split("/")[2],
+                eventID: window.location.pathname.split("/")[1],
             })
             .then((res) => {
                 console.log("setting start time");
                 console.log(utcToLocalTimeStamp(res.data.time));
                 setEventStart(utcToLocalTimeStamp(res.data.time));
             });
-        // axios
-        // .post("/get_event_max_count", {
-        //     eventID: window.location.pathname.split("/")[2],
-        // })
-        // .then((res) => {
-        //     setMaxCount(res.data.count);
-        // });
-        
+
         setTimeout(() => {
             setFadeStatus("visible");
         }, 500);
@@ -151,12 +195,12 @@ export default function EventRegister() {
     }, []);
 
     useEffect(() => {
-        if (modalOpen) {
+        if (modalOpen || !usingKluMail) {
             window.scrollTo(0, 0);
             document.body.style.overflowY = "hidden";
         } else document.body.style.overflowY = "auto";
         console.log(currentUser);
-    }, [modalOpen]);
+    }, [modalOpen, usingKluMail]);
 
     useEffect(() => {
         if (eventStart) {
@@ -174,20 +218,32 @@ export default function EventRegister() {
     useEffect(() => {
         setEventRegisteringInProgress(true);
         if (currentUser && currentUser !== "none") {
-            currentUser.getIdToken().then((token) => {
-                axios
-                    .post(
-                        "/get_event_reg_status",
-                        { userID: currentUser.uid, eventID: eventID },
-                        { headers: { Authorization: token } }
-                    )
-                    .then((res) => {
-                        if (res.data.status == "Registered")
-                            setEventRegisterStatus("registered");
-                        else setEventRegisterStatus("not_registered");
-                    })
-                    .finally(() => setEventRegisteringInProgress(false));
-            });
+            console.log("User is logged in")
+            if (currentUser.email.split("@")[1] == "klu.ac.in") {
+                console.log("with KLU Mail. Getting event registration status.")
+                setUsingKluMail(true);
+                currentUser.getIdToken().then((token) => {
+                    axios
+                        .post(
+                            "/get_event_reg_status",
+                            { userID: currentUser.uid, eventID: eventID, email: currentUser.email },
+                            { headers: { Authorization: token } }
+                        )
+                        .then((res) => {
+                            if (res.data.status == "Registered")
+                                setEventRegisterStatus("registered");
+                            else setEventRegisterStatus("not_registered");
+                        })
+                        .finally(() => setEventRegisteringInProgress(false));
+                });
+            }
+            else {
+                console.log("using personal account. Showing warning modal.")
+                setUsingKluMail(false);
+            }
+        }
+        else {
+            // not logged in
         }
     }, [currentUser]);
 
@@ -202,11 +258,11 @@ export default function EventRegister() {
                         <div className="eventInfoWrapper">
                             <div className="eventInfo">
                                 <div className="eventTitle">
-                                    Algorithmist 2024
+                                    Algorithmist 2025
                                 </div>
 
                                 <div className="aboutEvent">
-                                    Algorithmist 24" is a series of coding
+                                    Algorithmist '25 is a series of coding
                                     events organized by the GFG KARE Student
                                     Chapter in sponsorship with GeeksforGeeks at
                                     Kalasalingam Academy of Research and
@@ -252,7 +308,10 @@ export default function EventRegister() {
                                         disabled={
                                             (eventRegisterStatus === "registered" || eventRegisteringInProgress === true || eventRegistrationStatus !== "accepting")
                                         }
-                                        onClick={() => setModalOpen(true)}
+                                        onClick={() => {
+                                            setModalOpen(true);
+                                            prefillRegistrationFields();
+                                        }}
                                     >
                                         { (eventRegistrationStatus !== "accepting") ? "Registration Closed" :
                                         (eventRegisteringInProgress) ? (
@@ -280,6 +339,9 @@ export default function EventRegister() {
                                         onClick={() => {
                                             console.log("registering...");
                                             signinwithpopup("google");
+                                        }}
+                                        onMouseEnter={() => {
+                                            toast.info("Kindly login with your KLU Mail", { toastId: "login_with_klu_reminder" })
                                         }}
                                     >
                                         Sign in to Register
@@ -328,7 +390,7 @@ export default function EventRegister() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            22nd Dec 2023, 6PM
+                                            25th Dec 2024, 6PM
                                         </div>
                                     </div>
                                 </div>
@@ -525,6 +587,7 @@ export default function EventRegister() {
                 <Footer />
             </div>
 
+            {/* REGISTER MODAL */}
             <div
                 className={modalOpen ? "modal open" : "modal"}
                 onClick={() => setModalOpen(false)}
@@ -538,6 +601,7 @@ export default function EventRegister() {
                 >
                     <h2>Complete your registration</h2>
                     <form
+                        ref={registrationForm}
                         autoComplete="off"
                         onSubmit={(e) => {
                             e.preventDefault();
@@ -547,7 +611,7 @@ export default function EventRegister() {
                     >
                         <div className="row">
                             <div className="emailIndication">
-                                <img src={currentUser?.photoURL} alt="" />
+                                <img src={currentUser?.photoURL} alt="" referrerPolicy="no-referrer" />
                                 <div
                                     onClick={() => {
                                         setModalOpen(false);
@@ -561,6 +625,29 @@ export default function EventRegister() {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="row">
+                            <span className="kluMailReminder">
+                                <CiCircleInfo size={"15px"} />
+                                <span className="text">
+                                    Ensure you are logged in with YOUR KLU Email.
+                                </span>
+                            </span>
+                            <span className="kluMailReminder">
+                                <CiWarning size={"15px"} />
+                                <span className="text">
+                                    Same email and Register number cannot be used for another registration. 
+                                </span>
+                            </span>
+                            <span className="kluMailReminder">
+                                <PiSparkleThin size={"15px"} />
+                                <span className="text">
+                                    We've pre-filled your info from your email. Please check for any errors.
+                                </span>
+                            </span>
+                            
+                        </div>
+
                         <div className="row">
                             <label for="name">Full Name *</label>
                             <input
@@ -572,7 +659,10 @@ export default function EventRegister() {
                                 defaultValue={currentUser?.displayName}
                             />
                         </div>
-                        <div className="row">
+                        <div 
+                            className="row"
+                            onClick={() => (!currentUser.email) ? toast.error("The register number is based on your Email and cannot be modified.", { toastId: "reg_no_disabled_info" }) : toast.error(currentUser.email)}
+                        >
                             <label for="email">Register No *</label>
                             <input
                                 id="email"
@@ -580,15 +670,20 @@ export default function EventRegister() {
                                 required
                                 autoComplete="off"
                                 ref={regNo}
+                                disabled={ currentUser?.email }
                             />
                         </div>
                         {/* <div className="row">
                             <label for="email">Email Address *</label>
                             <input id="email" type="email" required autoComplete="off" ref={email} />
                         </div> */}
-                        <div className="row">
+                        <div className="row" onClick={() => getFieldValues("year", currentUser.email)}>
                             <label for="year">Year *</label>
-                            <select name="year" ref={year}>
+                            <select 
+                                name="year" 
+                                ref={year}
+                            >
+                                <option value="IV">IV</option>
                                 <option value="III">III</option>
                                 <option value="II">II</option>
                             </select>
@@ -597,9 +692,10 @@ export default function EventRegister() {
                             <label for="department">Department *</label>
                             <select
                                 name="department"
-                                onChange={(e) =>
+                                onChange={(e) => {
                                     setUserDept(e.currentTarget.value)
-                                }
+                                }}
+                                value={userDept}
                                 ref={dept}
                             >
                                 <option value="">
@@ -610,19 +706,24 @@ export default function EventRegister() {
                                 <option value="OTHER">Other...</option>
                             </select>
                         </div>
-                        {userDept === "OTHER" ? (
-                            <div className="row">
-                                <label for="department">Department *</label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter your department..."
-                                    ref={otherDept}
-                                    required
-                                />
-                            </div>
-                        ) : (
-                            <></>
-                        )}
+                        <div className="row" style={{ display: (userDept === "OTHER") ? "flex" : "none" }}>
+                            <label for="department">Department *</label>
+                            <input
+                                type="text"
+                                placeholder="Enter your department..."
+                                ref={otherDept}
+                                required={ userDept === "OTHER" }
+                            />
+                        </div>
+                        {/* <div className="row" style={{ display: userDept === "OTHER" ? "block" : "none" }}>
+                            <label htmlFor="department">Department *</label>
+                            <input
+                                type="text"
+                                placeholder="Enter your department..."
+                                ref={otherDept}
+                                required
+                            />
+                        </div> */}
                         <div className="row">
                             <label for="num">Contact Number *</label>
                             <input
@@ -641,6 +742,44 @@ export default function EventRegister() {
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div
+                className={(USER_PRESENT() && !usingKluMail) ? "changeMailModal modal open" : "changeMailModal modal"}
+                // onClick={() => setModalOpen(false)}
+                onClick={() => {
+                    console.log("Logged in? ", USER_PRESENT());
+                    console.log("Using KLU Mail?", usingKluMail);
+                    console.log("Show Modal? ", (USER_PRESENT() && !usingKluMail));
+                    
+                }}
+            >
+                <div className="box">
+                    <h4>
+                        ⚠️Login with KLU Email
+                    </h4>
+                    
+                    <span className="info">
+                        You are not currently logged in with your KLU Email. Please <strong>log in using your KLU Email</strong> address to complete your registration for Algorithmist '25.
+                    </span>
+                        
+                    <div className="emailIndication">
+                        <img src={currentUser?.photoURL} alt="" referrerPolicy="no-referrer" />
+                        <div
+                            onClick={() => {
+                                setModalOpen(false);
+                                signinwithpopup("google");
+                            }}
+                        >
+                            <span className="email">
+                                Currently logged in as {currentUser?.email}
+                            </span>
+                            <span>Click to log in with your KLU Mail</span>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </>

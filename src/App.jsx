@@ -11,8 +11,8 @@ import TeamMember from "./views/TeamMember";
 import ChapterMember from "./views/ChapterMember";
 import AllMembers from "./views/AllMembers";
 import New from "./views/New";
-// import EventRegister from "./views/EventRegister";
-import NewEventRegister from "./views/NewEventRegister";
+import EventRegister from "./views/EventRegister";
+// import NewEventRegister from "./views/NewEventRegister";
 import DynamicEventPage from "./views/DynamicEventPage";
 import Round5Register from "./views/HardcodedEventPages/RoadToMernRegister";
 import Codeathon from "./views/Codeathon";
@@ -74,6 +74,7 @@ export default function App() {
                             {/* <Route path="/events" element={<UnderConstruction />}></Route> */}
                             <Route path="/events" element={<EventTemplate />}></Route>
                             <Route path="/contact" element={<Contact />}></Route>
+                            <Route path="/algo2025" element={<EventRegister />}></Route>
 
 
                             {
@@ -104,10 +105,10 @@ export default function App() {
                         <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
 
                         <Route path="/certificates/:eventName/:certificateID" element={<CertificateViewer />}></Route>
+
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
-                        {/* <Route path="/events/algo2024" element={<EventRegister />}></Route> */}
                         {/* <Route path="/roadmap-to-mern-stack" element={<Round5Register />}></Route> */}
                         {/* <Route path="/co/decraft" element={<CodeClash />}></Route> */}
                         {/* <Route path="/enrollment" element={ <StudentEnrollment /> }></Route> */}
