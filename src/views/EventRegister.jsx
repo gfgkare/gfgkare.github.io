@@ -661,7 +661,7 @@ export default function EventRegister() {
                         </div>
                         <div 
                             className="row"
-                            onClick={() => (!currentUser.email) ? toast.error("The register number is based on your Email and cannot be modified.", { toastId: "reg_no_disabled_info" }) : toast.error(currentUser.email)}
+                            onClick={() => (!currentUser.email) ? toast.error("The register number is based on your Email and cannot be modified.", { toastId: "reg_no_disabled_info" }) : null}
                         >
                             <label for="email">Register No *</label>
                             <input
