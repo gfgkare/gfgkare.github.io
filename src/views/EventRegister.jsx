@@ -99,7 +99,7 @@ export default function EventRegister() {
                 setNoOfRegistered((noOfRegistered) => noOfRegistered + 1);
                 setEventRegisteringInProgress(false);
                 setEventRegisterStatus("registered");
-                toast.success("You are registered for Algorithmist 2024!");
+                toast.success("You are registered for Algorithmist 2025!");
             })
             .catch((e) => {
                 console.warn(e);
@@ -269,7 +269,7 @@ export default function EventRegister() {
                                     Education. The competition comprises five
                                     rounds, each progressively raising the bar
                                     in terms of complexity and challenge.
-                                    Participants will become familiar with 50
+                                    Participants will become familiar with 30
                                     different algorithms and gain practical
                                     skills to apply them in real-world
                                     scenarios. 
@@ -390,7 +390,7 @@ export default function EventRegister() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            25th Dec 2024, 6PM
+                                            26th Dec 2025, 6PM
                                         </div>
                                     </div>
                                 </div>
@@ -435,8 +435,8 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Get ready for a fun knowledge challenge! You'll answer 60 questions about
-                                    50 algorithms. Can you beat the clock?
+                                    Get ready for a fun knowledge challenge! You'll answer 40 questions about
+                                    30 algorithms. Can you beat the clock?
                                 </div>
                             </div>
                         </div>
@@ -453,8 +453,8 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Share your coding expertise! During the Seminar round from Jan 7 to 9, 2024, you'll have 4-5 minutes to
-                                    present an algorithm. Be the start of the show!
+                                    Share your coding expertise! During the Seminar round from Feb 3 to 6, 2025, you'll have 4-5 minutes to
+                                    present an algorithm. Be the star of the show!
                                 </div>
                             </div>
                         </div>
@@ -471,7 +471,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Work together to solve problems in our Q&A Formation Round on Jan 28, 2024. Create tricky questions for others
+                                    Work together to solve problems in our Q&A Formation Round on Feb 18, 2025. Create tricky questions for others
                                     to answer. How good is your teamwork?
                                 </div>
                             </div>
@@ -486,7 +486,7 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    Time to tackle tricky bugs! In the Debugging round of Feb 28, 2024, you'll solve 10 questions.
+                                    Time to tackle tricky bugs! In the Debugging round of Mar 7, 2025, you'll solve 10 questions.
                                     Can you outsmart the code?
                                 </div>
                             </div>
@@ -501,13 +501,13 @@ export default function EventRegister() {
                                 </div>
                                 
                                 <div className="roundDesc">
-                                    It's the ultimate showdown! Join the Grand Finale on Mar 20, 2024, and show off your coding skills.
+                                    It's the ultimate showdown! Join the Grand Finale on Mar 28, 2025, and show off your coding skills.
                                     Be the coding champion!
                                 </div>
                             </div>
                         </div>
                         <span className="external">
-                            More info about the 50 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist24" target="_blank">here. <BiLinkExternal /></a>
+                            More info about the 30 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist25" target="_blank">here. <BiLinkExternal /></a>
                         </span>
                         <span className="external">
                             More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist2024Rounds/" target="_blank">here. <BiLinkExternal /></a>
@@ -559,24 +559,24 @@ export default function EventRegister() {
                         For any queries, please contact:{" "}
                     </div>
                     <div className="people">
-                        <a href="tel:+91 9515822637">
+                        <a href="tel:+91 7075072880">
                             {" "}
-                            <span> Ashok Reddy Cheluri - 95158 22637 </span>{" "}
-                            <BiSolidPhoneCall />{" "}
-                        </a>
-                        <a href="tel:+91 9676215354">
-                            {" "}
-                            <span> Krishna Vineeth - 96762 15354 </span>{" "}
-                            <BiSolidPhoneCall />{" "}
-                        </a>
-                        <a href="tel:+91 83417 52279">
-                            {" "}
-                            <span> Parimal Sesha Sai - 83417 52279 </span>{" "}
+                            <span>Navadeep Marella - 70750 72880 </span>{" "}
                             <BiSolidPhoneCall />{" "}
                         </a>
                         <a href="tel:+91 8754605197">
                             {" "}
                             <span> Sabari - 87546 05197 </span>{" "}
+                            <BiSolidPhoneCall />{" "}
+                        </a>
+                        <a href="tel:+91 9032772680">
+                            {" "}
+                            <span>Prasanthi - 90327 72680</span>{" "}
+                            <BiSolidPhoneCall />{" "}
+                        </a>
+                        <a href="tel:+91 9491146276">
+                            {" "}
+                            <span> Siri Chowdary - 94911 46276</span>{" "}
                             <BiSolidPhoneCall />{" "}
                         </a>
                     </div>
@@ -673,10 +673,6 @@ export default function EventRegister() {
                                 disabled={ currentUser?.email }
                             />
                         </div>
-                        {/* <div className="row">
-                            <label for="email">Email Address *</label>
-                            <input id="email" type="email" required autoComplete="off" ref={email} />
-                        </div> */}
                         <div className="row" onClick={() => getFieldValues("year", currentUser.email)}>
                             <label for="year">Year *</label>
                             <select 
