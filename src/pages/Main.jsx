@@ -50,14 +50,14 @@ export default function Main() {
                         <NavLink to="/" className={({ isActive }) => (isActive ? 'menuLink hideOnMobile noStyle active' : 'menuLink hideOnMobile noStyle')}>
                             Home
                         </NavLink>
-
+{/* 
                         <NavLink to="/events" className={({ isActive }) => (isActive ? 'menuLink hideOnMobile noStyle active' : 'menuLink hideOnMobile noStyle')}>
                             Events
                         </NavLink>
 
                         <NavLink to="/contact" className={({ isActive }) => (isActive ? 'menuLink hideOnMobile noStyle active' : 'menuLink hideOnMobile noStyle')}>
                             Contact
-                        </NavLink>
+                        </NavLink> */}
                         
                         {
                             (USER_PRESENT()) ? 
@@ -98,13 +98,13 @@ export default function Main() {
                                         <Link to="/events">Events</Link>
                                     </span> */}
                                     <span>
-                                        <Link to="/dashboard">Dashboard</Link>
+                                        <Link to="/">Home</Link>
                                     </span>
-                                    <span>
+                                    {/* <span>
                                         <Link to="/members">Members</Link>
-                                    </span>
+                                    </span> */}
                                     <span>
-                                        <Link to="/events/prajnotsavah">Prajnotsavah 2K24</Link>
+                                        <Link to="/events/algo2024">Algorithmist '25</Link>
                                     </span>
                                     {/* <span>Contact</span> */}
                                     {/* <span>

@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
 import eventCoverImage from "../assets/events_cover.jpeg";
-import quiz from "../assets/quiz.avif";
-import seminar from "../assets/seminar.avif";
-import qna from "../assets/qna.avif";
-import debug from "../assets/debug.jpg";
-import coding from "../assets/coding.png";
 
 // -----------------------------------
 
@@ -16,6 +11,7 @@ import { AiOutlineLoading, AiOutlineCheck } from "react-icons/ai";
 import { BiSolidPhoneCall, BiLinkExternal } from "react-icons/bi";
 import { CiCircleInfo, CiWarning } from "react-icons/ci";
 import { PiSparkleThin } from "react-icons/pi";
+import { FiLoader } from "react-icons/fi";
 
 import { TfiMoney } from "react-icons/tfi";
 
@@ -195,7 +191,7 @@ export default function EventRegister() {
     }, []);
 
     useEffect(() => {
-        if (modalOpen || !usingKluMail) {
+        if (modalOpen) {
             window.scrollTo(0, 0);
             document.body.style.overflowY = "hidden";
         } else document.body.style.overflowY = "auto";
@@ -273,9 +269,14 @@ export default function EventRegister() {
                                     different algorithms and gain practical
                                     skills to apply them in real-world
                                     scenarios. 
-                                    <strong>Cash prizes and exciting rewards
-                                    from GeeksforGeeks are provided for the top
-                                    three performers in each round.</strong>
+                                    <br />
+                                    <br />
+                                    <p>
+                                        <strong>Registration Fee: 200/- per person.</strong>
+                                        <br /><br />
+                                        <strong>2 Credits under EE</strong> will be provided for all participants.
+                                        Cash prizes and exciting swags from GeeksforGeeks for the top three performers in each round.
+                                    </p>
                                 </div>
 
                                 <div className="startsIn">
@@ -390,7 +391,7 @@ export default function EventRegister() {
                                             Registration Deadline
                                         </div>
                                         <div className="content">
-                                            26th Dec 2025, 6PM
+                                            02 Jan 2025, 12:59PM
                                         </div>
                                     </div>
                                 </div>
@@ -510,7 +511,7 @@ export default function EventRegister() {
                             More info about the 30 algorithms can be found <a href="https://gfgkare.github.io/Algorithmist25" target="_blank">here. <BiLinkExternal /></a>
                         </span>
                         <span className="external">
-                            More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist2024Rounds/" target="_blank">here. <BiLinkExternal /></a>
+                            More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist2025Rounds/" target="_blank">here. <BiLinkExternal /></a>
                         </span>
 
                     </div>
@@ -525,8 +526,8 @@ export default function EventRegister() {
                         <div className="registerBtnContainer">
                             {USER_PRESENT() ? (
                                 eventRegisteringInProgress ? (
-                                    <div className="registerBtn">
-                                        Registering...
+                                    <div className="registerBtn loading">
+                                        <FiLoader className="icon" /> Registering 
                                     </div>
                                 ) : eventRegisterStatus === "registered" ? (
                                     <div className="registerBtn">
@@ -535,7 +536,11 @@ export default function EventRegister() {
                                 ) : (
                                     <div
                                         className="registerBtn"
-                                        onClick={() => setModalOpen(true)}
+                                        onClick={
+                                            () => {
+                                                setModalOpen(true);
+                                                prefillRegistrationFields();
+                                            }}
                                     >
                                         Register!
                                     </div>
@@ -733,7 +738,7 @@ export default function EventRegister() {
                         <div className="row">
                             <button>
                                 {eventRegisteringInProgress
-                                    ? "Registering..."
+                                    ? <> <FiLoader /> Registering </>
                                     : "Register"}
                             </button>
                         </div>

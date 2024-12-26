@@ -24,6 +24,7 @@ import eventPlaceholderImage from "../assets/pinkAndWhiteMovement.gif"
 // Hero section images
 import kluTeam from "../assets/klu_team.jpg"
 import algo2024 from "../assets/prajnotsavah/4.jpg"
+import geekfest24 from "../assets/prajnotsavah/3.jpg"
 
 import prajnotsavah_guest from "../assets/landing_page_elements/landing_pe.png"
 
@@ -56,6 +57,7 @@ export default function Landing() {
     const { scrollY } = useScroll();
 
     const fullScreenNav = useRef(null);
+    const [fullScreenNavOpen, setFullScreenNavOpen] = useState(false);
     
     const [pageLoading, setPageLoading] = useState(true);
     const [direction, setDirection] = useState('up');
@@ -85,13 +87,13 @@ export default function Landing() {
     },[])
 
     useEffect(() => {
-        if (pageLoading) {
+        if (pageLoading || fullScreenNavOpen) {
             document.body.style.overflow = "hidden";
         }
         else {
             document.body.style.overflow = "auto"
         }
-    }, [pageLoading])
+    }, [pageLoading, fullScreenNavOpen])
 
     useEffect(() => {
         if (rocketAnimationOver) {
@@ -114,19 +116,22 @@ export default function Landing() {
             
             {/* FULL SCREEN NAV, OPENS ONLY IN MOBILE VIEW. */}
             <ScrollContainer>
-                <div className="fullScreenNav" ref={fullScreenNav} >
-                    <button className="closeMenuButton" onClick={() => fullScreenNav.current.classList.remove("open")} >
+                <nav className={`${(fullScreenNavOpen ? "fullScreenNav open": "fullScreenNav")}`} ref={fullScreenNav} >
+                    <button className="closeMenuButton" onClick={() => setFullScreenNavOpen(false)}>
                         <MdCloseFullscreen />
                     </button>
                     <div className="fullScreenItemsContainer">
-                        <div className="fullScreenItem">
+                        {/* <div className="fullScreenItem">
                             <CLink to="/events">Events</CLink>
                         </div>
                         <div className="fullScreenItem">
                             <CLink to="/contact">Contact</CLink>
+                        </div> */}
+                        <div className="fullScreenItem">
+                            <CLink to="/algo2025">Algorithmist '25</CLink>
                         </div>
                     </div>
-                </div>
+                </nav>
 
                 {/* NORMAL NAV, VISIBLE IN DESKTOP */}
                 <nav className={"nav"}>
@@ -134,7 +139,8 @@ export default function Landing() {
                         <img className="gfgLogo" src={gfgLogo} alt="Gfg Kare's logo"/>
                     </div>
                     <div className="rightMenu">
-                        <button className="menuButton" onClick={() => fullScreenNav.current.classList.toggle("open")} >Menu</button>
+                        <CLink to={"/algo2025"} className="menuButton highlight hideOnMobile">Algorithmist 25</CLink>
+                        <button className="menuButton" onClick={() => setFullScreenNavOpen(true)} >Menu</button>
                     </div>
                 </nav>
                 
@@ -210,7 +216,7 @@ export default function Landing() {
                                 <div className="pin"><IoPin size={"25px"} /></div>
                                 <div className="cardContent">
                                     <div className="cardImage">
-                                        <img src={kluTeam} alt="" />
+                                        <img src={geekfest24} alt="" />
                                     </div>
                                     <div className="cardText">
                                         06/09/2022
@@ -258,11 +264,11 @@ export default function Landing() {
                 
 
                 <section className="divider" id="events">
-                    <div className="bigText">Events</div>
-                    <div className="subText">Our incredible works!</div>
+                    {/* <div className="bigText">MORE STUFF COMING SOON!</div> */}
+                    <div className="subText">MORE STUFF COMING SOON!</div>
                 </section>
 
-                <section className="fullScreenSection eventsDiv">
+                {/* <section className="fullScreenSection eventsDiv">
                     <div className="eventsContainer">
 
                         <div className="eventNamesContainer">
@@ -342,7 +348,7 @@ export default function Landing() {
 
                 <section className="fullScreenSection eventsDiv">
 
-                </section>
+                </section> */}
             </ScrollContainer>
             
 

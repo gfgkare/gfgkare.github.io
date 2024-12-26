@@ -75,6 +75,7 @@ export default function App() {
                             <Route path="/events" element={<EventTemplate />}></Route>
                             <Route path="/contact" element={<Contact />}></Route>
                             <Route path="/algo2025" element={<EventRegister />}></Route>
+                            <Route path="/Algorithmist25" element={<EventRegister />}></Route>
 
 
                             {
@@ -96,11 +97,8 @@ export default function App() {
                         <Route path="/hero" element={<Landing />}></Route>
        
                         {/* EVENTS */}
-                        <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route>
                         {/* <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route> */}
-                        <Route path="/events/prajnotsavah" element={ <ProjectExpo /> }></Route>
                         {/* <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route> */}
-                        <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route>
 
                         <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
 
@@ -113,6 +111,10 @@ export default function App() {
                         {/* <Route path="/co/decraft" element={<CodeClash />}></Route> */}
                         {/* <Route path="/enrollment" element={ <StudentEnrollment /> }></Route> */}
                         {/* <Route path="/enrollment/form" element={<Student_enroll_form />}></Route> */}
+                        {/* <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route> */}
+                        <Route path="/events/prajnotsavah" element={ <ProjectExpo /> }></Route>
+                        {/* <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route> */}
+
 
 
                         {/* DASHBOARD */}

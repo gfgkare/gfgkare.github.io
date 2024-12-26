@@ -79,7 +79,7 @@ $text: #e0e1e1;
             display: flex;
             gap: 1rem;
 
-            button.menuButton {
+            .menuButton {
                 all: unset;
                 z-index: 9 !important;
                 cursor: pointer;
@@ -91,10 +91,21 @@ $text: #e0e1e1;
                 font-size: .9rem;
                 transition: all .3s ease;
 
+                
                 &:hover {
                     background-color: $background;
-                    color: $text;
+                    color: $text !important;
                 }
+
+                &.highlight {
+                    background-color: rgb(255, 152, 152);
+
+                    &:hover {
+                        background-color: rgb(65, 13, 13);
+                        color: rgb(255, 206, 206) !important;
+                    }
+                }
+
             }
         }
     }
@@ -113,6 +124,7 @@ $text: #e0e1e1;
         backdrop-filter: blur(8px);
 
         transition: all .25s cubic-bezier(1 , 0 , 0 , 1);
+        overflow: hidden;
 
         &.open {
             transform: translateY(0);
@@ -171,6 +183,7 @@ $text: #e0e1e1;
                     padding: 1rem 2rem;
                     margin-left: 2rem;
                     font-size: 2rem;
+                    max-width: max-content;
 
                     transition: all .4s ease ;
 
@@ -839,7 +852,9 @@ $text: #e0e1e1;
    
 
     .chapterIntro {
-        height: 80vh;
+        height: 90vh;
+        margin-top: 5rem;
+        padding-bottom: 7rem;
 
         .subText {
             margin-bottom: 1rem;

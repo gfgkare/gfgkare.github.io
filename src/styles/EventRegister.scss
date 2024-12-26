@@ -485,6 +485,7 @@ strong {
                         
     
                         .roundDesc {
+                            padding-right: .5rem !important;
                             // background-color: yellow;
                         }
                     }
@@ -537,6 +538,10 @@ strong {
                 .registerBtn {
                     background-color: rgb(2, 123, 10);
                     color: white;
+
+                    &.loading {
+                        background-color: rgb(49, 32, 11) !important;
+                    }
                 }
             }
 
@@ -695,6 +700,19 @@ strong {
                     margin: 1rem auto 2rem auto;
                     border-radius: 10px;
                     transition: all .3s ease;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    svg {
+                        animation: rotate 1s ease infinite;
+                    }
+
+                    &.loading {
+                        background-color: rgb(49, 32, 11);
+                        cursor: not-allowed !important;
+                    }
 
                     &:hover {
                         border-color: transparent;
