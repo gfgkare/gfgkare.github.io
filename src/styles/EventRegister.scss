@@ -776,6 +776,40 @@ strong {
                         word-break: break-word;
                      }
                 }
+
+                a.upiPayButton {
+                    font-family: "Outfit";
+                    background-color: rgba(white, .8);
+                    max-width: max-content;
+                    margin: 0 auto;
+                    border: 1px solid rgba(0, 0, 0, 0.6);
+                    text-decoration: none;
+                    color:rgba(black, .85);
+                    font-weight: 800;
+                    padding: .7rem;
+                    border-radius: .25rem;
+    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .5rem;
+    
+                    &:hover {
+                        background-color: rgba(white, .9);
+                        color:rgba(black, .65) !important;
+    
+                        img {
+                            filter: brightness(1)
+                        }
+                    }
+    
+                    img {
+                        height: 20px;
+                        width: 70px;
+                        filter: brightness(.7);
+                    }
+    
+                }
             }
         }
     }

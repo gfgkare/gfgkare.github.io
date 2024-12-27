@@ -14,7 +14,9 @@ import { PiSparkleThin } from "react-icons/pi";
 import { FiLoader } from "react-icons/fi";
 
 import { TfiMoney } from "react-icons/tfi";
-import upi from "../assets/upi.jpeg"
+import upiQR from "./HardcodedEventPages/Prajnotsavah/digital_dreams_qrcode.jpeg"
+import upiImage from "@/assets/upi.png"
+
 // -----------------------------------
 
 import { useAuth } from "../contexts/AuthContext";
@@ -32,6 +34,7 @@ import "react-component-countdown-timer/lib/styles.css";
 import "../styles/EventRegister.scss";
 
 const env = import.meta.env;
+const digitalDreamsUpiId = "69097701@ubin"
 
 export default function EventRegister() {
     const { USER_PRESENT, currentUser, signinwithpopup } = useAuth();
@@ -66,13 +69,33 @@ export default function EventRegister() {
     const num = useRef();
     const upiID = useRef()
     const tnsID = useRef()
-    const utrNo = useRef()
+    // const utrNo = useRef()
 
     const registerForEvent = () => {
         if (!USER_PRESENT()) return;
         setEventRegisteringInProgress(true);
 
         console.log(otherDept?.current?.value);
+        
+        const upiIdPattern = /^[\w\s\.\-\_]+@[\w]+$/;
+        if (!upiIdPattern.test(upiID.current.value)) {
+            toast.error("The entered UPI ID is not following the UPI ID pattern. Example: yourname@oksbi");
+            setEventRegisteringInProgress(false);
+            return;
+        }
+
+        if (upiID.current.value == digitalDreamsUpiId) {
+            toast.error("Please enter your UPI ID, you have currently entered OUR UPI ID.")
+            setEventRegisteringInProgress(false);
+            return;
+        }
+
+        const mobileNumberPattern = /^[6-9]\d{9}$/;
+        if (!mobileNumberPattern.test(num.current.value)) {
+            toast.error("The entered mobile number is not valid. Please enter a valid 10-digit Indian mobile number without +91.");
+            setEventRegisteringInProgress(false);
+            return;
+        }
 
         axios
             .post(
@@ -91,7 +114,7 @@ export default function EventRegister() {
                     num: num.current.value,
                     upiID : upiID.current.value,
                     tnsID : tnsID.current.value,
-                    utrNo : utrNo.current.value
+                    // utrNo : utrNo.current.value
                 }
                 // { headers: { Authorization: currentUser.getIdToken() } }
             )
@@ -743,31 +766,34 @@ export default function EventRegister() {
                         </div>
                         <div className = "row">
                         <label for="num">Payment *</label>
-                        <img src={upi} alt="Upi scanner" style={{ width: '40%' , marginLeft: "30%"}} />
+                        <img src={upiQR} alt="Upi scanner" style={{ width: '40%' , marginLeft: "30%"}} />
                         <p style={{marginLeft: "35%"}}>Registration fee 200/-</p>
+                        <a className="upiPayButton" href={`upi://pay?pa=${digitalDreamsUpiId}&pn=GFGKARE&cu=INR&am=200`}>PAY WITH ANY <img src={upiImage} alt="" /> APP</a>
                         </div>
                         <div className="row">
                             <label htmlFor="">Your UPI ID *</label>
-                            <input type="text" required autoComplete="off" ref={upiID}/>
+                            <input 
+                                type="text" 
+                                autoComplete="off" 
+                                ref={upiID}
+                                pattern="[\w\s\.\-\_]+@[\w]+"
+                                title="The entered UPI ID is not following the UPI ID pattern."
+                                required 
+                            />
                             <span className="kluMailReminder" style={{ margin: "0px" , marginTop: "1%", color: "black"}}>
                                 <CiCircleInfo size={"15px"} />
                                 <span className="text">
-                                Ensure that you have entered your UPI ID.
+                                    Ensure that you enter your UPI ID.
                                 </span>
                             </span>
                         </div>
                         <div className="row">
-                            <label htmlFor="">Transaction ID *</label>
+                            <label htmlFor="">Transaction ID / UTR Number *</label>
                             <input type="text" 
                             required
                             ref={tnsID}
-                            autoComplete="off"/>
-                        </div>
-                        <div className="row">
-                            <label htmlFor="">UTR No *</label>
-                            <input type="text" 
-                            required
-                            ref={utrNo}
+                            minLength={12}
+                            maxLength={12}
                             autoComplete="off"/>
                         </div>
 
