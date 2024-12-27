@@ -69,6 +69,7 @@ export default function EventRegister() {
     const num = useRef();
     const upiID = useRef()
     const tnsID = useRef()
+    const imageUrlRef = useRef(null);
     // const utrNo = useRef()
 
     const registerForEvent = () => {
@@ -114,6 +115,7 @@ export default function EventRegister() {
                     num: num.current.value,
                     upiID : upiID.current.value,
                     tnsID : tnsID.current.value,
+                    imageUrlRef : imageUrlRef.current
                     // utrNo : utrNo.current.value
                 }
                 // { headers: { Authorization: currentUser.getIdToken() } }
@@ -272,6 +274,43 @@ export default function EventRegister() {
         }
     }, [currentUser]);
 
+    const [registrationLoading, setRegistrationLoading] = useState(false);
+    const handleFileChange = async (e) => {
+        try {
+          console.log(e.target.files);
+          setRegistrationLoading(true);
+    
+          if (e.target.files.length) {
+            if (e.target.files.length > 1) {
+              toast.error("You can only upload one image.");
+              return;
+            }
+    
+            const file = e.target.files[0];
+            // setimageName(file.name)
+    
+            const reader = new FileReader();
+            reader.onloadend = async () => {
+              const response = await axios.post('https://api.cloudinary.com/v1_1/dvw9vd875/image/upload', {
+                file: reader.result,
+                upload_preset: "gfgcloud",
+              });
+              console.log('File uploaded successfully:', response.data);
+    
+              imageUrlRef.current = response.data.url;
+    
+              setRegistrationLoading(false);
+            };
+            reader.readAsDataURL(file);
+          }
+        } catch (err) {
+          console.log("Error during Screenshot upload. Clearing SS field.");
+          toast.error(err.message);
+          imageUrlRef.current = "";
+          setRegistrationLoading(false);
+        }
+      };
+    
     return (
         <>
             <div className={"eventRegister " + fadeStatus }>
@@ -769,6 +808,23 @@ export default function EventRegister() {
                         <img src={upiQR} alt="Upi scanner" style={{ width: '40%' , marginLeft: "30%"}} />
                         <p style={{marginLeft: "35%"}}>Registration fee 200/-</p>
                         <a className="upiPayButton" href={`upi://pay?pa=${digitalDreamsUpiId}&pn=GFGKARE&cu=INR&am=200`}>PAY WITH ANY <img src={upiImage} alt="" /> APP</a>
+                        </div>
+                        <div className="row">
+                        <label htmlFor="">Upload your transaction Screenshot *</label>
+                        <input
+                                id="screenshotInput"
+                                required
+                                type="file"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                            />
+                            
+                            {/* Display the uploaded image using the imageUrlRef */}
+                            {imageUrlRef.current && (
+                                <img src={imageUrlRef.current} alt="Uploaded" style={{ maxWidth: '20%', marginTop: '10px' , marginLeft: "40%"}} />
+                            )}
+
+                            {registrationLoading && <p>Uploading...</p>}
                         </div>
                         <div className="row">
                             <label htmlFor="">Your UPI ID *</label>
