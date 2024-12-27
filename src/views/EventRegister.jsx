@@ -14,7 +14,7 @@ import { PiSparkleThin } from "react-icons/pi";
 import { FiLoader } from "react-icons/fi";
 
 import { TfiMoney } from "react-icons/tfi";
-
+import upi from "../assets/upi.jpeg"
 // -----------------------------------
 
 import { useAuth } from "../contexts/AuthContext";
@@ -64,6 +64,9 @@ export default function EventRegister() {
     const slot = useRef();
     const section = useRef();
     const num = useRef();
+    const upiID = useRef()
+    const tnsID = useRef()
+    const utrNo = useRef()
 
     const registerForEvent = () => {
         if (!USER_PRESENT()) return;
@@ -86,6 +89,9 @@ export default function EventRegister() {
                             ? dept.current.value
                             : otherDept?.current?.value,
                     num: num.current.value,
+                    upiID : upiID.current.value,
+                    tnsID : tnsID.current.value,
+                    utrNo : utrNo.current.value
                 }
                 // { headers: { Authorization: currentUser.getIdToken() } }
             )
@@ -407,7 +413,7 @@ export default function EventRegister() {
                                             Entry Fee
                                         </div>
                                         <div className="content">
-                                            Free
+                                            200/-
                                         </div>
                                     </div>
                                 </div>
@@ -735,6 +741,36 @@ export default function EventRegister() {
                                 ref={num}
                             />
                         </div>
+                        <div className = "row">
+                        <label for="num">Payment *</label>
+                        <img src={upi} alt="Upi scanner" style={{ width: '40%' , marginLeft: "30%"}} />
+                        <p style={{marginLeft: "35%"}}>Registration fee 200/-</p>
+                        </div>
+                        <div className="row">
+                            <label htmlFor="">Your UPI ID *</label>
+                            <input type="text" required autoComplete="off" ref={upiID}/>
+                            <span className="kluMailReminder" style={{ margin: "0px" , marginTop: "1%", color: "black"}}>
+                                <CiCircleInfo size={"15px"} />
+                                <span className="text">
+                                Ensure that you have entered your UPI ID.
+                                </span>
+                            </span>
+                        </div>
+                        <div className="row">
+                            <label htmlFor="">Transaction ID *</label>
+                            <input type="text" 
+                            required
+                            ref={tnsID}
+                            autoComplete="off"/>
+                        </div>
+                        <div className="row">
+                            <label htmlFor="">UTR No *</label>
+                            <input type="text" 
+                            required
+                            ref={utrNo}
+                            autoComplete="off"/>
+                        </div>
+
                         <div className="row">
                             <button>
                                 {eventRegisteringInProgress
