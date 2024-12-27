@@ -824,7 +824,7 @@ export default function EventRegister() {
                                 <img src={imageUrlRef.current} alt="Uploaded" style={{ maxWidth: '20%', marginTop: '10px' , marginLeft: "40%"}} />
                             )}
 
-                            {registrationLoading && <p>Uploading...</p>}
+                            {registrationLoading && <p> <FiLoader /> Uploading...</p>}
                         </div>
                         <div className="row">
                             <label htmlFor="">Your UPI ID *</label>
