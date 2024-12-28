@@ -342,7 +342,7 @@ export default function EventRegister() {
                                     <p>
                                         <strong>Registration Fee: 200/- per person.</strong>
                                         <br /><br />
-                                        <strong>2 Credits under EE</strong> will be provided for all participants.
+                                        <strong>2 Credits under EE</strong> will be provided for the top 100 performers.
                                         Cash prizes and exciting swags from GeeksforGeeks for the top three performers in each round.
                                     </p>
                                 </div>
