@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import eventCoverImage from "../assets/events_cover.jpeg";
+import whatsapp from "../assets/whatsapp-icon.png"
 
 // -----------------------------------
 
@@ -127,6 +128,7 @@ export default function EventRegister() {
                 setEventRegisteringInProgress(false);
                 setEventRegisterStatus("registered");
                 toast.success("You are registered for Algorithmist 2025!");
+                toast.success("Join to our whatsapp group for latest updates.")
             })
             .catch((e) => {
                 console.warn(e);
@@ -480,6 +482,23 @@ export default function EventRegister() {
                                     </div>
                                 </div>
                             </div>
+                            <div className="row">
+                                <div className="registerPanelItem">
+                                    <div className="icon">
+                                        <img src={whatsapp} alt="" style={{ width: '21px' }}  />
+                                    </div>
+                                    <div className="info">
+                                        <div className="heading">
+                                            Whatsapp group
+                                        </div>
+                                        <div className="content">
+                                        <span className="external">
+                                            <a href="https://chat.whatsapp.com/EWASvcWfCFGAApl1GvUuhd" target="_blank" style={{ color: 'black', textDecoration: 'none' }}> Join here. <BiLinkExternal /></a>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* <div className="row">
                                 <button>Register!</button>
@@ -580,6 +599,9 @@ export default function EventRegister() {
                         </span>
                         <span className="external">
                             More info about all the 5 rounds can be found <a href="https://gfgkare.github.io/Algorithmist2025Rounds/" target="_blank">here. <BiLinkExternal /></a>
+                        </span>
+                        <span className="external">
+                            Join our Algorithmist 2k25 whatsapp group for latest updates <a href="https://chat.whatsapp.com/EWASvcWfCFGAApl1GvUuhd" target="_blank">here. <BiLinkExternal /></a>
                         </span>
 
                     </div>
