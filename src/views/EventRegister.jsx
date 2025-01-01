@@ -128,7 +128,7 @@ export default function EventRegister() {
                 setEventRegisteringInProgress(false);
                 setEventRegisterStatus("registered");
                 toast.success("You are registered for Algorithmist 2025!");
-                toast.success("Join to our whatsapp group for latest updates.")
+                toast.success("Don't forget to join the WhatsApp group, link is provided in the page")
             })
             .catch((e) => {
                 console.warn(e);
