@@ -11,7 +11,7 @@ import { AiOutlineLoading, AiOutlineCheck } from "react-icons/ai";
 import { BiSolidPhoneCall, BiLinkExternal } from "react-icons/bi";
 import { CiCircleInfo, CiWarning } from "react-icons/ci";
 import { PiSparkleThin } from "react-icons/pi";
-import { FiLoader } from "react-icons/fi";
+import { FiLoader, FiInfo, FiDownload } from "react-icons/fi";
 
 import { TfiMoney } from "react-icons/tfi";
 import upiQR from "./HardcodedEventPages/Prajnotsavah/digital_dreams_qrcode.jpeg"
@@ -805,9 +805,25 @@ export default function EventRegister() {
                         </div>
                         <div className = "row">
                         <label for="num">Payment *</label>
+                        <p style={{marginLeft: "35%"}}>Registration fee: <b>Rs. 200/-</b></p>
                         <img src={upiQR} alt="Upi scanner" style={{ width: '40%' , marginLeft: "30%"}} />
-                        <p style={{marginLeft: "35%"}}>Registration fee 200/-</p>
-                        <a className="upiPayButton" href={`upi://pay?pa=${digitalDreamsUpiId}&pn=GFGKARE&cu=INR&am=200`}>PAY WITH ANY <img src={upiImage} alt="" /> APP</a>
+                        <span 
+                            className="downloadQRBtn"
+                            onClick={() => {
+                                var link = document.createElement('a');
+                                link.href = upiQR;
+                                link.download = 'GFGKARE_ALGO25_QR.jpeg';
+                                document.body.appendChild(link);
+                                link.click();
+                            }}
+                        >   
+                            <FiDownload />
+                            Download QR
+                        </span>
+                        {/* <a className="upiPayButton" href={`upi://pay?pa=${digitalDreamsUpiId}&am=1`}>PAY WITH ANY <img src={upiImage} alt="" /> APP</a> */}
+                        <div className="upiPayInfo">
+                            <FiInfo /> Scan the QR or click the button to download it, then scan with your UPI app.
+                        </div>
                         </div>
                         <div className="row">
                         <label htmlFor="">Upload your transaction Screenshot *</label>
