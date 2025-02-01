@@ -1,0 +1,25 @@
+
+
+.Privacy, .Terms, .Refund {
+
+    width: min(800px, 95%);
+    margin: auto;
+    padding-bottom: 3rem;
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: .5rem;
+        font-size: 2.5rem;
+        font-weight: 900;
+        letter-spacing: .4rem;
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        font-weight: 500;
+    }
+}

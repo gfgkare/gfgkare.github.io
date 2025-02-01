@@ -48,6 +48,9 @@ import GeekfestResults from "./views/GeekfestResults";
 import CertificateViewer from "./views/CertificateViewer";
 import EventTemplate from "./views/Event Pages/EventTemplate";
 import Contact from "./views/Contact";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Refund from "./pages/Refund";
 
 
 export default function App() {
@@ -128,7 +131,10 @@ export default function App() {
                         <Route path="/:eventname/code" element={<CodeHouse />}>
                             <Route path="/:eventname/code" element={<Code />}></Route>
                         </Route>
-                 
+                        
+                        <Route path="/terms" element={ <Terms /> }></Route>
+                        <Route path="/privacy" element={ <Privacy /> }></Route>
+                        <Route path="/refund" element={ <Refund /> }></Route>
 
                         <Route path="/*" element={ <NotFound /> }></Route>
                     </Routes>
