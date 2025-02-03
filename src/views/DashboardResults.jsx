@@ -474,7 +474,6 @@ export default function DashboardResults(props) {
                     "section2",
                     "section3",
                     "overallMarks",
-                    "completionTime",
                 ]}
                 rows={algo25Top}
             />
