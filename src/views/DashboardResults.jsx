@@ -6,6 +6,7 @@ import { IoIosLock } from "react-icons/io";
 import { useEffect } from "react";
 
 import algo24Top from "../data/algo24Top";
+import algo25Top from "../data/algo25Top";
 import round4Results from "../data/round4Results";
 
 import axios from "../scripts/axiosConfig";
@@ -358,7 +359,7 @@ export default function DashboardResults(props) {
         <div className="dashboardResults">
             <div className="resultBigTitle">Results</div>
 
-            <div className="title">Round 4 - Debugging</div>
+            {/* <div className="title">Round 4 - Debugging</div>
 
             <div className="round4">
                 {
@@ -369,9 +370,9 @@ export default function DashboardResults(props) {
                 }
             </div>
 
-            <div className="splitter"></div>
+            <div className="splitter"></div> */}
 
-            <div className="title">Round 3 - QnA</div>
+            {/* <div className="title">Round 3 - QnA</div>
             <div className="round3">
                 <div className="teamBoxesContainer">
                     {round3Results.map((team, index) => (
@@ -408,11 +409,11 @@ export default function DashboardResults(props) {
                         </div>
                     ))}
                 </div>
-            </div>
-            <div className="splitter"></div>
+            </div> */}
+            {/* <div className="splitter"></div>
 
-            <div className="title">Round 2 - Seminar</div>
-            <div className="round2Best">
+            <div className="title">Round 2 - Seminar</div> */}
+            {/* <div className="round2Best"> */}
                 {/* {Object.keys(round2Best).map((key) => (
                     <>
                     
@@ -444,7 +445,7 @@ export default function DashboardResults(props) {
                     </>
                 ))} */}
 
-                {round2Results.value.length > 0 ? (
+                {/* {round2Results.value.length > 0 ? (
                     <CustomTable
                         headers={[
                             "rank",
@@ -460,9 +461,9 @@ export default function DashboardResults(props) {
                 ) : (
                     <></>
                 )}
-            </div>
+            </div> */}
 
-            <div className="splitter"></div>
+            {/* <div className="splitter"></div> */}
 
             <div className="title">Round 1 - Quiz</div>
             <CustomTable
@@ -475,20 +476,20 @@ export default function DashboardResults(props) {
                     "overallMarks",
                     "completionTime",
                 ]}
-                rows={algo24Top}
+                rows={algo25Top}
             />
 
-            <div className="splitter"></div>
+            {/* <div className="splitter"></div> */}
 
             {/* <div className="title">
                 Round 4 - Debugging <IoIosLock size={"25px"} />
             </div> */}
 
-            <div className="splitter"></div>
+            {/* <div className="splitter"></div>
 
             <div className="title round5">
                 Round 5 - Coding <IoIosLock size={"25px"} />
-            </div>
+            </div> */}
 
             <div className="splitter"></div>
         </div>
