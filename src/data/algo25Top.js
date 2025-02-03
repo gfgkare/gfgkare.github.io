@@ -1,15 +1,15 @@
 const algo25Top =
 [
-    { "used7DigitID": 99210041137, "name": "ANKIREDDYPALLI SHASHANK KUMAR REDDY 2021-CSEUG BATCH", "regNo": "99210041137", "section1": "12.5", "section2": "12.5", "section3": "15", "overallMarks": "40", "completionTime": "N/A" },
+    { "used7DigitID": 99210041137, "name": "ANKIREDDYPALLI SHASHANK KUMAR REDDY 2021-CSEUG BATCH", "regNo": "99210041137", "section1": "2.5", "section2": "12.5", "section3": "13", "overallMarks": "28", "completionTime": "N/A" },
     { "used7DigitID": 99220042034, "name": "ARNI VINAY 2022-CSE", "regNo": "99220042034", "section1": "12.5", "section2": "8.75", "section3": "17.5", "overallMarks": "38.75", "completionTime": "N/A" },
     { "used7DigitID": 99220041214, "name": "KANUPARTHI MOKSHITH", "regNo": "99220041214", "section1": "11.25", "section2": "10", "section3": "15", "overallMarks": "36.25", "completionTime": "N/A" },
-    { "used7DigitID": 9921004526, "name": "PALLAPOTHULA GURU CHARAN 2021-CSEUG BATCH", "regNo": "9921004526", "section1": "12.5", "section2": "13.75", "section3": "9", "overallMarks": "35.25", "completionTime": "N/A" },
+    { "used7DigitID": 9921004526, "name": "PALLAPOTHULA GURU CHARAN 2021-CSEUG BATCH", "regNo": "9921004526", "section1": "10", "section2": "11", "section3": "7", "overallMarks": "27", "completionTime": "N/A" },
     { "used7DigitID": 99220041002, "name": "SIVADANAM SIVA SAI TEJA 2022-CSE", "regNo": "99220041002", "section1": "10", "section2": "10.25", "section3": "14", "overallMarks": "34.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041314, "name": "PINNAMANENI PRANEETH", "regNo": "99220041314", "section1": "12.5", "section2": "11.25", "section3": "10", "overallMarks": "33.75", "completionTime": "N/A" },
-    { "used7DigitID": 99210041501, "name": "AMBATI VINOD", "regNo": "99210041501", "section1": "8.75", "section2": "11.25", "section3": "12.5", "overallMarks": "32.5", "completionTime": "N/A" },
+    { "used7DigitID": 99210041501, "name": "AMBATI VINOD", "regNo": "99210041501", "section1": "8", "section2": "11", "section3": "8.5", "overallMarks": "27.5", "completionTime": "N/A" },
     { "used7DigitID": 99220040882, "name": "K MOUNIKA", "regNo": "99220040882", "section1": "10.5", "section2": "8", "section3": "13.5", "overallMarks": "32", "completionTime": "N/A" },
     { "used7DigitID": 99220041755, "name": "VANGA VENKATA CHARAN SIVA KUMAR 2022-CSE", "regNo": "99220041755", "section1": "12.5", "section2": "11.25", "section3": "7.5", "overallMarks": "31.25", "completionTime": "N/A" },
-    { "used7DigitID": 99230041297, "name": "V ATHITHYA RAMAA", "regNo": "99230041297", "section1": "14", "section2": "13.75", "section3": "3", "overallMarks": "30.75", "completionTime": "N/A" },
+    { "used7DigitID": 99230041297, "name": "V ATHITHYA RAMAA", "regNo": "99230041297", "section1": "9", "section2": "8.75", "section3": "3", "overallMarks": "20.75", "completionTime": "N/A" },
     { "used7DigitID": 99220041976, "name": "NALLAMALLI VENKATA RAM TEJA", "regNo": "99220041976", "section1": "9", "section2": "6.5", "section3": "15", "overallMarks": "30.5", "completionTime": "N/A" },
     { "used7DigitID": 99220041203, "name": "KADALI HEMANTH 2022-CSE", "regNo": "99220041203", "section1": "13.75", "section2": "11.25", "section3": "5", "overallMarks": "30", "completionTime": "N/A" },
     { "used7DigitID": 99220041419, "name": "YAPARALA SASHIKANTH REDDY 2022-CSE", "regNo": "99220041419", "section1": "11.25", "section2": "11.25", "section3": "7.5", "overallMarks": "30", "completionTime": "N/A" },
@@ -18,26 +18,26 @@ const algo25Top =
     { "used7DigitID": 99210041970, "name": "AMBE NIROSHA", "regNo": "99210041970", "section1": "6.75", "section2": "9", "section3": "13.5", "overallMarks": "29.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041385, "name": "SWARNA BRAHMATEJA", "regNo": "99220041385", "section1": "12.75", "section2": "11.25", "section3": "5", "overallMarks": "29", "completionTime": "N/A" },
     { "used7DigitID": 99220041385, "name": "YEMIREDDY OBULA REDDY 2022-CSE", "regNo": "99220041385", "section1": "9", "section2": "10", "section3": "10", "overallMarks": "29", "completionTime": "N/A" },
-    { "used7DigitID": 9921004515, "name": "NUKANABOYINA DHARANI OBULESU", "regNo": "9921004515", "section1": "11.25", "section2": "7.5", "section3": "10", "overallMarks": "18.75", "completionTime": "N/A" },
+    { "used7DigitID": 9921004515, "name": "NUKANABOYINA DHARANI OBULESU", "regNo": "9921004515", "section1": "1.25", "section2": "7.5", "section3": "10", "overallMarks": "18.75", "completionTime": "N/A" },
     { "used7DigitID": 99220041674, "name": "PITHANI PURNENDRA TEJA", "regNo": "99220041674", "section1": "7.75", "section2": "7.75", "section3": "13", "overallMarks": "28.5", "completionTime": "N/A" },
-    { "used7DigitID": 99210041681, "name": "PUNGANUR DINESH 2021-CSE UG", "regNo": "99210041681", "section1": "10", "section2": "12.5", "section3": "5", "overallMarks": "17.5", "completionTime": "N/A" },
+    { "used7DigitID": 99210041681, "name": "PUNGANUR DINESH 2021-CSE UG", "regNo": "99210041681", "section1": "5", "section2": "7.5", "section3": "5", "overallMarks": "17.5", "completionTime": "N/A" },
     { "used7DigitID": 99230040379, "name": "NAGINAYANI CHERUVU ANIRUDH", "regNo": "99230040379", "section1": "5.25", "section2": "10.5", "section3": "11.5", "overallMarks": "27.25", "completionTime": "N/A" },
-    { "used7DigitID": 99220041610, "name": "NUTAKKI DEVI MOHAN", "regNo": "99220041610", "section1": "10", "section2": "11.5", "section3": "5", "overallMarks": "16.5", "completionTime": "N/A" },
+    { "used7DigitID": 99220041610, "name": "NUTAKKI DEVI MOHAN", "regNo": "99220041610", "section1": "5", "section2": "6.5", "section3": "5", "overallMarks": "16.5", "completionTime": "N/A" },
     { "used7DigitID": 99220040572, "name": "KASALA ABHINAV", "regNo": "99220040572", "section1": "7.75", "section2": "8.75", "section3": "10", "overallMarks": "26.5", "completionTime": "N/A" },
     { "used7DigitID": 99220041125, "name": "BATTULA SAI GIRISH KUMAR", "regNo": "99220041125", "section1": "12.5", "section2": "13.75", "section3": "9", "overallMarks": "35.25", "completionTime": "N/A" },
     { "used7DigitID": 99220040136, "name": "MYMOON SULTHANA K", "regNo": "99220040136", "section1": "5", "section2": "6.25", "section3": "15", "overallMarks": "26.25", "completionTime": "N/A" },
-    { "used7DigitID": 99220041754, "name": "UNDELA YASWANTH REDDY 2022-CSE", "regNo": "99220041754", "section1": "8.75", "section2": "12.5", "section3": "5", "overallMarks": "16.25", "completionTime": "N/A" },
+    { "used7DigitID": 99220041754, "name": "UNDELA YASWANTH REDDY 2022-CSE", "regNo": "99220041754", "section1": "3.75", "section2": "7.5", "section3": "5", "overallMarks": "16.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041706, "name": "MARKAPURAM DHANA LAKSHMI 2022-CSE", "regNo": "99220041706", "section1": "10", "section2": "10", "section3": "5.5", "overallMarks": "25.5", "completionTime": "N/A" },
     { "used7DigitID": 99220040624, "name": "MANJULA THARUN KUMAR 2022-CSE", "regNo": "99220040624", "section1": "9", "section2": "9", "section3": "6", "overallMarks": "24", "completionTime": "N/A" },
     { "used7DigitID": 99220041312, "name": "PERNETI YESWANTH KUMAR 2022-CSE", "regNo": "99220041312", "section1": "5", "section2": "7.75", "section3": "11", "overallMarks": "23.75", "completionTime": "N/A" },
     { "used7DigitID": 99220041716, "name": "POKURI NAPPINNA SARANYA 2022-CSE", "regNo": "99220041716", "section1": "11.25", "section2": "7.5", "section3": "5", "overallMarks": "23.75", "completionTime": "N/A" },
     { "used7DigitID": 99220041760, "name": "BINKINETI ESWAR CHAND 2022-CSE", "regNo": "99220041760", "section1": "11.5", "section2": "6", "section3": "5.5", "overallMarks": "23", "completionTime": "N/A" },
     { "used7DigitID": 99220041504, "name": "KAREN MORISHA E", "regNo": "99220041504", "section1": "7.5", "section2": "0", "section3": "15", "overallMarks": "22.5", "completionTime": "N/A" },
-    { "used7DigitID": 9823037011, "name": "PAVAN M M", "regNo": "9823037011", "section1": "6.25", "section2": "5", "section3": "10", "overallMarks": "11.25", "completionTime": "N/A" },
+    { "used7DigitID": 9823037011, "name": "PAVAN M M", "regNo": "9823037011", "section1": "1.25", "section2": "5", "section3": "5", "overallMarks": "11.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041482, "name": "GRANDHI V RAMA AMARA LAKSHMI MANIKANTA", "regNo": "99220041482", "section1": "10", "section2": "11.25", "section3": "-0.5", "overallMarks": "20.75", "completionTime": "N/A" },
     { "used7DigitID": 99220040482, "name": "DARAM THANU SRI 2022-CSE", "regNo": "99220040482", "section1": "2.5", "section2": "2.25", "section3": "15.5", "overallMarks": "20.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041489, "name": "JAKKU VEERA JAGADESWAR REDDY 2022-CSE", "regNo": "99220041489", "section1": "7.5", "section2": "7.5", "section3": "5", "overallMarks": "20", "completionTime": "N/A" },
-    { "used7DigitID": 99220041775, "name": "GURRAM MONESH REDDY", "regNo": "99220041775", "section1": "4.25", "section2": "6.75", "section3": "8.5", "overallMarks": "9.5", "completionTime": "N/A" },
+    { "used7DigitID": 99220041775, "name": "GURRAM MONESH REDDY", "regNo": "99220041775", "section1": "4.25", "section2": "1.75", "section3": "3.5", "overallMarks": "9.5", "completionTime": "N/A" },
     { "used7DigitID": 99220040892, "name": "KOMMINENI KAVYA SREE", "regNo": "99220040892", "section1": "8", "section2": "3", "section3": "7.5", "overallMarks": "18.5", "completionTime": "N/A" },
     { "used7DigitID": 99210041367, "name": "PULIPATI NIKHIL 2021-CSEUG", "regNo": "99210041367", "section1": "11.25", "section2": "1.5", "section3": "5.5", "overallMarks": "18.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041420, "name": "YARLAGADDA SETU SAI RAM 2022-CSE", "regNo": "99220041420", "section1": "2.5", "section2": "0", "section3": "15", "overallMarks": "17.5", "completionTime": "N/A" },
@@ -94,5 +94,15 @@ const algo25Top =
     { "used7DigitID": 99220041485, "name": "GULLAPPUDI LALITH KUMAR 2022-CSE", "regNo": "99220041485", "section1": "12.5", "section2": "12.5", "section3": "2.5", "overallMarks": "27.5", "completionTime": "N/A" }
 ]
 
+function sortDescending(data) {
+    return data.sort((a, b) => {
+        // Convert overallMarks to numbers to compare them
+        return parseFloat(b.overallMarks) - parseFloat(a.overallMarks);
+    });
+}
 
-export default algo25Top
+// Test the function
+const sortedData = sortDescending(algo25Top);
+
+
+export default sortedData
