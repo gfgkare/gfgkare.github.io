@@ -91,8 +91,15 @@ const algo25Top =
     { "used7DigitID": 99220041211, "name": "KANDUKURU VAMSI 2022-CSE", "regNo": "99220041211", "section1": "0.75", "section2": "0", "section3": "-2.5", "overallMarks": "-1.75", "completionTime": "N/A" },
     { "used7DigitID": 99220041225, "name": "Kollipalli Yuvaraj", "regNo": "99220041225", "section1": "-1.75", "section2": "1.25", "section3": "-1.5", "overallMarks": "-2", "completionTime": "N/A" },
     { "used7DigitID": 99220041608, "name": "NAVINKARTHICK E 2022-CSE", "regNo": "99220041608", "section1": "2.75", "section2": "0", "section3": "-5", "overallMarks": "-2.25", "completionTime": "N/A" },
-    { "used7DigitID": 99220041485, "name": "GULLAPPUDI LALITH KUMAR 2022-CSE", "regNo": "99220041485", "section1": "12.5", "section2": "12.5", "section3": "2.5", "overallMarks": "27.5", "completionTime": "N/A" }
+    { "used7DigitID": 99220041485, "name": "GULLAPPUDI LALITH KUMAR 2022-CSE", "regNo": "99220041485", "section1": "12.5", "section2": "12.5", "section3": "2.5", "overallMarks": "27.5", "completionTime": "N/A" },
+    { "used7DigitID": 99220041289, "name": "PALLAPU SREENIVASULU 2022-CSE", "regNo": "99220041289", "section1": "7.5", "section2": "6.25", "section3": "7.5", "overallMarks": "21.25", "completionTime": "N/A" },
+    { "used7DigitID": 99220041839, "name": "Not Found", "regNo": "99220041839", "section1": "3.75", "section2": "2.75", "section3": "0", "overallMarks": "6.5", "completionTime": "N/A" },
+    { "used7DigitID": 99230041140, "name": "MOHAMMED ASLAM S 2023-CSE", "regNo": "99230041140", "section1": "1.25", "section2": "4", "section3": "10", "overallMarks": "15.25", "completionTime": "N/A" },
+    { "used7DigitID": 99220041262, "name": "MOHAMED RASHED N 2022-CSE", "regNo": "99220041262", "section1": "5", "section2": "1.25", "section3": "-5", "overallMarks": "1.25", "completionTime": "N/A" },
+    { "used7DigitID": 99220041382, "name": "SURENDAR R 2022-CSE", "regNo": "99220041382", "section1": "2.5", "section2": "5", "section3": "5", "overallMarks": "12.5", "completionTime": "N/A" },
+    { "used7DigitID": 99220041365, "name": "SHANAPAR NISHA A 2022-CSE", "regNo": "99220041365", "section1": "5", "section2": "-1.25", "section3": "-5", "overallMarks": "-1.25", "completionTime": "N/A" }
 ]
+
 
 function sortDescending(data) {
     return data.sort((a, b) => {
