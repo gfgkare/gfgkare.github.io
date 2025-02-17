@@ -171,12 +171,12 @@ export default function Dashboard() {
                                         <span className="name">Expert Lecture <VscLinkExternal /></span> 
                                     </Link> */}
 
-                                    <Link className="tab" to="https://gfgkare.github.io/Algorithmist2024Rounds" target="_blank">
+                                    <Link className="tab" to="https://gfgkare.github.io/Algorithmist2025Rounds" target="_blank">
                                         <div className="icon"> <CiCircleList size="25px" /> </div>
                                         <div className="name">List of Rounds <VscLinkExternal /></div>
                                     </Link>
 
-                                    <Link className="tab" to="https://gfgkare.github.io/Algorithmist24" target="_blank">
+                                    <Link className="tab" to="https://gfgkare.github.io/Algorithmist25" target="_blank">
                                         <div className="icon"> <LuBrainCircuit size="25px" strokeWidth={1} /> </div>
                                         <div className="name">List of Algorithms <VscLinkExternal /></div>
                                     </Link>
