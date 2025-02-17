@@ -5,9 +5,9 @@ import CustomTable from "../components/CustomTable";
 import { IoIosLock } from "react-icons/io";
 import { useEffect } from "react";
 
-import algo24Top from "../data/algo24Top";
 import algo25Top from "../data/algo25Top";
-import round4Results from "../data/round4Results";
+
+import algo25Round2 from "@/data/algo25Round2";
 
 import axios from "../scripts/axiosConfig";
 
@@ -325,33 +325,32 @@ export default function DashboardResults(props) {
         if (currentUser === "none" || !currentUser) return;
         else {
             console.log("%cGetting round 2 Data.", "color: red");
-            axios
-                .post(
-                    "/get_round2_all_data",
-                    { eventID: "algo2024" }, //admin: "ohyes"
-                    { headers: { Authorization: `${currentUser.accessToken}` } }
-                )
-                .then((res) => {
-                    // console.log("%cGetting round 2 Data", "color: green");
-                    // console.log(res.data.result);
+            // axios
+            //     .post(
+            //         "/get_round2_all_data",
+            //         { eventID: "algo2025" }, //admin: "ohyes"
+            //         { headers: { Authorization: `${currentUser.accessToken}` } }
+            //     )
+            //     .then((res) => {
+                    console.log("%cGetting round 2 Data", "color: green");
                     // console.log(res.data);
-                    // day1Results.setValue(res.data.dayWiseData.Day1);
-                    // console.log("Set Day 1 value");
+                    day1Results.setValue(algo25Round2['Day1']);
+                    console.log("Set Day 1 value");
 
-                    // console.log(day1Results)
+                    console.log(day1Results)
                     // console.log(day1Results.value)
                     // console.log(day1Results.value.length)
 
-                    // day2Results.setValue(res.data.dayWiseData.Day2);
+                    day2Results.setValue(algo25Round2['Day2']);
                     // day3Results.setValue(res.data.dayWiseData.Day3);
                     // day4Results.setValue(res.data.dayWiseData.Day4);
 
                     // XLS FILE
-                    round2Results.setValue(res.data.result);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+                    round2Results.setValue(algo25Round2);
+                // })
+                // .catch((err) => {
+                //     console.log(err);
+                // });
         }
     }, [currentUser]);
 
@@ -412,40 +411,9 @@ export default function DashboardResults(props) {
             </div>
             <div className="splitter"></div> */}
 
-            {/* <div className="title">Round 2 - Seminar</div>
-            <div className="round2Best"> */}
-                {/* {Object.keys(round2Best).map((key) => (
-                    <>
-                    
-                        <div className="day" key={key}>
-                            <div className="dayTitle">{key}</div>
-                            <div className="toppers">
-                                {round2Best[key]["top3"].map((student, index) => (
-                                    <span className="student" key={student.regNo}>
-                                        <span className="position">#{index+1}</span>
-                                        <div className="nameAndRegNo">
-                                            <span className="name">{student.name}</span>
-                                            <span className="regNo">{student.regNo}</span> 
-                                        </div>
-                                    </span>
-                                ))}
-                            </div>
-                            
-                        </div>
-                        
-                        {
-                            (round2Best[key]["results"].length > 0) ? (
-                                <>
-                                    <CustomTable headers={["rank", "regNo", "explanation", "complexity", "realtime", "viva", "overallMarks"]} rows={round2Best[key]["results"]} />
-                                </>
-                            ) : (
-                                <></>
-                            )
-                        }
-                    </>
-                ))} */}
-
-                {/* {round2Results.value.length > 0 ? (
+            <div className="title">Round 2 - Seminar</div>
+            <div className="round2Best">
+                {round2Results.value.length > 0 ? (
                     <CustomTable
                         headers={[
                             "rank",
@@ -461,9 +429,9 @@ export default function DashboardResults(props) {
                 ) : (
                     <></>
                 )}
-            </div> */}
+            </div>
 
-            {/* <div className="splitter"></div> */}
+            <div className="splitter"></div>
 
             <div className="title">Round 1 - Quiz</div>
             <CustomTable
@@ -478,19 +446,25 @@ export default function DashboardResults(props) {
                 rows={algo25Top}
             />
 
-            {/* <div className="splitter"></div> */}
+            <div className="splitter"></div>
 
-            {/* <div className="title">
+            <div className="title">
+                Round 3 - Q&A <IoIosLock size={"25px"} />
+            </div>
+
+            <div className="splitter"></div>
+
+            <div className="title">
                 Round 4 - Debugging <IoIosLock size={"25px"} />
-            </div> */}
+            </div>
 
-            {/* <div className="splitter"></div>
+            <div className="splitter"></div>
 
             <div className="title round5">
                 Round 5 - Coding <IoIosLock size={"25px"} />
-            </div> */}
+            </div>
 
-            {/* <div className="splitter"></div> */}
+            <div className="splitter"></div>
         </div>
     );
 }

@@ -64,7 +64,7 @@ export default function CustomTable(props) {
             filteredRows.setValue(props.rows.slice(startIndex, stopIndex));
         }
         else {
-            filteredRows.setValue( props.rows.filter((row) => row.regNo.includes(debouncedValue) ) )
+            filteredRows.setValue( props.rows.filter((row) => String(row['regNo']).includes(debouncedValue) ) )
         }
     }, [debouncedValue])
 
