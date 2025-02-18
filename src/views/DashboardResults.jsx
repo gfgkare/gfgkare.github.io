@@ -424,7 +424,7 @@ export default function DashboardResults(props) {
                             "viva",
                             "overallMarks",
                         ]}
-                        rows={round2Results.value}
+                        rows={round2Results.value.sort((a, b) => b.overallMarks - a.overallMarks)}
                     />
                 ) : (
                     <></>
