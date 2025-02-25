@@ -346,22 +346,26 @@ export default function DynamicEventPage() {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="row">
-                                    <div className="registerPanelItem">
-                                        <div className="icon">
-                                            <TfiMoney />
-                                        </div>
-                                        <div className="info">
-                                            <div className="heading">
-                                                Entry Fee
+                                
+                                {
+                                    (eventData && eventData.entryFee) && (
+                                        <div className="row">
+                                            <div className="registerPanelItem">
+                                                <div className="icon">
+                                                    <TfiMoney />
+                                                </div>
+                                                <div className="info">
+                                                    <div className="heading">
+                                                        Entry Fee
+                                                    </div>
+                                                    <div className="content">
+                                                        { eventData.entryFee }
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div className="content">
-                                                { eventData ? eventData.entryFee : "-" }
-                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    )
+                                }
 
                                 {
                                     (eventData && eventData.groupLink) && (
