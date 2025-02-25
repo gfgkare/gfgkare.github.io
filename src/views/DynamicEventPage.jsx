@@ -3,7 +3,7 @@ import eventCoverImage from "../assets/events_cover.jpeg";
 
 // -----------------------------------
 
-import { FaCalendarAlt, FaExternalLinkAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaExternalLinkAlt, FaWhatsapp } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { BsFillPersonFill } from "react-icons/bs";
 import {
@@ -372,7 +372,7 @@ export default function DynamicEventPage() {
                                         <div className="row">
                                             <div className="registerPanelItem">
                                                 <div className="icon">
-                                                    <TfiMoney />
+                                                    <FaWhatsapp />
                                                 </div>
                                                 <div className="info">
                                                     <div className="heading">
