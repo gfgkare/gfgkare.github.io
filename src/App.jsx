@@ -106,8 +106,6 @@ export default function App() {
                         <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
 
                         <Route path="/certificates/:eventName/:certificateID" element={<CertificateViewer />}></Route>
-                        <Route path="/aptcode" element={ <ProjectExpo /> }></Route>
-
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
