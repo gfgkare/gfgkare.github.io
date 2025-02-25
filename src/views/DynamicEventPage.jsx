@@ -3,7 +3,7 @@ import eventCoverImage from "../assets/events_cover.jpeg";
 
 // -----------------------------------
 
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaExternalLinkAlt } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { BsFillPersonFill } from "react-icons/bs";
 import {
@@ -32,7 +32,7 @@ import CountdownTimer from "react-component-countdown-timer";
 import "react-component-countdown-timer/lib/styles.css";
 
 import "../styles/EventRegister.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const env = import.meta.env;
 
@@ -270,7 +270,7 @@ export default function DynamicEventPage() {
                                                 /> // if in progress, show loading btn
                                             ) : eventRegisterStatus ===
                                             "not_registered" ? ( // else, if not registered show reg btn
-                                                "Register!"
+                                                <> Register! <FaExternalLinkAlt size={"10px"} /> </>
                                             ) : (
                                                 // else, if registered show regd btn
                                                 <>
@@ -357,11 +357,31 @@ export default function DynamicEventPage() {
                                                 Entry Fee
                                             </div>
                                             <div className="content">
-                                                Free
+                                                { eventData ? eventData.entryFee : "-" }
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                {
+                                    (eventData && eventData.groupLink) && (
+                                        <div className="row">
+                                            <div className="registerPanelItem">
+                                                <div className="icon">
+                                                    <TfiMoney />
+                                                </div>
+                                                <div className="info">
+                                                    <div className="heading">
+                                                        WhatsApp Group
+                                                    </div>
+                                                    <Link to={eventData?.groupLink} className="content">
+                                                        Join here.
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
 
                                 {/* <div className="row">
                                     <button>Register!</button>
@@ -381,7 +401,7 @@ export default function DynamicEventPage() {
                                 Hurry up and secure your spot before registration closes!
                             </div>
                             <div className="registerBtnContainer">
-                                {USER_PRESENT() ? (
+                                {(true) ? (
                                     eventRegisteringInProgress ? (
                                         <div className="registerBtn">
                                             Registering...
