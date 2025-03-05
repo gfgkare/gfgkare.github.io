@@ -101,12 +101,11 @@ export default function App() {
        
                         {/* EVENTS */}
                         {/* <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route> */}
-                        <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route>
+                        {/* <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route> */}
 
                         <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
 
                         <Route path="/certificates/:eventName/:certificateID" element={<CertificateViewer />}></Route>
-
                         
                         {/* PAST EVENTS */}
                         {/* <Route path="/events/codeathon" element={<NewEventRegister />}></Route> */}
