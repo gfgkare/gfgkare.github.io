@@ -97,7 +97,9 @@ const algo25Top =
     { "used7DigitID": 99230041140, "name": "MOHAMMED ASLAM S 2023-CSE", "regNo": "99230041140", "section1": "1.25", "section2": "4", "section3": "10", "overallMarks": "15.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041262, "name": "MOHAMED RASHED N 2022-CSE", "regNo": "99220041262", "section1": "5", "section2": "1.25", "section3": "-5", "overallMarks": "1.25", "completionTime": "N/A" },
     { "used7DigitID": 99220041382, "name": "SURENDAR R 2022-CSE", "regNo": "99220041382", "section1": "2.5", "section2": "5", "section3": "5", "overallMarks": "12.5", "completionTime": "N/A" },
-    { "used7DigitID": 99220041365, "name": "SHANAPAR NISHA A 2022-CSE", "regNo": "99220041365", "section1": "5", "section2": "-1.25", "section3": "-5", "overallMarks": "-1.5", "completionTime": "N/A" }
+    { "used7DigitID": 99220041365, "name": "SHANAPAR NISHA A 2022-CSE", "regNo": "99220041365", "section1": "5", "section2": "-1.25", "section3": "-5", "overallMarks": "-1.25", "completionTime": "N/A" },
+    { "used7DigitID": 99220041638, "name": "RANJANI S 2022-CSE", "regNo": "99220041638", "section1": "5", "section2": "2.5", "section3": "2.5", "overallMarks": "10", "completionTime": "N/A" },
+    { "used7DigitID": 99220041266, "name": "MUDHASSIR HASAN O K 2022-CSE", "regNo": "99220041266", "section1": "2.5", "section2": "5.25", "section3": "5", "overallMarks": "12.75", "completionTime": "N/A" }
 ]
 
 
