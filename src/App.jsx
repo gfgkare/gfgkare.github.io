@@ -37,6 +37,8 @@ import CodeClash from "./views/HardcodedEventPages/CodeClash";
 import CodeHouse from "./views/CodeHouse";
 import Code from "./views/Code";
 
+import G2Hack from "./views/HardcodedEventPages/G2Hack/G2Hack";
+
 import ProjectExpo from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpo";
 import ProjectExpoRegister from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistration";
 import StudentEnrollment from "./views/HardcodedEventPages/StudentEnrollment24-25"; 
@@ -115,6 +117,7 @@ export default function App() {
                         {/* <Route path="/enrollment/form" element={<Student_enroll_form />}></Route> */}
                         {/* <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route> */}
                         <Route path="/events/prajnotsavah" element={ <ProjectExpo /> }></Route>
+                        <Route path="/g2hack" element={ <G2Hack /> }></Route>
                         {/* <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route> */}
 
 
