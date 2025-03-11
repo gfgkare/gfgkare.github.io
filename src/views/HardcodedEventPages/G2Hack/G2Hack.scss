@@ -69,10 +69,11 @@ $text: #252525;
         }
 
         .bigText {
-            font-size: x-large;
+            font-size: clamp(2.5rem, 3vw, 6rem);
             text-align: center;
             font-weight: 800;
-            width: 100%;
+            width: 100vw;
+            text-wrap: break-word;
             margin: 1rem 0 .5rem 0;
             font-family: "Unbounded";
             overflow-x: hidden;
@@ -594,7 +595,7 @@ $text: #252525;
 
             .FourQuestionSection {
                 z-index: 2;
-                margin: 5rem 0;
+                margin: 2rem 0;
                 padding: 2rem 0;
                 max-height: max-content;
 
@@ -685,11 +686,12 @@ $text: #252525;
                     align-items: center;
 
                     .bigText {
-                        font-size: 5rem;
+                        font-size: clamp(3rem, 12vw, 6rem);
+                        text-align: center;
+                        width: 100vw;
+                        text-wrap: break-word;
                         font-family: "Source Sans 3", sans-serif;
                         font-weight: 900;
-                        // color: rgb(141, 227, 141);
-                        // color: black;
                         color: rgb(23, 23, 23);
                         letter-spacing: -2px;
                         background: linear-gradient(to bottom, black 40%, rgb(70, 70, 70));
@@ -759,14 +761,19 @@ $text: #252525;
                     max-height: max-content;
 
                     .normalSectionContent {
-                        margin-bottom: 1rem;
+                        max-width: 100vw;
+                        margin: 0 auto 1rem auto;
+                        padding: 0 1rem;
                     }
 
                     &.why, &.who {
 
                         .title {
-                            margin: 10rem 0 0 0;
-                            font-size: 2.25rem;
+                            margin: 6rem auto 0 auto;
+                            padding: 0 .5rem;
+                            font-size: clamp(2rem, 5vw, 3rem);
+                            text-wrap: break-word;
+                            max-width: 100vw;
                             text-align: center;
                             font-weight: 800;
                         }

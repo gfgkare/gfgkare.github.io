@@ -368,15 +368,14 @@ export default function G2Hack() {
                         <Slide direction="right" triggerOnce>
                             <div className="normalSectionText who">
                                 <div className="normalSectionContent">
-                                    The <span className="color green">GFG KARE Student Chapter</span>, proudly <span className="color green">affiliated with GeeksforGeeks</span>, is a vibrant community of tech enthusiasts and future innovators at Kalasalingam Academy of Research and Education.
+                                    We are two of the most active tech clubs in Kalasalingam University - <span className="gfg">GeeksForGeeks KARE</span> and <span className="gdg">GDG OnCampus KARE</span>.
                                 </div>
                                 <div className="normalSectionContent">
                                     <span className="color red">We organize workshops, coding competitions, hackathons, and guest lectures.</span>
                                 </div>
-                                <div className="normalSectionContent">
-                                    Join us in our journey to push the boundaries of what's possible in the world of technology. Know more about our initiations at <a href="https://linktr.ee/gfg_kare" target="_blank">linktr.ee/gfg_kare</a>
-                                </div>
                                 
+                                {/* COIN */}
+
                                 <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
 
                                 <RollingGallery autoplay={true} pauseOnHover={true} />
@@ -523,7 +522,7 @@ export default function G2Hack() {
                 </div>
                 
                 
-                <Fade>
+                {/* <Fade>
                     <div className="actionButtonContainer">
                             <button className="actionButton" onClick={() => themesSection?.current.scrollIntoView()}>
                             <BsChevronDoubleDown size={"40px"} />
@@ -531,8 +530,8 @@ export default function G2Hack() {
                         </button>
                     </div>    
                 </Fade>
-                        
-
+                         */}
+{/* 
                 <div className="FourQuestionSection" id="themes" ref={themesSection} style={{ scrollMargin: "100px" }}>
                     <Fade cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
@@ -615,7 +614,7 @@ export default function G2Hack() {
                                     </div>
                                 </div>
                             </Fade>
-                        </div>
+                        </div> */}
 
                         {/* <div className="FourQuestionSection liveCount">
                             <Fade cascade damping={.1} triggerOnce>

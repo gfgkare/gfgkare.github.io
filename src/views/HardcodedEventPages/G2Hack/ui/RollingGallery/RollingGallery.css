@@ -81,12 +81,17 @@
   }
   
   @media (max-width: 768px) {
+
+    .rolling-gallery-content {
+        perspective: 400px;
+    }
+
     .rolling-gallery-item {
       padding: 6%;
     }
     .rolling-gallery-img {
       height: 100px;
-      width: 220px;
+      width: 100px;
     }
   }
   
