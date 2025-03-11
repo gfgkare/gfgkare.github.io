@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 
 import gfg from "@/assets/gfg.png";
@@ -9,6 +9,8 @@ import "./Coin.css";
 
 const RotatingCoin = () => {
   const containerRef = useRef(null);
+  
+  const [rotationSpeed, setRotationSpeed] = useState(0.03)
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -156,7 +158,7 @@ const RotatingCoin = () => {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      coin.rotation.y += 0.03;
+      coin.rotation.y += rotationSpeed;
       coin.rotation.x = Math.PI / 20;
 
       renderer.render(scene, camera);
@@ -174,7 +176,14 @@ const RotatingCoin = () => {
   }, []);
 
   return (
-    <div className="coinWrapper">
+    <div 
+      className="coinWrapper"
+      onMouseEnter={() => {
+        console.log("mouse enter");
+        setRotationSpeed(0.001)
+      }}
+      onMouseLeave={() => setRotationSpeed(0.03)}
+    >
       <div
         ref={containerRef}
         className="coin"

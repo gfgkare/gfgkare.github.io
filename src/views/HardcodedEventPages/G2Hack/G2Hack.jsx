@@ -495,20 +495,20 @@ export default function G2Hack() {
                                     <div className="prizeCard first">
                                         <div className="circle"></div>
                                         <div className="position">WINNER</div>
-                                        <div className="prize">₹ 10,000</div>
-                                        <div className="and">+ certificate and GFG swags!</div>
+                                        <div className="prize">₹ 7,000</div>
+                                        <div className="and">+ certificate and swags!</div>
                                     </div>
                                     <div className="prizeCard second">
                                         <div className="circle"></div>
                                         <div className="position">1ST RUNNER UP</div>
-                                        <div className="prize">₹ 7,000</div>
-                                        <div className="and">+ certificate and GFG swags!</div>
+                                        <div className="prize">₹ 5,000</div>
+                                        <div className="and">+ certificate and swags!</div>
                                     </div>
                                     <div className="prizeCard third">
                                         <div className="circle"></div>
                                         <div className="position">2ND RUNNER UP</div>
-                                        <div className="prize">₹ 5,000</div>
-                                        <div className="and">+ certificate and GFG swags!</div>
+                                        <div className="prize">₹ 3,000</div>
+                                        <div className="and">+ certificate and swags!</div>
                                     </div>
                                     <div className="prizeCard participation">
                                         <div className="circle"></div>
@@ -520,7 +520,58 @@ export default function G2Hack() {
                             </div>
                         </div>
                     </Fade>
-                    
+                </div>
+
+                <div className="FourQuestionSection prizes">
+                    <Fade className="fadePrizes" cascade damping={.1} triggerOnce>
+                        <div className="sectionTitleText">
+                            <div className="bigText orange">
+                                BENEFITS
+                            </div>
+                        </div>
+                        <div className="normalSectionText prizes">
+                            <div className="prizesGrid">
+                                <Slide className="slidePrizeCard" triggerOnce>
+                                    <div className="prizeCard first">
+                                        <div className="circle"></div>
+                                        <div className="position">EE Credits</div>
+                                        {/* <div className="prize">₹ 7,000</div>
+                                        <div className="and">+ certificate and swags!</div> */}
+                                    </div>
+                                    <div className="prizeCard second">
+                                        <div className="circle"></div>
+                                        <div className="position">Internships</div>
+                                        {/* <div className="prize">₹ 5,000</div>
+                                        <div className="and">+ certificate and swags!</div> */}
+                                    </div>
+                                    <div className="prizeCard third">
+                                        <div className="circle"></div>
+                                        <div className="position">Networking</div>
+                                        {/* <div className="prize">₹ 3,000</div>
+                                        <div className="and">+ certificate and swags!</div> */}
+                                    </div>
+                                    <div className="prizeCard participation">
+                                        <div className="circle"></div>
+                                        <div className="position">Swags</div>
+                                        {/* <div className="prize"></div>
+                                        <div className="and">Certificate</div> */}
+                                    </div>
+                                    <div className="prizeCard participation">
+                                        <div className="circle"></div>
+                                        <div className="position">Sponsor Perks</div>
+                                        {/* <div className="prize"></div>
+                                        <div className="and">Certificate</div> */}
+                                    </div>
+                                    <div className="prizeCard participation">
+                                        <div className="circle"></div>
+                                        <div className="position">Cash</div>
+                                        {/* <div className="prize"></div>
+                                        <div className="and">Certificate</div> */}
+                                    </div>
+                                </Slide>
+                            </div>
+                        </div>
+                    </Fade>
                 </div>
                 
                 
@@ -676,12 +727,12 @@ export default function G2Hack() {
                                 </div>
 
                                 <div className="normalSectionText register">
-                                    Ready for the big event? Make sure to fill the details carefully and pay the registration fee to complete the registration process. Once you have registered, you will receive a confirmation email with further instructions. We can't wait to see your project!
+                                    Ready for the big event? Make sure to fill the details carefully and pay the registration fee to complete the registration process. Once you have registered, you will receive a confirmation email with further instructions.
 
                                     <div className="note">
                                         <span className="color red">NOTE:</span> Please ensure the filled details are correct as they will be used for further communication.
-                                        The details will also be verified at the time of the offline presentation. 
-                                        <span className="color purple"> Use your college email address</span> if available.
+                                        The details will also be verified at the time of the hackathon. 
+                                        <span className="color purple"> Use your college email address only.</span>
                                     </div>
 
                                     <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
@@ -712,7 +763,14 @@ export default function G2Hack() {
                                                     <div className="sponsorName">GeeksForGeeks</div>
                                                 </div>
                                             </CLink>
-                                            
+                                            <CLink to={"https://gen.xyz"} target={"_blank"}>
+                                                <div className="sponsorCard">
+                                                    <div className="sponsorLogo">
+                                                        <img src={gfgLogo} />
+                                                    </div>
+                                                    <div className="sponsorName">XYZ Domains</div>
+                                                </div>
+                                            </CLink>
                                         </Slide>
                                     </div>
                                 </div>
@@ -735,11 +793,7 @@ export default function G2Hack() {
                             <div className="contact">
                                 <div className="title">For any queries, feel free to contact</div>
                                 <div className="numbers">
-                                    <span>Ashok Reddy Cheluri - <a href="tel:+91 95158 22637">95158 22637</a> </span>
                                     <span>Sabari S - <a href="tel:+91 87546 05197">+91 87546 05197</a> </span>
-                                    <span>Navuluri Balaji - <a href="tel:+91 93468 30134">93468 30134</a> </span>
-                                    <span>Mallavarapu Vaishnavi - <a href="tel:+91 90590 93929">90590 93929</a> </span>
-                                    <span>Yaramasu Sravani - <a href="tel:+91 93982 36858">93982 36858</a> </span>
                                 </div>
                                 <div className="email">
                                     Or drop a mail to <a href="mailto:gfgkarestudentchapter@gmail.com">gfgkarestudentchapter@gmail.com</a>

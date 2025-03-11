@@ -55,7 +55,7 @@
   }
 
   .rolling-gallery-item::before {
-    content: attr(data-title);
+    /* content: attr(data-title); */
     position: absolute;
     width: 100%;
     height: max-content;
