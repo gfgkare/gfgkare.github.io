@@ -243,7 +243,7 @@ export default function G2Hack() {
                                         animate={{ filter: "blur(0px)", opacity: 1, y: "0" }}
                                         transition={{ duration: .35, delay: 3 }}
                                     >
-                                        G2HACKFest
+                                        G2HackFest
                                     </motion.span>
                                 </div>
                             </div>
