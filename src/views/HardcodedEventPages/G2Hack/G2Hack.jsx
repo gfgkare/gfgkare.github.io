@@ -18,6 +18,7 @@ import ShinyText from "./ui/ShinyText/ShinyText";
 import RotatingText from "./ui/RotatingText/RotatingText";
 import FollowCursor from "./ui/FollowCursor/FollowCursor";
 import RollingGallery from "./ui/RollingGallery/RollingGallery";
+import Coin from "./ui/Coin/Coin";
 
 import kluLogo from "@/assets/klu.png";
 import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
@@ -375,6 +376,7 @@ export default function G2Hack() {
                                 </div>
                                 
                                 {/* COIN */}
+                                <Coin />
 
                                 <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
 

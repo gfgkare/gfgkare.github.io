@@ -45,6 +45,7 @@
     "react-tooltip": "^5.25.1",
     "react-transition-group": "^4.4.5",
     "sass": "^1.63.6",
+    "three": "^0.174.0",
     "use-debounce": "^9.0.4"
   },
   "devDependencies": {
