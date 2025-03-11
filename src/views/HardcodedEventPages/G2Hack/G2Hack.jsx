@@ -16,6 +16,8 @@ import { LuLoader } from "react-icons/lu";
 import Squares from "./ui/Squares/Squares";
 import ScrollVelocity from "./ui/ScrollVelocity/ScrollVelocity";
 import ShinyText from "./ui/ShinyText/ShinyText";
+import RotatingText from "./ui/RotatingText/RotatingText";
+import FollowCursor from "./ui/FollowCursor/FollowCursor";
 
 import kluLogo from "@/assets/klu.png";
 import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
@@ -311,7 +313,7 @@ export default function G2Hack() {
                             className="custom-scroll-text"
                         />
 
-                       <div className="comingSoon">
+                       {/* <div className="comingSoon">
                             <div>Join the elite. Learn, network, and compete with top minds.</div>
                             <div>Interested? Click below and send <b>G2</b> to be the first to receive exclusive event details.</div>
 
@@ -323,22 +325,48 @@ export default function G2Hack() {
                                     Add to calendar
                                 </Link>
                             </div>
-                       </div>
+                       </div> */}
 
-                {/* <div className="FourQuestionSection" id="detailed" ref={whatSection}  style={{ scrollMargin: "100px" }}>
+                <div className="FourQuestionSection" id="detailed" ref={whatSection}  style={{ scrollMargin: "100px" }}>
                     <Fade delay={500} cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText red">
-                                WHAT
+                                Why Join?
                             </div>
-                            <div className="subText">
+                            {/* <div className="subText">
                                 IS PRAJÑOTSAVAH?
-                            </div>
+                            </div> */}
                         </div>
                         <Slide triggerOnce>
                             <div className="normalSectionText">
-                                Prajñotsavah is an inter-college project exhibition event proudly hosted by GeeksForGeeks KARE Student Chapter. We invite you to <span className="color purple">showcase your innovative project and compete for the top prize.</span> Choose from a selection of captivating themes, develop a project, and present it to our esteemed panel. Impress us with your project's uniqueness, practical usability, and real-life application. The most exceptional teams will walk away with magnificent grand prizes.
+                                <span className="color red">G2HACKFEST</span> is a hackathon that brings together the brightest minds of Kalasalingam University to solve real-world problems. Participants will have the opportunity to learn from industry experts, network with like-minded individuals, and compete for grand prizes. With a prize pool of over Rs. 15,000. Join now to learn, grow, and win big.
                             </div>
+                            
+                            <div className="rotatingText">
+                                You get
+                                <RotatingText
+                                    texts={['Experience', 'Networking', 'Swags', 'Fun++', 'Prizes']}
+                                    staggerFrom={"last"}
+                                    initial={{ y: "100%" }}
+                                    animate={{ y: 0 }}
+                                    exit={{ y: "-120%" }}
+                                    staggerDuration={0.025}
+                                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                                    rotationInterval={3000}
+                                />
+                                <FollowCursor
+                                    parentRef={whatSection}
+                                    offsetX={20}
+                                    cardWidth='200px'
+                                    rotationFactor={40}
+                                    enableTilt={true}
+                                    animationConfig={{ mass: 5, tension: 350, friction: 40 }}
+                                    wheelConfig={{ mass: 1, tension: 200, friction: 30 }}
+                                    >
+                                    {/* Other content can go in here */}
+                                </FollowCursor>
+                            </div>
+                           
                         </Slide>
                         
                     </Fade>
@@ -777,7 +805,7 @@ export default function G2Hack() {
                             </div>
                             
                         </div>
-                         */}
+                        
                     </div>
 
                     <Footer />

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 $background: #F5F7F8;
 $text: #252525;
@@ -296,7 +297,7 @@ $text: #252525;
 
         .color {
             &.green {
-                color: rgb(141, 227, 141);
+                color: #379777;
             }
 
             &.blue {
@@ -308,7 +309,7 @@ $text: #252525;
             }
 
             &.red {
-                color: rgb(239, 97, 97);
+                color: rgb(210, 71, 71);
             }
 
             &.purple {
@@ -531,7 +532,9 @@ $text: #252525;
             }
 
             .comingSoon {
-                font-family: "Unbounded";
+                font-family: "Asap", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
                 width: min(800px, 90%);
                 margin: 5rem auto 3rem auto;
                 padding: 1rem;
@@ -549,9 +552,11 @@ $text: #252525;
                         padding: .85rem 1.75rem .7rem 1.75rem;
                         border-radius: 5rem;
                         cursor: pointer;
-                        font-size: .95rem;
+                        font-size: 1rem;
                         font-weight: 400;
                         transition: all .3s ease;
+                        font-family: "Asap";
+                        font-weight: 500;
 
                         &.filled {
                             background-color: black;
@@ -564,12 +569,12 @@ $text: #252525;
                         }
 
                         &.outlined {
-                            background-color: transparent;
-                            border: 1px solid black;
+                            background-color: rgba(black, .12);
+                            // border: 1px solid black;
                             color: black;
 
                             &:hover {
-                                background-color: rgba(black, .1);
+                                background-color: rgba(black, .25);
                                 color: black !important;
                             }
                         }
@@ -671,14 +676,20 @@ $text: #252525;
                     align-items: center;
 
                     .bigText {
-                        font-size: 3.5rem;
-                        font-family: "Unbounded", sans-serif;
-                        font-weight: bold;
-                        color: rgb(141, 227, 141);
+                        font-size: 5rem;
+                        font-family: "Source Sans 3", sans-serif;
+                        font-weight: 900;
+                        // color: rgb(141, 227, 141);
+                        // color: black;
+                        color: rgb(23, 23, 23);
+                        letter-spacing: -2px;
+                        background: linear-gradient(to bottom, black 40%, rgb(70, 70, 70));
+                        -webkit-text-fill-color: transparent;
+                        -webkit-background-clip: text;
 
-                        &.red {
-                            color: rgb(239, 97, 97);
-                        }
+                        // &.red {
+                        //     color: rgb(160, 43, 43);
+                        // }
 
                         &.blue {
                             color: rgb(98, 98, 255);
@@ -711,22 +722,36 @@ $text: #252525;
                     }
                 }
 
+                
+                .rotatingText {
+                    max-width: max-content;
+                    width: 100vw;
+                    margin: 3rem auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    font-size: 4rem;
+                    font-family: "Asap";
+                    font-weight: 900;
+                }
+
                 .normalSectionText {
-                    opacity: 0.95;
                     padding: 0 2rem;
-                    margin: 5rem auto 0 auto;
+                    margin: 4rem auto 0 auto;
                     text-align: center;
                     width: min(1100px, 80%);
-                    font-size: 1.2rem;
-                    font-family: "Unbounded", serif;
+                    font-family: "Asap", serif;
+                    font-weight: 600;
                     line-height: 1.5;
+                    font-size: 1.5rem;
                     max-height: max-content;
 
                     .normalSectionContent {
                         margin-bottom: 1rem;
                     }
-
-
 
                     &.why, &.who {
 

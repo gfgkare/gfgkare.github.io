@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.645.0",
+    "@react-spring/web": "^9.7.5",
     "ace-builds": "^1.32.6",
     "axios": "^1.5.1",
     "canvas-confetti": "^1.9.3",
