@@ -192,7 +192,7 @@ const FollowCursor = ({
     <div className={`follow-cursor-container ${className}`} ref={containerRef}>
       <animated.div
         ref={domTarget}
-        className="card"
+        className="followCursorCard"
         style={{
           width: cardWidth,
           transform: `perspective(${perspective})`,

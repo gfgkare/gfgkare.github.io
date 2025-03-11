@@ -1,7 +1,7 @@
 import "./G2Hack.scss";
 
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { RiGroupFill, RiErrorWarningLine } from "react-icons/ri";
@@ -10,14 +10,14 @@ import { IoTicket } from "react-icons/io5";
 import { GoPlus } from "react-icons/go";
 import { GoClock } from "react-icons/go";
 import { CiLocationOn } from "react-icons/ci";
-import { FaDiamond, FaRocket, FaRegClock } from "react-icons/fa6";
-import { LuLoader } from "react-icons/lu";
+import { FaRegClock } from "react-icons/fa6";
 
 import Squares from "./ui/Squares/Squares";
 import ScrollVelocity from "./ui/ScrollVelocity/ScrollVelocity";
 import ShinyText from "./ui/ShinyText/ShinyText";
 import RotatingText from "./ui/RotatingText/RotatingText";
 import FollowCursor from "./ui/FollowCursor/FollowCursor";
+import RollingGallery from "./ui/RollingGallery/RollingGallery";
 
 import kluLogo from "@/assets/klu.png";
 import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
@@ -109,12 +109,12 @@ export default function G2Hack() {
         const query = new URLSearchParams(location.search);
         console.log(`Referred by '${query.get("ref")}'`)
 
-        const timer = setInterval(() => {
-           refreshLiveCount();
-        }, 15000);
-        console.log("Set interval for live count");
+        // const timer = setInterval(() => {
+        //    refreshLiveCount();
+        // }, 15000);
+        // console.log("Set interval for live count");
         
-        return () => clearInterval(timer);
+        // return () => clearInterval(timer);
     }, [])
 
     return (
@@ -214,99 +214,81 @@ export default function G2Hack() {
                 
                 <div className="g2hack">
                     <div className="content">
-                        <div className="heroDiv">
-                            <motion.div
-                                className="clubs"
-                                initial={{ y: "450%", x: "1rem" }}
-                                animate={{ y: "0", x: "1rem" }}
-                                transition={{ duration: .25, delay: 2 }}
-                            >
-                                <div className="gfgKarePresents">
-                                        <Fade className="awesomeFade" triggerOnce>
-                                            <AttentionSeeker className="awesomeFlash" effect="flash" cascade damping={0.1}  delay={1000}>
-                                                <span className="title">
-                                                    <span className="gfg">GFG KARE</span>
-                                                    X
-                                                    <span className="gdg">GDG KARE</span>
-                                                </span>
-                                                {/* <span className="presents">
-                                                    PRESENTS
-                                                </span> */}
-                                            </AttentionSeeker>
-                                        </Fade>
-                                </div>
-                            </motion.div>
-                                                
-                            <div className="g2hackText">
-                                <motion.span 
-                                    className={"name"}
-                                    initial={{ filter: "blur(10px)", opacity: 0, y: "10%" }}
-                                    animate={{ filter: "blur(0px)", opacity: 1, y: "0" }}
-                                    transition={{ duration: .35, delay: 3 }}
-                                >
-                                    G2HACK
-                                </motion.span>
-                                {/* <motion.span
-                                    className={"year"}
-                                    initial={{ x: "+200%" }} 
-                                    animate={{ x: "72%" }} 
+                        
+                        <div className="landingSection">
+                            <div className="heroDiv">
+                                <motion.div
+                                    className="clubs"
+                                    initial={{ y: "450%", x: "1rem" }}
+                                    animate={{ y: "0", x: "1rem" }}
                                     transition={{ duration: .25, delay: 2 }}
                                 >
-                                    2K24
-                                </motion.span> */}
+                                    <div className="gfgKarePresents">
+                                            <Fade className="awesomeFade" triggerOnce>
+                                                <AttentionSeeker className="awesomeFlash" effect="flash" cascade damping={0.1}  delay={1000}>
+                                                    <span className="title">
+                                                        <span className="gfg">GFG KARE</span>
+                                                        X
+                                                        <span className="gdg">GDG KARE</span>
+                                                    </span>
+                                                </AttentionSeeker>
+                                            </Fade>
+                                    </div>
+                                </motion.div>
+                                                    
+                                <div className="g2hackText">
+                                    <motion.span 
+                                        className={"name"}
+                                        initial={{ filter: "blur(10px)", opacity: 0, y: "10%" }}
+                                        animate={{ filter: "blur(0px)", opacity: 1, y: "0" }}
+                                        transition={{ duration: .35, delay: 3 }}
+                                    >
+                                        G2HACKFest
+                                    </motion.span>
+                                </div>
                             </div>
+                            
+                            <Fade delay={4000} triggerOnce cascade damping={0.85}>
+                                <div className="dateAndTime">
+                                    <div className="row">
+                                        <div className="icon"><GoClock size={"20px"} /></div>
+                                        <div className="text">Mar 29, 2025 5PM</div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="icon"><CiLocationOn size={"20px"} /></div>
+                                        <div className="text">Kalasalingam University</div>
+                                    </div>
+                                </div>
+                            </Fade>
+                            
+                            <Fade delay={5000} triggerOnce cascade damping={0.5}>
+                                <div className="timerContainer">
+                                    <CountdownTimer
+                                        count={parseInt((mar29 - (new Date().getTime()) / 1000))}
+                                        border
+                                        showTitle
+                                        size={(window.innerWidth > 900) ? 22 : 16}
+                                    />
+                                </div>
+                            </Fade>
+                            
+                            <Fade delay={6000}>
+                                <div className="actionButtonContainer">
+                                    <AttentionSeeker effect="tada" delay={6000}>
+                                            <button className="actionButton" onClick={() => {
+                                                // whatSection?.current.scrollIntoView()
+                                            }}>
+                                                <BsChevronDoubleDown size={"40px"} />
+                                            </button>
+                                    </AttentionSeeker>
+                                </div>
+                            </Fade>
+
                         </div>
-
-                        {/* <Fade delay={3000} triggerOnce damping={0.5}>
-                            <span className="quote">A NEXT LEVEL PROJECT EXPO</span>
-                        </Fade> */}
-                        
-                        <Fade delay={4000} triggerOnce cascade damping={0.85}>
-                            <div className="dateAndTime">
-                                <div className="row">
-                                    <div className="icon"><GoClock size={"20px"} /></div>
-                                    <div className="text">Mar 29, 2025 5PM</div>
-                                </div>
-                                <div className="row">
-                                    <div className="icon"><CiLocationOn size={"20px"} /></div>
-                                    <div className="text">Kalasalingam University</div>
-                                </div>
-                            </div>
-                        </Fade>
-                        
-                        <Fade delay={5000} triggerOnce cascade damping={0.5}>
-                            <div className="timerContainer">
-                                <CountdownTimer
-                                    count={parseInt((mar29 - (new Date().getTime()) / 1000))}
-                                    border
-                                    showTitle
-                                    size={(window.innerWidth > 900) ? 22 : 16}
-                                />
-                            </div>
-                        </Fade>
-
-                        {/* <Fade delay={5000} triggerOnce cascade damping={0.5}>
-                            <div className="closingSoon">
-                                Registrations are closed.
-                            </div>
-                        </Fade> */}
-                        
-                        <Fade delay={6000}>
-                            <div className="actionButtonContainer">
-                                <AttentionSeeker effect="tada" delay={6000}>
-                                        <button className="actionButton" onClick={() => {
-                                            whatSection?.current.scrollIntoView()
-                                        }}>
-                                            <BsChevronDoubleDown size={"40px"} />
-                                            LET'S GO!
-                                        </button>
-                                </AttentionSeeker>
-                            </div>
-                        </Fade>
                                         
                         <ScrollVelocity
                             texts={[
-                                'Are you ready? Are you ready?', 
+                                'Get ready! Get ready!', 
                                 <span>For a <span className="REAL">REAL</span> hackathon.</span>,
                             ]} 
                             velocity={70} 
@@ -345,7 +327,7 @@ export default function G2Hack() {
                             <div className="rotatingText">
                                 You get
                                 <RotatingText
-                                    texts={['Experience', 'Networking', 'Swags', 'Fun++', 'Prizes']}
+                                    texts={['Experience 🧠', 'Networking 🌐', 'Swags 👕', 'Fun++ 😁', 'Prizes 💰', 'Snacks 😋']}
                                     staggerFrom={"last"}
                                     initial={{ y: "100%" }}
                                     animate={{ y: 0 }}
@@ -363,7 +345,6 @@ export default function G2Hack() {
                                     animationConfig={{ mass: 5, tension: 350, friction: 40 }}
                                     wheelConfig={{ mass: 1, tension: 200, friction: 30 }}
                                     >
-                                    {/* Other content can go in here */}
                                 </FollowCursor>
                             </div>
                            
@@ -377,11 +358,11 @@ export default function G2Hack() {
                     <Fade cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText green">
-                                WHO
+                                WHO ARE WE?
                             </div>
-                            <div className="subText">
+                            {/* <div className="subText">
                                 ARE WE?
-                            </div>
+                            </div> */}
                         </div>
 
                         <Slide direction="right" triggerOnce>
@@ -398,43 +379,8 @@ export default function G2Hack() {
                                 
                                 <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
 
-                                <div className="pastEventsContainer">
-                                    <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geeksforgeeks-gfgkare-gfgkarestudentchapter-activity-7056933306713477120-wh3V/"}>
-                                        <div className="pastEvent">
-                                            Geeks Summer Carnival 
-                                            <div className="explore">
-                                                Visit
-                                            </div>
-                                        </div>
-                                    </a>
-                                    
-                                    <a target="_blank" href={"https://www.linkedin.com/posts/krishna-vineeth-12b780219_hello-everyone-i-am-very-excited-to-share-activity-6985549997480046592-_Yvy/"}>
-                                        <div className="pastEvent">
-                                            Java CodeFest '22
-                                            <div className="explore">
-                                                Visit
-                                            </div>
-                                        </div>
-                                    </a>
+                                <RollingGallery autoplay={true} pauseOnHover={true} />
 
-                                    <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_geekfest2k24-campaign-kare-activity-7227871557295951873-spSv/"}>
-                                        <div className="pastEvent">
-                                            GeekFest '24
-                                            <div className="explore">
-                                                Visit
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a target="_blank" href={"https://www.linkedin.com/posts/gfg-kare-student-chapter_algorithmist24-gfg-gfgkare-activity-7178819835282300930-4Jht/"}>
-                                        <div className="pastEvent">
-                                            Algorithmist '24
-                                            <div className="explore">
-                                                Visit
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
                             </div>
                         </Slide>
 
@@ -456,30 +402,30 @@ export default function G2Hack() {
                         <Slide direction="right" triggerOnce>
                             <div className="normalSectionText">
                                 <div className="normalSectionContent">
-                                    Prajñotsavah is <span className="color yellow">open to all engineering students</span>, irrespective of year and branch.
+                                    G2Hackfest is <span className="color yellow">open to all engineering students</span>, irrespective of year and branch.
                                 </div>
                                 <div className="normalSectionContent">
-                                    A team can have a <span className="color green">maximum of 4 members</span> and a <span className="color green">minimum of 2 members.</span>
+                                    A team can have <span className="color green">3 or 4 members.</span>
                                 </div>
                                 <div className="normalSectionContent">
-                                    Registration fee of Rs <span className="color red">500/- per team</span> should be paid to complete the registration process.
+                                    Registration fee of Rs <span className="color red">300/- per head</span> should be paid to complete the registration process.
                                 </div>
                             </div>
                         </Slide>
 
-                        <Fade delay={500}>
+                        {/* <Fade delay={500}>
                             <div className="closingSoon">
                                 We will be closing the registration form on Oct 20.
                                 Form a team and get the seat now!
                                 <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`} > {"Register >"} </CLink>
                             </div>
-                        </Fade>
+                        </Fade> */}
 
                     </Fade>
                 </div>
 
 
-                <div className="FourQuestionSection">
+                {/* <div className="FourQuestionSection">
                     <Fade cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText green">
@@ -507,12 +453,10 @@ export default function G2Hack() {
                                 </div>
                             </div>
                         </Slide>
-                        
                     </Fade>
-                    
-                </div>
+                </div> */}
 
-                <div className="FourQuestionSection">
+                {/* <div className="FourQuestionSection">
                     <Fade cascade damping={.1} triggerOnce>
                         <div className="sectionTitleText">
                             <div className="bigText yellow">
@@ -533,10 +477,8 @@ export default function G2Hack() {
                                 
                             </div>
                         </Slide>
-                        
                     </Fade>
-                    
-                </div>
+                </div> */}
 
 
                 <div className="FourQuestionSection prizes">
@@ -675,7 +617,7 @@ export default function G2Hack() {
                             </Fade>
                         </div>
 
-                        <div className="FourQuestionSection liveCount">
+                        {/* <div className="FourQuestionSection liveCount">
                             <Fade cascade damping={.1} triggerOnce>
                                 <div className="sectionTitleText">
                                     <div className="bigText magenta">
@@ -721,7 +663,7 @@ export default function G2Hack() {
                                     </div>
                                 </div>
                             </Fade>
-                        </div>
+                        </div> */}
 
 
                         <div className="FourQuestionSection" ref={registerSection} style={{ scrollMargin: "100px" }}>

@@ -1,4 +1,4 @@
-.card {
+.followCursorCard {
     position: absolute;
     z-index: 1;
     width: 180px;
@@ -14,7 +14,7 @@
     touch-action: none;
   }
   
-  .card::before {
+  .followCursorCard::before {
     content: 'Literally me during hackathons.';
     position: absolute;
     width: 100%;

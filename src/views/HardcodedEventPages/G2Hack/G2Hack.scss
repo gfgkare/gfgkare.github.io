@@ -297,7 +297,7 @@ $text: #252525;
 
         .color {
             &.green {
-                color: #379777;
+                color: #1f8865;
             }
 
             &.blue {
@@ -305,11 +305,11 @@ $text: #252525;
             }
 
             &.yellow {
-                color: rgb(242, 242, 110);
+                color: rgb(177, 177, 0);
             }
 
             &.red {
-                color: rgb(210, 71, 71);
+                color: rgb(197, 28, 28);
             }
 
             &.purple {
@@ -317,15 +317,15 @@ $text: #252525;
             }
 
             &.orange {
-                color: rgb(255, 165, 0);
+                color: rgb(219, 150, 22);
             }
 
             &.pink {
-                color: rgb(255, 105, 180);
+                color: rgb(202, 52, 127);
             }
 
             &.cyan {
-                color: rgb(0, 255, 255);
+                color: rgb(10, 176, 176);
             }
         }
 
@@ -338,198 +338,207 @@ $text: #252525;
             line-height: 1.2;
             height: max-content;
 
-            .heroDiv {
-                margin-top: 4.5rem;
-                margin-bottom: 1.5rem;
+            .landingSection {
+                width: 100%;
+                height: calc(100vh - 80px);
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
-                .gfgKarePresents {
-                    font-size: 1.5rem;
+                .heroDiv {
+                    margin-top: 4.5rem;
+                    margin-bottom: 1.5rem;
                     display: flex;
-                    gap: 1rem;
-
-                    .awesomeFade {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+    
+                    .gfgKarePresents {
+                        font-size: 1.5rem;
                         display: flex;
-                        gap: 0.5rem;
-                        justify-content: center;
-                        align-items: flex-end;
-                    }
-
-                    .title {
-                        font-family: "Unbounded", sans-serif;
-                        color: black;
-                        font-weight: bold;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: .75rem;
-                        font-size: 1.25rem;
-
-                        .gfg {
-                            font-size: 2rem;
-                            // color: rgb(32, 126, 32);
-                            color: #379777;
-                        }
-
-                        .gdg {
-                            font-size: 2rem;
-                            // color: rgb(46, 46, 170);
-                            color: #176CED;
-                        }
-                    }
-                }
-
-                .g2hackText {
-                    transform: translateX(1rem);
-                    margin-top: 2rem;
-                    // animation: glow 5s infinite linear;
-
-                    .name {
-                        font-family: "Unbounded";
-                        font-size: 6rem;
-                        font-weight: 800;
-                        color: rgb(23, 23, 23);
-                        background: linear-gradient(to bottom, black 40%, rgb(120, 120, 120));
-                        -webkit-text-fill-color: transparent;
-                        -webkit-background-clip: text;
-                    }
-
-                    .year {
-                        font-size: 2rem;
-                    }
-
-                    span {
-                        display: block;
-                    }
-                }
-            }
-
-            .subTitle {
-                font-family: "Acquire";
-                font-size: 1.25rem;
-            }
-
-            .dateAndTime {
-                display: flex;
-                flex-direction: column;
-                gap: .25rem;
-                font-family: "Unbounded";
-
-                justify-content: center;
-                align-items: center;
-                margin: 2.25rem 0 1.25rem 0;
-
-                font-weight: 600;
-
-                .row {
-                    display: flex;
-                    gap: .5rem;
-                }
-            }
-
-            .timerContainer {
-                z-index: 2;
-
-                .root-react-component-countdown-timer  {
-                    user-select: none;
-                    
-                    .displayedTime .countBox {
-                        display: flex;
-                        flex-direction: row-reverse;
-                        align-items: flex-end;
-                        gap: .5rem;
-                        font-weight: bold;
-
-                        .split {
-                            padding: .5rem 0;
-                        }
-
-                        .countBoxItem {
+                        gap: 1rem;
+    
+                        .awesomeFade {
                             display: flex;
-                            flex-direction: column;
+                            gap: 0.5rem;
+                            justify-content: center;
+                            align-items: flex-end;
+                        }
+    
+                        .title {
+                            font-family: "Unbounded", sans-serif;
+                            color: black;
+                            font-weight: bold;
+                            display: flex;
                             justify-content: center;
                             align-items: center;
-                            gap: .25rem;
+                            gap: .75rem;
+                            font-size: 1.25rem;
                             
-                           
-                            .label {
-                                font-weight: 500;
+    
+                            .gfg {
+                                font-size: clamp(1.4rem, 2.5vw, 6rem);
+                                color: #379777;
                             }
-
-                            .count {
-                                min-width: 30px;
-                                background-color: rgb(47, 47, 52) !important;
-                                color: $background !important;
-                                border-radius: 8px;    
-                                padding: .5rem;
-
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
+    
+                            .gdg {
+                                font-size: clamp(1.4rem, 2.5vw, 6rem);
+                                color: #176CED;
                             }
-
+                        }
+                    }
+    
+                    .g2hackText {
+                        transform: translateX(1rem);
+                        margin-top: 2rem;
+    
+                        .name {
+                            font-family: "Unbounded";
+                            font-size: clamp(3rem, 8vw, 6rem);
+                            font-weight: 800;
+                            color: rgb(23, 23, 23);
+                            background: linear-gradient(to bottom, black 40%, rgb(120, 120, 120));
+                            -webkit-text-fill-color: transparent;
+                            -webkit-background-clip: text;
+                        }
+    
+                        .year {
+                            font-size: 2rem;
+                        }
+    
+                        span {
+                            display: block;
                         }
                     }
                 }
-            }
-
-            .closingSoon {
-                width: max-content;
-                max-width: 70vw;
-                margin: 4rem auto 1rem auto;
-                text-align: center;
-                font-family: "Unbounded";
-                font-weight: 600;
-                background-color: rgba(255, 222, 74, 0.1);
-                color: rgb(255, 219, 90);
-                border: 1px solid rgba(255, 237, 178, 0.3);
-                padding: .5rem 1rem;
-                border-radius: 3px;
-
-                a {
-                    margin-left: .5rem;
-                    color: rgb(254, 157, 157) !important;
+    
+                .subTitle {
+                    font-family: "Acquire";
+                    font-size: 1.25rem;
                 }
-            }
-
-            .actionButtonContainer {
-                margin: 3rem 0 3rem 0;
-                z-index: 3 !important;
-
-                .actionButton {
+    
+                .dateAndTime {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .25rem;
                     font-family: "Unbounded";
-                    opacity: 0.9;
-                    background-color: #F44336;
-                    color: $background;
-                    display: flex;
-                    align-items: center;
+    
                     justify-content: center;
-                    padding: 0.75rem 1.75rem;
-                    border-radius: 3rem;
-                    transform: scale(0.9);
-                    transition: all 0.3s ease;
-                    transition-delay: 0;
-
-                    display: flex;
-                    gap: 0.5rem;
-
-                    a {
-                        text-decoration: none !important;
-                    }
-
-                    svg {
-                        animation: hoverUpAndDown 1s infinite ease;
-                    }
-
-                    &:hover {
-                        opacity: 1;
-                        transform: scale(1);
+                    align-items: center;
+                    margin: 2.25rem 0 1.25rem 0;
+    
+                    font-weight: 600;
+    
+                    .row {
+                        display: flex;
+                        gap: .5rem;
                     }
                 }
+    
+                .timerContainer {
+                    z-index: 2;
+    
+                    .root-react-component-countdown-timer  {
+                        user-select: none;
+                        
+                        .displayedTime .countBox {
+                            display: flex;
+                            flex-direction: row-reverse;
+                            align-items: flex-end;
+                            gap: .5rem;
+                            font-weight: bold;
+    
+                            .split {
+                                padding: .5rem 0;
+                            }
+    
+                            .countBoxItem {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                gap: .25rem;
+                                
+                               
+                                .label {
+                                    font-weight: 500;
+                                }
+    
+                                .count {
+                                    min-width: 30px;
+                                    background-color: rgb(47, 47, 52) !important;
+                                    color: $background !important;
+                                    border-radius: 8px;    
+                                    padding: .5rem;
+    
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+    
+                            }
+                        }
+                    }
+                }
+    
+                .closingSoon {
+                    width: max-content;
+                    max-width: 70vw;
+                    margin: 4rem auto 1rem auto;
+                    text-align: center;
+                    font-family: "Unbounded";
+                    font-weight: 600;
+                    background-color: rgba(255, 222, 74, 0.1);
+                    color: rgb(255, 219, 90);
+                    border: 1px solid rgba(255, 237, 178, 0.3);
+                    padding: .5rem 1rem;
+                    border-radius: 3px;
+    
+                    a {
+                        margin-left: .5rem;
+                        color: rgb(254, 157, 157) !important;
+                    }
+                }
+    
+                .actionButtonContainer {
+                    margin: 3rem 0 3rem 0;
+                    z-index: 3 !important;
+    
+                    .actionButton {
+                        font-family: "Unbounded";
+                        opacity: 0.9;
+                        background-color: #F44336;
+                        color: $background;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0.75rem 1.75rem;
+                        border-radius: 3rem;
+                        transform: scale(0.9);
+                        transition: all 0.3s ease;
+                        transition-delay: 0;
+    
+                        display: flex;
+                        gap: 0.5rem;
+    
+                        a {
+                            text-decoration: none !important;
+                        }
+    
+                        svg {
+                            animation: hoverUpAndDown 1s infinite ease;
+                        }
+    
+                        &:hover {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                    }
+                }
+                
             }
+
 
             .comingSoon {
                 font-family: "Asap", sans-serif;
@@ -756,8 +765,8 @@ $text: #252525;
                     &.why, &.who {
 
                         .title {
-                            margin: 10rem 0 5rem 0;
-                            font-size: 1.75rem;
+                            margin: 10rem 0 0 0;
+                            font-size: 2.25rem;
                             text-align: center;
                             font-weight: 800;
                         }
