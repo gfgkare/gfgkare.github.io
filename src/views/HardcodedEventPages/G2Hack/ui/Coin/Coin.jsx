@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
+import React, { useRef, useEffect } from "react";
+import * as THREE from "three";
 
 import gfg from "@/assets/gfg.png";
 import gdg from "@/assets/gdg.png";
@@ -40,18 +40,22 @@ const RotatingCoin = () => {
 
     // Gold Plated Texture
     const createGoldPlatedTexture = () => {
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
       canvas.width = 512;
       canvas.height = 512;
-      const context = canvas.getContext('2d');
+      const context = canvas.getContext("2d");
 
       const gradient = context.createRadialGradient(
-        canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width / 2
+        canvas.width / 2,
+        canvas.height / 2,
+        0,
+        canvas.width / 2,
+        canvas.height / 2,
+        canvas.width / 2
       );
-      gradient.addColorStop(0, '#FFD700');
-      gradient.addColorStop(0.7, '#FFD700');
-      gradient.addColorStop(1, '#DAA520');
+      gradient.addColorStop(0, "#FFD700");
+      gradient.addColorStop(0.7, "#FFD700");
+      gradient.addColorStop(1, "#DAA520");
 
       context.fillStyle = gradient;
       context.fillRect(0, 0, canvas.width, canvas.height);
@@ -60,17 +64,20 @@ const RotatingCoin = () => {
     };
 
     const goldTexture = createGoldPlatedTexture();
-    
+
     // Coin Materials
-    const frontMaterial = new THREE.MeshBasicMaterial({ map: goldTexture });
-    const backMaterial = new THREE.MeshBasicMaterial({ map: goldTexture });
+    const baseMaterial = new THREE.MeshStandardMaterial({
+      map: goldTexture,
+      metalness: 1.0,
+      roughness: 0.3,
+    });
 
     const edgeMaterial = new THREE.MeshStandardMaterial({
       color: 0xFFD700,
       metalness: 1.0,
       roughness: 0.1,
       emissive: 0xFFC000,
-      emissiveIntensity: 0.3
+      emissiveIntensity: 0.3,
     });
 
     // Coin Geometry
@@ -81,14 +88,19 @@ const RotatingCoin = () => {
     const frontGeometry = new THREE.CircleGeometry(coinRadius, coinSegments);
     const backGeometry = new THREE.CircleGeometry(coinRadius, coinSegments);
     const edgeGeometry = new THREE.CylinderGeometry(
-      coinRadius, coinRadius, coinThickness, coinSegments, 1, true
+      coinRadius,
+      coinRadius,
+      coinThickness,
+      coinSegments,
+      1,
+      true
     );
 
     // Coin Meshes
-    const frontMesh = new THREE.Mesh(frontGeometry, frontMaterial);
+    const frontMesh = new THREE.Mesh(frontGeometry, baseMaterial);
     frontMesh.position.z = coinThickness / 2;
 
-    const backMesh = new THREE.Mesh(backGeometry, backMaterial);
+    const backMesh = new THREE.Mesh(backGeometry, baseMaterial);
     backMesh.position.z = -coinThickness / 2;
     backMesh.rotation.y = Math.PI;
 
@@ -102,36 +114,44 @@ const RotatingCoin = () => {
     coin.add(edgeMesh);
 
     scene.add(coin);
-
     camera.position.z = 3;
 
-    // Function to Create Logo Mesh (Maintains Aspect Ratio)
-    const createLogoMesh = (texture) => {
+    // Function to Create Engraved Logo Mesh
+    const createEngravedLogoMesh = (texture) => {
+      // texture.flipY = false; // Ensure correct orientation
+      texture.needsUpdate = true;
+
       const aspectRatio = texture.image.width / texture.image.height;
-      const logoHeight = 0.55; 
-      const logoWidth = logoHeight * aspectRatio; 
+      const logoHeight = 0.75;
+      const logoWidth = logoHeight * aspectRatio;
 
       const geometry = new THREE.PlaneGeometry(logoWidth, logoHeight);
-      const material = new THREE.MeshBasicMaterial({ 
-        map: texture, 
-        transparent: true 
+      const material = new THREE.MeshStandardMaterial({
+        map: texture,
+        displacementMap: texture, // Engraving effect
+        // displacementScale: 0.03, // Fine-tune depth (negative for engrave)
+        // displacementBias: 0.01, // Ensures only logo is affected
+        metalness: 1.0,
+        roughness: 0.4,
+        transparent: true, // Removes unwanted background
+        alphaTest: 0.5, // Makes background transparent
       });
 
       return new THREE.Mesh(geometry, material);
     };
 
-    // Load Logo Textures & Apply
+    // Load Logo Textures & Apply Engraving
     const textureLoader = new THREE.TextureLoader();
 
     textureLoader.load(gfg, (texture) => {
-      const frontLogoMesh = createLogoMesh(texture);
-      frontLogoMesh.position.z = coinThickness / 2 + 0.01;
+      const frontLogoMesh = createEngravedLogoMesh(texture);
+      frontLogoMesh.position.z = coinThickness / 2 + 0.005;
       coin.add(frontLogoMesh);
     });
 
     textureLoader.load(gdg, (texture) => {
-      const backLogoMesh = createLogoMesh(texture);
-      backLogoMesh.position.z = -coinThickness / 2 - 0.01;
+      const backLogoMesh = createEngravedLogoMesh(texture);
+      backLogoMesh.position.z = -coinThickness / 2 - 0.005;
       backLogoMesh.rotation.y = Math.PI;
       coin.add(backLogoMesh);
     });
@@ -152,7 +172,6 @@ const RotatingCoin = () => {
       if (containerRef.current) {
         containerRef.current.removeChild(renderer.domElement);
       }
-      
       scene.clear();
       renderer.dispose();
     };
@@ -160,8 +179,8 @@ const RotatingCoin = () => {
 
   return (
     <div className="flex justify-center items-center w-full">
-      <div 
-        ref={containerRef} 
+      <div
+        ref={containerRef}
         className="w-full h-64 flex justify-center items-center bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg"
       />
     </div>
