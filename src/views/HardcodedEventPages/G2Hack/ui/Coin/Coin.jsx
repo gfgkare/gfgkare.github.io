@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
-import klu from "@/assets/klu_square_logo.png"
 import gfg from "@/assets/gfg.png"
+import gdg from "@/assets/gdg.png"
 
 const RotatingCoin = () => {
   const containerRef = useRef(null);
@@ -82,14 +82,37 @@ const RotatingCoin = () => {
       
       return new THREE.CanvasTexture(canvas);
     };
+
+    function convertToGrayscale(texture) {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      const img = texture.image;
+      
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+    
+      let imageData = ctx.getImageData(0, 0, img.width, img.height);
+      let data = imageData.data;
+    
+      for (let i = 0; i < data.length; i += 4) {
+        let gray = data[i] * 0.3 + data[i + 1] * 0.59 + data[i + 2] * 0.11;
+        data[i] = gray; // Red
+        data[i + 1] = gray; // Green
+        data[i + 2] = gray; // Blue
+      }
+    
+      ctx.putImageData(imageData, 0, 0);
+      return new THREE.CanvasTexture(canvas);
+    }
     
     // Create the coin faces with gold plated textures
     const textureLoader = new THREE.TextureLoader();
     // const frontLogoTexture = createGoldPlatedTexture('LOGO A', true);
     // const backLogoTexture = createGoldPlatedTexture('LOGO B', true);
     const frontLogoPNG = textureLoader.load(gfg);
-    const backLogoPNG = textureLoader.load(klu);
-    
+    const backLogoPNG = textureLoader.load(gdg);
+     
     // Create gold plated face materials
     const goldTexture = createGoldPlatedTexture('');
 
@@ -111,7 +134,27 @@ const RotatingCoin = () => {
       transparent: true
     });
 
-    const logoSize = 1;
+    textureLoader.load(gfg, (texture) => {
+      const engravedTexture = convertToGrayscale(texture);
+      
+      frontLogoMaterial.map = engravedTexture;
+      frontLogoMaterial.roughness = 0.6; // Slightly rougher
+      frontLogoMaterial.metalness = 0.8;
+      frontLogoMaterial.color = new THREE.Color(0xA68B00); // Dark gold
+      frontLogoMaterial.needsUpdate = true;
+    });
+    
+    textureLoader.load(gdg, (texture) => {
+      const engravedTexture = convertToGrayscale(texture);
+    
+      backLogoMaterial.map = engravedTexture;
+      backLogoMaterial.roughness = 0.6;
+      backLogoMaterial.metalness = 0.8;
+      backLogoMaterial.color = new THREE.Color(0xA68B00);
+      backLogoMaterial.needsUpdate = true;
+    });
+
+    const logoSize = .75;
     const coinThickness = 0.1;
     const frontLogoGeometry = new THREE.PlaneGeometry(logoSize, logoSize);
     const backLogoGeometry = new THREE.PlaneGeometry(logoSize, logoSize);
@@ -122,6 +165,20 @@ const RotatingCoin = () => {
     const backLogoMesh = new THREE.Mesh(backLogoGeometry, backLogoMaterial);
     backLogoMesh.position.z = -coinThickness / 2 - 0.01;
     backLogoMesh.rotation.y = Math.PI;
+
+    textureLoader.manager.onLoad = () => {
+      // Adjust front logo aspect ratio
+      if (frontLogoPNG.image) {
+        const frontAspect = frontLogoPNG.image.width / frontLogoPNG.image.height;
+        frontLogoGeometry.scale(frontAspect, 1, 1);
+      }
+      
+      // Adjust back logo aspect ratio
+      if (backLogoPNG.image) {
+        const backAspect = backLogoPNG.image.width / backLogoPNG.image.height;
+        backLogoGeometry.scale(backAspect, 1, 1);
+      }
+    };
     
     const edgeMaterial = new THREE.MeshStandardMaterial({
       color: 0xFFD700,
