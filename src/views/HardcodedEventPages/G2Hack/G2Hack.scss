@@ -153,7 +153,8 @@ $text: #252525;
                 div.logo {
                     height: 60px;
                     width: 60px !important;
-                    background-color: $text;
+                    background-color: $background;
+                    border: 1px solid rgba(black, .4);
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -163,6 +164,7 @@ $text: #252525;
                     img {
                         height: 100%;
                         width: 100%;
+                        object-fit: contain;
                     }
 
                     &.klu {
@@ -310,7 +312,7 @@ $text: #252525;
             }
 
             &.red {
-                color: rgb(197, 28, 28);
+                color: rgb(244, 67, 54);
             }
 
             &.purple {
@@ -979,6 +981,7 @@ $text: #252525;
                                 justify-content: center;
                                 align-items: center;
                                 min-width: 200px;
+                                min-height: 100px;
                                 border: 3px solid black;
                                 padding: 1.25rem 2rem;
                                 border-radius: 1rem;
@@ -1169,7 +1172,7 @@ $text: #252525;
                             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                             // gap: 1rem;
 
-                            .slideSponsor .sponsorCard {
+                            .FadeSponsor .sponsorCard {
                                 background-color: #dedede;
                                 color: rgb(30, 30, 30);
                                 margin: 0 auto;
@@ -1177,11 +1180,12 @@ $text: #252525;
                                 border-radius: .5rem;
                                 padding: 1.5rem 1.6rem;
                                 min-width: 300px;
+                                border: 2px solid rgba(black, .2);
 
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                // gap: .5rem;
+                                gap: 1rem;
 
                                 .sponsorLogo {
                                     flex: .5;
@@ -1191,6 +1195,7 @@ $text: #252525;
 
                                     img {
                                         max-height: 40px;
+                                        object-fit: contain;
                                     }
                                 }
 

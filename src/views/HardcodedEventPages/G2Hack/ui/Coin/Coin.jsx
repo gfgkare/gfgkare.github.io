@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 
 import gfg from "@/assets/gfg.png";
-import gdg from "@/assets/gdg.png";
+import gdg from "@/assets/g2hack/gdg.png";
 
 import "./Coin.css";
 
