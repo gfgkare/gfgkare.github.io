@@ -918,7 +918,9 @@ $text: #252525;
                                     align-items: flex-start;
                                     justify-content: center;
                                     max-width: max-content;
-                                    border: 1px solid black;
+                                    min-width: 200px;
+                                    border: 2px solid rgba(black, .5);
+                                    background: linear-gradient(125deg, rgba(black, .05), rgba(black, .2));
                                     padding: 2rem;
                                     border-radius: 1rem;
 
@@ -951,6 +953,74 @@ $text: #252525;
                                         
                                     }
                                 }                                
+                            }
+                        }
+                    }
+
+                    &.benefits {
+                        .benefitsRowGrid {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 1rem;
+                            flex-wrap: wrap;
+
+                            .benefit {
+                                color: white;
+                                font-weight: bold;
+                                position: relative;
+                                flex-shrink: 0;
+                                flex-grow: 1;
+                                display: flex;
+                                gap: .5rem;
+                                justify-content: center;
+                                align-items: center;
+                                min-width: 200px;
+                                border: 3px solid black;
+                                padding: 1rem 2rem;
+                                border-radius: 1rem;
+                                overflow: hidden;
+
+                                font-size: 1.15rem;
+                                
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: .7rem;
+                                    background: linear-gradient(
+                                        45deg,
+                                        rgba(0, 0, 0, 0.65),
+                                        rgba(0, 0, 0, 0.8),
+                                    ), url("../../../assets/patterns/squiggles-blue.svg");
+                                    background-size: cover;
+                                    z-index: -1;
+                                }
+
+                                @for $i from 1 through 3 {
+                                    &:nth-child(#{$i})::before {
+                                        filter: hue-rotate($i * 80deg);
+                                    }
+                                }
+
+                                // &:nth-child(odd) {
+                                //     border-radius: 1rem 1rem 1rem 0; 
+                                //     background-color: rgba(200, 0, 0, .1);
+                                // }
+
+                                // &:nth-child(even) {
+                                //     border-radius: 1rem 1rem 0 1rem; 
+                                //     background-color: rgba(0, 200, 0, .15);
+                                // }
+
+                                .icon {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
                             }
                         }
                     }

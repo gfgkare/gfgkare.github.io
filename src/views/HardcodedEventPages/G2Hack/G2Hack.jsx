@@ -320,37 +320,33 @@ export default function G2Hack() {
                                 IS PRAJÑOTSAVAH?
                             </div> */}
                         </div>
-                        <Slide triggerOnce>
-                            <div className="normalSectionText">
-                                <span className="color red">G2HACKFEST</span> is a hackathon that brings together the brightest minds of Kalasalingam University to solve real-world problems. Participants will have the opportunity to learn from industry experts, network with like-minded individuals, and compete for grand prizes. With a prize pool of over Rs. 15,000. Join now to learn, grow, and win big.
-                            </div>
-                            
-                            <div className="rotatingText">
-                                You get
-                                <RotatingText
-                                    texts={['Experience 🧠', 'Networking 🌐', 'Swags 👕', 'Fun++ 😁', 'Prizes 💰', 'Snacks 😋']}
-                                    staggerFrom={"last"}
-                                    initial={{ y: "100%" }}
-                                    animate={{ y: 0 }}
-                                    exit={{ y: "-120%" }}
-                                    staggerDuration={0.025}
-                                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                                    rotationInterval={3000}
-                                />
-                                <FollowCursor
-                                    parentRef={whatSection}
-                                    offsetX={20}
-                                    cardWidth='200px'
-                                    rotationFactor={40}
-                                    enableTilt={true}
-                                    animationConfig={{ mass: 5, tension: 350, friction: 40 }}
-                                    wheelConfig={{ mass: 1, tension: 200, friction: 30 }}
-                                    >
-                                </FollowCursor>
-                            </div>
-                           
-                        </Slide>
+                        <div className="normalSectionText">
+                            <span className="color red">G2HACKFEST</span> is a hackathon that brings together the brightest minds of Kalasalingam University to solve real-world problems. Participants will have the opportunity to learn from industry experts, network with like-minded individuals, and compete for grand prizes. With a prize pool of over Rs. 15,000. Join now to learn, grow, and win big.
+                        </div>
                         
+                        <div className="rotatingText">
+                            You get
+                            <RotatingText
+                                texts={['Experience 🧠', 'Networking 🌐', 'Swags 👕', 'Fun++ 😁', 'Prizes 💰', 'Snacks 😋']}
+                                staggerFrom={"last"}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                exit={{ y: "-120%" }}
+                                staggerDuration={0.025}
+                                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                                rotationInterval={3000}
+                            />
+                            {/* <FollowCursor
+                                parentRef={whatSection}
+                                offsetX={20}
+                                cardWidth='200px'
+                                rotationFactor={40}
+                                enableTilt={true}
+                                animationConfig={{ mass: 5, tension: 350, friction: 40 }}
+                                wheelConfig={{ mass: 1, tension: 200, friction: 30 }}
+                                >
+                            </FollowCursor> */}
+                        </div>
                     </Fade>
                     
                 </div>
@@ -366,7 +362,7 @@ export default function G2Hack() {
                             </div> */}
                         </div>
 
-                        <Slide direction="right" triggerOnce>
+                        <Fade cascade damping={.1} triggerOnce>
                             <div className="normalSectionText who">
                                 <div className="normalSectionContent">
                                     We are two of the most active tech clubs in Kalasalingam University - <span className="gfg">GeeksForGeeks KARE</span> and <span className="gdg">GDG OnCampus KARE</span>.
@@ -378,12 +374,12 @@ export default function G2Hack() {
                                 {/* COIN */}
                                 <Coin />
 
-                                <div className="title">OUR PAST EVENTS WERE SO MUCH FUN!</div>
+                                <div className="title" style={{ marginTop: "2rem" }}>OUR PAST EVENTS WERE SO MUCH FUN!</div>
 
                                 <RollingGallery autoplay={true} pauseOnHover={true} />
 
                             </div>
-                        </Slide>
+                        </Fade>
 
                         
                     </Fade>
@@ -529,46 +525,56 @@ export default function G2Hack() {
                                 BENEFITS
                             </div>
                         </div>
-                        <div className="normalSectionText prizes">
-                            <div className="prizesGrid">
-                                <Slide className="slidePrizeCard" triggerOnce>
-                                    <div className="prizeCard first">
-                                        <div className="circle"></div>
-                                        <div className="position">EE Credits</div>
-                                        {/* <div className="prize">₹ 7,000</div>
-                                        <div className="and">+ certificate and swags!</div> */}
+                        <div className="normalSectionText benefits">
+                            <div className="benefitsRowGrid">
+                                <div className="benefit">
+                                    <div className="icon">
+                                        <GoPlus size={"25px"} />
                                     </div>
-                                    <div className="prizeCard second">
-                                        <div className="circle"></div>
-                                        <div className="position">Internships</div>
-                                        {/* <div className="prize">₹ 5,000</div>
-                                        <div className="and">+ certificate and swags!</div> */}
+                                    <div className="text">
+                                        2 EE Credits for all participants
                                     </div>
-                                    <div className="prizeCard third">
-                                        <div className="circle"></div>
-                                        <div className="position">Networking</div>
-                                        {/* <div className="prize">₹ 3,000</div>
-                                        <div className="and">+ certificate and swags!</div> */}
+                                </div>
+                                <div className="benefit">
+                                    <div className="icon">
+                                        <GoPlus size={"25px"} />
                                     </div>
-                                    <div className="prizeCard participation">
-                                        <div className="circle"></div>
-                                        <div className="position">Swags</div>
-                                        {/* <div className="prize"></div>
-                                        <div className="and">Certificate</div> */}
+                                    <div className="text">
+                                        Networking opportunities
                                     </div>
-                                    <div className="prizeCard participation">
-                                        <div className="circle"></div>
-                                        <div className="position">Sponsor Perks</div>
-                                        {/* <div className="prize"></div>
-                                        <div className="and">Certificate</div> */}
+                                </div>
+                                <div className="benefit">
+                                    <div className="icon">
+                                        <GoPlus size={"25px"} />
                                     </div>
-                                    <div className="prizeCard participation">
-                                        <div className="circle"></div>
-                                        <div className="position">Cash</div>
-                                        {/* <div className="prize"></div>
-                                        <div className="and">Certificate</div> */}
+                                    <div className="text">
+                                        Scrumptious food
                                     </div>
-                                </Slide>
+                                </div>
+                                <div className="benefit">
+                                    <div className="icon">
+                                        <GoPlus size={"25px"} />
+                                    </div>
+                                    <div className="text">
+                                        Take home cool swags
+                                    </div>
+                                </div>
+                                <div className="benefit">
+                                    <div className="icon">
+                                        <GoPlus size={"25px"} />
+                                    </div>
+                                    <div className="text">
+                                        Exciting cash prizes
+                                    </div>
+                                </div>
+                                <div className="benefit">
+                                    <div className="icon">
+                                        <GoPlus size={"25px"} />
+                                    </div>
+                                    <div className="text">
+                                        Sponsor goodies
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </Fade>
@@ -736,7 +742,7 @@ export default function G2Hack() {
                                     </div>
 
                                     <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
-                                        <button disabled>REGISTRATIONS CLOSED</button>
+                                        <button disabled>REGISTRATIONS OPENING SOON</button>
                                     </CLink>
                                 </div>
 
