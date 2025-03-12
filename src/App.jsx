@@ -53,6 +53,7 @@ import Contact from "./views/Contact";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Refund from "./pages/Refund";
+import G2Form from "./views/HardcodedEventPages/G2Hack/G2Form";
 
 
 export default function App() {
@@ -103,7 +104,7 @@ export default function App() {
        
                         {/* EVENTS */}
                         {/* <Route path="/events/project-expo/register" element={ <ProjectExpoRegister /> }></Route> */}
-                        {/* <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route> */}
+                        <Route path="/events/prajnotsavah/register" element={ <ProjectExpoRegister /> }></Route>
 
                         <Route path="/geekfest24/results" element={ <GeekfestResults /> }></Route>
 
@@ -118,6 +119,7 @@ export default function App() {
                         {/* <Route path="/events/project-expo" element={ <ProjectExpo /> }></Route> */}
                         <Route path="/events/prajnotsavah" element={ <ProjectExpo /> }></Route>
                         <Route path="/g2hack" element={ <G2Hack /> }></Route>
+                        <Route path="/g2form" element={<G2Form />} />
                         {/* <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route> */}
 
 
