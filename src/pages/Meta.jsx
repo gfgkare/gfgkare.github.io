@@ -16,7 +16,6 @@ export default function Meta() {
                 <li>Status: prod</li>
                 <li>Last Updated: {currentDate}</li>
                 <li>Latest commit message: {commitMessage}</li>
-                <li>Hehe: {import.meta.env.VITE_SUPABASE_URL}</li>
             </ul>
 
 
