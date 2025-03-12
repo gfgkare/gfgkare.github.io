@@ -19,7 +19,5 @@ export const studentSchema = z.object({
 export const paymentSchema = z.object({
   upiId: z.string().min(1, "UPI ID is required"),
   transactionId: z.string().min(1, "Transaction ID is required"),
-  paymentProof: z
-    .instanceof(File, { message: "Payment proof is required" })
-    .optional(),
+  paymentProof: z.instanceof(File, { message: "Payment proof is required" }),
 });
