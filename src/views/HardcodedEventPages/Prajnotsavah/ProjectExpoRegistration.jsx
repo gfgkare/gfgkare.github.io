@@ -19,7 +19,7 @@ const UPI_ID = "gvsskvineeth-1@okicici"
 export default function ProjectExpoRegistration() {
   const { currentUser, USER_PRESENT, signinwithpopup } = useAuth();
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [confirmModalShown, setConfirmModalShown] = useState(false);

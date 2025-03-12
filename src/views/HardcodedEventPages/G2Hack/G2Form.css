@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+.g2form-body {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Google Sans', sans-serif;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.g2hackfest {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  background-color: #202124;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.5px;
+}
+
+.p-tag-2 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  color: #5f6368;
+}
+
+.g2hack-form {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Team Member Section */
+.team-member {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e8eaed;
+}
+
+.team-member h3 {
+  color: #202124;
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Grid Layout */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-col {
+  flex: 1 1 calc(50% - 0.625rem);
+  min-width: 250px;
+}
+
+.form-col-full {
+  flex: 1 1 100%;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #5f6368;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 0rem 0.75rem 0.75rem;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: #202124;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.form-group input[type="text"] {
+  width: 97.5%;
+}
+/* Target every label associated with input fields */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #379777;
+  box-shadow: 0 0 0 2px rgba(55, 151, 119, 0.2);
+}
+span {
+    color: red;
+}
+/* Radio and Checkbox Styles */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #202124;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #50c7a0;
+}
+
+/* Payment Section */
+.payment-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  border: 1px solid #e8eaed;
+}
+
+.payment-section h2 {
+  color: #202124;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  border: 2px dashed #dadce0;
+  border-radius: 12px;
+  background: white;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.05);
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.file-upload-btn {
+  background: white;
+  border: 1px solid #dadce0;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #5f6368;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.file-upload-btn:hover {
+  background: #f1f3f4;
+  border-color: #379777;
+  color: #379777;
+}
+
+.file-name {
+  color: #5f6368;
+  font-size: 0.875rem;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #379777;
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2.5rem auto 0;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+  background: #2c7b61;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  background: #dadce0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.upiPayButton {
+    font-family: "Outfit";
+    background-color: rgba(185, 185, 185, 0.8);
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 800;
+    width: 30%;
+    padding: 1rem;
+    border-radius: 0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upiImage {
+  width: 13%;
+}
+
+/* Add these styles to your existing CSS file */
+.success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .success-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 90%;
+    width: 500px;
+    position: relative;
+    animation: slideIn 0.4s ease-out;
+  }
+  
+  .success-modal-content {
+    text-align: center;
+  }
+  
+  .success-icon {
+    color: #10B981;
+    margin-bottom: 1.5rem;
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .success-modal h2 {
+    color: #1F2937;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .success-modal p {
+    color: #4B5563;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .success-modal-button {
+    background-color: #10B981;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+  }
+  
+  .success-modal-button:hover {
+    background-color: #059669;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .g2form-body {
+    padding: 1rem;
+  }
+  
+  .g2hack-form {
+    padding: 1.5rem;
+  }
+  
+  .form-col {
+    flex: 1 1 100%;
+  }
+  
+  .g2hackfest {
+    font-size: 2rem;
+  }
+  
+  .p-tag-2 {
+    font-size: 1rem;
+  }
+  
+  .payment-section {
+    padding: 1.5rem;
+  }
+  
+  .qr-code-container {
+    padding: 1rem;
+  }
+  .upiPayButton {
+    width: 90%;
+  }
+  .upiImage {
+    width: 40px;
+    padding: 2%;
+  }
+  
+  .qr-code {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+.g2form-body {
+  @apply min-h-screen bg-gray-100 p-6;
+}
+
+.header-section {
+  @apply text-center mb-8;
+}
+
+.g2hackfest {
+  @apply text-4xl font-bold text-blue-600 mb-2;
+}
+
+.p-tag-2 {
+  @apply text-xl text-gray-600;
+}
+
+.g2hack-form {
+  @apply max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8;
+}
+
+.form-row {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-6;
+}
+
+.form-col {
+  @apply w-full;
+}
+
+.form-col-full {
+  @apply col-span-1 md:col-span-2;
+}
+
+.form-group {
+  @apply w-full;
+}
+
+.form-group label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group select {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500;
+}
+
+.team-member {
+  @apply border-t border-gray-200 pt-6 mt-6;
+}
+
+.team-member h3 {
+  @apply text-xl font-semibold text-gray-800 mb-4;
+}
+
+.radio-group {
+  @apply space-x-4;
+}
+
+.radio-group label {
+  @apply inline-flex items-center;
+}
+
+.radio-group input[type="radio"] {
+  @apply mr-2;
+}
+
+.checkbox-group {
+  @apply space-y-2;
+}
+
+.checkbox-group label {
+  @apply inline-flex items-center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  @apply mr-2;
+}
+
+.payment-section {
+  @apply border-t border-gray-200 pt-6 mt-6;
+}
+
+.payment-section h2 {
+  @apply text-2xl font-semibold text-gray-800 mb-6;
+}
+
+.qr-code-container {
+  @apply flex flex-col items-center justify-center mb-6;
+}
+
+.qr-code {
+  @apply w-48 h-48 mb-2;
+}
+
+.file-upload {
+  @apply flex items-center space-x-4;
+}
+
+.file-upload-btn {
+  @apply inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+.file-name {
+  @apply text-sm text-gray-500;
+}
+
+.submit-btn {
+  @apply w-full mt-6 px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50;
+}
+
+.hostel-details {
+  @apply bg-gray-50 p-4 rounded-lg mt-4;
+}
+
+.hostel-details h4 {
+  @apply text-lg font-medium text-gray-800 mb-4;
+}
+
