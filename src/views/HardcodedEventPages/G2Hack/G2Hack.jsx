@@ -10,7 +10,7 @@ import { MdOutlineFastfood } from "react-icons/md";
 import { BsBagHeart } from "react-icons/bs";
 import { TbMoneybag } from "react-icons/tb";
 import { ImCool } from "react-icons/im";
-
+import { IoMail } from "react-icons/io5";
 
 import Squares from "./ui/Squares/Squares";
 import ScrollVelocity from "./ui/ScrollVelocity/ScrollVelocity";
@@ -782,6 +782,12 @@ export default function G2Hack() {
                                         </Fade>
                                     </div>
                                 </div>
+
+                                <div className="becomePartnerContainer">
+                                    <CLink className={"becomePartner"}>
+                                        Become a partner!
+                                    </CLink>
+                                </div>
                             </Fade>
                         </div>
 
@@ -801,10 +807,20 @@ export default function G2Hack() {
                             <div className="contact">
                                 <div className="title">For any queries, feel free to contact</div>
                                 <div className="numbers">
-                                    <span>Sabari S - <a href="tel:+91 87546 05197">+91 87546 05197</a> </span>
+                                    <span>Keerthi Kumar  / <a href="tel:+91 94436 34173">+91 94436 34173</a> </span>
+                                    <span>M.M. Navadeep  / <a href="tel:+91 70750 72880">+91 70750 72880</a> </span>
+                                    <span>Thanuja  / <a href="tel:+91 78934 34485">+91 78934 34485</a> </span>
+                                    <span>Sabari S  / <a href="tel:+91 87546 05197">+91 87546 05197</a> </span>
                                 </div>
                                 <div className="email">
-                                    Or drop a mail to <a href="mailto:gfgkarestudentchapter@gmail.com">gfgkarestudentchapter@gmail.com</a>
+                                    <div>
+                                        <IoMail />
+                                        <a href="mailto:gfgkarestudentchapter@klu.ac.in">gfgkarestudentchapter@klu.ac.in</a>
+                                    </div>
+                                    <div>
+                                        <IoMail />
+                                        <a href="mailto:gdsckare@klu.ac.in">gdsckare@klu.ac.in</a>
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -813,7 +829,15 @@ export default function G2Hack() {
                         
                     </div>
 
-                    <Footer />
+                    <footer>
+                        <div>
+                            With ❤️
+                        </div>
+                        <div>
+                            GFG KARE & GDG KARE
+                        </div>
+                    </footer>
+                    {/* <Footer /> */}
                 </div>
             
             </div>

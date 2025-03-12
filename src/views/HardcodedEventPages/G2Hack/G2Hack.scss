@@ -153,7 +153,7 @@ $text: #252525;
                 div.logo {
                     height: 60px;
                     width: 60px !important;
-                    background-color: $background;
+                    background-color: lighten($background, 10);
                     border: 1px solid rgba(black, .4);
                     display: flex;
                     justify-content: center;
@@ -601,6 +601,29 @@ $text: #252525;
                 padding: 2rem 0;
                 max-height: max-content;
 
+                .becomePartnerContainer {
+                    margin-top: 5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .becomePartner {
+                        font-family: "Unbounded", sans-serif;
+                        font-weight: 600;
+                        font-size: 1rem;
+                        text-align: center;
+                        padding: .75rem 1.75rem;
+                        border-radius: 1rem;
+                        background: rgba(black, .1);
+                        border: 1px solid rgba(black, .3);
+    
+                        &:hover {
+                            color: rgb(244, 67, 54) !important;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
                 &.prizes {
                     width: 100%;
                 }
@@ -797,8 +820,8 @@ $text: #252525;
                                 align-items: center;
                                 background: linear-gradient(
                                         45deg,
-                                        rgba(0, 0, 0, 0.65),
-                                        rgba(0, 0, 0, 0.8),
+                                        rgba(0, 0, 0, 0.5),
+                                        rgba(0, 0, 0, 0.1),
                                     ),
                                     url("../assets/patterns/squiggles-blue.svg");
                                 background-size: cover;
@@ -888,10 +911,10 @@ $text: #252525;
                             // gap: 1rem;
                             margin-top: 2rem;
 
-                            .slidePrizeCard {
+                            .FadePrizeCard {
                                 z-index: 2 !important;
-                                min-width: 270px;
-                                max-width: max-content;
+                                min-width: 320px;
+                                // max-width: max-content;
                                 min-height: 140px;
                                 padding: 1rem 2rem;
                                 margin: 0 auto;
@@ -920,9 +943,9 @@ $text: #252525;
                                     align-items: flex-start;
                                     justify-content: center;
                                     max-width: max-content;
-                                    min-width: 200px;
-                                    border: 2px solid rgba(black, .5);
-                                    background: linear-gradient(125deg, rgba(black, .05), rgba(black, .2));
+                                    min-width: 300px;
+                                    border: 2px solid rgba(black, .3);
+                                    background: linear-gradient(125deg, rgba(black, .02), rgba(black, .1));
                                     padding: 2rem;
                                     border-radius: 1rem;
 
@@ -999,8 +1022,8 @@ $text: #252525;
                                     border-radius: .7rem;
                                     background: linear-gradient(
                                         45deg,
-                                        rgba(0, 0, 0, 0.7),
-                                        rgba(0, 0, 0, 0.85),
+                                        rgba(0, 0, 0, 0.6),
+                                        rgba(0, 0, 0, 0.75),
                                     ), url("../../../assets/patterns/squiggles-blue.svg");
                                     background-size: cover;
                                     z-index: -1;
@@ -1187,6 +1210,12 @@ $text: #252525;
                                 align-items: center;
                                 gap: 1rem;
 
+                                &:hover {
+                                    .sponsorName {
+                                        text-decoration: underline !important;
+                                    }
+                                }
+
                                 .sponsorLogo {
                                     flex: .5;
                                     display: flex;
@@ -1220,6 +1249,17 @@ $text: #252525;
                         .email {
                             font-size: 1rem;
                             margin-top: 2rem;
+
+                            div {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: .5rem;
+
+                                svg {
+                                    transform: translateY(1px);
+                                }
+                            }
                         }
                     }
                 }
@@ -1238,7 +1278,11 @@ $text: #252525;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: .5rem;
+            border-top: 1px solid rgba($text, .8);
+            background: rgba(black, .04);
+
+            font-family: "Unbounded";
 
             .creator {
                 opacity: 0.7;
