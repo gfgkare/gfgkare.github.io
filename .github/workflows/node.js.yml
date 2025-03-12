@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Build
 permissions:
   contents: write
@@ -20,10 +17,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -32,12 +29,10 @@ jobs:
 
     - name: Add secrets
       run: |
-        {
-          echo "VITE_SUPABASE_ANON_KEY=${{ vars.VITE_SUPABASE_ANON_KEY }}";
-          echo "VITE_SUPABASE_URL=${{ vars.VITE_SUPABASE_URL }}";
-        } >> .env.production
+        echo "VITE_SUPABASE_URL=${{ vars.VITE_SUPABASE_URL }}" >> $GITHUB_ENV
+        echo "VITE_SUPABASE_ANON_KEY=${{ vars.VITE_SUPABASE_ANON_KEY }}" >> $GITHUB_ENV
       shell: bash
-  
+
     - name: Update Meta
       run: |
         DATE=$(date +'%B %d')
@@ -50,8 +45,11 @@ jobs:
       run: npm ci -f
     
     - name: Build
+      env:
+        VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+        VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
       run: npm run build --if-present
-    
+
     - name: Create 404 Page
       run: cp dist/index.html dist/404.html
 
@@ -63,6 +61,4 @@ jobs:
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
       env:
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-        # VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
