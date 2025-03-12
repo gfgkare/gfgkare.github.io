@@ -1,5 +1,15 @@
+"use client";
+
 import { useState } from "react";
-import { QrCode } from "lucide-react";
+import {
+  QrCode,
+  Users,
+  CreditCard,
+  CheckCircle,
+  ArrowRight,
+  ArrowLeft,
+  AlertCircle,
+} from "lucide-react";
 import StudentForm from "./ui/StudentForm";
 import PaymentForm from "./ui/PaymentForm";
 import { supabase } from "../../../lib/supabase";
@@ -7,6 +17,74 @@ import { studentSchema } from "@/lib/validation";
 import { paymentSchema } from "@/lib/validation";
 import { z } from "zod";
 import { useNavigate } from "react-router-dom";
+import { cn } from "@/lib/utils";
+
+// Animated Background Component
+const AnimatedGrid = () => {
+  return (
+    <div className="fixed inset-0 -z-10 opacity-10">
+      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 gap-4">
+        {Array.from({ length: 144 }).map((_, i) => (
+          <div
+            key={i}
+            className="bg-primary rounded-full opacity-0 animate-pulse"
+            style={{
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${3 + Math.random() * 5}s`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Animated Button Component
+const AnimatedButton = ({
+  children,
+  onClick,
+  className,
+  disabled,
+  type = "button",
+  variant = "primary",
+}) => {
+  const baseClasses =
+    "relative overflow-hidden rounded-lg transition-all duration-300 flex items-center justify-center";
+  const primaryClasses = disabled
+    ? "bg-slate-400 text-white cursor-not-allowed py-3 px-6"
+    : "bg-primary text-white hover:bg-primary/90 shadow-md hover:shadow-lg hover:-translate-y-1 py-3 px-6";
+  const secondaryClasses =
+    "bg-transparent text-slate-600 hover:bg-slate-100 py-2 px-4";
+
+  const variantClasses =
+    variant === "primary" ? primaryClasses : secondaryClasses;
+
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={cn(baseClasses, variantClasses, className)}
+    >
+      {!disabled && variant === "primary" && (
+        <span className="absolute inset-0 w-full h-full">
+          <span className="absolute -inset-[100%] block w-[50%] h-full bg-white/20 skew-x-12 z-10 animate-shine" />
+        </span>
+      )}
+      {children}
+    </button>
+  );
+};
+
+// Team Size Badge Component
+const TeamSizeBadge = ({ size }) => {
+  return (
+    <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full animate-fadeIn">
+      <Users className="h-4 w-4" />
+      <span className="font-medium">{size} Team Members</span>
+    </div>
+  );
+};
 
 function G2Registration() {
   const navigate = useNavigate();
@@ -15,10 +93,17 @@ function G2Registration() {
   const [paymentData, setPaymentData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formComplete, setFormComplete] = useState(false);
+  const [formErrors, setFormErrors] = useState([]);
 
   const handleTeamSizeChange = (size) => {
     setTeamSize(size);
+    window.teamSize = size; // Make teamSize available globally
     setFormData(Array(size).fill({}));
+    setTimeout(() => {
+      setCurrentStep(2);
+    }, 300);
   };
 
   const handleStudentFormChange = (index, data) => {
@@ -27,37 +112,117 @@ function G2Registration() {
     setFormData(newFormData);
   };
 
-  const handlePaymentFormChange = (data) => {
-    setPaymentData(data);
-  };
-
-  const validateForm = () => {
-    let errors = {};
+  // Function to validate all student forms
+  const validateAllStudentForms = () => {
+    let isValid = true;
+    const newFormErrors = [];
+    let firstErrorField = null;
 
     formData.forEach((student, index) => {
+      const studentErrors = {};
+
       Object.keys(studentSchema.shape).forEach((field) => {
         try {
+          if (
+            field === "hostelName" ||
+            field === "roomNo" ||
+            field === "wardenName"
+          ) {
+            if (student.accommodation !== "hosteller") return;
+          }
+
+          if (field === "disabilityDetails" && !student.hasDisabilities) return;
+
+          if (field === "department" && student.department === "Others") {
+            if (!student.customDepartment) {
+              studentErrors[field] = "Department is required";
+              isValid = false;
+              if (!firstErrorField) firstErrorField = { index, field };
+            }
+            return;
+          }
+
           studentSchema.shape[field].parse(student[field]);
         } catch (error) {
           if (error instanceof z.ZodError) {
-            errors[`student-${index}-${field}`] =
-              error.errors[0]?.message || "Invalid input";
+            studentErrors[field] = error.errors[0]?.message || "Invalid input";
+            isValid = false;
+            if (!firstErrorField) firstErrorField = { index, field };
           }
         }
       });
-    });
 
-    Object.keys(paymentSchema.shape).forEach((field) => {
-      try {
-        paymentSchema.shape[field].parse(paymentData[field]);
-      } catch (error) {
-        if (error instanceof z.ZodError) {
-          errors[field] = error.errors[0]?.message || "Invalid input";
-        }
+      if (Object.keys(studentErrors).length > 0) {
+        newFormErrors[index] = studentErrors;
       }
     });
 
-    return errors;
+    setFormErrors(newFormErrors);
+
+    if (firstErrorField) {
+      setTimeout(() => {
+        const errorElement = document.getElementById(
+          `${firstErrorField.field}-${firstErrorField.index}`
+        );
+        let current = true;
+        if (errorElement && current) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+          current = false;
+        }
+      }, 100);
+
+      setError(
+        `Please fix the errors in Team Member ${
+          firstErrorField.index + 1
+        }'s form`
+      );
+    } else {
+      setError("");
+    }
+
+    return isValid;
+  };
+
+  const handlePaymentFormChange = (data) => {
+    setPaymentData(data);
+
+    const paymentFilled =
+      Object.keys(data).length >= 2 &&
+      Object.values(data).some(
+        (val) => val && (typeof val === "string" ? val.trim() !== "" : true)
+      );
+
+    if (paymentFilled && paymentData.paymentProof !== "") {
+      setFormComplete(true);
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    let isValid = true;
+
+    if (!validateAllStudentForms()) {
+      isValid = false;
+    }
+
+    if (currentStep === 3) {
+      Object.keys(paymentSchema.shape).forEach((field) => {
+        try {
+          paymentSchema.shape[field].parse(paymentData[field]);
+        } catch (error) {
+          if (error instanceof z.ZodError) {
+            errors[field] = error.errors[0]?.message || "Invalid input";
+            isValid = false;
+          }
+        }
+      });
+    }
+
+    return { isValid, errors };
   };
 
   const handleSubmit = async (e) => {
@@ -65,9 +230,9 @@ function G2Registration() {
     setIsSubmitting(true);
     setError("");
 
-    const errors = validateForm();
+    const { isValid, errors } = validateForm();
 
-    if (Object.keys(errors).length > 0) {
+    if (!isValid) {
       console.error("Validation Errors:", errors);
       setError("Please fix the highlighted errors before submitting.");
       setIsSubmitting(false);
@@ -75,24 +240,6 @@ function G2Registration() {
     }
 
     try {
-      //   const validatedStudents = formData.map((student, index) => {
-      //     const result = studentSchema.safeParse(student);
-      //     if (!result.success) {
-      //       const fieldErrors = result.error.flatten().fieldErrors;
-      //       throw new Error(
-      //         `Member ${index + 1}: ${Object.values(fieldErrors)[0]}`
-      //       );
-      //     }
-      //     return result.data;
-      //   });
-
-      //   // Validate payment data
-      //   const paymentResult = paymentSchema.safeParse(paymentData);
-      //   if (!paymentResult.success) {
-      //     const paymentErrors = paymentResult.error.flatten().fieldErrors;
-      //     throw new Error(Object.values(paymentErrors)[0]);
-      //   }
-
       const { data: teamData, error: teamError } = await supabase
         .from("teams")
         .insert([{ size: teamSize }])
@@ -101,10 +248,17 @@ function G2Registration() {
 
       if (teamError) throw teamError;
 
-      const studentsWithTeam = formData.map((student) => ({
-        ...student,
-        team_id: teamData.id,
-      }));
+      const studentsWithTeam = formData.map((student) => {
+        const cleanStudent = { ...student, team_id: teamData.id };
+
+        if (student.department === "Others" && student.customDepartment) {
+          cleanStudent.department = student.customDepartment;
+        }
+
+        delete cleanStudent.customDepartment;
+
+        return cleanStudent;
+      });
 
       const { error: studentsError } = await supabase
         .from("students")
@@ -158,90 +312,251 @@ function G2Registration() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto p-6 space-y-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Register for G2HackFest
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 overflow-hidden">
+      <AnimatedGrid />
+
+      <div className="max-w-4xl mx-auto p-6 pt-12 space-y-8">
+        <div className="text-center space-y-4 animate-fadeIn">
+          <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-4">
+            <QrCode className="h-8 w-8 text-primary" />
+          </div>
+          <h1 className="text-5xl font-bold text-slate-900 mb-2 tracking-tight">
+            G2HackFest Registration
           </h1>
-          <p className="text-gray-600">Fill out all fields carefully</p>
+          <p className="text-slate-600 max-w-lg mx-auto">
+            Join the most exciting hackathon of the year. Fill out all fields
+            carefully to complete your registration.
+          </p>
         </div>
 
+        <div className="flex justify-between items-center max-w-md mx-auto mb-8 relative">
+          {[1, 2, 3].map((step) => (
+            <div key={step} className="flex flex-col items-center z-10">
+              <div
+                className={cn(
+                  "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500",
+                  currentStep === step
+                    ? "bg-primary text-white scale-110"
+                    : currentStep > step
+                    ? "bg-green-500 text-white"
+                    : "bg-slate-200 text-slate-500"
+                )}
+              >
+                {currentStep > step ? (
+                  <CheckCircle className="h-5 w-5" />
+                ) : (
+                  <span>{step}</span>
+                )}
+              </div>
+              <span
+                className={cn(
+                  "text-xs mt-2 font-medium",
+                  currentStep === step
+                    ? "text-primary"
+                    : currentStep > step
+                    ? "text-green-500"
+                    : "text-slate-500"
+                )}
+              >
+                {step === 1
+                  ? "Team Size"
+                  : step === 2
+                  ? "Team Details"
+                  : "Payment"}
+              </span>
+            </div>
+          ))}
+          <div
+            className={cn(
+              "h-1 absolute left-1/2 -translate-x-1/2 w-64 bg-slate-200",
+              "after:content-[''] after:absolute after:h-full after:bg-primary after:transition-all after:duration-500",
+              currentStep === 1
+                ? "after:w-0"
+                : currentStep === 2
+                ? "after:w-1/2"
+                : "after:w-full"
+            )}
+          ></div>
+        </div>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start">
+            <AlertCircle className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="font-medium">Please fix the following errors:</p>
+              <p className="text-sm">{error}</p>
+            </div>
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="bg-white rounded-lg shadow-sm border p-6 space-y-6">
-            <div className="space-y-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Select Team Size
-              </label>
-              <div className="flex gap-4">
-                {[3, 4].map((size) => (
-                  <button
-                    type="button"
-                    key={size}
-                    onClick={() => handleTeamSizeChange(size)}
-                    className={`flex-1 py-3 px-4 rounded-lg border transition-all duration-300 ${
-                      teamSize === size
-                        ? "border-blue-500 bg-blue-50 text-blue-700"
-                        : "border-gray-200 hover:border-gray-300"
-                    }`}
-                  >
-                    {size} Members
-                  </button>
-                ))}
+          <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8 space-y-8 backdrop-blur-sm bg-white/80">
+            <div
+              className={cn(
+                "transition-all duration-500 transform",
+                currentStep === 1
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-[-100px] opacity-0 absolute pointer-events-none"
+              )}
+            >
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 mb-6">
+                  <Users className="h-6 w-6 text-primary" />
+                  <h2 className="text-xl font-semibold text-slate-900">
+                    Select Your Team Size
+                  </h2>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {[3, 4].map((size) => (
+                    <button
+                      type="button"
+                      key={size}
+                      onClick={() => handleTeamSizeChange(size)}
+                      className={cn(
+                        "py-6 px-4 rounded-xl border-2 transition-all duration-300 flex flex-col items-center justify-center hover:shadow-md group",
+                        teamSize === size
+                          ? "border-primary bg-primary/5 text-primary"
+                          : "border-slate-200 hover:border-primary/30 hover:bg-slate-50"
+                      )}
+                    >
+                      <span className="text-3xl font-bold mb-2 group-hover:scale-110 transition-transform">
+                        {size}
+                      </span>
+                      <span className="text-slate-600">Team Members</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
             {teamSize && (
-              <div className="space-y-8">
-                {formData.map((_, index) => (
-                  <div
-                    key={index}
-                    className="animate-slideIn"
-                    style={{
-                      animationDelay: `${index * 0.1}s`,
-                    }}
-                  >
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                      Team Member {index + 1}
-                    </h2>
-                    <StudentForm
-                      index={index}
-                      formData={formData[index]}
-                      onChange={(data) => handleStudentFormChange(index, data)}
+              <div
+                className={cn(
+                  "transition-all duration-500 transform",
+                  currentStep === 2
+                    ? "translate-x-0 opacity-100"
+                    : currentStep < 2
+                    ? "translate-x-[100px] opacity-0 absolute pointer-events-none"
+                    : "translate-x-[-100px] opacity-0 absolute pointer-events-none"
+                )}
+              >
+                <div className="space-y-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center space-x-3">
+                      <Users className="h-6 w-6 text-primary" />
+                      <h2 className="text-xl font-semibold text-slate-900">
+                        Team Details
+                      </h2>
+                    </div>
+                    <TeamSizeBadge size={teamSize} />
+                  </div>
+
+                  {formData.map((_, index) => (
+                    <div
+                      key={index}
+                      className="animate-slideUp"
+                      style={{
+                        animationDelay: `${index * 0.15}s`,
+                      }}
+                    >
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-medium">
+                          {index + 1}
+                        </div>
+                        <h2 className="text-xl font-semibold text-slate-900">
+                          Team Member {index + 1}
+                        </h2>
+                      </div>
+                      <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <StudentForm
+                          index={index}
+                          formData={formData[index]}
+                          onChange={(data) =>
+                            handleStudentFormChange(index, data)
+                          }
+                        />
+                      </div>
+                    </div>
+                  ))}
+
+                  <div className="flex justify-between">
+                    <AnimatedButton
+                      onClick={() => setCurrentStep(1)}
+                      variant="secondary"
+                      className="group"
+                    >
+                      <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+                      <span>Back to Team Size</span>
+                    </AnimatedButton>
+
+                    <AnimatedButton
+                      onClick={() => {
+                        if (validateAllStudentForms()) {
+                          setCurrentStep(3);
+                        }
+                      }}
+                      className="group"
+                    >
+                      <span>Continue to Payment</span>
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </AnimatedButton>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {teamSize && (
+              <div
+                className={cn(
+                  "transition-all duration-500 transform",
+                  currentStep === 3
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-[100px] opacity-0 absolute pointer-events-none"
+                )}
+              >
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <CreditCard className="h-6 w-6 text-primary" />
+                      <h2 className="text-xl font-semibold text-slate-900">
+                        Payment Details
+                      </h2>
+                    </div>
+                    <TeamSizeBadge size={teamSize} />
+                  </div>
+
+                  <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 animate-fadeIn">
+                    <PaymentForm
+                      onChange={handlePaymentFormChange}
+                      formData={paymentData}
                     />
                   </div>
-                ))}
 
-                <div className="pt-8 border-t">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                    Payment Details
-                  </h2>
-                  <PaymentForm
-                    onChange={handlePaymentFormChange}
-                    formData={paymentData}
-                  />
-                </div>
+                  <div className="pt-4 flex justify-between items-center">
+                    <AnimatedButton
+                      onClick={() => setCurrentStep(2)}
+                      variant="secondary"
+                      className="group"
+                    >
+                      <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+                      <span>Back to Team Details</span>
+                    </AnimatedButton>
 
-                {error && (
-                  <div className="text-red-600 text-sm p-4 bg-red-50 rounded-md">
-                    {error}
+                    <AnimatedButton
+                      type="submit"
+                      disabled={isSubmitting || !formComplete}
+                      className="group"
+                    >
+                      <span>
+                        {isSubmitting
+                          ? "Submitting..."
+                          : "Complete Registration"}
+                      </span>
+                      {!isSubmitting && (
+                        <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      )}
+                    </AnimatedButton>
                   </div>
-                )}
-
-                <div className="pt-6">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full py-3 px-6 rounded-lg text-white transition-colors duration-300 ${
-                      isSubmitting
-                        ? "bg-blue-400 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700"
-                    }`}
-                  >
-                    {isSubmitting
-                      ? "Submitting..."
-                      : "Submit Team Registration"}
-                  </button>
                 </div>
               </div>
             )}

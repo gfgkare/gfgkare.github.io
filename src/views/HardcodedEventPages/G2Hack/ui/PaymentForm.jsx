@@ -1,7 +1,11 @@
+"use client";
+
 import { useState } from "react";
-import { QrCode, Upload } from "lucide-react";
+import { QrCode, Upload, CreditCard } from "lucide-react";
 import { paymentSchema } from "../../../../lib/validation";
 import { z } from "zod";
+import upiQrCode from "./upiQrCode.jpeg";
+
 export default function PaymentForm({ formData, onChange }) {
   const [errors, setErrors] = useState({});
 
@@ -54,10 +58,34 @@ export default function PaymentForm({ formData, onChange }) {
 
         <div className="mt-4 flex justify-center">
           <img
-            src="https://images.unsplash.com/photo-1622162739169-59d3f10c996f?auto=format&fit=crop&w=300&q=80"
+            src={upiQrCode}
             alt="QR Code"
             className="w-48 h-48 object-cover rounded-lg shadow-sm"
           />
+        </div>
+
+        {/* Add this payment information box */}
+        <div className="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200 animate-pulse">
+          <h3 className="font-medium text-blue-800 flex items-center">
+            <CreditCard className="w-5 h-5 mr-2" />
+            Payment Information
+          </h3>
+          <div className="mt-2 flex justify-between items-center">
+            <div>
+              <p className="text-sm text-blue-700">
+                Registration Fee per Member
+              </p>
+              <p className="text-sm text-blue-700">Total Team Members</p>
+              <p className="font-medium text-blue-900 mt-2">Total Amount</p>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-blue-700">₹300</p>
+              <p className="text-sm text-blue-700">{window.teamSize || 0}</p>
+              <p className="font-medium text-blue-900 mt-2">
+                ₹{(window.teamSize || 0) * 300}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -71,8 +99,8 @@ export default function PaymentForm({ formData, onChange }) {
             name="upiId"
             className={`mt-1 block w-full rounded-md border ${
               errors.upiId ? "border-red-300" : "border-gray-300"
-            } shadow-sm focus:border-blue-500 focus:ring-blue-500`}
-            placeholder="example@upi"
+            } bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500`}
+            placeholder="yourUpiId@upi"
             onChange={handleChange}
             value={formData?.upiId || ""}
             onBlur={(e) => validateField("upiId", e.target.value)}
@@ -89,7 +117,7 @@ export default function PaymentForm({ formData, onChange }) {
             name="transactionId"
             className={`mt-1 block w-full rounded-md border ${
               errors.transactionId ? "border-red-300" : "border-gray-300"
-            } shadow-sm focus:border-blue-500 focus:ring-blue-500`}
+            } bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500`}
             placeholder="Enter transaction ID"
             onChange={handleChange}
             value={formData?.transactionId || ""}
@@ -100,7 +128,7 @@ export default function PaymentForm({ formData, onChange }) {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Payment Proof
+            Payment Proof Screenshot
           </label>
           <div
             className={`mt-1 flex justify-center px-6 pt-5 pb-6 border-2 ${
