@@ -959,7 +959,10 @@ $text: #252525;
 
                     &.benefits {
                         .benefitsRowGrid {
-                            display: flex;
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+                            grid-row-gap: 3rem;
+                            grid-column-gap: 1rem;
                             justify-content: center;
                             align-items: center;
                             gap: 1rem;
@@ -977,7 +980,7 @@ $text: #252525;
                                 align-items: center;
                                 min-width: 200px;
                                 border: 3px solid black;
-                                padding: 1rem 2rem;
+                                padding: 1.25rem 2rem;
                                 border-radius: 1rem;
                                 overflow: hidden;
 
@@ -993,8 +996,8 @@ $text: #252525;
                                     border-radius: .7rem;
                                     background: linear-gradient(
                                         45deg,
-                                        rgba(0, 0, 0, 0.65),
-                                        rgba(0, 0, 0, 0.8),
+                                        rgba(0, 0, 0, 0.7),
+                                        rgba(0, 0, 0, 0.85),
                                     ), url("../../../assets/patterns/squiggles-blue.svg");
                                     background-size: cover;
                                     z-index: -1;
@@ -1164,7 +1167,7 @@ $text: #252525;
                     &.sponsors {
                         div.themesGrid {
                             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                            gap: 1rem;
+                            // gap: 1rem;
 
                             .slideSponsor .sponsorCard {
                                 background-color: #dedede;
@@ -1172,15 +1175,19 @@ $text: #252525;
                                 margin: 0 auto;
                                 max-width: max-content;
                                 border-radius: .5rem;
-                                padding: 1rem 1.6rem;
+                                padding: 1.5rem 1.6rem;
+                                min-width: 300px;
 
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                gap: 1rem;
+                                // gap: .5rem;
 
                                 .sponsorLogo {
                                     flex: .5;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
 
                                     img {
                                         max-height: 40px;

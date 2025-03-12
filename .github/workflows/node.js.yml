@@ -29,6 +29,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
+    - name: Add secrets
+      run: |
+        {
+          echo "VITE_SUPABASE_ANON_KEY=${{ vars.VITE_SUPABASE_ANON_KEY }}";
+          echo "VITE_SUPABASE_URL=${{ vars.VITE_SUPABASE_URL }}";
+        } >> .env.production
+      shell: bash
   
     - name: Update Meta
       run: |

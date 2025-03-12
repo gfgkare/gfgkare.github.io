@@ -23,6 +23,7 @@ import Coin from "./ui/Coin/Coin";
 import kluLogo from "@/assets/klu.png";
 import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
 import gfgLogo from "@/assets/gfg.png";
+import xyzLogo from "@/assets/g2hack/xyz.png";
 
 import { useState, useRef, useEffect } from "react";
 import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
@@ -772,7 +773,7 @@ export default function G2Hack() {
                                             <CLink to={"https://gen.xyz"} target={"_blank"}>
                                                 <div className="sponsorCard">
                                                     <div className="sponsorLogo">
-                                                        <img src={gfgLogo} />
+                                                        <img src={xyzLogo} />
                                                     </div>
                                                     <div className="sponsorName">XYZ Domains</div>
                                                 </div>

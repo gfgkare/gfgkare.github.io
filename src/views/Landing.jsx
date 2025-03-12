@@ -128,7 +128,7 @@ export default function Landing() {
                             <CLink to="/contact">Contact</CLink>
                         </div> */}
                         <div className="fullScreenItem">
-                            <CLink to="/algo2025">Algorithmist '25</CLink>
+                            <CLink to="/g2hack">G2HackFest</CLink>
                         </div>
                     </div>
                 </nav>
@@ -139,7 +139,7 @@ export default function Landing() {
                         <img className="gfgLogo" src={gfgLogo} alt="Gfg Kare's logo"/>
                     </div>
                     <div className="rightMenu">
-                        <CLink to={"/algo2025"} className="menuButton highlight hideOnMobile">Algorithmist 25</CLink>
+                        <CLink to={"/g2hack"} className="menuButton highlight hideOnMobile">G2HackFest</CLink>
                         <button className="menuButton" onClick={() => setFullScreenNavOpen(true)} >Menu</button>
                     </div>
                 </nav>
