@@ -3,30 +3,28 @@ import "./G2Hack.scss";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
-import { BsChevronDoubleDown } from "react-icons/bs";
-import { RiGroupFill, RiErrorWarningLine } from "react-icons/ri";
-import { MdOutlineListAlt } from "react-icons/md";
-import { IoTicket } from "react-icons/io5";
-import { GoPlus } from "react-icons/go";
+import { GoGlobe, GoPlus } from "react-icons/go";
 import { GoClock } from "react-icons/go";
 import { CiLocationOn } from "react-icons/ci";
-import { FaRegClock } from "react-icons/fa6";
+import { MdOutlineFastfood } from "react-icons/md";
+import { BsBagHeart } from "react-icons/bs";
+import { TbMoneybag } from "react-icons/tb";
+import { ImCool } from "react-icons/im";
+import { IoMail } from "react-icons/io5";
 
 import Squares from "./ui/Squares/Squares";
 import ScrollVelocity from "./ui/ScrollVelocity/ScrollVelocity";
-import ShinyText from "./ui/ShinyText/ShinyText";
 import RotatingText from "./ui/RotatingText/RotatingText";
-import FollowCursor from "./ui/FollowCursor/FollowCursor";
 import RollingGallery from "./ui/RollingGallery/RollingGallery";
 import Coin from "./ui/Coin/Coin";
 
-import kluLogo from "@/assets/klu.png";
 import gfgkareLogo from "@/assets/gfgkare_square_logo.jpg";
+import gdgkareLogo from "@/assets/g2hack/gdg.png";
 import gfgLogo from "@/assets/gfg.png";
 import xyzLogo from "@/assets/g2hack/xyz.png";
 
 import { useState, useRef, useEffect } from "react";
-import { Fade, AttentionSeeker, Slide } from "react-awesome-reveal";
+import { Fade, AttentionSeeker } from "react-awesome-reveal";
 import CountdownTimer from "react-component-countdown-timer";
 import "react-component-countdown-timer/lib/styles.css";
 
@@ -34,6 +32,7 @@ import CLink from "@/components/CLink";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/contexts/AuthContext";
 import axios from "@/scripts/axiosConfig";
+
 
 const themeDetails = {
     "Healthcare": {
@@ -184,16 +183,17 @@ export default function G2Hack() {
                 <div className="navContainer">
                     <nav className="g2hackNav">
                         <div className="logoContainer">
-                            <CLink to={"https://kalasalingam.ac.in"} target="_blank">
-                                <div className="logo klu">
-                                    <img src={kluLogo}/>
+                            <CLink to={"/"}>
+                                <div className="logo">
+                                    <img src={gfgkareLogo} />
                                 </div>
                             </CLink>
-                            <div className="logo">
-                                <CLink to={"/"}>
-                                    <img src={gfgkareLogo} />
-                                </CLink>
-                            </div>
+                            <CLink to={"https://gdg-kare.tech"} target="_blank">
+                                <div className="logo klu">
+                                    <img src={gdgkareLogo}/>
+                                </div>
+                            </CLink>
+                            
                         </div>
                         
 
@@ -277,11 +277,10 @@ export default function G2Hack() {
                             <Fade delay={6000}>
                                 <div className="actionButtonContainer">
                                     <AttentionSeeker effect="tada" delay={6000}>
-                                            <button className="actionButton" onClick={() => {
-                                                // whatSection?.current.scrollIntoView()
-                                            }}>
-                                                <BsChevronDoubleDown size={"40px"} />
-                                            </button>
+                                            <a href="#register" className="actionButton" >
+                                                Register Now!
+                                                {/* <BsChevronDoubleDown size={"40px"} /> */}
+                                            </a>
                                     </AttentionSeeker>
                                 </div>
                             </Fade>
@@ -397,7 +396,7 @@ export default function G2Hack() {
                             </div>
                         </div>
 
-                        <Slide direction="right" triggerOnce>
+                        <Fade triggerOnce>
                             <div className="normalSectionText">
                                 <div className="normalSectionContent">
                                     G2Hackfest is <span className="color yellow">open to all engineering students</span>, irrespective of year and branch.
@@ -409,7 +408,7 @@ export default function G2Hack() {
                                     Registration fee of Rs <span className="color red">300/- per head</span> should be paid to complete the registration process.
                                 </div>
                             </div>
-                        </Slide>
+                        </Fade>
 
                         {/* <Fade delay={500}>
                             <div className="closingSoon">
@@ -434,7 +433,7 @@ export default function G2Hack() {
                             </div>
                         </div>
 
-                        <Slide triggerOnce>
+                        <Fade triggerOnce>
                             <div className="normalSectionText why">
                                 Prajñotsavah offers knowledge, mentorship, recognition, and competition. Participants receive mentorship to refine their projects, ensuring they are practical and impactful. Showcase your work to gain recognition and compete for grand prizes. With a <span className="color pink">prize pool of over Rs. 22,000</span>, the competition is fierce, and the rewards are substantial. Join now to learn, grow, and win big.
 
@@ -450,7 +449,7 @@ export default function G2Hack() {
                                     </div>
                                 </div>
                             </div>
-                        </Slide>
+                        </Fade>
                     </Fade>
                 </div> */}
 
@@ -464,7 +463,7 @@ export default function G2Hack() {
                                 IS THIS HAPPENING!?
                             </div>
                         </div>
-                        <Slide direction="right" triggerOnce>
+                        <Fade direction="right" triggerOnce>
                             <div className="normalSectionText map">
                                 <div className="text">
                                     Prajñotsavah is happening in the prestigious <span className="color cyan">Kalasalingam University in Krishnankoil, Tamil Nadu.</span> The event will be held in the university's state-of-the-art facilities, providing participants with a conducive environment to present their projects. The offline presentation will be held on <span className="color green">November 8, 2024</span>, and the winners will be announced on the same day.
@@ -474,7 +473,7 @@ export default function G2Hack() {
                                 </div>
                                 
                             </div>
-                        </Slide>
+                        </Fade>
                     </Fade>
                 </div> */}
 
@@ -488,7 +487,7 @@ export default function G2Hack() {
                         </div>
                         <div className="normalSectionText prizes">
                             <div className="prizesGrid">
-                                <Slide className="slidePrizeCard" triggerOnce>
+                                <Fade className="FadePrizeCard" triggerOnce>
                                     <div className="prizeCard first">
                                         <div className="circle"></div>
                                         <div className="position">WINNER</div>
@@ -513,7 +512,7 @@ export default function G2Hack() {
                                         <div className="prize"></div>
                                         <div className="and">Certificate</div>
                                     </div>
-                                </Slide>
+                                </Fade>
                             </div>
                         </div>
                     </Fade>
@@ -533,12 +532,12 @@ export default function G2Hack() {
                                         <GoPlus size={"25px"} />
                                     </div>
                                     <div className="text">
-                                        2 EE Credits for all participants
+                                        2 Credits for all Participants
                                     </div>
                                 </div>
                                 <div className="benefit">
                                     <div className="icon">
-                                        <GoPlus size={"25px"} />
+                                        <GoGlobe size={"25px"} />
                                     </div>
                                     <div className="text">
                                         Networking opportunities
@@ -546,7 +545,7 @@ export default function G2Hack() {
                                 </div>
                                 <div className="benefit">
                                     <div className="icon">
-                                        <GoPlus size={"25px"} />
+                                        <MdOutlineFastfood size={"25px"} />
                                     </div>
                                     <div className="text">
                                         Scrumptious food
@@ -554,7 +553,7 @@ export default function G2Hack() {
                                 </div>
                                 <div className="benefit">
                                     <div className="icon">
-                                        <GoPlus size={"25px"} />
+                                        <BsBagHeart size={"25px"} />
                                     </div>
                                     <div className="text">
                                         Take home cool swags
@@ -562,7 +561,7 @@ export default function G2Hack() {
                                 </div>
                                 <div className="benefit">
                                     <div className="icon">
-                                        <GoPlus size={"25px"} />
+                                        <TbMoneybag size={"25px"} />
                                     </div>
                                     <div className="text">
                                         Exciting cash prizes
@@ -570,10 +569,10 @@ export default function G2Hack() {
                                 </div>
                                 <div className="benefit">
                                     <div className="icon">
-                                        <GoPlus size={"25px"} />
+                                        <ImCool size={"25px"} />
                                     </div>
                                     <div className="text">
-                                        Sponsor goodies
+                                        And much more!
                                     </div>
                                 </div>
                             </div>
@@ -602,13 +601,13 @@ export default function G2Hack() {
 
                                 <div className="normalSectionText">
                                     <div className="themesGrid">
-                                        <Slide triggerOnce>
+                                        <Fade triggerOnce>
                                             <div className="card healthcare" onClick={() => handleThemeClick("Healthcare")}>Healthcare</div>
                                             <div className="card fintech" onClick={() => handleThemeClick("FinTech")}>FinTech</div>
                                             <div className="card agrotech" onClick={() => handleThemeClick("AgroTech")}>AgroTech</div>
                                             <div className="card fitness" onClick={() => handleThemeClick("Fitness and Sports")}>Fitness and Sports</div>
                                             <div className="card blockchain" onClick={() => handleThemeClick("BlockChain")}>BlockChain</div>
-                                        </Slide>
+                                        </Fade>
                                     </div>
                                 </div>
                             </Fade>
@@ -725,7 +724,7 @@ export default function G2Hack() {
                         </div> */}
 
 
-                        <div className="FourQuestionSection" ref={registerSection} style={{ scrollMargin: "100px" }}>
+                        <div className="FourQuestionSection" id="register" ref={registerSection} style={{ scrollMargin: "100px" }}>
                             <Fade cascade damping={.1} triggerOnce>
                                 <div className="sectionTitleText">
                                     <div className="bigText">
@@ -755,13 +754,13 @@ export default function G2Hack() {
                             <Fade cascade damping={.1} triggerOnce>
                                 <div className="sectionTitleText">
                                     <div className="bigText orange">
-                                        SPONSORS
+                                        PARTNERS
                                     </div>
                                 </div>
 
                                 <div className="normalSectionText sponsors">
                                     <div className="themesGrid">
-                                        <Slide className="slideSponsor" triggerOnce>
+                                        <Fade className="FadeSponsor" triggerOnce>
                                             <CLink to={"https://www.geeksforgeeks.org/"} target={"_blank"}>
                                                 <div className="sponsorCard">
                                                     <div className="sponsorLogo">
@@ -778,8 +777,14 @@ export default function G2Hack() {
                                                     <div className="sponsorName">XYZ Domains</div>
                                                 </div>
                                             </CLink>
-                                        </Slide>
+                                        </Fade>
                                     </div>
+                                </div>
+
+                                <div className="becomePartnerContainer">
+                                    <CLink className={"becomePartner"}>
+                                        Become a partner!
+                                    </CLink>
                                 </div>
                             </Fade>
                         </div>
@@ -800,10 +805,20 @@ export default function G2Hack() {
                             <div className="contact">
                                 <div className="title">For any queries, feel free to contact</div>
                                 <div className="numbers">
-                                    <span>Sabari S - <a href="tel:+91 87546 05197">+91 87546 05197</a> </span>
+                                    <span>Keerthi Kumar  / <a href="tel:+91 94436 34173">+91 94436 34173</a> </span>
+                                    <span>M.M. Navadeep  / <a href="tel:+91 70750 72880">+91 70750 72880</a> </span>
+                                    <span>Thanuja  / <a href="tel:+91 78934 34485">+91 78934 34485</a> </span>
+                                    <span>Sabari S  / <a href="tel:+91 87546 05197">+91 87546 05197</a> </span>
                                 </div>
                                 <div className="email">
-                                    Or drop a mail to <a href="mailto:gfgkarestudentchapter@gmail.com">gfgkarestudentchapter@gmail.com</a>
+                                    <div>
+                                        <IoMail />
+                                        <a href="mailto:gfgkarestudentchapter@klu.ac.in">gfgkarestudentchapter@klu.ac.in</a>
+                                    </div>
+                                    <div>
+                                        <IoMail />
+                                        <a href="mailto:gdsckare@klu.ac.in">gdsckare@klu.ac.in</a>
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -812,7 +827,15 @@ export default function G2Hack() {
                         
                     </div>
 
-                    <Footer />
+                    <footer>
+                        <div>
+                            With ❤️
+                        </div>
+                        <div>
+                            GFG KARE & GDG KARE
+                        </div>
+                    </footer>
+                    {/* <Footer /> */}
                 </div>
             
             </div>

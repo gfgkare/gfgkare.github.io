@@ -9,7 +9,10 @@ export const studentSchema = z.object({
   phoneNumber: z.string().regex(/^\d{10}$/, "Phone number must be 10 digits"),
   department: z.string().min(2, "Department is required"),
   year: z.string().min(1, "Year is required"),
-  email: z.string().email("Invalid email address"),
+  email: z
+    .string()
+    .email("Invalid email address")
+    .regex(/@klu\.ac\.in$/, "Please register with your KLU email"),
   accommodation: z.enum(["hosteller", "dayScholar"]),
   gender: z.enum(["Male", "Female"], {
     errorMap: () => ({ message: "Gender must be either 'Male' or 'Female'" }),

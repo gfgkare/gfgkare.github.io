@@ -153,7 +153,8 @@ $text: #252525;
                 div.logo {
                     height: 60px;
                     width: 60px !important;
-                    background-color: $text;
+                    background-color: lighten($background, 10);
+                    border: 1px solid rgba(black, .4);
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -163,6 +164,7 @@ $text: #252525;
                     img {
                         height: 100%;
                         width: 100%;
+                        object-fit: contain;
                     }
 
                     &.klu {
@@ -310,7 +312,7 @@ $text: #252525;
             }
 
             &.red {
-                color: rgb(197, 28, 28);
+                color: rgb(244, 67, 54);
             }
 
             &.purple {
@@ -346,6 +348,7 @@ $text: #252525;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                text-align: center; // Center text within the landingSection
 
                 .heroDiv {
                     margin-top: 4.5rem;
@@ -354,19 +357,19 @@ $text: #252525;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-    
+
                     .gfgKarePresents {
                         font-size: 1.5rem;
                         display: flex;
                         gap: 1rem;
-    
+
                         .awesomeFade {
                             display: flex;
                             gap: 0.5rem;
                             justify-content: center;
                             align-items: flex-end;
                         }
-    
+
                         .title {
                             font-family: "Unbounded", sans-serif;
                             color: black;
@@ -376,24 +379,23 @@ $text: #252525;
                             align-items: center;
                             gap: .75rem;
                             font-size: 1.25rem;
-                            
-    
+
                             .gfg {
                                 font-size: clamp(1.4rem, 2.5vw, 6rem);
                                 color: #379777;
                             }
-    
+
                             .gdg {
                                 font-size: clamp(1.4rem, 2.5vw, 6rem);
                                 color: #176CED;
                             }
                         }
                     }
-    
+
                     .g2hackText {
                         transform: translateX(1rem);
                         margin-top: 2rem;
-    
+
                         .name {
                             font-family: "Unbounded";
                             font-size: clamp(3rem, 8vw, 6rem);
@@ -403,86 +405,84 @@ $text: #252525;
                             -webkit-text-fill-color: transparent;
                             -webkit-background-clip: text;
                         }
-    
+
                         .year {
                             font-size: 2rem;
                         }
-    
+
                         span {
                             display: block;
                         }
                     }
                 }
-    
+
                 .subTitle {
                     font-family: "Acquire";
                     font-size: 1.25rem;
                 }
-    
+
                 .dateAndTime {
                     display: flex;
                     flex-direction: column;
                     gap: .25rem;
                     font-family: "Unbounded";
-    
+
                     justify-content: center;
                     align-items: center;
                     margin: 2.25rem 0 1.25rem 0;
-    
+
                     font-weight: 600;
-    
+
                     .row {
                         display: flex;
                         gap: .5rem;
                     }
                 }
-    
+
                 .timerContainer {
                     z-index: 2;
-    
+
                     .root-react-component-countdown-timer  {
                         user-select: none;
-                        
+
                         .displayedTime .countBox {
                             display: flex;
                             flex-direction: row-reverse;
                             align-items: flex-end;
                             gap: .5rem;
                             font-weight: bold;
-    
+
                             .split {
                                 padding: .5rem 0;
                             }
-    
+
                             .countBoxItem {
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
                                 align-items: center;
                                 gap: .25rem;
-                                
-                               
+
                                 .label {
                                     font-weight: 500;
                                 }
-    
+
                                 .count {
                                     min-width: 30px;
                                     background-color: rgb(47, 47, 52) !important;
                                     color: $background !important;
-                                    border-radius: 8px;    
+                                    border-radius: 8px;
                                     padding: .5rem;
-    
+
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
                                 }
-    
                             }
                         }
                     }
                 }
-    
+
                 .closingSoon {
                     width: max-content;
                     max-width: 70vw;
@@ -495,22 +495,23 @@ $text: #252525;
                     border: 1px solid rgba(255, 237, 178, 0.3);
                     padding: .5rem 1rem;
                     border-radius: 3px;
-    
+
                     a {
                         margin-left: .5rem;
                         color: rgb(254, 157, 157) !important;
                     }
                 }
-    
+
                 .actionButtonContainer {
                     margin: 3rem 0 3rem 0;
                     z-index: 3 !important;
-    
+
                     .actionButton {
                         font-family: "Unbounded";
                         opacity: 0.9;
                         background-color: #F44336;
                         color: $background;
+                        border: 1px solid rgba(black, .5);
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -519,25 +520,25 @@ $text: #252525;
                         transform: scale(0.9);
                         transition: all 0.3s ease;
                         transition-delay: 0;
-    
+
                         display: flex;
                         gap: 0.5rem;
-    
+
                         a {
                             text-decoration: none !important;
                         }
-    
+
                         svg {
                             animation: hoverUpAndDown 1s infinite ease;
                         }
-    
+
                         &:hover {
+                            color: $background !important;
                             opacity: 1;
                             transform: scale(1);
                         }
                     }
                 }
-                
             }
 
 
@@ -598,6 +599,29 @@ $text: #252525;
                 margin: 2rem 0;
                 padding: 2rem 0;
                 max-height: max-content;
+
+                .becomePartnerContainer {
+                    margin-top: 5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .becomePartner {
+                        font-family: "Unbounded", sans-serif;
+                        font-weight: 600;
+                        font-size: 1rem;
+                        text-align: center;
+                        padding: .75rem 1.75rem;
+                        border-radius: 1rem;
+                        background: rgba(black, .1);
+                        border: 1px solid rgba(black, .3);
+    
+                        &:hover {
+                            color: rgb(244, 67, 54) !important;
+                            text-decoration: underline;
+                        }
+                    }
+                }
 
                 &.prizes {
                     width: 100%;
@@ -750,7 +774,6 @@ $text: #252525;
                 }
 
                 .normalSectionText {
-                    padding: 0 2rem;
                     margin: 4rem auto 0 auto;
                     text-align: center;
                     width: min(1100px, 80%);
@@ -795,8 +818,8 @@ $text: #252525;
                                 align-items: center;
                                 background: linear-gradient(
                                         45deg,
-                                        rgba(0, 0, 0, 0.65),
-                                        rgba(0, 0, 0, 0.8),
+                                        rgba(0, 0, 0, 0.5),
+                                        rgba(0, 0, 0, 0.1),
                                     ),
                                     url("../assets/patterns/squiggles-blue.svg");
                                 background-size: cover;
@@ -886,10 +909,10 @@ $text: #252525;
                             // gap: 1rem;
                             margin-top: 2rem;
 
-                            .slidePrizeCard {
+                            .FadePrizeCard {
                                 z-index: 2 !important;
-                                min-width: 270px;
-                                max-width: max-content;
+                                min-width: 320px;
+                                // max-width: max-content;
                                 min-height: 140px;
                                 padding: 1rem 2rem;
                                 margin: 0 auto;
@@ -918,9 +941,9 @@ $text: #252525;
                                     align-items: flex-start;
                                     justify-content: center;
                                     max-width: max-content;
-                                    min-width: 200px;
-                                    border: 2px solid rgba(black, .5);
-                                    background: linear-gradient(125deg, rgba(black, .05), rgba(black, .2));
+                                    min-width: 300px;
+                                    border: 2px solid rgba(black, .3);
+                                    background: linear-gradient(125deg, rgba(black, .02), rgba(black, .1));
                                     padding: 2rem;
                                     border-radius: 1rem;
 
@@ -979,6 +1002,7 @@ $text: #252525;
                                 justify-content: center;
                                 align-items: center;
                                 min-width: 200px;
+                                min-height: 100px;
                                 border: 3px solid black;
                                 padding: 1.25rem 2rem;
                                 border-radius: 1rem;
@@ -996,8 +1020,8 @@ $text: #252525;
                                     border-radius: .7rem;
                                     background: linear-gradient(
                                         45deg,
-                                        rgba(0, 0, 0, 0.7),
-                                        rgba(0, 0, 0, 0.85),
+                                        rgba(0, 0, 0, 0.6),
+                                        rgba(0, 0, 0, 0.75),
                                     ), url("../../../assets/patterns/squiggles-blue.svg");
                                     background-size: cover;
                                     z-index: -1;
@@ -1169,7 +1193,7 @@ $text: #252525;
                             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                             // gap: 1rem;
 
-                            .slideSponsor .sponsorCard {
+                            .FadeSponsor .sponsorCard {
                                 background-color: #dedede;
                                 color: rgb(30, 30, 30);
                                 margin: 0 auto;
@@ -1177,11 +1201,18 @@ $text: #252525;
                                 border-radius: .5rem;
                                 padding: 1.5rem 1.6rem;
                                 min-width: 300px;
+                                border: 2px solid rgba(black, .2);
 
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                // gap: .5rem;
+                                gap: 1rem;
+
+                                &:hover {
+                                    .sponsorName {
+                                        text-decoration: underline !important;
+                                    }
+                                }
 
                                 .sponsorLogo {
                                     flex: .5;
@@ -1191,6 +1222,7 @@ $text: #252525;
 
                                     img {
                                         max-height: 40px;
+                                        object-fit: contain;
                                     }
                                 }
 
@@ -1215,6 +1247,17 @@ $text: #252525;
                         .email {
                             font-size: 1rem;
                             margin-top: 2rem;
+
+                            div {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: .5rem;
+
+                                svg {
+                                    transform: translateY(1px);
+                                }
+                            }
                         }
                     }
                 }
@@ -1233,7 +1276,11 @@ $text: #252525;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: .5rem;
+            border-top: 1px solid rgba($text, .8);
+            background: rgba(black, .04);
+
+            font-family: "Unbounded";
 
             .creator {
                 opacity: 0.7;
@@ -1288,6 +1335,11 @@ $text: #252525;
         .content {
             .heroDiv {
                 margin-top: 5rem !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center; // Center text within the heroDiv
 
                 .gfgKarePresents {
                     font-size: 1.55rem;
@@ -1298,21 +1350,29 @@ $text: #252525;
                     }
 
                     .title {
-                        font-size: 1.7rem !important;
+                        font-size: 0.75rem !important;
+
+                        .gfg {
+                            font-size: clamp(0.75rem, 1.5vw, 2rem) !important; 
+                        }
+
+                        .gdg {
+                            font-size: clamp(0.75rem, 1.5vw, 2rem) !important; 
+                        }
                     }
 
                     .presents {
-                        font-size: 1rem;
+                        font-size: 0.75rem;
                     }
                 }
 
                 .projectExpoText {
                     .name {
-                        font-size: 2.7rem !important;
+                        font-size: 1.5rem !important; 
                     }
 
                     .year {
-                        font-size: 1.8rem !important;
+                        font-size: 1.25rem !important;
                     }
                 }
             }
@@ -1340,6 +1400,118 @@ $text: #252525;
 
                         .rule {
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .projectExpo {
+        width: 100vw;
+        overflow-x: hidden;
+
+        .content {
+            .heroDiv {
+                margin-top: 5rem !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center; 
+
+                .gfgKarePresents {
+                    font-size: 1.25rem; 
+
+                    .awesomeFade {
+                        flex-direction: column;
+                        align-items: center !important;
+                    }
+
+                    .title {
+                        font-size: 0.5rem !important; 
+
+                        .gfg {
+                            font-size: clamp(0.5rem, 1vw, 1.5rem) !important; 
+                        }
+
+                        .gdg {
+                            font-size: clamp(0.5rem, 1vw, 1.5rem) !important; 
+                        }
+                    }
+
+                    .presents {
+                        font-size: 0.5rem;
+                    }
+                }
+
+                .projectExpoText {
+                    .name {
+                        margin-left: 0;
+                        font-size: 1rem !important; 
+                        max-width: 100%;
+                        text-align: center; 
+                        white-space: nowrap;
+                        overflow: hidden; 
+                        text-overflow: ellipsis;
+                    }
+
+                    .year {
+                        font-size: 1rem !important; 
+                    }
+                }
+            }
+
+            .dateAndTime {
+                margin: 4rem 0 !important;
+            }
+
+            .actionButtonContainer {
+                margin-top: 5rem !important;
+            }
+
+            .FourQuestionSection {
+                .subText {
+                    text-align: center;
+                }
+
+                .normalSectionText {
+                    font-size: 0.875rem !important; 
+                    width: 100% !important; 
+                    margin: 2rem auto 0 auto !important;
+
+                    .normalSectionContent {
+                        max-width: 100% !important; 
+                        margin: 0 auto 1rem auto !important; 
+                        padding: 0 1rem !important; 
+                    }
+
+                    &.prizes {
+                        .prizesGrid {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center; // Center align prizes
+                            justify-content: center;
+                            gap: 1rem;
+                            margin-top: 2rem;
+
+                            .FadePrizeCard {
+                                min-width: 100%; 
+                                margin: 0 auto;
+                                border-radius: .8rem;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                background: linear-gradient(60deg, rgba(230, 230, 230, .1), rgba(240, 240, 240, .15));
+                                padding: 0 !important; // Remove padding for smaller screens
+                            }
+                        }
+                    }
+
+                    &.register {
+                        font-size: 0.875rem !important; 
                     }
                 }
             }

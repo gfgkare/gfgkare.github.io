@@ -38,7 +38,7 @@ jobs:
         DATE=$(date +'%B %d')
         sed -i "s/{currentDate}/$DATE/g" src/pages/Meta.jsx
 
-        COMMIT_MSG=$(git log -1 --pretty=%B)
+        COMMIT_MSG=$(git log -1 --pretty=%B || echo "No commit message available")
         sed -i "s/{commitMessage}/$COMMIT_MSG/g" src/pages/Meta.jsx
 
     - name: Install Dependencies
