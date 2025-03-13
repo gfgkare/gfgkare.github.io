@@ -365,11 +365,21 @@ export default function StudentForm({ index, formData, onChange }) {
             <label key={value} className="inline-flex items-center mr-4">
               <input
                 type="radio"
-                name={`accommodation`}
+                name={`accommodation-${index}`}
                 id={`accommodation-${value}-${index}`}
                 value={value}
                 checked={formData?.accommodation === value}
-                onChange={(e) => handleChange(e, index)}
+                onChange={(e) => {
+                  const modifiedEvent = {
+                    ...e,
+                    target: {
+                      ...e.target,
+                      name: "accommodation",
+                      value: value,
+                    },
+                  };
+                  handleChange(modifiedEvent, index);
+                }}
                 className="form-radio accent-[#1E7BAE] text-blue-600"
               />
               <span className="ml-2">{label}</span>
