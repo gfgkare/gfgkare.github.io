@@ -66,18 +66,156 @@ const RotatingCoin = () => {
       return new THREE.CanvasTexture(canvas);
     };
 
+    const createCoinFaceTexture = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const context = canvas.getContext('2d');
+      
+      // Create a radial gradient for a metallic gold look
+      const gradient = context.createRadialGradient(
+        canvas.width/2, canvas.height/2, 0,
+        canvas.width/2, canvas.height/2, canvas.width/2
+      );
+      gradient.addColorStop(0, '#FFD700');     // Center gold
+      gradient.addColorStop(0.7, '#E6C200');   // Mid gold
+      gradient.addColorStop(0.9, '#DAA520');   // Darker gold
+      gradient.addColorStop(1, '#B8860B');     // Edge darker gold
+      
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Add some noise/texture to the coin surface
+      for (let i = 0; i < 5000; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 1.5;
+        
+        // Calculate distance from center to create circular coin
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const distanceFromCenter = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+        
+        if (distanceFromCenter < canvas.width / 2) {
+          context.beginPath();
+          context.arc(x, y, radius, 0, 2 * Math.PI);
+          
+          // Randomize between slightly lighter and darker dots
+          const brightness = Math.random() > 0.5 ? '0, 0, 0' : '255, 255, 255';
+          context.fillStyle = `rgba(${brightness}, ${Math.random() * 0.08})`;
+          context.fill();
+        }
+      }
+      
+      // Add a thin rim/border around the edge
+      context.strokeStyle = '#B8860B';
+      context.lineWidth = 6;
+      context.beginPath();
+      context.arc(canvas.width/2, canvas.height/2, canvas.width/2 - 4, 0, 2 * Math.PI);
+      context.stroke();
+      
+      // Add a subtle inner ring to simulate stamped edge
+      context.strokeStyle = '#CEA243';
+      context.lineWidth = 3;
+      context.beginPath();
+      context.arc(canvas.width/2, canvas.height/2, canvas.width/2 - 20, 0, 2 * Math.PI);
+      context.stroke();
+      
+      // Add some linear scratches for worn look
+      for (let i = 0; i < 20; i++) {
+        const startX = Math.random() * canvas.width;
+        const startY = Math.random() * canvas.height;
+        const length = 20 + Math.random() * 40;
+        const angle = Math.random() * Math.PI * 2;
+        const endX = startX + Math.cos(angle) * length;
+        const endY = startY + Math.sin(angle) * length;
+        
+        // Calculate if scratch is within coin boundary
+        const startDist = Math.sqrt(Math.pow(startX - canvas.width/2, 2) + Math.pow(startY - canvas.height/2, 2));
+        const endDist = Math.sqrt(Math.pow(endX - canvas.width/2, 2) + Math.pow(endY - canvas.height/2, 2));
+        
+        if (startDist < canvas.width/2 - 10 && endDist < canvas.width/2 - 10) {
+          context.beginPath();
+          context.moveTo(startX, startY);
+          context.lineTo(endX, endY);
+          context.strokeStyle = `rgba(255, 255, 255, ${Math.random() * 0.1})`;
+          context.lineWidth = 1;
+          context.stroke();
+        }
+      }
+      
+      return new THREE.CanvasTexture(canvas);
+    };
+    
+    // Create edge ridges texture
+    const createCoinEdgeTexture = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 64;
+      const context = canvas.getContext('2d');
+      
+      // Base color
+      context.fillStyle = '#DAA520';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Create ridges
+      const ridgeCount = 120;
+      const ridgeWidth = canvas.width / ridgeCount;
+      
+      for (let i = 0; i < ridgeCount; i++) {
+        // Alternate between light and dark for ridges
+        if (i % 2 === 0) {
+          context.fillStyle = '#B8860B';  // Darker gold
+        } else {
+          context.fillStyle = '#FFD700';  // Brighter gold
+        }
+        
+        context.fillRect(i * ridgeWidth, 0, ridgeWidth, canvas.height);
+      }
+      
+      // Add some noise for texture
+      for (let i = 0; i < 2000; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 1;
+        
+        context.beginPath();
+        context.arc(x, y, radius, 0, 2 * Math.PI);
+        
+        // Randomize between slightly lighter and darker dots
+        const brightness = Math.random() > 0.5 ? '0, 0, 0' : '255, 255, 255';
+        context.fillStyle = `rgba(${brightness}, ${Math.random() * 0.1})`;
+        context.fill();
+      }
+      
+      // Create a texture that repeats horizontally but not vertically
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.repeat.set(4, 1);
+      
+      return texture;
+    };
+    
+    // Create the coin face textures
+    const coinFaceTexture = createCoinFaceTexture();
+    const coinEdgeTexture = createCoinEdgeTexture();
+
     const goldTexture = createGoldPlatedTexture();
 
     const baseMaterial = new THREE.MeshStandardMaterial({
-      map: goldTexture,
-      metalness: 1.0,
+      // map: goldTexture,
+      map: coinFaceTexture,
+      metalness: 0.8,
       roughness: 0.3,
+      envMapIntensity: 1.0,
+      // color: 0xFFD700,
     });
 
     const edgeMaterial = new THREE.MeshStandardMaterial({
+      map: coinEdgeTexture,
       color: 0xFFD700,
-      metalness: 1.0,
-      roughness: 0.1,
+      metalness: 0.9,
+      roughness: 0.3,
       emissive: 0xFFC000,
       emissiveIntensity: 0.3,
     });

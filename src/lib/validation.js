@@ -17,7 +17,9 @@ export const studentSchema = z.object({
 });
 
 export const paymentSchema = z.object({
-  upiId: z.string().min(1, "UPI ID is required"),
-  transactionId: z.string().min(1, "Transaction ID is required"),
+  upiId: z.string().min(1, "UPI ID is required").regex(/^[\w.-]+@[\w.-]+$/, "Please enter a valid UPI ID").refine(val => val !== "69097701@ubin", {
+    message: "You have entered our UPI ID, please enter yours.",
+  }),
+  transactionId: z.string().min(12, "Enter a valid Transaction ID of 12 characters").max(12, "Enter a valid Transaction ID of 12 characters"),
   paymentProof: z.instanceof(File, { message: "Payment proof is required" }),
 });

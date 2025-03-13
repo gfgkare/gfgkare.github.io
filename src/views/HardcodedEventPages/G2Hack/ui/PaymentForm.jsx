@@ -5,6 +5,7 @@ import { QrCode, Upload, CreditCard } from "lucide-react";
 import { paymentSchema } from "../../../../lib/validation";
 import { z } from "zod";
 import upiQrCode from "./upiQrCode.jpeg";
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function PaymentForm({ formData, onChange }) {
   const [errors, setErrors] = useState({});
@@ -57,11 +58,15 @@ export default function PaymentForm({ formData, onChange }) {
         </div>
 
         <div className="mt-4 flex justify-center">
-          <img
+          <QRCodeSVG 
+            value={`upi://pay?pa=69097701@ubin&pn=G2HackFest&am=${300 * window.teamSize}&tn=G2HackFest Desc&cu=INR`}
+          />
+          {/* if the above dynamic qr breaks, fallback to default bank provded one below. */}
+          {/* <img
             src={upiQrCode}
             alt="QR Code"
             className="w-48 h-48 object-cover rounded-lg shadow-sm"
-          />
+          /> */}
         </div>
 
         {/* Add this payment information box */}
