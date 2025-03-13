@@ -348,6 +348,7 @@ $text: #252525;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                text-align: center; // Center text within the landingSection
 
                 .heroDiv {
                     margin-top: 4.5rem;
@@ -356,19 +357,19 @@ $text: #252525;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-    
+
                     .gfgKarePresents {
                         font-size: 1.5rem;
                         display: flex;
                         gap: 1rem;
-    
+
                         .awesomeFade {
                             display: flex;
                             gap: 0.5rem;
                             justify-content: center;
                             align-items: flex-end;
                         }
-    
+
                         .title {
                             font-family: "Unbounded", sans-serif;
                             color: black;
@@ -378,24 +379,23 @@ $text: #252525;
                             align-items: center;
                             gap: .75rem;
                             font-size: 1.25rem;
-                            
-    
+
                             .gfg {
                                 font-size: clamp(1.4rem, 2.5vw, 6rem);
                                 color: #379777;
                             }
-    
+
                             .gdg {
                                 font-size: clamp(1.4rem, 2.5vw, 6rem);
                                 color: #176CED;
                             }
                         }
                     }
-    
+
                     .g2hackText {
                         transform: translateX(1rem);
                         margin-top: 2rem;
-    
+
                         .name {
                             font-family: "Unbounded";
                             font-size: clamp(3rem, 8vw, 6rem);
@@ -405,86 +405,84 @@ $text: #252525;
                             -webkit-text-fill-color: transparent;
                             -webkit-background-clip: text;
                         }
-    
+
                         .year {
                             font-size: 2rem;
                         }
-    
+
                         span {
                             display: block;
                         }
                     }
                 }
-    
+
                 .subTitle {
                     font-family: "Acquire";
                     font-size: 1.25rem;
                 }
-    
+
                 .dateAndTime {
                     display: flex;
                     flex-direction: column;
                     gap: .25rem;
                     font-family: "Unbounded";
-    
+
                     justify-content: center;
                     align-items: center;
                     margin: 2.25rem 0 1.25rem 0;
-    
+
                     font-weight: 600;
-    
+
                     .row {
                         display: flex;
                         gap: .5rem;
                     }
                 }
-    
+
                 .timerContainer {
                     z-index: 2;
-    
+
                     .root-react-component-countdown-timer  {
                         user-select: none;
-                        
+
                         .displayedTime .countBox {
                             display: flex;
                             flex-direction: row-reverse;
                             align-items: flex-end;
                             gap: .5rem;
                             font-weight: bold;
-    
+
                             .split {
                                 padding: .5rem 0;
                             }
-    
+
                             .countBoxItem {
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
                                 align-items: center;
                                 gap: .25rem;
-                                
-                               
+
                                 .label {
                                     font-weight: 500;
                                 }
-    
+
                                 .count {
                                     min-width: 30px;
                                     background-color: rgb(47, 47, 52) !important;
                                     color: $background !important;
-                                    border-radius: 8px;    
+                                    border-radius: 8px;
                                     padding: .5rem;
-    
+
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
                                 }
-    
                             }
                         }
                     }
                 }
-    
+
                 .closingSoon {
                     width: max-content;
                     max-width: 70vw;
@@ -497,17 +495,17 @@ $text: #252525;
                     border: 1px solid rgba(255, 237, 178, 0.3);
                     padding: .5rem 1rem;
                     border-radius: 3px;
-    
+
                     a {
                         margin-left: .5rem;
                         color: rgb(254, 157, 157) !important;
                     }
                 }
-    
+
                 .actionButtonContainer {
                     margin: 3rem 0 3rem 0;
                     z-index: 3 !important;
-    
+
                     .actionButton {
                         font-family: "Unbounded";
                         opacity: 0.9;
@@ -521,25 +519,24 @@ $text: #252525;
                         transform: scale(0.9);
                         transition: all 0.3s ease;
                         transition-delay: 0;
-    
+
                         display: flex;
                         gap: 0.5rem;
-    
+
                         a {
                             text-decoration: none !important;
                         }
-    
+
                         svg {
                             animation: hoverUpAndDown 1s infinite ease;
                         }
-    
+
                         &:hover {
                             opacity: 1;
                             transform: scale(1);
                         }
                     }
                 }
-                
             }
 
 
@@ -775,7 +772,6 @@ $text: #252525;
                 }
 
                 .normalSectionText {
-                    padding: 0 2rem;
                     margin: 4rem auto 0 auto;
                     text-align: center;
                     width: min(1100px, 80%);
@@ -1337,6 +1333,11 @@ $text: #252525;
         .content {
             .heroDiv {
                 margin-top: 5rem !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center; // Center text within the heroDiv
 
                 .gfgKarePresents {
                     font-size: 1.55rem;
@@ -1347,21 +1348,29 @@ $text: #252525;
                     }
 
                     .title {
-                        font-size: 1.7rem !important;
+                        font-size: 0.75rem !important;
+
+                        .gfg {
+                            font-size: clamp(0.75rem, 1.5vw, 2rem) !important; 
+                        }
+
+                        .gdg {
+                            font-size: clamp(0.75rem, 1.5vw, 2rem) !important; 
+                        }
                     }
 
                     .presents {
-                        font-size: 1rem;
+                        font-size: 0.75rem;
                     }
                 }
 
                 .projectExpoText {
                     .name {
-                        font-size: 2.7rem !important;
+                        font-size: 1.5rem !important; 
                     }
 
                     .year {
-                        font-size: 1.8rem !important;
+                        font-size: 1.25rem !important;
                     }
                 }
             }
@@ -1389,6 +1398,118 @@ $text: #252525;
 
                         .rule {
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .projectExpo {
+        width: 100vw;
+        overflow-x: hidden;
+
+        .content {
+            .heroDiv {
+                margin-top: 5rem !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center; 
+
+                .gfgKarePresents {
+                    font-size: 1.25rem; 
+
+                    .awesomeFade {
+                        flex-direction: column;
+                        align-items: center !important;
+                    }
+
+                    .title {
+                        font-size: 0.5rem !important; 
+
+                        .gfg {
+                            font-size: clamp(0.5rem, 1vw, 1.5rem) !important; 
+                        }
+
+                        .gdg {
+                            font-size: clamp(0.5rem, 1vw, 1.5rem) !important; 
+                        }
+                    }
+
+                    .presents {
+                        font-size: 0.5rem;
+                    }
+                }
+
+                .projectExpoText {
+                    .name {
+                        margin-left: 0;
+                        font-size: 1rem !important; 
+                        max-width: 100%;
+                        text-align: center; 
+                        white-space: nowrap;
+                        overflow: hidden; 
+                        text-overflow: ellipsis;
+                    }
+
+                    .year {
+                        font-size: 1rem !important; 
+                    }
+                }
+            }
+
+            .dateAndTime {
+                margin: 4rem 0 !important;
+            }
+
+            .actionButtonContainer {
+                margin-top: 5rem !important;
+            }
+
+            .FourQuestionSection {
+                .subText {
+                    text-align: center;
+                }
+
+                .normalSectionText {
+                    font-size: 0.875rem !important; 
+                    width: 100% !important; 
+                    margin: 2rem auto 0 auto !important;
+
+                    .normalSectionContent {
+                        max-width: 100% !important; 
+                        margin: 0 auto 1rem auto !important; 
+                        padding: 0 1rem !important; 
+                    }
+
+                    &.prizes {
+                        .prizesGrid {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center; // Center align prizes
+                            justify-content: center;
+                            gap: 1rem;
+                            margin-top: 2rem;
+
+                            .FadePrizeCard {
+                                min-width: 100%; 
+                                margin: 0 auto;
+                                border-radius: .8rem;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                background: linear-gradient(60deg, rgba(230, 230, 230, .1), rgba(240, 240, 240, .15));
+                                padding: 0 !important; // Remove padding for smaller screens
+                            }
+                        }
+                    }
+
+                    &.register {
+                        font-size: 0.875rem !important; 
                     }
                 }
             }
