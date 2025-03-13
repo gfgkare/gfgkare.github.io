@@ -65,7 +65,7 @@ export default function PaymentForm({ formData, onChange }) {
         </div>
 
         {/* Add this payment information box */}
-        <div className="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200 animate-pulse">
+        <div className="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
           <h3 className="font-medium text-blue-800 flex items-center">
             <CreditCard className="w-5 h-5 mr-2" />
             Payment Information
