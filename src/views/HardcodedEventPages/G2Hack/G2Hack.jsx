@@ -188,7 +188,7 @@ export default function G2Hack() {
                                     <img src={gfgkareLogo} />
                                 </div>
                             </CLink>
-                            <CLink to={""} target="_blank">
+                            <CLink to={"https://gdg-kare.tech"} target="_blank">
                                 <div className="logo klu">
                                     <img src={gdgkareLogo}/>
                                 </div>
@@ -277,12 +277,10 @@ export default function G2Hack() {
                             <Fade delay={6000}>
                                 <div className="actionButtonContainer">
                                     <AttentionSeeker effect="tada" delay={6000}>
-                                            <button className="actionButton" onClick={() => {
-                                                // whatSection?.current.scrollIntoView()
-                                            }}>
+                                            <a href="#register" className="actionButton" >
                                                 Register Now!
                                                 {/* <BsChevronDoubleDown size={"40px"} /> */}
-                                            </button>
+                                            </a>
                                     </AttentionSeeker>
                                 </div>
                             </Fade>
@@ -726,7 +724,7 @@ export default function G2Hack() {
                         </div> */}
 
 
-                        <div className="FourQuestionSection" ref={registerSection} style={{ scrollMargin: "100px" }}>
+                        <div className="FourQuestionSection" id="register" ref={registerSection} style={{ scrollMargin: "100px" }}>
                             <Fade cascade damping={.1} triggerOnce>
                                 <div className="sectionTitleText">
                                     <div className="bigText">

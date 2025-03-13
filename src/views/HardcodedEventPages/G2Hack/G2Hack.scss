@@ -513,6 +513,7 @@ $text: #252525;
                         opacity: 0.9;
                         background-color: #F44336;
                         color: $background;
+                        border: 1px solid rgba(black, .5);
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -534,6 +535,7 @@ $text: #252525;
                         }
     
                         &:hover {
+                            color: $background !important;
                             opacity: 1;
                             transform: scale(1);
                         }
