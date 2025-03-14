@@ -47,9 +47,9 @@ export default function StudentForm({ index, formData, onChange }) {
       ) {
         // For hostel fields when accommodation is hosteller, validate as required
         z.string().min(1, `${name} is required for hostellers`).parse(value);
-      } else if (name === "disabilityDetails" && formData?.hasDisabilities) {
+      // } else if (name === "disabilityDetails" && formData?.hasDisabilities) {
         // For disability details when hasDisabilities is true, validate as required
-        z.string().min(1, "Disability details are required").parse(value);
+        // z.string().min(1, "Disability details are required").parse(value);
       } else if (
         name === "department" &&
         isOthers &&
@@ -403,7 +403,7 @@ export default function StudentForm({ index, formData, onChange }) {
           <span className="ml-2">Has Disabilities</span>
         </label>
 
-        {hasDisabilities && (
+        {/* {hasDisabilities && (
           <div className="animate-slideDown ml-6 mt-2">
             <label className="block text-sm font-medium text-gray-700">
               Disability Details <span className="text-red-500">*</span>
@@ -423,7 +423,7 @@ export default function StudentForm({ index, formData, onChange }) {
             />
             {renderError("disabilityDetails")}
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="space-y-2">
@@ -436,7 +436,7 @@ export default function StudentForm({ index, formData, onChange }) {
             onChange={handleChange}
             className="text-blue-600 focus:ring-blue-500"
           />
-          <span className="ml-2">Fasting</span>
+          <span className="ml-2">Are you fasting for Ramzan?</span>
         </label>
       </div>
     </div>

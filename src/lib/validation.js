@@ -72,19 +72,19 @@ export const studentSchema = z.object({
     }),
 
   // Disability details conditionally required
-  disabilityDetails: z
-    .string()
-    .or(z.undefined())
-    .refine((val, ctx) => {
-      if (ctx.parent.hasDisabilities && !val) {
-        return ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message:
-            "Disability details are required when disabilities are indicated",
-        });
-      }
-      return true;
-    }),
+  // disabilityDetails: z
+  //   .string()
+  //   .or(z.undefined())
+  //   .refine((val, ctx) => {
+  //     if (ctx.parent.hasDisabilities && !val) {
+  //       return ctx.addIssue({
+  //         code: z.ZodIssueCode.custom,
+  //         message:
+  //           "Disability details are required when disabilities are indicated",
+  //       });
+  //     }
+  //     return true;
+  //   }),
 });
 
 export const paymentSchema = z.object({
