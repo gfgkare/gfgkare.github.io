@@ -461,7 +461,7 @@ function G2Registration() {
       setFormData([]);
       setPaymentData({});
 
-      navigate("/success");
+      navigate("/g2hack/success");
     } catch (error) {
       console.error("Registration error:", error);
       setError(error.message || "An error occurred during registration");

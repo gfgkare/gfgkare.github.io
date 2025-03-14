@@ -38,6 +38,7 @@ import Code from "./views/Code";
 
 import G2Hack from "./views/HardcodedEventPages/G2Hack/G2Hack";
 import G2Registration from "./views/HardcodedEventPages/G2Hack/Registration";
+import G2Success from "./views/HardcodedEventPages/G2Hack/G2Success";
 
 import ProjectExpo from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpo";
 import ProjectExpoRegister from "./views/HardcodedEventPages/Prajnotsavah/ProjectExpoRegistration";
@@ -139,6 +140,7 @@ export default function App() {
             ></Route>
             <Route path="/g2hack" element={<G2Hack />}></Route>
             <Route path="/g2hack/register" element={<G2Registration />}></Route>
+            <Route path="/g2hack/success" element={<G2Success />}></Route>
             {/* <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route> */}
 
             {/* DASHBOARD */}
