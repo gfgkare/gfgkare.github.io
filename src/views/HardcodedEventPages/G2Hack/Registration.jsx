@@ -303,7 +303,29 @@ function G2Registration() {
               field === "wardenName" ||
               field === "wardenNumber") &&
             student?.accommodation === "hosteller"
-          )
+          ) {
+            if (field === "wardenNumber") {
+              // Regex to verify phone number
+              const phoneRegex = /^\d{10}$/;
+
+              if (!phoneRegex.test(student?.wardenNumber)) {
+                setTimeout(() => {
+                  const errorElement = document.getElementById("error-label");
+                  if (errorElement) {
+                    errorElement.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                    errorElement.focus();
+                  }
+                }, 100);
+
+                setError("Please enter a valid warden number");
+                isValid = false;
+                return;
+              }
+            }
+
             if (student?.[field] === "") {
               setTimeout(() => {
                 const errorElement = document.getElementById(
@@ -322,11 +344,8 @@ function G2Registration() {
               }, 100);
               isValid = false;
               return;
-            } else if (
-              field === "disabilityDetails" &&
-              !student.hasDisabilities
-            )
-              return;
+            }
+          }
 
           if (field === "department" && student.department === "Others") {
             if (!student.customDepartment) {
@@ -378,8 +397,6 @@ function G2Registration() {
             firstErrorField.index + 1
           }'s form`
         );
-      } else {
-        setError("");
       }
     }
     return isValid;
