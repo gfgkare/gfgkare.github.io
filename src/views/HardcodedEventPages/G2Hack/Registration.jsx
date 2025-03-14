@@ -89,7 +89,8 @@ const TeamSizeBadge = ({ size }) => {
 function G2Registration() {
   const navigate = useNavigate();
   const [teamSize, setTeamSize] = useState(null);
-  const [formData, setFormData] = useState([]);
+  const [teamName, setTeamName] = useState("");
+  const [formData, setFormData] = useState();
   const [paymentData, setPaymentData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -106,17 +107,190 @@ function G2Registration() {
     }, 300);
   };
 
+  const handleTeamNameChange = (teamName) => {
+    setTeamName(teamName);
+  };
+
   const handleStudentFormChange = (index, data) => {
     const newFormData = [...formData];
     newFormData[index] = data;
     setFormData(newFormData);
   };
 
-  // Function to validate all student forms
-  const validateAllStudentForms = () => {
+  // Add this function to the G2Registration component
+  const validateUniqueFields = () => {
+    const registerNumbers = new Set();
+    const emails = new Set();
+    const newFormErrors = [...formErrors];
+    let isValid = true;
+    let firstErrorField = null;
+
+    formData.forEach((student, index) => {
+      // Check register number uniqueness
+      if (student.registerNumber) {
+        if (registerNumbers.has(student.registerNumber)) {
+          if (!newFormErrors[index]) newFormErrors[index] = {};
+          newFormErrors[index].registerNumber =
+            "Register number must be unique across team members";
+          isValid = false;
+          if (!firstErrorField)
+            firstErrorField = { index, field: "registerNumber" };
+        } else {
+          registerNumbers.add(student.registerNumber);
+        }
+      }
+
+      // Check email uniqueness
+      if (student.email) {
+        if (emails.has(student.email)) {
+          if (!newFormErrors[index]) newFormErrors[index] = {};
+          newFormErrors[index].email =
+            "Email must be unique across team members";
+          isValid = false;
+          if (!firstErrorField) firstErrorField = { index, field: "email" };
+        } else {
+          emails.add(student.email);
+        }
+      }
+    });
+
+    if (!isValid) {
+      setFormErrors(newFormErrors);
+
+      if (firstErrorField) {
+        setTimeout(() => {
+          const errorElement = document.getElementById(
+            `${firstErrorField.field}-${firstErrorField.index}`
+          );
+          if (errorElement) {
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            errorElement.focus();
+          }
+        }, 100);
+
+        setError(
+          `Please fix the duplicate ${firstErrorField.field} in Team Member ${
+            firstErrorField.index + 1
+          }'s form`
+        );
+        setTimeout(() => {
+          const errorElement = document.getElementById("error-label");
+          if (errorElement) {
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            errorElement.focus();
+          }
+        }, 100);
+      }
+    }
+
+    return isValid;
+  };
+
+  const validateAllStudentForms = async () => {
+    setError("");
     let isValid = true;
     const newFormErrors = [];
     let firstErrorField = null;
+
+    if (teamName.trim() === "") {
+      setError("Team Name is required");
+      isValid = false;
+
+      setTimeout(() => {
+        const errorElement = document.getElementById("teamName");
+        if (errorElement) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+        }
+      }, 100);
+      return;
+    }
+
+    const { data: existingTeams, error: teamFetchError } = await supabase
+      .from("teams")
+      .select("name")
+      .eq("name", teamName);
+
+    if (teamFetchError) throw teamFetchError;
+
+    if (existingTeams.length > 0) {
+      setError(
+        `The team name "${teamName}" is already taken. Please choose another.`
+      );
+      isValid = false;
+
+      setTimeout(() => {
+        const errorElement = document.getElementById("teamName");
+        if (errorElement) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+        }
+      }, 100);
+
+      return;
+    }
+
+    const registerNumbers = formData.map((student) => student.registerNumber);
+
+    const { data: existingStudents, error: fetchError } = await supabase
+      .from("students")
+      .select("registerNumber")
+      .in("registerNumber", registerNumbers);
+
+    if (fetchError) throw fetchError;
+
+    const existingRegisterNumbers = new Set(
+      existingStudents.map((s) => s.registerNumber)
+    );
+
+    const duplicateStudent = formData.find((student) =>
+      existingRegisterNumbers.has(student.registerNumber)
+    );
+
+    const duplicateIndex = formData.findIndex(
+      (student) => student.registerNumber === duplicateStudent?.registerNumber
+    );
+
+    if (duplicateStudent) {
+      setError(
+        `Team Member ${duplicateIndex}'s Register Number is already registered.`
+      );
+      isValid = false;
+      setTimeout(() => {
+        const errorElement = document.getElementById(`error-label`);
+        if (errorElement) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+        }
+      }, 100);
+
+      return;
+    }
+
+    setFormData((prevFormData) =>
+      prevFormData.map((student, index) => ({
+        ...student,
+        hostelName: student.hostelName || "",
+        wardenName: student.wardenName || "",
+        wardenNumber: student.wardenNumber || "",
+        roomNo: student.roomNo || "",
+      }))
+    );
 
     formData.forEach((student, index) => {
       const studentErrors = {};
@@ -124,14 +298,54 @@ function G2Registration() {
       Object.keys(studentSchema.shape).forEach((field) => {
         try {
           if (
-            field === "hostelName" ||
-            field === "roomNo" ||
-            field === "wardenName"
+            (field === "hostelName" ||
+              field === "roomNo" ||
+              field === "wardenName" ||
+              field === "wardenNumber") &&
+            student?.accommodation === "hosteller"
           ) {
-            if (student.accommodation !== "hosteller") return;
-          }
+            if (field === "wardenNumber") {
+              // Regex to verify phone number
+              const phoneRegex = /^\d{10}$/;
 
-          if (field === "disabilityDetails" && !student.hasDisabilities) return;
+              if (!phoneRegex.test(student?.wardenNumber)) {
+                setTimeout(() => {
+                  const errorElement = document.getElementById("error-label");
+                  if (errorElement) {
+                    errorElement.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                    errorElement.focus();
+                  }
+                }, 100);
+
+                setError("Please enter a valid warden number");
+                isValid = false;
+                return;
+              }
+            }
+
+            if (student?.[field] === "") {
+              setTimeout(() => {
+                const errorElement = document.getElementById(
+                  `${field}-${index}`
+                );
+
+                let current = true;
+                if (errorElement && current) {
+                  errorElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                  errorElement.focus();
+                  current = false;
+                }
+              }, 100);
+              isValid = false;
+              return;
+            }
+          }
 
           if (field === "department" && student.department === "Others") {
             if (!student.customDepartment) {
@@ -157,33 +371,34 @@ function G2Registration() {
       }
     });
 
-    setFormErrors(newFormErrors);
-
-    if (firstErrorField) {
-      setTimeout(() => {
-        const errorElement = document.getElementById(
-          `${firstErrorField.field}-${firstErrorField.index}`
-        );
-        let current = true;
-        if (errorElement && current) {
-          errorElement.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-          errorElement.focus();
-          current = false;
-        }
-      }, 100);
-
-      setError(
-        `Please fix the errors in Team Member ${
-          firstErrorField.index + 1
-        }'s form`
-      );
+    if (isValid) {
+      isValid = validateUniqueFields();
     } else {
-      setError("");
-    }
+      setFormErrors(newFormErrors);
 
+      if (firstErrorField) {
+        setTimeout(() => {
+          const errorElement = document.getElementById(
+            `${firstErrorField.field}-${firstErrorField.index}`
+          );
+          let current = true;
+          if (errorElement && current) {
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            errorElement.focus();
+            current = false;
+          }
+        }, 100);
+
+        setError(
+          `Please fix the errors in Team Member ${
+            firstErrorField.index + 1
+          }'s form`
+        );
+      }
+    }
     return isValid;
   };
 
@@ -242,7 +457,7 @@ function G2Registration() {
     try {
       const { data: teamData, error: teamError } = await supabase
         .from("teams")
-        .insert([{ size: teamSize }])
+        .insert([{ size: teamSize, name: teamName }])
         .select()
         .single();
 
@@ -256,6 +471,13 @@ function G2Registration() {
         }
 
         delete cleanStudent.customDepartment;
+
+        if (student.accommodation === "dayScholar") {
+          delete cleanStudent.hostelName;
+          delete cleanStudent.roomNo;
+          delete cleanStudent.wardenName;
+          delete cleanStudent.wardenNumber;
+        }
 
         return cleanStudent;
       });
@@ -302,7 +524,11 @@ function G2Registration() {
       setFormData([]);
       setPaymentData({});
 
-      navigate("/success");
+      navigate("/g2hack/success");
+
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
     } catch (error) {
       console.error("Registration error:", error);
       setError(error.message || "An error occurred during registration");
@@ -380,7 +606,10 @@ function G2Registration() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start">
+          <div
+            className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start"
+            id="error-label"
+          >
             <AlertCircle className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
             <div>
               <p className="font-medium">Please fix the following errors:</p>
@@ -451,6 +680,23 @@ function G2Registration() {
                     <TeamSizeBadge size={teamSize} />
                   </div>
 
+                  <div className="space-y-4">
+                    <div>
+                      <h2 className="text-xl font-semibold text-slate-900">
+                        Team Name
+                      </h2>
+                      <input
+                        type="text"
+                        id="teamName"
+                        value={teamName}
+                        onChange={(e) => handleTeamNameChange(e.target.value)}
+                        className="mt-1 block w-full rounded-md border border-slate-300 shadow-sm focus:border-primary focus:ring focus:ring-primary/30 p-2"
+                        placeholder="Enter your team name"
+                        required
+                      />
+                    </div>
+                  </div>
+
                   {formData.map((_, index) => (
                     <div
                       key={index}
@@ -490,8 +736,9 @@ function G2Registration() {
                     </AnimatedButton>
 
                     <AnimatedButton
-                      onClick={() => {
-                        if (validateAllStudentForms()) {
+                      onClick={async () => {
+                        const isValid = await validateAllStudentForms();
+                        if (isValid) {
                           setCurrentStep(3);
                         }
                       }}
