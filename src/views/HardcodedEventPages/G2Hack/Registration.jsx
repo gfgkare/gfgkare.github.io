@@ -187,10 +187,51 @@ function G2Registration() {
     return isValid;
   };
 
-  const validateAllStudentForms = () => {
+  const validateAllStudentForms = async () => {
+    setError("");
     let isValid = true;
     const newFormErrors = [];
     let firstErrorField = null;
+
+    const registerNumbers = formData.map((student) => student.registerNumber);
+
+    const { data: existingStudents, error: fetchError } = await supabase
+      .from("students")
+      .select("registerNumber")
+      .in("registerNumber", registerNumbers);
+
+    if (fetchError) throw fetchError;
+
+    const existingRegisterNumbers = new Set(
+      existingStudents.map((s) => s.registerNumber)
+    );
+
+    const duplicateStudent = formData.find((student) =>
+      existingRegisterNumbers.has(student.registerNumber)
+    );
+
+    const duplicateIndex = formData.findIndex(
+      (student) => student.registerNumber === duplicateStudent?.registerNumber
+    );
+
+    if (duplicateStudent) {
+      setError(
+        `Team Member ${duplicateIndex}'s Register Number is already registered.`
+      );
+      isValid = false;
+      setTimeout(() => {
+        const errorElement = document.getElementById(`error-label`);
+        if (errorElement) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+        }
+      }, 100);
+
+      return;
+    }
 
     setFormData((prevFormData) =>
       prevFormData.map((student, index) => ({
@@ -611,8 +652,9 @@ function G2Registration() {
                     </AnimatedButton>
 
                     <AnimatedButton
-                      onClick={() => {
-                        if (validateAllStudentForms()) {
+                      onClick={async () => {
+                        const isValid = await validateAllStudentForms();
+                        if (isValid) {
                           setCurrentStep(3);
                         }
                       }}
