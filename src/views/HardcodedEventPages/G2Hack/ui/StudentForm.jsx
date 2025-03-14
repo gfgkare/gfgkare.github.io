@@ -34,23 +34,27 @@ export default function StudentForm({ index, formData, onChange }) {
 
   const validateField = (name, value) => {
     try {
-      // Handle special case for hostel fields
-      if (
-        (name === "hostelName" || name === "roomNo" || name === "wardenName") &&
-        formData?.accommodation !== "hosteller"
+      // For individual field validation, we'll use a simpler approach
+      // that doesn't trigger the superRefine validation
+      if (name === "accommodation") {
+        studentSchema.shape[name].parse(value);
+      } else if (
+        (name === "hostelName" ||
+          name === "roomNo" ||
+          name === "wardenName" ||
+          name === "wardenNumber") &&
+        formData?.accommodation === "hosteller"
       ) {
-        setErrors((prev) => ({ ...prev, [name]: "" }));
-        return true;
-      }
-
-      // Handle special case for disability details
-      if (name === "disabilityDetails" && !formData?.hasDisabilities) {
-        setErrors((prev) => ({ ...prev, [name]: "" }));
-        return true;
-      }
-
-      // For department, if it's a custom department, validate the actual value
-      if (name === "department" && isOthers && formData?.customDepartment) {
+        // For hostel fields when accommodation is hosteller, validate as required
+        z.string().min(1, `${name} is required for hostellers`).parse(value);
+      } else if (name === "disabilityDetails" && formData?.hasDisabilities) {
+        // For disability details when hasDisabilities is true, validate as required
+        z.string().min(1, "Disability details are required").parse(value);
+      } else if (
+        name === "department" &&
+        isOthers &&
+        formData?.customDepartment
+      ) {
         studentSchema.shape[name].parse(formData.customDepartment);
       } else {
         studentSchema.shape[name].parse(value);
@@ -62,68 +66,32 @@ export default function StudentForm({ index, formData, onChange }) {
       if (error instanceof z.ZodError) {
         const errorMessage = error.errors[0]?.message || "Invalid input";
         setErrors((prev) => ({ ...prev, [name]: errorMessage }));
-
-        // Scroll to the error field
-        // const errorElement = document.getElementById(`${name}-${index}`);
-
-        // if (errorElement) {
-        //   errorElement.scrollIntoView({ behavior: "smooth", block: "center" });
-        //   errorElement.focus();
-        // }
       }
       return false;
     }
   };
 
   const validateAllFields = () => {
-    const fieldsToValidate = [
-      "name",
-      "registerNumber",
-      "phoneNumber",
-      "email",
-      "department",
-      "year",
-      "accommodation",
-      "gender",
-    ];
+    try {
+      // For full form validation, use the complete schema with superRefine
+      studentSchema.parse(formData);
+      setErrors({});
+      return true;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors = {};
 
-    // Add conditional fields
-    if (isHosteller) {
-      fieldsToValidate.push(
-        "hostelName",
-        "roomNo",
-        "wardenName",
-        "wardenNumber"
-      );
-    }
+        // Process all validation errors
+        error.errors.forEach((err) => {
+          // Get the field name from the path
+          const field = err.path[0];
+          newErrors[field] = err.message;
+        });
 
-    if (hasDisabilities) {
-      fieldsToValidate.push("disabilityDetails");
-    }
-
-    let isValid = true;
-    const newErrors = {};
-
-    fieldsToValidate.forEach((field) => {
-      let value = formData?.[field];
-
-      // Special case for department with "Others"
-      if (field === "department" && isOthers) {
-        value = formData?.customDepartment || "";
+        setErrors(newErrors);
       }
-
-      try {
-        studentSchema.shape[field].parse(value);
-      } catch (error) {
-        if (error instanceof z.ZodError) {
-          newErrors[field] = error.errors[0]?.message || "Invalid input";
-          isValid = false;
-        }
-      }
-    });
-
-    setErrors(newErrors);
-    return isValid;
+      return false;
+    }
   };
 
   const handleChange = (e, index) => {
@@ -370,6 +338,7 @@ export default function StudentForm({ index, formData, onChange }) {
                 value={value}
                 checked={formData?.accommodation === value}
                 onChange={(e) => {
+                  // Create a modified event with the correct field name
                   const modifiedEvent = {
                     ...e,
                     target: {
@@ -400,7 +369,7 @@ export default function StudentForm({ index, formData, onChange }) {
           ].map(({ label, name }) => (
             <div key={name}>
               <label className="block text-sm font-medium text-gray-700">
-                {label}
+                {label} <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -437,7 +406,7 @@ export default function StudentForm({ index, formData, onChange }) {
         {hasDisabilities && (
           <div className="animate-slideDown ml-6 mt-2">
             <label className="block text-sm font-medium text-gray-700">
-              Disability Details
+              Disability Details <span className="text-red-500">*</span>
             </label>
             <input
               type="text"

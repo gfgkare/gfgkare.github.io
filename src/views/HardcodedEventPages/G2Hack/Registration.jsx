@@ -112,76 +112,133 @@ function G2Registration() {
     setFormData(newFormData);
   };
 
-  // Function to validate all student forms
+  // Add this function to the G2Registration component
+  const validateUniqueFields = () => {
+    const registerNumbers = new Set();
+    const emails = new Set();
+    const newFormErrors = [...formErrors];
+    let isValid = true;
+    let firstErrorField = null;
+
+    formData.forEach((student, index) => {
+      // Check register number uniqueness
+      if (student.registerNumber) {
+        if (registerNumbers.has(student.registerNumber)) {
+          if (!newFormErrors[index]) newFormErrors[index] = {};
+          newFormErrors[index].registerNumber =
+            "Register number must be unique across team members";
+          isValid = false;
+          if (!firstErrorField)
+            firstErrorField = { index, field: "registerNumber" };
+        } else {
+          registerNumbers.add(student.registerNumber);
+        }
+      }
+
+      // Check email uniqueness
+      if (student.email) {
+        if (emails.has(student.email)) {
+          if (!newFormErrors[index]) newFormErrors[index] = {};
+          newFormErrors[index].email =
+            "Email must be unique across team members";
+          isValid = false;
+          if (!firstErrorField) firstErrorField = { index, field: "email" };
+        } else {
+          emails.add(student.email);
+        }
+      }
+    });
+
+    if (!isValid) {
+      setFormErrors(newFormErrors);
+
+      if (firstErrorField) {
+        setTimeout(() => {
+          const errorElement = document.getElementById(
+            `${firstErrorField.field}-${firstErrorField.index}`
+          );
+          if (errorElement) {
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            errorElement.focus();
+          }
+        }, 100);
+
+        setError(
+          `Please fix the duplicate ${firstErrorField.field} in Team Member ${
+            firstErrorField.index + 1
+          }'s form`
+        );
+      }
+    }
+
+    return isValid;
+  };
+
+  // Modify the validateAllStudentForms function to include unique field validation
   const validateAllStudentForms = () => {
     let isValid = true;
     const newFormErrors = [];
     let firstErrorField = null;
 
+    // First validate each form individually
     formData.forEach((student, index) => {
-      const studentErrors = {};
+      try {
+        // Use the complete schema with superRefine for validation
+        studentSchema.parse(student);
+      } catch (error) {
+        if (error instanceof z.ZodError) {
+          const studentErrors = {};
 
-      Object.keys(studentSchema.shape).forEach((field) => {
-        try {
-          if (
-            field === "hostelName" ||
-            field === "roomNo" ||
-            field === "wardenName"
-          ) {
-            if (student.accommodation !== "hosteller") return;
-          }
+          error.errors.forEach((err) => {
+            const field = err.path[0];
+            studentErrors[field] = err.message;
 
-          if (field === "disabilityDetails" && !student.hasDisabilities) return;
-
-          if (field === "department" && student.department === "Others") {
-            if (!student.customDepartment) {
-              studentErrors[field] = "Department is required";
-              isValid = false;
-              if (!firstErrorField) firstErrorField = { index, field };
+            if (!firstErrorField) {
+              firstErrorField = { index, field };
             }
-            return;
-          }
+          });
 
-          studentSchema.shape[field].parse(student[field]);
-        } catch (error) {
-          if (error instanceof z.ZodError) {
-            studentErrors[field] = error.errors[0]?.message || "Invalid input";
+          if (Object.keys(studentErrors).length > 0) {
+            newFormErrors[index] = studentErrors;
             isValid = false;
-            if (!firstErrorField) firstErrorField = { index, field };
           }
         }
-      });
-
-      if (Object.keys(studentErrors).length > 0) {
-        newFormErrors[index] = studentErrors;
       }
     });
 
-    setFormErrors(newFormErrors);
-
-    if (firstErrorField) {
-      setTimeout(() => {
-        const errorElement = document.getElementById(
-          `${firstErrorField.field}-${firstErrorField.index}`
-        );
-        let current = true;
-        if (errorElement && current) {
-          errorElement.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-          errorElement.focus();
-          current = false;
-        }
-      }, 100);
-
-      setError(
-        `Please fix the errors in Team Member ${
-          firstErrorField.index + 1
-        }'s form`
-      );
+    // Then check for uniqueness across forms
+    if (isValid) {
+      isValid = validateUniqueFields();
     } else {
-      setError("");
+      setFormErrors(newFormErrors);
+
+      if (firstErrorField) {
+        setTimeout(() => {
+          const errorElement = document.getElementById(
+            `${firstErrorField.field}-${firstErrorField.index}`
+          );
+          let current = true;
+          if (errorElement && current) {
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            errorElement.focus();
+            current = false;
+          }
+        }, 100);
+
+        setError(
+          `Please fix the errors in Team Member ${
+            firstErrorField.index + 1
+          }'s form`
+        );
+      } else {
+        setError("");
+      }
     }
 
     return isValid;

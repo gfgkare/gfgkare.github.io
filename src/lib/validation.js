@@ -20,10 +20,71 @@ export const studentSchema = z.object({
   fasting: z.boolean().optional(),
   hasDisabilities: z.boolean().optional(),
   disabilityDetails: z.string().optional(),
-  hostelName: z.string().optional(),
-  roomNo: z.string().optional(),
-  wardenName: z.string().optional(),
-  wardenNumber: z.string().optional(),
+
+  // Hostel fields conditionally required
+  hostelName: z
+    .string()
+    .or(z.undefined())
+    .refine((val, ctx) => {
+      if (ctx.parent.accommodation === "hosteller" && !val) {
+        return ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Hostel name is required for hostellers",
+        });
+      }
+      return true;
+    }),
+  roomNo: z
+    .string()
+    .or(z.undefined())
+    .refine((val, ctx) => {
+      if (ctx.parent.accommodation === "hosteller" && !val) {
+        return ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Room number is required for hostellers",
+        });
+      }
+      return true;
+    }),
+  wardenName: z
+    .string()
+    .or(z.undefined())
+    .refine((val, ctx) => {
+      if (ctx.parent.accommodation === "hosteller" && !val) {
+        return ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Warden name is required for hostellers",
+        });
+      }
+      return true;
+    }),
+  wardenNumber: z
+    .string()
+    .or(z.undefined())
+    .refine((val, ctx) => {
+      if (ctx.parent.accommodation === "hosteller" && !val) {
+        return ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Warden number is required for hostellers",
+        });
+      }
+      return true;
+    }),
+
+  // Disability details conditionally required
+  disabilityDetails: z
+    .string()
+    .or(z.undefined())
+    .refine((val, ctx) => {
+      if (ctx.parent.hasDisabilities && !val) {
+        return ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message:
+            "Disability details are required when disabilities are indicated",
+        });
+      }
+      return true;
+    }),
 });
 
 export const paymentSchema = z.object({
@@ -38,3 +99,40 @@ export const paymentSchema = z.object({
     .regex(/^\d{12}$/, "Transaction ID must be exactly 12 digits"),
   paymentProof: z.instanceof(File, { message: "Payment proof is required" }),
 });
+
+// Create a function to validate uniqueness across team members
+export function validateUniqueFields(formData) {
+  const errors = [];
+  const registerNumbers = new Set();
+  const emails = new Set();
+
+  formData.forEach((student, index) => {
+    // Check register number uniqueness
+    if (student.registerNumber) {
+      if (registerNumbers.has(student.registerNumber)) {
+        errors.push({
+          index,
+          field: "registerNumber",
+          message: "Register number must be unique across team members",
+        });
+      } else {
+        registerNumbers.add(student.registerNumber);
+      }
+    }
+
+    // Check email uniqueness
+    if (student.email) {
+      if (emails.has(student.email)) {
+        errors.push({
+          index,
+          field: "email",
+          message: "Email must be unique across team members",
+        });
+      } else {
+        emails.add(student.email);
+      }
+    }
+  });
+
+  return errors;
+}
