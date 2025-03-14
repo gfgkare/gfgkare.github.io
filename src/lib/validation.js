@@ -19,7 +19,7 @@ export const studentSchema = z.object({
   }),
   fasting: z.boolean().optional(),
   hasDisabilities: z.boolean().optional(),
-  disabilityDetails: z.string().optional(),
+  // disabilityDetails: z.string().optional(),
 
   // Hostel fields conditionally required
   hostelName: z
@@ -100,14 +100,12 @@ export const paymentSchema = z.object({
   paymentProof: z.instanceof(File, { message: "Payment proof is required" }),
 });
 
-// Create a function to validate uniqueness across team members
 export function validateUniqueFields(formData) {
   const errors = [];
   const registerNumbers = new Set();
   const emails = new Set();
 
   formData.forEach((student, index) => {
-    // Check register number uniqueness
     if (student.registerNumber) {
       if (registerNumbers.has(student.registerNumber)) {
         errors.push({
@@ -120,7 +118,6 @@ export function validateUniqueFields(formData) {
       }
     }
 
-    // Check email uniqueness
     if (student.email) {
       if (emails.has(student.email)) {
         errors.push({

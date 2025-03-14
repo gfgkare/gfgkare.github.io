@@ -89,7 +89,7 @@ const TeamSizeBadge = ({ size }) => {
 function G2Registration() {
   const navigate = useNavigate();
   const [teamSize, setTeamSize] = useState(null);
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState();
   const [paymentData, setPaymentData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -171,45 +171,100 @@ function G2Registration() {
             firstErrorField.index + 1
           }'s form`
         );
+        setTimeout(() => {
+          const errorElement = document.getElementById("error-label");
+          if (errorElement) {
+            errorElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+            errorElement.focus();
+          }
+        }, 100);
       }
     }
 
     return isValid;
   };
 
-  // Modify the validateAllStudentForms function to include unique field validation
   const validateAllStudentForms = () => {
     let isValid = true;
     const newFormErrors = [];
     let firstErrorField = null;
 
-    // First validate each form individually
+    setFormData((prevFormData) =>
+      prevFormData.map((student, index) => ({
+        ...student,
+        hostelName: student.hostelName || "",
+        wardenName: student.wardenName || "",
+        wardenNumber: student.wardenNumber || "",
+        roomNo: student.roomNo || "",
+      }))
+    );
+
     formData.forEach((student, index) => {
-      try {
-        // Use the complete schema with superRefine for validation
-        studentSchema.parse(student);
-      } catch (error) {
-        if (error instanceof z.ZodError) {
-          const studentErrors = {};
+      const studentErrors = {};
 
-          error.errors.forEach((err) => {
-            const field = err.path[0];
-            studentErrors[field] = err.message;
+      Object.keys(studentSchema.shape).forEach((field) => {
+        try {
+          console.log(field, student?.[field]);
+          if (
+            (field === "hostelName" ||
+              field === "roomNo" ||
+              field === "wardenName" ||
+              field === "wardenNumber") &&
+            student?.accommodation === "hosteller"
+          )
+            if (student?.[field] === "") {
+              console.log(`${field} is empty`);
 
-            if (!firstErrorField) {
-              firstErrorField = { index, field };
+              setTimeout(() => {
+                const errorElement = document.getElementById(
+                  `${field}-${index}`
+                );
+                console.log(errorElement);
+                let current = true;
+                if (errorElement && current) {
+                  errorElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                  errorElement.focus();
+                  current = false;
+                }
+              }, 100);
+              isValid = false;
+              return;
+            } else if (
+              field === "disabilityDetails" &&
+              !student.hasDisabilities
+            )
+              return;
+
+          if (field === "department" && student.department === "Others") {
+            if (!student.customDepartment) {
+              studentErrors[field] = "Department is required";
+              isValid = false;
+              if (!firstErrorField) firstErrorField = { index, field };
             }
-          });
+            return;
+          }
 
-          if (Object.keys(studentErrors).length > 0) {
-            newFormErrors[index] = studentErrors;
+          studentSchema.shape[field].parse(student[field]);
+        } catch (error) {
+          if (error instanceof z.ZodError) {
+            studentErrors[field] = error.errors[0]?.message || "Invalid input";
             isValid = false;
+            if (!firstErrorField) firstErrorField = { index, field };
           }
         }
+      });
+
+      if (Object.keys(studentErrors).length > 0) {
+        newFormErrors[index] = studentErrors;
       }
     });
 
-    // Then check for uniqueness across forms
     if (isValid) {
       isValid = validateUniqueFields();
     } else {
@@ -240,7 +295,6 @@ function G2Registration() {
         setError("");
       }
     }
-
     return isValid;
   };
 
@@ -313,6 +367,13 @@ function G2Registration() {
         }
 
         delete cleanStudent.customDepartment;
+
+        if (student.accommodation === "dayScholar") {
+          delete cleanStudent.hostelName;
+          delete cleanStudent.roomNo;
+          delete cleanStudent.wardenName;
+          delete cleanStudent.wardenNumber;
+        }
 
         return cleanStudent;
       });
@@ -437,7 +498,10 @@ function G2Registration() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start">
+          <div
+            className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start"
+            id="error-label"
+          >
             <AlertCircle className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
             <div>
               <p className="font-medium">Please fix the following errors:</p>
