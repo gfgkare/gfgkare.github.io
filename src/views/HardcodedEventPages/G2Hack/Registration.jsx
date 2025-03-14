@@ -508,6 +508,10 @@ function G2Registration() {
       setPaymentData({});
 
       navigate("/g2hack/success");
+
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
     } catch (error) {
       console.error("Registration error:", error);
       setError(error.message || "An error occurred during registration");
