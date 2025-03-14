@@ -89,6 +89,7 @@ const TeamSizeBadge = ({ size }) => {
 function G2Registration() {
   const navigate = useNavigate();
   const [teamSize, setTeamSize] = useState(null);
+  const [teamName, setTeamName] = useState("");
   const [formData, setFormData] = useState();
   const [paymentData, setPaymentData] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -104,6 +105,10 @@ function G2Registration() {
     setTimeout(() => {
       setCurrentStep(2);
     }, 300);
+  };
+
+  const handleTeamNameChange = (teamName) => {
+    setTeamName(teamName);
   };
 
   const handleStudentFormChange = (index, data) => {
@@ -193,6 +198,50 @@ function G2Registration() {
     const newFormErrors = [];
     let firstErrorField = null;
 
+    if (teamName.trim() === "") {
+      setError("Team Name is required");
+      isValid = false;
+
+      setTimeout(() => {
+        const errorElement = document.getElementById("teamName");
+        if (errorElement) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+        }
+      }, 100);
+      return;
+    }
+
+    const { data: existingTeams, error: teamFetchError } = await supabase
+      .from("teams")
+      .select("name")
+      .eq("name", teamName);
+
+    if (teamFetchError) throw teamFetchError;
+
+    if (existingTeams.length > 0) {
+      setError(
+        `The team name "${teamName}" is already taken. Please choose another.`
+      );
+      isValid = false;
+
+      setTimeout(() => {
+        const errorElement = document.getElementById("teamName");
+        if (errorElement) {
+          errorElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          errorElement.focus();
+        }
+      }, 100);
+
+      return;
+    }
+
     const registerNumbers = formData.map((student) => student.registerNumber);
 
     const { data: existingStudents, error: fetchError } = await supabase
@@ -248,7 +297,6 @@ function G2Registration() {
 
       Object.keys(studentSchema.shape).forEach((field) => {
         try {
-          console.log(field, student?.[field]);
           if (
             (field === "hostelName" ||
               field === "roomNo" ||
@@ -257,13 +305,11 @@ function G2Registration() {
             student?.accommodation === "hosteller"
           )
             if (student?.[field] === "") {
-              console.log(`${field} is empty`);
-
               setTimeout(() => {
                 const errorElement = document.getElementById(
                   `${field}-${index}`
                 );
-                console.log(errorElement);
+
                 let current = true;
                 if (errorElement && current) {
                   errorElement.scrollIntoView({
@@ -394,7 +440,7 @@ function G2Registration() {
     try {
       const { data: teamData, error: teamError } = await supabase
         .from("teams")
-        .insert([{ size: teamSize }])
+        .insert([{ size: teamSize, name: teamName }])
         .select()
         .single();
 
@@ -611,6 +657,23 @@ function G2Registration() {
                       </h2>
                     </div>
                     <TeamSizeBadge size={teamSize} />
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h2 className="text-xl font-semibold text-slate-900">
+                        Team Name
+                      </h2>
+                      <input
+                        type="text"
+                        id="teamName"
+                        value={teamName}
+                        onChange={(e) => handleTeamNameChange(e.target.value)}
+                        className="mt-1 block w-full rounded-md border border-slate-300 shadow-sm focus:border-primary focus:ring focus:ring-primary/30 p-2"
+                        placeholder="Enter your team name"
+                        required
+                      />
+                    </div>
                   </div>
 
                   {formData.map((_, index) => (
