@@ -47,9 +47,9 @@ export default function StudentForm({ index, formData, onChange }) {
       ) {
         // For hostel fields when accommodation is hosteller, validate as required
         z.string().min(1, `${name} is required for hostellers`).parse(value);
-      } else if (name === "disabilityDetails" && formData?.hasDisabilities) {
+        // } else if (name === "disabilityDetails" && formData?.hasDisabilities) {
         // For disability details when hasDisabilities is true, validate as required
-        z.string().min(1, "Disability details are required").parse(value);
+        // z.string().min(1, "Disability details are required").parse(value);
       } else if (
         name === "department" &&
         isOthers &&
@@ -402,6 +402,28 @@ export default function StudentForm({ index, formData, onChange }) {
           />
           <span className="ml-2">Disabled</span>
         </label>
+
+        {/* {hasDisabilities && (
+          <div className="animate-slideDown ml-6 mt-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Disability Details <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="disabilityDetails"
+              id={`disabilityDetails-${index}`}
+              className={`mt-1 block w-full rounded-md border ${
+                errors.disabilityDetails
+                  ? "border-red-300 ring-1 ring-red-300"
+                  : "border-gray-300"
+              } bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500`}
+              onChange={handleChange}
+              value={formData?.disabilityDetails || ""}
+              onBlur={(e) => validateField("disabilityDetails", e.target.value)}
+            />
+            {renderError("disabilityDetails")}
+          </div>
+        )} */}
       </div>
 
       <div className="space-y-2">
@@ -414,7 +436,7 @@ export default function StudentForm({ index, formData, onChange }) {
             onChange={handleChange}
             className="text-blue-600 focus:ring-blue-500"
           />
-          <span className="ml-2">Are you fasting for Ramzan? </span>
+          <span className="ml-2">Are you fasting for Ramzan?</span>
         </label>
       </div>
     </div>

@@ -11,8 +11,8 @@ export const studentSchema = z.object({
   year: z.string().min(1, "Year is required"),
   email: z
     .string()
-    .email("Invalid email address")
-    .regex(/@klu\.ac\.in$/, "Please register with your KLU email"),
+    .email("Invalid email address"),
+    // .regex(/@klu\.ac\.in$/, "Please register with your KLU email"),
   accommodation: z.enum(["hosteller", "dayScholar"]),
   gender: z.enum(["Male", "Female"], {
     errorMap: () => ({ message: "Gender must be either 'Male' or 'Female'" }),
@@ -72,19 +72,19 @@ export const studentSchema = z.object({
     }),
 
   // Disability details conditionally required
-  disabilityDetails: z
-    .string()
-    .or(z.undefined())
-    .refine((val, ctx) => {
-      if (ctx.parent.hasDisabilities && !val) {
-        return ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message:
-            "Disability details are required when disabilities are indicated",
-        });
-      }
-      return true;
-    }),
+  // disabilityDetails: z
+  //   .string()
+  //   .or(z.undefined())
+  //   .refine((val, ctx) => {
+  //     if (ctx.parent.hasDisabilities && !val) {
+  //       return ctx.addIssue({
+  //         code: z.ZodIssueCode.custom,
+  //         message:
+  //           "Disability details are required when disabilities are indicated",
+  //       });
+  //     }
+  //     return true;
+  //   }),
 });
 
 export const paymentSchema = z.object({

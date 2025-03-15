@@ -46,7 +46,7 @@ function G2Success() {
 
             <a
               href="https://chat.whatsapp.com/HPlAUayCEEEAiQ2jS6Mv7H"
-              className="inline-flex items-center px-8 py-4 bg-[#34a853] hover:bg-[#2d9147] rounded-full text-white font-semibold text-lg transition-all transform hover:scale-105 mb-12"
+              className="inline-flex items-center px-8 py-4 bg-[#34a853] hover:bg-[#035519] override-hover rounded-full font-semibold text-lg transition-all transform hover:scale-105 mb-12"
             >
               <WhatsappIcon className="h-6 w-6 mr-2" />
               Join WhatsApp Group
@@ -84,8 +84,8 @@ function G2Success() {
               </div>
 
               <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                <h3 className="text-2xl font-bold mb-4 text-[#ea4335]">
-                  Geeks For Geeks
+                <h3 className="text-2xl font-bold mb-4 text-[#23e210]">
+                  GeeksforGeeks
                 </h3>
                 <div className="space-y-4">
                   <a
@@ -103,7 +103,7 @@ function G2Success() {
                     <span>Instagram</span>
                   </a>
                   <a
-                    href="gfgkare.github.io"
+                    href="https://gfgkare.github.io"
                     className="flex items-center justify-center space-x-2 py-2 px-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-all text-gray-700"
                   >
                     <Globe className="h-5 w-5 text-[#fbbc05]" />

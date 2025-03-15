@@ -741,8 +741,8 @@ export default function G2Hack() {
                                         <span className="color purple"> Use your college email address only.</span>
                                     </div>
 
-                                    <CLink to={`/events/prajnotsavah/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
-                                        <button disabled>REGISTRATIONS OPENING SOON</button>
+                                    <CLink to={`/g2hack/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
+                                        <button>Register Now</button>
                                     </CLink>
                                 </div>
 
