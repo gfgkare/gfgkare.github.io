@@ -11,8 +11,8 @@ export const studentSchema = z.object({
   year: z.string().min(1, "Year is required"),
   email: z
     .string()
-    .email("Invalid email address")
-    .regex(/@klu\.ac\.in$/, "Please register with your KLU email"),
+    .email("Invalid email address"),
+    // .regex(/@klu\.ac\.in$/, "Please register with your KLU email"),
   accommodation: z.enum(["hosteller", "dayScholar"]),
   gender: z.enum(["Male", "Female"], {
     errorMap: () => ({ message: "Gender must be either 'Male' or 'Female'" }),
