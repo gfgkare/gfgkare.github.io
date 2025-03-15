@@ -261,9 +261,10 @@ function G2Registration() {
       existingRegisterNumbers.has(student.registerNumber)
     );
 
-    const duplicateIndex = formData.findIndex(
-      (student) => student.registerNumber === duplicateStudent?.registerNumber
-    );
+    const duplicateIndex =
+      formData.findIndex(
+        (student) => student.registerNumber === duplicateStudent?.registerNumber
+      ) + 1;
 
     if (duplicateStudent) {
       setError(
@@ -451,11 +452,10 @@ function G2Registration() {
 
     if (!isValid) {
       console.error("Validation Errors:", errors);
-      if ( Object.keys(errors).includes("details") ) {
-        setError( errors["details"] );
-      }
-      else {
-        setError( errors[Object.keys(errors)[0]]  );
+      if (Object.keys(errors).includes("details")) {
+        setError(errors["details"]);
+      } else {
+        setError(errors[Object.keys(errors)[0]]);
       }
       setIsSubmitting(false);
       return;
@@ -547,11 +547,10 @@ function G2Registration() {
       console.error("Registration error:", error);
       // setError(error.message || "An error occurred during registration");
       // console.error("Validation Errors:", errors);
-      if ( Object.keys(error).includes("details") ) {
-        setError( error["details"] );
-      }
-      else {
-        setError( error["message"]  );
+      if (Object.keys(error).includes("details")) {
+        setError(error["details"]);
+      } else {
+        setError(error["message"]);
       }
       setIsSubmitting(false);
       return;
