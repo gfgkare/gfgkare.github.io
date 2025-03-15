@@ -19,6 +19,8 @@ import { z } from "zod";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
+import axios from "@/scripts/axiosConfig";
+
 // Animated Background Component
 const AnimatedGrid = () => {
   return (
@@ -449,7 +451,12 @@ function G2Registration() {
 
     if (!isValid) {
       console.error("Validation Errors:", errors);
-      setError("Please fix the highlighted errors before submitting.");
+      if ( Object.keys(errors).includes("details") ) {
+        setError( errors["details"] );
+      }
+      else {
+        setError( errors[Object.keys(errors)[0]]  );
+      }
       setIsSubmitting(false);
       return;
     }
@@ -520,6 +527,13 @@ function G2Registration() {
 
       if (paymentError) throw paymentError;
 
+      const teamLeaderEmail = formData[0]?.email; // Assuming the first team member is the team leader
+
+      axios.post("/send-email", {
+        teamName,
+        email: teamLeaderEmail,
+      });
+
       setTeamSize(null);
       setFormData([]);
       setPaymentData({});
@@ -531,7 +545,16 @@ function G2Registration() {
       }, 100);
     } catch (error) {
       console.error("Registration error:", error);
-      setError(error.message || "An error occurred during registration");
+      // setError(error.message || "An error occurred during registration");
+      // console.error("Validation Errors:", errors);
+      if ( Object.keys(error).includes("details") ) {
+        setError( error["details"] );
+      }
+      else {
+        setError( error["message"]  );
+      }
+      setIsSubmitting(false);
+      return;
     } finally {
       setIsSubmitting(false);
     }
