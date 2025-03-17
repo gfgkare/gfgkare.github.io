@@ -362,17 +362,17 @@ export default function StudentForm({ index, formData, onChange }) {
         <div className="space-y-4 animate-slideDown p-4 bg-blue-50 rounded-lg border border-blue-100">
           <h3 className="font-medium text-blue-800">Hostel Details</h3>
           {[
-            { label: "Hostel Name", name: "hostelName" },
-            { label: "Room Number", name: "roomNo" },
-            { label: "Warden Name", name: "wardenName" },
-            { label: "Warden Phone Number", name: "wardenNumber" },
-          ].map(({ label, name }) => (
+            { label: "Hostel Name", name: "hostelName", inputType: "text" },
+            { label: "Room Number", name: "roomNo", inputType: "number" },
+            { label: "Warden Name", name: "wardenName", inputType: "text" },
+            { label: "Warden Phone Number", name: "wardenNumber", inputType: "number" },
+          ].map(({ label, name, inputType }) => (
             <div key={name}>
               <label className="block text-sm font-medium text-gray-700">
                 {label} <span className="text-red-500">*</span>
               </label>
               <input
-                type="text"
+                type={inputType}
                 name={name}
                 id={`${name}-${index}`}
                 className={`mt-1 block w-full rounded-md border ${
