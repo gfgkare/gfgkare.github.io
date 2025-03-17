@@ -444,7 +444,6 @@ function G2Registration() {
   };
 
   const handleSubmit = async (e) => {
-    validateAllStudentForms();
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
