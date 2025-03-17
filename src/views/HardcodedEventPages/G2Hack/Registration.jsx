@@ -546,7 +546,7 @@ function G2Registration() {
     } catch (error) {
       console.error("Registration error:", error);
       // setError(error.message || "An error occurred during registration");
-      // console.error("Validation Errors:", errors);
+
       if (Object.keys(error).includes("details")) {
         setError(error["details"]);
       } else {
