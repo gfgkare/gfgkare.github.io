@@ -277,8 +277,8 @@ export default function G2Hack() {
                             <Fade delay={6000}>
                                 <div className="actionButtonContainer">
                                     <AttentionSeeker effect="tada" delay={6000}>
-                                            <a href="#register" className="actionButton" >
-                                                Register Now!
+                                            <a disabled className="actionButton disabled" >
+                                                Registrations Closed!
                                                 {/* <BsChevronDoubleDown size={"40px"} /> */}
                                             </a>
                                     </AttentionSeeker>
@@ -741,9 +741,9 @@ export default function G2Hack() {
                                         <span className="color purple"> Use your college email address only.</span>
                                     </div>
 
-                                    <CLink to={`/g2hack/register?ref=${new URLSearchParams(location.search).get('ref')}`}>
-                                        <button>Register Now</button>
-                                    </CLink>
+                                    {/* <CLink to={`/g2hack/register?ref=${new URLSearchParams(location.search).get('ref')}`}> */}
+                                        <button disabled>Registrations Closed</button>
+                                    {/* </CLink> */}
                                 </div>
 
                                 

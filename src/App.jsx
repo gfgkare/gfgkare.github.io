@@ -139,8 +139,9 @@ export default function App() {
               element={<ProjectExpo />}
             ></Route>
             <Route path="/g2hack" element={<G2Hack />}></Route>
-            <Route path="/g2hack/register" element={<G2Registration />}></Route>
-            <Route path="/g2hack/success" element={<G2Success />}></Route>
+            <Route path="/g2hack/register" element={<Navigate to="/g2hack" replace />} />
+            {/* <Route path="/g2hack/register" element={<G2Registration />}></Route> */}
+            {/* <Route path="/g2hack/success" element={<G2Success />}></Route> */}
             {/* <Route path="/events/prajnotsavah/success" element={ <ProjectExpoRegistrationSuccess /> }></Route> */}
 
             {/* DASHBOARD */}
