@@ -217,32 +217,32 @@ function G2Registration() {
       return;
     }
 
-    const { data: existingTeams, error: teamFetchError } = await supabase
-      .from("teams")
-      .select("name")
-      .eq("name", teamName);
+    // const { data: existingTeams, error: teamFetchError } = await supabase
+    //   .from("teams")
+    //   .select("name")
+    //   .eq("name", teamName);
 
-    if (teamFetchError) throw teamFetchError;
+    // if (teamFetchError) throw teamFetchError;
 
-    if (existingTeams.length > 0) {
-      setError(
-        `The team name "${teamName}" is already taken. Please choose another.`
-      );
-      isValid = false;
+    // if (existingTeams.length > 0) {
+    //   setError(
+    //     `The team name "${teamName}" is already taken. Please choose another.`
+    //   );
+    //   isValid = false;
 
-      setTimeout(() => {
-        const errorElement = document.getElementById("teamName");
-        if (errorElement) {
-          errorElement.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-          errorElement.focus();
-        }
-      }, 100);
+    //   setTimeout(() => {
+    //     const errorElement = document.getElementById("teamName");
+    //     if (errorElement) {
+    //       errorElement.scrollIntoView({
+    //         behavior: "smooth",
+    //         block: "center",
+    //       });
+    //       errorElement.focus();
+    //     }
+    //   }, 100);
 
-      return;
-    }
+    //   return;
+    // }
 
     const registerNumbers = formData.map((student) => student.registerNumber);
 
@@ -444,6 +444,7 @@ function G2Registration() {
   };
 
   const handleSubmit = async (e) => {
+    validateAllStudentForms();
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
