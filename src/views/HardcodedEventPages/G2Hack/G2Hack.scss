@@ -524,6 +524,17 @@ $text: #252525;
                         display: flex;
                         gap: 0.5rem;
 
+                        &.disabled {
+                            cursor: not-allowed !important;
+                            background-color: #f4d436;
+                            color: black !important;
+
+                            &:hover {
+                                color: $text !important;
+                                opacity: 1;
+                            }
+                        }
+
                         a {
                             text-decoration: none !important;
                         }
