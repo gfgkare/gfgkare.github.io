@@ -84,6 +84,11 @@ export default function App() {
               <Route path="/algo2025" element={<EventRegister />}></Route>
               <Route path="/Algorithmist25" element={<EventRegister />}></Route>
 
+              <Route
+                path="/certificate/:eventID/:certificateID"
+                element={<CertificateViewer />}
+              ></Route>
+
               {Object.keys(coreTeamMembers).map((key, index) => {
                 return (
                   <Route
@@ -120,11 +125,6 @@ export default function App() {
             <Route
               path="/geekfest24/results"
               element={<GeekfestResults />}
-            ></Route>
-
-            <Route
-              path="/certificates/:eventName/:certificateID"
-              element={<CertificateViewer />}
             ></Route>
 
             {/* PAST EVENTS */}
