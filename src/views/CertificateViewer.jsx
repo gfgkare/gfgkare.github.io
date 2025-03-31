@@ -55,7 +55,7 @@ export default function CertificateViewer() {
                 const qrImg = new Image();
                 qrImg.src = qrImage;
                 qrImg.onload = () => {
-                    ctx.drawImage(qrImg, (canvas.width - 920), (canvas.height - 110), qrSize, qrSize);
+                    ctx.drawImage(qrImg, (canvas.width - res.data.qrX), (canvas.height - res.data.qrY), qrSize, qrSize);
                 };
             };
         
