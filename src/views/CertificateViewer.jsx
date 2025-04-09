@@ -18,10 +18,23 @@ export default function CertificateViewer() {
     useEffect(() => {
         let name = '';
 
+        let googlesansurl = 'https://cdn.jsdelivr.net/gh/hprobotic/Google-Sans-Font/GoogleSans-Regular.ttf'
+
+        async function loadFont(fontFamily, url) {
+            const font = new FontFace(`${fontFamily}`, `url(${url})`);
+            await font.load();
+            document.fonts.add(font);
+        }
+
+        loadFont('Google Sans', googlesansurl);
+
         axios.get("/certificates/" + eventID + "/" + certificateID)
         .then((res) => {
             let name = res.data.name;
             let qrSize = res.data?.qrSize || 65;
+
+            console.log(`Placing QR code at: ${res.data.qrX}, ${res.data.qrY}`);
+            console.log(`Placing name at : ${res.data.nameX}, ${res.data.nameY}`);
 
             const canvas = canvasRef.current;
             const ctx = canvas.getContext("2d");
@@ -34,7 +47,7 @@ export default function CertificateViewer() {
                 ctx.drawImage(img, 0, 0);
         
                 let fontSize = 48;
-                ctx.font = `${fontSize}px Arial`;
+                ctx.font = `${fontSize}px 'Google Sans'`;
                 ctx.textAlign = "center";
         
                 while (ctx.measureText(certificateID).width > canvas.width * 0.7) {
@@ -45,7 +58,7 @@ export default function CertificateViewer() {
                 ctx.fillText(
                     name,
                     canvas.width / 2,
-                    canvas.height - 275
+                    canvas.height - res.data.nameY
                 );
 
                 const qrUrl = `${window.location.origin}${location.pathname}`;
@@ -55,7 +68,7 @@ export default function CertificateViewer() {
                 const qrImg = new Image();
                 qrImg.src = qrImage;
                 qrImg.onload = () => {
-                    ctx.drawImage(qrImg, (canvas.width - res.data.qrX), (canvas.height - res.data.qrY), qrSize, qrSize);
+                    ctx.drawImage(qrImg, ((canvas.width / 2) + res.data.qrX), (canvas.height - res.data.qrY), qrSize, qrSize);
                 };
             };
         
@@ -91,7 +104,7 @@ export default function CertificateViewer() {
             {
                 (loading) && (
                     <div className="loading">
-                        Loading...
+                        Fetching certificate details. Please wait.
                     </div>
                 )
             }
