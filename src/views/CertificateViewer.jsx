@@ -16,10 +16,7 @@ export default function CertificateViewer() {
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        let name = '';
-
-        // let googlesansurl = 'https://cdn.jsdelivr.net/gh/hprobotic/Google-Sans-Font/GoogleSans-Bold.ttf'
-        let googlesansurl = ''
+        let googlesansurl = 'https://cdn.jsdelivr.net/gh/hprobotic/Google-Sans-Font/GoogleSans-Bold.ttf'
 
         async function loadFont(fontFamily, url) {
             const font = new FontFace(`${fontFamily}`, `url(${url})`);
@@ -27,7 +24,7 @@ export default function CertificateViewer() {
             document.fonts.add(font);
         }
 
-        loadFont('Google Sans Bold', googlesansurl);
+        loadFont('Google Sans', googlesansurl);
 
         axios.get("/certificates/" + eventID + "/" + certificateID)
         .then((res) => {
@@ -49,7 +46,6 @@ export default function CertificateViewer() {
         
                 let fontSize = res.data?.fontSize || 70;
                 ctx.font = `${fontSize}px 'Google Sans'`;
-                // ctx.fontWeight = '900';
                 ctx.textAlign = "center";
         
                 while (ctx.measureText(certificateID).width > canvas.width * 0.7) {
