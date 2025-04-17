@@ -30,7 +30,7 @@ export default function CertificateViewer() {
 
         axios.get("/certificates/" + eventID + "/" + certificateID)
         .then((res) => {
-            let name = res.data.name;
+            let name = `${res.data.name} - ${certificateID}`;
             let qrSize = res.data?.qrSize || 65;
 
             console.log(`Placing QR code at: ${res.data.qrX}, ${res.data.qrY}`);
@@ -46,7 +46,7 @@ export default function CertificateViewer() {
                 canvas.height = img.height;
                 ctx.drawImage(img, 0, 0);
         
-                let fontSize = 48;
+                let fontSize = res.data?.fontSize || 70;
                 ctx.font = `${fontSize}px 'Google Sans'`;
                 ctx.textAlign = "center";
         
