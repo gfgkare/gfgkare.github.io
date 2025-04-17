@@ -18,7 +18,8 @@ export default function CertificateViewer() {
     useEffect(() => {
         let name = '';
 
-        let googlesansurl = 'https://cdn.jsdelivr.net/gh/hprobotic/Google-Sans-Font/GoogleSans-Regular.ttf'
+        // let googlesansurl = 'https://cdn.jsdelivr.net/gh/hprobotic/Google-Sans-Font/GoogleSans-Bold.ttf'
+        let googlesansurl = ''
 
         async function loadFont(fontFamily, url) {
             const font = new FontFace(`${fontFamily}`, `url(${url})`);
@@ -26,7 +27,7 @@ export default function CertificateViewer() {
             document.fonts.add(font);
         }
 
-        loadFont('Google Sans', googlesansurl);
+        loadFont('Google Sans Bold', googlesansurl);
 
         axios.get("/certificates/" + eventID + "/" + certificateID)
         .then((res) => {
@@ -48,6 +49,7 @@ export default function CertificateViewer() {
         
                 let fontSize = res.data?.fontSize || 70;
                 ctx.font = `${fontSize}px 'Google Sans'`;
+                // ctx.fontWeight = '900';
                 ctx.textAlign = "center";
         
                 while (ctx.measureText(certificateID).width > canvas.width * 0.7) {
@@ -61,7 +63,7 @@ export default function CertificateViewer() {
                     canvas.height - res.data.nameY
                 );
 
-                const qrUrl = `${window.location.origin}${location.pathname}`;
+                const qrUrl = `https://gfgkare.github.io${location.pathname}`;
                 const qrImage = await QRCode.toDataURL(qrUrl, { scale: 10 });
                 
 
